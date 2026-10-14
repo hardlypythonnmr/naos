@@ -42,12 +42,7 @@
   --lab-paper: #F1F3F6;         /* papel gris frío muy claro, sin crema */
   --lab-accent: #2438C7;        /* cobalto: SOLO números índice, marcas de capítulo y el asterisco; nunca en datos */
   --lab-night-accent: #8C9BFF;  /* el mismo cobalto aclarado para la noche */
-  --lab-rule: #D5DAE1;
-
-  /* ---------- color: marca (D-232): el vino es NAOS, el cobalto es dato ---------- */
-  --vino: #5A1834;              /* isotipo, números de la lectura, "hoy" de la grilla, subrayado de enlaces; #F4F6F8 encima 12,9:1 */
-  --vino-marfil: #E9E3D6;       /* la forma del isotipo */
-  --vino-noche: #E3C9D3;        /* el vino sobre noche (subrayados): el #5A1834 sobre #0E1116 no se ve */          /* separador decorativo sobre --lab-paper */
+  --lab-rule: #D5DAE1;          /* separador decorativo sobre --lab-paper */
 
   /* ---------- tipo ---------- */
   --font-serif: "Newsreader", Georgia, serif;                        /* cifra héroe, titular, palabra del ejercicio (de D) */

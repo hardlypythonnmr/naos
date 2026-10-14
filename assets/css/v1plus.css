@@ -9,7 +9,7 @@ body { font-size: 14px; }
 /* barra superior */
 .barra { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px; padding: 14px var(--page-gutter); border-bottom: 2px solid var(--naos-ink); }
 .marca { display: flex; align-items: baseline; gap: 14px; }
-.iso { width: 30px; height: 30px; align-self: center; flex: none; } /* isotipo v4, marfil sobre vino (D-232) */
+.iso { width: 30px; height: 30px; align-self: center; flex: none; } /* isotipo v4, marfil sobre tinta (D-233) */
 .naos { font-family: var(--font-serif); font-weight: 400; font-size: 30px; letter-spacing: -.01em; line-height: 1; }
 .lema { font-size: 13px; color: var(--naos-sec); }
 .indice { display: flex; gap: 24px; justify-content: center; font-size: 14px; flex-wrap: wrap; }

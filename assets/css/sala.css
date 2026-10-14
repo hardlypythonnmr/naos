@@ -164,7 +164,7 @@ dialog.sala::backdrop { background: var(--naos-night); }
 .hoy { list-style: none; margin: 0 0 14px; padding: 0; }
 .hoy li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px; padding: 8px 0; border-top: 1px solid var(--naos-rule); font-size: 15px; line-height: 1.5; color: var(--naos-ink); }
 .hoy li:first-child { border-top: 2px solid var(--naos-ink); }
-.hoy-i { font-family: var(--font-cond); font-weight: 600; font-size: 15px; color: var(--vino); } /* vino: número índice, es marca (D-232) */
+.hoy-i { font-family: var(--font-cond); font-weight: 600; font-size: 15px; color: var(--lab-accent); } /* cobalto: solo número índice (G3) */
 .como-txt .como-met { font-size: 13px; color: var(--naos-sec); }
 .cn-e { font-size: 13px; line-height: 1.4; color: var(--naos-ink); padding: 4px 0 2px; border-top: 1px dashed var(--naos-rule); }
 .cn-e b { font-weight: 600; }
@@ -208,7 +208,7 @@ dialog.sala::backdrop { background: var(--naos-night); }
   /* vino (D-224): acento raro, a lo sumo UN elemento por vista, para un caso especial (hoy: el próximo evento rojo de EE. UU.).
      Se usa solo como plano con texto claro, nunca como color de cifra: así no se confunde con el borgoña de "baja".
      #5A1834 con #F4F6F8 da 12,9:1; el plano se ve sobre blanco (11,9:1 contra el papel) y sobre noche lleva filete claro. */
-  --vino-texto: #F4F6F8; --vino-sec: #E3C9D3; }
+  --vino: #5A1834; --vino-texto: #F4F6F8; --vino-sec: #E3C9D3; }
 .cifras { display: inline-flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
 .cf { display: inline-flex; align-items: baseline; gap: 6px; white-space: nowrap; font-size: 14px; }
 .cf-k { font-family: var(--font-cond); font-weight: 600; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--naos-grey); }
@@ -268,7 +268,6 @@ dialog.sala::backdrop { background: var(--naos-night); }
 .b-odds:hover .b-o, .b-odds:focus-visible .b-o { text-decoration: underline; text-underline-offset: 3px; }
 .b-evento { grid-column: 11 / 13; grid-row: 1; background: var(--vino); color: var(--vino-texto); }
 .b-evento .b-k, .b-evento .b-pie, .b-evento a { color: var(--vino-sec); }
-.b-evento a { text-decoration-color: currentColor; } /* el subrayado vino no se ve sobre vino */
 .b-ev { font-family: var(--font-serif); font-size: 19px; line-height: 1.2; }
 .b-evento .b-n { font-family: var(--font-cond); font-weight: 600; font-size: 34px; line-height: 1; letter-spacing: .01em; }
 .b-graf { grid-column: 7 / 10; grid-row: 2; }
@@ -320,7 +319,7 @@ a.sf:hover, a.sf:focus-visible { border-color: var(--acento); color: var(--acent
 .sem-s { padding: 10px 8px; font-size: 13px; letter-spacing: .05em; border-left: 4px solid var(--sc); border-bottom: 1px solid var(--naos-rule); color: var(--naos-ink); }
 .sem-c { display: flex; flex-direction: column; gap: 4px; padding: 8px 6px; border-bottom: 1px solid var(--naos-rule); border-left: 1px solid var(--naos-rule); min-height: 46px; }
 .sem-c.tbd { background: var(--lab-paper); }
-.sem-h span.hoy { color: var(--naos-ink); box-shadow: inset 0 -2px 0 var(--vino); }
+.sem-h span.hoy { color: var(--naos-ink); box-shadow: inset 0 -2px 0 var(--acento); }
 .sem-nav { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; }
 .sem-b { min-height: 40px; padding: 6px 14px; border: 1px solid var(--naos-ink); background: var(--naos-paper); font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; }
 .sem-b:hover:not(:disabled), .sem-b:focus-visible { background: var(--naos-ink); color: var(--naos-paper); }
