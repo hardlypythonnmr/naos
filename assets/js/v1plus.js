@@ -225,6 +225,7 @@
   /* ---------- portada: titulares en texto (PAG-01.2) ----------
      Cada historia: qué pasó (titular textual con fuente y hora), qué se movió y cuánto, una cosa conectada y el mercado de
      predicción como enlace. Las frases las arma construir-datos.mjs con plantillas sobre datos reales. */
+  const oddsHtml = (o) => (o ? `<a href="${N.esc(o.url)}" rel="noopener">${N.esc(o.texto)}</a>` : "");
   const tits = (d.portada || []).filter((p) => !p.viejo);
   const horaTit = (p) => (p.tipo === "agenda" ? `${N.esc(p.fuente)}` : `${N.esc(p.fuente)} · ${horaCorta(p.hora)} UTC`);
   $("#tits").innerHTML = tits.map((p, i) => `<li class="tit${i === 0 ? " lead" : ""}${p.tipo === "agenda" ? " agenda" : ""}" data-entra>` +
@@ -232,7 +233,8 @@
     `<h2 class="tit-t">${p.url ? `<a href="${N.esc(p.url)}" rel="noopener">${N.esc(p.titulo)}</a>` : N.esc(p.titulo)}</h2>` +
     (p.mercado ? `<p class="tit-l"><span class="tit-k">${N.esc(p.mercado_etiqueta || "Moved")}</span>${N.esc(p.mercado)}</p>` : "") +
     (p.conectado ? `<p class="tit-l"><span class="tit-k">Connected</span>${N.esc(p.conectado)}</p>` : "") +
-    (p.prediccion ? `<p class="tit-l"><span class="tit-k">Odds</span><a href="${N.esc(p.prediccion.url)}" rel="noopener">${N.esc(p.prediccion.nombre)}</a> on Polymarket</p>` : "") + `</li>`).join("");
+    (p.odds ? `<p class="tit-l"><span class="tit-k">Odds</span>${oddsHtml(p.odds)}</p>` : "") + `</li>`).join("");
+  if (tits.some((p) => p.odds) && d.odds_sello) $("#tits-pie").textContent = `Descriptive. ${d.odds_sello}`;
   if (!tits.length) { $("#tits").hidden = true; $("#tits-pie").hidden = true; }
 
   // una línea de texto con cada gráfico de TradingView (PAG-02.6): qué se movió y por qué, del titular que le corresponde
@@ -279,13 +281,10 @@
   $$("[data-tv]").forEach((el) => perezoso(el, () => { const [w, c] = TV[el.dataset.tv](); montarTV(el, w, c); }));
 
   /* ---------- historias del día ---------- */
-  // regla del titular (D-208): mercado (el gráfico de la carta), mercado de predicción (enlace, sin cifra) y una cosa conectada
+  // regla del titular (D-208): las mismas líneas que la portada; odds y "on the tape" salen del mapa curado (una cifra por historia)
   const ladosHtml = (l) => {
-    if (!l) return "";
-    const c = l.conectado, p = l.prediccion;
-    const cTxt = c ? `${nombreCorto[c.id] || c.nombre} ${c.cambio_bp != null ? (c.cambio_bp > 0 ? "+" : c.cambio_bp < 0 ? "−" : "") + Math.abs(c.cambio_bp) + " bp" : c.cambio != null ? (c.cambio >= 0 ? "+" : "−") + Math.abs(c.cambio).toFixed(2) + "%" : ""}`.trim() : null;
-    const partes = [p ? `Odds: <a href="${N.esc(p.url)}" rel="noopener">${N.esc(p.nombre)}</a> (Polymarket)` : null,
-      cTxt ? `Also watch: ${N.esc(cTxt)}` : null].filter(Boolean);
+    if (!l || typeof l.conectado === "object") return ""; // datos de antes del mapa: nada
+    const partes = [l.odds ? oddsHtml(l.odds) : null, l.conectado ? N.esc(l.conectado) : null].filter(Boolean);
     return partes.length ? `<p class="lados sello">${partes.join(" · ")}</p>` : "";
   };
   const corto = { AI: "AI", Politics: "Politics, as market impact", Crypto: "Crypto" };

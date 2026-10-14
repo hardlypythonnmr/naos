@@ -411,33 +411,92 @@ const prediccion = {
   kalshi: { url: "https://kalshi.com/markets", nota: "Kalshi Data Terms of Use allow personal, non-commercial use only and prohibit publicly displaying Kalshi Data without written authorization: link only." },
 };
 
-/* ---------- regla del titular (D-208): quién dijo o hizo qué, qué hizo el mercado, qué precian los mercados de predicción,
-   una cosa conectada. En la página el mercado de predicción va como enlace, sin cifra (ver la nota de "mercados de predicción"). */
-const PM_TEMAS = [
-  [/\b(fed|fomc|powell|warsh|rate cut|rate hike|interest rate|inflation|cpi|ppi|treasury|yield)/i, "Fed"],
-  [/\b(hormuz|strait|tanker|oil|crude|gulf|houthi|aramco|saudi|opec|refiner)/i, "Hormuz"],
-  [/\b(iran|israel|ceasefire|tehran|lebanon|yemen|netanyahu)/i, "Iran"],
-  [/\b(openai|anthropic|gemini|chatgpt|claude|grok|deepmind|ai model|frontier model)\b/i, "AI"],
-];
-const CONECTADO = { AI: ["US10Y", "USD"], Politics: ["XAU", "USD"], Energy: ["XAU", "USD"], Crypto: ["ETH", "BTC"], Economy: ["US2Y", "USD"], Culture: ["USD"] };
-const pmDe = (titulo) => {
-  const hits = PM_TEMAS.filter(([re]) => re.test(titulo)).map(([, k]) => k);
-  const elegir = (k) => prediccion.polymarket.find((m) => (k === "Fed" && m.tema === "Fed") || (k === "AI" && m.tema === "AI") ||
-    (k === "Hormuz" && /hormuz/i.test(m.evento)) || (k === "Iran" && /iran/i.test(m.evento)));
-  for (const k of hits) { const m = elegir(k); if (m) return { nombre: m.nombre, url: `https://polymarket.com/event/${m.evento}` }; }
-  return null;
-};
-const conectadoDe = (area, sinId) => {
-  const id = (CONECTADO[area] || ["USD"]).find((x) => x !== sinId && activos.some((a) => a.id === x && a.fresco));
-  const a = activos.find((x) => x.id === id);
-  return a ? { id: a.id, nombre: a.nombre, ultimo: a.ultimo, cambio: a.cambio ?? null, cambio_bp: a.cambio_bp ?? null, fecha: a.fecha, fuente: a.fuente } : null;
-};
+/* ---------- regla del titular (D-208) con el mapa curado de mercados de predicción ----------
+   data/mapa-predicciones.json es copia de motor/radar/predicciones-mapa.json (privado). Aquí se porta solo el cruce y la
+   validez de predicciones.py (puntuar, mapear, validos, elegir, tickers_de, leer): titular -> historia del mapa -> su mercado
+   y sus tickers. Una cifra por historia, con hora; nada de series, tablas ni índices hechos con sus precios.
+   Kalshi, CME FedWatch y Metaculus nunca se llaman: solo entradas "citar" con URL de un medio (aquí no hay ninguna). */
+const MAPA_PM = JSON.parse(fs.readFileSync(path.join(V, "data/mapa-predicciones.json"), "utf8"));
+const REGLAS_PM = MAPA_PM.reglas_globales;
+const escRe = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const puntuar = (texto, h) => { const t = " " + texto.toLowerCase().replace(/[^a-z0-9$%. -]/g, " ") + " ";
+  return (h.palabras || []).filter((p) => new RegExp("(?<![a-z])" + escRe(p.toLowerCase()) + "(?![a-z])").test(t)).length; };
+const MERCADO_PALABRAS = ["stock", "stocks", "yield", "yields", "rates", "sector", "spending", "tariff", "market", "markets", "bond", "bonds", "dollar", "etf", "shares"];
+function mapear(texto) {
+  const out = [];
+  for (const h of MAPA_PM.historias) {
+    const n = puntuar(texto, h); if (!n) continue;
+    const omitir = h.politica && !MERCADO_PALABRAS.some((w) => new RegExp("\\b" + w + "\\b").test(texto.toLowerCase())) ? "politics without a market angle (G3 rule)" : null;
+    out.push({ h, puntaje: n, omitir });
+  }
+  return out.sort((a, b) => b.puntaje - a.puntaje); // orden estable: empate, gana el primero del mapa (como en Python)
+}
+// la historia del mapa que le toca a un titular, o null
+const historiaDe = (texto) => mapear(texto).find((x) => !x.omitir)?.h || null;
+const enlacePM = (h) => (h?.fuente === "polymarket" && h.evento ? { nombre: h.titulo, url: `https://polymarket.com/event/${h.evento}` } : null);
+
+const numPM = (x, d = 0) => (Number.isFinite(Number(x)) && x !== null && x !== "" ? Number(x) : d);
+const precioSi = (m) => { try { const v = Number(JSON.parse(m.outcomePrices || "[]")[0]); return Number.isFinite(v) ? v : null; } catch { return null; } };
+const validosPM = (e, r) => (e.markets || []).map((m) => [m, precioSi(m)]).filter(([m, p]) => !m.closed && p != null && numPM(m.spread, 1) <= r.spread_max && numPM(m.volume) > 0);
+function elegirPM(e, h, r) {
+  const ms = validosPM(e, r); if (!ms.length) return null;
+  const modo = h.eleccion || "lider";
+  if (modo === "binario") return ms[0];
+  if (modo === "proximo") return [...ms].sort((a, b) => numPM(a[0].groupItemThreshold, 999) - numPM(b[0].groupItemThreshold, 999))[0];
+  if (modo === "mitad") return ms.reduce((a, b) => (Math.abs(b[1] - 0.5) < Math.abs(a[1] - 0.5) ? b : a));
+  return ms.reduce((a, b) => (b[1] > a[1] ? b : a));
+}
+const tickersDe = (h, grupo) => { let ts = [...(h.tickers || [])];
+  for (const [nombre, extra] of Object.entries(h.tickers_por_resultado || {})) if (grupo && grupo.toLowerCase().includes(nombre.toLowerCase())) ts = [...extra, ...ts.filter((t) => !extra.some((x) => x.simbolo === t.simbolo))];
+  return ts; };
+const MESES_PM = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MESES_LARGOS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+const gamma = (ruta) => bajar(`pm-${ruta.replace(/\W+/g, "-").slice(0, 80)}.json`, `https://gamma-api.polymarket.com/${ruta}`, { tipo: "json", guardar: false, intentos: 2, ms: 20000 });
+const lecturasPM = new Map(); // una lectura por mercado y corrida
+async function leerPM(h0) {
+  if (lecturasPM.has(h0.id)) return lecturasPM.get(h0.id);
+  const leer = async (h) => {
+    const r = { ...REGLAS_PM }; for (const k of ["volumen_min_usd", "spread_max"]) if (k in h) r[k] = h[k];
+    const base = { id: h.id, titulo: h.titulo, fuente: "Polymarket" };
+    if (h.fuente !== "polymarket") return { ...base, omitir: "cited-only source" };
+    let slug = h.evento, dia = new Date(AHORA), e;
+    try {
+      if (!slug && h.buscar) {
+        dia = new Date(AHORA + (h.buscar.dias_adelante || 0) * 864e5);
+        const patron = new RegExp(h.buscar.patron.replace("{mes}", MESES_LARGOS[dia.getUTCMonth()]).replace("{dia}", dia.getUTCDate()).replace("{anio}", dia.getUTCFullYear()));
+        const d = await gamma(`public-search?q=${encodeURIComponent(h.buscar.q)}&limit_per_type=20&events_status=active`);
+        slug = (d.events || []).find((x) => patron.test(x.slug || ""))?.slug;
+        if (!slug) return { ...base, omitir: "no matching event found for the date" };
+      }
+      e = await gamma(`events/slug/${slug}`);
+    } catch (ex) { return { ...base, evento: slug, omitir: "read failed: " + ex.message }; } // red caída: se omite, nunca se inventa
+    base.evento = slug; base.url = `https://polymarket.com/event/${slug}`;
+    if (e.closed) return { ...base, omitir: "market resolved" };
+    if (numPM(e.volume) < r.volumen_min_usd) return h.respaldo ? leer({ ...h, ...h.respaldo, respaldo: null }) : { ...base, omitir: `thin market (volume ${Math.round(numPM(e.volume))} USD)` };
+    const texto = ((e.title || "") + " " + (e.markets || []).map((m) => m.question || "").join(" ")).toLowerCase();
+    const tema = r.omitir_temas.find((t) => new RegExp("\\b" + t + "\\b").test(texto)); if (tema) return { ...base, omitir: "topic not covered: " + tema };
+    const sel = elegirPM(e, h, r);
+    if (!sel) return h.respaldo ? leer({ ...h, ...h.respaldo, respaldo: null }) : { ...base, omitir: "no open market with a real order book" };
+    const [m, p] = sel;
+    if (p < r.precio_min || p > r.precio_max) return { ...base, omitir: `price ${Math.round(p * 100)}% is near certain` };
+    const grupo = (m.groupItemTitle || "").trim();
+    const resultado = h.resultado_en.replace("{grupo}", (h.grupos || {})[grupo] || grupo).replace("{fecha_evento}", `${MESES_PM[dia.getUTCMonth()]} ${dia.getUTCDate()}`);
+    const leido = GENERADO, hora = `${Number(leido.slice(8, 10))} ${MESES_PM[Number(leido.slice(5, 7)) - 1]} ${leido.slice(11, 16)}`;
+    // solo la plantilla "linea" (una cifra); la parte "On the tape" la arma la página con los activos propios
+    const linea = r.linea.split(" · On the tape")[0].replace("{p}", Math.round(p * 100)).replace("{resultado}", resultado).replace("{fuente}", "Polymarket").replace("{hora}", hora);
+    if (/\b(bet|bets|betting|wager|gamble|odds boost|buy yes|buy no)\b/i.test(linea)) return { ...base, omitir: "forbidden wording" };
+    return { ...base, mercado: m.slug, grupo, p: Math.round(p * 100), leido_utc: leido, linea, tickers: tickersDe(h, grupo).map((t) => t.simbolo), omitir: null };
+  };
+  const x = await leer(h0);
+  // edad_max_horas: una lectura más vieja que eso no se publica (aquí se lee en cada corrida)
+  if (!x.omitir && (AHORA - Date.parse(x.leido_utc)) / 36e5 > REGLAS_PM.edad_max_horas) x.omitir = "reading too old";
+  lecturasPM.set(h0.id, x); return x;
+}
 function aplicarRegla(lista, conMercado) {
   return (lista || []).map((h) => {
-    const sinId = h.grafico?.tipo === "propio" ? h.grafico.activo : null;
-    const lados = { quien: `${h.fuente}: headline verbatim`, prediccion: pmDe(h.titulo), conectado: conectadoDe(h.area, sinId) };
+    const sl = historiaDe(h.titulo);
+    const lados = { quien: `${h.fuente}: headline verbatim`, historia_mapa: sl?.id || null, prediccion: enlacePM(sl) };
     if (conMercado) lados.mercado = h.grafico?.tipo === "propio" ? h.grafico.activo : h.grafico?.etiqueta || null;
-    lados.faltan = ["prediccion", "conectado"].filter((k) => !lados[k]).concat(conMercado && !lados.mercado ? ["mercado"] : []);
     return { ...h, lados };
   });
 }
@@ -502,6 +561,16 @@ function frase(a) {
   return `${may(n)} ${a.cambio > 0 ? "rose" : a.cambio < 0 ? "fell" : "was flat"}${a.cambio ? " " + pctTxt(a.cambio) : ""} on ${fechaTxt(a.fecha)} ${sello}.`;
 }
 const sinPunto = (s) => s.replace(/\.$/, "");
+// "On the tape": los tickers de la historia del mapa que existen en activos, con su cambio y fuente; sin historia, nada
+const CORTO = { BTC: "bitcoin", ETH: "ether", XAU: "gold", XAG: "silver", US2Y: "US 2-year yield", US10Y: "US 10-year yield", US30Y: "US 30-year yield", USD: "NAOS dollar index", WTI: "WTI oil", BRENT: "Brent oil", NG: "natural gas" };
+function enCinta(sl, sinId) {
+  if (!sl) return null;
+  const as = tickersDe(sl, null).map((t) => t.radar && vivo(t.radar)).filter((a) => a && a.id !== sinId).filter((a, i, xs) => xs.indexOf(a) === i);
+  if (!as.length) return null;
+  const mov = (a) => a.cambio_bp != null ? `${a.cambio_bp > 0 ? "+" : a.cambio_bp < 0 ? "−" : ""}${Math.abs(a.cambio_bp)} bp` : a.cambio != null ? `${a.cambio > 0 ? "+" : a.cambio < 0 ? "−" : ""}${pctTxt(a.cambio)}` : `$${fmtN(a.ultimo)}`;
+  const sellos = [...new Set(as.map((a) => `${a.fuente} ${a.fecha.length > 10 ? a.fecha.slice(11, 16) + " UTC" : fechaTxt(a.fecha)}`))];
+  return `On the tape: ${as.map((a) => `${CORTO[a.id] || a.nombre} ${mov(a)}`).join(", ")} (${sellos.join("; ")}).`;
+}
 // fuentes de noticias vivas para buscar "qué se movió": wire, historias y titulares del radar, sin Hacker News
 const noticias = [...(historias || []), ...(wireFinal || []), ...titularesF].filter((t) => !t.viejo && t.fuente !== "Hacker News")
   .filter((t, i, xs) => xs.findIndex((x) => x.url === t.url) === i);
@@ -526,10 +595,9 @@ const sumar = (t, area, mercadoActivo, mercadoTV) => {
   let mercado = a ? frase(a) : null, etiqueta = "Moved";
   if (!mercado && mercadoTV) { const rel = buscar(RE_TEMA[mercadoTV.tema], { conMovimiento: true, sin: [t.url] });
     mercado = rel ? `Related move, per ${rel.fuente}: "${rel.titulo}".` : `Live chart on this page: ${mercadoTV.etiqueta}.`; if (!rel) etiqueta = "Market"; }
-  const c = conectadoDe(area, mercadoActivo);
-  const ca = c && vivo(c.id);
+  const sl = historiaDe(t.titulo);
   portada.push({ id: "p" + (portada.length + 1), tipo: "historia", area, titulo: t.titulo, fuente: t.fuente, url: t.url, hora: t.hora, ...(movido(t.titulo) ? { movio: movido(t.titulo) } : {}),
-    mercado, mercado_etiqueta: etiqueta, conectado: ca ? frase(ca) : null, prediccion: pmDe(t.titulo) });
+    mercado, mercado_etiqueta: etiqueta, historia_mapa: sl?.id || null, conectado: enCinta(sl, mercadoActivo) });
 };
 const hs = (historias || []).filter((h) => !h.viejo).sort((x, y) => (movido(y.titulo) ? 1 : 0) - (movido(x.titulo) ? 1 : 0));
 const tvTema = (g) => g?.tipo === "tradingview" ? { tema: /SMH/.test(g.simbolo) ? "chips" : "petroleo", etiqueta: g.etiqueta } : null;
@@ -546,14 +614,29 @@ if (calF && !calF.viejo && calF.proximo && Date.parse(calF.proximo.hora) - AHORA
   const conPron = [...mismos].sort((x, y) => /^Core /.test(x.evento) - /^Core /.test(y.evento)).filter((e) => e.pronostico || e.previo)
     .filter((e, i, xs) => xs.findIndex((x) => base(x) === base(e)) === i).map((e) => `${e.evento}: forecast ${e.pronostico || "n/a"}, previous ${e.previo || "n/a"}`);
   const dia = new Date(p.hora), hoy = dia.toISOString().slice(0, 10) === GENERADO.slice(0, 10);
-  const c = vivo("US2Y");
-  portada.push({ id: "p" + (portada.length + 1), tipo: "agenda", area: "Coming up", titulo: `US ${nombres}, ${hoy ? "today" : DIA3[dia.getUTCDay()] + " " + fechaTxt(p.hora)} at ${et} ET`,
+  const titulo = `US ${nombres}, ${hoy ? "today" : DIA3[dia.getUTCDay()] + " " + fechaTxt(p.hora)} at ${et} ET`, sl = historiaDe(titulo);
+  portada.push({ id: "p" + (portada.length + 1), tipo: "agenda", area: "Coming up", titulo,
     fuente: [...new Set(mismos.map((e) => e.publicador).filter(Boolean))].join(", ") || "public release calendar", url: p.url, hora: p.hora,
     mercado: conPron.length ? `${conPron.slice(0, 2).join("; ")} (Forex Factory calendar).` : null, mercado_etiqueta: "Expected",
-    conectado: c ? sinPunto(frase(c)).replace(/^The US 2-year yield/, "The US 2-year yield, which tracks expected Fed rates,") + "." : null,
-    prediccion: pmDe("Fed rate decision") });
+    historia_mapa: sl?.id || null, conectado: enCinta(sl, null) });
 }
 portada.splice(5);
+// odds: solo si el mercado de la historia del mapa pasa las reglas globales, y cada mercado en una sola historia (la de más arriba)
+const mercadosUsados = new Set();
+for (const p of portada) {
+  const sl = MAPA_PM.historias.find((h) => h.id === p.historia_mapa);
+  p.odds = null;
+  if (!sl || sl.fuente !== "polymarket") continue;
+  const x = await leerPM(sl);
+  p.odds_estado = x.omitir || "shown";
+  if (x.omitir || mercadosUsados.has(x.mercado)) { if (!x.omitir) p.odds_estado = "market already on a higher story"; continue; }
+  mercadosUsados.add(x.mercado);
+  p.odds = { texto: x.linea, url: x.url, p: x.p, leido_utc: x.leido_utc, historia: sl.id };
+}
+// wire: el enlace al mercado (sin cifra) solo si su mercado pasa las reglas (resuelto, delgado o caído: sin enlace)
+for (const t of wireFinal || []) { const sl = t.odds && historiaDe(t.titulo); if (!sl) continue; const x = await leerPM(sl); if (x.omitir) delete t.odds; else t.odds = { nombre: sl.titulo, url: x.url }; }
+// las cartas de las historias del día llevan las mismas dos líneas que su titular en la portada
+for (const h of historias || []) { const p = portada.find((x) => x.url === h.url); h.lados = { ...h.lados, odds: p?.odds || null, conectado: p?.conectado || null }; }
 
 // una línea de texto por gráfico de TradingView: qué se movió y por qué, del titular que le corresponde; sin titular, nada
 const graficos = {};
@@ -620,6 +703,7 @@ const salida = {
   temas,
   titulares: titularesF,
   portada,
+  odds_sello: REGLAS_PM.sello,
   graficos,
   explica,
   escondido,
