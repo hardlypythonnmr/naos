@@ -122,6 +122,21 @@ html:not(.listo) [data-espera] { visibility: hidden; }
 .noche .pie-fuentes { color: var(--naos-night-grey); }
 .pie-fuentes a { color: inherit; }
 
+/* ---------- ficha y chip .ag-chip (ola 0, D-234): objetivo táctil de 44 a 48 px, borde --naos-grey, elegida en tinta ----------
+   La usan guía, behavior, indicadores, escalera. Cobalto solo en índices y capítulos: aquí no.
+   .ag-chip a secas vale donde no se carga agenda.css (pieza.html). La portada y agenda.html cargan agenda.css, que redefine .ag-chip a 36 px
+   y filete claro (esa página no cambia hoy): ahí la ficha nueva lleva .ficha (44 px) o .grande (48 px), que tienen más peso y ganan. */
+.ag-chip, .ag-chip:is(.ficha, .grande) { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; min-width: 44px; padding: 8px 14px;
+  border: 1px solid var(--naos-grey); background: var(--naos-paper); color: var(--naos-ink); font-family: var(--font-sans); font-size: 14px; font-weight: 500;
+  cursor: pointer; touch-action: manipulation; }
+.ag-chip.grande { min-height: 48px; }
+.ag-chip:hover, .ag-chip:is(.ficha, .grande):hover { border-color: var(--naos-ink); }
+.ag-chip[aria-pressed="true"], .ag-chip[aria-current="true"],
+.ag-chip:is(.ficha, .grande)[aria-pressed="true"], .ag-chip:is(.ficha, .grande)[aria-current="true"] { background: var(--naos-plate); color: var(--naos-plate-text); border-color: var(--naos-plate); }
+.noche .ag-chip, .noche .ag-chip:is(.ficha, .grande) { background: transparent; color: var(--naos-night-text); border-color: var(--naos-night-grey); }
+.noche .ag-chip[aria-pressed="true"], .noche .ag-chip[aria-current="true"],
+.noche .ag-chip:is(.ficha, .grande)[aria-pressed="true"], .noche .ag-chip:is(.ficha, .grande)[aria-current="true"] { background: var(--naos-night-plate); color: var(--naos-night-plate-text); border-color: var(--naos-night-plate); }
+
 @media (prefers-reduced-motion: reduce) {
   [data-revela].abierto .revela-tarjeta { transition: none; }
 }

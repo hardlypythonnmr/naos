@@ -37,6 +37,14 @@
 </header>
 
 <main id="muro" data-espera>
+  <!-- PUNTOS DE MONTAJE (ola 0, D-234): vacíos e invisibles (hidden) hasta que un equipo monta en ellos; el orden de arriba abajo es este.
+       Cada equipo quita el hidden de SU ranura y escribe solo dentro; ver empresa/infraestructura/2026-10-14-historias/construccion/cimientos.md.
+       #secuencia: el Short y el Reel de hoy (espejo, assets/js/franja.js). #guia: la hoja de la guía y la ficha "Guide" (assets/js/guia.js).
+       #live: región de estado de LIVE (assets/js/live.js). Convención LIVE: cualquier titular, ficha o fila lleva data-live="AAAA-MM-DDTHH:MMZ"
+       (hora UTC de la fuente); live.js pone el sello rojo --naos-live si pasaron menos de 2 h. Nadie más pinta ese sello. -->
+  <div id="secuencia" hidden></div>
+  <div id="guia" hidden></div>
+  <div id="live" hidden></div>
   <!-- PORTADA: titulares en texto (regla del titular, D-208 y D-219) -->
   <section class="portada" id="titulares" aria-labelledby="dia-t">
     <div class="dia-fila">
@@ -270,7 +278,11 @@
     <div class="interludio" id="respira">
       <div class="resp-c" id="resp"></div>
       <p class="resp-t respira-txt" id="resp-t" aria-live="off">Inhale 1</p>
+      <!-- ranura del botón Pause del anillo (behavior, 48 px, aria-pressed) -->
+      <div id="pausa" hidden></div>
       <p class="sello">Four in, four out. The page will wait.</p>
+      <!-- ranura de la línea de seguridad (behavior, 14 px en tinta, no .sello) -->
+      <div id="seguridad" hidden></div>
     </div>
   </section>
   <!-- ESTA SEMANA (PAG-08.1, D-224): grilla pública sección x día, se llena desde data/semana.json -->

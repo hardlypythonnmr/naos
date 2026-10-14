@@ -320,6 +320,47 @@
       `<g class="m-rutas">${rutas}</g><path class="m-carril" d="${carril.d}"/></svg>`;
   };
 
+  /* ---------- estado de una pieza (ola 0, D-234): data/semana.json + data/enlaces.json ----------
+   * N.estado(asset_id) -> Promise<{ estado, texto, url, ig, dia }>. Una sola lectura por página (se guarda la promesa).
+   *   estado "published": hay un ítem status "published" con yt en enlaces.json   -> texto "Published", url = yt, ig = reel o null
+   *   estado "scheduled": un ítem con dia de hoy en adelante                        -> texto "Comes out 19 Oct", url null
+   *   estado "tbd": nada fechado, o la fecha ya pasó sin publicarse                 -> texto "Date to be confirmed", url null
+   * Sin yt no hay enlace: un "published" sin enlace cae a la fecha. Si un archivo no carga, "Date to be confirmed", nunca un error en pantalla.
+   * La clave en enlaces.json.piezas es "AAAA-MM-DD|slot", o "AAAA-MM-DD|asset_id" si el ítem no tiene slot. N.estadoDe es la parte pura. */
+  N.estadoDe = (items, enlaces, id, hoy = new Date().toISOString().slice(0, 10)) => {
+    const xs = (items || []).filter((x) => x.asset_id === id), piezas = (enlaces && enlaces.piezas) || {};
+    for (const x of xs) {
+      const e = x.status === "published" && x.dia ? piezas[x.dia + "|" + (x.slot || x.asset_id)] : null;
+      if (e && e.yt) return { estado: "published", texto: "Published", url: e.yt, ig: e.ig || null, dia: x.dia };
+    }
+    const prox = xs.filter((x) => x.dia && x.dia >= hoy && x.status !== "published").sort((a, b) => a.dia.localeCompare(b.dia))[0];
+    if (prox) return { estado: "scheduled", texto: "Comes out " + N.fecha(prox.dia), url: null, ig: null, dia: prox.dia };
+    return { estado: "tbd", texto: "Date to be confirmed", url: null, ig: null, dia: null };
+  };
+  let _estado = null;
+  N.estado = async (id, ruta = {}) => {
+    _estado = _estado || Promise.all([
+      fetch(ruta.semana || "data/semana.json").then((r) => r.json()).catch(() => null),
+      fetch(ruta.enlaces || "data/enlaces.json").then((r) => r.json()).catch(() => null),
+    ]);
+    const [semana, enlaces] = await _estado;
+    return N.estadoDe(semana && semana.items, enlaces, id);
+  };
+
+  /* ---------- guardado local (ola 0, D-234): localStorage con try/catch, claves con prefijo "naos:" ----------
+   * N.guarda(clave)          -> lo guardado (JSON) o null si no hay nada o el navegador no deja (modo privado, bloqueado)
+   * N.guarda(clave, valor)   -> guarda (JSON) y devuelve true; false si falla
+   * N.guarda(clave, null)    -> borra
+   * Si falla, la página se comporta como en la primera visita; nunca hay error en pantalla. Cada clave nueva va a privacidad.html (#navegador-lista). */
+  N.guarda = (clave, valor) => {
+    try {
+      const k = "naos:" + clave;
+      if (valor === undefined) { const t = localStorage.getItem(k); return t == null ? null : JSON.parse(t); }
+      if (valor === null) localStorage.removeItem(k); else localStorage.setItem(k, JSON.stringify(valor));
+      return true;
+    } catch (e) { return valor === undefined ? null : false; }
+  };
+
   // listo: espera las fuentes (tope 0,4 s) para que nada salte al cambiar de tipo, y muestra lo que esperaba datos ([data-espera])
   N.listo = async () => {
     try { await Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 400))]); } catch (e) {}
