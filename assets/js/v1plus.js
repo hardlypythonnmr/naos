@@ -397,7 +397,7 @@
   } catch (e) { $("#assets").hidden = true; }
 
   /* ---------- interludios ---------- */
-  N.respira($("#resp"), { etiqueta: $("#resp-t"), r: 60, min: .38 });
+  N.tlRespira = N.respira($("#resp"), { etiqueta: $("#resp-t"), r: 60, min: .38 }); document.dispatchEvent(new Event("naos:respira"));
   N.leer($("#mantra"));
 
   /* ---------- mapa en capas (V3) con el recuadro de Ormuz (V1) ---------- */
