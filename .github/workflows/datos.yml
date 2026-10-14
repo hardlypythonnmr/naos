@@ -1,0 +1,78 @@
+# Refreshes data/situacion.json for the NAOS home page every 30 minutes.
+# Public sources only (U.S. Treasury, ECB, OFR, CoinGecko, gold-api.com, EIA, alternative.me, Hacker News, the weekly
+# economic calendar). Raw responses stay in data/crudo/, which is git-ignored and never committed.
+# Sections that come from the private radar (wire, stories of the day, cited closes) are kept as they are, with their date.
+name: Refresh page data
+
+on:
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: datos
+  cancel-in-progress: false
+
+jobs:
+  datos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build data/situacion.json
+        env:
+          COINGECKO_DEMO_KEY: ${{ secrets.COINGECKO_DEMO_KEY }}
+          EIA_KEY: ${{ secrets.EIA_KEY }}
+        # The builder runs scripts/animo.py itself (Credit and dollar reading).
+        run: node scripts/construir-datos.mjs
+
+      - name: Check the output
+        run: |
+          node -e '
+            const d = JSON.parse(require("fs").readFileSync("data/situacion.json", "utf8"));
+            if (!Array.isArray(d.activos) || d.activos.length < 5) throw new Error("too few readings: " + (d.activos || []).length);
+            if (/\bOKX\b/i.test(JSON.stringify(d))) throw new Error("OKX found in situacion.json");
+            console.log("ok:", d.generado, d.activos.length, "readings,", (d.wire || []).length, "wire headlines");
+          '
+          if git ls-files --error-unmatch data/crudo >/dev/null 2>&1; then echo "data/crudo must never be committed"; exit 1; fi
+
+      - name: Commit and push if changed
+        id: push
+        run: |
+          if git diff --quiet -- data/situacion.json; then
+            echo "No change in data/situacion.json"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/situacion.json
+          git commit -m "Refresh page data $(date -u +'%Y-%m-%d %H:%M') UTC"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && break
+            sleep $((i * 5))
+          done
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # Pushes made with GITHUB_TOKEN may not start the branch-based Pages build on their own; ask for one.
+      - name: Request a Pages build
+        if: steps.push.outputs.changed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" --silent
