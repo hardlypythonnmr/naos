@@ -32,24 +32,131 @@ h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-hei
 .prox .sello { margin: 8px 0 0; }
 @media (max-width: 640px) { .prox li { grid-template-columns: 1fr auto; } .prox .niv { grid-column: 1 / -1; } }
 .pie { padding: 20px var(--page-gutter) 40px; border-top: 1px solid var(--naos-rule); }
+/* Mientras la pieza está planned (PAG-06.3): texto, mapa de lo que se enseña, fuentes verificadas y PDF de una página.
+   Cobalto (--lab-accent) solo para la estructura del mapa; sin vino en esta vista. */
+.lleno { margin-top: var(--s-5); }
+.lleno h2 { font-family: var(--font-sans); font-weight: 600; font-size: 17px; margin: 0 0 10px; padding-top: 12px; border-top: 1px solid var(--naos-ink); }
+.texto { font-family: var(--font-serif); font-weight: 300; font-size: 21px; line-height: 1.45; margin: 0; max-width: 64ch; }
+.descarga { display: inline-flex; align-items: center; gap: 8px; margin-top: var(--s-2); padding: 9px 14px; border: 1px solid var(--naos-ink); font-weight: 600; font-size: 14px; text-decoration: none; }
+.descarga:hover, .descarga:focus-visible { background: var(--naos-ink); color: var(--naos-paper); }
+.descarga svg { width: 16px; height: 16px; flex: none; }
+.descarga[hidden] { display: none; }
+.descarga small { font-weight: 400; color: inherit; opacity: .75; }
+.mapa { margin: 0; }
+.mapa-raiz { display: inline-block; margin: 0; padding: 8px 16px; border: 2px solid var(--lab-accent); font-family: var(--font-serif); font-size: 22px; line-height: 1.2; }
+.mapa-tallo { width: 2px; height: 10px; margin-left: 24px; background: var(--lab-accent); }
+/* Una sola fila de ramas desde 900 px (y en el PDF), todas colgando del mismo riel; debajo, riel vertical a la izquierda. */
+.mapa-ramas { list-style: none; margin: 0 0 0 24px; padding: 4px 0 4px 14px; display: grid; grid-template-columns: 1fr; gap: 10px; border-left: 2px solid var(--lab-accent); counter-reset: rama; }
+.mapa-rama { position: relative; counter-increment: rama; border: 1px solid var(--naos-rule); padding: 10px 12px 12px; }
+.mapa-rama::before { content: ""; position: absolute; left: -16px; top: 22px; width: 15px; height: 2px; background: var(--lab-accent); }
+.mapa-rama h3 { margin: 0 0 6px; font-family: var(--font-sans); font-weight: 600; font-size: 15px; line-height: 1.3; }
+.mapa-rama h3::before { content: counter(rama, decimal-leading-zero); display: block; font-family: var(--font-cond); font-weight: 600; font-size: 12px; letter-spacing: .06em; color: var(--lab-accent); }
+.mapa-hojas { list-style: none; margin: 0; padding: 0 0 0 12px; border-left: 1px solid var(--lab-accent); }
+.mapa-hojas li { font-size: 14px; line-height: 1.35; color: var(--naos-sec); padding: 3px 0; }
+@media (min-width: 900px), print {
+  .mapa-tallo { height: 18px; }
+  .mapa-ramas { grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr)); margin: 0; padding: 18px 0 0; border-left: 0; border-top: 2px solid var(--lab-accent); }
+  .mapa-rama::before { left: 24px; top: -20px; width: 2px; height: 19px; }
+  .mapa-rama h3 { overflow-wrap: anywhere; }
+}
+.fuentes { list-style: none; margin: 0; padding: 0; counter-reset: f; }
+.fuentes li { counter-increment: f; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 0 8px; padding: 8px 0; border-top: 1px solid var(--naos-rule); font-size: 14px; line-height: 1.4; }
+.fuentes li::before { content: counter(f); font-family: var(--font-cond); font-weight: 600; color: var(--lab-accent); }
+.fuentes a { font-weight: 600; overflow-wrap: anywhere; }
+.fuentes .quien { display: block; color: var(--naos-sec); }
+.fuentes .dom { color: var(--naos-grey); font-size: 13px; overflow-wrap: anywhere; }
+.nota-f { margin: 8px 0 0; }
+.solo-imp { display: none; }
+@media (max-width: 640px) {
+  .texto { font-size: 19px; }
+  .descarga small { display: none; }
+}
+@page { size: A4; margin: 11mm 13mm 10mm; }
+@media print {
+  body { font-size: 11px; }
+  .barra, .prox, .ranura, .descarga, .pie { display: none !important; }
+  .solo-imp { display: block; }
+  main { max-width: none; padding: 0; }
+  .imp-cab { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid var(--naos-ink); padding-bottom: 6px; margin-bottom: 10px; }
+  .imp-cab b { font-family: var(--font-serif); font-weight: 400; font-size: 22px; }
+  h1 { font-size: 28px; margin-bottom: 4px; }
+  .desc { margin-bottom: 6px; font-size: 11.5px; }
+  .chip { font-size: 9px; line-height: 15px; }
+  .lleno { margin-top: 12px; break-inside: avoid; }
+  .lleno h2 { font-size: 12.5px; margin-bottom: 6px; padding-top: 6px; }
+  .texto { font-size: 13.5px; line-height: 1.42; max-width: none; }
+  .mapa-raiz { font-size: 15px; padding: 5px 12px; }
+  .mapa-tallo { height: 12px; }
+  .mapa-ramas { gap: 6px; padding-top: 12px; }
+  .mapa-rama { padding: 6px 8px 8px; }
+  .mapa-rama::before { top: -14px; height: 13px; }
+  .mapa-rama h3 { font-size: 11.5px; margin-bottom: 3px; }
+  .mapa-rama h3::before { font-size: 9.5px; }
+  .mapa-hojas li { font-size: 10.5px; padding: 1px 0; }
+  .fuentes li { font-size: 10px; padding: 4px 0; grid-template-columns: 18px minmax(0, 1fr); }
+  .fuentes .dom { font-size: 9.5px; }
+  .imp-pie { margin-top: 12px; padding-top: 6px; border-top: 1px solid var(--naos-rule); font-size: 9.5px; color: var(--naos-grey); }
+}
 @media (max-width: 640px) { .barra { padding: 12px 20px; } h1 { font-size: 30px; } .pie { padding: 16px 20px 32px; } }
 </style>
 </head>
 <body>
 <header class="barra"><a class="naos" href="./#assets">NAOS</a><a class="sello" href="./#assets">Back to Assets</a></header>
 <main>
+  <div class="solo-imp imp-cab"><b>NAOS</b><span class="sello" id="imp-url"></span></div>
   <p class="cat" id="cat">Assets</p>
   <h1 id="titulo">Piece</h1>
   <p class="desc" id="desc"></p>
   <span class="chip" id="estado">Planned</span>
+  <div id="lleno" hidden>
+    <a class="descarga" id="pdf" href="#" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9m0 0L4.5 6.5M8 10l3.5-3.5M2 12v2.5h12V12" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Download the one-page PDF <small>(text, map, sources)</small></a>
+    <section class="lleno" aria-labelledby="r-a"><h2 id="r-a">What you will learn</h2><p class="texto" id="texto"></p></section>
+    <section class="lleno" aria-labelledby="r-m"><h2 id="r-m">Map of the piece</h2><figure class="mapa" id="mapa"></figure></section>
+    <section class="lleno" aria-labelledby="r-s"><h2 id="r-s">Sources</h2><ol class="fuentes" id="fuentes"></ol><p class="sello nota-f" id="nota-f"></p></section>
+  </div>
   <section class="prox" id="prox" aria-labelledby="r-u" hidden><h2 id="r-u">Upcoming</h2><ul id="prox-l"></ul><p class="sello" id="prox-s"></p></section>
   <section class="ranura video" aria-labelledby="r-v"><h2 id="r-v">Video</h2><div class="vacio">The YouTube video goes here when the piece is published.</div></section>
   <section class="ranura" aria-labelledby="r-t"><h2 id="r-t">Transcript</h2><div class="vacio">The full transcript goes here, under the video.</div></section>
   <section class="ranura" aria-labelledby="r-p"><h2 id="r-p">Prompts</h2><div class="vacio">The prompts used in the piece go here, ready to copy.</div></section>
-  <section class="ranura" aria-labelledby="r-f"><h2 id="r-f">Sources</h2><div class="vacio">Every source cited in the piece goes here, linked.</div></section>
+  <section class="ranura" aria-labelledby="r-f" id="ranura-f"><h2 id="r-f">Sources</h2><div class="vacio">Every source cited in the piece goes here, linked.</div></section>
+  <p class="solo-imp imp-pie" id="imp-pie"></p>
 </main>
 <footer class="pie sello">NAOS · Yourself, sharper. This page is a planned piece: nothing here is published yet. Not financial advice.</footer>
 <script>
+const MES_L = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const fecha = (f) => { const t = new Date(f + "T12:00:00Z"); return `${t.getUTCDate()} ${MES_L[t.getUTCMonth()]} ${t.getUTCFullYear()}`; };
+const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+// Pieza planned con contenido (PAG-06.3): texto, mapa (raiz + ramas con hojas, como listas anidadas), fuentes y PDF.
+function llenar(x, c, consultadas) {
+  document.getElementById("texto").textContent = x.texto;
+  const m = document.getElementById("mapa");
+  m.setAttribute("aria-label", `Map of what the piece teaches: ${x.mapa.ramas.length} parts`);
+  const tallo = el("div", "mapa-tallo"); tallo.setAttribute("aria-hidden", "true");
+  m.append(el("p", "mapa-raiz", x.mapa.raiz), tallo);
+  const ul = el("ul", "mapa-ramas"); ul.style.setProperty("--n", x.mapa.ramas.length);
+  for (const r of x.mapa.ramas) {
+    const li = el("li", "mapa-rama"), hs = el("ul", "mapa-hojas");
+    li.append(el("h3", null, r.t));
+    for (const h of r.hojas) hs.append(el("li", null, h));
+    li.append(hs); ul.append(li);
+  }
+  m.append(ul);
+  const ol = document.getElementById("fuentes");
+  for (const f of x.fuentes || []) {
+    const li = el("li"), div = el("div"), a = el("a", null, f.titulo);
+    a.href = f.url; a.rel = "noopener"; a.target = "_blank";
+    let dom = ""; try { dom = new URL(f.url).hostname.replace(/^www\./, ""); } catch (e) {}
+    div.append(a, el("span", "quien", `${f.autor}, ${f.anio}`), el("span", "dom", dom));
+    li.append(div); ol.append(li);
+  }
+  document.getElementById("nota-f").textContent = consultadas ? `Each source was opened and checked on ${fecha(consultadas)}. The finished piece may add more.` : "";
+  document.getElementById("ranura-f").hidden = true;
+  if (x.pdf) { const p = document.getElementById("pdf"); p.href = x.pdf; } else document.getElementById("pdf").hidden = true;
+  const url = `hardlypythonnmr.github.io/naos/pieza.html?id=${x.id}`;
+  document.getElementById("imp-url").textContent = "Assets · " + c.titulo;
+  document.getElementById("imp-pie").textContent = `NAOS · Yourself, sharper. A planned piece: the video is not published yet. ${c.id === "trading" ? "Education only, not financial advice. " : ""}${url}`;
+  document.getElementById("lleno").hidden = false;
+}
 (async () => {
   const id = new URLSearchParams(location.search).get("id");
   try {
@@ -60,6 +167,7 @@ h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-hei
       document.getElementById("desc").textContent = x.descripcion;
       document.getElementById("estado").textContent = x.estado === "published" ? "Published" : "Planned";
       document.title = "NAOS · " + x.titulo;
+      if (x.texto && x.mapa) llenar(x, c, d.fuentes_consultadas);
     }
   } catch (e) { console.warn("assets.json", e); }
   // Upcoming (PAG-06.3, D-224): la próxima fecha del contenido ligado a esta pieza en cada nivel, desde data/semana.json
