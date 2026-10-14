@@ -408,6 +408,39 @@ const prediccion = {
   kalshi: { url: "https://kalshi.com/markets", nota: "Kalshi Data Terms of Use allow personal, non-commercial use only and prohibit publicly displaying Kalshi Data without written authorization: link only." },
 };
 
+/* ---------- regla del titular (D-208): quién dijo o hizo qué, qué hizo el mercado, qué precian los mercados de predicción,
+   una cosa conectada. En la página el mercado de predicción va como enlace, sin cifra (ver la nota de "mercados de predicción"). */
+const PM_TEMAS = [
+  [/\b(fed|fomc|powell|warsh|rate cut|rate hike|interest rate|inflation|cpi|ppi|treasury|yield)/i, "Fed"],
+  [/\b(hormuz|strait|tanker|oil|crude|gulf|houthi|aramco|saudi|opec|refiner)/i, "Hormuz"],
+  [/\b(iran|israel|ceasefire|tehran|lebanon|yemen|netanyahu)/i, "Iran"],
+  [/\b(openai|anthropic|gemini|chatgpt|claude|grok|deepmind|ai model|frontier model)\b/i, "AI"],
+];
+const CONECTADO = { AI: ["US10Y", "USD"], Politics: ["XAU", "USD"], Energy: ["XAU", "USD"], Crypto: ["ETH", "BTC"], Economy: ["US2Y", "USD"], Culture: ["USD"] };
+const pmDe = (titulo) => {
+  const hits = PM_TEMAS.filter(([re]) => re.test(titulo)).map(([, k]) => k);
+  const elegir = (k) => prediccion.polymarket.find((m) => (k === "Fed" && m.tema === "Fed") || (k === "AI" && m.tema === "AI") ||
+    (k === "Hormuz" && /hormuz/i.test(m.evento)) || (k === "Iran" && /iran/i.test(m.evento)));
+  for (const k of hits) { const m = elegir(k); if (m) return { nombre: m.nombre, url: `https://polymarket.com/event/${m.evento}` }; }
+  return null;
+};
+const conectadoDe = (area, sinId) => {
+  const id = (CONECTADO[area] || ["USD"]).find((x) => x !== sinId && activos.some((a) => a.id === x && a.fresco));
+  const a = activos.find((x) => x.id === id);
+  return a ? { id: a.id, nombre: a.nombre, ultimo: a.ultimo, cambio: a.cambio ?? null, cambio_bp: a.cambio_bp ?? null, fecha: a.fecha, fuente: a.fuente } : null;
+};
+function aplicarRegla(lista, conMercado) {
+  return (lista || []).map((h) => {
+    const sinId = h.grafico?.tipo === "propio" ? h.grafico.activo : null;
+    const lados = { quien: `${h.fuente}: headline verbatim`, prediccion: pmDe(h.titulo), conectado: conectadoDe(h.area, sinId) };
+    if (conMercado) lados.mercado = h.grafico?.tipo === "propio" ? h.grafico.activo : h.grafico?.etiqueta || null;
+    lados.faltan = ["prediccion", "conectado"].filter((k) => !lados[k]).concat(conMercado && !lados.mercado ? ["mercado"] : []);
+    return { ...h, lados };
+  });
+}
+historias = aplicarRegla(historias, true);
+wireFinal = aplicarRegla(wireFinal, false).map(({ lados, ...t }) => ({ ...t, ...(lados.prediccion ? { odds: lados.prediccion } : {}) }));
+
 const salida = {
   generado: GENERADO,
   aviso: "Descriptive, not financial advice.",
