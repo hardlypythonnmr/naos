@@ -334,6 +334,14 @@
   $("#repos").innerHTML = repos.map((r) => `<li><span class="i">${r.i}</span><span class="rn">${N.esc(r.repo)}</span><span class="st"><span class="up">▲ +${N.fmt(r.estrellas7d)}</span> <span class="sello">stars, 7 d</span></span>` +
     `<span class="q"><b>What it does</b>${N.esc(r.que_hace || r.que)}</span><span class="q"><b>What it's for</b>${N.esc(r.para_que || "")}</span></li>`).join("");
 
+  /* ---------- Assets: biblioteca desde data/assets.json; lo planeado dice "Planned", nada se da por publicado ---------- */
+  try {
+    const bib = await (await fetch("data/assets.json")).json();
+    const chip = (e) => `<span class="chip">${e === "published" ? "Published" : "Planned"}</span>`;
+    $("#bib").innerHTML = bib.categorias.map((c) => `<div class="bib-cat"><h3>${N.esc(c.titulo)}</h3><p class="bib-d">${N.esc(c.descripcion)}</p>` +
+      `<ul class="bib-l">${c.piezas.map((x) => `<li class="bib-p">${chip(x.estado)}<h4>${x.pagina ? `<a href="pieza.html?id=${encodeURIComponent(x.id)}">${N.esc(x.titulo)}</a>` : N.esc(x.titulo)}</h4><p>${N.esc(x.descripcion)}</p></li>`).join("")}</ul></div>`).join("");
+  } catch (e) { $("#assets").hidden = true; }
+
   /* ---------- interludios ---------- */
   N.respira($("#resp"), { etiqueta: $("#resp-t"), r: 60, min: .38 });
   N.leer($("#mantra"));

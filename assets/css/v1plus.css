@@ -360,3 +360,16 @@ body { font-size: 14px; }
 /* mercados de predicción como tarjetas con enlace (sin embed, sin cifras) */
 .pm-k .pm-n { font-family: var(--font-cond); font-weight: 600; font-size: 15px; line-height: 1.25; color: var(--naos-night-text); }
 .pm-k a.ir { align-self: flex-start; }
+
+/* Assets: biblioteca por categoría, cada pieza con su estado */
+.bib { display: grid; gap: var(--s-6); }
+.bib-cat h3 { margin: 0; font-family: var(--font-sans); font-weight: 600; font-size: 18px; }
+.bib-d { margin: 4px 0 var(--s-2); font-size: 14px; color: var(--naos-sec); max-width: 76ch; }
+.bib-l { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-2); }
+.bib-p { background: var(--naos-paper); border: 1px solid var(--naos-rule); padding: 16px 20px 18px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.bib-p h4 { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 20px; line-height: 1.2; }
+.bib-p h4 a { text-decoration-thickness: 1px; }
+.bib-p p { margin: 0; font-size: 13px; line-height: 1.45; color: var(--naos-sec); }
+.chip { align-self: flex-start; font-family: var(--font-cond); font-weight: 600; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--naos-grey); border: 1px solid var(--naos-chart); padding: 0 6px; line-height: 18px; }
+@media (max-width: 1180px) { .bib-l { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .bib-l { grid-template-columns: 1fr; } }
