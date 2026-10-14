@@ -595,6 +595,8 @@ const ref = (t) => t && { titulo: t.titulo, fuente: t.fuente, url: t.url, hora: 
 const portada = [];
 const sumar = (t, area, mercadoActivo, mercadoTV) => {
   if (!t || portada.some((p) => p.url === t.url)) return;
+  // regla G3: la política solo como impacto en mercado; sin palabra de mercado no entra en la portada
+  if (area === "Politics" && !MERCADO_PALABRAS.some((w) => new RegExp("\\b" + w + "\\b").test(t.titulo.toLowerCase()))) return;
   const a = mercadoActivo ? vivo(mercadoActivo) : null;
   let mercado = a ? frase(a) : null, etiqueta = "Moved";
   if (!mercado && mercadoTV) { const rel = buscar(RE_TEMA[mercadoTV.tema], { conMovimiento: true, sin: [t.url] });
@@ -608,6 +610,12 @@ const tvTema = (g) => g?.tipo === "tradingview" ? { tema: /SMH/.test(g.simbolo) 
 for (const h of hs) sumar(h, h.area, h.grafico?.tipo === "propio" ? h.grafico.activo : null, tvTema(h.grafico));
 // energía: el titular más nuevo del área, con Brent en vivo vía TradingView
 sumar((wireFinal || []).find((t) => !t.viejo && t.area === "Energy"), "Energy", null, { tema: "petroleo", etiqueta: "Brent and WTI crude CFDs via TradingView, in Market" });
+// si una historia quedó fuera (p. ej. política sin ángulo de mercado), entra el titular vivo siguiente del wire
+for (const t of (wireFinal || []).filter((x) => !x.viejo && ["Economy", "AI", "Crypto", "Energy"].includes(x.area) && x.fuente !== "Hacker News")) {
+  if (portada.filter((p) => p.tipo === "historia").length >= 4) break;
+  if (historiaDe(t.titulo)?.fuente === "citar") continue; // Kalshi y otros "citar": solo con cifra de un medio
+  sumar(t, t.area, null, null);
+}
 // agenda: el próximo evento rojo de EE. UU. si cae en las próximas 36 horas
 if (calF && !calF.viejo && calF.proximo && Date.parse(calF.proximo.hora) - AHORA < 36 * 36e5) {
   const p = calF.proximo, mismos = calF.semana.filter((e) => e.hora === p.hora);
