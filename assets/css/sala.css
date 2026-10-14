@@ -15,11 +15,11 @@
 .w-sala:hover, .w-sala:focus-visible { background: var(--naos-night-plate); color: var(--naos-night-plate-text); }
 
 /* ---------- cómo leemos el día (PAG-01.4) ---------- */
-.como { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--s-6); margin: 0 var(--page-gutter); padding: var(--s-4) 0 var(--s-6); border-top: 1px solid var(--naos-ink); }
+.como { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s-6); margin: 0 var(--page-gutter); padding: var(--s-4) 0 var(--s-6); border-top: 1px solid var(--naos-ink); }
 .como-t { font-family: var(--font-serif); font-weight: 300; font-size: 30px; line-height: 1.1; letter-spacing: -.01em; margin: 0 0 12px; }
 .como-txt p { margin: 0 0 10px; font-size: 15px; line-height: 1.5; color: var(--naos-sec); max-width: 52ch; }
 .como-txt .sello { font-size: 12px; color: var(--naos-grey); margin-top: 14px; }
-.como-g { position: relative; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; align-self: center; }
+.como-g { position: relative; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, .9fr); gap: 48px; align-items: center; align-self: center; }
 .cn-col { display: grid; gap: 14px; position: relative; z-index: 1; }
 .cn { display: grid; gap: 4px; padding: 12px 14px; border: 1px solid var(--naos-ink); background: var(--naos-paper); }
 .cn-t { font-size: 13px; letter-spacing: .05em; }
@@ -158,3 +158,37 @@ dialog.sala::backdrop { background: var(--naos-night); }
   .sala-nav a:last-child { text-align: left; border-top: 1px solid var(--naos-night-rule); }
 }
 @media (prefers-reduced-motion: reduce) { .geo-f, .pin .pin-n { transition: none; } }
+
+/* ---------- la lectura de hoy (PAG-01.4 r2): primero el día, después el método ---------- */
+.hoy-h { font-size: 12px; letter-spacing: .06em; color: var(--naos-grey); margin: 0 0 6px !important; }
+.hoy { list-style: none; margin: 0 0 14px; padding: 0; }
+.hoy li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px; padding: 8px 0; border-top: 1px solid var(--naos-rule); font-size: 15px; line-height: 1.5; color: var(--naos-ink); }
+.hoy li:first-child { border-top: 2px solid var(--naos-ink); }
+.hoy-i { font-family: var(--font-cond); font-weight: 600; font-size: 15px; color: var(--lab-accent); } /* cobalto: solo número índice (G3) */
+.como-txt .como-met { font-size: 13px; color: var(--naos-sec); }
+.cn-e { font-size: 13px; line-height: 1.4; color: var(--naos-ink); padding: 4px 0 2px; border-top: 1px dashed var(--naos-rule); }
+.cn-e b { font-weight: 600; }
+.cn-e .sello { font-size: 11px; }
+.cn.centro .cn-e { color: var(--naos-plate-text); border-color: #3A414D; }
+.cn-e a { font-weight: 600; }
+
+/* ---------- cifras clave de la historia que lidera: dos acentos, el plano de tinta y el color de la dirección ---------- */
+.clave { display: flex; flex-wrap: wrap; gap: 12px; margin: 14px 0 4px; max-width: 920px; }
+.clave-o { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; align-items: center; background: var(--naos-plate); color: var(--naos-plate-text); padding: 12px 18px; text-decoration: none; min-width: 0; flex: 1 1 340px; }
+.clave-n { grid-row: span 2; font-family: var(--font-sans); font-weight: 500; font-size: 48px; line-height: 1; letter-spacing: -.03em; }
+.clave-n small { font-size: 24px; margin-left: 2px; }
+.clave-t { font-family: var(--font-serif); font-size: 18px; line-height: 1.25; }
+.clave-s { font-size: 11px; color: #9AA3B0; }
+.clave-o:hover .clave-t, .clave-o:focus-visible .clave-t { text-decoration: underline; text-underline-offset: 3px; }
+.clave-m { display: grid; grid-template-columns: auto auto; column-gap: 12px; align-items: baseline; align-content: center; border: 2px solid var(--naos-ink); padding: 10px 18px; flex: 0 1 auto; }
+.clave-m .cond { grid-column: 1 / -1; font-size: 12px; letter-spacing: .05em; color: var(--naos-sec); }
+.clave-v { font-family: var(--font-sans); font-weight: 500; font-size: 34px; letter-spacing: -.02em; line-height: 1.1; }
+.clave-c { font-family: var(--font-sans); font-weight: 600; font-size: 22px; }
+.clave-m .sello { grid-column: 1 / -1; font-size: 11px; }
+
+/* ---------- la cifra de cada historia en el mapa: dentro de su bloque, nunca como tabla ---------- */
+.geo-o { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 10px; align-items: baseline; flex-basis: 100%; border-left: 2px solid var(--naos-night-text); padding: 2px 0 2px 10px; margin-top: 2px; }
+.geo-o b { grid-row: span 2; font-family: var(--font-sans); font-weight: 500; font-size: 26px; letter-spacing: -.02em; line-height: 1; }
+.geo-o > span:not(.sello) { font-size: 13px; color: var(--naos-night-text); line-height: 1.3; }
+.geo-o .sello { font-size: 11px; }
+@media (max-width: 640px) { .clave-n { font-size: 40px; } .clave-v { font-size: 28px; } .clave-o { flex-basis: 100%; } .hoy li { font-size: 14px; } }

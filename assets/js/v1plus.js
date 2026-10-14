@@ -227,7 +227,13 @@
   /* ---------- portada: titulares en texto (PAG-01.2) ----------
      Cada historia: qué pasó (titular textual con fuente y hora), qué se movió y cuánto, una cosa conectada y el mercado de
      predicción como enlace. Las frases las arma construir-datos.mjs con plantillas sobre datos reales. */
-  const oddsHtml = (o) => (o ? `<a href="${N.esc(o.url)}" rel="noopener">${N.esc(o.texto)}</a>` : "");
+  const oddsHtml = (o) => N.oddsHTML(o);
+  // cifras clave de la historia que lidera (D-221): sus odds en el plano de tinta y su movimiento en el color de la dirección
+  const clave = (p) => { const sl = salaDe(p.url), a = sl?.activos.map((id) => A[id]).find((x) => x && x.fresco && x.cambio != null);
+    if (!p.odds && !a) return "";
+    return `<div class="clave">` + (p.odds ? `<a class="clave-o" href="${sl ? "#sala/" + N.esc(sl.id) : N.esc(p.odds.url)}"${sl ? ` data-sala="${N.esc(sl.id)}"` : ' rel="noopener"'}><span class="clave-n num">${N.esc(p.odds.p)}<small>%</small></span>` +
+      `<span class="clave-t">${N.esc(N.oddsTxt(p.odds))}</span><span class="clave-s">${N.esc(N.oddsFuente(p.odds))} · not a NAOS forecast</span></a>` : "") +
+      (a ? `<div class="clave-m"><span class="cond">${N.esc(nombreCorto[a.id] || a.nombre)}</span><span class="clave-v num">${val(a)}</span><span class="clave-c ${N.dir(a.cambio)}">${N.tri(a.cambio)} ${N.cambioTxt(a)}</span><span class="sello">${N.esc(a.fuente)} · ${fechaSello(a)}${a.cambio_base ? " · " + N.esc(a.cambio_base) : ""}</span></div>` : "") + `</div>`; };
   const tits = (d.portada || []).filter((p) => !p.viejo);
   const horaTit = (p) => (p.tipo === "agenda" ? `${N.esc(p.fuente)}` : `${N.esc(p.fuente)} · ${horaCorta(p.hora)} UTC`) +
     (salaDe(p.url) && p.url ? ` · <a class="tit-src" href="${N.esc(p.url)}" rel="noopener">Read at source</a>` : "");
@@ -236,7 +242,7 @@
     `<h2 class="tit-t">${salaDe(p.url) ? salaA(salaDe(p.url), N.esc(p.titulo)) : p.url ? `<a href="${N.esc(p.url)}" rel="noopener">${N.esc(p.titulo)}</a>` : N.esc(p.titulo)}</h2>` +
     (p.mercado ? `<p class="tit-l"><span class="tit-k">${N.esc(p.mercado_etiqueta || "Moved")}</span>${N.esc(p.mercado)}</p>` : "") +
     (p.conectado ? `<p class="tit-l"><span class="tit-k">Connected</span>${N.esc(p.conectado)}</p>` : "") +
-    (p.odds ? `<p class="tit-l"><span class="tit-k">Odds</span>${oddsHtml(p.odds)}</p>` : "") + `</li>`).join("");
+    (i === 0 ? clave(p) : p.odds ? `<p class="tit-l"><span class="tit-k">Odds</span>${oddsHtml(p.odds)}</p>` : "") + `</li>`).join("");
   if (tits.some((p) => p.odds) && d.odds_sello) $("#tits-pie").textContent = `Descriptive. ${d.odds_sello}`;
   if (!tits.length) { $("#tits").hidden = true; $("#tits-pie").hidden = true; }
 
@@ -378,7 +384,7 @@
   /* ---------- cintas que dividen las secciones (PAG-01.5, D-221): cada una titula lo que viene abajo ---------- */
   const cintaNoticias = (d.salas || []).filter((s) => s.lugar).map((s) => { const a = s.activos.map((id) => A[id]).find((x) => x && x.fresco);
     return a ? { s: s.lugar.nombre, v: `${nombreCorto[a.id] || a.nombre} ${val(a)}`, c: a.cambio == null ? null : a }
-      : { s: s.lugar.nombre, t: (AREA_C[s.area] || s.area) + (s.tv ? ` · ${s.tv.simbolo.split(":")[1]} chart in its room` : "") }; });
+      : { s: s.lugar.nombre, t: s.odds ? N.oddsDentro(s.odds) : (AREA_C[s.area] || s.area) + (s.tv ? ` · ${s.tv.simbolo.split(":")[1]} chart in its room` : "") }; });
   if (cintaNoticias.length) { cintaNoticias.push({ s: "Wire", t: `${wire.length} headlines, verbatim` }); $("#cinta-noticias").hidden = false;
     N.cinta($("#cinta-noticias"), cintaNoticias, { rotulo: "News", aria: "News tape: the places and assets of the stories below", retraso: .1 }); }
   // AI: los mismos símbolos del rastreador de abajo, con cuántos titulares de hoy los nombran (sin precios: esos van en TradingView)
@@ -393,7 +399,7 @@
     if (r.rasgos?.length) { $("#cinta-conducta").hidden = false; N.cinta($("#cinta-conducta"), r.rasgos.map((x) => ({ s: x.rasgo, t: x.linea })), { rotulo: "Behavior", vel: 60, retraso: .1, aria: "Behavior tape: traits from the NAOS videos" }); }
   } catch (e) { /* sin rasgos, sin cinta */ }
 
-  N.comoLeemos($("#como"), d);
+  N.comoLeemos($("#como"), d, { A, val, nombreCorto });
   N.mapaHistorias($("#mapa-historias"), d, { A, val, nombreCorto }).catch((e) => { console.error(e); $("#mapa-historias").hidden = true; });
 
   N.revelar(document);

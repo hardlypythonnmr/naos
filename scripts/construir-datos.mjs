@@ -489,7 +489,7 @@ async function leerPM(h0) {
     // solo la plantilla "linea" (una cifra); la parte "On the tape" la arma la página con los activos propios
     const linea = r.linea.split(" · On the tape")[0].replace("{p}", Math.round(p * 100)).replace("{resultado}", resultado).replace("{fuente}", "Polymarket").replace("{hora}", hora);
     if (/\b(bet|bets|betting|wager|gamble|odds boost|buy yes|buy no)\b/i.test(linea)) return { ...base, omitir: "forbidden wording" };
-    return { ...base, mercado: m.slug, grupo, p: Math.round(p * 100), leido_utc: leido, linea, tickers: tickersDe(h, grupo).map((t) => t.simbolo), omitir: null };
+    return { ...base, mercado: m.slug, grupo, p: Math.round(p * 100), leido_utc: leido, linea, resultado, tickers: tickersDe(h, grupo).map((t) => t.simbolo), omitir: null };
   };
   const x = await leer(h0);
   // edad_max_horas: una lectura más vieja que eso no se publica (aquí se lee en cada corrida)
@@ -635,7 +635,7 @@ for (const p of portada) {
   p.odds_estado = x.omitir || "shown";
   if (x.omitir || mercadosUsados.has(x.mercado)) { if (!x.omitir) p.odds_estado = "market already on a higher story"; continue; }
   mercadosUsados.add(x.mercado);
-  p.odds = { texto: x.linea, url: x.url, p: x.p, leido_utc: x.leido_utc, historia: sl.id };
+  p.odds = { texto: x.linea, resultado: x.resultado, url: x.url, p: x.p, leido_utc: x.leido_utc, historia: sl.id };
 }
 // wire: el enlace al mercado (sin cifra) solo si su mercado pasa las reglas (resuelto, delgado o caído: sin enlace)
 for (const t of wireFinal || []) { const sl = t.odds && historiaDe(t.titulo); if (!sl) continue; const x = await leerPM(sl); if (x.omitir) delete t.odds; else t.odds = { nombre: sl.titulo, url: x.url }; }
@@ -699,7 +699,7 @@ for (const { t, p, sl } of candidatas.slice(0, 8)) {
   const otros = tks.filter((x) => !x.radar || !activos.some((a) => a.id === x.radar && !a.viejo)).map((x) => ({ simbolo: x.simbolo, nombre: x.nombre }));
   // la única cifra de predicción: la de la portada, o la del mapa si su mercado no salió ya en otra historia
   let odds = p?.odds || null;
-  if (!p && sl?.fuente === "polymarket") { const x = await leerPM(sl); if (!x.omitir && !mercadosUsados.has(x.mercado)) { mercadosUsados.add(x.mercado); odds = { texto: x.linea, url: x.url, p: x.p, leido_utc: x.leido_utc, historia: sl.id }; } }
+  if (!p && sl?.fuente === "polymarket") { const x = await leerPM(sl); if (!x.omitir && !mercadosUsados.has(x.mercado)) { mercadosUsados.add(x.mercado); odds = { texto: x.linea, resultado: x.resultado, url: x.url, p: x.p, leido_utc: x.leido_utc, historia: sl.id }; } }
   // línea de tiempo: titulares vivos ligados a la misma historia del mapa o al mismo lugar, con su fuente y hora
   const rel = [...(wireFinal || []), ...titularesF, ...(historias || [])].filter((x) => !x.viejo && x.url !== t.url && !RE_OKX.test(x.titulo || ""))
     .filter((x, i, xs) => xs.findIndex((y) => y.url === x.url) === i)
@@ -720,7 +720,26 @@ for (const { t, p, sl } of candidatas.slice(0, 8)) {
     mercado: p?.mercado || null });
 }
 // para el gráfico "cómo leemos" (PAG-01.4): cuentas reales de la corrida
-const lectura = { titulares: temas.total || 0, wire: (wireFinal || []).filter((t) => !t.viejo).length, frescas: activos.filter((a) => a.fresco && !a.viejo).length,
+/* la lectura de hoy (PAG-01.4 r2, D-221): 2 a 4 líneas en llano armadas solo con lo de esta corrida; sin dato, menos líneas.
+   Qué historia lidera, qué se movió, qué dicen las odds (una cifra por historia) y cómo se ligó, con el ejemplo de hoy. */
+const oddsFrase = (o) => (/^that /.test(o.resultado || "") ? "odds " : "odds of ") + (o.resultado || "the outcome");
+const conEl = (n) => (/^(Netherlands|United Kingdom|Strait|Black Sea|Red Sea|Suez)/.test(n) ? "the " : "") + n;
+const quien = (s) => s.ligado?.historia?.replace(/, (.*)$/, " ($1)") || (s.lugar ? `${s.area === "AI" ? "AI news" : s.area + " news"} from ${conEl(s.lugar.nombre)}` : `${s.area} news`);
+const hoyL = [];
+if (salas.length) {
+  const [l0, ...resto] = salas;
+  hoyL.push({ k: "lidera", t: `The lead story: ${l0.fuente} reports “${l0.titulo}”.` + (resto.length ? ` Also on the page: ${resto.slice(0, 4).map(quien).join(", ").replace(/, ([^,]*)$/, " and $1")}.` : "") });
+}
+const movidos = [...new Set(salas.flatMap((s) => s.activos))].map((id) => activos.find((a) => a.id === id)).filter((a) => a && a.fresco && !a.viejo && (a.cambio != null || a.cambio_bp != null))
+  .sort((a, b) => Math.abs(b.cambio_bp != null ? b.cambio_bp / 10 : b.cambio) - Math.abs(a.cambio_bp != null ? a.cambio_bp / 10 : a.cambio)).slice(0, 2);
+if (movidos.length) hoyL.push({ k: "movio", t: "What moved: " + movidos.map((a) => sinPunto(frase(a))).join(". ") + "." });
+const conOdds = salas.filter((s) => s.odds).slice(0, 2);
+if (conOdds.length) { const hh = conOdds[0].odds.leido_utc.slice(11, 16);
+  hoyL.push({ k: "odds", t: `What the markets say: ${conOdds.map((s) => `${oddsFrase(s.odds)} are ${s.odds.p}%`).join("; ").replace(/^./, (c) => c.toUpperCase())} (Polymarket, ${hh} UTC). Prices set by traders, not NAOS forecasts.` }); }
+const ej = salas.find((s) => s.odds && s.ligado?.historia && s.activos.some((id) => activos.find((a) => a.id === id && a.fresco))) || salas.find((s) => s.odds && s.ligado?.historia) || null;
+if (ej) { const a = ej.activos.map((id) => activos.find((x) => x.id === id && x.fresco)).find(Boolean);
+  hoyL.push({ k: "liga", t: `How it ties: the ${ej.fuente} headline uses ${ej.ligado.palabras.map((w) => `“${w}”`).join(" and ")}, ${ej.ligado.palabras.length > 1 ? "words" : "a word"} NAOS files under “${ej.ligado.historia}”, so its room holds ${a ? (CORTO[a.id] || a.nombre) + "'s move, " : ""}that market's ${oddsFrase(ej.odds)}${ej.lugar ? " and a map of " + conEl(ej.lugar.nombre) : ""}.` }); }
+const lectura = { hoy: hoyL, ejemplo: ej?.id || null, titulares: temas.total || 0, wire: (wireFinal || []).filter((t) => !t.viejo).length, frescas: activos.filter((a) => a.fresco && !a.viejo).length,
   mercados_leidos: lecturasPM.size, mercados_mostrados: salas.filter((s) => s.odds).length, salas: salas.length };
 
 // una línea de texto por gráfico de TradingView: qué se movió y por qué, del titular que le corresponde; sin titular, nada

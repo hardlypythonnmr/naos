@@ -32,6 +32,15 @@
   const partesOdds = (o) => { const m = /:\s*(\d+)%\s*(.*?)\s*\((Polymarket),\s*([^)]+)\)/.exec(o.texto || "");
     return m ? { p: m[1], resultado: m[2], fuente: m[3], hora: m[4] } : { p: o.p, resultado: "", fuente: "Polymarket", hora: horaTxt(o.leido_utc) }; };
 
+  /* ---------- odds: "Market odds of <resultado>: 14%" a la vista; "The market's odds of <resultado> are inside" cuando la cifra está en la sala.
+     Polymarket se nombra como fuente, en letra chica, con la hora. Una cifra por historia. */
+  const resultadoDe = (o) => o.resultado || partesOdds(o).resultado || "this outcome";
+  const deQue = (o) => (/^that /.test(resultadoDe(o)) ? "" : "of ") + resultadoDe(o);
+  N.oddsTxt = (o) => `Market odds ${deQue(o)}`;
+  N.oddsDentro = (o) => `The market's odds ${deQue(o)} are inside`;
+  N.oddsFuente = (o) => `Polymarket, ${horaTxt(o.leido_utc)}`;
+  N.oddsHTML = (o) => !o ? "" : `<a href="${esc(o.url)}" rel="noopener">${esc(N.oddsTxt(o))}: <b class="num">${esc(o.p)}%</b></a> <span class="sello">${esc(N.oddsFuente(o))}</span>`;
+
   /* ---------- conectores: líneas entre elementos (mapa de historias y gráfico "cómo leemos") ---------- */
   function conectar(svg, caja, pares) {
     const r0 = caja.getBoundingClientRect();
@@ -63,19 +72,26 @@
       onComplete: () => gsap.set(p, { clearProps: "strokeDasharray,strokeDashoffset" }) }); }); };
 
   /* ================= cómo leemos el día (PAG-01.4) ================= */
-  N.comoLeemos = (el, d) => {
+  N.comoLeemos = (el, d, ctx) => {
     const L = d.lectura; if (!el || !L) { if (el) el.hidden = true; return; }
+    const hoy = (L.hoy || []).filter((x) => x && x.t);
+    const ol = $("#hoy", el);
+    if (hoy.length) { ol.innerHTML = hoy.map((x, i) => `<li data-k="${esc(x.k)}"><span class="hoy-i num">${String(i + 1).padStart(2, "0")}</span><span>${esc(x.t)}</span></li>`).join("");
+      $("#hoy-h", el).textContent = `Today's read · ${horaTxt(d.generado)}`; }
+    else { ol.hidden = true; $("#hoy-h", el).hidden = true; }
     const pl = (n, s, p = s + "s") => `${N.fmt(n)} ${n === 1 ? s : p}`;
-    const nodo = (k, t, sub, extra = "") => `<div class="cn ${extra}" data-n="${k}"><span class="cn-t cond">${t}</span><span class="cn-s">${sub}</span></div>`;
+    const ej = (d.salas || []).find((s) => s.id === L.ejemplo) || null, A = ctx?.A || {};
+    const a = ej && ej.activos.map((id) => A[id]).find((x) => x && x.fresco);
+    const nodo = (k, t, ejemplo, cuenta, extra = "") => `<div class="cn ${extra}" data-n="${k}"><span class="cn-t cond">${t}</span>${ejemplo ? `<span class="cn-e">${ejemplo}</span>` : ""}<span class="cn-s">${cuenta}</span></div>`;
     const g = $(".como-g", el);
     g.innerHTML = `<svg class="como-l" aria-hidden="true"></svg>` +
       `<div class="cn-col">` +
-      nodo("noticias", "News", `${pl(L.wire, "headline")} on the wire, ${pl(L.titulares, "headline")} scanned`) +
-      nodo("datos", "US data and prices", `${pl(L.frescas, "fresh reading")}: Treasury yields, the BLS release calendar, the dollar, crypto and metals`) +
-      nodo("mercados", "Prediction markets", `${pl(L.mercados_leidos, "Polymarket market")} checked against the rules, ${pl(L.mercados_mostrados, "price")} shown`) +
-      `</div><div class="cn-col">` + nodo("mapa", "NAOS story map", "words in a headline tie it to a place, the assets that usually react and one market", "centro") +
-      `</div><div class="cn-col">` + nodo("sala", "Monitor room", `${pl(L.salas, "story", "stories")} open today: map, assets, one price, timeline, sources`, "fin") + `</div>`;
-    g.setAttribute("aria-label", `How NAOS ties its inputs: news (${L.wire} wire headlines), US public data (${L.frescas} fresh readings) and prediction markets (${L.mercados_leidos} checked, ${L.mercados_mostrados} shown) feed the NAOS story map, which opens a monitor room for each of ${L.salas} stories.`);
+      nodo("noticias", "News", ej ? `${esc(ej.fuente)}, ${esc(horaTxt(ej.hora))}: “${esc(ej.titulo)}”` : "", `${pl(L.wire, "headline")} on the wire, ${pl(L.titulares, "headline")} scanned`) +
+      nodo("datos", "US data and prices", a ? `${esc(ctx.nombreCorto[a.id] || a.nombre)} ${esc(ctx.val(a))}${a.cambio != null ? " " + N.cambioHTML(a) : ""} <span class="sello">${esc(a.fuente)}</span>` : "", `${pl(L.frescas, "fresh reading")}: Treasury yields, the BLS calendar, the dollar, crypto, metals`) +
+      nodo("mercados", "Prediction markets", ej?.odds ? `${esc(N.oddsTxt(ej.odds))}: <b class="num">${esc(ej.odds.p)}%</b> <span class="sello">${esc(N.oddsFuente(ej.odds))}</span>` : "", `${pl(L.mercados_leidos, "market")} checked against the rules, odds shown for ${pl(L.mercados_mostrados, "story", "stories")}`) +
+      `</div><div class="cn-col">` + nodo("mapa", "NAOS story map", ej?.ligado?.historia ? `${ej.ligado.palabras.map((w) => `“${esc(w)}”`).join(" and ")} → ${esc(ej.ligado.historia)}` : "", "words in a headline tie it to a place, the assets that usually react and one market", "centro") +
+      `</div><div class="cn-col">` + nodo("sala", "Monitor room", ej ? `<a href="#sala/${esc(ej.id)}" data-sala="${esc(ej.id)}">Open today's example</a>` : "", `${pl(L.salas, "story", "stories")} with a room today`, "fin") + `</div>`;
+    g.setAttribute("aria-label", `How NAOS ties its inputs${ej ? ", with today's example" : ""}: news, US data and prices, and prediction markets feed the NAOS story map, which opens a monitor room for each of ${L.salas} stories.`);
     const svg = $(".como-l", g), n = (k) => $(`[data-n="${k}"]`, g);
     let hecho = false;
     const dibujar = () => { const ps = conectar(svg, g, [[n("noticias"), n("mapa")], [n("datos"), n("mapa")], [n("mercados"), n("mapa")], [n("mapa"), n("sala"), "fuerte"]]);
@@ -104,9 +120,9 @@
     function piezaOdds(s) {
       if (!s.odds) return "";
       const o = partesOdds(s.odds);
-      return tile("t-odds", "Prediction market", `<p class="odds-n num">${esc(o.p)}<span>%</span></p><p class="odds-r">${esc(o.resultado)}</p>` +
-        `<p class="sello">${esc(o.fuente)} · read ${esc(o.hora)} · <a href="${esc(s.odds.url)}" rel="noopener">Open the market</a></p>` +
-        `<p class="sello odds-s">${esc(d.odds_sello || "Market odds are prices set by traders, not NAOS forecasts. Not financial advice.")} One price per story; no odds history is kept.</p>`, "one price, with its time");
+      return tile("t-odds", "Market odds", `<p class="odds-n num">${esc(o.p)}<span>%</span></p><p class="odds-r">${esc(N.oddsTxt(s.odds))}</p>` +
+        `<p class="sello">Source: ${esc(o.fuente)} · read ${esc(o.hora)} · <a href="${esc(s.odds.url)}" rel="noopener">Open the market</a></p>` +
+        `<p class="sello odds-s">${esc(d.odds_sello || "Market odds are prices set by traders, not NAOS forecasts. Not financial advice.")} No odds history is kept.</p>`, "one number for this story");
     }
     function piezaCinta(s) {
       const fr = s.activos.map(vivoFresco).filter(Boolean), fe = s.activos.map(fechado).filter(Boolean), ot = s.otros || [];
@@ -130,7 +146,7 @@
       const ev = [{ h: s.hora, t: `${s.fuente} publishes the headline`, yo: true }];
       for (const r of s.relacionados || []) ev.push({ h: r.hora, t: r.titulo, f: r.fuente, url: r.url });
       for (const a of s.activos.map(vivoFresco).filter(Boolean)) ev.push({ h: a.fecha, t: `${ctx.nombreCorto[a.id] || a.nombre} ${ctx.val(a)}${a.cambio != null ? ", " + N.cambioTxt(a) : ""}`, f: a.fuente, lectura: true });
-      if (s.odds) ev.push({ h: s.odds.leido_utc, t: "Polymarket price read for this story", f: "Polymarket", url: s.odds.url, lectura: true });
+      if (s.odds) ev.push({ h: s.odds.leido_utc, t: "Market odds read for this story", f: "Polymarket", url: s.odds.url, lectura: true });
       const prox = d.calendario?.proximo;
       if (prox && s.lugar?.id === "washington") ev.push({ h: prox.hora, t: `Next: US ${prox.evento.replace(/ [my]\/[my]$/, "")}`, f: prox.publicador, url: prox.url, futuro: true });
       const t = (x) => Date.parse(x.h.length === 10 ? x.h + "T12:00:00Z" : x.h);
@@ -143,8 +159,8 @@
     function piezaLigado(s) {
       const L = s.ligado || {}, q = (w) => `“${esc(w)}”`, partes = [];
       if (L.historia) partes.push(`The headline uses ${L.palabras.map(q).join(" and ")}, words NAOS files under “${esc(L.historia)}”. That entry lists the assets in this room` +
-        (s.odds ? " and its prediction market." : ". Its prediction market did not pass the NAOS rules this run, so no price shows here."));
-      else partes.push("No entry on the NAOS story map matched this headline, so this room has no prediction market.");
+        (s.odds ? " and its market odds." : ". Its market did not pass the NAOS rules this run, so no odds show here."));
+      else partes.push("No entry on the NAOS story map matched this headline, so this room has no market odds.");
       if (s.lugar) partes.push(L.lugar_palabra ? `${q(L.lugar_palabra)} in the headline places it in ${esc(s.lugar.nombre)}.` : `The story map entry places it in ${esc(s.lugar.nombre)}.`);
       return tile("t-liga", "How NAOS tied this", partes.map((p) => `<p>${p}</p>`).join("") + `<p class="sello">Descriptive, not advice. A tie is a match of words; it does not say one thing caused another.</p>`);
     }
@@ -292,7 +308,7 @@
       return `<li><a class="geo-f" href="#sala/${esc(s.id)}" data-sala="${esc(s.id)}" data-lugar="${esc(l.id)}">` +
         `<span class="geo-k"><span class="cond">${esc(l.nombre)}</span><span class="cond geo-ar">${esc(AREA[s.area] || s.area)}</span></span>` +
         `<span class="geo-t">${esc(s.titulo)}</span>` +
-        `<span class="geo-l">${fr.map(chip).join("")}${s.odds ? `<span class="chip-o"><span class="cond">Odds</span> one Polymarket price inside</span>` : ""}${!fr.length && !s.odds ? `<span class="sello">${esc(s.fuente)} · ${esc(horaTxt(s.hora))}</span>` : ""}</span>` +
+        `<span class="geo-l">${fr.map(chip).join("")}${s.odds ? `<span class="geo-o"><b class="num">${esc(s.odds.p)}%</b><span>${esc(N.oddsTxt(s.odds))}</span><span class="sello">${esc(N.oddsFuente(s.odds))}</span></span>` : ""}${!fr.length && !s.odds ? `<span class="sello">${esc(s.fuente)} · ${esc(horaTxt(s.hora))}</span>` : ""}</span>` +
         `<span class="geo-ir cond">Open the room</span></a></li>`; }).join("")).join("");
     // encuadre: todos los lugares encendidos con margen, en la proporción que acompaña a la lista (en teléfono, casi cuadrado)
     const R = caja.clientWidth > 600 ? clamp(caja.clientWidth / Math.max(1, lista.offsetHeight * .8), 1.3, 2.1) : 1.25;
