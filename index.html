@@ -14,11 +14,14 @@
 <link rel="stylesheet" href="assets/comun/base.css">
 <link rel="stylesheet" href="assets/css/v1plus.css">
 <link rel="stylesheet" href="assets/css/sala.css">
+<link rel="stylesheet" href="assets/css/agenda.css">
 <script defer src="assets/vendor/gsap/gsap.min.js"></script>
 <script defer src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
 <script defer src="assets/comun/naos.js"></script>
 <script defer src="assets/js/sala.js"></script>
 <script defer src="assets/js/v1plus.js"></script>
+<script defer src="assets/js/agenda-comun.js"></script>
+<script defer src="assets/js/proximos.js"></script>
 <noscript><style>[data-espera]{visibility:visible!important}</style></noscript>
 </head>
 <body>
@@ -27,7 +30,7 @@
 <header class="barra">
   <div class="marca"><span class="naos">NAOS</span><span class="cond lema">Yourself, sharper.</span></div>
   <nav class="indice" aria-label="Sections">
-    <a href="#titulares">Headlines</a><a href="#mercados">Market</a><a href="#noticias">News</a><a href="#ia">AI</a><a href="#conducta">Behavior</a><a href="#semana">This week</a><a href="#assets">Assets</a>
+    <a href="#titulares">Headlines</a><a href="#mercados">Market</a><a href="#noticias">News</a><a href="#ia">AI</a><a href="#conducta">Behavior</a><a href="#semana">This week</a><a href="agenda.html">Upcoming</a><a href="#assets">Assets</a>
   </nav>
   <p class="sello estado">Data as of <span class="gen">14 Oct 2026 · 11:20 UTC</span> · Not financial advice</p>
 </header>
@@ -54,6 +57,8 @@
       <article class="b b-graf noche" id="b-graf" hidden></article>
       <article class="b b-hoy" id="b-hoy" hidden></article>
       <a class="b b-mapa noche" id="b-mapa" href="#mapa-historias" hidden></a>
+      <!-- UPCOMING (D-226): los próximos cinco de data/agenda.json, cada uno con su .ics; la vista completa en agenda.html -->
+      <section class="b b-prox" id="b-prox" aria-labelledby="b-prox-t" hidden></section>
       <div class="b b-cinta" id="b-cinta" hidden></div>
     </div>
     <ol class="tits" id="tits"></ol>
@@ -291,7 +296,7 @@
       <p><b>Descriptive, not financial advice.</b> Data as of <span class="gen">14 Oct 2026 · 11:20 UTC</span>. Every reading carries its source and time. Readings older than their source's rhythm, and sample placeholders, are kept off the page until real data arrives.</p>
       <p>Yields: <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" rel="noopener">Source: U.S. Treasury</a>. Currencies: <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" rel="noopener">Source: ECB</a> reference rates; the NAOS dollar index is computed from them and is not ICE's DXY. <a href="https://www.coingecko.com" rel="noopener">Data provided by CoinGecko</a>. Metals: <a href="https://gold-api.com" rel="noopener">gold-api.com</a>. Energy: <a href="https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm" rel="noopener">Source: U.S. Energy Information Administration</a>. <a href="https://alternative.me/crypto/fear-and-greed-index/" rel="noopener">Crypto Fear &amp; Greed Index by alternative.me</a>. Red US events, forecasts and previous values: <a href="https://www.forexfactory.com/calendar" rel="noopener">Forex Factory</a> weekly calendar, each release linked to its official publisher.</p>
       <p>Widgets by <a href="https://www.tradingview.com" rel="noopener">TradingView</a>, embedded as provided. Prediction markets link to <a href="https://polymarket.com" rel="noopener">Polymarket</a> and <a href="https://kalshi.com" rel="noopener">Kalshi</a>. Headlines from the Federal Reserve, the SEC, BBC News, CoinDesk, MarketWatch and <a href="https://news.ycombinator.com" rel="noopener">Hacker News</a>, each linked to its source. Map: <a href="https://www.naturalearthdata.com" rel="noopener">Natural Earth</a> via world-atlas.</p>
-      <p><a href="privacidad.html">Privacy</a> · <a href="terminos.html">Terms</a> · <a href="archivo/index-anterior.html">About the NAOS YouTube app</a></p>
+      <p><a href="agenda.html">Upcoming: the year ahead, with calendar files</a> · <a href="privacidad.html">Privacy</a> · <a href="terminos.html">Terms</a> · <a href="archivo/index-anterior.html">About the NAOS YouTube app</a></p>
     </div>
   </div>
 </footer>

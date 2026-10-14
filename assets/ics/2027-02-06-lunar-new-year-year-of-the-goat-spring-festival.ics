@@ -1,0 +1,42 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Lunar New Year (Year of the Goat)\; Spring Festival Go
+ lden Week
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-02-06-lunar-new-year-year-of-the-goat-spring-festival@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270212
+SUMMARY:Lunar New Year (Year of the Goat)\; Spring Festival Golden Week (ex
+ pected date)
+DESCRIPTION:The world's largest travel migration\; China and Hong Kong mark
+ ets close\; consumption and oil-demand reads.\n\nTime not set by the sourc
+ e\; listed as an all-day event.\n\nExpected date: provisional until the of
+ ficial announcement (moon sighting or official calendar).\n\nNote: New Yea
+ r's Day 6 Feb is fixed by the lunar calendar. The State Council has not ye
+ t published the 2027 holiday schedule (usually in November)\; the holiday 
+ span is expected around 5 to 11 Feb.\n\nSource: Office Holidays\, China 20
+ 27. https://www.officeholidays.com/countries/china/2027\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-02-06-lunar-new-ye
+ ar-year-of-the-goat-spring-festival\n\nDescriptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/china/2027
+CATEGORIES:Religious and cultural
+LOCATION:China and East Asia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Lunar New Year (Year of the Goat)\; Spring Festival Golden Week
+  (expected date)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

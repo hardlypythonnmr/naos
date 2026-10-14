@@ -302,7 +302,7 @@ dialog.sala::backdrop { background: var(--naos-night); }
 .b.b-cinta { flex-direction: row; gap: 0; height: 52px; padding: 0; }
 
 /* ---------- esta semana (PAG-08.1, D-224): color por sección, ícono por formato ---------- */
-.semana { --sec-market: var(--naos-ink); --sec-news: var(--naos-grey); --sec-ai: var(--acento); --sec-behavior: #6A4FB3; } /* violeta de Behavior: solo filete e ícono de su fila, 6,2:1 sobre blanco */
+.semana, .ag, .b-prox { --sec-market: var(--naos-ink); --sec-news: var(--naos-grey); --sec-ai: var(--acento); --sec-behavior: #6A4FB3; } /* violeta de Behavior: solo filete e ícono de su fila, 6,2:1 sobre blanco */
 .sec-market { --sc: var(--sec-market); } .sec-news { --sc: var(--sec-news); } .sec-ai { --sc: var(--sec-ai); } .sec-behavior { --sc: var(--sec-behavior); }
 .sem-ley { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin: 0 0 12px; }
 .sem-ley-s { display: inline-flex; flex-wrap: wrap; gap: 6px 12px; margin-left: auto; }

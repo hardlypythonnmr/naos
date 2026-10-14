@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · NYSE and Nasdaq closed: Juneteenth (observed)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-06-18-nyse-and-nasdaq-closed-juneteenth-observed@naos.hardlypython
+ nmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:NYSE and Nasdaq closed: Juneteenth (observed)
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -06-18-nyse-and-nasdaq-closed-juneteenth-observed\n\nDescriptive\, not fin
+ ancial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Juneteenth (observed)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

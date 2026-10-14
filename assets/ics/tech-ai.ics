@@ -1,0 +1,242 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Tech and AI
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-21-meta-q3-2026-results-and-call-results-after-the@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261021T203000Z
+SUMMARY:Meta Q3 2026 results and call (results after the close)
+DESCRIPTION:AI capex guidance from a top spender moves megacap tech and AI 
+ suppliers.\n\nTime: 20:30 UTC\, 16:30 America/New_York.\n\nSource: Meta vi
+ a PR Newswire (on Finviz)\, 12 Oct 2026. https://finviz.com/news/401445/me
+ ta-to-announce-third-quarter-2026-results\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2026-10-21-meta-q3-2026-results-and-c
+ all-results-after-the\n\nDescriptive\, not financial advice.
+URL:https://finviz.com/news/401445/meta-to-announce-third-quarter-2026-resu
+ lts
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Meta Q3 2026 results and call (results after the close)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-28-microsoft-fy27-q1-results@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:Microsoft FY27 Q1 results
+DESCRIPTION:Azure and AI capex numbers move megacap tech.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: Microsoft Investor R
+ elations. https://www.microsoft.com/en-us/investor/default\n\nNAOS Upcomin
+ g: https://hardlypythonnmr.github.io/naos/agenda.html#2026-10-28-microsoft
+ -fy27-q1-results\n\nDescriptive\, not financial advice.
+URL:https://www.microsoft.com/en-us/investor/default
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Microsoft FY27 Q1 results
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-28-github-universe-san-francisco-28-to-29-oct@naos.hardlypython
+ nmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261030
+SUMMARY:GitHub Universe (San Francisco\, 28 to 29 Oct)
+DESCRIPTION:Developer and AI coding tool announcements.\n\nTime not set by 
+ the source\; listed as an all-day event.\n\nSource: GitHub Universe. https
+ ://githubuniverse.com/\n\nNAOS Upcoming: https://hardlypythonnmr.github.io
+ /naos/agenda.html#2026-10-28-github-universe-san-francisco-28-to-29-oct\n\
+ nDescriptive\, not financial advice.
+URL:https://githubuniverse.com/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:GitHub Universe (San Francisco\, 28 to 29 Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-09-web-summit-lisbon-9-to-12-nov@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261113
+SUMMARY:Web Summit (Lisbon\, 9 to 12 Nov)
+DESCRIPTION:Tech and AI product and funding announcements.\n\nTime not set 
+ by the source\; listed as an all-day event.\n\nSource: Web Summit. https:/
+ /websummit.com/\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/a
+ genda.html#2026-11-09-web-summit-lisbon-9-to-12-nov\n\nDescriptive\, not f
+ inancial advice.
+URL:https://websummit.com/
+CATEGORIES:Tech and AI
+LOCATION:Portugal
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Web Summit (Lisbon\, 9 to 12 Nov)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-17-microsoft-ignite-san-francisco-17-to-20-nov@naos.hardlypytho
+ nnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261117
+DTEND;VALUE=DATE:20261121
+SUMMARY:Microsoft Ignite (San Francisco\, 17 to 20 Nov)
+DESCRIPTION:Microsoft's AI and Copilot announcements\; read for MSFT and th
+ e AI trade.\n\nTime not set by the source\; listed as an all-day event.\n\
+ nSource: Moscone Center\, Microsoft Ignite 2026 listing. https://moscone.c
+ om/events/microsoft-ignite-2026\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2026-11-17-microsoft-ignite-san-francisco-17-to
+ -20-nov\n\nDescriptive\, not financial advice.
+URL:https://moscone.com/events/microsoft-ignite-2026
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Microsoft Ignite (San Francisco\, 17 to 20 Nov)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-30-aws-re-invent-las-vegas-30-nov-to-4-dec@naos.hardlypythonnmr
+ .github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261205
+SUMMARY:AWS re:Invent (Las Vegas\, 30 Nov to 4 Dec)
+DESCRIPTION:Amazon's cloud and AI launches\; AMZN and AI infrastructure nam
+ es.\n\nTime not set by the source\; listed as an all-day event.\n\nSource:
+  AWS re:Invent official site. https://reinvent.awsevents.com/\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-30-aws-re
+ -invent-las-vegas-30-nov-to-4-dec\n\nDescriptive\, not financial advice.
+URL:https://reinvent.awsevents.com/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AWS re:Invent (Las Vegas\, 30 Nov to 4 Dec)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-30-nvidia-gtc-washington-d-c-30-nov-to-3-dec@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261204
+SUMMARY:Nvidia GTC Washington\, D.C. (30 Nov to 3 Dec)
+DESCRIPTION:Nvidia's policy and public-sector AI pitch\; NVDA headlines.\n\
+ nTime not set by the source\; listed as an all-day event.\n\nSource: NVIDI
+ A GTC FAQ page (upcoming GTCs). https://www.nvidia.com/en-zz/gtc/faq/\n\nN
+ AOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-3
+ 0-nvidia-gtc-washington-d-c-30-nov-to-3-dec\n\nDescriptive\, not financial
+  advice.
+URL:https://www.nvidia.com/en-zz/gtc/faq/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Nvidia GTC Washington\, D.C. (30 Nov to 3 Dec)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-06-ces-2027-las-vegas-6-to-9-jan@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270110
+SUMMARY:CES 2027 (Las Vegas\, 6 to 9 Jan)
+DESCRIPTION:Consumer tech and AI device launches\; a January headline magne
+ t.\n\nTime not set by the source\; listed as an all-day event.\n\nSource: 
+ CES official site (CTA). https://www.ces.tech/\n\nNAOS Upcoming: https://h
+ ardlypythonnmr.github.io/naos/agenda.html#2027-01-06-ces-2027-las-vegas-6-
+ to-9-jan\n\nDescriptive\, not financial advice.
+URL:https://www.ces.tech/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CES 2027 (Las Vegas\, 6 to 9 Jan)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-01-mwc-barcelona-2027-1-to-4-mar@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270305
+SUMMARY:MWC Barcelona 2027 (1 to 4 Mar)
+DESCRIPTION:Telecom\, handset and AI-device launches\; telecom equipment na
+ mes.\n\nTime not set by the source\; listed as an all-day event.\n\nSource
+ : MWC Barcelona official site (GSMA). https://www.mwcbarcelona.com/\n\nNAO
+ S Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-03-01-
+ mwc-barcelona-2027-1-to-4-mar\n\nDescriptive\, not financial advice.
+URL:https://www.mwcbarcelona.com/
+CATEGORIES:Tech and AI
+LOCATION:Spain
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MWC Barcelona 2027 (1 to 4 Mar)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-15-nvidia-gtc-2027-san-jose-15-to-18-mar-keynote-we@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270319
+SUMMARY:Nvidia GTC 2027 (San Jose\, 15 to 18 Mar\; keynote week)
+DESCRIPTION:Jensen Huang's keynote sets the AI chip narrative\; NVDA and su
+ ppliers.\n\nTime not set by the source\; listed as an all-day event.\n\nNo
+ te: NVIDIA lists 14 to 18 Mar including a training day\; the conference ru
+ ns 15 to 18 Mar.\n\nSource: NVIDIA GTC 2027 FAQ. https://www.nvidia.com/en
+ -zz/gtc/faq/\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agen
+ da.html#2027-03-15-nvidia-gtc-2027-san-jose-15-to-18-mar-keynote-we\n\nDes
+ criptive\, not financial advice.
+URL:https://www.nvidia.com/en-zz/gtc/faq/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Nvidia GTC 2027 (San Jose\, 15 to 18 Mar\; keynote week)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

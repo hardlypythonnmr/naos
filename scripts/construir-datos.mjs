@@ -834,3 +834,6 @@ console.log("  miedo cripto", animo?.cripto.valor, animo?.cripto.clase, "· NAOS
 console.log("  portada", portada.length, "· gráficos con texto", Object.keys(graficos).join(", "), "· escondido", escondido.map((e) => e.id).join(", "));
 console.log("  radar", radarEstado, radarFecha, "· wire", wireFinal.length, "· moved", wireFinal.filter((t) => t.movio).length, "· HN IA", hnLab.length, "· historias", historias.length);
 if (errores.length) console.log("ERRORES:\n  " + errores.join("\n  "));
+
+// el calendario descargable (Upcoming) desde data/agenda.json; los archivos solo cambian cuando cambia la agenda
+try { (await import("./construir-ics.mjs")).construirIcs({ silencio: true }); } catch (e) { console.error("construir-ics:", e.message); }

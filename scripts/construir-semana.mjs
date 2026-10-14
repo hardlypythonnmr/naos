@@ -91,3 +91,6 @@ const salida = {
 };
 fs.writeFileSync(path.join(V, "data/semana.json"), JSON.stringify(salida, null, 1));
 console.log("semana.json", salida.semana, "·", items.length, "items ·", eventos.length, "eventos ·", ffNota || "calendario ok");
+
+// el calendario descargable (Upcoming): un .ics por evento, por categoría y uno con todo, desde la misma agenda
+try { (await import("./construir-ics.mjs")).construirIcs(); } catch (e) { console.error("construir-ics:", e.message); }

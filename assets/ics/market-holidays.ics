@@ -1,0 +1,521 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Market holidays
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-26-nyse-and-nasdaq-closed-thanksgiving@naos.hardlypythonnmr.git
+ hub.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261126
+DTEND;VALUE=DATE:20261127
+SUMMARY:NYSE and Nasdaq closed: Thanksgiving
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026
+ -11-26-nyse-and-nasdaq-closed-thanksgiving\n\nDescriptive\, not financial 
+ advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Thanksgiving
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-27-nyse-early-close-13-00-et-day-after-thanksgiving@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261127T180000Z
+SUMMARY:NYSE early close 13:00 ET (day after Thanksgiving\, Black Friday)
+DESCRIPTION:Half-day session\; retail spending reads start with Black Frida
+ y.\n\nTime: 18:00 UTC\, 13:00 America/New_York.\n\nSource: NYSE\, holidays
+  and trading hours. https://www.nyse.com/markets/hours-calendars\n\nNAOS U
+ pcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-27-nys
+ e-early-close-13-00-et-day-after-thanksgiving\n\nDescriptive\, not financi
+ al advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE early close 13:00 ET (day after Thanksgiving\, Black Frida
+ y)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-24-nyse-early-close-13-00-et-christmas-eve@naos.hardlypythonnmr
+ .github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261224T180000Z
+SUMMARY:NYSE early close 13:00 ET (Christmas Eve)
+DESCRIPTION:Half-day session before Christmas.\n\nTime: 18:00 UTC\, 13:00 A
+ merica/New_York.\n\nSource: NYSE\, holidays and trading hours. https://www
+ .nyse.com/markets/hours-calendars\n\nNAOS Upcoming: https://hardlypythonnm
+ r.github.io/naos/agenda.html#2026-12-24-nyse-early-close-13-00-et-christma
+ s-eve\n\nDescriptive\, not financial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE early close 13:00 ET (Christmas Eve)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-25-nyse-and-nasdaq-closed-christmas-day@naos.hardlypythonnmr.gi
+ thub.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:NYSE and Nasdaq closed: Christmas Day
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026
+ -12-25-nyse-and-nasdaq-closed-christmas-day\n\nDescriptive\, not financial
+  advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Christmas Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-25-london-stock-exchange-closed-christmas-day@naos.hardlypython
+ nmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:London Stock Exchange closed: Christmas Day
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2026-12-25-london-stock-exchange-closed-christm
+ as-day\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: Christmas Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-28-london-stock-exchange-closed-boxing-day-substitu@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261228
+DTEND;VALUE=DATE:20261229
+SUMMARY:London Stock Exchange closed: Boxing Day (substitute)
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2026-12-28-london-stock-exchange-closed-boxing-
+ day-substitu\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: Boxing Day (substitute)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-31-japan-exchange-group-closed-for-year-end-31-dec@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270104
+SUMMARY:Japan Exchange Group closed for year end (31 Dec to 3 Jan)
+DESCRIPTION:Tokyo shut over New Year\; yen liquidity thins.\n\nTime not set
+  by the source\; listed as an all-day event.\n\nSource: JPX\, market holid
+ ays 2026 and 2027. https://www.jpx.co.jp/english/corporate/about-jpx/calen
+ dar/index.html\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/ag
+ enda.html#2026-12-31-japan-exchange-group-closed-for-year-end-31-dec\n\nDe
+ scriptive\, not financial advice.
+URL:https://www.jpx.co.jp/english/corporate/about-jpx/calendar/index.html
+CATEGORIES:Market holidays
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Japan Exchange Group closed for year end (31 Dec to 3 Jan)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-01-nyse-and-nasdaq-closed-new-year-s-day@naos.hardlypythonnmr.g
+ ithub.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:NYSE and Nasdaq closed: New Year's Day
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -01-01-nyse-and-nasdaq-closed-new-year-s-day\n\nDescriptive\, not financia
+ l advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: New Year's Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-01-london-stock-exchange-closed-new-year-s-day@naos.hardlypytho
+ nnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:London Stock Exchange closed: New Year's Day
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2027-01-01-london-stock-exchange-closed-new-yea
+ r-s-day\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: New Year's Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-18-nyse-and-nasdaq-closed-martin-luther-king-jr-day@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270119
+SUMMARY:NYSE and Nasdaq closed: Martin Luther King Jr. Day
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -01-18-nyse-and-nasdaq-closed-martin-luther-king-jr-day\n\nDescriptive\, n
+ ot financial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Martin Luther King Jr. Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-15-nyse-and-nasdaq-closed-washington-s-birthday@naos.hardlypyth
+ onnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270216
+SUMMARY:NYSE and Nasdaq closed: Washington's Birthday
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -02-15-nyse-and-nasdaq-closed-washington-s-birthday\n\nDescriptive\, not f
+ inancial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Washington's Birthday
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-26-nyse-and-nasdaq-closed-good-friday@naos.hardlypythonnmr.gith
+ ub.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+SUMMARY:NYSE and Nasdaq closed: Good Friday
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -03-26-nyse-and-nasdaq-closed-good-friday\n\nDescriptive\, not financial a
+ dvice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Good Friday
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-26-london-stock-exchange-closed-good-friday@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+SUMMARY:London Stock Exchange closed: Good Friday
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2027-03-26-london-stock-exchange-closed-good-fr
+ iday\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: Good Friday
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-29-london-stock-exchange-closed-easter-monday@naos.hardlypython
+ nmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270329
+DTEND;VALUE=DATE:20270330
+SUMMARY:London Stock Exchange closed: Easter Monday
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2027-03-29-london-stock-exchange-closed-easter-
+ monday\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: Easter Monday
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-03-london-stock-exchange-closed-early-may-bank-holi@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270504
+SUMMARY:London Stock Exchange closed: Early May bank holiday
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2027-05-03-london-stock-exchange-closed-early-m
+ ay-bank-holi\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: Early May bank holiday
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-31-nyse-and-nasdaq-closed-memorial-day@naos.hardlypythonnmr.git
+ hub.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270531
+DTEND;VALUE=DATE:20270601
+SUMMARY:NYSE and Nasdaq closed: Memorial Day
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -05-31-nyse-and-nasdaq-closed-memorial-day\n\nDescriptive\, not financial 
+ advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Memorial Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-31-london-stock-exchange-closed-spring-bank-holiday@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270531
+DTEND;VALUE=DATE:20270601
+SUMMARY:London Stock Exchange closed: Spring bank holiday
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2027-05-31-london-stock-exchange-closed-spring-
+ bank-holiday\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: Spring bank holiday
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-18-nyse-and-nasdaq-closed-juneteenth-observed@naos.hardlypython
+ nmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:NYSE and Nasdaq closed: Juneteenth (observed)
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -06-18-nyse-and-nasdaq-closed-juneteenth-observed\n\nDescriptive\, not fin
+ ancial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Juneteenth (observed)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-05-nyse-and-nasdaq-closed-independence-day-observed@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270705
+DTEND;VALUE=DATE:20270706
+SUMMARY:NYSE and Nasdaq closed: Independence Day (observed)
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -07-05-nyse-and-nasdaq-closed-independence-day-observed\n\nDescriptive\, n
+ ot financial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Independence Day (observed)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-08-30-london-stock-exchange-closed-summer-bank-holiday@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270830
+DTEND;VALUE=DATE:20270831
+SUMMARY:London Stock Exchange closed: Summer bank holiday
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2027-08-30-london-stock-exchange-closed-summer-
+ bank-holiday\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: Summer bank holiday
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-06-nyse-and-nasdaq-closed-labor-day@naos.hardlypythonnmr.github
+ .io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270906
+DTEND;VALUE=DATE:20270907
+SUMMARY:NYSE and Nasdaq closed: Labor Day
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -09-06-nyse-and-nasdaq-closed-labor-day\n\nDescriptive\, not financial adv
+ ice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Labor Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

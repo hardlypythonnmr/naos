@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Nvidia GTC Washington\, D.C. (30 Nov to 3 Dec)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-30-nvidia-gtc-washington-d-c-30-nov-to-3-dec@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261204
+SUMMARY:Nvidia GTC Washington\, D.C. (30 Nov to 3 Dec)
+DESCRIPTION:Nvidia's policy and public-sector AI pitch\; NVDA headlines.\n\
+ nTime not set by the source\; listed as an all-day event.\n\nSource: NVIDI
+ A GTC FAQ page (upcoming GTCs). https://www.nvidia.com/en-zz/gtc/faq/\n\nN
+ AOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-3
+ 0-nvidia-gtc-washington-d-c-30-nov-to-3-dec\n\nDescriptive\, not financial
+  advice.
+URL:https://www.nvidia.com/en-zz/gtc/faq/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Nvidia GTC Washington\, D.C. (30 Nov to 3 Dec)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

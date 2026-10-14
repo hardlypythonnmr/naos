@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · CES 2027 (Las Vegas\, 6 to 9 Jan)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-01-06-ces-2027-las-vegas-6-to-9-jan@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270110
+SUMMARY:CES 2027 (Las Vegas\, 6 to 9 Jan)
+DESCRIPTION:Consumer tech and AI device launches\; a January headline magne
+ t.\n\nTime not set by the source\; listed as an all-day event.\n\nSource: 
+ CES official site (CTA). https://www.ces.tech/\n\nNAOS Upcoming: https://h
+ ardlypythonnmr.github.io/naos/agenda.html#2027-01-06-ces-2027-las-vegas-6-
+ to-9-jan\n\nDescriptive\, not financial advice.
+URL:https://www.ces.tech/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CES 2027 (Las Vegas\, 6 to 9 Jan)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

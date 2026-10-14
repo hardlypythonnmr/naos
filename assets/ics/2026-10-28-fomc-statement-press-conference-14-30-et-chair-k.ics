@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · FOMC statement (press conference 14:30 ET\, Chair Kevi
+ n Warsh)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-28-fomc-statement-press-conference-14-30-et-chair-k@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261028T180000Z
+SUMMARY:FOMC statement (press conference 14:30 ET\, Chair Kevin Warsh)
+DESCRIPTION:The fed funds path sets the tone for the dollar\, Treasuries\, 
+ equities and crypto.\n\nTime: 18:00 UTC\, 14:00 America/New_York.\n\nSourc
+ e: Federal Reserve\, October 2026 calendar. https://www.federalreserve.gov
+ /newsevents/2026-october.htm\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2026-10-28-fomc-statement-press-conference-14-30-e
+ t-chair-k\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/newsevents/2026-october.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement (press conference 14:30 ET\, Chair Kevin Warsh)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

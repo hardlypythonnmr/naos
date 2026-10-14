@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Easter Sunday (Western)\; Good Friday 26 Mar
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-03-28-easter-sunday-western-good-friday-26-mar@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270328
+DTEND;VALUE=DATE:20270329
+SUMMARY:Easter Sunday (Western)\; Good Friday 26 Mar
+DESCRIPTION:Long weekend closes the US (Good Friday) and Europe (to Easter 
+ Monday)\; travel and chocolate retail.\n\nTime not set by the source\; lis
+ ted as an all-day event.\n\nSource: Office Holidays\, India 2027 (Good Fri
+ day 26 Mar\, Easter Sunday 28 Mar). https://www.officeholidays.com/countri
+ es/india/2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/age
+ nda.html#2027-03-28-easter-sunday-western-good-friday-26-mar\n\nDescriptiv
+ e\, not financial advice.
+URL:https://www.officeholidays.com/countries/india/2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Christian)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Easter Sunday (Western)\; Good Friday 26 Mar
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

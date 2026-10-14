@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Nigeria presidential and National Assembly elections
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-01-16-nigeria-presidential-and-national-assembly-elect@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:Nigeria presidential and National Assembly elections
+DESCRIPTION:Africa's largest economy\; the naira\, Eurobonds and oil output
+  policy.\n\nTime not set by the source\; listed as an all-day event.\n\nSo
+ urce: Voice of Nigeria\, INEC revised timetable. https://von.gov.ng/inec-i
+ ssues-revised-timetable-for-2027-general-election/\n\nNAOS Upcoming: https
+ ://hardlypythonnmr.github.io/naos/agenda.html#2027-01-16-nigeria-president
+ ial-and-national-assembly-elect\n\nDescriptive\, not financial advice.
+URL:https://von.gov.ng/inec-issues-revised-timetable-for-2027-general-elect
+ ion/
+CATEGORIES:Elections
+LOCATION:Nigeria
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Nigeria presidential and National Assembly elections
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

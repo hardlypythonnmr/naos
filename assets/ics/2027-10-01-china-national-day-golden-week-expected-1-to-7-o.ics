@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · China National Day Golden Week (expected 1 to 7 Oct)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-10-01-china-national-day-golden-week-expected-1-to-7-o@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20271001
+DTEND;VALUE=DATE:20271008
+SUMMARY:China National Day Golden Week (expected 1 to 7 Oct)
+DESCRIPTION:Mainland markets closed\; travel and box-office spending reads.
+ \n\nTime not set by the source\; listed as an all-day event.\n\nExpected d
+ ate: provisional until the official announcement (moon sighting or officia
+ l calendar).\n\nNote: 1 Oct is fixed\; the full holiday span depends on th
+ e State Council's 2027 schedule\, not yet published.\n\nSource: Office Hol
+ idays\, China 2027. https://www.officeholidays.com/countries/china/2027\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-10
+ -01-china-national-day-golden-week-expected-1-to-7-o\n\nDescriptive\, not 
+ financial advice.
+URL:https://www.officeholidays.com/countries/china/2027
+CATEGORIES:Religious and cultural
+LOCATION:China
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:China National Day Golden Week (expected 1 to 7 Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

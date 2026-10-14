@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Bank of Canada rate announcement
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-12-09-bank-of-canada-rate-announcement@naos.hardlypythonnmr.github
+ .io
+DTSTAMP:20261014T000000Z
+DTSTART:20261209T144500Z
+SUMMARY:Bank of Canada rate announcement
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 14:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2026-12-09-bank-of-canada-rate-announ
+ cement\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

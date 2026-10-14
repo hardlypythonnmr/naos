@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Bank of England Bank Rate decision and minutes
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-12-17-bank-of-england-bank-rate-decision-and-minutes@naos.hardlypy
+ thonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261217T120000Z
+SUMMARY:Bank of England Bank Rate decision and minutes (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 12:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-12-17
+ -bank-of-england-bank-rate-decision-and-minutes\n\nDescriptive\, not finan
+ cial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

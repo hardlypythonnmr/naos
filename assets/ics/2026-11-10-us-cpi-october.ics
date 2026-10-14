@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · US CPI (October)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-10-us-cpi-october@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261110T133000Z
+SUMMARY:US CPI (October)
+DESCRIPTION:Inflation print that moves rate expectations\, the dollar and r
+ isk assets.\n\nTime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: U.S. B
+ ureau of Labor Statistics\, 2026 release calendar. https://www.bls.gov/sch
+ edule/2026/home.htm\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/na
+ os/agenda.html#2026-11-10-us-cpi-october\n\nDescriptive\, not financial ad
+ vice.
+URL:https://www.bls.gov/schedule/2026/home.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US CPI (October)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

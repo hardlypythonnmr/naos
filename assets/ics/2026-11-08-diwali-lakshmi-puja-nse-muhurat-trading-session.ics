@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Diwali (Lakshmi Puja)\; NSE Muhurat trading session
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-08-diwali-lakshmi-puja-nse-muhurat-trading-session@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Diwali (Lakshmi Puja)\; NSE Muhurat trading session
+DESCRIPTION:Peak Indian gold and consumer spending\; a symbolic one-hour Mu
+ hurat session on Indian exchanges.\n\nTime not set by the source\; listed 
+ as an all-day event.\n\nNote: Sunday 8 Nov 2026\; Muhurat timing to be not
+ ified by NSE circular. Singapore also lists Deepavali on 8 Nov (officeholi
+ days.com).\n\nSource: NSE\, exchange holidays 2026 (Diwali Laxmi Pujan\, M
+ uhurat trading). https://www.nseindia.com/resources/exchange-communication
+ -holidays\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.
+ html#2026-11-08-diwali-lakshmi-puja-nse-muhurat-trading-session\n\nDescrip
+ tive\, not financial advice.
+URL:https://www.nseindia.com/resources/exchange-communication-holidays
+CATEGORIES:Religious and cultural
+LOCATION:India
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Diwali (Lakshmi Puja)\; NSE Muhurat trading session
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

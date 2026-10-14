@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · NYSE early close 13:00 ET (day after Thanksgiving\, Bl
+ ack Friday)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-27-nyse-early-close-13-00-et-day-after-thanksgiving@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261127T180000Z
+SUMMARY:NYSE early close 13:00 ET (day after Thanksgiving\, Black Friday)
+DESCRIPTION:Half-day session\; retail spending reads start with Black Frida
+ y.\n\nTime: 18:00 UTC\, 13:00 America/New_York.\n\nSource: NYSE\, holidays
+  and trading hours. https://www.nyse.com/markets/hours-calendars\n\nNAOS U
+ pcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-27-nys
+ e-early-close-13-00-et-day-after-thanksgiving\n\nDescriptive\, not financi
+ al advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE early close 13:00 ET (day after Thanksgiving\, Black Frida
+ y)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,37 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Islamic New Year (1 Muharram 1449\, expected)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-06-06-islamic-new-year-1-muharram-1449-expected@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Islamic New Year (1 Muharram 1449\, expected)
+DESCRIPTION:Public holiday in Gulf states and Indonesia\; light regional vo
+ lumes.\n\nTime not set by the source\; listed as an all-day event.\n\nExpe
+ cted date: provisional until the official announcement (moon sighting or o
+ fficial calendar).\n\nNote: Depends on moon sighting.\n\nSource: Office Ho
+ lidays\, Islamic New Year 2027. https://www.officeholidays.com/holidays/is
+ lamic-new-year\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/ag
+ enda.html#2027-06-06-islamic-new-year-1-muharram-1449-expected\n\nDescript
+ ive\, not financial advice.
+URL:https://www.officeholidays.com/holidays/islamic-new-year
+CATEGORIES:Religious and cultural
+LOCATION:Global (Muslim)
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Islamic New Year (1 Muharram 1449\, expected)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,4383 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Upcoming
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-20-pboc-loan-prime-rates-1y-5y-for-october@naos.hardlypythonnmr
+ .github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261020T010000Z
+SUMMARY:PBoC Loan Prime Rates (1Y\, 5Y) for October (expected time)
+DESCRIPTION:Sets China's benchmark lending rates\; read for credit easing a
+ nd the yuan.\n\nTime: 01:00 UTC\, 09:00 Asia/Shanghai (expected\, not conf
+ irmed by the source).\n\nNote: Date fixed by rule (20th of each month\, en
+ glish.www.gov.cn 2019)\; the 2019 notice said 9:30 Beijing\, the listing s
+ ays 9:00. Time not confirmed by the PBoC.\n\nSource: FinanceCalendar listi
+ ng (PBoC LPR October 2026). https://www.financecalendar.com/?p=2301\n\nNAO
+ S Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-10-20-
+ pboc-loan-prime-rates-1y-5y-for-october\n\nDescriptive\, not financial adv
+ ice.
+URL:https://www.financecalendar.com/?p=2301
+CATEGORIES:Central banks
+LOCATION:China
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PBoC Loan Prime Rates (1Y\, 5Y) for October (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-20-state-visit-to-the-uk-by-the-sultan-of-oman-wind@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261023
+SUMMARY:State visit to the UK by the Sultan of Oman (Windsor\, 20 to 22 Oct
+ )
+DESCRIPTION:Oman mediates on Hormuz shipping\; any Gulf or energy statement
+  can touch oil.\n\nTime not set by the source\; listed as an all-day event
+ .\n\nSource: The Royal Family (royal.uk)\, announcement of 3 Sep 2026. htt
+ ps://www.everydayexceptional.royal.uk/news-and-activity/2026-09-03/announc
+ ement-of-a-state-visit-by-his-majesty-sultan-haitham-bin-tarik\n\nNAOS Upc
+ oming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-10-20-state
+ -visit-to-the-uk-by-the-sultan-of-oman-wind\n\nDescriptive\, not financial
+  advice.
+URL:https://www.everydayexceptional.royal.uk/news-and-activity/2026-09-03/a
+ nnouncement-of-a-state-visit-by-his-majesty-sultan-haitham-bin-tarik
+CATEGORIES:State visits
+LOCATION:United Kingdom / Oman
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:State visit to the UK by the Sultan of Oman (Windsor\, 20 to 22
+  Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-20-us-housing-starts-and-building-permits-september@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261020T123000Z
+SUMMARY:US housing starts and building permits (September)
+DESCRIPTION:Housing activity under current mortgage rates.\n\nTime: 12:30 U
+ TC\, 08:30 America/New_York.\n\nSource: U.S. Census Bureau\, 2026 economic
+  indicator calendar. https://www.census.gov/economic-indicators/calendar-l
+ istview-2026.html\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos
+ /agenda.html#2026-10-20-us-housing-starts-and-building-permits-september\n
+ \nDescriptive\, not financial advice.
+URL:https://www.census.gov/economic-indicators/calendar-listview-2026.html
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US housing starts and building permits (September)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-21-meta-q3-2026-results-and-call-results-after-the@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261021T203000Z
+SUMMARY:Meta Q3 2026 results and call (results after the close)
+DESCRIPTION:AI capex guidance from a top spender moves megacap tech and AI 
+ suppliers.\n\nTime: 20:30 UTC\, 16:30 America/New_York.\n\nSource: Meta vi
+ a PR Newswire (on Finviz)\, 12 Oct 2026. https://finviz.com/news/401445/me
+ ta-to-announce-third-quarter-2026-results\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2026-10-21-meta-q3-2026-results-and-c
+ all-results-after-the\n\nDescriptive\, not financial advice.
+URL:https://finviz.com/news/401445/meta-to-announce-third-quarter-2026-resu
+ lts
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Meta Q3 2026 results and call (results after the close)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-22-snb-summary-of-monetary-policy-discussion@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261022T073000Z
+SUMMARY:SNB summary of monetary policy discussion
+DESCRIPTION:Hints on the franc and the December SNB decision (no rate decis
+ ion in this window).\n\nTime: 07:30 UTC\, 09:30 Europe/Zurich.\n\nSource: 
+ Swiss National Bank\, event schedule. https://www.snb.ch/en/services-event
+ s/digital-services/event-schedule\n\nNAOS Upcoming: https://hardlypythonnm
+ r.github.io/naos/agenda.html#2026-10-22-snb-summary-of-monetary-policy-dis
+ cussion\n\nDescriptive\, not financial advice.
+URL:https://www.snb.ch/en/services-events/digital-services/event-schedule
+CATEGORIES:Central banks
+LOCATION:Switzerland
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SNB summary of monetary policy discussion
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-25-brazil-presidential-and-governor-runoff-polls-cl@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261025T200000Z
+SUMMARY:Brazil presidential and governor runoff (polls close 17:00 Brasíli
+ a\; results from then)
+DESCRIPTION:Fiscal path expectations drive the real\, Brazilian rates and e
+ quities.\n\nTime: 20:00 UTC\, 17:00 America/Sao_Paulo.\n\nSource: Diário 
+ do Nordeste\, on the TSE electoral calendar. https://diariodonordeste.verd
+ esmares.com.br/pontopoder/quando-e-o-segundo-turno-das-eleicoes-2026-veja-
+ data-e-quem-pode-disputar-1.3795964\n\nNAOS Upcoming: https://hardlypython
+ nmr.github.io/naos/agenda.html#2026-10-25-brazil-presidential-and-governor
+ -runoff-polls-cl\n\nDescriptive\, not financial advice.
+URL:https://diariodonordeste.verdesmares.com.br/pontopoder/quando-e-o-segun
+ do-turno-das-eleicoes-2026-veja-data-e-quem-pode-disputar-1.3795964
+CATEGORIES:Elections
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil presidential and governor runoff (polls close 17:00 Bras
+ ília\; results from then)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-27-us-durable-goods-orders-advance-september@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261027T123000Z
+SUMMARY:US durable goods orders\, advance (September)
+DESCRIPTION:Business investment signal ahead of GDP.\n\nTime: 12:30 UTC\, 0
+ 8:30 America/New_York.\n\nSource: U.S. Census Bureau\, 2026 economic indic
+ ator calendar. https://www.census.gov/economic-indicators/calendar-listvie
+ w-2026.html\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agend
+ a.html#2026-10-27-us-durable-goods-orders-advance-september\n\nDescriptive
+ \, not financial advice.
+URL:https://www.census.gov/economic-indicators/calendar-listview-2026.html
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US durable goods orders\, advance (September)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-28-bank-of-canada-rate-announcement-and-monetary-po@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261028T134500Z
+SUMMARY:Bank of Canada rate announcement and Monetary Policy Report
+DESCRIPTION:Moves the Canadian dollar and Canadian yields.\n\nTime: 13:45 U
+ TC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, upcoming events. 
+ https://www.bankofcanada.ca/press/upcoming-events/\n\nNAOS Upcoming: https
+ ://hardlypythonnmr.github.io/naos/agenda.html#2026-10-28-bank-of-canada-ra
+ te-announcement-and-monetary-po\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/press/upcoming-events/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement and Monetary Policy Report
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-28-fomc-statement-press-conference-14-30-et-chair-k@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261028T180000Z
+SUMMARY:FOMC statement (press conference 14:30 ET\, Chair Kevin Warsh)
+DESCRIPTION:The fed funds path sets the tone for the dollar\, Treasuries\, 
+ equities and crypto.\n\nTime: 18:00 UTC\, 14:00 America/New_York.\n\nSourc
+ e: Federal Reserve\, October 2026 calendar. https://www.federalreserve.gov
+ /newsevents/2026-october.htm\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2026-10-28-fomc-statement-press-conference-14-30-e
+ t-chair-k\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/newsevents/2026-october.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement (press conference 14:30 ET\, Chair Kevin Warsh)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-28-microsoft-fy27-q1-results@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:Microsoft FY27 Q1 results
+DESCRIPTION:Azure and AI capex numbers move megacap tech.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: Microsoft Investor R
+ elations. https://www.microsoft.com/en-us/investor/default\n\nNAOS Upcomin
+ g: https://hardlypythonnmr.github.io/naos/agenda.html#2026-10-28-microsoft
+ -fy27-q1-results\n\nDescriptive\, not financial advice.
+URL:https://www.microsoft.com/en-us/investor/default
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Microsoft FY27 Q1 results
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-28-github-universe-san-francisco-28-to-29-oct@naos.hardlypython
+ nmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261030
+SUMMARY:GitHub Universe (San Francisco\, 28 to 29 Oct)
+DESCRIPTION:Developer and AI coding tool announcements.\n\nTime not set by 
+ the source\; listed as an all-day event.\n\nSource: GitHub Universe. https
+ ://githubuniverse.com/\n\nNAOS Upcoming: https://hardlypythonnmr.github.io
+ /naos/agenda.html#2026-10-28-github-universe-san-francisco-28-to-29-oct\n\
+ nDescriptive\, not financial advice.
+URL:https://githubuniverse.com/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:GitHub Universe (San Francisco\, 28 to 29 Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-29-us-gdp-q3-advance-estimate-and-personal-income-a@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261029T123000Z
+SUMMARY:US GDP Q3 advance estimate and Personal Income and Outlays (PCE\, S
+ eptember)
+DESCRIPTION:Growth and the Fed's preferred inflation gauge in one morning.\
+ n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: U.S. Bureau of Eco
+ nomic Analysis\, release schedule. https://www.bea.gov/news/schedule\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-10-29
+ -us-gdp-q3-advance-estimate-and-personal-income-a\n\nDescriptive\, not fin
+ ancial advice.
+URL:https://www.bea.gov/news/schedule
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US GDP Q3 advance estimate and Personal Income and Outlays (PCE
+ \, September)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-29-ecb-rate-decision-and-press-conference-president@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261029T134500Z
+SUMMARY:ECB rate decision and press conference (President Lagarde) (expecte
+ d time)
+DESCRIPTION:Moves the euro and euro-area bonds.\n\nTime: 13:45 UTC\, 14:45 
+ Europe/Berlin (expected\, not confirmed by the source).\n\nNote: Date offi
+ cial. 14:45 CET is the press conference time the ECB webcast page showed f
+ or the 10 Sep meeting\; the 29 Oct time is not posted yet.\n\nSource: ECB\
+ , Governing Council meeting calendar. https://www.ecb.europa.eu/press/cale
+ ndars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.g
+ ithub.io/naos/agenda.html#2026-10-29-ecb-rate-decision-and-press-conferenc
+ e-president\n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (President Lagarde) (exp
+ ected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-30-bank-of-japan-policy-decision-and-outlook-report@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:Bank of Japan policy decision and Outlook Report
+DESCRIPTION:Moves the yen and JGB yields\; carry trades are sensitive to it
+ .\n\nTime not set by the source\; listed as an all-day event.\n\nNote: Dec
+ ision time not fixed in advance (released when the meeting ends).\n\nSourc
+ e: Bank of Japan\, MPM schedule. https://www.boj.or.jp/en/mopo/mpmsche_min
+ u/index.htm\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agend
+ a.html#2026-10-30-bank-of-japan-policy-decision-and-outlook-report\n\nDesc
+ riptive\, not financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision and Outlook Report
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-30-banco-de-la-republica-colombia-rate-decision@naos.hardlypyth
+ onnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:Banco de la República (Colombia) rate decision
+DESCRIPTION:Moves the peso and TES\; policy rate is 12.25% after September'
+ s hike.\n\nTime not set by the source\; listed as an all-day event.\n\nNot
+ e: banrep.gov.co blocked automated access\; date from Portafolio's report 
+ of the official calendar. Time not stated.\n\nSource: Portafolio\, BanRep 
+ 2026 decision calendar. https://www.portafolio.co/economia/gobierno/estas-
+ son-las-fechas-clave-en-2026-para-las-decisiones-sobre-la-tasa-de-interes-
+ del-banco-de-la-republica-487296\n\nNAOS Upcoming: https://hardlypythonnmr
+ .github.io/naos/agenda.html#2026-10-30-banco-de-la-republica-colombia-rate
+ -decision\n\nDescriptive\, not financial advice.
+URL:https://www.portafolio.co/economia/gobierno/estas-son-las-fechas-clave-
+ en-2026-para-las-decisiones-sobre-la-tasa-de-interes-del-banco-de-la-repub
+ lica-487296
+CATEGORIES:Central banks
+LOCATION:Colombia
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Banco de la República (Colombia) rate decision
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-01-opec-meeting-of-the-seven-voluntary-cut-countrie@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:OPEC+ meeting of the seven voluntary-cut countries (December output
+ )
+DESCRIPTION:Sets December supply\; direct read for oil prices.\n\nTime not 
+ set by the source\; listed as an all-day event.\n\nSource: OPEC press rele
+ ase\, 4 Oct 2026. https://www.opec.org/pr-detail/616-4-october-2026.html\n
+ \nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-1
+ 1-01-opec-meeting-of-the-seven-voluntary-cut-countrie\n\nDescriptive\, not
+  financial advice.
+URL:https://www.opec.org/pr-detail/616-4-october-2026.html
+CATEGORIES:Energy
+LOCATION:OPEC+
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:OPEC+ meeting of the seven voluntary-cut countries (December ou
+ tput)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-02-fed-senior-loan-officer-opinion-survey-sloos@naos.hardlypyth
+ onnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261102T190000Z
+SUMMARY:Fed Senior Loan Officer Opinion Survey (SLOOS)
+DESCRIPTION:Bank lending standards\, a credit-conditions signal.\n\nTime: 1
+ 9:00 UTC\, 14:00 America/New_York.\n\nSource: Federal Reserve\, November 2
+ 026 calendar. https://www.federalreserve.gov/newsevents/2026-november.htm\
+ n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-
+ 11-02-fed-senior-loan-officer-opinion-survey-sloos\n\nDescriptive\, not fi
+ nancial advice.
+URL:https://www.federalreserve.gov/newsevents/2026-november.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Fed Senior Loan Officer Opinion Survey (SLOOS)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-03-rba-decision-and-statement-on-monetary-policy@naos.hardlypyt
+ honnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261103T033000Z
+SUMMARY:RBA decision and Statement on Monetary Policy
+DESCRIPTION:Moves the Australian dollar and local rates.\n\nTime: 03:30 UTC
+ \, 14:30 Australia/Sydney.\n\nSource: Reserve Bank of Australia\, release 
+ schedule (SMP 2.30 pm\, 3 Nov\; Board meets 2 to 3 Nov). https://www.rba.g
+ ov.au/schedules-events/\n\nAlso: https://www.rba.gov.au/schedules-events/b
+ oard-meeting-schedules.html\n\nNAOS Upcoming: https://hardlypythonnmr.gith
+ ub.io/naos/agenda.html#2026-11-03-rba-decision-and-statement-on-monetary-p
+ olicy\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA decision and Statement on Monetary Policy
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-03-us-midterm-general-election@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261103
+DTEND;VALUE=DATE:20261104
+SUMMARY:US midterm general election
+DESCRIPTION:Control of Congress shapes fiscal\, tariff and crypto legislati
+ on odds.\n\nTime not set by the source\; listed as an all-day event.\n\nSo
+ urce: FEC\, election results and voting information. https://www.fec.gov/i
+ ntroduction-campaign-finance/election-results-and-voting-information/\n\nN
+ AOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-0
+ 3-us-midterm-general-election\n\nDescriptive\, not financial advice.
+URL:https://www.fec.gov/introduction-campaign-finance/election-results-and-
+ voting-information/
+CATEGORIES:Elections
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US midterm general election
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-03-us-jolts-job-openings-september@naos.hardlypythonnmr.github.
+ io
+DTSTAMP:20261014T000000Z
+DTSTART:20261103T150000Z
+SUMMARY:US JOLTS job openings (September)
+DESCRIPTION:Labor demand ahead of payrolls.\n\nTime: 15:00 UTC\, 10:00 Amer
+ ica/New_York.\n\nSource: U.S. Bureau of Labor Statistics\, 2026 release ca
+ lendar. https://www.bls.gov/schedule/2026/home.htm\n\nNAOS Upcoming: https
+ ://hardlypythonnmr.github.io/naos/agenda.html#2026-11-03-us-jolts-job-open
+ ings-september\n\nDescriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/2026/home.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US JOLTS job openings (September)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-04-brazil-copom-selic-decision-meeting-3-to-4-nov@naos.hardlypy
+ thonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261104T213000Z
+SUMMARY:Brazil Copom Selic decision (meeting 3 to 4 Nov) (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Dates
+  from the BCB calendar (via B3 and Investidor10\; bcb.gov.br did not load)
+ . 18:30 Brasília is when decisions are usually released.\n\nSource: Inves
+ tidor10\, on the BCB 2026 Copom calendar. https://investidor10.com.br/amp/
+ noticias/copom-em-2026-tera-oito-reunioes-veja-o-cronograma-divulgado-pelo
+ -bc-113749/\n\nAlso: https://borainvestir.b3.com.br/noticias/copom-tera-8-
+ reunioes-em-2026-veja-calendario-e-projecao-para-a-selic/\n\nNAOS Upcoming
+ : https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-04-brazil-cop
+ om-selic-decision-meeting-3-to-4-nov\n\nDescriptive\, not financial advice
+ .
+URL:https://investidor10.com.br/amp/noticias/copom-em-2026-tera-oito-reunio
+ es-veja-o-cronograma-divulgado-pelo-bc-113749/
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (meeting 3 to 4 Nov) (expected time
+ )
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-04-us-international-trade-in-goods-and-services-sep@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261104T133000Z
+SUMMARY:US international trade in goods and services (September)
+DESCRIPTION:Trade gap under the tariff regime.\n\nTime: 13:30 UTC\, 08:30 A
+ merica/New_York.\n\nSource: U.S. Bureau of Economic Analysis\, release sch
+ edule. https://www.bea.gov/news/schedule\n\nNAOS Upcoming: https://hardlyp
+ ythonnmr.github.io/naos/agenda.html#2026-11-04-us-international-trade-in-g
+ oods-and-services-sep\n\nDescriptive\, not financial advice.
+URL:https://www.bea.gov/news/schedule
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US international trade in goods and services (September)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-05-bank-of-england-bank-rate-decision-and-monetary@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261105T120000Z
+SUMMARY:Bank of England Bank Rate decision and Monetary Policy Report
+DESCRIPTION:Moves sterling and gilts.\n\nTime: 12:00 UTC\, 12:00 Europe/Lon
+ don.\n\nSource: Bank of England\, November 2026 Monetary Policy Summary (t
+ o be published at 12pm). https://www.bankofengland.co.uk/monetary-policy-s
+ ummary-and-minutes/2026/november-2026\n\nNAOS Upcoming: https://hardlypyth
+ onnmr.github.io/naos/agenda.html#2026-11-05-bank-of-england-bank-rate-deci
+ sion-and-monetary\n\nDescriptive\, not financial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/202
+ 6/november-2026
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and Monetary Policy Report
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-05-banxico-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261105T190000Z
+SUMMARY:Banxico rate decision
+DESCRIPTION:Moves the peso and Mexican rates.\n\nTime: 19:00 UTC\, 13:00 Am
+ erica/Mexico_City.\n\nSource: BBVA Research\, Agenda Económica 2026 (Banx
+ ico calendar\; 13:00 Mexico City). https://www.bbvaresearch.com/wp-content
+ /uploads/2026/03/AgendaEconomica_2026.pdf\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2026-11-05-banxico-rate-decision\n\nD
+ escriptive\, not financial advice.
+URL:https://www.bbvaresearch.com/wp-content/uploads/2026/03/AgendaEconomica
+ _2026.pdf
+CATEGORIES:Central banks
+LOCATION:Mexico
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Banxico rate decision
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-06-us-employment-situation-october-payrolls@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261106T133000Z
+SUMMARY:US Employment Situation (October payrolls)
+DESCRIPTION:The month's main labor read\; moves rate expectations.\n\nTime:
+  13:30 UTC\, 08:30 America/New_York.\n\nSource: U.S. Bureau of Labor Stati
+ stics\, 2026 release calendar. https://www.bls.gov/schedule/2026/home.htm\
+ n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-
+ 11-06-us-employment-situation-october-payrolls\n\nDescriptive\, not financ
+ ial advice.
+URL:https://www.bls.gov/schedule/2026/home.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US Employment Situation (October payrolls)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-08-diwali-lakshmi-puja-nse-muhurat-trading-session@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Diwali (Lakshmi Puja)\; NSE Muhurat trading session
+DESCRIPTION:Peak Indian gold and consumer spending\; a symbolic one-hour Mu
+ hurat session on Indian exchanges.\n\nTime not set by the source\; listed 
+ as an all-day event.\n\nNote: Sunday 8 Nov 2026\; Muhurat timing to be not
+ ified by NSE circular. Singapore also lists Deepavali on 8 Nov (officeholi
+ days.com).\n\nSource: NSE\, exchange holidays 2026 (Diwali Laxmi Pujan\, M
+ uhurat trading). https://www.nseindia.com/resources/exchange-communication
+ -holidays\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.
+ html#2026-11-08-diwali-lakshmi-puja-nse-muhurat-trading-session\n\nDescrip
+ tive\, not financial advice.
+URL:https://www.nseindia.com/resources/exchange-communication-holidays
+CATEGORIES:Religious and cultural
+LOCATION:India
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Diwali (Lakshmi Puja)\; NSE Muhurat trading session
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-09-cop31-un-climate-change-conference-opens-antalya@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261121
+SUMMARY:COP31 UN Climate Change Conference opens (Antalya\, 9 to 20 Nov)
+DESCRIPTION:Energy transition and carbon policy signals for oil\, gas and c
+ lean-energy shares.\n\nTime not set by the source\; listed as an all-day e
+ vent.\n\nSource: COP31 Türkiye (official site). https://cop31.tr\n\nNAOS 
+ Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-09-co
+ p31-un-climate-change-conference-opens-antalya\n\nDescriptive\, not financ
+ ial advice.
+URL:https://cop31.tr
+CATEGORIES:Summits
+LOCATION:Türkiye / UN
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:COP31 UN Climate Change Conference opens (Antalya\, 9 to 20 Nov
+ )
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-09-web-summit-lisbon-9-to-12-nov@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261113
+SUMMARY:Web Summit (Lisbon\, 9 to 12 Nov)
+DESCRIPTION:Tech and AI product and funding announcements.\n\nTime not set 
+ by the source\; listed as an all-day event.\n\nSource: Web Summit. https:/
+ /websummit.com/\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/a
+ genda.html#2026-11-09-web-summit-lisbon-9-to-12-nov\n\nDescriptive\, not f
+ inancial advice.
+URL:https://websummit.com/
+CATEGORIES:Tech and AI
+LOCATION:Portugal
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Web Summit (Lisbon\, 9 to 12 Nov)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-10-us-cpi-october@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261110T133000Z
+SUMMARY:US CPI (October)
+DESCRIPTION:Inflation print that moves rate expectations\, the dollar and r
+ isk assets.\n\nTime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: U.S. B
+ ureau of Labor Statistics\, 2026 release calendar. https://www.bls.gov/sch
+ edule/2026/home.htm\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/na
+ os/agenda.html#2026-11-10-us-cpi-october\n\nDescriptive\, not financial ad
+ vice.
+URL:https://www.bls.gov/schedule/2026/home.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US CPI (October)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-10-bank-of-canada-summary-of-deliberations@naos.hardlypythonnmr
+ .github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261110T183000Z
+SUMMARY:Bank of Canada Summary of Deliberations
+DESCRIPTION:Detail behind the 28 Oct decision.\n\nTime: 18:30 UTC\, 13:30 A
+ merica/Toronto.\n\nSource: Bank of Canada\, upcoming events. https://www.b
+ ankofcanada.ca/press/upcoming-events/\n\nNAOS Upcoming: https://hardlypyth
+ onnmr.github.io/naos/agenda.html#2026-11-10-bank-of-canada-summary-of-deli
+ berations\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/press/upcoming-events/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada Summary of Deliberations
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-11-cop31-leaders-summit-11-to-12-nov@naos.hardlypythonnmr.githu
+ b.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261113
+SUMMARY:COP31 Leaders' Summit (11 to 12 Nov)
+DESCRIPTION:Heads of state on climate finance and fossil fuel phase-down la
+ nguage.\n\nTime not set by the source\; listed as an all-day event.\n\nSou
+ rce: COP31 Türkiye (official site). https://cop31.tr\n\nNAOS Upcoming: ht
+ tps://hardlypythonnmr.github.io/naos/agenda.html#2026-11-11-cop31-leaders-
+ summit-11-to-12-nov\n\nDescriptive\, not financial advice.
+URL:https://cop31.tr
+CATEGORIES:Summits
+LOCATION:Türkiye / UN
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:COP31 Leaders' Summit (11 to 12 Nov)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-13-us-ppi-october@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261113T133000Z
+SUMMARY:US PPI (October)
+DESCRIPTION:Pipeline inflation after CPI.\n\nTime: 13:30 UTC\, 08:30 Americ
+ a/New_York.\n\nSource: U.S. Bureau of Labor Statistics\, 2026 release cale
+ ndar. https://www.bls.gov/schedule/2026/home.htm\n\nNAOS Upcoming: https:/
+ /hardlypythonnmr.github.io/naos/agenda.html#2026-11-13-us-ppi-october\n\nD
+ escriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/2026/home.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US PPI (October)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-17-microsoft-ignite-san-francisco-17-to-20-nov@naos.hardlypytho
+ nnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261117
+DTEND;VALUE=DATE:20261121
+SUMMARY:Microsoft Ignite (San Francisco\, 17 to 20 Nov)
+DESCRIPTION:Microsoft's AI and Copilot announcements\; read for MSFT and th
+ e AI trade.\n\nTime not set by the source\; listed as an all-day event.\n\
+ nSource: Moscone Center\, Microsoft Ignite 2026 listing. https://moscone.c
+ om/events/microsoft-ignite-2026\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2026-11-17-microsoft-ignite-san-francisco-17-to
+ -20-nov\n\nDescriptive\, not financial advice.
+URL:https://moscone.com/events/microsoft-ignite-2026
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Microsoft Ignite (San Francisco\, 17 to 20 Nov)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-18-apec-economic-leaders-meeting-shenzhen-18-to-19@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261120
+SUMMARY:APEC Economic Leaders' Meeting (Shenzhen\, 18 to 19 Nov)
+DESCRIPTION:US-China trade signals on the sidelines can move Asian FX and e
+ quities.\n\nTime not set by the source\; listed as an all-day event.\n\nSo
+ urce: Shenzhen Government Online (Xinhua). https://www.sz.gov.cn/en_szgov/
+ news/infocus/APEC2026/News/content/post_12977146.html\n\nNAOS Upcoming: ht
+ tps://hardlypythonnmr.github.io/naos/agenda.html#2026-11-18-apec-economic-
+ leaders-meeting-shenzhen-18-to-19\n\nDescriptive\, not financial advice.
+URL:https://www.sz.gov.cn/en_szgov/news/infocus/APEC2026/News/content/post_
+ 12977146.html
+CATEGORIES:Summits
+LOCATION:China / APEC
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:APEC Economic Leaders' Meeting (Shenzhen\, 18 to 19 Nov)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-25-us-gdp-q3-second-estimate-and-personal-income-an@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261125T133000Z
+SUMMARY:US GDP Q3 second estimate and Personal Income and Outlays (October\
+ , PCE prices)
+DESCRIPTION:Growth and the Fed's preferred inflation gauge (PCE) in one mor
+ ning.\n\nTime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: BEA\, releas
+ e schedule. https://www.bea.gov/news/schedule\n\nNAOS Upcoming: https://ha
+ rdlypythonnmr.github.io/naos/agenda.html#2026-11-25-us-gdp-q3-second-estim
+ ate-and-personal-income-an\n\nDescriptive\, not financial advice.
+URL:https://www.bea.gov/news/schedule
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US GDP Q3 second estimate and Personal Income and Outlays (Octo
+ ber\, PCE prices)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-26-nyse-and-nasdaq-closed-thanksgiving@naos.hardlypythonnmr.git
+ hub.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261126
+DTEND;VALUE=DATE:20261127
+SUMMARY:NYSE and Nasdaq closed: Thanksgiving
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026
+ -11-26-nyse-and-nasdaq-closed-thanksgiving\n\nDescriptive\, not financial 
+ advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Thanksgiving
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-27-nyse-early-close-13-00-et-day-after-thanksgiving@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261127T180000Z
+SUMMARY:NYSE early close 13:00 ET (day after Thanksgiving\, Black Friday)
+DESCRIPTION:Half-day session\; retail spending reads start with Black Frida
+ y.\n\nTime: 18:00 UTC\, 13:00 America/New_York.\n\nSource: NYSE\, holidays
+  and trading hours. https://www.nyse.com/markets/hours-calendars\n\nNAOS U
+ pcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-27-nys
+ e-early-close-13-00-et-day-after-thanksgiving\n\nDescriptive\, not financi
+ al advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE early close 13:00 ET (day after Thanksgiving\, Black Frida
+ y)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-29-spain-snap-general-election@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Spain snap general election
+DESCRIPTION:Government formation risk for Spanish bonds and banks.\n\nTime 
+ not set by the source\; listed as an all-day event.\n\nSource: Al Jazeera\
+ , 5 Oct 2026 (Sánchez announces the vote). https://www.aljazeera.com/amp/
+ news/2026/10/5/spanish-prime-minister-pedro-sanchez-announces-snap-electio
+ n\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 6-11-29-spain-snap-general-election\n\nDescriptive\, not financial advice.
+URL:https://www.aljazeera.com/amp/news/2026/10/5/spanish-prime-minister-ped
+ ro-sanchez-announces-snap-election
+CATEGORIES:Elections
+LOCATION:Spain
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Spain snap general election
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-30-aws-re-invent-las-vegas-30-nov-to-4-dec@naos.hardlypythonnmr
+ .github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261205
+SUMMARY:AWS re:Invent (Las Vegas\, 30 Nov to 4 Dec)
+DESCRIPTION:Amazon's cloud and AI launches\; AMZN and AI infrastructure nam
+ es.\n\nTime not set by the source\; listed as an all-day event.\n\nSource:
+  AWS re:Invent official site. https://reinvent.awsevents.com/\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-30-aws-re
+ -invent-las-vegas-30-nov-to-4-dec\n\nDescriptive\, not financial advice.
+URL:https://reinvent.awsevents.com/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AWS re:Invent (Las Vegas\, 30 Nov to 4 Dec)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-30-nvidia-gtc-washington-d-c-30-nov-to-3-dec@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261204
+SUMMARY:Nvidia GTC Washington\, D.C. (30 Nov to 3 Dec)
+DESCRIPTION:Nvidia's policy and public-sector AI pitch\; NVDA headlines.\n\
+ nTime not set by the source\; listed as an all-day event.\n\nSource: NVIDI
+ A GTC FAQ page (upcoming GTCs). https://www.nvidia.com/en-zz/gtc/faq/\n\nN
+ AOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-3
+ 0-nvidia-gtc-washington-d-c-30-nov-to-3-dec\n\nDescriptive\, not financial
+  advice.
+URL:https://www.nvidia.com/en-zz/gtc/faq/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Nvidia GTC Washington\, D.C. (30 Nov to 3 Dec)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-04-us-employment-situation-november-payrolls@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261204T133000Z
+SUMMARY:US Employment Situation (November payrolls)
+DESCRIPTION:Payrolls and unemployment\; the jobs read for Fed pricing.\n\nT
+ ime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, Employment Situa
+ tion release schedule. https://www.bls.gov/schedule/news_release/empsit.ht
+ m\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 6-12-04-us-employment-situation-november-payrolls\n\nDescriptive\, not fin
+ ancial advice.
+URL:https://www.bls.gov/schedule/news_release/empsit.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US Employment Situation (November payrolls)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-04-hanukkah-first-candle-at-sundown-4-dec-to-12-dec@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261213
+SUMMARY:Hanukkah (first candle at sundown 4 Dec\; to 12 Dec)
+DESCRIPTION:Holiday retail season overlap\; search interest for gifts and r
+ ecipes.\n\nTime not set by the source\; listed as an all-day event.\n\nSou
+ rce: Hebcal\, Jewish holidays 2026. https://www.hebcal.com/holidays/2026-2
+ 027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2
+ 026-12-04-hanukkah-first-candle-at-sundown-4-dec-to-12-dec\n\nDescriptive\
+ , not financial advice.
+URL:https://www.hebcal.com/holidays/2026-2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Jewish)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Hanukkah (first candle at sundown 4 Dec\; to 12 Dec)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-08-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261208T033000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 03:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 6-12-08-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-09-fomc-statement-and-summary-of-economic-projectio@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261209T190000Z
+SUMMARY:FOMC statement and Summary of Economic Projections (press conferenc
+ e 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 19:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2026-12-09-fomc-statement-and-s
+ ummary-of-economic-projectio\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement and Summary of Economic Projections (press confe
+ rence 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-09-bank-of-canada-rate-announcement@naos.hardlypythonnmr.github
+ .io
+DTSTAMP:20261014T000000Z
+DTSTART:20261209T144500Z
+SUMMARY:Bank of Canada rate announcement
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 14:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2026-12-09-bank-of-canada-rate-announ
+ cement\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-09-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261209T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://investidor10.
+ com.br/amp/noticias/copom-em-2026-tera-oito-reunioes-veja-o-cronograma-div
+ ulgado-pelo-bc-113749/\n\nNAOS Upcoming: https://hardlypythonnmr.github.io
+ /naos/agenda.html#2026-12-09-brazil-copom-selic-decision\n\nDescriptive\, 
+ not financial advice.
+URL:https://investidor10.com.br/amp/noticias/copom-em-2026-tera-oito-reunio
+ es-veja-o-cronograma-divulgado-pelo-bc-113749/
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-10-snb-monetary-policy-assessment@naos.hardlypythonnmr.github.i
+ o
+DTSTAMP:20261014T000000Z
+DTSTART:20261210T083000Z
+SUMMARY:SNB monetary policy assessment
+DESCRIPTION:Sets Swiss rates\; moves the franc\, a haven gauge.\n\nTime: 08
+ :30 UTC\, 09:30 Europe/Zurich.\n\nSource: Swiss National Bank\, event sche
+ dule. https://www.snb.ch/en/services-events/digital-services/event-schedul
+ e\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 6-12-10-snb-monetary-policy-assessment\n\nDescriptive\, not financial advi
+ ce.
+URL:https://www.snb.ch/en/services-events/digital-services/event-schedule
+CATEGORIES:Central banks
+LOCATION:Switzerland
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SNB monetary policy assessment
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-10-us-cpi-november@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261210T133000Z
+SUMMARY:US CPI (November)
+DESCRIPTION:Inflation print that steers Fed pricing\, yields and the dollar
+ .\n\nTime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, CPI releas
+ e schedule. https://www.bls.gov/schedule/news_release/cpi.htm\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-12-10-us-cpi
+ -november\n\nDescriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/news_release/cpi.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US CPI (November)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-14-g20-leaders-summit-trump-national-doral-miami-14@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261214
+DTEND;VALUE=DATE:20261216
+SUMMARY:G20 Leaders' Summit (Trump National Doral\, Miami\, 14 to 15 Dec)
+DESCRIPTION:Trade\, tariffs and debt language from the US-hosted G20.\n\nTi
+ me not set by the source\; listed as an all-day event.\n\nSource: Wikipedi
+ a\, 2026 G20 Miami summit (citing the White House). https://en.wikipedia.o
+ rg/wiki/2026_G20_Miami_summit\n\nNAOS Upcoming: https://hardlypythonnmr.gi
+ thub.io/naos/agenda.html#2026-12-14-g20-leaders-summit-trump-national-dora
+ l-miami-14\n\nDescriptive\, not financial advice.
+URL:https://en.wikipedia.org/wiki/2026_G20_Miami_summit
+CATEGORIES:Summits
+LOCATION:United States / G20
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:G20 Leaders' Summit (Trump National Doral\, Miami\, 14 to 15 De
+ c)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-17-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261217T131500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 13:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2026-12-17-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-17-bank-of-england-bank-rate-decision-and-minutes@naos.hardlypy
+ thonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261217T120000Z
+SUMMARY:Bank of England Bank Rate decision and minutes (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 12:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-12-17
+ -bank-of-england-bank-rate-decision-and-minutes\n\nDescriptive\, not finan
+ cial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-17-banxico-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261217T190000Z
+SUMMARY:Banxico rate decision
+DESCRIPTION:Moves the peso and Mexican rates.\n\nTime: 19:00 UTC\, 13:00 Am
+ erica/Mexico_City.\n\nSource: Banco de México\, Calendario 2026 de anunci
+ os de política monetaria (13:00 hours). https://www.banxico.org.mx/politi
+ ca-monetaria/d/%7B3B4BDA5B-E7E8-E414-2066-DA0CB3F7C36F%7D.pdf\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-12-17-banxic
+ o-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.banxico.org.mx/politica-monetaria/d/%7B3B4BDA5B-E7E8-E414-2
+ 066-DA0CB3F7C36F%7D.pdf
+CATEGORIES:Central banks
+LOCATION:Mexico
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Banxico rate decision
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-18-bank-of-japan-policy-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261219
+SUMMARY:Bank of Japan policy decision
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-12
+ -18-bank-of-japan-policy-decision\n\nDescriptive\, not financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-18-banco-de-la-republica-colombia-rate-decision@naos.hardlypyth
+ onnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261219
+SUMMARY:Banco de la República (Colombia) rate decision
+DESCRIPTION:Moves the peso and TES.\n\nTime not set by the source\; listed 
+ as an all-day event.\n\nNote: banrep.gov.co blocks automated access\; date
+  from Portafolio's report of the official calendar.\n\nSource: Portafolio\
+ , BanRep 2026 decision calendar. https://www.portafolio.co/economia/gobier
+ no/estas-son-las-fechas-clave-en-2026-para-las-decisiones-sobre-la-tasa-de
+ -interes-del-banco-de-la-republica-487296\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2026-12-18-banco-de-la-republica-colo
+ mbia-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.portafolio.co/economia/gobierno/estas-son-las-fechas-clave-
+ en-2026-para-las-decisiones-sobre-la-tasa-de-interes-del-banco-de-la-repub
+ lica-487296
+CATEGORIES:Central banks
+LOCATION:Colombia
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Banco de la República (Colombia) rate decision
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-23-us-gdp-q3-third-estimate-and-personal-income-and@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261223T133000Z
+SUMMARY:US GDP Q3 third estimate and Personal Income and Outlays (November\
+ , PCE prices)
+DESCRIPTION:Growth and the Fed's preferred inflation gauge (PCE) in one mor
+ ning.\n\nTime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: BEA\, releas
+ e schedule. https://www.bea.gov/news/schedule\n\nNAOS Upcoming: https://ha
+ rdlypythonnmr.github.io/naos/agenda.html#2026-12-23-us-gdp-q3-third-estima
+ te-and-personal-income-and\n\nDescriptive\, not financial advice.
+URL:https://www.bea.gov/news/schedule
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US GDP Q3 third estimate and Personal Income and Outlays (Novem
+ ber\, PCE prices)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-24-nyse-early-close-13-00-et-christmas-eve@naos.hardlypythonnmr
+ .github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261224T180000Z
+SUMMARY:NYSE early close 13:00 ET (Christmas Eve)
+DESCRIPTION:Half-day session before Christmas.\n\nTime: 18:00 UTC\, 13:00 A
+ merica/New_York.\n\nSource: NYSE\, holidays and trading hours. https://www
+ .nyse.com/markets/hours-calendars\n\nNAOS Upcoming: https://hardlypythonnm
+ r.github.io/naos/agenda.html#2026-12-24-nyse-early-close-13-00-et-christma
+ s-eve\n\nDescriptive\, not financial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE early close 13:00 ET (Christmas Eve)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-25-nyse-and-nasdaq-closed-christmas-day@naos.hardlypythonnmr.gi
+ thub.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:NYSE and Nasdaq closed: Christmas Day
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026
+ -12-25-nyse-and-nasdaq-closed-christmas-day\n\nDescriptive\, not financial
+  advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Christmas Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-25-london-stock-exchange-closed-christmas-day@naos.hardlypython
+ nmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:London Stock Exchange closed: Christmas Day
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2026-12-25-london-stock-exchange-closed-christm
+ as-day\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: Christmas Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-25-christmas-day@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:Christmas Day
+DESCRIPTION:Retail season peak and the thinnest trading week of the year\; 
+ travel and shipping demand.\n\nTime not set by the source\; listed as an a
+ ll-day event.\n\nSource: NYSE holidays (Christmas Day closure). https://ww
+ w.nyse.com/markets/hours-calendars\n\nNAOS Upcoming: https://hardlypythonn
+ mr.github.io/naos/agenda.html#2026-12-25-christmas-day\n\nDescriptive\, no
+ t financial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Religious and cultural
+LOCATION:Global (Christian)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Christmas Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-28-london-stock-exchange-closed-boxing-day-substitu@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261228
+DTEND;VALUE=DATE:20261229
+SUMMARY:London Stock Exchange closed: Boxing Day (substitute)
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2026-12-28-london-stock-exchange-closed-boxing-
+ day-substitu\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: Boxing Day (substitute)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-31-japan-exchange-group-closed-for-year-end-31-dec@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270104
+SUMMARY:Japan Exchange Group closed for year end (31 Dec to 3 Jan)
+DESCRIPTION:Tokyo shut over New Year\; yen liquidity thins.\n\nTime not set
+  by the source\; listed as an all-day event.\n\nSource: JPX\, market holid
+ ays 2026 and 2027. https://www.jpx.co.jp/english/corporate/about-jpx/calen
+ dar/index.html\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/ag
+ enda.html#2026-12-31-japan-exchange-group-closed-for-year-end-31-dec\n\nDe
+ scriptive\, not financial advice.
+URL:https://www.jpx.co.jp/english/corporate/about-jpx/calendar/index.html
+CATEGORIES:Market holidays
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Japan Exchange Group closed for year end (31 Dec to 3 Jan)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-01-nyse-and-nasdaq-closed-new-year-s-day@naos.hardlypythonnmr.g
+ ithub.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:NYSE and Nasdaq closed: New Year's Day
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -01-01-nyse-and-nasdaq-closed-new-year-s-day\n\nDescriptive\, not financia
+ l advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: New Year's Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-01-london-stock-exchange-closed-new-year-s-day@naos.hardlypytho
+ nnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:London Stock Exchange closed: New Year's Day
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2027-01-01-london-stock-exchange-closed-new-yea
+ r-s-day\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: New Year's Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-06-ces-2027-las-vegas-6-to-9-jan@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270110
+SUMMARY:CES 2027 (Las Vegas\, 6 to 9 Jan)
+DESCRIPTION:Consumer tech and AI device launches\; a January headline magne
+ t.\n\nTime not set by the source\; listed as an all-day event.\n\nSource: 
+ CES official site (CTA). https://www.ces.tech/\n\nNAOS Upcoming: https://h
+ ardlypythonnmr.github.io/naos/agenda.html#2027-01-06-ces-2027-las-vegas-6-
+ to-9-jan\n\nDescriptive\, not financial advice.
+URL:https://www.ces.tech/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:CES 2027 (Las Vegas\, 6 to 9 Jan)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-07-orthodox-christmas@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270107
+DTEND;VALUE=DATE:20270108
+SUMMARY:Orthodox Christmas
+DESCRIPTION:Russian and Eastern European markets on holiday\; light regiona
+ l volumes.\n\nTime not set by the source\; listed as an all-day event.\n\n
+ Source: Office Holidays\, Russia 2027. https://www.officeholidays.com/coun
+ tries/russia/2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos
+ /agenda.html#2027-01-07-orthodox-christmas\n\nDescriptive\, not financial 
+ advice.
+URL:https://www.officeholidays.com/countries/russia/2027
+CATEGORIES:Religious and cultural
+LOCATION:Russia\, Eastern Europe\, Ethiopia
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Orthodox Christmas
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-08-us-employment-situation-december-payrolls@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270108T133000Z
+SUMMARY:US Employment Situation (December payrolls)
+DESCRIPTION:Payrolls and unemployment\; the jobs read for Fed pricing.\n\nT
+ ime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, Employment Situa
+ tion release schedule. https://www.bls.gov/schedule/news_release/empsit.ht
+ m\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-01-08-us-employment-situation-december-payrolls\n\nDescriptive\, not fin
+ ancial advice.
+URL:https://www.bls.gov/schedule/news_release/empsit.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US Employment Situation (December payrolls)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-13-us-cpi-december@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270113T133000Z
+SUMMARY:US CPI (December)
+DESCRIPTION:Inflation print that steers Fed pricing\, yields and the dollar
+ .\n\nTime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, CPI releas
+ e schedule. https://www.bls.gov/schedule/news_release/cpi.htm\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-01-13-us-cpi
+ -december\n\nDescriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/news_release/cpi.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US CPI (December)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-16-nigeria-presidential-and-national-assembly-elect@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:Nigeria presidential and National Assembly elections
+DESCRIPTION:Africa's largest economy\; the naira\, Eurobonds and oil output
+  policy.\n\nTime not set by the source\; listed as an all-day event.\n\nSo
+ urce: Voice of Nigeria\, INEC revised timetable. https://von.gov.ng/inec-i
+ ssues-revised-timetable-for-2027-general-election/\n\nNAOS Upcoming: https
+ ://hardlypythonnmr.github.io/naos/agenda.html#2027-01-16-nigeria-president
+ ial-and-national-assembly-elect\n\nDescriptive\, not financial advice.
+URL:https://von.gov.ng/inec-issues-revised-timetable-for-2027-general-elect
+ ion/
+CATEGORIES:Elections
+LOCATION:Nigeria
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Nigeria presidential and National Assembly elections
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-18-world-economic-forum-annual-meeting-davos-18-to@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270123
+SUMMARY:World Economic Forum Annual Meeting (Davos\, 18 to 22 Jan)
+DESCRIPTION:CEO and leader soundbites on AI\, trade and growth\; heavy head
+ line flow.\n\nTime not set by the source\; listed as an all-day event.\n\n
+ Source: Davos Klosters tourism\, event listing. https://www.davos.ch/en/ex
+ perience/events/world-economic-forum-annual-meeting-2027\n\nNAOS Upcoming:
+  https://hardlypythonnmr.github.io/naos/agenda.html#2027-01-18-world-econo
+ mic-forum-annual-meeting-davos-18-to\n\nDescriptive\, not financial advice
+ .
+URL:https://www.davos.ch/en/experience/events/world-economic-forum-annual-m
+ eeting-2027
+CATEGORIES:Summits
+LOCATION:Switzerland / WEF
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:World Economic Forum Annual Meeting (Davos\, 18 to 22 Jan)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-18-nyse-and-nasdaq-closed-martin-luther-king-jr-day@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270119
+SUMMARY:NYSE and Nasdaq closed: Martin Luther King Jr. Day
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -01-18-nyse-and-nasdaq-closed-martin-luther-king-jr-day\n\nDescriptive\, n
+ ot financial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Martin Luther King Jr. Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-22-bank-of-japan-policy-decision-and-outlook-report@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270122
+DTEND;VALUE=DATE:20270123
+SUMMARY:Bank of Japan policy decision and Outlook Report
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-01
+ -22-bank-of-japan-policy-decision-and-outlook-report\n\nDescriptive\, not 
+ financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision and Outlook Report
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-27-fomc-statement-press-conference-14-30-et@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270127T190000Z
+SUMMARY:FOMC statement (press conference 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 19:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2027-01-27-fomc-statement-press
+ -conference-14-30-et\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement (press conference 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-27-bank-of-canada-rate-announcement-and-monetary-po@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270127T144500Z
+SUMMARY:Bank of Canada rate announcement and Monetary Policy Report
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 14:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2027-01-27-bank-of-canada-rate-announ
+ cement-and-monetary-po\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement and Monetary Policy Report
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-27-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270127T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://euqueroinvest
+ ir.com/economia/copom-tera-oito-reunioes-em-2027\n\nNAOS Upcoming: https:/
+ /hardlypythonnmr.github.io/naos/agenda.html#2027-01-27-brazil-copom-selic-
+ decision\n\nDescriptive\, not financial advice.
+URL:https://euqueroinvestir.com/economia/copom-tera-oito-reunioes-em-2027
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-28-us-gdp-q4-2026-advance-estimate-and-personal-inc@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270128T133000Z
+SUMMARY:US GDP Q4 2026 advance estimate and Personal Income and Outlays (De
+ cember\, PCE prices)
+DESCRIPTION:Growth and the Fed's preferred inflation gauge (PCE) in one mor
+ ning.\n\nTime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: BEA\, releas
+ e schedule. https://www.bea.gov/news/schedule/next-year\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-01-28-us-gdp-q4-20
+ 26-advance-estimate-and-personal-inc\n\nDescriptive\, not financial advice
+ .
+URL:https://www.bea.gov/news/schedule/next-year
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US GDP Q4 2026 advance estimate and Personal Income and Outlays
+  (December\, PCE prices)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-04-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270204T131500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 13:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2027-02-04-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-04-bank-of-england-bank-rate-decision-and-minutes-w@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270204T120000Z
+SUMMARY:Bank of England Bank Rate decision and minutes with Monetary Policy
+  Report (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 12:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-02-04
+ -bank-of-england-bank-rate-decision-and-minutes-w\n\nDescriptive\, not fin
+ ancial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes with Monetary Po
+ licy Report (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-05-us-employment-situation-january-payrolls@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270205T133000Z
+SUMMARY:US Employment Situation (January payrolls)
+DESCRIPTION:Payrolls and unemployment\; the jobs read for Fed pricing.\n\nT
+ ime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, Employment Situa
+ tion release schedule. https://www.bls.gov/schedule/news_release/empsit.ht
+ m\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-02-05-us-employment-situation-january-payrolls\n\nDescriptive\, not fina
+ ncial advice.
+URL:https://www.bls.gov/schedule/news_release/empsit.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US Employment Situation (January payrolls)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-06-lunar-new-year-year-of-the-goat-spring-festival@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270212
+SUMMARY:Lunar New Year (Year of the Goat)\; Spring Festival Golden Week (ex
+ pected date)
+DESCRIPTION:The world's largest travel migration\; China and Hong Kong mark
+ ets close\; consumption and oil-demand reads.\n\nTime not set by the sourc
+ e\; listed as an all-day event.\n\nExpected date: provisional until the of
+ ficial announcement (moon sighting or official calendar).\n\nNote: New Yea
+ r's Day 6 Feb is fixed by the lunar calendar. The State Council has not ye
+ t published the 2027 holiday schedule (usually in November)\; the holiday 
+ span is expected around 5 to 11 Feb.\n\nSource: Office Holidays\, China 20
+ 27. https://www.officeholidays.com/countries/china/2027\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-02-06-lunar-new-ye
+ ar-year-of-the-goat-spring-festival\n\nDescriptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/china/2027
+CATEGORIES:Religious and cultural
+LOCATION:China and East Asia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Lunar New Year (Year of the Goat)\; Spring Festival Golden Week
+  (expected date)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-08-ramadan-begins-expected@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270309
+SUMMARY:Ramadan begins (expected)
+DESCRIPTION:Shifts daily consumption\, work hours and travel across Muslim-
+ majority markets\; Gulf trading hours shorten.\n\nTime not set by the sour
+ ce\; listed as an all-day event.\n\nExpected date: provisional until the o
+ fficial announcement (moon sighting or official calendar).\n\nNote: Depend
+ s on moon sighting: 8 or 9 Feb by country. Overlaps with Western Lent (10 
+ Feb to 27 Mar) for about four weeks\, from 10 Feb to the end of Ramadan ar
+ ound 8 to 9 Mar.\n\nSource: Office Holidays\, Ramadan 2027. https://www.of
+ ficeholidays.com/holidays/ramadan\n\nNAOS Upcoming: https://hardlypythonnm
+ r.github.io/naos/agenda.html#2027-02-08-ramadan-begins-expected\n\nDescrip
+ tive\, not financial advice.
+URL:https://www.officeholidays.com/holidays/ramadan
+CATEGORIES:Religious and cultural
+LOCATION:Global (Muslim)
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Ramadan begins (expected)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-09-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270209T033000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 03:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-02-09-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-10-ash-wednesday-western-lent-begins-to-easter-28-m@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270328
+SUMMARY:Ash Wednesday: Western Lent begins (to Easter\, 28 Mar)
+DESCRIPTION:Carnival ends (Brazil markets open late)\; Lent shifts food dem
+ and (fish) and search trends. Shares the calendar with Ramadan this year.\
+ n\nTime not set by the source\; listed as an all-day event.\n\nNote: Lent 
+ and Ramadan overlap from 10 Feb to about 8 to 9 Mar 2027.\n\nSource: Offic
+ e Holidays\, Ash Wednesday 2027. https://www.officeholidays.com/holidays/a
+ sh-wednesday\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agen
+ da.html#2027-02-10-ash-wednesday-western-lent-begins-to-easter-28-m\n\nDes
+ criptive\, not financial advice.
+URL:https://www.officeholidays.com/holidays/ash-wednesday
+CATEGORIES:Religious and cultural
+LOCATION:Global (Christian)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Ash Wednesday: Western Lent begins (to Easter\, 28 Mar)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-11-us-cpi-january@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270211T133000Z
+SUMMARY:US CPI (January)
+DESCRIPTION:Inflation print that steers Fed pricing\, yields and the dollar
+ .\n\nTime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, CPI releas
+ e schedule. https://www.bls.gov/schedule/news_release/cpi.htm\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-02-11-us-cpi
+ -january\n\nDescriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/news_release/cpi.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US CPI (January)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-15-nyse-and-nasdaq-closed-washington-s-birthday@naos.hardlypyth
+ onnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270216
+SUMMARY:NYSE and Nasdaq closed: Washington's Birthday
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -02-15-nyse-and-nasdaq-closed-washington-s-birthday\n\nDescriptive\, not f
+ inancial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Washington's Birthday
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-25-us-gdp-q4-2026-second-estimate-and-personal-inco@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270225T133000Z
+SUMMARY:US GDP Q4 2026 second estimate and Personal Income and Outlays (Jan
+ uary\, PCE prices)
+DESCRIPTION:Growth and the Fed's preferred inflation gauge (PCE) in one mor
+ ning.\n\nTime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: BEA\, releas
+ e schedule. https://www.bea.gov/news/schedule/next-year\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-02-25-us-gdp-q4-20
+ 26-second-estimate-and-personal-inco\n\nDescriptive\, not financial advice
+ .
+URL:https://www.bea.gov/news/schedule/next-year
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US GDP Q4 2026 second estimate and Personal Income and Outlays 
+ (January\, PCE prices)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-01-mwc-barcelona-2027-1-to-4-mar@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270305
+SUMMARY:MWC Barcelona 2027 (1 to 4 Mar)
+DESCRIPTION:Telecom\, handset and AI-device launches\; telecom equipment na
+ mes.\n\nTime not set by the source\; listed as an all-day event.\n\nSource
+ : MWC Barcelona official site (GSMA). https://www.mwcbarcelona.com/\n\nNAO
+ S Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-03-01-
+ mwc-barcelona-2027-1-to-4-mar\n\nDescriptive\, not financial advice.
+URL:https://www.mwcbarcelona.com/
+CATEGORIES:Tech and AI
+LOCATION:Spain
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MWC Barcelona 2027 (1 to 4 Mar)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-03-bank-of-canada-rate-announcement@naos.hardlypythonnmr.github
+ .io
+DTSTAMP:20261014T000000Z
+DTSTART:20270303T144500Z
+SUMMARY:Bank of Canada rate announcement
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 14:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2027-03-03-bank-of-canada-rate-announ
+ cement\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-05-us-employment-situation-february-payrolls@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270305T133000Z
+SUMMARY:US Employment Situation (February payrolls)
+DESCRIPTION:Payrolls and unemployment\; the jobs read for Fed pricing.\n\nT
+ ime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, Employment Situa
+ tion release schedule. https://www.bls.gov/schedule/news_release/empsit.ht
+ m\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-03-05-us-employment-situation-february-payrolls\n\nDescriptive\, not fin
+ ancial advice.
+URL:https://www.bls.gov/schedule/news_release/empsit.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US Employment Situation (February payrolls)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-09-eid-al-fitr-expected@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270309
+DTEND;VALUE=DATE:20270310
+SUMMARY:Eid al-Fitr (expected)
+DESCRIPTION:Multi-day closures in Gulf\, Indonesian\, Pakistani and Turkish
+  markets\; peak spending and travel.\n\nTime not set by the source\; liste
+ d as an all-day event.\n\nExpected date: provisional until the official an
+ nouncement (moon sighting or official calendar).\n\nNote: Moon sighting: 9
+  or 10 Mar by country (Indonesia\, Singapore 10 Mar).\n\nSource: Office Ho
+ lidays\, Eid al-Fitr 2027 (Saudi Arabia 9 to 12 Mar). https://www.officeho
+ lidays.com/countries/saudi-arabia/2027\n\nNAOS Upcoming: https://hardlypyt
+ honnmr.github.io/naos/agenda.html#2027-03-09-eid-al-fitr-expected\n\nDescr
+ iptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/saudi-arabia/2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Muslim)
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Eid al-Fitr (expected)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-10-us-cpi-february@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270310T133000Z
+SUMMARY:US CPI (February)
+DESCRIPTION:Inflation print that steers Fed pricing\, yields and the dollar
+ .\n\nTime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, CPI releas
+ e schedule. https://www.bls.gov/schedule/news_release/cpi.htm\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-03-10-us-cpi
+ -february\n\nDescriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/news_release/cpi.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US CPI (February)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-15-nvidia-gtc-2027-san-jose-15-to-18-mar-keynote-we@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270319
+SUMMARY:Nvidia GTC 2027 (San Jose\, 15 to 18 Mar\; keynote week)
+DESCRIPTION:Jensen Huang's keynote sets the AI chip narrative\; NVDA and su
+ ppliers.\n\nTime not set by the source\; listed as an all-day event.\n\nNo
+ te: NVIDIA lists 14 to 18 Mar including a training day\; the conference ru
+ ns 15 to 18 Mar.\n\nSource: NVIDIA GTC 2027 FAQ. https://www.nvidia.com/en
+ -zz/gtc/faq/\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agen
+ da.html#2027-03-15-nvidia-gtc-2027-san-jose-15-to-18-mar-keynote-we\n\nDes
+ criptive\, not financial advice.
+URL:https://www.nvidia.com/en-zz/gtc/faq/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Nvidia GTC 2027 (San Jose\, 15 to 18 Mar\; keynote week)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-15-orthodox-lent-begins-clean-monday@naos.hardlypythonnmr.githu
+ b.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270502
+SUMMARY:Orthodox Lent begins (Clean Monday)
+DESCRIPTION:Greek market holiday\; Orthodox Lent runs to Easter on 2 May.\n
+ \nTime not set by the source\; listed as an all-day event.\n\nSource: Offi
+ ce Holidays\, Greece 2027. https://www.officeholidays.com/countries/greece
+ /2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html
+ #2027-03-15-orthodox-lent-begins-clean-monday\n\nDescriptive\, not financi
+ al advice.
+URL:https://www.officeholidays.com/countries/greece/2027
+CATEGORIES:Religious and cultural
+LOCATION:Greece\, Eastern Europe
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Orthodox Lent begins (Clean Monday)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-17-fomc-statement-and-summary-of-economic-projectio@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270317T180000Z
+SUMMARY:FOMC statement and Summary of Economic Projections (press conferenc
+ e 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 18:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2027-03-17-fomc-statement-and-s
+ ummary-of-economic-projectio\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement and Summary of Economic Projections (press confe
+ rence 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-17-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270317T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://euqueroinvest
+ ir.com/economia/copom-tera-oito-reunioes-em-2027\n\nNAOS Upcoming: https:/
+ /hardlypythonnmr.github.io/naos/agenda.html#2027-03-17-brazil-copom-selic-
+ decision\n\nDescriptive\, not financial advice.
+URL:https://euqueroinvestir.com/economia/copom-tera-oito-reunioes-em-2027
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-18-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270318T131500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 13:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2027-03-18-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-18-bank-of-england-bank-rate-decision-and-minutes@naos.hardlypy
+ thonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270318T120000Z
+SUMMARY:Bank of England Bank Rate decision and minutes (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 12:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-03-18
+ -bank-of-england-bank-rate-decision-and-minutes\n\nDescriptive\, not finan
+ cial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-18-bank-of-japan-policy-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270318
+DTEND;VALUE=DATE:20270319
+SUMMARY:Bank of Japan policy decision
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-03
+ -18-bank-of-japan-policy-decision\n\nDescriptive\, not financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-18-snb-monetary-policy-assessment@naos.hardlypythonnmr.github.i
+ o
+DTSTAMP:20261014T000000Z
+DTSTART:20270318T083000Z
+SUMMARY:SNB monetary policy assessment
+DESCRIPTION:Sets Swiss rates\; moves the franc\, a haven gauge.\n\nTime: 08
+ :30 UTC\, 09:30 Europe/Zurich.\n\nSource: Swiss National Bank\, event sche
+ dule. https://www.snb.ch/en/services-events/digital-services/event-schedul
+ e\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-03-18-snb-monetary-policy-assessment\n\nDescriptive\, not financial advi
+ ce.
+URL:https://www.snb.ch/en/services-events/digital-services/event-schedule
+CATEGORIES:Central banks
+LOCATION:Switzerland
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SNB monetary policy assessment
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-22-holi@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270322
+DTEND;VALUE=DATE:20270323
+SUMMARY:Holi
+DESCRIPTION:Festive spending and travel in India\; NSE has not yet publishe
+ d its 2027 holiday list.\n\nTime not set by the source\; listed as an all-
+ day event.\n\nSource: Office Holidays\, India 2027. https://www.officeholi
+ days.com/countries/india/2027\n\nNAOS Upcoming: https://hardlypythonnmr.gi
+ thub.io/naos/agenda.html#2027-03-22-holi\n\nDescriptive\, not financial ad
+ vice.
+URL:https://www.officeholidays.com/countries/india/2027
+CATEGORIES:Religious and cultural
+LOCATION:India
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Holi
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-23-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270323T033000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 03:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-03-23-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-26-nyse-and-nasdaq-closed-good-friday@naos.hardlypythonnmr.gith
+ ub.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+SUMMARY:NYSE and Nasdaq closed: Good Friday
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -03-26-nyse-and-nasdaq-closed-good-friday\n\nDescriptive\, not financial a
+ dvice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Good Friday
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-26-london-stock-exchange-closed-good-friday@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+SUMMARY:London Stock Exchange closed: Good Friday
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2027-03-26-london-stock-exchange-closed-good-fr
+ iday\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: Good Friday
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-28-easter-sunday-western-good-friday-26-mar@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270328
+DTEND;VALUE=DATE:20270329
+SUMMARY:Easter Sunday (Western)\; Good Friday 26 Mar
+DESCRIPTION:Long weekend closes the US (Good Friday) and Europe (to Easter 
+ Monday)\; travel and chocolate retail.\n\nTime not set by the source\; lis
+ ted as an all-day event.\n\nSource: Office Holidays\, India 2027 (Good Fri
+ day 26 Mar\, Easter Sunday 28 Mar). https://www.officeholidays.com/countri
+ es/india/2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/age
+ nda.html#2027-03-28-easter-sunday-western-good-friday-26-mar\n\nDescriptiv
+ e\, not financial advice.
+URL:https://www.officeholidays.com/countries/india/2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Christian)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Easter Sunday (Western)\; Good Friday 26 Mar
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-29-london-stock-exchange-closed-easter-monday@naos.hardlypython
+ nmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270329
+DTEND;VALUE=DATE:20270330
+SUMMARY:London Stock Exchange closed: Easter Monday
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2027-03-29-london-stock-exchange-closed-easter-
+ monday\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: Easter Monday
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-31-us-gdp-q4-2026-third-estimate-and-personal-incom@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270331T123000Z
+SUMMARY:US GDP Q4 2026 third estimate and Personal Income and Outlays (Febr
+ uary\, PCE prices)
+DESCRIPTION:Growth and the Fed's preferred inflation gauge (PCE) in one mor
+ ning.\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BEA\, releas
+ e schedule. https://www.bea.gov/news/schedule/next-year\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-03-31-us-gdp-q4-20
+ 26-third-estimate-and-personal-incom\n\nDescriptive\, not financial advice
+ .
+URL:https://www.bea.gov/news/schedule/next-year
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US GDP Q4 2026 third estimate and Personal Income and Outlays (
+ February\, PCE prices)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-02-us-employment-situation-march-payrolls@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270402T123000Z
+SUMMARY:US Employment Situation (March payrolls)
+DESCRIPTION:Payrolls and unemployment\; the jobs read for Fed pricing.\n\nT
+ ime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, Employment Situa
+ tion release schedule. https://www.bls.gov/schedule/news_release/empsit.ht
+ m\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-04-02-us-employment-situation-march-payrolls\n\nDescriptive\, not financ
+ ial advice.
+URL:https://www.bls.gov/schedule/news_release/empsit.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US Employment Situation (March payrolls)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-07-chaitra-navratri-to-ram-navami-15-apr@naos.hardlypythonnmr.g
+ ithub.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270407
+DTEND;VALUE=DATE:20270416
+SUMMARY:Chaitra Navratri (to Ram Navami\, 15 Apr)
+DESCRIPTION:Spring festival season in India\; gold\, apparel and auto purch
+ ases.\n\nTime not set by the source\; listed as an all-day event.\n\nSourc
+ e: Drik Panchang\, Chaitra Navratri 2027 (New Delhi). https://www.drikpanc
+ hang.com/navratri/chaitra-vasant-navratri-dates.html?year=2027&geoname-id=
+ 1261481\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.ht
+ ml#2027-04-07-chaitra-navratri-to-ram-navami-15-apr\n\nDescriptive\, not f
+ inancial advice.
+URL:https://www.drikpanchang.com/navratri/chaitra-vasant-navratri-dates.htm
+ l?year=2027&geoname-id=1261481
+CATEGORIES:Religious and cultural
+LOCATION:India
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Chaitra Navratri (to Ram Navami\, 15 Apr)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-12-imf-and-world-bank-spring-meetings-washington-12@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270412
+DTEND;VALUE=DATE:20270418
+SUMMARY:IMF and World Bank Spring Meetings (Washington\, 12 to 17 Apr) (exp
+ ected date)
+DESCRIPTION:World Economic Outlook and G20 finance talks\; growth forecasts
+  get quoted.\n\nTime not set by the source\; listed as an all-day event.\n
+ \nExpected date: provisional until the official announcement (moon sightin
+ g or official calendar).\n\nNote: Listed by the IMF as future meeting date
+ s\; earlier IMF pages called them tentative.\n\nSource: IMF Connect\, past
+  and future meetings. https://www.imfconnect.org/content/imf/en/meetings/p
+ ast-future-meetings.html\n\nNAOS Upcoming: https://hardlypythonnmr.github.
+ io/naos/agenda.html#2027-04-12-imf-and-world-bank-spring-meetings-washingt
+ on-12\n\nDescriptive\, not financial advice.
+URL:https://www.imfconnect.org/content/imf/en/meetings/past-future-meetings
+ .html
+CATEGORIES:Summits
+LOCATION:IMF / World Bank
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IMF and World Bank Spring Meetings (Washington\, 12 to 17 Apr) 
+ (expected date)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-13-us-cpi-march@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270413T123000Z
+SUMMARY:US CPI (March)
+DESCRIPTION:Inflation print that steers Fed pricing\, yields and the dollar
+ .\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, CPI releas
+ e schedule. https://www.bls.gov/schedule/news_release/cpi.htm\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-04-13-us-cpi
+ -march\n\nDescriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/news_release/cpi.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US CPI (March)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-18-france-presidential-election-first-round@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:France presidential election\, first round
+DESCRIPTION:OAT-Bund spread and euro risk premium around the result.\n\nTim
+ e not set by the source\; listed as an all-day event.\n\nNote: Overseas te
+ rritories vote on Saturday 17 Apr. Convocation decree still to be publishe
+ d.\n\nSource: Service-Public.fr\, dates set by the Council of Ministers (1
+  Jul 2026). https://www.service-public.gouv.fr/particuliers/actualites/A15
+ 053?lang=fr\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agend
+ a.html#2027-04-18-france-presidential-election-first-round\n\nDescriptive\
+ , not financial advice.
+URL:https://www.service-public.gouv.fr/particuliers/actualites/A15053?lang=
+ fr
+CATEGORIES:Elections
+LOCATION:France
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:France presidential election\, first round
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-22-passover-from-sundown-21-apr-to-29-apr@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270422
+DTEND;VALUE=DATE:20270430
+SUMMARY:Passover (from sundown 21 Apr\; to 29 Apr)
+DESCRIPTION:Israeli market holidays\; food retail demand.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: Hebcal\, Jewish holi
+ days 5787 (2026-2027). https://www.hebcal.com/holidays/2026-2027\n\nNAOS U
+ pcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-04-22-pas
+ sover-from-sundown-21-apr-to-29-apr\n\nDescriptive\, not financial advice.
+URL:https://www.hebcal.com/holidays/2026-2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Jewish)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Passover (from sundown 21 Apr\; to 29 Apr)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-28-fomc-statement-press-conference-14-30-et@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270428T180000Z
+SUMMARY:FOMC statement (press conference 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 18:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2027-04-28-fomc-statement-press
+ -conference-14-30-et\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement (press conference 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-28-bank-of-japan-policy-decision-and-outlook-report@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270428
+DTEND;VALUE=DATE:20270429
+SUMMARY:Bank of Japan policy decision and Outlook Report
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-04
+ -28-bank-of-japan-policy-decision-and-outlook-report\n\nDescriptive\, not 
+ financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision and Outlook Report
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-28-bank-of-canada-rate-announcement-and-monetary-po@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270428T134500Z
+SUMMARY:Bank of Canada rate announcement and Monetary Policy Report
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 13:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2027-04-28-bank-of-canada-rate-announ
+ cement-and-monetary-po\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement and Monetary Policy Report
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-28-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270428T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://euqueroinvest
+ ir.com/economia/copom-tera-oito-reunioes-em-2027\n\nNAOS Upcoming: https:/
+ /hardlypythonnmr.github.io/naos/agenda.html#2027-04-28-brazil-copom-selic-
+ decision\n\nDescriptive\, not financial advice.
+URL:https://euqueroinvestir.com/economia/copom-tera-oito-reunioes-em-2027
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-29-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270429T121500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 12:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2027-04-29-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-29-bank-of-england-bank-rate-decision-and-minutes-w@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270429T110000Z
+SUMMARY:Bank of England Bank Rate decision and minutes with Monetary Policy
+  Report (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 11:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-04-29
+ -bank-of-england-bank-rate-decision-and-minutes-w\n\nDescriptive\, not fin
+ ancial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes with Monetary Po
+ licy Report (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-29-us-gdp-q1-2027-advance-estimate-and-personal-inc@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270429T123000Z
+SUMMARY:US GDP Q1 2027 advance estimate and Personal Income and Outlays (Ma
+ rch\, PCE prices)
+DESCRIPTION:Growth and the Fed's preferred inflation gauge (PCE) in one mor
+ ning.\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BEA\, releas
+ e schedule. https://www.bea.gov/news/schedule/next-year\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-04-29-us-gdp-q1-20
+ 27-advance-estimate-and-personal-inc\n\nDescriptive\, not financial advice
+ .
+URL:https://www.bea.gov/news/schedule/next-year
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US GDP Q1 2027 advance estimate and Personal Income and Outlays
+  (March\, PCE prices)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-02-france-presidential-election-second-round@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:France presidential election\, second round
+DESCRIPTION:OAT-Bund spread and euro risk premium around the result.\n\nTim
+ e not set by the source\; listed as an all-day event.\n\nSource: Service-P
+ ublic.fr\, dates set by the Council of Ministers (1 Jul 2026). https://www
+ .service-public.gouv.fr/particuliers/actualites/A15053?lang=fr\n\nNAOS Upc
+ oming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-05-02-franc
+ e-presidential-election-second-round\n\nDescriptive\, not financial advice
+ .
+URL:https://www.service-public.gouv.fr/particuliers/actualites/A15053?lang=
+ fr
+CATEGORIES:Elections
+LOCATION:France
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:France presidential election\, second round
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-02-orthodox-easter@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Orthodox Easter
+DESCRIPTION:Greek\, Romanian and other Orthodox market holidays around it.\
+ n\nTime not set by the source\; listed as an all-day event.\n\nSource: Off
+ ice Holidays\, Greece 2027. https://www.officeholidays.com/countries/greec
+ e/2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.htm
+ l#2027-05-02-orthodox-easter\n\nDescriptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/greece/2027
+CATEGORIES:Religious and cultural
+LOCATION:Greece\, Eastern Europe
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Orthodox Easter
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-03-london-stock-exchange-closed-early-may-bank-holi@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270504
+SUMMARY:London Stock Exchange closed: Early May bank holiday
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2027-05-03-london-stock-exchange-closed-early-m
+ ay-bank-holi\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: Early May bank holiday
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-04-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270504T043000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 04:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-05-04-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-07-us-employment-situation-april-payrolls@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270507T123000Z
+SUMMARY:US Employment Situation (April payrolls)
+DESCRIPTION:Payrolls and unemployment\; the jobs read for Fed pricing.\n\nT
+ ime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, Employment Situa
+ tion release schedule. https://www.bls.gov/schedule/news_release/empsit.ht
+ m\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-05-07-us-employment-situation-april-payrolls\n\nDescriptive\, not financ
+ ial advice.
+URL:https://www.bls.gov/schedule/news_release/empsit.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US Employment Situation (April payrolls)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-12-us-cpi-april@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270512T123000Z
+SUMMARY:US CPI (April)
+DESCRIPTION:Inflation print that steers Fed pricing\, yields and the dollar
+ .\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, CPI releas
+ e schedule. https://www.bls.gov/schedule/news_release/cpi.htm\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-05-12-us-cpi
+ -april\n\nDescriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/news_release/cpi.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US CPI (April)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-14-hajj-pilgrimage-expected-about-14-to-19-may-day@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270514
+DTEND;VALUE=DATE:20270520
+SUMMARY:Hajj pilgrimage (expected\, about 14 to 19 May\; Day of Arafat 15 M
+ ay)
+DESCRIPTION:Saudi travel and services peak\; Tadawul holiday around Eid.\n\
+ nTime not set by the source\; listed as an all-day event.\n\nExpected date
+ : provisional until the official announcement (moon sighting or official c
+ alendar).\n\nNote: Hajj runs 8 to 13 Dhu al-Hijjah\; the span is derived f
+ rom Arafat Day (9 Dhu al-Hijjah) on 15 May\, which depends on moon sightin
+ g.\n\nSource: Office Holidays\, Saudi Arabia 2027 (Arafat Day 15 May). htt
+ ps://www.officeholidays.com/countries/saudi-arabia/2027\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-05-14-hajj-pilgrim
+ age-expected-about-14-to-19-may-day\n\nDescriptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/saudi-arabia/2027
+CATEGORIES:Religious and cultural
+LOCATION:Saudi Arabia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Hajj pilgrimage (expected\, about 14 to 19 May\; Day of Arafat 
+ 15 May)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-16-eid-al-adha-expected@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:Eid al-Adha (expected)
+DESCRIPTION:Multi-day closures in Gulf and Muslim-majority markets\; livest
+ ock and travel demand.\n\nTime not set by the source\; listed as an all-da
+ y event.\n\nExpected date: provisional until the official announcement (mo
+ on sighting or official calendar).\n\nNote: Moon sighting: 16 May in Saudi
+  Arabia\, 17 May in Indonesia and Singapore.\n\nSource: Office Holidays\, 
+ Saudi Arabia 2027. https://www.officeholidays.com/countries/saudi-arabia/2
+ 027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2
+ 027-05-16-eid-al-adha-expected\n\nDescriptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/saudi-arabia/2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Muslim)
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Eid al-Adha (expected)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-20-vesak-buddha-s-birthday@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270520
+DTEND;VALUE=DATE:20270521
+SUMMARY:Vesak (Buddha's birthday) (expected date)
+DESCRIPTION:Market holidays in Singapore\, Indonesia\, Thailand and elsewhe
+ re.\n\nTime not set by the source\; listed as an all-day event.\n\nExpecte
+ d date: provisional until the official announcement (moon sighting or offi
+ cial calendar).\n\nNote: Date varies by country and lunar calendar.\n\nSou
+ rce: Office Holidays\, Singapore 2027. https://www.officeholidays.com/coun
+ tries/singapore/2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/n
+ aos/agenda.html#2027-05-20-vesak-buddha-s-birthday\n\nDescriptive\, not fi
+ nancial advice.
+URL:https://www.officeholidays.com/countries/singapore/2027
+CATEGORIES:Religious and cultural
+LOCATION:South and Southeast Asia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Vesak (Buddha's birthday) (expected date)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-27-us-gdp-q1-second-estimate-and-personal-income-an@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270527T123000Z
+SUMMARY:US GDP Q1 second estimate and Personal Income and Outlays (April\, 
+ PCE prices)
+DESCRIPTION:Growth and the Fed's preferred inflation gauge (PCE) in one mor
+ ning.\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BEA\, releas
+ e schedule. https://www.bea.gov/news/schedule/next-year\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-05-27-us-gdp-q1-se
+ cond-estimate-and-personal-income-an\n\nDescriptive\, not financial advice
+ .
+URL:https://www.bea.gov/news/schedule/next-year
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US GDP Q1 second estimate and Personal Income and Outlays (Apri
+ l\, PCE prices)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-31-nyse-and-nasdaq-closed-memorial-day@naos.hardlypythonnmr.git
+ hub.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270531
+DTEND;VALUE=DATE:20270601
+SUMMARY:NYSE and Nasdaq closed: Memorial Day
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -05-31-nyse-and-nasdaq-closed-memorial-day\n\nDescriptive\, not financial 
+ advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Memorial Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-31-london-stock-exchange-closed-spring-bank-holiday@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270531
+DTEND;VALUE=DATE:20270601
+SUMMARY:London Stock Exchange closed: Spring bank holiday
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2027-05-31-london-stock-exchange-closed-spring-
+ bank-holiday\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: Spring bank holiday
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-02-bank-of-canada-rate-announcement@naos.hardlypythonnmr.github
+ .io
+DTSTAMP:20261014T000000Z
+DTSTART:20270602T134500Z
+SUMMARY:Bank of Canada rate announcement
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 13:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2027-06-02-bank-of-canada-rate-announ
+ cement\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-04-us-employment-situation-may-payrolls@naos.hardlypythonnmr.gi
+ thub.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270604T123000Z
+SUMMARY:US Employment Situation (May payrolls)
+DESCRIPTION:Payrolls and unemployment\; the jobs read for Fed pricing.\n\nT
+ ime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, Employment Situa
+ tion release schedule. https://www.bls.gov/schedule/news_release/empsit.ht
+ m\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-06-04-us-employment-situation-may-payrolls\n\nDescriptive\, not financia
+ l advice.
+URL:https://www.bls.gov/schedule/news_release/empsit.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US Employment Situation (May payrolls)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-06-mexico-federal-midterm-election-chamber-of-deput@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Mexico federal midterm election (Chamber of Deputies\, 17 governors
+ hips)
+DESCRIPTION:Congressional balance for reforms\; the peso and Mexican assets
+ .\n\nTime not set by the source\; listed as an all-day event.\n\nSource: E
+ xpansión Política\, INE 2026-2027 calendar. https://politica.expansion.m
+ x/mexico/2026/09/11/elecciones-mexico-2027-que-se-vota-fechas-clave-ine\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-06
+ -06-mexico-federal-midterm-election-chamber-of-deput\n\nDescriptive\, not 
+ financial advice.
+URL:https://politica.expansion.mx/mexico/2026/09/11/elecciones-mexico-2027-
+ que-se-vota-fechas-clave-ine
+CATEGORIES:Elections
+LOCATION:Mexico
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mexico federal midterm election (Chamber of Deputies\, 17 gover
+ norships)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-06-islamic-new-year-1-muharram-1449-expected@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Islamic New Year (1 Muharram 1449\, expected)
+DESCRIPTION:Public holiday in Gulf states and Indonesia\; light regional vo
+ lumes.\n\nTime not set by the source\; listed as an all-day event.\n\nExpe
+ cted date: provisional until the official announcement (moon sighting or o
+ fficial calendar).\n\nNote: Depends on moon sighting.\n\nSource: Office Ho
+ lidays\, Islamic New Year 2027. https://www.officeholidays.com/holidays/is
+ lamic-new-year\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/ag
+ enda.html#2027-06-06-islamic-new-year-1-muharram-1449-expected\n\nDescript
+ ive\, not financial advice.
+URL:https://www.officeholidays.com/holidays/islamic-new-year
+CATEGORIES:Religious and cultural
+LOCATION:Global (Muslim)
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Islamic New Year (1 Muharram 1449\, expected)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-09-fomc-statement-and-summary-of-economic-projectio@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270609T180000Z
+SUMMARY:FOMC statement and Summary of Economic Projections (press conferenc
+ e 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 18:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2027-06-09-fomc-statement-and-s
+ ummary-of-economic-projectio\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement and Summary of Economic Projections (press confe
+ rence 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-10-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270610T121500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 12:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2027-06-10-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-10-us-cpi-may@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270610T123000Z
+SUMMARY:US CPI (May)
+DESCRIPTION:Inflation print that steers Fed pricing\, yields and the dollar
+ .\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, CPI releas
+ e schedule. https://www.bls.gov/schedule/news_release/cpi.htm\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-06-10-us-cpi
+ -may\n\nDescriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/news_release/cpi.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US CPI (May)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-11-bank-of-japan-policy-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270612
+SUMMARY:Bank of Japan policy decision
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-06
+ -11-bank-of-japan-policy-decision\n\nDescriptive\, not financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-16-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270616T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://euqueroinvest
+ ir.com/economia/copom-tera-oito-reunioes-em-2027\n\nNAOS Upcoming: https:/
+ /hardlypythonnmr.github.io/naos/agenda.html#2027-06-16-brazil-copom-selic-
+ decision\n\nDescriptive\, not financial advice.
+URL:https://euqueroinvestir.com/economia/copom-tera-oito-reunioes-em-2027
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-17-bank-of-england-bank-rate-decision-and-minutes@naos.hardlypy
+ thonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270617T110000Z
+SUMMARY:Bank of England Bank Rate decision and minutes (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 11:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-06-17
+ -bank-of-england-bank-rate-decision-and-minutes\n\nDescriptive\, not finan
+ cial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-18-nyse-and-nasdaq-closed-juneteenth-observed@naos.hardlypython
+ nmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270618
+DTEND;VALUE=DATE:20270619
+SUMMARY:NYSE and Nasdaq closed: Juneteenth (observed)
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -06-18-nyse-and-nasdaq-closed-juneteenth-observed\n\nDescriptive\, not fin
+ ancial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Juneteenth (observed)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-22-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270622T043000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 04:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-06-22-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-24-snb-monetary-policy-assessment@naos.hardlypythonnmr.github.i
+ o
+DTSTAMP:20261014T000000Z
+DTSTART:20270624T073000Z
+SUMMARY:SNB monetary policy assessment
+DESCRIPTION:Sets Swiss rates\; moves the franc\, a haven gauge.\n\nTime: 07
+ :30 UTC\, 09:30 Europe/Zurich.\n\nSource: Swiss National Bank\, event sche
+ dule. https://www.snb.ch/en/services-events/digital-services/event-schedul
+ e\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-06-24-snb-monetary-policy-assessment\n\nDescriptive\, not financial advi
+ ce.
+URL:https://www.snb.ch/en/services-events/digital-services/event-schedule
+CATEGORIES:Central banks
+LOCATION:Switzerland
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SNB monetary policy assessment
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-25-us-gdp-q1-third-estimate-and-personal-income-and@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270625T123000Z
+SUMMARY:US GDP Q1 third estimate and Personal Income and Outlays (May\, PCE
+  prices)
+DESCRIPTION:Growth and the Fed's preferred inflation gauge (PCE) in one mor
+ ning.\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BEA\, releas
+ e schedule. https://www.bea.gov/news/schedule/next-year\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-06-25-us-gdp-q1-th
+ ird-estimate-and-personal-income-and\n\nDescriptive\, not financial advice
+ .
+URL:https://www.bea.gov/news/schedule/next-year
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US GDP Q1 third estimate and Personal Income and Outlays (May\,
+  PCE prices)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-02-us-employment-situation-june-payrolls@naos.hardlypythonnmr.g
+ ithub.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270702T123000Z
+SUMMARY:US Employment Situation (June payrolls)
+DESCRIPTION:Payrolls and unemployment\; the jobs read for Fed pricing.\n\nT
+ ime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, Employment Situa
+ tion release schedule. https://www.bls.gov/schedule/news_release/empsit.ht
+ m\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-07-02-us-employment-situation-june-payrolls\n\nDescriptive\, not financi
+ al advice.
+URL:https://www.bls.gov/schedule/news_release/empsit.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US Employment Situation (June payrolls)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-05-nyse-and-nasdaq-closed-independence-day-observed@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270705
+DTEND;VALUE=DATE:20270706
+SUMMARY:NYSE and Nasdaq closed: Independence Day (observed)
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -07-05-nyse-and-nasdaq-closed-independence-day-observed\n\nDescriptive\, n
+ ot financial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Independence Day (observed)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-14-us-cpi-june@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270714T123000Z
+SUMMARY:US CPI (June)
+DESCRIPTION:Inflation print that steers Fed pricing\, yields and the dollar
+ .\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, CPI releas
+ e schedule. https://www.bls.gov/schedule/news_release/cpi.htm\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-07-14-us-cpi
+ -june\n\nDescriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/news_release/cpi.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US CPI (June)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-21-bank-of-canada-rate-announcement-and-monetary-po@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270721T134500Z
+SUMMARY:Bank of Canada rate announcement and Monetary Policy Report
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 13:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2027-07-21-bank-of-canada-rate-announ
+ cement-and-monetary-po\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement and Monetary Policy Report
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-22-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270722T121500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 12:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2027-07-22-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-22-bank-of-japan-policy-decision-and-outlook-report@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270722
+DTEND;VALUE=DATE:20270723
+SUMMARY:Bank of Japan policy decision and Outlook Report
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-07
+ -22-bank-of-japan-policy-decision-and-outlook-report\n\nDescriptive\, not 
+ financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision and Outlook Report
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-28-fomc-statement-press-conference-14-30-et@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270728T180000Z
+SUMMARY:FOMC statement (press conference 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 18:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2027-07-28-fomc-statement-press
+ -conference-14-30-et\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement (press conference 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-29-bank-of-england-bank-rate-decision-and-minutes-w@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270729T110000Z
+SUMMARY:Bank of England Bank Rate decision and minutes with Monetary Policy
+  Report (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 11:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-07-29
+ -bank-of-england-bank-rate-decision-and-minutes-w\n\nDescriptive\, not fin
+ ancial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes with Monetary Po
+ licy Report (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-29-us-gdp-q2-2027-advance-estimate-and-personal-inc@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270729T123000Z
+SUMMARY:US GDP Q2 2027 advance estimate and Personal Income and Outlays (Ju
+ ne\, PCE prices)
+DESCRIPTION:Growth and the Fed's preferred inflation gauge (PCE) in one mor
+ ning.\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BEA\, releas
+ e schedule. https://www.bea.gov/news/schedule/next-year\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-07-29-us-gdp-q2-20
+ 27-advance-estimate-and-personal-inc\n\nDescriptive\, not financial advice
+ .
+URL:https://www.bea.gov/news/schedule/next-year
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US GDP Q2 2027 advance estimate and Personal Income and Outlays
+  (June\, PCE prices)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-08-04-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270804T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://euqueroinvest
+ ir.com/economia/copom-tera-oito-reunioes-em-2027\n\nNAOS Upcoming: https:/
+ /hardlypythonnmr.github.io/naos/agenda.html#2027-08-04-brazil-copom-selic-
+ decision\n\nDescriptive\, not financial advice.
+URL:https://euqueroinvestir.com/economia/copom-tera-oito-reunioes-em-2027
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-08-06-us-employment-situation-july-payrolls@naos.hardlypythonnmr.g
+ ithub.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270806T123000Z
+SUMMARY:US Employment Situation (July payrolls)
+DESCRIPTION:Payrolls and unemployment\; the jobs read for Fed pricing.\n\nT
+ ime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, Employment Situa
+ tion release schedule. https://www.bls.gov/schedule/news_release/empsit.ht
+ m\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-08-06-us-employment-situation-july-payrolls\n\nDescriptive\, not financi
+ al advice.
+URL:https://www.bls.gov/schedule/news_release/empsit.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US Employment Situation (July payrolls)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-08-10-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270810T043000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 04:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-08-10-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-08-11-us-cpi-july@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270811T123000Z
+SUMMARY:US CPI (July)
+DESCRIPTION:Inflation print that steers Fed pricing\, yields and the dollar
+ .\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, CPI releas
+ e schedule. https://www.bls.gov/schedule/news_release/cpi.htm\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-08-11-us-cpi
+ -july\n\nDescriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/news_release/cpi.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US CPI (July)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-08-25-us-gdp-q2-second-estimate-and-personal-income-an@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270825T123000Z
+SUMMARY:US GDP Q2 second estimate and Personal Income and Outlays (July\, P
+ CE prices)
+DESCRIPTION:Growth and the Fed's preferred inflation gauge (PCE) in one mor
+ ning.\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BEA\, releas
+ e schedule. https://www.bea.gov/news/schedule/next-year\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-08-25-us-gdp-q2-se
+ cond-estimate-and-personal-income-an\n\nDescriptive\, not financial advice
+ .
+URL:https://www.bea.gov/news/schedule/next-year
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US GDP Q2 second estimate and Personal Income and Outlays (July
+ \, PCE prices)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-08-30-london-stock-exchange-closed-summer-bank-holiday@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270830
+DTEND;VALUE=DATE:20270831
+SUMMARY:London Stock Exchange closed: Summer bank holiday
+DESCRIPTION:UK markets shut\; thinner European liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nNote: The LSE closes on Engl
+ and and Wales bank holidays\; its own business-days page did not render fo
+ r automated access.\n\nSource: GOV.UK\, England and Wales bank holidays. h
+ ttps://www.gov.uk/bank-holidays\n\nNAOS Upcoming: https://hardlypythonnmr.
+ github.io/naos/agenda.html#2027-08-30-london-stock-exchange-closed-summer-
+ bank-holiday\n\nDescriptive\, not financial advice.
+URL:https://www.gov.uk/bank-holidays
+CATEGORIES:Market holidays
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:London Stock Exchange closed: Summer bank holiday
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-03-us-employment-situation-august-payrolls@naos.hardlypythonnmr
+ .github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270903T123000Z
+SUMMARY:US Employment Situation (August payrolls)
+DESCRIPTION:Payrolls and unemployment\; the jobs read for Fed pricing.\n\nT
+ ime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, Employment Situa
+ tion release schedule. https://www.bls.gov/schedule/news_release/empsit.ht
+ m\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-09-03-us-employment-situation-august-payrolls\n\nDescriptive\, not finan
+ cial advice.
+URL:https://www.bls.gov/schedule/news_release/empsit.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US Employment Situation (August payrolls)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-06-nyse-and-nasdaq-closed-labor-day@naos.hardlypythonnmr.github
+ .io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270906
+DTEND;VALUE=DATE:20270907
+SUMMARY:NYSE and Nasdaq closed: Labor Day
+DESCRIPTION:US cash markets shut\; thin global liquidity.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: NYSE\, holidays and 
+ trading hours (2026 to 2028). https://www.nyse.com/markets/hours-calendars
+ \n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027
+ -09-06-nyse-and-nasdaq-closed-labor-day\n\nDescriptive\, not financial adv
+ ice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE and Nasdaq closed: Labor Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-07-un-general-assembly-82nd-session-opens@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270907T190000Z
+SUMMARY:UN General Assembly 82nd session opens
+DESCRIPTION:Start of the UNGA season\; the leaders' general debate follows 
+ in the high-level week.\n\nTime: 19:00 UTC\, 15:00 America/New_York.\n\nNo
+ te: The UN gives the opening (Tuesday 7 Sep 2027\, 3 pm New York)\; the hi
+ gh-level week dates are not yet published.\n\nSource: United Nations\, Gen
+ eral Assembly home page. https://www.un.org/en/ga/\n\nNAOS Upcoming: https
+ ://hardlypythonnmr.github.io/naos/agenda.html#2027-09-07-un-general-assemb
+ ly-82nd-session-opens\n\nDescriptive\, not financial advice.
+URL:https://www.un.org/en/ga/
+CATEGORIES:Summits
+LOCATION:United Nations
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:UN General Assembly 82nd session opens
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-08-bank-of-canada-rate-announcement@naos.hardlypythonnmr.github
+ .io
+DTSTAMP:20261014T000000Z
+DTSTART:20270908T134500Z
+SUMMARY:Bank of Canada rate announcement
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 13:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2027-09-08-bank-of-canada-rate-announ
+ cement\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-09-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270909T121500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 12:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2027-09-09-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-14-us-cpi-august@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270914T123000Z
+SUMMARY:US CPI (August)
+DESCRIPTION:Inflation print that steers Fed pricing\, yields and the dollar
+ .\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, CPI releas
+ e schedule. https://www.bls.gov/schedule/news_release/cpi.htm\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-09-14-us-cpi
+ -august\n\nDescriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/news_release/cpi.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US CPI (August)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-15-fomc-statement-and-summary-of-economic-projectio@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270915T180000Z
+SUMMARY:FOMC statement and Summary of Economic Projections (press conferenc
+ e 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 18:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2027-09-15-fomc-statement-and-s
+ ummary-of-economic-projectio\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement and Summary of Economic Projections (press confe
+ rence 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-16-bank-of-england-bank-rate-decision-and-minutes@naos.hardlypy
+ thonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270916T110000Z
+SUMMARY:Bank of England Bank Rate decision and minutes (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 11:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-09-16
+ -bank-of-england-bank-rate-decision-and-minutes\n\nDescriptive\, not finan
+ cial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-22-bank-of-japan-policy-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270922
+DTEND;VALUE=DATE:20270923
+SUMMARY:Bank of Japan policy decision
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-09
+ -22-bank-of-japan-policy-decision\n\nDescriptive\, not financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-22-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270922T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://euqueroinvest
+ ir.com/economia/copom-tera-oito-reunioes-em-2027\n\nNAOS Upcoming: https:/
+ /hardlypythonnmr.github.io/naos/agenda.html#2027-09-22-brazil-copom-selic-
+ decision\n\nDescriptive\, not financial advice.
+URL:https://euqueroinvestir.com/economia/copom-tera-oito-reunioes-em-2027
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-23-snb-monetary-policy-assessment@naos.hardlypythonnmr.github.i
+ o
+DTSTAMP:20261014T000000Z
+DTSTART:20270923T073000Z
+SUMMARY:SNB monetary policy assessment
+DESCRIPTION:Sets Swiss rates\; moves the franc\, a haven gauge.\n\nTime: 07
+ :30 UTC\, 09:30 Europe/Zurich.\n\nSource: Swiss National Bank\, event sche
+ dule. https://www.snb.ch/en/services-events/digital-services/event-schedul
+ e\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-09-23-snb-monetary-policy-assessment\n\nDescriptive\, not financial advi
+ ce.
+URL:https://www.snb.ch/en/services-events/digital-services/event-schedule
+CATEGORIES:Central banks
+LOCATION:Switzerland
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SNB monetary policy assessment
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-28-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270928T043000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 04:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-09-28-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-30-us-gdp-q2-third-estimate-and-personal-income-and@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270930T123000Z
+SUMMARY:US GDP Q2 third estimate and Personal Income and Outlays (August\, 
+ PCE prices)
+DESCRIPTION:Growth and the Fed's preferred inflation gauge (PCE) in one mor
+ ning.\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BEA\, releas
+ e schedule. https://www.bea.gov/news/schedule/next-year\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-09-30-us-gdp-q2-th
+ ird-estimate-and-personal-income-and\n\nDescriptive\, not financial advice
+ .
+URL:https://www.bea.gov/news/schedule/next-year
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US GDP Q2 third estimate and Personal Income and Outlays (Augus
+ t\, PCE prices)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-30-sharad-navratri-to-dussehra-9-oct@naos.hardlypythonnmr.githu
+ b.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270930
+DTEND;VALUE=DATE:20271009
+SUMMARY:Sharad Navratri (to Dussehra\, 9 Oct)
+DESCRIPTION:Opens India's festive buying season into Diwali\; autos\, gold 
+ and retail.\n\nTime not set by the source\; listed as an all-day event.\n\
+ nSource: Drik Panchang\, Shardiya Navratri 2027 (New Delhi). https://www.d
+ rikpanchang.com/navratri/ashwin-shardiya-navratri-dates.html?year=2027&geo
+ name-id=1261481\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/a
+ genda.html#2027-09-30-sharad-navratri-to-dussehra-9-oct\n\nDescriptive\, n
+ ot financial advice.
+URL:https://www.drikpanchang.com/navratri/ashwin-shardiya-navratri-dates.ht
+ ml?year=2027&geoname-id=1261481
+CATEGORIES:Religious and cultural
+LOCATION:India
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Sharad Navratri (to Dussehra\, 9 Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-10-01-china-national-day-golden-week-expected-1-to-7-o@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20271001
+DTEND;VALUE=DATE:20271008
+SUMMARY:China National Day Golden Week (expected 1 to 7 Oct)
+DESCRIPTION:Mainland markets closed\; travel and box-office spending reads.
+ \n\nTime not set by the source\; listed as an all-day event.\n\nExpected d
+ ate: provisional until the official announcement (moon sighting or officia
+ l calendar).\n\nNote: 1 Oct is fixed\; the full holiday span depends on th
+ e State Council's 2027 schedule\, not yet published.\n\nSource: Office Hol
+ idays\, China 2027. https://www.officeholidays.com/countries/china/2027\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-10
+ -01-china-national-day-golden-week-expected-1-to-7-o\n\nDescriptive\, not 
+ financial advice.
+URL:https://www.officeholidays.com/countries/china/2027
+CATEGORIES:Religious and cultural
+LOCATION:China
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:China National Day Golden Week (expected 1 to 7 Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-10-02-rosh-hashanah-from-sundown-1-oct-to-3-oct@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20271002
+DTEND;VALUE=DATE:20271004
+SUMMARY:Rosh Hashanah (from sundown 1 Oct\; to 3 Oct)
+DESCRIPTION:Tel Aviv exchange closed\; lighter participation by some US des
+ ks.\n\nTime not set by the source\; listed as an all-day event.\n\nSource:
+  Hebcal\, Jewish holidays 2027. https://www.hebcal.com/holidays/2027-2028\
+ n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-
+ 10-02-rosh-hashanah-from-sundown-1-oct-to-3-oct\n\nDescriptive\, not finan
+ cial advice.
+URL:https://www.hebcal.com/holidays/2027-2028
+CATEGORIES:Religious and cultural
+LOCATION:Global (Jewish)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Rosh Hashanah (from sundown 1 Oct\; to 3 Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-10-04-imf-and-world-bank-annual-meetings-4-to-9-oct@naos.hardlypyt
+ honnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20271004
+DTEND;VALUE=DATE:20271010
+SUMMARY:IMF and World Bank Annual Meetings (4 to 9 Oct) (expected date)
+DESCRIPTION:Global outlook update and finance-minister meetings\; FX and de
+ bt headlines.\n\nTime not set by the source\; listed as an all-day event.\
+ n\nExpected date: provisional until the official announcement (moon sighti
+ ng or official calendar).\n\nNote: Dates from the IMF's future meetings li
+ st\; venue not stated there.\n\nSource: IMF Connect\, past and future meet
+ ings. https://www.imfconnect.org/content/imf/en/meetings/past-future-meeti
+ ngs.html\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.h
+ tml#2027-10-04-imf-and-world-bank-annual-meetings-4-to-9-oct\n\nDescriptiv
+ e\, not financial advice.
+URL:https://www.imfconnect.org/content/imf/en/meetings/past-future-meetings
+ .html
+CATEGORIES:Summits
+LOCATION:IMF / World Bank
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IMF and World Bank Annual Meetings (4 to 9 Oct) (expected date)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-10-08-us-employment-situation-september-payrolls@naos.hardlypython
+ nmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20271008T123000Z
+SUMMARY:US Employment Situation (September payrolls)
+DESCRIPTION:Payrolls and unemployment\; the jobs read for Fed pricing.\n\nT
+ ime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, Employment Situa
+ tion release schedule. https://www.bls.gov/schedule/news_release/empsit.ht
+ m\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-10-08-us-employment-situation-september-payrolls\n\nDescriptive\, not fi
+ nancial advice.
+URL:https://www.bls.gov/schedule/news_release/empsit.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US Employment Situation (September payrolls)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-10-11-yom-kippur-from-sundown-10-oct@naos.hardlypythonnmr.github.i
+ o
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20271011
+DTEND;VALUE=DATE:20271012
+SUMMARY:Yom Kippur (from sundown 10 Oct)
+DESCRIPTION:Tel Aviv exchange closed\; quieter US bond trading desks.\n\nTi
+ me not set by the source\; listed as an all-day event.\n\nSource: Hebcal\,
+  Jewish holidays 2027. https://www.hebcal.com/holidays/2027-2028\n\nNAOS U
+ pcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-10-11-yom
+ -kippur-from-sundown-10-oct\n\nDescriptive\, not financial advice.
+URL:https://www.hebcal.com/holidays/2027-2028
+CATEGORIES:Religious and cultural
+LOCATION:Global (Jewish)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Yom Kippur (from sundown 10 Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-10-14-us-cpi-september@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20271014T123000Z
+SUMMARY:US CPI (September)
+DESCRIPTION:Inflation print that steers Fed pricing\, yields and the dollar
+ .\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, CPI releas
+ e schedule. https://www.bls.gov/schedule/news_release/cpi.htm\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-10-14-us-cpi
+ -september\n\nDescriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/news_release/cpi.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US CPI (September)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · US JOLTS job openings (September)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-03-us-jolts-job-openings-september@naos.hardlypythonnmr.github.
+ io
+DTSTAMP:20261014T000000Z
+DTSTART:20261103T150000Z
+SUMMARY:US JOLTS job openings (September)
+DESCRIPTION:Labor demand ahead of payrolls.\n\nTime: 15:00 UTC\, 10:00 Amer
+ ica/New_York.\n\nSource: U.S. Bureau of Labor Statistics\, 2026 release ca
+ lendar. https://www.bls.gov/schedule/2026/home.htm\n\nNAOS Upcoming: https
+ ://hardlypythonnmr.github.io/naos/agenda.html#2026-11-03-us-jolts-job-open
+ ings-september\n\nDescriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/2026/home.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US JOLTS job openings (September)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

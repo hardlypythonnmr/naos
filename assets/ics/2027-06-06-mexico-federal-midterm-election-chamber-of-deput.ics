@@ -1,0 +1,40 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Mexico federal midterm election (Chamber of Deputies\,
+  17 governorships)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-06-06-mexico-federal-midterm-election-chamber-of-deput@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Mexico federal midterm election (Chamber of Deputies\, 17 governors
+ hips)
+DESCRIPTION:Congressional balance for reforms\; the peso and Mexican assets
+ .\n\nTime not set by the source\; listed as an all-day event.\n\nSource: E
+ xpansión Política\, INE 2026-2027 calendar. https://politica.expansion.m
+ x/mexico/2026/09/11/elecciones-mexico-2027-que-se-vota-fechas-clave-ine\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-06
+ -06-mexico-federal-midterm-election-chamber-of-deput\n\nDescriptive\, not 
+ financial advice.
+URL:https://politica.expansion.mx/mexico/2026/09/11/elecciones-mexico-2027-
+ que-se-vota-fechas-clave-ine
+CATEGORIES:Elections
+LOCATION:Mexico
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mexico federal midterm election (Chamber of Deputies\, 17 gover
+ norships)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · SNB monetary policy assessment
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-12-10-snb-monetary-policy-assessment@naos.hardlypythonnmr.github.i
+ o
+DTSTAMP:20261014T000000Z
+DTSTART:20261210T083000Z
+SUMMARY:SNB monetary policy assessment
+DESCRIPTION:Sets Swiss rates\; moves the franc\, a haven gauge.\n\nTime: 08
+ :30 UTC\, 09:30 Europe/Zurich.\n\nSource: Swiss National Bank\, event sche
+ dule. https://www.snb.ch/en/services-events/digital-services/event-schedul
+ e\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 6-12-10-snb-monetary-policy-assessment\n\nDescriptive\, not financial advi
+ ce.
+URL:https://www.snb.ch/en/services-events/digital-services/event-schedule
+CATEGORIES:Central banks
+LOCATION:Switzerland
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SNB monetary policy assessment
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

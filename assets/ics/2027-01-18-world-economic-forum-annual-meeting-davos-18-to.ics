@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · World Economic Forum Annual Meeting (Davos\, 18 to 22 
+ Jan)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-01-18-world-economic-forum-annual-meeting-davos-18-to@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270123
+SUMMARY:World Economic Forum Annual Meeting (Davos\, 18 to 22 Jan)
+DESCRIPTION:CEO and leader soundbites on AI\, trade and growth\; heavy head
+ line flow.\n\nTime not set by the source\; listed as an all-day event.\n\n
+ Source: Davos Klosters tourism\, event listing. https://www.davos.ch/en/ex
+ perience/events/world-economic-forum-annual-meeting-2027\n\nNAOS Upcoming:
+  https://hardlypythonnmr.github.io/naos/agenda.html#2027-01-18-world-econo
+ mic-forum-annual-meeting-davos-18-to\n\nDescriptive\, not financial advice
+ .
+URL:https://www.davos.ch/en/experience/events/world-economic-forum-annual-m
+ eeting-2027
+CATEGORIES:Summits
+LOCATION:Switzerland / WEF
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:World Economic Forum Annual Meeting (Davos\, 18 to 22 Jan)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

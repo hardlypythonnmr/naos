@@ -27,6 +27,8 @@ builder lists them, with the reason and the plan to get real data, in `escondido
 | `data/semana.json` | the public week grid (D-224), built by `node scripts/construir-semana.mjs [--desde=YYYY-MM-DD]`; schema below |
 | `data/agenda.json` | scheduled events outside the Forex Factory calendar, one year ahead (central banks, US data, elections, summits, tech, market holidays, religious and cultural dates), each with the source URL that states its date: `{ eventos: [{ titulo, fecha: "YYYY-MM-DD", fecha_fin?, hora: "YYYY-MM-DDTHH:MMZ" \| null, hora_local, hora_estado: "official" \| "expected" \| "time not set", fecha_estado?: "expected", categoria, pais, angulo, fuente, url, nota?, tendencias?: true }], sin_fecha: [...] }`; `categoria` is `central_bank`, `us_data`, `election`, `summit`, `tech_ai`, `energy`, `state_visit`, `market_holiday` or `religioso/cultural`; `fecha_estado: "expected"` marks a date that is itself provisional (moon sighting, official calendar not out yet); `tendencias: true` flags events the trends radar watches; `angulo` is the market or attention angle in one neutral line; an event with `hora: null` goes to the London brief of its day (the week's last brief if it falls on a weekend) |
 | `data/assets.json` | the Assets library: categories and pieces with their status (all "planned" for now); add pieces here, not in HTML. While planned, a piece carries `texto` (60 to 120 words), `mapa` (`{ raiz, ramas: [{ t, hojas }] }`, 3 to 6 branches), `fuentes` (`[{ titulo, autor, anio, url }]`, each opened before citing; date in `fuentes_consultadas`) and `pdf` |
+| `agenda.html` | "Upcoming" (D-226): the year of `data/agenda.json` month by month, next event with countdown, filters by category, period bars for multi-day dates, "Add to calendar" per event and "Subscribe" per category; the home bento shows the next five (`assets/js/proximos.js`). Shared ids and categories in `assets/js/agenda-comun.js` |
+| `assets/ics/` | calendar files (RFC 5545) built by `node scripts/construir-ics.mjs` (also run by both builders): `<id>.ics` per event, `<category>.ics` per category for subscribing, `naos-agenda.ics` with everything. Timed events in UTC with a 30 min reminder; date-only and multi-day periods all-day (`VALUE=DATE`, exclusive `DTEND`) with a reminder at 09:00 the day before; expected dates or times say so in `SUMMARY`. `DTSTAMP` is the agenda's `revisado`, so files only change when the agenda does |
 | `pieza.html` | the page of one Assets piece (`?id=`): video, transcript, prompts, sources (D-212); noindex while planned |
 | `assets/pdf/<id>.pdf` | one-page PDF per planned piece (what you will learn, the map, the sources), printed from `pieza.html` by `NODE_PATH=$(npm root -g) node scripts/pdf-piezas.mjs [id ...]` (Playwright + Chromium; checks one page and under 300 KB) |
 | `scripts/construir-datos.mjs` | the data builder (Node 18+, no dependencies, no keys required) |
@@ -113,8 +115,8 @@ The home page shows the grid in "This week"; each piece page shows its "Upcoming
 4. **Extend the window.** Add events so the agenda still reaches one year ahead of the review date.
 5. **Flag for trends.** Set `tendencias: true` on events worth watching in the trends radar (rate decisions with forecasts,
    CPI and payrolls, big elections and summits, major tech keynotes, holidays that move search, travel or spending).
-6. Set `revisado` to the review date, rebuild the week with `node scripts/construir-semana.mjs`, and commit
-   `data/agenda.json` and `data/semana.json`.
+6. Set `revisado` to the review date, rebuild the week with `node scripts/construir-semana.mjs` (it also rebuilds
+   `assets/ics/`), and commit `data/agenda.json`, `data/semana.json` and `assets/ics/`.
 
 Never invent a date: if no source states it, it goes to `sin_fecha`. Islamic dates depend on moon sighting and stay
 `expected` until announced.

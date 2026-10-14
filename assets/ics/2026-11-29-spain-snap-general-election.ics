@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Spain snap general election
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-29-spain-snap-general-election@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Spain snap general election
+DESCRIPTION:Government formation risk for Spanish bonds and banks.\n\nTime 
+ not set by the source\; listed as an all-day event.\n\nSource: Al Jazeera\
+ , 5 Oct 2026 (Sánchez announces the vote). https://www.aljazeera.com/amp/
+ news/2026/10/5/spanish-prime-minister-pedro-sanchez-announces-snap-electio
+ n\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 6-11-29-spain-snap-general-election\n\nDescriptive\, not financial advice.
+URL:https://www.aljazeera.com/amp/news/2026/10/5/spanish-prime-minister-ped
+ ro-sanchez-announces-snap-election
+CATEGORIES:Elections
+LOCATION:Spain
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Spain snap general election
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

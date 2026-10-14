@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · OPEC+ meeting of the seven voluntary-cut countries (De
+ cember output)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-01-opec-meeting-of-the-seven-voluntary-cut-countrie@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:OPEC+ meeting of the seven voluntary-cut countries (December output
+ )
+DESCRIPTION:Sets December supply\; direct read for oil prices.\n\nTime not 
+ set by the source\; listed as an all-day event.\n\nSource: OPEC press rele
+ ase\, 4 Oct 2026. https://www.opec.org/pr-detail/616-4-october-2026.html\n
+ \nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-1
+ 1-01-opec-meeting-of-the-seven-voluntary-cut-countrie\n\nDescriptive\, not
+  financial advice.
+URL:https://www.opec.org/pr-detail/616-4-october-2026.html
+CATEGORIES:Energy
+LOCATION:OPEC+
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:OPEC+ meeting of the seven voluntary-cut countries (December ou
+ tput)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

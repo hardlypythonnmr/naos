@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · US GDP Q3 second estimate and Personal Income and Outl
+ ays (October\, PCE prices)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-25-us-gdp-q3-second-estimate-and-personal-income-an@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261125T133000Z
+SUMMARY:US GDP Q3 second estimate and Personal Income and Outlays (October\
+ , PCE prices)
+DESCRIPTION:Growth and the Fed's preferred inflation gauge (PCE) in one mor
+ ning.\n\nTime: 13:30 UTC\, 08:30 America/New_York.\n\nSource: BEA\, releas
+ e schedule. https://www.bea.gov/news/schedule\n\nNAOS Upcoming: https://ha
+ rdlypythonnmr.github.io/naos/agenda.html#2026-11-25-us-gdp-q3-second-estim
+ ate-and-personal-income-an\n\nDescriptive\, not financial advice.
+URL:https://www.bea.gov/news/schedule
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US GDP Q3 second estimate and Personal Income and Outlays (Octo
+ ber\, PCE prices)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

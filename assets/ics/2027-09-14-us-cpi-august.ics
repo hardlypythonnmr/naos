@@ -1,0 +1,32 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · US CPI (August)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-09-14-us-cpi-august@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270914T123000Z
+SUMMARY:US CPI (August)
+DESCRIPTION:Inflation print that steers Fed pricing\, yields and the dollar
+ .\n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: BLS\, CPI releas
+ e schedule. https://www.bls.gov/schedule/news_release/cpi.htm\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-09-14-us-cpi
+ -august\n\nDescriptive\, not financial advice.
+URL:https://www.bls.gov/schedule/news_release/cpi.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US CPI (August)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Brazil Copom Selic decision
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-03-17-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270317T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://euqueroinvest
+ ir.com/economia/copom-tera-oito-reunioes-em-2027\n\nNAOS Upcoming: https:/
+ /hardlypythonnmr.github.io/naos/agenda.html#2027-03-17-brazil-copom-selic-
+ decision\n\nDescriptive\, not financial advice.
+URL:https://euqueroinvestir.com/economia/copom-tera-oito-reunioes-em-2027
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

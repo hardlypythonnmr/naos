@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Rosh Hashanah (from sundown 1 Oct\; to 3 Oct)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-10-02-rosh-hashanah-from-sundown-1-oct-to-3-oct@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20271002
+DTEND;VALUE=DATE:20271004
+SUMMARY:Rosh Hashanah (from sundown 1 Oct\; to 3 Oct)
+DESCRIPTION:Tel Aviv exchange closed\; lighter participation by some US des
+ ks.\n\nTime not set by the source\; listed as an all-day event.\n\nSource:
+  Hebcal\, Jewish holidays 2027. https://www.hebcal.com/holidays/2027-2028\
+ n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-
+ 10-02-rosh-hashanah-from-sundown-1-oct-to-3-oct\n\nDescriptive\, not finan
+ cial advice.
+URL:https://www.hebcal.com/holidays/2027-2028
+CATEGORIES:Religious and cultural
+LOCATION:Global (Jewish)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Rosh Hashanah (from sundown 1 Oct\; to 3 Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

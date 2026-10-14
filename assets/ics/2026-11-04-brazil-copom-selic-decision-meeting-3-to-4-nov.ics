@@ -1,0 +1,41 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Brazil Copom Selic decision (meeting 3 to 4 Nov)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-04-brazil-copom-selic-decision-meeting-3-to-4-nov@naos.hardlypy
+ thonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261104T213000Z
+SUMMARY:Brazil Copom Selic decision (meeting 3 to 4 Nov) (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Dates
+  from the BCB calendar (via B3 and Investidor10\; bcb.gov.br did not load)
+ . 18:30 Brasília is when decisions are usually released.\n\nSource: Inves
+ tidor10\, on the BCB 2026 Copom calendar. https://investidor10.com.br/amp/
+ noticias/copom-em-2026-tera-oito-reunioes-veja-o-cronograma-divulgado-pelo
+ -bc-113749/\n\nAlso: https://borainvestir.b3.com.br/noticias/copom-tera-8-
+ reunioes-em-2026-veja-calendario-e-projecao-para-a-selic/\n\nNAOS Upcoming
+ : https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-04-brazil-cop
+ om-selic-decision-meeting-3-to-4-nov\n\nDescriptive\, not financial advice
+ .
+URL:https://investidor10.com.br/amp/noticias/copom-em-2026-tera-oito-reunio
+ es-veja-o-cronograma-divulgado-pelo-bc-113749/
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (meeting 3 to 4 Nov) (expected time
+ )
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

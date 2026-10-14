@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Orthodox Christmas
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-01-07-orthodox-christmas@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270107
+DTEND;VALUE=DATE:20270108
+SUMMARY:Orthodox Christmas
+DESCRIPTION:Russian and Eastern European markets on holiday\; light regiona
+ l volumes.\n\nTime not set by the source\; listed as an all-day event.\n\n
+ Source: Office Holidays\, Russia 2027. https://www.officeholidays.com/coun
+ tries/russia/2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos
+ /agenda.html#2027-01-07-orthodox-christmas\n\nDescriptive\, not financial 
+ advice.
+URL:https://www.officeholidays.com/countries/russia/2027
+CATEGORIES:Religious and cultural
+LOCATION:Russia\, Eastern Europe\, Ethiopia
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Orthodox Christmas
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

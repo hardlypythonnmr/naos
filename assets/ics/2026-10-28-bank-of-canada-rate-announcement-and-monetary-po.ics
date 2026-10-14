@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Bank of Canada rate announcement and Monetary Policy R
+ eport
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-28-bank-of-canada-rate-announcement-and-monetary-po@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261028T134500Z
+SUMMARY:Bank of Canada rate announcement and Monetary Policy Report
+DESCRIPTION:Moves the Canadian dollar and Canadian yields.\n\nTime: 13:45 U
+ TC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, upcoming events. 
+ https://www.bankofcanada.ca/press/upcoming-events/\n\nNAOS Upcoming: https
+ ://hardlypythonnmr.github.io/naos/agenda.html#2026-10-28-bank-of-canada-ra
+ te-announcement-and-monetary-po\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/press/upcoming-events/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement and Monetary Policy Report
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

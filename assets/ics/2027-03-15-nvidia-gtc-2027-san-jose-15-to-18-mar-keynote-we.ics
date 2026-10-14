@@ -1,0 +1,37 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Nvidia GTC 2027 (San Jose\, 15 to 18 Mar\; keynote wee
+ k)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-03-15-nvidia-gtc-2027-san-jose-15-to-18-mar-keynote-we@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270319
+SUMMARY:Nvidia GTC 2027 (San Jose\, 15 to 18 Mar\; keynote week)
+DESCRIPTION:Jensen Huang's keynote sets the AI chip narrative\; NVDA and su
+ ppliers.\n\nTime not set by the source\; listed as an all-day event.\n\nNo
+ te: NVIDIA lists 14 to 18 Mar including a training day\; the conference ru
+ ns 15 to 18 Mar.\n\nSource: NVIDIA GTC 2027 FAQ. https://www.nvidia.com/en
+ -zz/gtc/faq/\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agen
+ da.html#2027-03-15-nvidia-gtc-2027-san-jose-15-to-18-mar-keynote-we\n\nDes
+ criptive\, not financial advice.
+URL:https://www.nvidia.com/en-zz/gtc/faq/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Nvidia GTC 2027 (San Jose\, 15 to 18 Mar\; keynote week)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

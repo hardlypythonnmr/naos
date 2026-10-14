@@ -1,0 +1,41 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Hajj pilgrimage (expected\, about 14 to 19 May\; Day o
+ f Arafat 15 May)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-05-14-hajj-pilgrimage-expected-about-14-to-19-may-day@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270514
+DTEND;VALUE=DATE:20270520
+SUMMARY:Hajj pilgrimage (expected\, about 14 to 19 May\; Day of Arafat 15 M
+ ay)
+DESCRIPTION:Saudi travel and services peak\; Tadawul holiday around Eid.\n\
+ nTime not set by the source\; listed as an all-day event.\n\nExpected date
+ : provisional until the official announcement (moon sighting or official c
+ alendar).\n\nNote: Hajj runs 8 to 13 Dhu al-Hijjah\; the span is derived f
+ rom Arafat Day (9 Dhu al-Hijjah) on 15 May\, which depends on moon sightin
+ g.\n\nSource: Office Holidays\, Saudi Arabia 2027 (Arafat Day 15 May). htt
+ ps://www.officeholidays.com/countries/saudi-arabia/2027\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-05-14-hajj-pilgrim
+ age-expected-about-14-to-19-may-day\n\nDescriptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/saudi-arabia/2027
+CATEGORIES:Religious and cultural
+LOCATION:Saudi Arabia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Hajj pilgrimage (expected\, about 14 to 19 May\; Day of Arafat 
+ 15 May)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

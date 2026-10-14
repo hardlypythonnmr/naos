@@ -1,0 +1,1685 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Central banks
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-20-pboc-loan-prime-rates-1y-5y-for-october@naos.hardlypythonnmr
+ .github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261020T010000Z
+SUMMARY:PBoC Loan Prime Rates (1Y\, 5Y) for October (expected time)
+DESCRIPTION:Sets China's benchmark lending rates\; read for credit easing a
+ nd the yuan.\n\nTime: 01:00 UTC\, 09:00 Asia/Shanghai (expected\, not conf
+ irmed by the source).\n\nNote: Date fixed by rule (20th of each month\, en
+ glish.www.gov.cn 2019)\; the 2019 notice said 9:30 Beijing\, the listing s
+ ays 9:00. Time not confirmed by the PBoC.\n\nSource: FinanceCalendar listi
+ ng (PBoC LPR October 2026). https://www.financecalendar.com/?p=2301\n\nNAO
+ S Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-10-20-
+ pboc-loan-prime-rates-1y-5y-for-october\n\nDescriptive\, not financial adv
+ ice.
+URL:https://www.financecalendar.com/?p=2301
+CATEGORIES:Central banks
+LOCATION:China
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PBoC Loan Prime Rates (1Y\, 5Y) for October (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-22-snb-summary-of-monetary-policy-discussion@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261022T073000Z
+SUMMARY:SNB summary of monetary policy discussion
+DESCRIPTION:Hints on the franc and the December SNB decision (no rate decis
+ ion in this window).\n\nTime: 07:30 UTC\, 09:30 Europe/Zurich.\n\nSource: 
+ Swiss National Bank\, event schedule. https://www.snb.ch/en/services-event
+ s/digital-services/event-schedule\n\nNAOS Upcoming: https://hardlypythonnm
+ r.github.io/naos/agenda.html#2026-10-22-snb-summary-of-monetary-policy-dis
+ cussion\n\nDescriptive\, not financial advice.
+URL:https://www.snb.ch/en/services-events/digital-services/event-schedule
+CATEGORIES:Central banks
+LOCATION:Switzerland
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SNB summary of monetary policy discussion
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-28-bank-of-canada-rate-announcement-and-monetary-po@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261028T134500Z
+SUMMARY:Bank of Canada rate announcement and Monetary Policy Report
+DESCRIPTION:Moves the Canadian dollar and Canadian yields.\n\nTime: 13:45 U
+ TC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, upcoming events. 
+ https://www.bankofcanada.ca/press/upcoming-events/\n\nNAOS Upcoming: https
+ ://hardlypythonnmr.github.io/naos/agenda.html#2026-10-28-bank-of-canada-ra
+ te-announcement-and-monetary-po\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/press/upcoming-events/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement and Monetary Policy Report
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-28-fomc-statement-press-conference-14-30-et-chair-k@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261028T180000Z
+SUMMARY:FOMC statement (press conference 14:30 ET\, Chair Kevin Warsh)
+DESCRIPTION:The fed funds path sets the tone for the dollar\, Treasuries\, 
+ equities and crypto.\n\nTime: 18:00 UTC\, 14:00 America/New_York.\n\nSourc
+ e: Federal Reserve\, October 2026 calendar. https://www.federalreserve.gov
+ /newsevents/2026-october.htm\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2026-10-28-fomc-statement-press-conference-14-30-e
+ t-chair-k\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/newsevents/2026-october.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement (press conference 14:30 ET\, Chair Kevin Warsh)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-29-ecb-rate-decision-and-press-conference-president@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261029T134500Z
+SUMMARY:ECB rate decision and press conference (President Lagarde) (expecte
+ d time)
+DESCRIPTION:Moves the euro and euro-area bonds.\n\nTime: 13:45 UTC\, 14:45 
+ Europe/Berlin (expected\, not confirmed by the source).\n\nNote: Date offi
+ cial. 14:45 CET is the press conference time the ECB webcast page showed f
+ or the 10 Sep meeting\; the 29 Oct time is not posted yet.\n\nSource: ECB\
+ , Governing Council meeting calendar. https://www.ecb.europa.eu/press/cale
+ ndars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.g
+ ithub.io/naos/agenda.html#2026-10-29-ecb-rate-decision-and-press-conferenc
+ e-president\n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (President Lagarde) (exp
+ ected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-30-bank-of-japan-policy-decision-and-outlook-report@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:Bank of Japan policy decision and Outlook Report
+DESCRIPTION:Moves the yen and JGB yields\; carry trades are sensitive to it
+ .\n\nTime not set by the source\; listed as an all-day event.\n\nNote: Dec
+ ision time not fixed in advance (released when the meeting ends).\n\nSourc
+ e: Bank of Japan\, MPM schedule. https://www.boj.or.jp/en/mopo/mpmsche_min
+ u/index.htm\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agend
+ a.html#2026-10-30-bank-of-japan-policy-decision-and-outlook-report\n\nDesc
+ riptive\, not financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision and Outlook Report
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-30-banco-de-la-republica-colombia-rate-decision@naos.hardlypyth
+ onnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:Banco de la República (Colombia) rate decision
+DESCRIPTION:Moves the peso and TES\; policy rate is 12.25% after September'
+ s hike.\n\nTime not set by the source\; listed as an all-day event.\n\nNot
+ e: banrep.gov.co blocked automated access\; date from Portafolio's report 
+ of the official calendar. Time not stated.\n\nSource: Portafolio\, BanRep 
+ 2026 decision calendar. https://www.portafolio.co/economia/gobierno/estas-
+ son-las-fechas-clave-en-2026-para-las-decisiones-sobre-la-tasa-de-interes-
+ del-banco-de-la-republica-487296\n\nNAOS Upcoming: https://hardlypythonnmr
+ .github.io/naos/agenda.html#2026-10-30-banco-de-la-republica-colombia-rate
+ -decision\n\nDescriptive\, not financial advice.
+URL:https://www.portafolio.co/economia/gobierno/estas-son-las-fechas-clave-
+ en-2026-para-las-decisiones-sobre-la-tasa-de-interes-del-banco-de-la-repub
+ lica-487296
+CATEGORIES:Central banks
+LOCATION:Colombia
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Banco de la República (Colombia) rate decision
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-03-rba-decision-and-statement-on-monetary-policy@naos.hardlypyt
+ honnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261103T033000Z
+SUMMARY:RBA decision and Statement on Monetary Policy
+DESCRIPTION:Moves the Australian dollar and local rates.\n\nTime: 03:30 UTC
+ \, 14:30 Australia/Sydney.\n\nSource: Reserve Bank of Australia\, release 
+ schedule (SMP 2.30 pm\, 3 Nov\; Board meets 2 to 3 Nov). https://www.rba.g
+ ov.au/schedules-events/\n\nAlso: https://www.rba.gov.au/schedules-events/b
+ oard-meeting-schedules.html\n\nNAOS Upcoming: https://hardlypythonnmr.gith
+ ub.io/naos/agenda.html#2026-11-03-rba-decision-and-statement-on-monetary-p
+ olicy\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA decision and Statement on Monetary Policy
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-04-brazil-copom-selic-decision-meeting-3-to-4-nov@naos.hardlypy
+ thonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261104T213000Z
+SUMMARY:Brazil Copom Selic decision (meeting 3 to 4 Nov) (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Dates
+  from the BCB calendar (via B3 and Investidor10\; bcb.gov.br did not load)
+ . 18:30 Brasília is when decisions are usually released.\n\nSource: Inves
+ tidor10\, on the BCB 2026 Copom calendar. https://investidor10.com.br/amp/
+ noticias/copom-em-2026-tera-oito-reunioes-veja-o-cronograma-divulgado-pelo
+ -bc-113749/\n\nAlso: https://borainvestir.b3.com.br/noticias/copom-tera-8-
+ reunioes-em-2026-veja-calendario-e-projecao-para-a-selic/\n\nNAOS Upcoming
+ : https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-04-brazil-cop
+ om-selic-decision-meeting-3-to-4-nov\n\nDescriptive\, not financial advice
+ .
+URL:https://investidor10.com.br/amp/noticias/copom-em-2026-tera-oito-reunio
+ es-veja-o-cronograma-divulgado-pelo-bc-113749/
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (meeting 3 to 4 Nov) (expected time
+ )
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-05-bank-of-england-bank-rate-decision-and-monetary@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261105T120000Z
+SUMMARY:Bank of England Bank Rate decision and Monetary Policy Report
+DESCRIPTION:Moves sterling and gilts.\n\nTime: 12:00 UTC\, 12:00 Europe/Lon
+ don.\n\nSource: Bank of England\, November 2026 Monetary Policy Summary (t
+ o be published at 12pm). https://www.bankofengland.co.uk/monetary-policy-s
+ ummary-and-minutes/2026/november-2026\n\nNAOS Upcoming: https://hardlypyth
+ onnmr.github.io/naos/agenda.html#2026-11-05-bank-of-england-bank-rate-deci
+ sion-and-monetary\n\nDescriptive\, not financial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/202
+ 6/november-2026
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and Monetary Policy Report
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-05-banxico-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261105T190000Z
+SUMMARY:Banxico rate decision
+DESCRIPTION:Moves the peso and Mexican rates.\n\nTime: 19:00 UTC\, 13:00 Am
+ erica/Mexico_City.\n\nSource: BBVA Research\, Agenda Económica 2026 (Banx
+ ico calendar\; 13:00 Mexico City). https://www.bbvaresearch.com/wp-content
+ /uploads/2026/03/AgendaEconomica_2026.pdf\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2026-11-05-banxico-rate-decision\n\nD
+ escriptive\, not financial advice.
+URL:https://www.bbvaresearch.com/wp-content/uploads/2026/03/AgendaEconomica
+ _2026.pdf
+CATEGORIES:Central banks
+LOCATION:Mexico
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Banxico rate decision
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-10-bank-of-canada-summary-of-deliberations@naos.hardlypythonnmr
+ .github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261110T183000Z
+SUMMARY:Bank of Canada Summary of Deliberations
+DESCRIPTION:Detail behind the 28 Oct decision.\n\nTime: 18:30 UTC\, 13:30 A
+ merica/Toronto.\n\nSource: Bank of Canada\, upcoming events. https://www.b
+ ankofcanada.ca/press/upcoming-events/\n\nNAOS Upcoming: https://hardlypyth
+ onnmr.github.io/naos/agenda.html#2026-11-10-bank-of-canada-summary-of-deli
+ berations\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/press/upcoming-events/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada Summary of Deliberations
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-08-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261208T033000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 03:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 6-12-08-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-09-fomc-statement-and-summary-of-economic-projectio@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261209T190000Z
+SUMMARY:FOMC statement and Summary of Economic Projections (press conferenc
+ e 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 19:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2026-12-09-fomc-statement-and-s
+ ummary-of-economic-projectio\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement and Summary of Economic Projections (press confe
+ rence 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-09-bank-of-canada-rate-announcement@naos.hardlypythonnmr.github
+ .io
+DTSTAMP:20261014T000000Z
+DTSTART:20261209T144500Z
+SUMMARY:Bank of Canada rate announcement
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 14:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2026-12-09-bank-of-canada-rate-announ
+ cement\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-09-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261209T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://investidor10.
+ com.br/amp/noticias/copom-em-2026-tera-oito-reunioes-veja-o-cronograma-div
+ ulgado-pelo-bc-113749/\n\nNAOS Upcoming: https://hardlypythonnmr.github.io
+ /naos/agenda.html#2026-12-09-brazil-copom-selic-decision\n\nDescriptive\, 
+ not financial advice.
+URL:https://investidor10.com.br/amp/noticias/copom-em-2026-tera-oito-reunio
+ es-veja-o-cronograma-divulgado-pelo-bc-113749/
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-10-snb-monetary-policy-assessment@naos.hardlypythonnmr.github.i
+ o
+DTSTAMP:20261014T000000Z
+DTSTART:20261210T083000Z
+SUMMARY:SNB monetary policy assessment
+DESCRIPTION:Sets Swiss rates\; moves the franc\, a haven gauge.\n\nTime: 08
+ :30 UTC\, 09:30 Europe/Zurich.\n\nSource: Swiss National Bank\, event sche
+ dule. https://www.snb.ch/en/services-events/digital-services/event-schedul
+ e\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 6-12-10-snb-monetary-policy-assessment\n\nDescriptive\, not financial advi
+ ce.
+URL:https://www.snb.ch/en/services-events/digital-services/event-schedule
+CATEGORIES:Central banks
+LOCATION:Switzerland
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SNB monetary policy assessment
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-17-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261217T131500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 13:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2026-12-17-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-17-bank-of-england-bank-rate-decision-and-minutes@naos.hardlypy
+ thonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261217T120000Z
+SUMMARY:Bank of England Bank Rate decision and minutes (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 12:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-12-17
+ -bank-of-england-bank-rate-decision-and-minutes\n\nDescriptive\, not finan
+ cial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-17-banxico-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261217T190000Z
+SUMMARY:Banxico rate decision
+DESCRIPTION:Moves the peso and Mexican rates.\n\nTime: 19:00 UTC\, 13:00 Am
+ erica/Mexico_City.\n\nSource: Banco de México\, Calendario 2026 de anunci
+ os de política monetaria (13:00 hours). https://www.banxico.org.mx/politi
+ ca-monetaria/d/%7B3B4BDA5B-E7E8-E414-2066-DA0CB3F7C36F%7D.pdf\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-12-17-banxic
+ o-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.banxico.org.mx/politica-monetaria/d/%7B3B4BDA5B-E7E8-E414-2
+ 066-DA0CB3F7C36F%7D.pdf
+CATEGORIES:Central banks
+LOCATION:Mexico
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Banxico rate decision
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-18-bank-of-japan-policy-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261219
+SUMMARY:Bank of Japan policy decision
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-12
+ -18-bank-of-japan-policy-decision\n\nDescriptive\, not financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-18-banco-de-la-republica-colombia-rate-decision@naos.hardlypyth
+ onnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261219
+SUMMARY:Banco de la República (Colombia) rate decision
+DESCRIPTION:Moves the peso and TES.\n\nTime not set by the source\; listed 
+ as an all-day event.\n\nNote: banrep.gov.co blocks automated access\; date
+  from Portafolio's report of the official calendar.\n\nSource: Portafolio\
+ , BanRep 2026 decision calendar. https://www.portafolio.co/economia/gobier
+ no/estas-son-las-fechas-clave-en-2026-para-las-decisiones-sobre-la-tasa-de
+ -interes-del-banco-de-la-republica-487296\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2026-12-18-banco-de-la-republica-colo
+ mbia-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.portafolio.co/economia/gobierno/estas-son-las-fechas-clave-
+ en-2026-para-las-decisiones-sobre-la-tasa-de-interes-del-banco-de-la-repub
+ lica-487296
+CATEGORIES:Central banks
+LOCATION:Colombia
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Banco de la República (Colombia) rate decision
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-22-bank-of-japan-policy-decision-and-outlook-report@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270122
+DTEND;VALUE=DATE:20270123
+SUMMARY:Bank of Japan policy decision and Outlook Report
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-01
+ -22-bank-of-japan-policy-decision-and-outlook-report\n\nDescriptive\, not 
+ financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision and Outlook Report
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-27-fomc-statement-press-conference-14-30-et@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270127T190000Z
+SUMMARY:FOMC statement (press conference 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 19:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2027-01-27-fomc-statement-press
+ -conference-14-30-et\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement (press conference 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-27-bank-of-canada-rate-announcement-and-monetary-po@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270127T144500Z
+SUMMARY:Bank of Canada rate announcement and Monetary Policy Report
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 14:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2027-01-27-bank-of-canada-rate-announ
+ cement-and-monetary-po\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement and Monetary Policy Report
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-27-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270127T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://euqueroinvest
+ ir.com/economia/copom-tera-oito-reunioes-em-2027\n\nNAOS Upcoming: https:/
+ /hardlypythonnmr.github.io/naos/agenda.html#2027-01-27-brazil-copom-selic-
+ decision\n\nDescriptive\, not financial advice.
+URL:https://euqueroinvestir.com/economia/copom-tera-oito-reunioes-em-2027
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-04-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270204T131500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 13:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2027-02-04-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-04-bank-of-england-bank-rate-decision-and-minutes-w@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270204T120000Z
+SUMMARY:Bank of England Bank Rate decision and minutes with Monetary Policy
+  Report (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 12:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-02-04
+ -bank-of-england-bank-rate-decision-and-minutes-w\n\nDescriptive\, not fin
+ ancial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes with Monetary Po
+ licy Report (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-09-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270209T033000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 03:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-02-09-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-03-bank-of-canada-rate-announcement@naos.hardlypythonnmr.github
+ .io
+DTSTAMP:20261014T000000Z
+DTSTART:20270303T144500Z
+SUMMARY:Bank of Canada rate announcement
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 14:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2027-03-03-bank-of-canada-rate-announ
+ cement\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-17-fomc-statement-and-summary-of-economic-projectio@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270317T180000Z
+SUMMARY:FOMC statement and Summary of Economic Projections (press conferenc
+ e 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 18:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2027-03-17-fomc-statement-and-s
+ ummary-of-economic-projectio\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement and Summary of Economic Projections (press confe
+ rence 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-17-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270317T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://euqueroinvest
+ ir.com/economia/copom-tera-oito-reunioes-em-2027\n\nNAOS Upcoming: https:/
+ /hardlypythonnmr.github.io/naos/agenda.html#2027-03-17-brazil-copom-selic-
+ decision\n\nDescriptive\, not financial advice.
+URL:https://euqueroinvestir.com/economia/copom-tera-oito-reunioes-em-2027
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-18-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270318T131500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 13:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2027-03-18-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-18-bank-of-england-bank-rate-decision-and-minutes@naos.hardlypy
+ thonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270318T120000Z
+SUMMARY:Bank of England Bank Rate decision and minutes (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 12:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-03-18
+ -bank-of-england-bank-rate-decision-and-minutes\n\nDescriptive\, not finan
+ cial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-18-bank-of-japan-policy-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270318
+DTEND;VALUE=DATE:20270319
+SUMMARY:Bank of Japan policy decision
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-03
+ -18-bank-of-japan-policy-decision\n\nDescriptive\, not financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-18-snb-monetary-policy-assessment@naos.hardlypythonnmr.github.i
+ o
+DTSTAMP:20261014T000000Z
+DTSTART:20270318T083000Z
+SUMMARY:SNB monetary policy assessment
+DESCRIPTION:Sets Swiss rates\; moves the franc\, a haven gauge.\n\nTime: 08
+ :30 UTC\, 09:30 Europe/Zurich.\n\nSource: Swiss National Bank\, event sche
+ dule. https://www.snb.ch/en/services-events/digital-services/event-schedul
+ e\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-03-18-snb-monetary-policy-assessment\n\nDescriptive\, not financial advi
+ ce.
+URL:https://www.snb.ch/en/services-events/digital-services/event-schedule
+CATEGORIES:Central banks
+LOCATION:Switzerland
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SNB monetary policy assessment
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-23-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270323T033000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 03:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-03-23-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-28-fomc-statement-press-conference-14-30-et@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270428T180000Z
+SUMMARY:FOMC statement (press conference 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 18:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2027-04-28-fomc-statement-press
+ -conference-14-30-et\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement (press conference 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-28-bank-of-japan-policy-decision-and-outlook-report@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270428
+DTEND;VALUE=DATE:20270429
+SUMMARY:Bank of Japan policy decision and Outlook Report
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-04
+ -28-bank-of-japan-policy-decision-and-outlook-report\n\nDescriptive\, not 
+ financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision and Outlook Report
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-28-bank-of-canada-rate-announcement-and-monetary-po@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270428T134500Z
+SUMMARY:Bank of Canada rate announcement and Monetary Policy Report
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 13:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2027-04-28-bank-of-canada-rate-announ
+ cement-and-monetary-po\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement and Monetary Policy Report
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-28-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270428T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://euqueroinvest
+ ir.com/economia/copom-tera-oito-reunioes-em-2027\n\nNAOS Upcoming: https:/
+ /hardlypythonnmr.github.io/naos/agenda.html#2027-04-28-brazil-copom-selic-
+ decision\n\nDescriptive\, not financial advice.
+URL:https://euqueroinvestir.com/economia/copom-tera-oito-reunioes-em-2027
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-29-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270429T121500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 12:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2027-04-29-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-29-bank-of-england-bank-rate-decision-and-minutes-w@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270429T110000Z
+SUMMARY:Bank of England Bank Rate decision and minutes with Monetary Policy
+  Report (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 11:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-04-29
+ -bank-of-england-bank-rate-decision-and-minutes-w\n\nDescriptive\, not fin
+ ancial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes with Monetary Po
+ licy Report (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-04-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270504T043000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 04:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-05-04-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-02-bank-of-canada-rate-announcement@naos.hardlypythonnmr.github
+ .io
+DTSTAMP:20261014T000000Z
+DTSTART:20270602T134500Z
+SUMMARY:Bank of Canada rate announcement
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 13:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2027-06-02-bank-of-canada-rate-announ
+ cement\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-09-fomc-statement-and-summary-of-economic-projectio@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270609T180000Z
+SUMMARY:FOMC statement and Summary of Economic Projections (press conferenc
+ e 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 18:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2027-06-09-fomc-statement-and-s
+ ummary-of-economic-projectio\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement and Summary of Economic Projections (press confe
+ rence 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-10-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270610T121500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 12:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2027-06-10-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-11-bank-of-japan-policy-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270612
+SUMMARY:Bank of Japan policy decision
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-06
+ -11-bank-of-japan-policy-decision\n\nDescriptive\, not financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-16-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270616T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://euqueroinvest
+ ir.com/economia/copom-tera-oito-reunioes-em-2027\n\nNAOS Upcoming: https:/
+ /hardlypythonnmr.github.io/naos/agenda.html#2027-06-16-brazil-copom-selic-
+ decision\n\nDescriptive\, not financial advice.
+URL:https://euqueroinvestir.com/economia/copom-tera-oito-reunioes-em-2027
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-17-bank-of-england-bank-rate-decision-and-minutes@naos.hardlypy
+ thonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270617T110000Z
+SUMMARY:Bank of England Bank Rate decision and minutes (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 11:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-06-17
+ -bank-of-england-bank-rate-decision-and-minutes\n\nDescriptive\, not finan
+ cial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-22-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270622T043000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 04:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-06-22-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-24-snb-monetary-policy-assessment@naos.hardlypythonnmr.github.i
+ o
+DTSTAMP:20261014T000000Z
+DTSTART:20270624T073000Z
+SUMMARY:SNB monetary policy assessment
+DESCRIPTION:Sets Swiss rates\; moves the franc\, a haven gauge.\n\nTime: 07
+ :30 UTC\, 09:30 Europe/Zurich.\n\nSource: Swiss National Bank\, event sche
+ dule. https://www.snb.ch/en/services-events/digital-services/event-schedul
+ e\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-06-24-snb-monetary-policy-assessment\n\nDescriptive\, not financial advi
+ ce.
+URL:https://www.snb.ch/en/services-events/digital-services/event-schedule
+CATEGORIES:Central banks
+LOCATION:Switzerland
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SNB monetary policy assessment
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-21-bank-of-canada-rate-announcement-and-monetary-po@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270721T134500Z
+SUMMARY:Bank of Canada rate announcement and Monetary Policy Report
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 13:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2027-07-21-bank-of-canada-rate-announ
+ cement-and-monetary-po\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement and Monetary Policy Report
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-22-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270722T121500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 12:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2027-07-22-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-22-bank-of-japan-policy-decision-and-outlook-report@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270722
+DTEND;VALUE=DATE:20270723
+SUMMARY:Bank of Japan policy decision and Outlook Report
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-07
+ -22-bank-of-japan-policy-decision-and-outlook-report\n\nDescriptive\, not 
+ financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision and Outlook Report
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-28-fomc-statement-press-conference-14-30-et@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270728T180000Z
+SUMMARY:FOMC statement (press conference 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 18:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2027-07-28-fomc-statement-press
+ -conference-14-30-et\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement (press conference 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-07-29-bank-of-england-bank-rate-decision-and-minutes-w@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270729T110000Z
+SUMMARY:Bank of England Bank Rate decision and minutes with Monetary Policy
+  Report (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 11:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-07-29
+ -bank-of-england-bank-rate-decision-and-minutes-w\n\nDescriptive\, not fin
+ ancial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes with Monetary Po
+ licy Report (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-08-04-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270804T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://euqueroinvest
+ ir.com/economia/copom-tera-oito-reunioes-em-2027\n\nNAOS Upcoming: https:/
+ /hardlypythonnmr.github.io/naos/agenda.html#2027-08-04-brazil-copom-selic-
+ decision\n\nDescriptive\, not financial advice.
+URL:https://euqueroinvestir.com/economia/copom-tera-oito-reunioes-em-2027
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-08-10-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270810T043000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 04:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-08-10-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-08-bank-of-canada-rate-announcement@naos.hardlypythonnmr.github
+ .io
+DTSTAMP:20261014T000000Z
+DTSTART:20270908T134500Z
+SUMMARY:Bank of Canada rate announcement
+DESCRIPTION:Sets Canadian rates\; moves the loonie and Canadian bonds.\n\nT
+ ime: 13:45 UTC\, 09:45 America/New_York.\n\nSource: Bank of Canada\, 2027 
+ schedule press release (Jul 2026\; reconfirms Dec 2026). https://www.banko
+ fcanada.ca/2026/07/bank-canada-publishes-2027-schedule-policy-interest-rat
+ e-announcements-other-major-publications/\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2027-09-08-bank-of-canada-rate-announ
+ cement\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/2026/07/bank-canada-publishes-2027-schedule
+ -policy-interest-rate-announcements-other-major-publications/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada rate announcement
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-09-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270909T121500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 12:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2027-09-09-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-15-fomc-statement-and-summary-of-economic-projectio@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270915T180000Z
+SUMMARY:FOMC statement and Summary of Economic Projections (press conferenc
+ e 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 18:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2027-09-15-fomc-statement-and-s
+ ummary-of-economic-projectio\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement and Summary of Economic Projections (press confe
+ rence 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-16-bank-of-england-bank-rate-decision-and-minutes@naos.hardlypy
+ thonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270916T110000Z
+SUMMARY:Bank of England Bank Rate decision and minutes (expected time)
+DESCRIPTION:Sets UK rates\; moves sterling and gilts.\n\nTime: 11:00 UTC\, 
+ 12:00 Europe/London (expected\, not confirmed by the source).\n\nNote: Dat
+ e confirmed by the BoE\; 12:00 UK is the usual announcement time\, not sta
+ ted on that page.\n\nSource: Bank of England\, MPC dates for 2026 and 2027
+ . https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-09-16
+ -bank-of-england-bank-rate-decision-and-minutes\n\nDescriptive\, not finan
+ cial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and minutes (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-22-bank-of-japan-policy-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270922
+DTEND;VALUE=DATE:20270923
+SUMMARY:Bank of Japan policy decision
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-09
+ -22-bank-of-japan-policy-decision\n\nDescriptive\, not financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-22-brazil-copom-selic-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270922T213000Z
+SUMMARY:Brazil Copom Selic decision (expected time)
+DESCRIPTION:Moves the real and Brazilian rates.\n\nTime: 21:30 UTC\, 18:30 
+ America/Sao_Paulo (expected\, not confirmed by the source).\n\nNote: Secon
+ d day of the two-day meeting (BCB calendar via the press\; bcb.gov.br did 
+ not load). 18:30 Brasília is the usual release time.\n\nSource: EQI Inves
+ timentos / Investidor10\, on the BCB Copom calendar. https://euqueroinvest
+ ir.com/economia/copom-tera-oito-reunioes-em-2027\n\nNAOS Upcoming: https:/
+ /hardlypythonnmr.github.io/naos/agenda.html#2027-09-22-brazil-copom-selic-
+ decision\n\nDescriptive\, not financial advice.
+URL:https://euqueroinvestir.com/economia/copom-tera-oito-reunioes-em-2027
+CATEGORIES:Central banks
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil Copom Selic decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-23-snb-monetary-policy-assessment@naos.hardlypythonnmr.github.i
+ o
+DTSTAMP:20261014T000000Z
+DTSTART:20270923T073000Z
+SUMMARY:SNB monetary policy assessment
+DESCRIPTION:Sets Swiss rates\; moves the franc\, a haven gauge.\n\nTime: 07
+ :30 UTC\, 09:30 Europe/Zurich.\n\nSource: Swiss National Bank\, event sche
+ dule. https://www.snb.ch/en/services-events/digital-services/event-schedul
+ e\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-09-23-snb-monetary-policy-assessment\n\nDescriptive\, not financial advi
+ ce.
+URL:https://www.snb.ch/en/services-events/digital-services/event-schedule
+CATEGORIES:Central banks
+LOCATION:Switzerland
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SNB monetary policy assessment
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-28-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270928T043000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 04:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-09-28-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

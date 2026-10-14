@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Yom Kippur (from sundown 10 Oct)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-10-11-yom-kippur-from-sundown-10-oct@naos.hardlypythonnmr.github.i
+ o
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20271011
+DTEND;VALUE=DATE:20271012
+SUMMARY:Yom Kippur (from sundown 10 Oct)
+DESCRIPTION:Tel Aviv exchange closed\; quieter US bond trading desks.\n\nTi
+ me not set by the source\; listed as an all-day event.\n\nSource: Hebcal\,
+  Jewish holidays 2027. https://www.hebcal.com/holidays/2027-2028\n\nNAOS U
+ pcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-10-11-yom
+ -kippur-from-sundown-10-oct\n\nDescriptive\, not financial advice.
+URL:https://www.hebcal.com/holidays/2027-2028
+CATEGORIES:Religious and cultural
+LOCATION:Global (Jewish)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Yom Kippur (from sundown 10 Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

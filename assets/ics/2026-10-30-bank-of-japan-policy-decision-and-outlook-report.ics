@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Bank of Japan policy decision and Outlook Report
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-30-bank-of-japan-policy-decision-and-outlook-report@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:Bank of Japan policy decision and Outlook Report
+DESCRIPTION:Moves the yen and JGB yields\; carry trades are sensitive to it
+ .\n\nTime not set by the source\; listed as an all-day event.\n\nNote: Dec
+ ision time not fixed in advance (released when the meeting ends).\n\nSourc
+ e: Bank of Japan\, MPM schedule. https://www.boj.or.jp/en/mopo/mpmsche_min
+ u/index.htm\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agend
+ a.html#2026-10-30-bank-of-japan-policy-decision-and-outlook-report\n\nDesc
+ riptive\, not financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision and Outlook Report
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

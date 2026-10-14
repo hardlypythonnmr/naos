@@ -1,0 +1,37 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Chaitra Navratri (to Ram Navami\, 15 Apr)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-04-07-chaitra-navratri-to-ram-navami-15-apr@naos.hardlypythonnmr.g
+ ithub.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270407
+DTEND;VALUE=DATE:20270416
+SUMMARY:Chaitra Navratri (to Ram Navami\, 15 Apr)
+DESCRIPTION:Spring festival season in India\; gold\, apparel and auto purch
+ ases.\n\nTime not set by the source\; listed as an all-day event.\n\nSourc
+ e: Drik Panchang\, Chaitra Navratri 2027 (New Delhi). https://www.drikpanc
+ hang.com/navratri/chaitra-vasant-navratri-dates.html?year=2027&geoname-id=
+ 1261481\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.ht
+ ml#2027-04-07-chaitra-navratri-to-ram-navami-15-apr\n\nDescriptive\, not f
+ inancial advice.
+URL:https://www.drikpanchang.com/navratri/chaitra-vasant-navratri-dates.htm
+ l?year=2027&geoname-id=1261481
+CATEGORIES:Religious and cultural
+LOCATION:India
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Chaitra Navratri (to Ram Navami\, 15 Apr)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

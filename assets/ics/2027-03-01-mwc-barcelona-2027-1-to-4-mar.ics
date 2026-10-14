@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · MWC Barcelona 2027 (1 to 4 Mar)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-03-01-mwc-barcelona-2027-1-to-4-mar@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270305
+SUMMARY:MWC Barcelona 2027 (1 to 4 Mar)
+DESCRIPTION:Telecom\, handset and AI-device launches\; telecom equipment na
+ mes.\n\nTime not set by the source\; listed as an all-day event.\n\nSource
+ : MWC Barcelona official site (GSMA). https://www.mwcbarcelona.com/\n\nNAO
+ S Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-03-01-
+ mwc-barcelona-2027-1-to-4-mar\n\nDescriptive\, not financial advice.
+URL:https://www.mwcbarcelona.com/
+CATEGORIES:Tech and AI
+LOCATION:Spain
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:MWC Barcelona 2027 (1 to 4 Mar)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

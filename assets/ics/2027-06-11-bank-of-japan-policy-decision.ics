@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Bank of Japan policy decision
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-06-11-bank-of-japan-policy-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270612
+SUMMARY:Bank of Japan policy decision
+DESCRIPTION:Sets Japanese rates\; moves the yen\, JGBs and global carry tra
+ des.\n\nTime not set by the source\; listed as an all-day event.\n\nNote: 
+ Second day of a two-day meeting\; the BoJ announces when the meeting ends\
+ , no fixed time.\n\nSource: Bank of Japan\, Monetary Policy Meetings sched
+ ule (2026\, 2027). https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-06
+ -11-bank-of-japan-policy-decision\n\nDescriptive\, not financial advice.
+URL:https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm
+CATEGORIES:Central banks
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Japan policy decision
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

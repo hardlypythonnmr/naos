@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Hanukkah (first candle at sundown 4 Dec\; to 12 Dec)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-12-04-hanukkah-first-candle-at-sundown-4-dec-to-12-dec@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261213
+SUMMARY:Hanukkah (first candle at sundown 4 Dec\; to 12 Dec)
+DESCRIPTION:Holiday retail season overlap\; search interest for gifts and r
+ ecipes.\n\nTime not set by the source\; listed as an all-day event.\n\nSou
+ rce: Hebcal\, Jewish holidays 2026. https://www.hebcal.com/holidays/2026-2
+ 027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2
+ 026-12-04-hanukkah-first-candle-at-sundown-4-dec-to-12-dec\n\nDescriptive\
+ , not financial advice.
+URL:https://www.hebcal.com/holidays/2026-2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Jewish)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Hanukkah (first candle at sundown 4 Dec\; to 12 Dec)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

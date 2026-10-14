@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NAOS · Upcoming</title>
+<meta name="description" content="NAOS Upcoming: central bank decisions, US data, elections, summits, tech keynotes, market holidays and religious and cultural dates for the year ahead, each with its source. Add any of them to your calendar or subscribe by category. Descriptive, not financial advice.">
+<link rel="preload" href="assets/fuentes/IBMPlexSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="data/agenda.json" as="fetch" crossorigin>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/comun/tokens.css">
+<link rel="stylesheet" href="assets/comun/base.css">
+<link rel="stylesheet" href="assets/css/v1plus.css">
+<link rel="stylesheet" href="assets/css/sala.css">
+<link rel="stylesheet" href="assets/css/agenda.css">
+<script defer src="assets/js/agenda-comun.js"></script>
+<script defer src="assets/js/agenda.js"></script>
+</head>
+<body>
+<a class="sr" href="#linea">Skip to the timeline</a>
+
+<header class="barra">
+  <div class="marca"><a class="naos" href="index.html">NAOS</a><span class="cond lema">Yourself, sharper.</span></div>
+  <nav class="indice" aria-label="Sections">
+    <a href="index.html#titulares">Headlines</a><a href="index.html#mercados">Market</a><a href="index.html#noticias">News</a><a href="index.html#ia">AI</a><a href="index.html#conducta">Behavior</a><a href="index.html#semana">This week</a><a href="agenda.html" aria-current="page">Upcoming</a><a href="index.html#assets">Assets</a>
+  </nav>
+  <p class="sello estado">Descriptive · Not financial advice</p>
+</header>
+
+<!-- UPCOMING (D-226): la agenda de un año de data/agenda.json, mes por mes, con su .ics por evento y por categoría.
+     Vino: solo el próximo evento (un elemento por vista). Cobalto y los colores de sección: estructura y categorías. -->
+<main class="ag" id="ag">
+  <section class="ag-top" aria-labelledby="ag-t">
+    <div class="ag-cab">
+      <h1 class="ag-h" id="ag-t">Upcoming</h1>
+      <p class="sec-d">The year ahead in scheduled events: central bank decisions, US data, elections, summits, tech keynotes, market holidays and religious and cultural dates. Each one carries the source that states its date and one line on why markets or attention may move. Add any of them to your calendar, or subscribe to a whole category.</p>
+      <p class="sello" id="ag-sello">Loading the agenda</p>
+    </div>
+    <article class="ag-hero" id="ag-hero" aria-live="off" hidden></article>
+  </section>
+
+  <section class="ag-siguen" aria-labelledby="ag-sig-t" hidden id="ag-siguen">
+    <h2 class="ag-k cond" id="ag-sig-t">Next up</h2>
+    <ol class="ag-sig" id="ag-sig"></ol>
+  </section>
+
+  <div class="ag-filtros" role="group" aria-label="Filter by category" id="ag-filtros"></div>
+  <p class="sr" id="ag-aviso" aria-live="polite"></p>
+
+  <section class="ag-periodos" aria-labelledby="ag-per-t" id="ag-periodos" hidden>
+    <div class="ag-fila-t"><h2 class="ag-k cond" id="ag-per-t">Periods</h2><span class="sello">Multi-day events across the year. The line marks today.</span></div>
+    <div class="ag-eje" id="ag-eje" aria-hidden="true"></div>
+    <ol class="ag-bars" id="ag-bars"></ol>
+    <button type="button" class="ag-mas" id="ag-mas" aria-expanded="false" aria-controls="ag-bars" hidden>Show all periods</button>
+  </section>
+
+  <div class="ag-cuerpo">
+    <div class="ag-linea" id="linea" tabindex="-1"></div>
+    <aside class="ag-lado" aria-labelledby="ag-sus-t">
+      <div class="ag-sus">
+        <h2 class="ag-k cond" id="ag-sus-t">Subscribe</h2>
+        <p class="ag-sus-d">Add a whole category to your calendar app. It updates when NAOS reviews the agenda, every Sunday.</p>
+        <ul class="ag-sus-l" id="ag-sus-l"></ul>
+        <p class="sello">Subscribe opens your calendar app (webcal). The .ics file works in Google Calendar under Settings, Import, or "From URL" with the link.</p>
+      </div>
+      <div class="ag-nota">
+        <p class="sello"><b>How to read it.</b> Times are in UTC, with the official local time and yours. "Expected" means the source has not fixed the date or time yet: Islamic dates wait for the moon sighting, some holidays for the official calendar. Politics appears only as market impact.</p>
+        <p class="sello">Reminders: 30 minutes before a timed event, 09:00 the day before an all-day one. Descriptive, not financial advice.</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="pie">
+  <div class="pie-in">
+    <p class="naos">NAOS <span class="cond">Closer to yourself.</span></p>
+    <div class="pie-fuentes">
+      <p><b>Descriptive, not financial advice.</b> Dates come from the publishers named on each event (central banks, statistics agencies, exchanges, summit hosts, company event pages, official and religious calendars). NAOS reviews the agenda every Sunday and never invents a date.</p>
+      <p><a href="index.html">Home</a> · <a href="privacidad.html">Privacy</a> · <a href="terminos.html">Terms</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

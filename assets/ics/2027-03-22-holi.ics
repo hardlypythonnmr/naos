@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Holi
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-03-22-holi@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270322
+DTEND;VALUE=DATE:20270323
+SUMMARY:Holi
+DESCRIPTION:Festive spending and travel in India\; NSE has not yet publishe
+ d its 2027 holiday list.\n\nTime not set by the source\; listed as an all-
+ day event.\n\nSource: Office Holidays\, India 2027. https://www.officeholi
+ days.com/countries/india/2027\n\nNAOS Upcoming: https://hardlypythonnmr.gi
+ thub.io/naos/agenda.html#2027-03-22-holi\n\nDescriptive\, not financial ad
+ vice.
+URL:https://www.officeholidays.com/countries/india/2027
+CATEGORIES:Religious and cultural
+LOCATION:India
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Holi
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

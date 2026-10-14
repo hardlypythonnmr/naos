@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Fed Senior Loan Officer Opinion Survey (SLOOS)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-02-fed-senior-loan-officer-opinion-survey-sloos@naos.hardlypyth
+ onnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261102T190000Z
+SUMMARY:Fed Senior Loan Officer Opinion Survey (SLOOS)
+DESCRIPTION:Bank lending standards\, a credit-conditions signal.\n\nTime: 1
+ 9:00 UTC\, 14:00 America/New_York.\n\nSource: Federal Reserve\, November 2
+ 026 calendar. https://www.federalreserve.gov/newsevents/2026-november.htm\
+ n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-
+ 11-02-fed-senior-loan-officer-opinion-survey-sloos\n\nDescriptive\, not fi
+ nancial advice.
+URL:https://www.federalreserve.gov/newsevents/2026-november.htm
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Fed Senior Loan Officer Opinion Survey (SLOOS)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

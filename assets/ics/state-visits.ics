@@ -1,0 +1,40 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · State visits
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-20-state-visit-to-the-uk-by-the-sultan-of-oman-wind@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261023
+SUMMARY:State visit to the UK by the Sultan of Oman (Windsor\, 20 to 22 Oct
+ )
+DESCRIPTION:Oman mediates on Hormuz shipping\; any Gulf or energy statement
+  can touch oil.\n\nTime not set by the source\; listed as an all-day event
+ .\n\nSource: The Royal Family (royal.uk)\, announcement of 3 Sep 2026. htt
+ ps://www.everydayexceptional.royal.uk/news-and-activity/2026-09-03/announc
+ ement-of-a-state-visit-by-his-majesty-sultan-haitham-bin-tarik\n\nNAOS Upc
+ oming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-10-20-state
+ -visit-to-the-uk-by-the-sultan-of-oman-wind\n\nDescriptive\, not financial
+  advice.
+URL:https://www.everydayexceptional.royal.uk/news-and-activity/2026-09-03/a
+ nnouncement-of-a-state-visit-by-his-majesty-sultan-haitham-bin-tarik
+CATEGORIES:State visits
+LOCATION:United Kingdom / Oman
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:State visit to the UK by the Sultan of Oman (Windsor\, 20 to 22
+  Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

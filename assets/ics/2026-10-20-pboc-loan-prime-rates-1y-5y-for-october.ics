@@ -1,0 +1,37 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · PBoC Loan Prime Rates (1Y\, 5Y) for October
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-20-pboc-loan-prime-rates-1y-5y-for-october@naos.hardlypythonnmr
+ .github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261020T010000Z
+SUMMARY:PBoC Loan Prime Rates (1Y\, 5Y) for October (expected time)
+DESCRIPTION:Sets China's benchmark lending rates\; read for credit easing a
+ nd the yuan.\n\nTime: 01:00 UTC\, 09:00 Asia/Shanghai (expected\, not conf
+ irmed by the source).\n\nNote: Date fixed by rule (20th of each month\, en
+ glish.www.gov.cn 2019)\; the 2019 notice said 9:30 Beijing\, the listing s
+ ays 9:00. Time not confirmed by the PBoC.\n\nSource: FinanceCalendar listi
+ ng (PBoC LPR October 2026). https://www.financecalendar.com/?p=2301\n\nNAO
+ S Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-10-20-
+ pboc-loan-prime-rates-1y-5y-for-october\n\nDescriptive\, not financial adv
+ ice.
+URL:https://www.financecalendar.com/?p=2301
+CATEGORIES:Central banks
+LOCATION:China
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PBoC Loan Prime Rates (1Y\, 5Y) for October (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR
