@@ -1,12 +1,14 @@
 # NAOS
 
-**Yourself, sharper.** The NAOS home page: a situation room for markets, rates and the dollar, fear and greed, the
-economic calendar, a news wire by area, stories of the day, prediction markets, AI and technology, with room to breathe.
+**Yourself, sharper.** The NAOS home page: today's headlines in plain English first, then four sections (Market, News, AI,
+Behavior): markets, rates and the dollar, fear and greed, the economic calendar, a news wire by area, stories of the day,
+prediction markets, AI and technology, with room to breathe.
 
 Live at <https://hardlypythonnmr.github.io/naos/>. Static site, no build step, served by GitHub Pages from `main`, root.
 
 **Descriptive, not financial advice.** Nothing here is a recommendation to buy or sell anything. Prediction market
-prices are market prices, not NAOS forecasts. Items marked `SAMPLE` on the page are design placeholders, not data.
+prices are market prices, not NAOS forecasts. Stale readings and sample placeholders are kept off the page (D-216); the
+builder lists them, with the reason and the plan to get real data, in `escondido` inside `data/situacion.json`.
 
 ## Layout
 
@@ -19,6 +21,9 @@ prices are market prices, not NAOS forecasts. Items marked `SAMPLE` on the page 
 | `assets/vendor/` | GSAP + ScrollTrigger, Lenis, with their licenses |
 | `data/situacion.json` | every value the page shows, rebuilt every 30 minutes |
 | `data/mapa.json` | the map (Natural Earth via world-atlas) |
+| `data/mapa-predicciones.json` | NAOS's curated map: storyline, keywords, Polymarket market, related tickers, global rules (copy of the radar's map) |
+| `data/assets.json` | the Assets library: categories and pieces with their status (all "planned" for now); add pieces here, not in HTML |
+| `pieza.html` | the page of one Assets piece (`?id=`): video, transcript, prompts, sources (D-212); noindex while planned |
 | `scripts/construir-datos.mjs` | the data builder (Node 18+, no dependencies, no keys required) |
 | `scripts/animo.py` | the "Credit and dollar" reading of NAOS Fear & Greed (Python 3, standard library only) |
 | `.github/workflows/datos.yml` | the data refresh Action |
@@ -37,11 +42,11 @@ prices are market prices, not NAOS forecasts. Items marked `SAMPLE` on the page 
 | WTI, Brent, Henry Hub (dated trend, never on the tape) | U.S. Energy Information Administration (public domain) | "Source: U.S. Energy Information Administration" |
 | Crypto Fear & Greed | alternative.me | "Crypto Fear & Greed Index by alternative.me", linked |
 | Credit and dollar (NAOS Fear & Greed) | Office of Financial Research Financial Stress Index and ECB rates (public domain), NAOS calculation in `scripts/animo.py` | "Credit and dollar: Office of Financial Research, ECB (NAOS calculation)" |
-| Next red US event | public release calendars | the official publisher (BLS, Federal Reserve, BEA, Census), linked |
+| Next red US event, the week's red US rows with forecast and previous | Forex Factory weekly calendar (`ff_calendar_thisweek.json`) | "Forex Factory weekly calendar", linked; each release linked to its official publisher (BLS, Federal Reserve, BEA, Census) |
 | AI on the front page | Hacker News API | titles verbatim, linked |
 | Wire and stories of the day | Federal Reserve, SEC, BBC News, CoinDesk, MarketWatch, Hacker News | source and time on every headline, linked |
 | Indices, commodities, AI stocks, Nasdaq 100 heatmap, economic calendar | TradingView widgets, embedded as provided | TradingView's own attribution, intact |
-| Prediction markets | links to Polymarket and Kalshi; no odds are shown | Kalshi's data terms allow personal, non-commercial use only, so it is a link only |
+| Prediction markets | Polymarket Gamma API (public), read only for markets in `data/mapa-predicciones.json`: one number per story, with time, only if the market passes the map's rules and only on one story; Kalshi is a link only | "Polymarket" with the reading time; the map's stamp once on the page. Kalshi's data terms allow personal, non-commercial use only. No odds history, tables or charts |
 | Map | Natural Earth via world-atlas (public domain) | "Map: Natural Earth via world-atlas" |
 
 Rules the builder follows:
@@ -53,6 +58,12 @@ Rules the builder follows:
   it off the tape and the readings board once it is older than its window (crypto and metals the same day, Treasury and
   ECB four calendar days, EIA never on the tape).
 - No OKX data or headlines anywhere.
+- Stale and sample (D-216): stale means older than the source's rhythm plus a margin (daily sources: 3 business days;
+  EIA, weekly: 10 days). Stale readings, headlines and the calendar get `viejo: true`; anything sample stays off the page.
+  Each hidden item goes to `escondido: [{ id, que, motivo, desde, plan }]`. It is a list for NAOS, not shown on the page.
+- Plain-English text is built from templates over real data only: `portada` (3 to 5 headlines: what happened, what moved
+  and how much, one connected reading, the prediction market link), `explica` (what the BTC move and the 2s10s curve
+  mean, and over what timeframe) and `graficos` (one headline per TradingView chart: what moved and why, or nothing).
 
 ## How the data refresh works
 

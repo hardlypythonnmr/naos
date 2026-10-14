@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>NAOS Assets · piece</title>
+<link rel="stylesheet" href="assets/comun/tokens.css">
+<link rel="stylesheet" href="assets/comun/base.css">
+<style>
+/* Página de una pieza de Assets (D-212): el video de YouTube arriba, después transcripción, prompts y fuentes.
+   Esqueleto: cada lugar vacío lo dice. Los datos salen de data/assets.json (?id=). */
+body { font-size: 15px; }
+.barra { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px var(--page-gutter); border-bottom: 2px solid var(--naos-ink); }
+.naos { font-family: var(--font-serif); font-size: 30px; line-height: 1; text-decoration: none; }
+main { max-width: 880px; margin: 0 auto; padding: var(--s-6) 20px var(--s-10); }
+.cat { margin: 0 0 6px; font-family: var(--font-cond); font-weight: 600; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--naos-grey); }
+h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-height: 1.1; letter-spacing: -.015em; margin: 0 0 8px; }
+.desc { margin: 0 0 12px; color: var(--naos-sec); }
+.chip { display: inline-block; font-family: var(--font-cond); font-weight: 600; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--naos-grey); border: 1px solid var(--naos-chart); padding: 0 6px; line-height: 18px; }
+.ranura { margin-top: var(--s-5); }
+.ranura h2 { font-family: var(--font-sans); font-weight: 600; font-size: 17px; margin: 0 0 10px; padding-top: 12px; border-top: 1px solid var(--naos-ink); }
+.vacio { border: 1px dashed var(--naos-chart); padding: var(--s-3); color: var(--naos-grey); font-size: 14px; }
+.video .vacio { aspect-ratio: 16 / 9; display: grid; place-items: center; text-align: center; }
+.pie { padding: 20px var(--page-gutter) 40px; border-top: 1px solid var(--naos-rule); }
+@media (max-width: 640px) { .barra { padding: 12px 20px; } h1 { font-size: 30px; } .pie { padding: 16px 20px 32px; } }
+</style>
+</head>
+<body>
+<header class="barra"><a class="naos" href="./#assets">NAOS</a><a class="sello" href="./#assets">Back to Assets</a></header>
+<main>
+  <p class="cat" id="cat">Assets</p>
+  <h1 id="titulo">Piece</h1>
+  <p class="desc" id="desc"></p>
+  <span class="chip" id="estado">Planned</span>
+  <section class="ranura video" aria-labelledby="r-v"><h2 id="r-v">Video</h2><div class="vacio">The YouTube video goes here when the piece is published.</div></section>
+  <section class="ranura" aria-labelledby="r-t"><h2 id="r-t">Transcript</h2><div class="vacio">The full transcript goes here, under the video.</div></section>
+  <section class="ranura" aria-labelledby="r-p"><h2 id="r-p">Prompts</h2><div class="vacio">The prompts used in the piece go here, ready to copy.</div></section>
+  <section class="ranura" aria-labelledby="r-f"><h2 id="r-f">Sources</h2><div class="vacio">Every source cited in the piece goes here, linked.</div></section>
+</main>
+<footer class="pie sello">NAOS · Yourself, sharper. This page is a planned piece: nothing here is published yet. Not financial advice.</footer>
+<script>
+(async () => {
+  const id = new URLSearchParams(location.search).get("id");
+  try {
+    const d = await (await fetch("data/assets.json")).json();
+    for (const c of d.categorias) for (const x of c.piezas) if (x.id === id) {
+      document.getElementById("cat").textContent = "Assets · " + c.titulo;
+      document.getElementById("titulo").textContent = x.titulo;
+      document.getElementById("desc").textContent = x.descripcion;
+      document.getElementById("estado").textContent = x.estado === "published" ? "Published" : "Planned";
+      document.title = "NAOS · " + x.titulo;
+    }
+  } catch (e) { console.warn("assets.json", e); }
+})();
+</script>
+</body>
+</html>

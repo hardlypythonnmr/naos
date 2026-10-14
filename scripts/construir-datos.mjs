@@ -25,8 +25,9 @@
 //   Noticias: Fed y SEC (dominio público), BBC (crédito "BBC News" y enlace), CoinDesk y MarketWatch (titular y enlace,
 //        como el radar), Hacker News (API pública). Titulares textuales; "moved" solo si el titular nombra el activo y el
 //        movimiento.
-//   Calendario: feed semanal de Forex Factory (el mismo del radar), solo para la cuenta regresiva del próximo evento rojo
-//        de EE. UU.; en pantalla el evento se atribuye a su publicador oficial (BLS, Fed, BEA).
+//   Calendario: feed semanal de Forex Factory (el mismo del radar): la cuenta regresiva del próximo evento rojo de EE. UU. y
+//        las filas rojas de la semana con pronóstico y previo; cada evento se atribuye a su publicador oficial (BLS, Fed, BEA).
+//   Viejo y de muestra (D-216): la página los esconde; "escondido" en situacion.json dice qué, por qué y el plan.
 //   Mercados de predicción: tarjetas con enlace a Polymarket (sin cifras ni embed por ahora); Kalshi, enlace.
 import fs from "fs";
 import path from "path";
@@ -244,10 +245,12 @@ async function calendario() {
   const d = await bajar("ff-semana.json", "https://nfs.faireconomy.media/ff_calendar_thisweek.json", { tipo: "json", ua: "curl/8.5.0" });
   const rojos = d.filter((e) => e.impact === "High" && e.country === "USD").map((e) => {
     const p = PUBLICADOR.find(([re]) => re.test(e.title));
-    return { evento: e.title, hora: new Date(e.date).toISOString().slice(0, 16) + "Z", publicador: p ? p[1] : null, url: p ? p[2] : null };
+    return { evento: e.title, hora: new Date(e.date).toISOString().slice(0, 16) + "Z", publicador: p ? p[1] : null, url: p ? p[2] : null,
+      pronostico: e.forecast || null, previo: e.previous || null };
   }).sort((a, b) => a.hora.localeCompare(b.hora));
   const proximo = rojos.find((e) => Date.parse(e.hora) > AHORA) || null;
-  return { proximo, semana: rojos, nota: "Times from public release calendars; countdown label only." };
+  return { fecha: GENERADO, proximo, semana: rojos, fuente: "Forex Factory weekly calendar", fuente_url: "https://www.forexfactory.com/calendar",
+    nota: "Times, forecasts and previous values from the Forex Factory weekly calendar; each release is attributed to its official publisher." };
 }
 
 /* ---------- cierres citados de índices (S&P 500, Nasdaq Composite, Dow, VIX) ----------
@@ -408,38 +411,271 @@ const prediccion = {
   kalshi: { url: "https://kalshi.com/markets", nota: "Kalshi Data Terms of Use allow personal, non-commercial use only and prohibit publicly displaying Kalshi Data without written authorization: link only." },
 };
 
-/* ---------- regla del titular (D-208): quién dijo o hizo qué, qué hizo el mercado, qué precian los mercados de predicción,
-   una cosa conectada. En la página el mercado de predicción va como enlace, sin cifra (ver la nota de "mercados de predicción"). */
-const PM_TEMAS = [
-  [/\b(fed|fomc|powell|warsh|rate cut|rate hike|interest rate|inflation|cpi|ppi|treasury|yield)/i, "Fed"],
-  [/\b(hormuz|strait|tanker|oil|crude|gulf|houthi|aramco|saudi|opec|refiner)/i, "Hormuz"],
-  [/\b(iran|israel|ceasefire|tehran|lebanon|yemen|netanyahu)/i, "Iran"],
-  [/\b(openai|anthropic|gemini|chatgpt|claude|grok|deepmind|ai model|frontier model)\b/i, "AI"],
-];
-const CONECTADO = { AI: ["US10Y", "USD"], Politics: ["XAU", "USD"], Energy: ["XAU", "USD"], Crypto: ["ETH", "BTC"], Economy: ["US2Y", "USD"], Culture: ["USD"] };
-const pmDe = (titulo) => {
-  const hits = PM_TEMAS.filter(([re]) => re.test(titulo)).map(([, k]) => k);
-  const elegir = (k) => prediccion.polymarket.find((m) => (k === "Fed" && m.tema === "Fed") || (k === "AI" && m.tema === "AI") ||
-    (k === "Hormuz" && /hormuz/i.test(m.evento)) || (k === "Iran" && /iran/i.test(m.evento)));
-  for (const k of hits) { const m = elegir(k); if (m) return { nombre: m.nombre, url: `https://polymarket.com/event/${m.evento}` }; }
-  return null;
-};
-const conectadoDe = (area, sinId) => {
-  const id = (CONECTADO[area] || ["USD"]).find((x) => x !== sinId && activos.some((a) => a.id === x && a.fresco));
-  const a = activos.find((x) => x.id === id);
-  return a ? { id: a.id, nombre: a.nombre, ultimo: a.ultimo, cambio: a.cambio ?? null, cambio_bp: a.cambio_bp ?? null, fecha: a.fecha, fuente: a.fuente } : null;
-};
+/* ---------- regla del titular (D-208) con el mapa curado de mercados de predicción ----------
+   data/mapa-predicciones.json es copia de motor/radar/predicciones-mapa.json (privado). Aquí se porta solo el cruce y la
+   validez de predicciones.py (puntuar, mapear, validos, elegir, tickers_de, leer): titular -> historia del mapa -> su mercado
+   y sus tickers. Una cifra por historia, con hora; nada de series, tablas ni índices hechos con sus precios.
+   Kalshi, CME FedWatch y Metaculus nunca se llaman: solo entradas "citar" con URL de un medio (aquí no hay ninguna). */
+const MAPA_PM = JSON.parse(fs.readFileSync(path.join(V, "data/mapa-predicciones.json"), "utf8"));
+const REGLAS_PM = MAPA_PM.reglas_globales;
+const escRe = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const puntuar = (texto, h) => { const t = " " + texto.toLowerCase().replace(/[^a-z0-9$%. -]/g, " ") + " ";
+  return (h.palabras || []).filter((p) => new RegExp("(?<![a-z])" + escRe(p.toLowerCase()) + "(?![a-z])").test(t)).length; };
+const MERCADO_PALABRAS = ["stock", "stocks", "yield", "yields", "rates", "sector", "spending", "tariff", "market", "markets", "bond", "bonds", "dollar", "etf", "shares"];
+function mapear(texto) {
+  const out = [];
+  for (const h of MAPA_PM.historias) {
+    const n = puntuar(texto, h); if (!n) continue;
+    const omitir = h.politica && !MERCADO_PALABRAS.some((w) => new RegExp("\\b" + w + "\\b").test(texto.toLowerCase())) ? "politics without a market angle (G3 rule)" : null;
+    out.push({ h, puntaje: n, omitir });
+  }
+  return out.sort((a, b) => b.puntaje - a.puntaje); // orden estable: empate, gana el primero del mapa (como en Python)
+}
+// la historia del mapa que le toca a un titular, o null
+const historiaDe = (texto) => mapear(texto).find((x) => !x.omitir)?.h || null;
+const enlacePM = (h) => (h?.fuente === "polymarket" && h.evento ? { nombre: h.titulo, url: `https://polymarket.com/event/${h.evento}` } : null);
+
+const numPM = (x, d = 0) => (Number.isFinite(Number(x)) && x !== null && x !== "" ? Number(x) : d);
+const precioSi = (m) => { try { const v = Number(JSON.parse(m.outcomePrices || "[]")[0]); return Number.isFinite(v) ? v : null; } catch { return null; } };
+const validosPM = (e, r) => (e.markets || []).map((m) => [m, precioSi(m)]).filter(([m, p]) => !m.closed && p != null && numPM(m.spread, 1) <= r.spread_max && numPM(m.volume) > 0);
+function elegirPM(e, h, r) {
+  const ms = validosPM(e, r); if (!ms.length) return null;
+  const modo = h.eleccion || "lider";
+  if (modo === "binario") return ms[0];
+  if (modo === "proximo") return [...ms].sort((a, b) => numPM(a[0].groupItemThreshold, 999) - numPM(b[0].groupItemThreshold, 999))[0];
+  if (modo === "mitad") return ms.reduce((a, b) => (Math.abs(b[1] - 0.5) < Math.abs(a[1] - 0.5) ? b : a));
+  return ms.reduce((a, b) => (b[1] > a[1] ? b : a));
+}
+const tickersDe = (h, grupo) => { let ts = [...(h.tickers || [])];
+  for (const [nombre, extra] of Object.entries(h.tickers_por_resultado || {})) if (grupo && grupo.toLowerCase().includes(nombre.toLowerCase())) ts = [...extra, ...ts.filter((t) => !extra.some((x) => x.simbolo === t.simbolo))];
+  return ts; };
+const MESES_PM = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MESES_LARGOS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+const gamma = (ruta) => bajar(`pm-${ruta.replace(/\W+/g, "-").slice(0, 80)}.json`, `https://gamma-api.polymarket.com/${ruta}`, { tipo: "json", guardar: false, intentos: 2, ms: 20000 });
+const lecturasPM = new Map(); // una lectura por mercado y corrida
+async function leerPM(h0) {
+  if (lecturasPM.has(h0.id)) return lecturasPM.get(h0.id);
+  const leer = async (h) => {
+    const r = { ...REGLAS_PM }; for (const k of ["volumen_min_usd", "spread_max"]) if (k in h) r[k] = h[k];
+    const base = { id: h.id, titulo: h.titulo, fuente: "Polymarket" };
+    if (h.fuente !== "polymarket") return { ...base, omitir: "cited-only source" };
+    let slug = h.evento, dia = new Date(AHORA), e;
+    try {
+      if (!slug && h.buscar) {
+        dia = new Date(AHORA + (h.buscar.dias_adelante || 0) * 864e5);
+        const patron = new RegExp(h.buscar.patron.replace("{mes}", MESES_LARGOS[dia.getUTCMonth()]).replace("{dia}", dia.getUTCDate()).replace("{anio}", dia.getUTCFullYear()));
+        const d = await gamma(`public-search?q=${encodeURIComponent(h.buscar.q)}&limit_per_type=20&events_status=active`);
+        slug = (d.events || []).find((x) => patron.test(x.slug || ""))?.slug;
+        if (!slug) return { ...base, omitir: "no matching event found for the date" };
+      }
+      e = await gamma(`events/slug/${slug}`);
+    } catch (ex) { return { ...base, evento: slug, omitir: "read failed: " + ex.message }; } // red caída: se omite, nunca se inventa
+    base.evento = slug; base.url = `https://polymarket.com/event/${slug}`;
+    if (e.closed) return { ...base, omitir: "market resolved" };
+    if (numPM(e.volume) < r.volumen_min_usd) return h.respaldo ? leer({ ...h, ...h.respaldo, respaldo: null }) : { ...base, omitir: `thin market (volume ${Math.round(numPM(e.volume))} USD)` };
+    const texto = ((e.title || "") + " " + (e.markets || []).map((m) => m.question || "").join(" ")).toLowerCase();
+    const tema = r.omitir_temas.find((t) => new RegExp("\\b" + t + "\\b").test(texto)); if (tema) return { ...base, omitir: "topic not covered: " + tema };
+    const sel = elegirPM(e, h, r);
+    if (!sel) return h.respaldo ? leer({ ...h, ...h.respaldo, respaldo: null }) : { ...base, omitir: "no open market with a real order book" };
+    const [m, p] = sel;
+    if (p < r.precio_min || p > r.precio_max) return { ...base, omitir: `price ${Math.round(p * 100)}% is near certain` };
+    const grupo = (m.groupItemTitle || "").trim();
+    const resultado = h.resultado_en.replace("{grupo}", (h.grupos || {})[grupo] || grupo).replace("{fecha_evento}", `${MESES_PM[dia.getUTCMonth()]} ${dia.getUTCDate()}`);
+    const leido = GENERADO, hora = `${Number(leido.slice(8, 10))} ${MESES_PM[Number(leido.slice(5, 7)) - 1]} ${leido.slice(11, 16)}`;
+    // solo la plantilla "linea" (una cifra); la parte "On the tape" la arma la página con los activos propios
+    const linea = r.linea.split(" · On the tape")[0].replace("{p}", Math.round(p * 100)).replace("{resultado}", resultado).replace("{fuente}", "Polymarket").replace("{hora}", hora);
+    if (/\b(bet|bets|betting|wager|gamble|odds boost|buy yes|buy no)\b/i.test(linea)) return { ...base, omitir: "forbidden wording" };
+    return { ...base, mercado: m.slug, grupo, p: Math.round(p * 100), leido_utc: leido, linea, tickers: tickersDe(h, grupo).map((t) => t.simbolo), omitir: null };
+  };
+  const x = await leer(h0);
+  // edad_max_horas: una lectura más vieja que eso no se publica (aquí se lee en cada corrida)
+  if (!x.omitir && (AHORA - Date.parse(x.leido_utc)) / 36e5 > REGLAS_PM.edad_max_horas) x.omitir = "reading too old";
+  lecturasPM.set(h0.id, x); return x;
+}
 function aplicarRegla(lista, conMercado) {
   return (lista || []).map((h) => {
-    const sinId = h.grafico?.tipo === "propio" ? h.grafico.activo : null;
-    const lados = { quien: `${h.fuente}: headline verbatim`, prediccion: pmDe(h.titulo), conectado: conectadoDe(h.area, sinId) };
+    const sl = historiaDe(h.titulo);
+    const lados = { quien: `${h.fuente}: headline verbatim`, historia_mapa: sl?.id || null, prediccion: enlacePM(sl) };
     if (conMercado) lados.mercado = h.grafico?.tipo === "propio" ? h.grafico.activo : h.grafico?.etiqueta || null;
-    lados.faltan = ["prediccion", "conectado"].filter((k) => !lados[k]).concat(conMercado && !lados.mercado ? ["mercado"] : []);
     return { ...h, lados };
   });
 }
 historias = aplicarRegla(historias, true);
 wireFinal = aplicarRegla(wireFinal, false).map(({ lados, ...t }) => ({ ...t, ...(lados.prediccion ? { odds: lados.prediccion } : {}) }));
+
+/* ---------- viejo y de muestra (D-216): la página los esconde y aquí quedan en una lista con su plan ----------
+   Viejo = más antiguo que el ritmo de su fuente más un margen: fuentes diarias, 3 días hábiles; EIA (semanal), 10 días.
+   Los días hábiles cuentan solo lunes a viernes (los feriados no se descuentan). */
+const diaUTC = (f) => Date.parse(String(f).slice(0, 10) + "T00:00:00Z");
+const habiles = (f) => { let n = 0; for (let t = diaUTC(f) + 864e5; t <= diaUTC(GENERADO); t += 864e5) { const w = new Date(t).getUTCDay(); if (w > 0 && w < 6) n++; } return n; };
+const esViejo = (f, ritmo = "diario") => !f || !Number.isFinite(diaUTC(f)) || (ritmo === "semanal" ? (diaUTC(GENERADO) - diaUTC(f)) / 864e5 > 10 : habiles(f) > 3);
+const REGLA = { diario: "older than 3 business days (daily source)", semanal: "older than 10 days (weekly source)" };
+const escondido = [];
+const esconder = (id, que, motivo, desde, plan) => escondido.push({ id, que, motivo, desde: desde || null, plan });
+for (const a of activos) {
+  const ritmo = a.fuente === "U.S. Energy Information Administration" ? "semanal" : "diario";
+  a.viejo = esViejo(a.fecha, ritmo);
+  if (a.viejo) esconder(`activo:${a.id}`, a.nombre, `stale: ${REGLA[ritmo]}`, a.fecha, `Comes back on its own at the next run that gets a fresh value from ${a.fuente}.`);
+}
+// titulares del radar sin hora: la fecha sale de la URL (/2026/10/13/) o, si no, de la fecha del radar
+const fechaDeUrl = (u) => { const m = String(u || "").match(/\/(20\d\d)[/-](\d\d)[/-](\d\d)\//); return m ? `${m[1]}-${m[2]}-${m[3]}` : null; };
+for (const t of wireFinal || []) t.viejo = esViejo(t.hora || radarFecha);
+for (const h of historias || []) h.viejo = esViejo(h.hora || radarFecha);
+const titularesF = (titularesRadar || []).map((t) => ({ ...t, hora: t.hora || fechaDeUrl(t.url) || radarFecha })).map((t) => ({ ...t, viejo: esViejo(t.hora) }));
+const nViejos = (xs) => (xs || []).filter((t) => t.viejo).length;
+if (nViejos(wireFinal)) esconder("wire", `${nViejos(wireFinal)} wire headlines`, `stale: ${REGLA.diario}`, (wireFinal.filter((t) => t.viejo).map((t) => t.hora).sort()[0] || "").slice(0, 10),
+  "Fresh headlines arrive when the private radar pushes data/radar.json (token pending, see README) or the --wire-rss step runs.");
+if (nViejos(historias)) esconder("historias", `${nViejos(historias)} stories of the day`, `stale: ${REGLA.diario}`, radarFecha, "Same as the wire: they return with the next data/radar.json push.");
+const calF = cal || ANTERIOR?.calendario || null;
+if (calF) { calF.viejo = esViejo(calF.fecha); if (calF.viejo) esconder("calendario", "Red US events of the week", `stale: ${REGLA.diario}`, calF.fecha, "Comes back at the next run that reaches the Forex Factory weekly feed."); }
+const miedoF = animo ? { ...animo, naos: animo.naos.valor == null && ANTERIOR?.miedo?.naos?.valor != null ? ANTERIOR.miedo.naos : animo.naos } : ANTERIOR?.miedo;
+if (miedoF?.cripto) { miedoF.cripto.viejo = esViejo(miedoF.cripto.fecha); if (miedoF.cripto.viejo) esconder("miedo:cripto", "Crypto Fear & Greed", `stale: ${REGLA.diario}`, miedoF.cripto.fecha, "Comes back at the next run that reaches alternative.me."); }
+if (miedoF?.naos?.valor != null) { miedoF.naos.viejo = esViejo(miedoF.naos.desde); if (miedoF.naos.viejo) esconder("miedo:naos", "NAOS Fear & Greed, credit and dollar", `stale: ${REGLA.diario}`, miedoF.naos.desde, "Comes back when the OFR Financial Stress Index publishes a newer day (scripts/animo.py)."); }
+// de muestra: nada con sample:true se muestra desde el lunes 19-oct
+if (citados?.muestra) esconder("cierres_citados", "Index closes, as reported (S&P 500, Nasdaq Composite, Dow, VIX)", "sample", null, "Shown when the New York close routine writes real cited closes into data/radar.json (cierres_csv); needs the radar push token (README).");
+if ((historias || []).some((h) => h.contexto_sample)) esconder("historias:contexto", "Two lines of context on each story of the day", "sample", null, "Written by the London and New York radar briefs and pushed in data/radar.json.");
+esconder("muestra:hormuz_transitos", "Tanker transits through Hormuz per day", "sample", null, "Needs a public or licensed tanker-transit source; none chosen yet.");
+esconder("muestra:chips_titulares", "Chip headlines per day", "sample", null, "A daily count from the radar scan, once data/radar.json carries it (temas).");
+esconder("muestra:linea_tiempo", "Event strip (times of the day's events)", "sample", null, "Built from the radar wire with real times, once data/radar.json is pushed.");
+esconder("muestra:escenarios", "Scenario board under the map (if this, watch that)", "sample", null, "Written by the radar from the day's wire and real data; until then the map shows geography only.");
+esconder("mapa:notas", "Notes on the map markers (Hormuz, Bab el-Mandeb, Suez, Israel, Black Sea, Ukraine)", "sample", null, "One line per marker from the day's wire, written by the radar.");
+if ((ANTERIOR?.muestra?.repos || []).some((x) => x.sample)) esconder("muestra:repos", "Repos of the week", "sample", null, "The weekly repos routine (GitHub API, private) pushes real names and star counts in data/radar.json.");
+
+/* ---------- texto en llano (PAG-01.2, PAG-02.5, PAG-02.6): plantillas sobre datos reales, nunca hechos inventados ---------- */
+const MES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const DIA3 = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const fechaTxt = (f) => { const t = new Date(diaUTC(f)); return `${t.getUTCDate()} ${MES[t.getUTCMonth()]}`; };
+const pctTxt = (x) => { const v = Math.abs(x); return (v < 0.1 ? v.toFixed(2) : v < 10 ? v.toFixed(1) : v.toFixed(0)) + "%"; };
+const fmtN = (x, dec = 0) => Number(x).toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+const NOMBRE_TXT = { BTC: "bitcoin", ETH: "ether", SOL: "solana", XAU: "gold", XAG: "silver", US2Y: "the US 2-year yield", US10Y: "the US 10-year yield", US30Y: "the US 30-year yield",
+  S2S10: "the 2s10s curve", USD: "the NAOS dollar index", EURUSD: "EUR/USD", USDJPY: "USD/JPY", WTI: "WTI oil", BRENT: "Brent oil", NG: "US natural gas" };
+const may = (s) => s[0].toUpperCase() + s.slice(1);
+const vivo = (id) => activos.find((a) => a.id === id && !a.viejo);
+// una frase por activo: qué hizo y cuánto, con fuente y hora
+function frase(a) {
+  const n = NOMBRE_TXT[a.id] || a.nombre, intradia = a.fecha.length > 10;
+  const sello = intradia ? `(${a.fuente}, ${a.fecha.slice(11, 16)} UTC)` : `(${a.fuente})`;
+  if (a.cambio_bp != null) return `${may(n)} ${a.cambio_bp > 0 ? `rose ${a.cambio_bp} bp` : a.cambio_bp < 0 ? `fell ${-a.cambio_bp} bp` : "was unchanged"} to ${a.ultimo.toFixed(2)}% on ${fechaTxt(a.fecha)} ${sello}.`;
+  if (a.cambio == null) return `${may(n)} trades at $${fmtN(a.ultimo)}${a.unidad === "USD" && /XAU|XAG/.test(a.id) ? " an ounce" : ""}, spot ${sello}.`;
+  if (intradia) return `${may(n)} is ${a.cambio > 0 ? "up" : a.cambio < 0 ? "down" : "flat"}${a.cambio ? " " + pctTxt(a.cambio) : ""} today ${sello}.`;
+  return `${may(n)} ${a.cambio > 0 ? "rose" : a.cambio < 0 ? "fell" : "was flat"}${a.cambio ? " " + pctTxt(a.cambio) : ""} on ${fechaTxt(a.fecha)} ${sello}.`;
+}
+const sinPunto = (s) => s.replace(/\.$/, "");
+// "On the tape": los tickers de la historia del mapa que existen en activos, con su cambio y fuente; sin historia, nada
+const CORTO = { BTC: "bitcoin", ETH: "ether", XAU: "gold", XAG: "silver", US2Y: "US 2-year yield", US10Y: "US 10-year yield", US30Y: "US 30-year yield", USD: "NAOS dollar index", WTI: "WTI oil", BRENT: "Brent oil", NG: "natural gas" };
+function enCinta(sl, sinId) {
+  if (!sl) return null;
+  const as = tickersDe(sl, null).map((t) => t.radar && vivo(t.radar)).filter((a) => a && a.id !== sinId).filter((a, i, xs) => xs.indexOf(a) === i);
+  if (!as.length) return null;
+  const mov = (a) => a.cambio_bp != null ? `${a.cambio_bp > 0 ? "+" : a.cambio_bp < 0 ? "−" : ""}${Math.abs(a.cambio_bp)} bp` : a.cambio != null ? `${a.cambio > 0 ? "+" : a.cambio < 0 ? "−" : ""}${pctTxt(a.cambio)}` : `$${fmtN(a.ultimo)}`;
+  const sellos = [...new Set(as.map((a) => `${a.fuente} ${a.fecha.length > 10 ? a.fecha.slice(11, 16) + " UTC" : fechaTxt(a.fecha)}`))];
+  return `On the tape: ${as.map((a) => `${CORTO[a.id] || a.nombre} ${mov(a)}`).join(", ")} (${sellos.join("; ")}).`;
+}
+// fuentes de noticias vivas para buscar "qué se movió": wire, historias y titulares del radar, sin Hacker News
+const noticias = [...(historias || []), ...(wireFinal || []), ...titularesF].filter((t) => !t.viejo && t.fuente !== "Hacker News")
+  .filter((t, i, xs) => xs.findIndex((x) => x.url === t.url) === i);
+const RE_TEMA = {
+  chips: /\b(chips?|semiconductors?|Nvidia|TSMC|ASML|AMD|Broadcom)\b/i,
+  petroleo: /\b(oil|crude|Brent|OPEC|Aramco|Hormuz|refiner(?:y|ies)|tanker|fuel depot)\b/i,
+  indices: /\b(S&P 500|Nasdaq|Dow|Wall Street|U\.?S\.? stocks|VIX|oil|crude|Brent|natural gas|gold)\b/i,
+  calor: /\b(Nasdaq|tech stocks|chip stocks|Nvidia|Apple|Microsoft|Alphabet|Amazon|Meta|Tesla|megacaps?)\b/i,
+  ia: /\b(chips?|semiconductors?|Nvidia|TSMC|ASML|AMD|Broadcom|AI stocks|data cent(?:er|re)s?)\b/i,
+};
+const buscar = (re, { conMovimiento = false, sin = [] } = {}) => {
+  const xs = noticias.filter((t) => re.test(t.titulo) && !sin.includes(t.url));
+  return xs.find((t) => movido(t.titulo)) || (conMovimiento ? null : xs[0] || null);
+};
+const ref = (t) => t && { titulo: t.titulo, fuente: t.fuente, url: t.url, hora: t.hora, ...(movido(t.titulo) ? { movio: movido(t.titulo) } : {}) };
+
+// portada: 3 a 5 historias en texto (quién o qué pasó, qué se movió y cuánto, mercado de predicción, una cosa conectada)
+const portada = [];
+const sumar = (t, area, mercadoActivo, mercadoTV) => {
+  if (!t || portada.some((p) => p.url === t.url)) return;
+  const a = mercadoActivo ? vivo(mercadoActivo) : null;
+  let mercado = a ? frase(a) : null, etiqueta = "Moved";
+  if (!mercado && mercadoTV) { const rel = buscar(RE_TEMA[mercadoTV.tema], { conMovimiento: true, sin: [t.url] });
+    mercado = rel ? `Related move, per ${rel.fuente}: "${rel.titulo}".` : `Live chart on this page: ${mercadoTV.etiqueta}.`; if (!rel) etiqueta = "Market"; }
+  const sl = historiaDe(t.titulo);
+  portada.push({ id: "p" + (portada.length + 1), tipo: "historia", area, titulo: t.titulo, fuente: t.fuente, url: t.url, hora: t.hora, ...(movido(t.titulo) ? { movio: movido(t.titulo) } : {}),
+    mercado, mercado_etiqueta: etiqueta, historia_mapa: sl?.id || null, conectado: enCinta(sl, mercadoActivo) });
+};
+const hs = (historias || []).filter((h) => !h.viejo).sort((x, y) => (movido(y.titulo) ? 1 : 0) - (movido(x.titulo) ? 1 : 0));
+const tvTema = (g) => g?.tipo === "tradingview" ? { tema: /SMH/.test(g.simbolo) ? "chips" : "petroleo", etiqueta: g.etiqueta } : null;
+for (const h of hs) sumar(h, h.area, h.grafico?.tipo === "propio" ? h.grafico.activo : null, tvTema(h.grafico));
+// energía: el titular más nuevo del área, con Brent en vivo vía TradingView
+sumar((wireFinal || []).find((t) => !t.viejo && t.area === "Energy"), "Energy", null, { tema: "petroleo", etiqueta: "Brent and WTI crude CFDs via TradingView, in Market" });
+// agenda: el próximo evento rojo de EE. UU. si cae en las próximas 36 horas
+if (calF && !calF.viejo && calF.proximo && Date.parse(calF.proximo.hora) - AHORA < 36 * 36e5) {
+  const p = calF.proximo, mismos = calF.semana.filter((e) => e.hora === p.hora);
+  const et = new Date(p.hora).toLocaleTimeString("en-US", { timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false });
+  const base = (e) => e.evento.replace(/ [my]\/[my]$/, "").replace(/^Core /, "").replace(/Fed Chairman (\w+) Speaks/, "Fed Chair $1 speaks");
+  const unicos = [...new Set(mismos.map(base))], nombres = unicos.length > 1 ? unicos.slice(0, -1).join(", ") + " and " + unicos.at(-1) : unicos[0];
+  // pronóstico y previo: primero la cifra general (sin "Core"), una por publicación
+  const conPron = [...mismos].sort((x, y) => /^Core /.test(x.evento) - /^Core /.test(y.evento)).filter((e) => e.pronostico || e.previo)
+    .filter((e, i, xs) => xs.findIndex((x) => base(x) === base(e)) === i).map((e) => `${e.evento}: forecast ${e.pronostico || "n/a"}, previous ${e.previo || "n/a"}`);
+  const dia = new Date(p.hora), hoy = dia.toISOString().slice(0, 10) === GENERADO.slice(0, 10);
+  const titulo = `US ${nombres}, ${hoy ? "today" : DIA3[dia.getUTCDay()] + " " + fechaTxt(p.hora)} at ${et} ET`, sl = historiaDe(titulo);
+  portada.push({ id: "p" + (portada.length + 1), tipo: "agenda", area: "Coming up", titulo,
+    fuente: [...new Set(mismos.map((e) => e.publicador).filter(Boolean))].join(", ") || "public release calendar", url: p.url, hora: p.hora,
+    mercado: conPron.length ? `${conPron.slice(0, 2).join("; ")} (Forex Factory calendar).` : null, mercado_etiqueta: "Expected",
+    historia_mapa: sl?.id || null, conectado: enCinta(sl, null) });
+}
+portada.splice(5);
+// odds: solo si el mercado de la historia del mapa pasa las reglas globales, y cada mercado en una sola historia (la de más arriba)
+const mercadosUsados = new Set();
+for (const p of portada) {
+  const sl = MAPA_PM.historias.find((h) => h.id === p.historia_mapa);
+  p.odds = null;
+  if (!sl || sl.fuente !== "polymarket") continue;
+  const x = await leerPM(sl);
+  p.odds_estado = x.omitir || "shown";
+  if (x.omitir || mercadosUsados.has(x.mercado)) { if (!x.omitir) p.odds_estado = "market already on a higher story"; continue; }
+  mercadosUsados.add(x.mercado);
+  p.odds = { texto: x.linea, url: x.url, p: x.p, leido_utc: x.leido_utc, historia: sl.id };
+}
+// wire: el enlace al mercado (sin cifra) solo si su mercado pasa las reglas (resuelto, delgado o caído: sin enlace)
+for (const t of wireFinal || []) { const sl = t.odds && historiaDe(t.titulo); if (!sl) continue; const x = await leerPM(sl); if (x.omitir) delete t.odds; else t.odds = { nombre: sl.titulo, url: x.url }; }
+// las cartas de las historias del día llevan las mismas dos líneas que su titular en la portada
+for (const h of historias || []) { const p = portada.find((x) => x.url === h.url); h.lados = { ...h.lados, odds: p?.odds || null, conectado: p?.conectado || null }; }
+
+// una línea de texto por gráfico de TradingView: qué se movió y por qué, del titular que le corresponde; sin titular, nada
+const graficos = {};
+// primero los gráficos de las historias, después los paneles; cada titular se usa una sola vez
+const urlHist = (sim) => (historias || []).filter((h) => h.grafico?.simbolo === sim).map((h) => h.url);
+const usados = [];
+for (const [k, re, mov] of [["NASDAQ:SMH", RE_TEMA.chips, false], ["TVC:UKOIL", RE_TEMA.petroleo, false], ["ia", RE_TEMA.ia, false],
+  ["indices", RE_TEMA.indices, true], ["calor", RE_TEMA.calor, true]]) {
+  const t = buscar(re, { conMovimiento: mov, sin: [...urlHist(k), ...usados] });
+  if (t) { graficos[k] = ref(t); usados.push(t.url); }
+}
+
+// texto en llano bajo BTC y bajo la curva: qué dice la lectura, para quién y en qué plazo; descriptivo, nunca consejo
+const explica = {};
+const bv = vivo("BTC");
+if (bv?.serie?.length > 5) {
+  const s = bv.serie.slice(0, -1).map((p) => p[1]); // días cerrados; el último punto es el día en curso
+  const mov = s.slice(1).map((v, i) => Math.abs(v / s[i] - 1) * 100).sort((x, y) => x - y), tip = mov[Math.floor(mov.length / 2)];
+  const hoy = Math.abs(bv.cambio || 0);
+  const tipo = hoy < tip * 0.5 ? "a quiet day so far" : hoy <= tip * 1.5 ? "an ordinary day so far" : "a bigger move than usual";
+  explica.BTC = { fecha: bv.fecha, fuente: bv.fuente, texto: [
+    `Bitcoin is ${bv.cambio >= 0 ? "up" : "down"} ${pctTxt(bv.cambio || 0)} since 00:00 UTC and ${bv.cambio30 >= 0 ? "up" : "down"} ${pctTxt(bv.cambio30)} over 30 days.`,
+    `In the past month its typical daily move was about ${tip.toFixed(1)}%, so today is ${tipo}.`,
+    `What this is: one day's price change on CoinGecko's market feed. What this is not: a forecast. A month of gains or losses says little about the next month, and bitcoin has often swung 10% or more within a few weeks.`,
+    "Not financial advice."] };
+}
+const s2 = vivo("S2S10"), y2 = vivo("US2Y"), y10 = vivo("US10Y");
+if (s2 && y2 && y10) {
+  const v = s2.ultimo, ser = (s2.serie90 || s2.serie).map((p) => p[1]), lo = Math.min(...ser), hi = Math.max(...ser);
+  const ultInv = [...(s2.serie90 || s2.serie)].reverse().find((p) => p[1] < 0);
+  const forma = v < 0 ? "inverted: the 2-year yield is above the 10-year" : v < 0.25 ? "close to flat" : v <= 1.5 ? "positive, the usual shape" : "steep";
+  explica.S2S10 = { fecha: s2.fecha, fuente: s2.fuente, texto: [
+    `On ${fechaTxt(s2.fecha)} the 10-year Treasury yield was ${Math.abs(v).toFixed(2)} percentage points ${v >= 0 ? "above" : "below"} the 2-year, so the curve is ${forma}. ` +
+      (ultInv ? `It was inverted as recently as ${fechaTxt(ultInv[0])}.` : `In the last 90 days it stayed between ${lo.toFixed(2)} and ${hi.toFixed(2)} points.`),
+    `What it has meant before: an inverted curve came before most US recessions since the late 1960s, usually by about 6 to 24 months, and it has also given false alarms.` +
+      (v >= 0 ? " In past cycles the curve often turned positive again shortly before a recession began, so a positive curve on its own is no all-clear." : " The timing has varied widely, so it says little about any one year."),
+    `What it means for people: the 2-year (${y2.ultimo.toFixed(2)}%) follows what markets expect from the Fed over the next two years, and US mortgage and other long loan rates tend to follow the 10-year (${y10.ultimo.toFixed(2)}%). Together they set the tone for borrowing costs over the coming months.`,
+    "Not financial advice."] };
+}
 
 const salida = {
   generado: GENERADO,
@@ -456,8 +692,8 @@ const salida = {
     mapa: { texto: "Map: Natural Earth via world-atlas (public domain). Routes approximate", url: "https://www.naturalearthdata.com" },
   },
   activos,
-  miedo: animo ? { ...animo, naos: animo.naos.valor == null && ANTERIOR?.miedo?.naos?.valor != null ? ANTERIOR.miedo.naos : animo.naos } : ANTERIOR?.miedo,
-  calendario: cal || ANTERIOR?.calendario,
+  miedo: miedoF,
+  calendario: calF,
   cierres_citados: citados,
   radar: { fecha: radarFecha, estado: radarEstado, secciones: ["wire", "historias", "cierres_citados", "temas", "titulares"],
     nota: radarEstado === "carried" ? "Kept from the last radar update; the public refresh cannot read the private radar." : null },
@@ -465,7 +701,12 @@ const salida = {
   historias,
   prediccion,
   temas,
-  titulares: titularesRadar,
+  titulares: titularesF,
+  portada,
+  odds_sello: REGLAS_PM.sello,
+  graficos,
+  explica,
+  escondido,
   hn: hnLab.length ? hnLab : ANTERIOR?.hn || [],
   muestra,
   errores,
@@ -476,5 +717,6 @@ fs.writeFileSync(SALIDA, JSON.stringify(salida));
 console.log("situacion.json", (fs.statSync(SALIDA).size / 1024).toFixed(1), "KB · generado", GENERADO);
 for (const a of activos) console.log(`  ${a.id.padEnd(6)} ${String(a.ultimo).padStart(10)} ${a.fecha} fresco=${a.fresco} (${a.edad_dias} d)`);
 console.log("  miedo cripto", animo?.cripto.valor, animo?.cripto.clase, "· NAOS Mood", animo?.naos.estado, "· próximo rojo", cal?.proximo?.evento, cal?.proximo?.hora);
+console.log("  portada", portada.length, "· gráficos con texto", Object.keys(graficos).join(", "), "· escondido", escondido.map((e) => e.id).join(", "));
 console.log("  radar", radarEstado, radarFecha, "· wire", wireFinal.length, "· moved", wireFinal.filter((t) => t.movio).length, "· HN IA", hnLab.length, "· historias", historias.length);
 if (errores.length) console.log("ERRORES:\n  " + errores.join("\n  "));

@@ -1,0 +1,41 @@
+{
+  "nota": "Biblioteca de Assets (PAG-06.1, PAG-06.3, D-212, D-217). Cada pieza nueva se agrega aquí, no en el HTML. estado: planned | published. Nada se marca published sin video y sin su página (pieza.html?id=...). Sin fechas de publicación ni vistas inventadas.",
+  "categorias": [
+    {
+      "id": "ai",
+      "titulo": "AI",
+      "descripcion": "Learn to work with AI by doing: from a chat window to code you own, one first step at a time.",
+      "piezas": [
+        { "id": "ai-chat-al-codigo-1", "titulo": "From chat to code, part 1", "descripcion": "The first long video of the series: prompts you paste, and the AI does the work.", "estado": "planned", "tarjeta": "SER-01.1", "pagina": true },
+        { "id": "ai-primer-commit", "titulo": "Your first commit", "descripcion": "Save a first version of your work in a private repository.", "estado": "planned", "tarjeta": "SER-03.1" },
+        { "id": "ai-primer-entorno-claude", "titulo": "Your first Claude environment", "descripcion": "Set up a place where Claude can read and change your files safely.", "estado": "planned", "tarjeta": "SER-03.1" },
+        { "id": "ai-primera-pagina-github", "titulo": "Your first GitHub page", "descripcion": "Put a simple web page online for free.", "estado": "planned", "tarjeta": "SER-03.1" },
+        { "id": "ai-primer-token", "titulo": "Your first token", "descripcion": "What a token is, why it matters, and how to keep it secret.", "estado": "planned", "tarjeta": "SER-03.1" },
+        { "id": "ai-que-es-una-api", "titulo": "What an API is", "descripcion": "How one program asks another for data, in plain words.", "estado": "planned", "tarjeta": "SER-03.1" },
+        { "id": "ai-primeras-apis", "titulo": "Your first APIs", "descripcion": "Call a few free public APIs and see what comes back.", "estado": "planned", "tarjeta": "SER-03.1" }
+      ]
+    },
+    {
+      "id": "trading",
+      "titulo": "Trading",
+      "descripcion": "The basics of reading a market, explained plainly. Education only, never advice.",
+      "piezas": [
+        { "id": "trading-que-es-el-precio", "titulo": "What a price is", "descripcion": "Where a market price comes from and what it tells you.", "estado": "planned", "tarjeta": "SER-02.1" },
+        { "id": "trading-graficos", "titulo": "Reading charts", "descripcion": "Lines, time frames and scales, and what each one hides.", "estado": "planned", "tarjeta": "SER-02.1" },
+        { "id": "trading-velas", "titulo": "Candles", "descripcion": "Open, high, low and close in one shape.", "estado": "planned", "tarjeta": "SER-02.1" },
+        { "id": "trading-estrategias", "titulo": "Strategies, tested on paper first", "descripcion": "How common strategies work. No strategy is perfect; try any of them on a demo or paper account first.", "estado": "planned", "tarjeta": "SER-02.2" },
+        { "id": "trading-indicador-1", "titulo": "Indicator 1: regime traffic light", "descripcion": "An open indicator that labels the market's state, with its code in Python and Pine v6.", "estado": "planned", "tarjeta": "SER-02.3" }
+      ]
+    },
+    {
+      "id": "behavior",
+      "titulo": "Behavior",
+      "descripcion": "Exercises and habits, each with the studies behind it.",
+      "piezas": [
+        { "id": "behavior-articulos", "titulo": "Exercise articles", "descripcion": "Each exercise with the peer-reviewed studies behind it. Drafted by NAOS, read and signed by N.", "estado": "planned", "tarjeta": "PAG-05.1" },
+        { "id": "behavior-largos-ejercicio", "titulo": "Exercise sessions, long form", "descripcion": "Longer sessions built from the exercise Shorts, to follow along.", "estado": "planned", "tarjeta": "SER-05.1" },
+        { "id": "behavior-afirmaciones-dormir", "titulo": "Affirmations for sleep", "descripcion": "Looped affirmations rooted in peer-reviewed findings. A gentle review before sleep. The promise is review only; we do not claim you learn while asleep.", "estado": "planned", "tarjeta": "SER-04.5" }
+      ]
+    }
+  ]
+}
