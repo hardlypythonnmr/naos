@@ -421,15 +421,19 @@ const REGLAS_PM = MAPA_PM.reglas_globales;
 const escRe = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const puntuar = (texto, h) => { const t = " " + texto.toLowerCase().replace(/[^a-z0-9$%. -]/g, " ") + " ";
   return (h.palabras || []).filter((p) => new RegExp("(?<![a-z])" + escRe(p.toLowerCase()) + "(?![a-z])").test(t)).length; };
+// en un empate gana la historia que el titular nombra antes (como primera() en Python)
+const primera = (texto, h) => { const t = " " + texto.toLowerCase().replace(/[^a-z0-9$%. -]/g, " ") + " ";
+  const pos = (h.palabras || []).map((p) => t.search(new RegExp("(?<![a-z])" + escRe(p.toLowerCase()) + "(?![a-z])"))).filter((i) => i >= 0);
+  return pos.length ? Math.min(...pos) : 1e9; };
 const MERCADO_PALABRAS = ["stock", "stocks", "yield", "yields", "rates", "sector", "spending", "tariff", "market", "markets", "bond", "bonds", "dollar", "etf", "shares"];
 function mapear(texto) {
   const out = [];
   for (const h of MAPA_PM.historias) {
     const n = puntuar(texto, h); if (!n) continue;
     const omitir = h.politica && !MERCADO_PALABRAS.some((w) => new RegExp("\\b" + w + "\\b").test(texto.toLowerCase())) ? "politics without a market angle (G3 rule)" : null;
-    out.push({ h, puntaje: n, omitir });
+    out.push({ h, puntaje: n, omitir, pos: primera(texto, h) });
   }
-  return out.sort((a, b) => b.puntaje - a.puntaje); // orden estable: empate, gana el primero del mapa (como en Python)
+  return out.sort((a, b) => b.puntaje - a.puntaje || a.pos - b.pos); // empate: gana la que el titular nombra antes
 }
 // la historia del mapa que le toca a un titular, o null
 const historiaDe = (texto) => mapear(texto).find((x) => !x.omitir)?.h || null;
