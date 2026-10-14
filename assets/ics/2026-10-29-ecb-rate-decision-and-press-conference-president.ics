@@ -1,0 +1,39 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · ECB rate decision and press conference (President Laga
+ rde)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-29-ecb-rate-decision-and-press-conference-president@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261029T134500Z
+SUMMARY:ECB rate decision and press conference (President Lagarde) (expecte
+ d time)
+DESCRIPTION:Moves the euro and euro-area bonds.\n\nTime: 13:45 UTC\, 14:45 
+ Europe/Berlin (expected\, not confirmed by the source).\n\nNote: Date offi
+ cial. 14:45 CET is the press conference time the ECB webcast page showed f
+ or the 10 Sep meeting\; the 29 Oct time is not posted yet.\n\nSource: ECB\
+ , Governing Council meeting calendar. https://www.ecb.europa.eu/press/cale
+ ndars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.g
+ ithub.io/naos/agenda.html#2026-10-29-ecb-rate-decision-and-press-conferenc
+ e-president\n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (President Lagarde) (exp
+ ected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

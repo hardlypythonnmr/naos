@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · NYSE early close 13:00 ET (Christmas Eve)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-12-24-nyse-early-close-13-00-et-christmas-eve@naos.hardlypythonnmr
+ .github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261224T180000Z
+SUMMARY:NYSE early close 13:00 ET (Christmas Eve)
+DESCRIPTION:Half-day session before Christmas.\n\nTime: 18:00 UTC\, 13:00 A
+ merica/New_York.\n\nSource: NYSE\, holidays and trading hours. https://www
+ .nyse.com/markets/hours-calendars\n\nNAOS Upcoming: https://hardlypythonnm
+ r.github.io/naos/agenda.html#2026-12-24-nyse-early-close-13-00-et-christma
+ s-eve\n\nDescriptive\, not financial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Market holidays
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:NYSE early close 13:00 ET (Christmas Eve)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

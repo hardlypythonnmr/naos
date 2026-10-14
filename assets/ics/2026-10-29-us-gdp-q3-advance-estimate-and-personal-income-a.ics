@@ -1,0 +1,37 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · US GDP Q3 advance estimate and Personal Income and Out
+ lays (PCE\, September)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-29-us-gdp-q3-advance-estimate-and-personal-income-a@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261029T123000Z
+SUMMARY:US GDP Q3 advance estimate and Personal Income and Outlays (PCE\, S
+ eptember)
+DESCRIPTION:Growth and the Fed's preferred inflation gauge in one morning.\
+ n\nTime: 12:30 UTC\, 08:30 America/New_York.\n\nSource: U.S. Bureau of Eco
+ nomic Analysis\, release schedule. https://www.bea.gov/news/schedule\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-10-29
+ -us-gdp-q3-advance-estimate-and-personal-income-a\n\nDescriptive\, not fin
+ ancial advice.
+URL:https://www.bea.gov/news/schedule
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US GDP Q3 advance estimate and Personal Income and Outlays (PCE
+ \, September)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

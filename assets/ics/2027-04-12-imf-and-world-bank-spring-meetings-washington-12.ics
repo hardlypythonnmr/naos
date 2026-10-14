@@ -1,0 +1,42 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · IMF and World Bank Spring Meetings (Washington\, 12 to
+  17 Apr)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-04-12-imf-and-world-bank-spring-meetings-washington-12@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270412
+DTEND;VALUE=DATE:20270418
+SUMMARY:IMF and World Bank Spring Meetings (Washington\, 12 to 17 Apr) (exp
+ ected date)
+DESCRIPTION:World Economic Outlook and G20 finance talks\; growth forecasts
+  get quoted.\n\nTime not set by the source\; listed as an all-day event.\n
+ \nExpected date: provisional until the official announcement (moon sightin
+ g or official calendar).\n\nNote: Listed by the IMF as future meeting date
+ s\; earlier IMF pages called them tentative.\n\nSource: IMF Connect\, past
+  and future meetings. https://www.imfconnect.org/content/imf/en/meetings/p
+ ast-future-meetings.html\n\nNAOS Upcoming: https://hardlypythonnmr.github.
+ io/naos/agenda.html#2027-04-12-imf-and-world-bank-spring-meetings-washingt
+ on-12\n\nDescriptive\, not financial advice.
+URL:https://www.imfconnect.org/content/imf/en/meetings/past-future-meetings
+ .html
+CATEGORIES:Summits
+LOCATION:IMF / World Bank
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IMF and World Bank Spring Meetings (Washington\, 12 to 17 Apr) 
+ (expected date)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

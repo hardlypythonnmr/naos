@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Passover (from sundown 21 Apr\; to 29 Apr)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-04-22-passover-from-sundown-21-apr-to-29-apr@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270422
+DTEND;VALUE=DATE:20270430
+SUMMARY:Passover (from sundown 21 Apr\; to 29 Apr)
+DESCRIPTION:Israeli market holidays\; food retail demand.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: Hebcal\, Jewish holi
+ days 5787 (2026-2027). https://www.hebcal.com/holidays/2026-2027\n\nNAOS U
+ pcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-04-22-pas
+ sover-from-sundown-21-apr-to-29-apr\n\nDescriptive\, not financial advice.
+URL:https://www.hebcal.com/holidays/2026-2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Jewish)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Passover (from sundown 21 Apr\; to 29 Apr)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

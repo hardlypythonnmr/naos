@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Japan Exchange Group closed for year end (31 Dec to 3 
+ Jan)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-12-31-japan-exchange-group-closed-for-year-end-31-dec@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270104
+SUMMARY:Japan Exchange Group closed for year end (31 Dec to 3 Jan)
+DESCRIPTION:Tokyo shut over New Year\; yen liquidity thins.\n\nTime not set
+  by the source\; listed as an all-day event.\n\nSource: JPX\, market holid
+ ays 2026 and 2027. https://www.jpx.co.jp/english/corporate/about-jpx/calen
+ dar/index.html\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/ag
+ enda.html#2026-12-31-japan-exchange-group-closed-for-year-end-31-dec\n\nDe
+ scriptive\, not financial advice.
+URL:https://www.jpx.co.jp/english/corporate/about-jpx/calendar/index.html
+CATEGORIES:Market holidays
+LOCATION:Japan
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Japan Exchange Group closed for year end (31 Dec to 3 Jan)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

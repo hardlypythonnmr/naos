@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Microsoft FY27 Q1 results
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-28-microsoft-fy27-q1-results@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:Microsoft FY27 Q1 results
+DESCRIPTION:Azure and AI capex numbers move megacap tech.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: Microsoft Investor R
+ elations. https://www.microsoft.com/en-us/investor/default\n\nNAOS Upcomin
+ g: https://hardlypythonnmr.github.io/naos/agenda.html#2026-10-28-microsoft
+ -fy27-q1-results\n\nDescriptive\, not financial advice.
+URL:https://www.microsoft.com/en-us/investor/default
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Microsoft FY27 Q1 results
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

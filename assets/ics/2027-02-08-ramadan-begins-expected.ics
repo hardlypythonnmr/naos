@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Ramadan begins (expected)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-02-08-ramadan-begins-expected@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270309
+SUMMARY:Ramadan begins (expected)
+DESCRIPTION:Shifts daily consumption\, work hours and travel across Muslim-
+ majority markets\; Gulf trading hours shorten.\n\nTime not set by the sour
+ ce\; listed as an all-day event.\n\nExpected date: provisional until the o
+ fficial announcement (moon sighting or official calendar).\n\nNote: Depend
+ s on moon sighting: 8 or 9 Feb by country. Overlaps with Western Lent (10 
+ Feb to 27 Mar) for about four weeks\, from 10 Feb to the end of Ramadan ar
+ ound 8 to 9 Mar.\n\nSource: Office Holidays\, Ramadan 2027. https://www.of
+ ficeholidays.com/holidays/ramadan\n\nNAOS Upcoming: https://hardlypythonnm
+ r.github.io/naos/agenda.html#2027-02-08-ramadan-begins-expected\n\nDescrip
+ tive\, not financial advice.
+URL:https://www.officeholidays.com/holidays/ramadan
+CATEGORIES:Religious and cultural
+LOCATION:Global (Muslim)
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Ramadan begins (expected)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

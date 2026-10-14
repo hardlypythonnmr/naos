@@ -1,0 +1,1364 @@
+{
+ "nota": "Grilla pública del mes (D-224, D-227). La arma scripts/construir-semana.mjs desde el plan del mes de la junta; esquema en el README. Sin fecha en el acta: dia null y nota.",
+ "generado": "2026-10-14T21:51Z",
+ "semana": {
+  "desde": "2026-10-19",
+  "hasta": "2026-10-25"
+ },
+ "semanas": [
+  {
+   "desde": "2026-10-19",
+   "hasta": "2026-10-25"
+  },
+  {
+   "desde": "2026-10-26",
+   "hasta": "2026-11-01"
+  },
+  {
+   "desde": "2026-11-02",
+   "hasta": "2026-11-08"
+  },
+  {
+   "desde": "2026-11-09",
+   "hasta": "2026-11-15"
+  }
+ ],
+ "secciones": [
+  {
+   "id": "market",
+   "titulo": "Market"
+  },
+  {
+   "id": "news",
+   "titulo": "News"
+  },
+  {
+   "id": "ai",
+   "titulo": "AI"
+  },
+  {
+   "id": "behavior",
+   "titulo": "Behavior"
+  }
+ ],
+ "formatos": [
+  {
+   "id": "brief",
+   "titulo": "Brief"
+  },
+  {
+   "id": "short",
+   "titulo": "Short"
+  },
+  {
+   "id": "medium",
+   "titulo": "Medium"
+  },
+  {
+   "id": "special",
+   "titulo": "Special"
+  },
+  {
+   "id": "page",
+   "titulo": "Page"
+  }
+ ],
+ "slots": [
+  {
+   "id": "london",
+   "titulo": "London open brief",
+   "local": "08:20 UK"
+  },
+  {
+   "id": "ny",
+   "titulo": "New York open brief",
+   "local": "09:41 ET"
+  },
+  {
+   "id": "close",
+   "titulo": "US close brief",
+   "local": "16:22 ET"
+  }
+ ],
+ "eventos_nota": "Forex Factory publishes each week's calendar over the weekend; the briefs list its red-folder events once it covers that week.",
+ "items": [
+  {
+   "seccion": "ai",
+   "dia": "2026-10-19",
+   "slot": null,
+   "format": "medium",
+   "title": "From chat to code, part 1",
+   "asset_id": "ai-chat-al-codigo-1",
+   "status": "planned",
+   "nota": "With a LinkedIn post in Spanish"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-19",
+   "slot": "london",
+   "hora_utc": "2026-10-19T07:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-19",
+   "slot": "ny",
+   "hora_utc": "2026-10-19T13:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-19",
+   "slot": "close",
+   "hora_utc": "2026-10-19T20:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": [
+    {
+     "titulo": "PBoC Loan Prime Rates (1Y, 5Y) for October",
+     "hora": "2026-10-20T01:00Z",
+     "fuente": "FinanceCalendar listing (PBoC LPR October 2026)",
+     "url": "https://www.financecalendar.com/?p=2301"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-20",
+   "slot": "london",
+   "hora_utc": "2026-10-20T07:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "State visit to the UK by the Sultan of Oman (Windsor, 20 to 22 Oct)",
+     "hora": null,
+     "fecha": "2026-10-20",
+     "fuente": "The Royal Family (royal.uk), announcement of 3 Sep 2026",
+     "url": "https://www.everydayexceptional.royal.uk/news-and-activity/2026-09-03/announcement-of-a-state-visit-by-his-majesty-sultan-haitham-bin-tarik"
+    },
+    {
+     "titulo": "US housing starts and building permits (September)",
+     "hora": "2026-10-20T12:30Z",
+     "fuente": "U.S. Census Bureau, 2026 economic indicator calendar",
+     "url": "https://www.census.gov/economic-indicators/calendar-listview-2026.html"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-20",
+   "slot": "ny",
+   "hora_utc": "2026-10-20T13:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-20",
+   "slot": "close",
+   "hora_utc": "2026-10-20T20:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": []
+  },
+  {
+   "seccion": "ai",
+   "dia": "2026-10-21",
+   "slot": null,
+   "format": "short",
+   "title": "From chat to code · 1. Why the chat forgets",
+   "asset_id": "ai-chat-al-codigo-1",
+   "status": "planned"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-21",
+   "slot": "london",
+   "hora_utc": "2026-10-21T07:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-21",
+   "slot": "ny",
+   "hora_utc": "2026-10-21T13:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-21",
+   "slot": "close",
+   "hora_utc": "2026-10-21T20:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": [
+    {
+     "titulo": "Meta Q3 2026 results and call (results after the close)",
+     "hora": "2026-10-21T20:30Z",
+     "fuente": "Meta via PR Newswire (on Finviz), 12 Oct 2026",
+     "url": "https://finviz.com/news/401445/meta-to-announce-third-quarter-2026-results"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-22",
+   "slot": "london",
+   "hora_utc": "2026-10-22T07:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "SNB summary of monetary policy discussion",
+     "hora": "2026-10-22T07:30Z",
+     "fuente": "Swiss National Bank, event schedule",
+     "url": "https://www.snb.ch/en/services-events/digital-services/event-schedule"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-22",
+   "slot": "ny",
+   "hora_utc": "2026-10-22T13:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-22",
+   "slot": "close",
+   "hora_utc": "2026-10-22T20:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": []
+  },
+  {
+   "seccion": "ai",
+   "dia": "2026-10-23",
+   "slot": null,
+   "format": "short",
+   "title": "From chat to code · 2. What you need",
+   "asset_id": "ai-chat-al-codigo-1",
+   "status": "planned"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-23",
+   "slot": "london",
+   "hora_utc": "2026-10-23T07:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-23",
+   "slot": "ny",
+   "hora_utc": "2026-10-23T13:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-23",
+   "slot": "close",
+   "hora_utc": "2026-10-23T20:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": [
+    {
+     "titulo": "Brazil presidential and governor runoff (polls close 17:00 Brasília; results from then)",
+     "hora": "2026-10-25T20:00Z",
+     "fuente": "Diário do Nordeste, on the TSE electoral calendar",
+     "url": "https://diariodonordeste.verdesmares.com.br/pontopoder/quando-e-o-segundo-turno-das-eleicoes-2026-veja-data-e-quem-pode-disputar-1.3795964"
+    }
+   ]
+  },
+  {
+   "seccion": "behavior",
+   "dia": "2026-10-24",
+   "slot": null,
+   "format": "page",
+   "title": "Exercise articles no. 1",
+   "asset_id": "behavior-articulos",
+   "status": "planned"
+  },
+  {
+   "seccion": "news",
+   "dia": "2026-10-26",
+   "slot": null,
+   "format": "page",
+   "title": "FOMC: what to watch",
+   "status": "planned",
+   "nota": "Date, time and what is expected; no forecast"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-26",
+   "slot": "london",
+   "hora_utc": "2026-10-26T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-26",
+   "slot": "ny",
+   "hora_utc": "2026-10-26T13:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-26",
+   "slot": "close",
+   "hora_utc": "2026-10-26T20:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-27",
+   "slot": null,
+   "format": "medium",
+   "title": "What a price is",
+   "asset_id": "trading-que-es-el-precio",
+   "status": "planned"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-27",
+   "slot": "london",
+   "hora_utc": "2026-10-27T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "US durable goods orders, advance (September)",
+     "hora": "2026-10-27T12:30Z",
+     "fuente": "U.S. Census Bureau, 2026 economic indicator calendar",
+     "url": "https://www.census.gov/economic-indicators/calendar-listview-2026.html"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-27",
+   "slot": "ny",
+   "hora_utc": "2026-10-27T13:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-27",
+   "slot": "close",
+   "hora_utc": "2026-10-27T20:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": []
+  },
+  {
+   "seccion": "news",
+   "dia": "2026-10-28",
+   "slot": null,
+   "format": "special",
+   "title": "FOMC anchor",
+   "status": "planned",
+   "nota": "Prearmed: press conference 14:30 ET, out around 16:30 ET with the figure"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-28",
+   "slot": "london",
+   "hora_utc": "2026-10-28T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "Microsoft FY27 Q1 results",
+     "hora": null,
+     "fecha": "2026-10-28",
+     "fuente": "Microsoft Investor Relations",
+     "url": "https://www.microsoft.com/en-us/investor/default"
+    },
+    {
+     "titulo": "GitHub Universe (San Francisco, 28 to 29 Oct)",
+     "hora": null,
+     "fecha": "2026-10-28",
+     "fuente": "GitHub Universe",
+     "url": "https://githubuniverse.com/"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-28",
+   "slot": "ny",
+   "hora_utc": "2026-10-28T13:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Video: red event ahead",
+   "eventos": [
+    {
+     "titulo": "Bank of Canada rate announcement and Monetary Policy Report",
+     "hora": "2026-10-28T13:45Z",
+     "fuente": "Bank of Canada, upcoming events",
+     "url": "https://www.bankofcanada.ca/press/upcoming-events/"
+    },
+    {
+     "titulo": "FOMC statement (press conference 14:30 ET, Chair Kevin Warsh)",
+     "hora": "2026-10-28T18:00Z",
+     "fuente": "Federal Reserve, October 2026 calendar",
+     "url": "https://www.federalreserve.gov/newsevents/2026-october.htm"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-28",
+   "slot": "close",
+   "hora_utc": "2026-10-28T20:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": []
+  },
+  {
+   "seccion": "ai",
+   "dia": "2026-10-29",
+   "slot": null,
+   "format": "short",
+   "title": "From chat to code · 3. The first prompt",
+   "asset_id": "ai-chat-al-codigo-1",
+   "status": "planned"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-29",
+   "slot": "london",
+   "hora_utc": "2026-10-29T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Video: red event ahead",
+   "eventos": [
+    {
+     "titulo": "US GDP Q3 advance estimate and Personal Income and Outlays (PCE, September)",
+     "hora": "2026-10-29T12:30Z",
+     "fuente": "U.S. Bureau of Economic Analysis, release schedule",
+     "url": "https://www.bea.gov/news/schedule"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-29",
+   "slot": "ny",
+   "hora_utc": "2026-10-29T13:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "ECB rate decision and press conference (President Lagarde)",
+     "hora": "2026-10-29T13:45Z",
+     "fuente": "ECB, Governing Council meeting calendar",
+     "url": "https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-29",
+   "slot": "close",
+   "hora_utc": "2026-10-29T20:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-30",
+   "slot": "london",
+   "hora_utc": "2026-10-30T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "Bank of Japan policy decision and Outlook Report",
+     "hora": null,
+     "fecha": "2026-10-30",
+     "fuente": "Bank of Japan, MPM schedule",
+     "url": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm"
+    },
+    {
+     "titulo": "Banco de la República (Colombia) rate decision",
+     "hora": null,
+     "fecha": "2026-10-30",
+     "fuente": "Portafolio, BanRep 2026 decision calendar",
+     "url": "https://www.portafolio.co/economia/gobierno/estas-son-las-fechas-clave-en-2026-para-las-decisiones-sobre-la-tasa-de-interes-del-banco-de-la-republica-487296"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-30",
+   "slot": "ny",
+   "hora_utc": "2026-10-30T13:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-10-30",
+   "slot": "close",
+   "hora_utc": "2026-10-30T20:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": [
+    {
+     "titulo": "OPEC+ meeting of the seven voluntary-cut countries (December output)",
+     "hora": null,
+     "fecha": "2026-11-01",
+     "fuente": "OPEC press release, 4 Oct 2026",
+     "url": "https://www.opec.org/pr-detail/616-4-october-2026.html"
+    }
+   ]
+  },
+  {
+   "seccion": "ai",
+   "dia": "2026-10-31",
+   "slot": null,
+   "format": "short",
+   "title": "From chat to code · 4. A memory file",
+   "asset_id": "ai-chat-al-codigo-1",
+   "status": "planned"
+  },
+  {
+   "seccion": "behavior",
+   "dia": "2026-11-01",
+   "slot": null,
+   "format": "special",
+   "title": "Affirmations for sleep: 20-minute guided review",
+   "asset_id": "behavior-afirmaciones-dormir",
+   "status": "planned",
+   "nota": "A guided review, no hidden loop. An illustration, not a sleep treatment"
+  },
+  {
+   "seccion": "ai",
+   "dia": "2026-11-02",
+   "slot": null,
+   "format": "medium",
+   "title": "Your first Claude environment",
+   "asset_id": "ai-primer-entorno-claude",
+   "status": "planned"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-02",
+   "slot": "london",
+   "hora_utc": "2026-11-02T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-02",
+   "slot": "ny",
+   "hora_utc": "2026-11-02T14:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "Fed Senior Loan Officer Opinion Survey (SLOOS)",
+     "hora": "2026-11-02T19:00Z",
+     "fuente": "Federal Reserve, November 2026 calendar",
+     "url": "https://www.federalreserve.gov/newsevents/2026-november.htm"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-02",
+   "slot": "close",
+   "hora_utc": "2026-11-02T21:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": [
+    {
+     "titulo": "RBA decision and Statement on Monetary Policy",
+     "hora": "2026-11-03T03:30Z",
+     "fuente": "Reserve Bank of Australia, release schedule (SMP 2.30 pm, 3 Nov; Board meets 2 to 3 Nov)",
+     "url": "https://www.rba.gov.au/schedules-events/"
+    }
+   ]
+  },
+  {
+   "seccion": "news",
+   "dia": "2026-11-03",
+   "slot": null,
+   "format": "page",
+   "title": "US elections: market impact only",
+   "status": "planned",
+   "nota": "Politics as market impact; no synthetic images of politicians"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-03",
+   "slot": "london",
+   "hora_utc": "2026-11-03T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "US midterm general election",
+     "hora": null,
+     "fecha": "2026-11-03",
+     "fuente": "FEC, election results and voting information",
+     "url": "https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-03",
+   "slot": "ny",
+   "hora_utc": "2026-11-03T14:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "US JOLTS job openings (September)",
+     "hora": "2026-11-03T15:00Z",
+     "fuente": "U.S. Bureau of Labor Statistics, 2026 release calendar",
+     "url": "https://www.bls.gov/schedule/2026/home.htm"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-03",
+   "slot": "close",
+   "hora_utc": "2026-11-03T21:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": []
+  },
+  {
+   "seccion": "ai",
+   "dia": "2026-11-04",
+   "slot": null,
+   "format": "short",
+   "title": "From chat to code · 5. Your first real task",
+   "asset_id": "ai-chat-al-codigo-1",
+   "status": "planned"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-04",
+   "slot": "london",
+   "hora_utc": "2026-11-04T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "US international trade in goods and services (September)",
+     "hora": "2026-11-04T13:30Z",
+     "fuente": "U.S. Bureau of Economic Analysis, release schedule",
+     "url": "https://www.bea.gov/news/schedule"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-04",
+   "slot": "ny",
+   "hora_utc": "2026-11-04T14:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-04",
+   "slot": "close",
+   "hora_utc": "2026-11-04T21:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": [
+    {
+     "titulo": "Brazil Copom Selic decision (meeting 3 to 4 Nov)",
+     "hora": "2026-11-04T21:30Z",
+     "fuente": "Investidor10, on the BCB 2026 Copom calendar",
+     "url": "https://investidor10.com.br/amp/noticias/copom-em-2026-tera-oito-reunioes-veja-o-cronograma-divulgado-pelo-bc-113749/"
+    }
+   ]
+  },
+  {
+   "seccion": "news",
+   "dia": "2026-11-05",
+   "slot": null,
+   "format": "page",
+   "title": "Payrolls preview",
+   "status": "planned",
+   "nota": "Preview of the October jobs report"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-05",
+   "slot": "london",
+   "hora_utc": "2026-11-05T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "Bank of England Bank Rate decision and Monetary Policy Report",
+     "hora": "2026-11-05T12:00Z",
+     "fuente": "Bank of England, November 2026 Monetary Policy Summary (to be published at 12pm)",
+     "url": "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/november-2026"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-05",
+   "slot": "ny",
+   "hora_utc": "2026-11-05T14:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "Banxico rate decision",
+     "hora": "2026-11-05T19:00Z",
+     "fuente": "BBVA Research, Agenda Económica 2026 (Banxico calendar; 13:00 Mexico City)",
+     "url": "https://www.bbvaresearch.com/wp-content/uploads/2026/03/AgendaEconomica_2026.pdf"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-05",
+   "slot": "close",
+   "hora_utc": "2026-11-05T21:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": []
+  },
+  {
+   "seccion": "news",
+   "dia": "2026-11-06",
+   "slot": null,
+   "format": "special",
+   "title": "Payrolls anchor",
+   "status": "planned",
+   "nota": "Only if the FOMC anchor passed green; otherwise a page"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-06",
+   "slot": "london",
+   "hora_utc": "2026-11-06T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Video: red event ahead",
+   "eventos": [
+    {
+     "titulo": "US Employment Situation (October payrolls)",
+     "hora": "2026-11-06T13:30Z",
+     "fuente": "U.S. Bureau of Labor Statistics, 2026 release calendar",
+     "url": "https://www.bls.gov/schedule/2026/home.htm"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-06",
+   "slot": "ny",
+   "hora_utc": "2026-11-06T14:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-06",
+   "slot": "close",
+   "hora_utc": "2026-11-06T21:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": [
+    {
+     "titulo": "Diwali (Lakshmi Puja); NSE Muhurat trading session",
+     "hora": null,
+     "fecha": "2026-11-08",
+     "fuente": "NSE, exchange holidays 2026 (Diwali Laxmi Pujan, Muhurat trading)",
+     "url": "https://www.nseindia.com/resources/exchange-communication-holidays"
+    }
+   ]
+  },
+  {
+   "seccion": "ai",
+   "dia": "2026-11-07",
+   "slot": null,
+   "format": "short",
+   "title": "From chat to code · 6. Guardrails and undo",
+   "asset_id": "ai-chat-al-codigo-1",
+   "status": "planned"
+  },
+  {
+   "seccion": "behavior",
+   "dia": "2026-11-07",
+   "slot": null,
+   "format": "page",
+   "title": "Exercise sessions, long form: the session map",
+   "asset_id": "behavior-largos-ejercicio",
+   "status": "planned",
+   "nota": "The video comes on Sun 29 Nov"
+  },
+  {
+   "seccion": "news",
+   "dia": "2026-11-09",
+   "slot": null,
+   "format": "page",
+   "title": "CPI preview",
+   "status": "planned",
+   "nota": "Preview of the October CPI"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-09",
+   "slot": "london",
+   "hora_utc": "2026-11-09T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "COP31 UN Climate Change Conference opens (Antalya, 9 to 20 Nov)",
+     "hora": null,
+     "fecha": "2026-11-09",
+     "fuente": "COP31 Türkiye (official site)",
+     "url": "https://cop31.tr"
+    },
+    {
+     "titulo": "Web Summit (Lisbon, 9 to 12 Nov)",
+     "hora": null,
+     "fecha": "2026-11-09",
+     "fuente": "Web Summit",
+     "url": "https://websummit.com/"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-09",
+   "slot": "ny",
+   "hora_utc": "2026-11-09T14:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-09",
+   "slot": "close",
+   "hora_utc": "2026-11-09T21:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-10",
+   "slot": null,
+   "format": "medium",
+   "title": "Reading charts",
+   "asset_id": "trading-graficos",
+   "status": "planned"
+  },
+  {
+   "seccion": "news",
+   "dia": "2026-11-10",
+   "slot": null,
+   "format": "special",
+   "title": "CPI anchor",
+   "status": "planned",
+   "nota": "Same rule as payrolls: only if the anchors pass green"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-10",
+   "slot": "london",
+   "hora_utc": "2026-11-10T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Video: red event ahead",
+   "eventos": [
+    {
+     "titulo": "US CPI (October)",
+     "hora": "2026-11-10T13:30Z",
+     "fuente": "U.S. Bureau of Labor Statistics, 2026 release calendar",
+     "url": "https://www.bls.gov/schedule/2026/home.htm"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-10",
+   "slot": "ny",
+   "hora_utc": "2026-11-10T14:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "Bank of Canada Summary of Deliberations",
+     "hora": "2026-11-10T18:30Z",
+     "fuente": "Bank of Canada, upcoming events",
+     "url": "https://www.bankofcanada.ca/press/upcoming-events/"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-10",
+   "slot": "close",
+   "hora_utc": "2026-11-10T21:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-11",
+   "slot": "london",
+   "hora_utc": "2026-11-11T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "COP31 Leaders' Summit (11 to 12 Nov)",
+     "hora": null,
+     "fecha": "2026-11-11",
+     "fuente": "COP31 Türkiye (official site)",
+     "url": "https://cop31.tr"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-11",
+   "slot": "ny",
+   "hora_utc": "2026-11-11T14:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-11",
+   "slot": "close",
+   "hora_utc": "2026-11-11T21:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-12",
+   "slot": "london",
+   "hora_utc": "2026-11-12T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-12",
+   "slot": "ny",
+   "hora_utc": "2026-11-12T14:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-12",
+   "slot": "close",
+   "hora_utc": "2026-11-12T21:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-13",
+   "slot": "london",
+   "hora_utc": "2026-11-13T08:20Z",
+   "hora_local": "08:20 UK",
+   "format": "brief",
+   "title": "London open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": [
+    {
+     "titulo": "US PPI (October)",
+     "hora": "2026-11-13T13:30Z",
+     "fuente": "U.S. Bureau of Labor Statistics, 2026 release calendar",
+     "url": "https://www.bls.gov/schedule/2026/home.htm"
+    }
+   ]
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-13",
+   "slot": "ny",
+   "hora_utc": "2026-11-13T14:41Z",
+   "hora_local": "09:41 ET",
+   "format": "brief",
+   "title": "New York open brief",
+   "status": "planned",
+   "video": false,
+   "eventos": []
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-13",
+   "slot": "close",
+   "hora_utc": "2026-11-13T21:22Z",
+   "hora_local": "16:22 ET",
+   "format": "brief",
+   "title": "US close brief",
+   "status": "planned",
+   "video": true,
+   "video_nota": "Short (EN)",
+   "eventos": []
+  },
+  {
+   "seccion": "behavior",
+   "dia": "2026-11-14",
+   "slot": null,
+   "format": "page",
+   "title": "Exercise articles no. 2",
+   "asset_id": "behavior-articulos",
+   "status": "planned"
+  },
+  {
+   "seccion": "behavior",
+   "dia": "2026-11-15",
+   "slot": null,
+   "format": "special",
+   "title": "Affirmations for sleep: guided review in Spanish",
+   "asset_id": "behavior-afirmaciones-dormir",
+   "status": "planned",
+   "nota": "In Spanish"
+  },
+  {
+   "seccion": "ai",
+   "dia": "2026-11-16",
+   "slot": null,
+   "format": "medium",
+   "title": "Your first commit",
+   "asset_id": "ai-primer-commit",
+   "status": "planned"
+  },
+  {
+   "seccion": "market",
+   "dia": "2026-11-24",
+   "slot": null,
+   "format": "medium",
+   "title": "Candles",
+   "asset_id": "trading-velas",
+   "status": "planned"
+  },
+  {
+   "seccion": "behavior",
+   "dia": "2026-11-29",
+   "slot": null,
+   "format": "medium",
+   "title": "Exercise sessions, long form",
+   "asset_id": "behavior-largos-ejercicio",
+   "status": "planned"
+  },
+  {
+   "seccion": "ai",
+   "dia": "2026-11-30",
+   "slot": null,
+   "format": "medium",
+   "title": "Your first GitHub page",
+   "asset_id": "ai-primera-pagina-github",
+   "status": "planned"
+  },
+  {
+   "seccion": "news",
+   "dia": "2026-12-09",
+   "slot": null,
+   "format": "special",
+   "title": "FOMC anchor (December)",
+   "status": "planned",
+   "nota": "Second anchor of the plan"
+  },
+  {
+   "seccion": "ai",
+   "dia": "2026-12-14",
+   "slot": null,
+   "format": "medium",
+   "title": "Your first token",
+   "asset_id": "ai-primer-token",
+   "status": "planned"
+  },
+  {
+   "seccion": "ai",
+   "dia": "2027-01-11",
+   "slot": null,
+   "format": "medium",
+   "title": "What an API is",
+   "asset_id": "ai-que-es-una-api",
+   "status": "planned"
+  },
+  {
+   "seccion": "ai",
+   "dia": "2027-01-25",
+   "slot": null,
+   "format": "medium",
+   "title": "Your first APIs",
+   "asset_id": "ai-primeras-apis",
+   "status": "planned"
+  },
+  {
+   "seccion": "ai",
+   "dia": "2027-02-08",
+   "slot": null,
+   "format": "medium",
+   "title": "From one email to a campaign",
+   "asset_id": "ai-de-un-correo-a-una-campana",
+   "status": "planned",
+   "nota": "Closes the AI ladder"
+  },
+  {
+   "seccion": "market",
+   "dia": null,
+   "slot": null,
+   "format": "medium",
+   "title": "Strategies, tested on paper first",
+   "asset_id": "trading-estrategias",
+   "status": "planned",
+   "nota": "In review: waits for the lawyer's opinion"
+  },
+  {
+   "seccion": "market",
+   "dia": null,
+   "slot": null,
+   "format": "medium",
+   "title": "Indicator 1: regime traffic light",
+   "asset_id": "trading-indicador-1",
+   "status": "planned",
+   "nota": "In review: waits for the lawyer's opinion"
+  }
+ ]
+}

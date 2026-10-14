@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · COP31 Leaders' Summit (11 to 12 Nov)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-11-cop31-leaders-summit-11-to-12-nov@naos.hardlypythonnmr.githu
+ b.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261113
+SUMMARY:COP31 Leaders' Summit (11 to 12 Nov)
+DESCRIPTION:Heads of state on climate finance and fossil fuel phase-down la
+ nguage.\n\nTime not set by the source\; listed as an all-day event.\n\nSou
+ rce: COP31 Türkiye (official site). https://cop31.tr\n\nNAOS Upcoming: ht
+ tps://hardlypythonnmr.github.io/naos/agenda.html#2026-11-11-cop31-leaders-
+ summit-11-to-12-nov\n\nDescriptive\, not financial advice.
+URL:https://cop31.tr
+CATEGORIES:Summits
+LOCATION:Türkiye / UN
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:COP31 Leaders' Summit (11 to 12 Nov)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

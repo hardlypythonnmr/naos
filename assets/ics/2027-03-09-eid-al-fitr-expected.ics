@@ -1,0 +1,37 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Eid al-Fitr (expected)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-03-09-eid-al-fitr-expected@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270309
+DTEND;VALUE=DATE:20270310
+SUMMARY:Eid al-Fitr (expected)
+DESCRIPTION:Multi-day closures in Gulf\, Indonesian\, Pakistani and Turkish
+  markets\; peak spending and travel.\n\nTime not set by the source\; liste
+ d as an all-day event.\n\nExpected date: provisional until the official an
+ nouncement (moon sighting or official calendar).\n\nNote: Moon sighting: 9
+  or 10 Mar by country (Indonesia\, Singapore 10 Mar).\n\nSource: Office Ho
+ lidays\, Eid al-Fitr 2027 (Saudi Arabia 9 to 12 Mar). https://www.officeho
+ lidays.com/countries/saudi-arabia/2027\n\nNAOS Upcoming: https://hardlypyt
+ honnmr.github.io/naos/agenda.html#2027-03-09-eid-al-fitr-expected\n\nDescr
+ iptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/saudi-arabia/2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Muslim)
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Eid al-Fitr (expected)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

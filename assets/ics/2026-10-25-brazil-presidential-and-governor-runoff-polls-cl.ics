@@ -1,0 +1,39 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Brazil presidential and governor runoff (polls close 1
+ 7:00 Brasília\; results from then)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-25-brazil-presidential-and-governor-runoff-polls-cl@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261025T200000Z
+SUMMARY:Brazil presidential and governor runoff (polls close 17:00 Brasíli
+ a\; results from then)
+DESCRIPTION:Fiscal path expectations drive the real\, Brazilian rates and e
+ quities.\n\nTime: 20:00 UTC\, 17:00 America/Sao_Paulo.\n\nSource: Diário 
+ do Nordeste\, on the TSE electoral calendar. https://diariodonordeste.verd
+ esmares.com.br/pontopoder/quando-e-o-segundo-turno-das-eleicoes-2026-veja-
+ data-e-quem-pode-disputar-1.3795964\n\nNAOS Upcoming: https://hardlypython
+ nmr.github.io/naos/agenda.html#2026-10-25-brazil-presidential-and-governor
+ -runoff-polls-cl\n\nDescriptive\, not financial advice.
+URL:https://diariodonordeste.verdesmares.com.br/pontopoder/quando-e-o-segun
+ do-turno-das-eleicoes-2026-veja-data-e-quem-pode-disputar-1.3795964
+CATEGORIES:Elections
+LOCATION:Brazil
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Brazil presidential and governor runoff (polls close 17:00 Bras
+ ília\; results from then)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · RBA cash rate decision
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-06-22-rba-cash-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270622T043000Z
+SUMMARY:RBA cash rate decision (expected time)
+DESCRIPTION:Sets Australian rates\; moves the Aussie dollar\, a China and c
+ ommodities proxy.\n\nTime: 04:30 UTC\, 14:30 Australia/Sydney (expected\, 
+ not confirmed by the source).\n\nNote: Second day of the two-day meeting\;
+  14:30 Sydney is the usual release time\, not stated on the schedule page.
+ \n\nSource: Reserve Bank of Australia\, Monetary Policy Board meeting sche
+ dules. https://www.rba.gov.au/schedules-events/board-meeting-schedules.htm
+ l\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
+ 7-06-22-rba-cash-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+CATEGORIES:Central banks
+LOCATION:Australia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:RBA cash rate decision (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Orthodox Easter
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-05-02-orthodox-easter@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Orthodox Easter
+DESCRIPTION:Greek\, Romanian and other Orthodox market holidays around it.\
+ n\nTime not set by the source\; listed as an all-day event.\n\nSource: Off
+ ice Holidays\, Greece 2027. https://www.officeholidays.com/countries/greec
+ e/2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.htm
+ l#2027-05-02-orthodox-easter\n\nDescriptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/greece/2027
+CATEGORIES:Religious and cultural
+LOCATION:Greece\, Eastern Europe
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Orthodox Easter
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

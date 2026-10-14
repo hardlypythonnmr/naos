@@ -1,0 +1,37 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · FOMC statement (press conference 14:30 ET)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-04-28-fomc-statement-press-conference-14-30-et@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270428T180000Z
+SUMMARY:FOMC statement (press conference 14:30 ET) (expected time)
+DESCRIPTION:Sets the federal funds rate\; reprices Treasuries\, the dollar 
+ and every risk asset.\n\nTime: 18:00 UTC\, 14:00 America/New_York (expecte
+ d\, not confirmed by the source).\n\nNote: Two-day meeting ending this day
+ \; 14:00 ET is the usual statement time\, not stated on the calendar. 2027
+  dates are tentative until confirmed at the preceding meeting.\n\nSource: 
+ Federal Reserve\, FOMC meeting calendars (2026 and 2027). https://www.fede
+ ralreserve.gov/monetarypolicy/fomccalendars.htm\n\nNAOS Upcoming: https://
+ hardlypythonnmr.github.io/naos/agenda.html#2027-04-28-fomc-statement-press
+ -conference-14-30-et\n\nDescriptive\, not financial advice.
+URL:https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+CATEGORIES:Central banks
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:FOMC statement (press conference 14:30 ET) (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

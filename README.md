@@ -15,15 +15,22 @@ builder lists them, with the reason and the plan to get real data, in `escondido
 | path | what |
 |---|---|
 | `index.html` | the page |
-| `assets/css/`, `assets/js/` | page styles and script (`v1plus.css`, `v1plus.js`) |
+| `assets/css/`, `assets/js/` | page styles and script (`v1plus.css`, `v1plus.js`); `sala.js` and `sala.css`: the monitor room per story, the story map and "How NAOS reads the day" (D-221) |
 | `assets/comun/` | shared design tokens, base styles and the page engine (`naos.js`) |
 | `assets/fuentes/` | self-hosted fonts (woff2) with their licenses |
 | `assets/vendor/` | GSAP + ScrollTrigger, Lenis, with their licenses |
 | `data/situacion.json` | every value the page shows, rebuilt every 30 minutes |
 | `data/mapa.json` | the map (Natural Earth via world-atlas) |
 | `data/mapa-predicciones.json` | NAOS's curated map: storyline, keywords, Polymarket market, related tickers, global rules (copy of the radar's map) |
-| `data/assets.json` | the Assets library: categories and pieces with their status (all "planned" for now); add pieces here, not in HTML |
+| `data/mundo.json` | world land for the story map and the monitor room (Natural Earth 110m, public domain, from G3 `geo.json`) |
+| `data/rasgos.json` | the Behavior tape: traits from the NAOS videos, one line each; edit here, not in HTML |
+| `data/semana.json` | the public week grid (D-224), built by `node scripts/construir-semana.mjs [--desde=YYYY-MM-DD]`; schema below |
+| `data/agenda.json` | scheduled events outside the Forex Factory calendar, one year ahead (central banks, US data, elections, summits, tech, market holidays, religious and cultural dates), each with the source URL that states its date: `{ eventos: [{ titulo, fecha: "YYYY-MM-DD", fecha_fin?, hora: "YYYY-MM-DDTHH:MMZ" \| null, hora_local, hora_estado: "official" \| "expected" \| "time not set", fecha_estado?: "expected", categoria, pais, angulo, fuente, url, nota?, tendencias?: true }], sin_fecha: [...] }`; `categoria` is `central_bank`, `us_data`, `election`, `summit`, `tech_ai`, `energy`, `state_visit`, `market_holiday` or `religioso/cultural`; `fecha_estado: "expected"` marks a date that is itself provisional (moon sighting, official calendar not out yet); `tendencias: true` flags events the trends radar watches; `angulo` is the market or attention angle in one neutral line; an event with `hora: null` goes to the London brief of its day (the week's last brief if it falls on a weekend) |
+| `data/assets.json` | the Assets library: categories and pieces with their status (all "planned" for now); add pieces here, not in HTML. While planned, a piece carries `texto` (60 to 120 words), `mapa` (`{ raiz, ramas: [{ t, hojas }] }`, 3 to 6 branches), `fuentes` (`[{ titulo, autor, anio, url }]`, each opened before citing; date in `fuentes_consultadas`) and `pdf` |
+| `agenda.html` | "Upcoming" (D-226): the year of `data/agenda.json` month by month, next event with countdown, filters by category, period bars for multi-day dates, "Add to calendar" per event and "Subscribe" per category; the home bento shows the next five (`assets/js/proximos.js`). Shared ids and categories in `assets/js/agenda-comun.js` |
+| `assets/ics/` | calendar files (RFC 5545) built by `node scripts/construir-ics.mjs` (also run by both builders): `<id>.ics` per event, `<category>.ics` per category for subscribing, `naos-agenda.ics` with everything. Timed events in UTC with a 30 min reminder; date-only and multi-day periods all-day (`VALUE=DATE`, exclusive `DTEND`) with a reminder at 09:00 the day before; expected dates or times say so in `SUMMARY`. `DTSTAMP` is the agenda's `revisado`, so files only change when the agenda does |
 | `pieza.html` | the page of one Assets piece (`?id=`): video, transcript, prompts, sources (D-212); noindex while planned |
+| `assets/pdf/<id>.pdf` | one-page PDF per planned piece (what you will learn, the map, the sources), printed from `pieza.html` by `NODE_PATH=$(npm root -g) node scripts/pdf-piezas.mjs [id ...]` (Playwright + Chromium; checks one page and under 300 KB) |
 | `scripts/construir-datos.mjs` | the data builder (Node 18+, no dependencies, no keys required) |
 | `scripts/animo.py` | the "Credit and dollar" reading of NAOS Fear & Greed (Python 3, standard library only) |
 | `.github/workflows/datos.yml` | the data refresh Action |
@@ -64,6 +71,59 @@ Rules the builder follows:
 - Plain-English text is built from templates over real data only: `portada` (3 to 5 headlines: what happened, what moved
   and how much, one connected reading, the prediction market link), `explica` (what the BTC move and the 2s10s curve
   mean, and over what timeframe) and `graficos` (one headline per TradingView chart: what moved and why, or nothing).
+
+### Monitor rooms (D-221)
+
+The builder writes `salas` in `data/situacion.json`: one room per front-page story, plus, for each story-map entry the front
+page does not use, the newest wire headline that names it. Each room carries the place (from the headline's words, else from
+the story-map entry), its own linked assets, the one prediction-market price (same rules, one market per story), related
+headlines with source and time, Hacker News points and comments when the link is there, and how the tie was made. A room
+opens from a headline, a story card, the wire or the story map, and links as `#sala/<id>` (or `?sala=<id>`). Without data a
+tile is left out. `lectura` holds the run's counts for "How NAOS reads the day".
+
+### The week grid (`data/semana.json`, D-224)
+
+```json
+{ "semana": { "desde": "2026-10-19", "hasta": "2026-10-25" }, "semanas": [{ "desde": "2026-10-19", "hasta": "2026-10-25" }, "..."],
+  "secciones": [{ "id": "market", "titulo": "Market" }, "..."], "formatos": [{ "id": "brief", "titulo": "Brief" }, "..."],
+  "slots": [{ "id": "london", "titulo": "London open brief", "local": "08:20 UK" }, "..."],
+  "eventos_nota": "why the briefs list no events yet, or null",
+  "items": [{ "seccion": "market|news|ai|behavior", "dia": "YYYY-MM-DD or null (date TBD)", "slot": "london|ny|close|null",
+              "hora_utc": "brief time", "hora_local": "08:20 UK", "format": "brief|short|medium|special|page", "title": "...",
+              "video": "brief only: true for the close (Short EN) and one opening on a red-event day", "nota": "optional",
+              "asset_id": "id in data/assets.json (optional)", "status": "planned|scheduled|out",
+              "eventos": [{ "titulo": "USD CPI m/m", "hora": "YYYY-MM-DDTHH:MMZ", "fuente": "...", "url": "optional" }] }] }
+```
+
+The builder covers the four weeks of the board's month plan (19 Oct to 15 Nov 2026, `acta-r1` §3, D-227) plus the dates
+the plan sets after it; the home page opens on the current week and switches with "Previous week" / "Next week". Pieces the
+plan does not date (Strategies, Indicator 1: waiting for the lawyer) keep `dia: null` with the reason in `nota`.
+Briefs: three fixed slots each weekday (London open 08:20 UK, New York open 09:41 ET, US close 16:22 ET). Each lists the
+high-impact events of the Forex Factory weekly calendar (title and time only, once the feed covers that week; it is published
+over the weekend) and `data/agenda.json`, from its slot to the next brief. Pieces without a known date carry `dia: null`.
+The home page shows the grid in "This week"; each piece page shows its "Upcoming" card from the same file.
+
+### Weekly agenda review (D-226)
+
+`data/agenda.json` maps a rolling year of dated events. A routine reviews it **every Sunday**:
+
+1. **Re-check the next 8 weeks.** For every event dated from Monday to eight weeks out, open its `url` and confirm the date
+   and time still stand. If a date or time changed, update `fecha`, `hora`, `hora_local` and `hora_estado`, and say what
+   changed in `nota`. If the event was cancelled, remove it and note it in the commit message.
+2. **Firm up expected dates.** Events with `fecha_estado: "expected"` or `hora_estado: "expected"` inside those 8 weeks get
+   checked against the official source (moon-sighting announcements for Islamic dates, the State Council holiday notice for
+   China, exchange holiday lists). Drop `fecha_estado` once the date is official.
+3. **Add newly announced events.** Go through `sin_fecha` and the usual sources (central bank calendars, BLS and BEA
+   schedules, summit hosts, exchange holiday lists, company event pages such as WWDC, Google I/O, Build, GTC). Add anything
+   now dated inside the window, with a source URL you opened; take it out of `sin_fecha`.
+4. **Extend the window.** Add events so the agenda still reaches one year ahead of the review date.
+5. **Flag for trends.** Set `tendencias: true` on events worth watching in the trends radar (rate decisions with forecasts,
+   CPI and payrolls, big elections and summits, major tech keynotes, holidays that move search, travel or spending).
+6. Set `revisado` to the review date, rebuild the week with `node scripts/construir-semana.mjs` (it also rebuilds
+   `assets/ics/`), and commit `data/agenda.json`, `data/semana.json` and `assets/ics/`.
+
+Never invent a date: if no source states it, it goes to `sin_fecha`. Islamic dates depend on moon sighting and stay
+`expected` until announced.
 
 ## How the data refresh works
 

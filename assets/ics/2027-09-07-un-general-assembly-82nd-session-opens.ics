@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · UN General Assembly 82nd session opens
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-09-07-un-general-assembly-82nd-session-opens@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270907T190000Z
+SUMMARY:UN General Assembly 82nd session opens
+DESCRIPTION:Start of the UNGA season\; the leaders' general debate follows 
+ in the high-level week.\n\nTime: 19:00 UTC\, 15:00 America/New_York.\n\nNo
+ te: The UN gives the opening (Tuesday 7 Sep 2027\, 3 pm New York)\; the hi
+ gh-level week dates are not yet published.\n\nSource: United Nations\, Gen
+ eral Assembly home page. https://www.un.org/en/ga/\n\nNAOS Upcoming: https
+ ://hardlypythonnmr.github.io/naos/agenda.html#2027-09-07-un-general-assemb
+ ly-82nd-session-opens\n\nDescriptive\, not financial advice.
+URL:https://www.un.org/en/ga/
+CATEGORIES:Summits
+LOCATION:United Nations
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:UN General Assembly 82nd session opens
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

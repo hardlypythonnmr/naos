@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Orthodox Lent begins (Clean Monday)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-03-15-orthodox-lent-begins-clean-monday@naos.hardlypythonnmr.githu
+ b.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270502
+SUMMARY:Orthodox Lent begins (Clean Monday)
+DESCRIPTION:Greek market holiday\; Orthodox Lent runs to Easter on 2 May.\n
+ \nTime not set by the source\; listed as an all-day event.\n\nSource: Offi
+ ce Holidays\, Greece 2027. https://www.officeholidays.com/countries/greece
+ /2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html
+ #2027-03-15-orthodox-lent-begins-clean-monday\n\nDescriptive\, not financi
+ al advice.
+URL:https://www.officeholidays.com/countries/greece/2027
+CATEGORIES:Religious and cultural
+LOCATION:Greece\, Eastern Europe
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Orthodox Lent begins (Clean Monday)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

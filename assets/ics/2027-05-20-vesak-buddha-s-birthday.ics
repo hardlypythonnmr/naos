@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Vesak (Buddha's birthday)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-05-20-vesak-buddha-s-birthday@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270520
+DTEND;VALUE=DATE:20270521
+SUMMARY:Vesak (Buddha's birthday) (expected date)
+DESCRIPTION:Market holidays in Singapore\, Indonesia\, Thailand and elsewhe
+ re.\n\nTime not set by the source\; listed as an all-day event.\n\nExpecte
+ d date: provisional until the official announcement (moon sighting or offi
+ cial calendar).\n\nNote: Date varies by country and lunar calendar.\n\nSou
+ rce: Office Holidays\, Singapore 2027. https://www.officeholidays.com/coun
+ tries/singapore/2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/n
+ aos/agenda.html#2027-05-20-vesak-buddha-s-birthday\n\nDescriptive\, not fi
+ nancial advice.
+URL:https://www.officeholidays.com/countries/singapore/2027
+CATEGORIES:Religious and cultural
+LOCATION:South and Southeast Asia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Vesak (Buddha's birthday) (expected date)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

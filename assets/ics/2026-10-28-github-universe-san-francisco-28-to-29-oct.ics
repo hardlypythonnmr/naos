@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · GitHub Universe (San Francisco\, 28 to 29 Oct)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-28-github-universe-san-francisco-28-to-29-oct@naos.hardlypython
+ nmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261030
+SUMMARY:GitHub Universe (San Francisco\, 28 to 29 Oct)
+DESCRIPTION:Developer and AI coding tool announcements.\n\nTime not set by 
+ the source\; listed as an all-day event.\n\nSource: GitHub Universe. https
+ ://githubuniverse.com/\n\nNAOS Upcoming: https://hardlypythonnmr.github.io
+ /naos/agenda.html#2026-10-28-github-universe-san-francisco-28-to-29-oct\n\
+ nDescriptive\, not financial advice.
+URL:https://githubuniverse.com/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:GitHub Universe (San Francisco\, 28 to 29 Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

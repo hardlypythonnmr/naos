@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Ash Wednesday: Western Lent begins (to Easter\, 28 Mar
+ )
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-02-10-ash-wednesday-western-lent-begins-to-easter-28-m@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270328
+SUMMARY:Ash Wednesday: Western Lent begins (to Easter\, 28 Mar)
+DESCRIPTION:Carnival ends (Brazil markets open late)\; Lent shifts food dem
+ and (fish) and search trends. Shares the calendar with Ramadan this year.\
+ n\nTime not set by the source\; listed as an all-day event.\n\nNote: Lent 
+ and Ramadan overlap from 10 Feb to about 8 to 9 Mar 2027.\n\nSource: Offic
+ e Holidays\, Ash Wednesday 2027. https://www.officeholidays.com/holidays/a
+ sh-wednesday\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agen
+ da.html#2027-02-10-ash-wednesday-western-lent-begins-to-easter-28-m\n\nDes
+ criptive\, not financial advice.
+URL:https://www.officeholidays.com/holidays/ash-wednesday
+CATEGORIES:Religious and cultural
+LOCATION:Global (Christian)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Ash Wednesday: Western Lent begins (to Easter\, 28 Mar)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

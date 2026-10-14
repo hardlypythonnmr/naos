@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · AWS re:Invent (Las Vegas\, 30 Nov to 4 Dec)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-30-aws-re-invent-las-vegas-30-nov-to-4-dec@naos.hardlypythonnmr
+ .github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261205
+SUMMARY:AWS re:Invent (Las Vegas\, 30 Nov to 4 Dec)
+DESCRIPTION:Amazon's cloud and AI launches\; AMZN and AI infrastructure nam
+ es.\n\nTime not set by the source\; listed as an all-day event.\n\nSource:
+  AWS re:Invent official site. https://reinvent.awsevents.com/\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-30-aws-re
+ -invent-las-vegas-30-nov-to-4-dec\n\nDescriptive\, not financial advice.
+URL:https://reinvent.awsevents.com/
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:AWS re:Invent (Las Vegas\, 30 Nov to 4 Dec)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

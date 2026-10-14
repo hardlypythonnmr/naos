@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Bank of England Bank Rate decision and Monetary Policy
+  Report
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-05-bank-of-england-bank-rate-decision-and-monetary@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261105T120000Z
+SUMMARY:Bank of England Bank Rate decision and Monetary Policy Report
+DESCRIPTION:Moves sterling and gilts.\n\nTime: 12:00 UTC\, 12:00 Europe/Lon
+ don.\n\nSource: Bank of England\, November 2026 Monetary Policy Summary (t
+ o be published at 12pm). https://www.bankofengland.co.uk/monetary-policy-s
+ ummary-and-minutes/2026/november-2026\n\nNAOS Upcoming: https://hardlypyth
+ onnmr.github.io/naos/agenda.html#2026-11-05-bank-of-england-bank-rate-deci
+ sion-and-monetary\n\nDescriptive\, not financial advice.
+URL:https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/202
+ 6/november-2026
+CATEGORIES:Central banks
+LOCATION:United Kingdom
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of England Bank Rate decision and Monetary Policy Report
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

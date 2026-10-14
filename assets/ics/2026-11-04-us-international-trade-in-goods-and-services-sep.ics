@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · US international trade in goods and services (Septembe
+ r)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-04-us-international-trade-in-goods-and-services-sep@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261104T133000Z
+SUMMARY:US international trade in goods and services (September)
+DESCRIPTION:Trade gap under the tariff regime.\n\nTime: 13:30 UTC\, 08:30 A
+ merica/New_York.\n\nSource: U.S. Bureau of Economic Analysis\, release sch
+ edule. https://www.bea.gov/news/schedule\n\nNAOS Upcoming: https://hardlyp
+ ythonnmr.github.io/naos/agenda.html#2026-11-04-us-international-trade-in-g
+ oods-and-services-sep\n\nDescriptive\, not financial advice.
+URL:https://www.bea.gov/news/schedule
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US international trade in goods and services (September)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

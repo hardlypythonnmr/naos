@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · US durable goods orders\, advance (September)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-27-us-durable-goods-orders-advance-september@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261027T123000Z
+SUMMARY:US durable goods orders\, advance (September)
+DESCRIPTION:Business investment signal ahead of GDP.\n\nTime: 12:30 UTC\, 0
+ 8:30 America/New_York.\n\nSource: U.S. Census Bureau\, 2026 economic indic
+ ator calendar. https://www.census.gov/economic-indicators/calendar-listvie
+ w-2026.html\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agend
+ a.html#2026-10-27-us-durable-goods-orders-advance-september\n\nDescriptive
+ \, not financial advice.
+URL:https://www.census.gov/economic-indicators/calendar-listview-2026.html
+CATEGORIES:US data
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:US durable goods orders\, advance (September)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

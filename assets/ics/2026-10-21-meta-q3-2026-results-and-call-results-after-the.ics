@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Meta Q3 2026 results and call (results after the close
+ )
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-21-meta-q3-2026-results-and-call-results-after-the@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261021T203000Z
+SUMMARY:Meta Q3 2026 results and call (results after the close)
+DESCRIPTION:AI capex guidance from a top spender moves megacap tech and AI 
+ suppliers.\n\nTime: 20:30 UTC\, 16:30 America/New_York.\n\nSource: Meta vi
+ a PR Newswire (on Finviz)\, 12 Oct 2026. https://finviz.com/news/401445/me
+ ta-to-announce-third-quarter-2026-results\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2026-10-21-meta-q3-2026-results-and-c
+ all-results-after-the\n\nDescriptive\, not financial advice.
+URL:https://finviz.com/news/401445/meta-to-announce-third-quarter-2026-resu
+ lts
+CATEGORIES:Tech and AI
+LOCATION:United States
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Meta Q3 2026 results and call (results after the close)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

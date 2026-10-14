@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Eid al-Adha (expected)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-05-16-eid-al-adha-expected@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:Eid al-Adha (expected)
+DESCRIPTION:Multi-day closures in Gulf and Muslim-majority markets\; livest
+ ock and travel demand.\n\nTime not set by the source\; listed as an all-da
+ y event.\n\nExpected date: provisional until the official announcement (mo
+ on sighting or official calendar).\n\nNote: Moon sighting: 16 May in Saudi
+  Arabia\, 17 May in Indonesia and Singapore.\n\nSource: Office Holidays\, 
+ Saudi Arabia 2027. https://www.officeholidays.com/countries/saudi-arabia/2
+ 027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2
+ 027-05-16-eid-al-adha-expected\n\nDescriptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/saudi-arabia/2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Muslim)
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Eid al-Adha (expected)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

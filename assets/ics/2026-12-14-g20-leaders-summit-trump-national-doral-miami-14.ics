@@ -1,0 +1,37 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · G20 Leaders' Summit (Trump National Doral\, Miami\, 14
+  to 15 Dec)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-12-14-g20-leaders-summit-trump-national-doral-miami-14@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261214
+DTEND;VALUE=DATE:20261216
+SUMMARY:G20 Leaders' Summit (Trump National Doral\, Miami\, 14 to 15 Dec)
+DESCRIPTION:Trade\, tariffs and debt language from the US-hosted G20.\n\nTi
+ me not set by the source\; listed as an all-day event.\n\nSource: Wikipedi
+ a\, 2026 G20 Miami summit (citing the White House). https://en.wikipedia.o
+ rg/wiki/2026_G20_Miami_summit\n\nNAOS Upcoming: https://hardlypythonnmr.gi
+ thub.io/naos/agenda.html#2026-12-14-g20-leaders-summit-trump-national-dora
+ l-miami-14\n\nDescriptive\, not financial advice.
+URL:https://en.wikipedia.org/wiki/2026_G20_Miami_summit
+CATEGORIES:Summits
+LOCATION:United States / G20
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:G20 Leaders' Summit (Trump National Doral\, Miami\, 14 to 15 De
+ c)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

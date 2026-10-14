@@ -1,0 +1,36 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · ECB rate decision and press conference
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-09-09-ecb-rate-decision-and-press-conference@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270909T121500Z
+SUMMARY:ECB rate decision and press conference (expected time)
+DESCRIPTION:Sets euro area rates\; moves the euro\, Bunds and periphery spr
+ eads.\n\nTime: 12:15 UTC\, 14:15 Europe/Berlin (expected\, not confirmed b
+ y the source).\n\nNote: Calendar gives the day (Day 2\, followed by press 
+ conference)\; 14:15 CET/CEST is the usual decision time.\n\nSource: ECB\, 
+ Governing Council meeting calendar. https://www.ecb.europa.eu/press/calend
+ ars/mgcgc/html/index.en.html\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2027-09-09-ecb-rate-decision-and-press-conference\
+ n\nDescriptive\, not financial advice.
+URL:https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+CATEGORIES:Central banks
+LOCATION:Euro area
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ECB rate decision and press conference (expected time)
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

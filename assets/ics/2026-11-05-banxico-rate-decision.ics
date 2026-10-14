@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Banxico rate decision
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-05-banxico-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261105T190000Z
+SUMMARY:Banxico rate decision
+DESCRIPTION:Moves the peso and Mexican rates.\n\nTime: 19:00 UTC\, 13:00 Am
+ erica/Mexico_City.\n\nSource: BBVA Research\, Agenda Económica 2026 (Banx
+ ico calendar\; 13:00 Mexico City). https://www.bbvaresearch.com/wp-content
+ /uploads/2026/03/AgendaEconomica_2026.pdf\n\nNAOS Upcoming: https://hardly
+ pythonnmr.github.io/naos/agenda.html#2026-11-05-banxico-rate-decision\n\nD
+ escriptive\, not financial advice.
+URL:https://www.bbvaresearch.com/wp-content/uploads/2026/03/AgendaEconomica
+ _2026.pdf
+CATEGORIES:Central banks
+LOCATION:Mexico
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Banxico rate decision
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,565 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Religious and cultural
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-08-diwali-lakshmi-puja-nse-muhurat-trading-session@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Diwali (Lakshmi Puja)\; NSE Muhurat trading session
+DESCRIPTION:Peak Indian gold and consumer spending\; a symbolic one-hour Mu
+ hurat session on Indian exchanges.\n\nTime not set by the source\; listed 
+ as an all-day event.\n\nNote: Sunday 8 Nov 2026\; Muhurat timing to be not
+ ified by NSE circular. Singapore also lists Deepavali on 8 Nov (officeholi
+ days.com).\n\nSource: NSE\, exchange holidays 2026 (Diwali Laxmi Pujan\, M
+ uhurat trading). https://www.nseindia.com/resources/exchange-communication
+ -holidays\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.
+ html#2026-11-08-diwali-lakshmi-puja-nse-muhurat-trading-session\n\nDescrip
+ tive\, not financial advice.
+URL:https://www.nseindia.com/resources/exchange-communication-holidays
+CATEGORIES:Religious and cultural
+LOCATION:India
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Diwali (Lakshmi Puja)\; NSE Muhurat trading session
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-04-hanukkah-first-candle-at-sundown-4-dec-to-12-dec@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261213
+SUMMARY:Hanukkah (first candle at sundown 4 Dec\; to 12 Dec)
+DESCRIPTION:Holiday retail season overlap\; search interest for gifts and r
+ ecipes.\n\nTime not set by the source\; listed as an all-day event.\n\nSou
+ rce: Hebcal\, Jewish holidays 2026. https://www.hebcal.com/holidays/2026-2
+ 027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2
+ 026-12-04-hanukkah-first-candle-at-sundown-4-dec-to-12-dec\n\nDescriptive\
+ , not financial advice.
+URL:https://www.hebcal.com/holidays/2026-2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Jewish)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Hanukkah (first candle at sundown 4 Dec\; to 12 Dec)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-25-christmas-day@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:Christmas Day
+DESCRIPTION:Retail season peak and the thinnest trading week of the year\; 
+ travel and shipping demand.\n\nTime not set by the source\; listed as an a
+ ll-day event.\n\nSource: NYSE holidays (Christmas Day closure). https://ww
+ w.nyse.com/markets/hours-calendars\n\nNAOS Upcoming: https://hardlypythonn
+ mr.github.io/naos/agenda.html#2026-12-25-christmas-day\n\nDescriptive\, no
+ t financial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Religious and cultural
+LOCATION:Global (Christian)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Christmas Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-07-orthodox-christmas@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270107
+DTEND;VALUE=DATE:20270108
+SUMMARY:Orthodox Christmas
+DESCRIPTION:Russian and Eastern European markets on holiday\; light regiona
+ l volumes.\n\nTime not set by the source\; listed as an all-day event.\n\n
+ Source: Office Holidays\, Russia 2027. https://www.officeholidays.com/coun
+ tries/russia/2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos
+ /agenda.html#2027-01-07-orthodox-christmas\n\nDescriptive\, not financial 
+ advice.
+URL:https://www.officeholidays.com/countries/russia/2027
+CATEGORIES:Religious and cultural
+LOCATION:Russia\, Eastern Europe\, Ethiopia
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Orthodox Christmas
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-06-lunar-new-year-year-of-the-goat-spring-festival@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270212
+SUMMARY:Lunar New Year (Year of the Goat)\; Spring Festival Golden Week (ex
+ pected date)
+DESCRIPTION:The world's largest travel migration\; China and Hong Kong mark
+ ets close\; consumption and oil-demand reads.\n\nTime not set by the sourc
+ e\; listed as an all-day event.\n\nExpected date: provisional until the of
+ ficial announcement (moon sighting or official calendar).\n\nNote: New Yea
+ r's Day 6 Feb is fixed by the lunar calendar. The State Council has not ye
+ t published the 2027 holiday schedule (usually in November)\; the holiday 
+ span is expected around 5 to 11 Feb.\n\nSource: Office Holidays\, China 20
+ 27. https://www.officeholidays.com/countries/china/2027\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-02-06-lunar-new-ye
+ ar-year-of-the-goat-spring-festival\n\nDescriptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/china/2027
+CATEGORIES:Religious and cultural
+LOCATION:China and East Asia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Lunar New Year (Year of the Goat)\; Spring Festival Golden Week
+  (expected date)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-08-ramadan-begins-expected@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270208
+DTEND;VALUE=DATE:20270309
+SUMMARY:Ramadan begins (expected)
+DESCRIPTION:Shifts daily consumption\, work hours and travel across Muslim-
+ majority markets\; Gulf trading hours shorten.\n\nTime not set by the sour
+ ce\; listed as an all-day event.\n\nExpected date: provisional until the o
+ fficial announcement (moon sighting or official calendar).\n\nNote: Depend
+ s on moon sighting: 8 or 9 Feb by country. Overlaps with Western Lent (10 
+ Feb to 27 Mar) for about four weeks\, from 10 Feb to the end of Ramadan ar
+ ound 8 to 9 Mar.\n\nSource: Office Holidays\, Ramadan 2027. https://www.of
+ ficeholidays.com/holidays/ramadan\n\nNAOS Upcoming: https://hardlypythonnm
+ r.github.io/naos/agenda.html#2027-02-08-ramadan-begins-expected\n\nDescrip
+ tive\, not financial advice.
+URL:https://www.officeholidays.com/holidays/ramadan
+CATEGORIES:Religious and cultural
+LOCATION:Global (Muslim)
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Ramadan begins (expected)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-10-ash-wednesday-western-lent-begins-to-easter-28-m@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270328
+SUMMARY:Ash Wednesday: Western Lent begins (to Easter\, 28 Mar)
+DESCRIPTION:Carnival ends (Brazil markets open late)\; Lent shifts food dem
+ and (fish) and search trends. Shares the calendar with Ramadan this year.\
+ n\nTime not set by the source\; listed as an all-day event.\n\nNote: Lent 
+ and Ramadan overlap from 10 Feb to about 8 to 9 Mar 2027.\n\nSource: Offic
+ e Holidays\, Ash Wednesday 2027. https://www.officeholidays.com/holidays/a
+ sh-wednesday\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agen
+ da.html#2027-02-10-ash-wednesday-western-lent-begins-to-easter-28-m\n\nDes
+ criptive\, not financial advice.
+URL:https://www.officeholidays.com/holidays/ash-wednesday
+CATEGORIES:Religious and cultural
+LOCATION:Global (Christian)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Ash Wednesday: Western Lent begins (to Easter\, 28 Mar)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-09-eid-al-fitr-expected@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270309
+DTEND;VALUE=DATE:20270310
+SUMMARY:Eid al-Fitr (expected)
+DESCRIPTION:Multi-day closures in Gulf\, Indonesian\, Pakistani and Turkish
+  markets\; peak spending and travel.\n\nTime not set by the source\; liste
+ d as an all-day event.\n\nExpected date: provisional until the official an
+ nouncement (moon sighting or official calendar).\n\nNote: Moon sighting: 9
+  or 10 Mar by country (Indonesia\, Singapore 10 Mar).\n\nSource: Office Ho
+ lidays\, Eid al-Fitr 2027 (Saudi Arabia 9 to 12 Mar). https://www.officeho
+ lidays.com/countries/saudi-arabia/2027\n\nNAOS Upcoming: https://hardlypyt
+ honnmr.github.io/naos/agenda.html#2027-03-09-eid-al-fitr-expected\n\nDescr
+ iptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/saudi-arabia/2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Muslim)
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Eid al-Fitr (expected)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-15-orthodox-lent-begins-clean-monday@naos.hardlypythonnmr.githu
+ b.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270502
+SUMMARY:Orthodox Lent begins (Clean Monday)
+DESCRIPTION:Greek market holiday\; Orthodox Lent runs to Easter on 2 May.\n
+ \nTime not set by the source\; listed as an all-day event.\n\nSource: Offi
+ ce Holidays\, Greece 2027. https://www.officeholidays.com/countries/greece
+ /2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html
+ #2027-03-15-orthodox-lent-begins-clean-monday\n\nDescriptive\, not financi
+ al advice.
+URL:https://www.officeholidays.com/countries/greece/2027
+CATEGORIES:Religious and cultural
+LOCATION:Greece\, Eastern Europe
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Orthodox Lent begins (Clean Monday)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-22-holi@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270322
+DTEND;VALUE=DATE:20270323
+SUMMARY:Holi
+DESCRIPTION:Festive spending and travel in India\; NSE has not yet publishe
+ d its 2027 holiday list.\n\nTime not set by the source\; listed as an all-
+ day event.\n\nSource: Office Holidays\, India 2027. https://www.officeholi
+ days.com/countries/india/2027\n\nNAOS Upcoming: https://hardlypythonnmr.gi
+ thub.io/naos/agenda.html#2027-03-22-holi\n\nDescriptive\, not financial ad
+ vice.
+URL:https://www.officeholidays.com/countries/india/2027
+CATEGORIES:Religious and cultural
+LOCATION:India
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Holi
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-28-easter-sunday-western-good-friday-26-mar@naos.hardlypythonnm
+ r.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270328
+DTEND;VALUE=DATE:20270329
+SUMMARY:Easter Sunday (Western)\; Good Friday 26 Mar
+DESCRIPTION:Long weekend closes the US (Good Friday) and Europe (to Easter 
+ Monday)\; travel and chocolate retail.\n\nTime not set by the source\; lis
+ ted as an all-day event.\n\nSource: Office Holidays\, India 2027 (Good Fri
+ day 26 Mar\, Easter Sunday 28 Mar). https://www.officeholidays.com/countri
+ es/india/2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/age
+ nda.html#2027-03-28-easter-sunday-western-good-friday-26-mar\n\nDescriptiv
+ e\, not financial advice.
+URL:https://www.officeholidays.com/countries/india/2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Christian)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Easter Sunday (Western)\; Good Friday 26 Mar
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-07-chaitra-navratri-to-ram-navami-15-apr@naos.hardlypythonnmr.g
+ ithub.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270407
+DTEND;VALUE=DATE:20270416
+SUMMARY:Chaitra Navratri (to Ram Navami\, 15 Apr)
+DESCRIPTION:Spring festival season in India\; gold\, apparel and auto purch
+ ases.\n\nTime not set by the source\; listed as an all-day event.\n\nSourc
+ e: Drik Panchang\, Chaitra Navratri 2027 (New Delhi). https://www.drikpanc
+ hang.com/navratri/chaitra-vasant-navratri-dates.html?year=2027&geoname-id=
+ 1261481\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.ht
+ ml#2027-04-07-chaitra-navratri-to-ram-navami-15-apr\n\nDescriptive\, not f
+ inancial advice.
+URL:https://www.drikpanchang.com/navratri/chaitra-vasant-navratri-dates.htm
+ l?year=2027&geoname-id=1261481
+CATEGORIES:Religious and cultural
+LOCATION:India
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Chaitra Navratri (to Ram Navami\, 15 Apr)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-22-passover-from-sundown-21-apr-to-29-apr@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270422
+DTEND;VALUE=DATE:20270430
+SUMMARY:Passover (from sundown 21 Apr\; to 29 Apr)
+DESCRIPTION:Israeli market holidays\; food retail demand.\n\nTime not set b
+ y the source\; listed as an all-day event.\n\nSource: Hebcal\, Jewish holi
+ days 5787 (2026-2027). https://www.hebcal.com/holidays/2026-2027\n\nNAOS U
+ pcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-04-22-pas
+ sover-from-sundown-21-apr-to-29-apr\n\nDescriptive\, not financial advice.
+URL:https://www.hebcal.com/holidays/2026-2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Jewish)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Passover (from sundown 21 Apr\; to 29 Apr)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-02-orthodox-easter@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Orthodox Easter
+DESCRIPTION:Greek\, Romanian and other Orthodox market holidays around it.\
+ n\nTime not set by the source\; listed as an all-day event.\n\nSource: Off
+ ice Holidays\, Greece 2027. https://www.officeholidays.com/countries/greec
+ e/2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.htm
+ l#2027-05-02-orthodox-easter\n\nDescriptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/greece/2027
+CATEGORIES:Religious and cultural
+LOCATION:Greece\, Eastern Europe
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Orthodox Easter
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-14-hajj-pilgrimage-expected-about-14-to-19-may-day@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270514
+DTEND;VALUE=DATE:20270520
+SUMMARY:Hajj pilgrimage (expected\, about 14 to 19 May\; Day of Arafat 15 M
+ ay)
+DESCRIPTION:Saudi travel and services peak\; Tadawul holiday around Eid.\n\
+ nTime not set by the source\; listed as an all-day event.\n\nExpected date
+ : provisional until the official announcement (moon sighting or official c
+ alendar).\n\nNote: Hajj runs 8 to 13 Dhu al-Hijjah\; the span is derived f
+ rom Arafat Day (9 Dhu al-Hijjah) on 15 May\, which depends on moon sightin
+ g.\n\nSource: Office Holidays\, Saudi Arabia 2027 (Arafat Day 15 May). htt
+ ps://www.officeholidays.com/countries/saudi-arabia/2027\n\nNAOS Upcoming: 
+ https://hardlypythonnmr.github.io/naos/agenda.html#2027-05-14-hajj-pilgrim
+ age-expected-about-14-to-19-may-day\n\nDescriptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/saudi-arabia/2027
+CATEGORIES:Religious and cultural
+LOCATION:Saudi Arabia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Hajj pilgrimage (expected\, about 14 to 19 May\; Day of Arafat 
+ 15 May)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-16-eid-al-adha-expected@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270516
+DTEND;VALUE=DATE:20270517
+SUMMARY:Eid al-Adha (expected)
+DESCRIPTION:Multi-day closures in Gulf and Muslim-majority markets\; livest
+ ock and travel demand.\n\nTime not set by the source\; listed as an all-da
+ y event.\n\nExpected date: provisional until the official announcement (mo
+ on sighting or official calendar).\n\nNote: Moon sighting: 16 May in Saudi
+  Arabia\, 17 May in Indonesia and Singapore.\n\nSource: Office Holidays\, 
+ Saudi Arabia 2027. https://www.officeholidays.com/countries/saudi-arabia/2
+ 027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2
+ 027-05-16-eid-al-adha-expected\n\nDescriptive\, not financial advice.
+URL:https://www.officeholidays.com/countries/saudi-arabia/2027
+CATEGORIES:Religious and cultural
+LOCATION:Global (Muslim)
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Eid al-Adha (expected)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-20-vesak-buddha-s-birthday@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270520
+DTEND;VALUE=DATE:20270521
+SUMMARY:Vesak (Buddha's birthday) (expected date)
+DESCRIPTION:Market holidays in Singapore\, Indonesia\, Thailand and elsewhe
+ re.\n\nTime not set by the source\; listed as an all-day event.\n\nExpecte
+ d date: provisional until the official announcement (moon sighting or offi
+ cial calendar).\n\nNote: Date varies by country and lunar calendar.\n\nSou
+ rce: Office Holidays\, Singapore 2027. https://www.officeholidays.com/coun
+ tries/singapore/2027\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/n
+ aos/agenda.html#2027-05-20-vesak-buddha-s-birthday\n\nDescriptive\, not fi
+ nancial advice.
+URL:https://www.officeholidays.com/countries/singapore/2027
+CATEGORIES:Religious and cultural
+LOCATION:South and Southeast Asia
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Vesak (Buddha's birthday) (expected date)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-06-06-islamic-new-year-1-muharram-1449-expected@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270606
+DTEND;VALUE=DATE:20270607
+SUMMARY:Islamic New Year (1 Muharram 1449\, expected)
+DESCRIPTION:Public holiday in Gulf states and Indonesia\; light regional vo
+ lumes.\n\nTime not set by the source\; listed as an all-day event.\n\nExpe
+ cted date: provisional until the official announcement (moon sighting or o
+ fficial calendar).\n\nNote: Depends on moon sighting.\n\nSource: Office Ho
+ lidays\, Islamic New Year 2027. https://www.officeholidays.com/holidays/is
+ lamic-new-year\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/ag
+ enda.html#2027-06-06-islamic-new-year-1-muharram-1449-expected\n\nDescript
+ ive\, not financial advice.
+URL:https://www.officeholidays.com/holidays/islamic-new-year
+CATEGORIES:Religious and cultural
+LOCATION:Global (Muslim)
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Islamic New Year (1 Muharram 1449\, expected)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-30-sharad-navratri-to-dussehra-9-oct@naos.hardlypythonnmr.githu
+ b.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270930
+DTEND;VALUE=DATE:20271009
+SUMMARY:Sharad Navratri (to Dussehra\, 9 Oct)
+DESCRIPTION:Opens India's festive buying season into Diwali\; autos\, gold 
+ and retail.\n\nTime not set by the source\; listed as an all-day event.\n\
+ nSource: Drik Panchang\, Shardiya Navratri 2027 (New Delhi). https://www.d
+ rikpanchang.com/navratri/ashwin-shardiya-navratri-dates.html?year=2027&geo
+ name-id=1261481\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/a
+ genda.html#2027-09-30-sharad-navratri-to-dussehra-9-oct\n\nDescriptive\, n
+ ot financial advice.
+URL:https://www.drikpanchang.com/navratri/ashwin-shardiya-navratri-dates.ht
+ ml?year=2027&geoname-id=1261481
+CATEGORIES:Religious and cultural
+LOCATION:India
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Sharad Navratri (to Dussehra\, 9 Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-10-01-china-national-day-golden-week-expected-1-to-7-o@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20271001
+DTEND;VALUE=DATE:20271008
+SUMMARY:China National Day Golden Week (expected 1 to 7 Oct)
+DESCRIPTION:Mainland markets closed\; travel and box-office spending reads.
+ \n\nTime not set by the source\; listed as an all-day event.\n\nExpected d
+ ate: provisional until the official announcement (moon sighting or officia
+ l calendar).\n\nNote: 1 Oct is fixed\; the full holiday span depends on th
+ e State Council's 2027 schedule\, not yet published.\n\nSource: Office Hol
+ idays\, China 2027. https://www.officeholidays.com/countries/china/2027\n\
+ nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-10
+ -01-china-national-day-golden-week-expected-1-to-7-o\n\nDescriptive\, not 
+ financial advice.
+URL:https://www.officeholidays.com/countries/china/2027
+CATEGORIES:Religious and cultural
+LOCATION:China
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:China National Day Golden Week (expected 1 to 7 Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-10-02-rosh-hashanah-from-sundown-1-oct-to-3-oct@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20271002
+DTEND;VALUE=DATE:20271004
+SUMMARY:Rosh Hashanah (from sundown 1 Oct\; to 3 Oct)
+DESCRIPTION:Tel Aviv exchange closed\; lighter participation by some US des
+ ks.\n\nTime not set by the source\; listed as an all-day event.\n\nSource:
+  Hebcal\, Jewish holidays 2027. https://www.hebcal.com/holidays/2027-2028\
+ n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-
+ 10-02-rosh-hashanah-from-sundown-1-oct-to-3-oct\n\nDescriptive\, not finan
+ cial advice.
+URL:https://www.hebcal.com/holidays/2027-2028
+CATEGORIES:Religious and cultural
+LOCATION:Global (Jewish)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Rosh Hashanah (from sundown 1 Oct\; to 3 Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-10-11-yom-kippur-from-sundown-10-oct@naos.hardlypythonnmr.github.i
+ o
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20271011
+DTEND;VALUE=DATE:20271012
+SUMMARY:Yom Kippur (from sundown 10 Oct)
+DESCRIPTION:Tel Aviv exchange closed\; quieter US bond trading desks.\n\nTi
+ me not set by the source\; listed as an all-day event.\n\nSource: Hebcal\,
+  Jewish holidays 2027. https://www.hebcal.com/holidays/2027-2028\n\nNAOS U
+ pcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-10-11-yom
+ -kippur-from-sundown-10-oct\n\nDescriptive\, not financial advice.
+URL:https://www.hebcal.com/holidays/2027-2028
+CATEGORIES:Religious and cultural
+LOCATION:Global (Jewish)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Yom Kippur (from sundown 10 Oct)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Banxico rate decision
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-12-17-banxico-rate-decision@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261217T190000Z
+SUMMARY:Banxico rate decision
+DESCRIPTION:Moves the peso and Mexican rates.\n\nTime: 19:00 UTC\, 13:00 Am
+ erica/Mexico_City.\n\nSource: Banco de México\, Calendario 2026 de anunci
+ os de política monetaria (13:00 hours). https://www.banxico.org.mx/politi
+ ca-monetaria/d/%7B3B4BDA5B-E7E8-E414-2066-DA0CB3F7C36F%7D.pdf\n\nNAOS Upco
+ ming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-12-17-banxic
+ o-rate-decision\n\nDescriptive\, not financial advice.
+URL:https://www.banxico.org.mx/politica-monetaria/d/%7B3B4BDA5B-E7E8-E414-2
+ 066-DA0CB3F7C36F%7D.pdf
+CATEGORIES:Central banks
+LOCATION:Mexico
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Banxico rate decision
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

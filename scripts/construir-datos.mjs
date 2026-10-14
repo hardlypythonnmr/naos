@@ -421,15 +421,19 @@ const REGLAS_PM = MAPA_PM.reglas_globales;
 const escRe = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const puntuar = (texto, h) => { const t = " " + texto.toLowerCase().replace(/[^a-z0-9$%. -]/g, " ") + " ";
   return (h.palabras || []).filter((p) => new RegExp("(?<![a-z])" + escRe(p.toLowerCase()) + "(?![a-z])").test(t)).length; };
+// en un empate gana la historia que el titular nombra antes (como primera() en Python)
+const primera = (texto, h) => { const t = " " + texto.toLowerCase().replace(/[^a-z0-9$%. -]/g, " ") + " ";
+  const pos = (h.palabras || []).map((p) => t.search(new RegExp("(?<![a-z])" + escRe(p.toLowerCase()) + "(?![a-z])"))).filter((i) => i >= 0);
+  return pos.length ? Math.min(...pos) : 1e9; };
 const MERCADO_PALABRAS = ["stock", "stocks", "yield", "yields", "rates", "sector", "spending", "tariff", "market", "markets", "bond", "bonds", "dollar", "etf", "shares"];
 function mapear(texto) {
   const out = [];
   for (const h of MAPA_PM.historias) {
     const n = puntuar(texto, h); if (!n) continue;
     const omitir = h.politica && !MERCADO_PALABRAS.some((w) => new RegExp("\\b" + w + "\\b").test(texto.toLowerCase())) ? "politics without a market angle (G3 rule)" : null;
-    out.push({ h, puntaje: n, omitir });
+    out.push({ h, puntaje: n, omitir, pos: primera(texto, h) });
   }
-  return out.sort((a, b) => b.puntaje - a.puntaje); // orden estable: empate, gana el primero del mapa (como en Python)
+  return out.sort((a, b) => b.puntaje - a.puntaje || a.pos - b.pos); // empate: gana la que el titular nombra antes
 }
 // la historia del mapa que le toca a un titular, o null
 const historiaDe = (texto) => mapear(texto).find((x) => !x.omitir)?.h || null;
@@ -485,7 +489,7 @@ async function leerPM(h0) {
     // solo la plantilla "linea" (una cifra); la parte "On the tape" la arma la página con los activos propios
     const linea = r.linea.split(" · On the tape")[0].replace("{p}", Math.round(p * 100)).replace("{resultado}", resultado).replace("{fuente}", "Polymarket").replace("{hora}", hora);
     if (/\b(bet|bets|betting|wager|gamble|odds boost|buy yes|buy no)\b/i.test(linea)) return { ...base, omitir: "forbidden wording" };
-    return { ...base, mercado: m.slug, grupo, p: Math.round(p * 100), leido_utc: leido, linea, tickers: tickersDe(h, grupo).map((t) => t.simbolo), omitir: null };
+    return { ...base, mercado: m.slug, grupo, p: Math.round(p * 100), leido_utc: leido, linea, resultado, tickers: tickersDe(h, grupo).map((t) => t.simbolo), omitir: null };
   };
   const x = await leer(h0);
   // edad_max_horas: una lectura más vieja que eso no se publica (aquí se lee en cada corrida)
@@ -591,6 +595,8 @@ const ref = (t) => t && { titulo: t.titulo, fuente: t.fuente, url: t.url, hora: 
 const portada = [];
 const sumar = (t, area, mercadoActivo, mercadoTV) => {
   if (!t || portada.some((p) => p.url === t.url)) return;
+  // regla G3: la política solo como impacto en mercado; sin palabra de mercado no entra en la portada
+  if (area === "Politics" && !MERCADO_PALABRAS.some((w) => new RegExp("\\b" + w + "\\b").test(t.titulo.toLowerCase()))) return;
   const a = mercadoActivo ? vivo(mercadoActivo) : null;
   let mercado = a ? frase(a) : null, etiqueta = "Moved";
   if (!mercado && mercadoTV) { const rel = buscar(RE_TEMA[mercadoTV.tema], { conMovimiento: true, sin: [t.url] });
@@ -604,6 +610,12 @@ const tvTema = (g) => g?.tipo === "tradingview" ? { tema: /SMH/.test(g.simbolo) 
 for (const h of hs) sumar(h, h.area, h.grafico?.tipo === "propio" ? h.grafico.activo : null, tvTema(h.grafico));
 // energía: el titular más nuevo del área, con Brent en vivo vía TradingView
 sumar((wireFinal || []).find((t) => !t.viejo && t.area === "Energy"), "Energy", null, { tema: "petroleo", etiqueta: "Brent and WTI crude CFDs via TradingView, in Market" });
+// si una historia quedó fuera (p. ej. política sin ángulo de mercado), entra el titular vivo siguiente del wire
+for (const t of (wireFinal || []).filter((x) => !x.viejo && ["Economy", "AI", "Crypto", "Energy"].includes(x.area) && x.fuente !== "Hacker News")) {
+  if (portada.filter((p) => p.tipo === "historia").length >= 4) break;
+  if (historiaDe(t.titulo)?.fuente === "citar") continue; // Kalshi y otros "citar": solo con cifra de un medio
+  sumar(t, t.area, null, null);
+}
 // agenda: el próximo evento rojo de EE. UU. si cae en las próximas 36 horas
 if (calF && !calF.viejo && calF.proximo && Date.parse(calF.proximo.hora) - AHORA < 36 * 36e5) {
   const p = calF.proximo, mismos = calF.semana.filter((e) => e.hora === p.hora);
@@ -631,12 +643,112 @@ for (const p of portada) {
   p.odds_estado = x.omitir || "shown";
   if (x.omitir || mercadosUsados.has(x.mercado)) { if (!x.omitir) p.odds_estado = "market already on a higher story"; continue; }
   mercadosUsados.add(x.mercado);
-  p.odds = { texto: x.linea, url: x.url, p: x.p, leido_utc: x.leido_utc, historia: sl.id };
+  p.odds = { texto: x.linea, resultado: x.resultado, url: x.url, p: x.p, leido_utc: x.leido_utc, historia: sl.id };
 }
 // wire: el enlace al mercado (sin cifra) solo si su mercado pasa las reglas (resuelto, delgado o caído: sin enlace)
 for (const t of wireFinal || []) { const sl = t.odds && historiaDe(t.titulo); if (!sl) continue; const x = await leerPM(sl); if (x.omitir) delete t.odds; else t.odds = { nombre: sl.titulo, url: x.url }; }
 // las cartas de las historias del día llevan las mismas dos líneas que su titular en la portada
 for (const h of historias || []) { const p = portada.find((x) => x.url === h.url); h.lados = { ...h.lados, odds: p?.odds || null, conectado: p?.conectado || null }; }
+
+/* ---------- salas de monitoreo (PAG-03.2, PAG-03.3, D-221) ----------
+   Una sala por historia: las de la portada y, por cada historia del mapa curado que la portada no usa, el titular más nuevo
+   del wire que la nombra. Cada sala junta lo que ya está ligado: el lugar (por las palabras del titular o, si no, por la
+   historia del mapa), los activos propios del mapa, la única cifra de predicción (las mismas reglas y un mercado por
+   historia), los titulares relacionados con su hora y fuente, lo que dice la gente (solo si hay datos) y las fuentes.
+   Nada se inventa: sin dato, la sala no lleva esa pieza. */
+const LUGARES = [
+  { id: "hormuz", nombre: "Strait of Hormuz", lon: 56.4, lat: 26.55, re: /\b(hormuz|gulf of oman|tankers?)\b/i },
+  { id: "mar-rojo", nombre: "Red Sea and Yemen", lon: 43.4, lat: 14.6, re: /\b(houthis?|yemen|red sea|bab el-mandeb|aramco)\b/i },
+  { id: "iran", nombre: "Iran", lon: 51.4, lat: 35.7, re: /\b(iran|iranian|tehran)\b/i },
+  { id: "israel", nombre: "Israel and Gaza", lon: 34.8, lat: 31.6, re: /\b(israel|israeli|gaza|lebanon|hezbollah)\b/i },
+  { id: "mar-negro", nombre: "Black Sea", lon: 37.8, lat: 44.7, re: /\b(black sea|odesa|novorossiysk)\b/i },
+  { id: "ucrania", nombre: "Ukraine", lon: 31.2, lat: 49.2, re: /\b(ukraine|ukrainian|kyiv|zelensky|russia|russian|kremlin|moscow)\b/i },
+  { id: "suez", nombre: "Suez Canal", lon: 32.55, lat: 30.3, re: /\b(suez|egypt)\b/i },
+  { id: "paises-bajos", nombre: "Netherlands", lon: 5.4, lat: 51.4, re: /\b(asml|netherlands|dutch)\b/i },
+  { id: "taiwan", nombre: "Taiwan", lon: 121, lat: 24.8, re: /\b(tsmc|taiwan)\b/i },
+  { id: "china", nombre: "China", lon: 116.4, lat: 39.9, re: /\b(china|chinese|beijing)\b/i },
+  { id: "japon", nombre: "Japan", lon: 139.7, lat: 35.7, re: /\b(japan|japanese|tokyo|bank of japan)\b/i },
+  { id: "frankfurt", nombre: "Frankfurt (ECB)", lon: 8.7, lat: 50.1, re: /\b(ecb|eurozone|euro area|lagarde)\b/i },
+  { id: "reino-unido", nombre: "United Kingdom", lon: -0.1, lat: 51.5, re: /\b(uk|britain|british|london|bank of england|starmer)\b/i },
+  { id: "nueva-york", nombre: "New York", lon: -74, lat: 40.7, re: /\b(wall street|nyse|nasdaq|s&p 500|blackrock|dow jones)\b/i },
+  { id: "washington", nombre: "Washington", lon: -77, lat: 38.9, re: /\b(fed|federal reserve|fomc|powell|cpi|ppi|inflation|bls|white house|congress|senate|midterms?|treasury|sec|social security)\b/i, re2: /(^|[^\w.])(US|U\.S\.)(?![\w])/ },
+];
+const LUGAR_DE_HISTORIA = { "fed-octubre": "washington", "ipc-septiembre": "washington", ormuz: "hormuz", "iran-cese-fuego": "iran", "midterms-camara": "washington", "fed-kalshi-citado": "washington" };
+// si el titular nombra dos lugares o más ("between Ukraine and US") la lectura no es clara: sin alfiler, salvo que uno sea
+// el lugar de su historia del mapa. Mejor sin lugar que un lugar adivinado.
+const lugarDe = (texto, sl) => {
+  const hs = LUGARES.map((l) => { const m = texto.match(l.re) || (l.re2 && texto.match(l.re2)); return m ? { l, palabra: (m[2] || m[1] || m[0]).trim() } : null; }).filter(Boolean);
+  const deHistoria = sl && LUGARES.find((x) => x.id === LUGAR_DE_HISTORIA[sl.id]);
+  if (hs.length === 1) return hs[0];
+  if (hs.length > 1) return hs.find((x) => x.l === deHistoria) || null;
+  return deHistoria ? { l: deHistoria, palabra: null } : null;
+};
+// regla G3: la política solo como impacto en mercado; sin palabra de mercado (las de mapear) queda fuera de las salas
+const sinMercado = (t, sl) => (t.area === "Politics" || sl?.politica) && !MERCADO_PALABRAS.some((w) => new RegExp("\\b" + w + "\\b").test(t.titulo.toLowerCase()));
+const palabrasDe = (texto, h) => { const t = " " + texto.toLowerCase().replace(/[^a-z0-9$%. -]/g, " ") + " ";
+  return (h?.palabras || []).filter((p) => new RegExp("(?<![a-z])" + escRe(p.toLowerCase()) + "(?![a-z])").test(t)); };
+const slug = (s) => s.toLowerCase().normalize("NFD").replace(/[^a-z0-9 ]/g, "").split(/\s+/).filter((w) => w.length > 2).slice(0, 4).join("-") || "historia";
+const TV_AREA = { AI: { simbolo: "NASDAQ:SMH", etiqueta: "VanEck Semiconductor ETF (SMH), delayed, via TradingView" }, Energy: { simbolo: "TVC:UKOIL", etiqueta: "Brent crude CFD via TradingView" } };
+const candidatas = portada.filter((p) => p.tipo === "historia").map((p) => ({ t: p, p, sl: MAPA_PM.historias.find((h) => h.id === p.historia_mapa) || null })).filter((c) => !sinMercado(c.t, c.sl));
+const slUsadas = new Set(candidatas.map((c) => c.sl?.id).filter(Boolean));
+for (const t of (wireFinal || []).filter((x) => !x.viejo)) { // el wire más nuevo primero
+  const sl = historiaDe(t.titulo);
+  if (!sl || sl.fuente !== "polymarket" || sinMercado(t, sl) || slUsadas.has(sl.id) || candidatas.some((c) => c.t.url === t.url)) continue; // "citar": solo con cifra de un medio
+  slUsadas.add(sl.id); candidatas.push({ t, p: null, sl });
+}
+const salas = [], idsSala = new Set();
+for (const { t, p, sl } of candidatas.slice(0, 8)) {
+  const h = (historias || []).find((x) => x.url === t.url);
+  let id = sl?.id || slug(t.titulo); while (idsSala.has(id)) id += "-2"; idsSala.add(id);
+  const lg = lugarDe(t.titulo, sl);
+  // activos propios ligados: el gráfico de la historia y los tickers del mapa con lectura propia; los demás, solo por nombre
+  const tks = sl ? tickersDe(sl, null) : [];
+  const propios = [h?.grafico?.tipo === "propio" ? h.grafico.activo : null, ...tks.map((x) => x.radar)].filter((x) => x && activos.some((a) => a.id === x && !a.viejo));
+  const otros = tks.filter((x) => !x.radar || !activos.some((a) => a.id === x.radar && !a.viejo)).map((x) => ({ simbolo: x.simbolo, nombre: x.nombre }));
+  // la única cifra de predicción: la de la portada, o la del mapa si su mercado no salió ya en otra historia
+  let odds = p?.odds || null;
+  if (!p && sl?.fuente === "polymarket") { const x = await leerPM(sl); if (!x.omitir && !mercadosUsados.has(x.mercado)) { mercadosUsados.add(x.mercado); odds = { texto: x.linea, resultado: x.resultado, url: x.url, p: x.p, leido_utc: x.leido_utc, historia: sl.id }; } }
+  // línea de tiempo: titulares vivos ligados a la misma historia del mapa o al mismo lugar, con su fuente y hora
+  const rel = [...(wireFinal || []), ...titularesF, ...(historias || [])].filter((x) => !x.viejo && x.url !== t.url && !RE_OKX.test(x.titulo || ""))
+    .filter((x, i, xs) => xs.findIndex((y) => y.url === x.url) === i)
+    // por lugar solo los lugares precisos: "US" o "Wall Street" ligan demasiado
+    .filter((x) => (sl && historiaDe(x.titulo)?.id === sl.id) || (lg && !["washington", "nueva-york"].includes(lg.l.id) && lugarDe(x.titulo, null)?.l.id === lg.l.id))
+    .sort((a, b) => String(b.hora).localeCompare(String(a.hora))).slice(0, 5)
+    .map((x) => ({ titulo: x.titulo, fuente: x.fuente, url: x.url, hora: x.hora }));
+  const hn = hnLab.find((x) => x.url === t.url || x.titulo === t.titulo);
+  salas.push({ id, tipo: p ? "portada" : "wire", area: t.area || p?.area, titulo: t.titulo, fuente: t.fuente, url: t.url, hora: t.hora,
+    lugar: lg ? { id: lg.l.id, nombre: lg.l.nombre, lon: lg.l.lon, lat: lg.l.lat } : null,
+    activos: [...new Set(propios)], otros, odds,
+    // sin lectura propia fresca (p. ej. petróleo de la EIA, fechado), el gráfico en vivo de TradingView de su área
+    tv: h?.grafico?.tipo === "tradingview" ? { simbolo: h.grafico.simbolo, etiqueta: h.grafico.etiqueta }
+      : !propios.some((x) => activos.find((a) => a.id === x)?.fresco) ? TV_AREA[propios.some((x) => ["WTI", "BRENT"].includes(x)) ? "Energy" : t.area] || null : null,
+    relacionados: rel,
+    dicen: hn ? { fuente: "Hacker News", puntos: hn.puntos, comentarios: hn.comentarios, url: hn.hn } : null,
+    ligado: { historia: sl?.titulo || null, palabras: palabrasDe(t.titulo, sl), lugar_palabra: lg?.palabra || null },
+    mercado: p?.mercado || null });
+}
+// para el gráfico "cómo leemos" (PAG-01.4): cuentas reales de la corrida
+/* la lectura de hoy (PAG-01.4 r2, D-221): 2 a 4 líneas en llano armadas solo con lo de esta corrida; sin dato, menos líneas.
+   Qué historia lidera, qué se movió, qué dicen las odds (una cifra por historia) y cómo se ligó, con el ejemplo de hoy. */
+const oddsFrase = (o) => (/^that /.test(o.resultado || "") ? "odds " : "odds of ") + (o.resultado || "the outcome");
+const conEl = (n) => (/^(Netherlands|United Kingdom|Strait|Black Sea|Red Sea|Suez)/.test(n) ? "the " : "") + n;
+const quien = (s) => s.ligado?.historia?.replace(/, (.*)$/, " ($1)") || (s.lugar ? `${s.area === "AI" ? "AI news" : s.area + " news"} from ${conEl(s.lugar.nombre)}` : `${s.area} news`);
+const hoyL = [];
+if (salas.length) {
+  const [l0, ...resto] = salas;
+  hoyL.push({ k: "lidera", t: `The lead story: ${l0.fuente} reports “${l0.titulo}”.` + (resto.length ? ` Also on the page: ${resto.slice(0, 4).map(quien).join(", ").replace(/, ([^,]*)$/, " and $1")}.` : "") });
+}
+const movidos = [...new Set(salas.flatMap((s) => s.activos))].map((id) => activos.find((a) => a.id === id)).filter((a) => a && a.fresco && !a.viejo && (a.cambio != null || a.cambio_bp != null))
+  .sort((a, b) => Math.abs(b.cambio_bp != null ? b.cambio_bp / 10 : b.cambio) - Math.abs(a.cambio_bp != null ? a.cambio_bp / 10 : a.cambio)).slice(0, 2);
+if (movidos.length) hoyL.push({ k: "movio", t: "What moved: " + movidos.map((a) => sinPunto(frase(a))).join(". ") + "." });
+const conOdds = salas.filter((s) => s.odds).slice(0, 2);
+if (conOdds.length) { const hh = conOdds[0].odds.leido_utc.slice(11, 16);
+  hoyL.push({ k: "odds", t: `What the markets say: ${conOdds.map((s) => `${oddsFrase(s.odds)} are ${s.odds.p}%`).join("; ").replace(/^./, (c) => c.toUpperCase())} (Polymarket, ${hh} UTC). Prices set by traders, not NAOS forecasts.` }); }
+const ej = salas.find((s) => s.odds && s.ligado?.historia && s.activos.some((id) => activos.find((a) => a.id === id && a.fresco))) || salas.find((s) => s.odds && s.ligado?.historia) || null;
+if (ej) { const a = ej.activos.map((id) => activos.find((x) => x.id === id && x.fresco)).find(Boolean);
+  hoyL.push({ k: "liga", t: `In one room: the ${ej.fuente} headline uses ${ej.ligado.palabras.map((w) => `“${w}”`).join(" and ")}, ${ej.ligado.palabras.length > 1 ? "words" : "a word"} NAOS files under “${ej.ligado.historia}”, so its room shows ${a ? (CORTO[a.id] || a.nombre) + "'s move, " : ""}that market's ${oddsFrase(ej.odds)}${ej.lugar ? " and a map of " + conEl(ej.lugar.nombre) : ""}.` }); }
+const lectura = { hoy: hoyL, ejemplo: ej?.id || null, titulares: temas.total || 0, wire: (wireFinal || []).filter((t) => !t.viejo).length, frescas: activos.filter((a) => a.fresco && !a.viejo).length,
+  mercados_leidos: lecturasPM.size, mercados_mostrados: salas.filter((s) => s.odds).length, salas: salas.length };
 
 // una línea de texto por gráfico de TradingView: qué se movió y por qué, del titular que le corresponde; sin titular, nada
 const graficos = {};
@@ -703,6 +815,8 @@ const salida = {
   temas,
   titulares: titularesF,
   portada,
+  salas,
+  lectura,
   odds_sello: REGLAS_PM.sello,
   graficos,
   explica,
@@ -720,3 +834,6 @@ console.log("  miedo cripto", animo?.cripto.valor, animo?.cripto.clase, "· NAOS
 console.log("  portada", portada.length, "· gráficos con texto", Object.keys(graficos).join(", "), "· escondido", escondido.map((e) => e.id).join(", "));
 console.log("  radar", radarEstado, radarFecha, "· wire", wireFinal.length, "· moved", wireFinal.filter((t) => t.movio).length, "· HN IA", hnLab.length, "· historias", historias.length);
 if (errores.length) console.log("ERRORES:\n  " + errores.join("\n  "));
+
+// el calendario descargable (Upcoming) desde data/agenda.json; los archivos solo cambian cuando cambia la agenda
+try { (await import("./construir-ics.mjs")).construirIcs({ silencio: true }); } catch (e) { console.error("construir-ics:", e.message); }

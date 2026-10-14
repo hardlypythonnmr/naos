@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Christmas Day
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-12-25-christmas-day@naos.hardlypythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:Christmas Day
+DESCRIPTION:Retail season peak and the thinnest trading week of the year\; 
+ travel and shipping demand.\n\nTime not set by the source\; listed as an a
+ ll-day event.\n\nSource: NYSE holidays (Christmas Day closure). https://ww
+ w.nyse.com/markets/hours-calendars\n\nNAOS Upcoming: https://hardlypythonn
+ mr.github.io/naos/agenda.html#2026-12-25-christmas-day\n\nDescriptive\, no
+ t financial advice.
+URL:https://www.nyse.com/markets/hours-calendars
+CATEGORIES:Religious and cultural
+LOCATION:Global (Christian)
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Christmas Day
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

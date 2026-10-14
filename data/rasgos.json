@@ -1,0 +1,15 @@
+{
+  "nota": "Cinta de Behavior (PAG-01.5, D-221): rasgos de conducta y personalidad que tocan los videos de NAOS (earn/naos/videos/). Cada rasgo con una línea tomada del guion del video y el video de donde sale. 'Self-esteem' lo pidió N (D-221) y se liga al video sobre actuar como uno mismo. Editar aquí, no en el HTML. Sin cifras ni promesas.",
+  "rasgos": [
+    { "rasgo": "Calm", "linea": "breathe in for four, out for six", "video": "e22-four-calm-exercises" },
+    { "rasgo": "Self-esteem", "linea": "act like yourself", "video": "e09-acting-like-yourself" },
+    { "rasgo": "Composure", "linea": "strength, held", "video": "e36-composure" },
+    { "rasgo": "Humility", "linea": "say I do not know", "video": "e07-i-do-not-know" },
+    { "rasgo": "Interest", "linea": "people show it in different ways", "video": "e05-show-interest" },
+    { "rasgo": "Asking for help", "linea": "one small, specific ask", "video": "e12-asking-for-help" },
+    { "rasgo": "Closeness", "linea": "built in turns", "video": "e13-closeness-takes-turns" },
+    { "rasgo": "Solitude", "linea": "five minutes alone, nothing to do", "video": "e06-alone-five-minutes" },
+    { "rasgo": "Generosity", "linea": "one gift without being seen", "video": "e29-give-without-being-seen" },
+    { "rasgo": "Feeling", "linea": "let one feeling finish", "video": "e01-still-face" }
+  ]
+}

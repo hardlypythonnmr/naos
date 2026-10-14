@@ -1,0 +1,37 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · France presidential election\, second round
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-05-02-france-presidential-election-second-round@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:France presidential election\, second round
+DESCRIPTION:OAT-Bund spread and euro risk premium around the result.\n\nTim
+ e not set by the source\; listed as an all-day event.\n\nSource: Service-P
+ ublic.fr\, dates set by the Council of Ministers (1 Jul 2026). https://www
+ .service-public.gouv.fr/particuliers/actualites/A15053?lang=fr\n\nNAOS Upc
+ oming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-05-02-franc
+ e-presidential-election-second-round\n\nDescriptive\, not financial advice
+ .
+URL:https://www.service-public.gouv.fr/particuliers/actualites/A15053?lang=
+ fr
+CATEGORIES:Elections
+LOCATION:France
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:France presidential election\, second round
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

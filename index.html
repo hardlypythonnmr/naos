@@ -8,14 +8,20 @@
 <link rel="preload" href="assets/fuentes/IBMPlexSans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fuentes/IBMPlexSansCondensed-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="data/situacion.json" as="fetch" crossorigin>
+<link rel="icon" href="data:,">
 <link rel="preconnect" href="https://s3.tradingview.com" crossorigin>
 <link rel="stylesheet" href="assets/comun/tokens.css">
 <link rel="stylesheet" href="assets/comun/base.css">
 <link rel="stylesheet" href="assets/css/v1plus.css">
+<link rel="stylesheet" href="assets/css/sala.css">
+<link rel="stylesheet" href="assets/css/agenda.css">
 <script defer src="assets/vendor/gsap/gsap.min.js"></script>
 <script defer src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
 <script defer src="assets/comun/naos.js"></script>
+<script defer src="assets/js/sala.js"></script>
 <script defer src="assets/js/v1plus.js"></script>
+<script defer src="assets/js/agenda-comun.js"></script>
+<script defer src="assets/js/proximos.js"></script>
 <noscript><style>[data-espera]{visibility:visible!important}</style></noscript>
 </head>
 <body>
@@ -24,7 +30,7 @@
 <header class="barra">
   <div class="marca"><span class="naos">NAOS</span><span class="cond lema">Yourself, sharper.</span></div>
   <nav class="indice" aria-label="Sections">
-    <a href="#titulares">Headlines</a><a href="#mercados">Market</a><a href="#noticias">News</a><a href="#ia">AI</a><a href="#conducta">Behavior</a><a href="#assets">Assets</a>
+    <a href="#titulares">Headlines</a><a href="#mercados">Market</a><a href="#noticias">News</a><a href="#ia">AI</a><a href="#conducta">Behavior</a><a href="#semana">This week</a><a href="agenda.html">Upcoming</a><a href="#assets">Assets</a>
   </nav>
   <p class="sello estado">Data as of <span class="gen">14 Oct 2026 · 11:20 UTC</span> · Not financial advice</p>
 </header>
@@ -35,7 +41,7 @@
     <div class="dia-fila">
       <div>
         <h1 class="dia" id="dia-t">Today, <span id="dia">Wednesday 14 October 2026</span></h1>
-        <p class="sec-d">What is happening, what moved and what it is connected to. Headlines verbatim from their source, linked.</p>
+        <p class="sec-d">What is happening and what moved, named together. Headlines verbatim from their source. Click a headline to open its monitor room.</p>
       </div>
       <figure class="guardian" id="guardian" data-revela aria-label="Tikr, the page keeper">
         <svg id="tikr" viewBox="0 0 430 240" aria-hidden="true"></svg>
@@ -43,8 +49,31 @@
         <div class="revela-tarjeta" id="tikr-tarjeta"></div>
       </figure>
     </div>
+    <!-- primera vista en bento (PAG-01.6, D-224): historia que lidera, sus odds, el próximo evento (acento vino), un gráfico, la lectura de hoy, el mapa y una cinta -->
+    <div class="bento-p" id="bento-p" hidden>
+      <article class="b b-lead" id="b-lead"></article>
+      <a class="b b-odds" id="b-odds" hidden></a>
+      <article class="b b-evento" id="b-evento" hidden></article>
+      <article class="b b-graf noche" id="b-graf" hidden></article>
+      <article class="b b-hoy" id="b-hoy" hidden></article>
+      <a class="b b-mapa noche" id="b-mapa" href="#mapa-historias" hidden></a>
+      <!-- UPCOMING (D-226): los próximos cinco de data/agenda.json, cada uno con su .ics; la vista completa en agenda.html -->
+      <section class="b b-prox" id="b-prox" aria-labelledby="b-prox-t" hidden></section>
+      <div class="b b-cinta" id="b-cinta" hidden></div>
+    </div>
     <ol class="tits" id="tits"></ol>
     <p class="sello tits-pie" id="tits-pie">Descriptive, not financial advice.</p>
+  </section>
+
+  <!-- CÓMO LEEMOS EL DÍA (PAG-01.4, D-221): qué leemos y cómo lo ligamos, con cuentas reales de la corrida -->
+  <section class="como" id="como" aria-labelledby="t-como">
+    <div class="como-txt">
+      <h2 class="como-t" id="t-como">How NAOS reads the day</h2>
+      <p class="como-met">The method, in short: we read news wires, US data and prices, and prediction markets, and a short story map puts each story with its place, assets and odds in one room. The graphic follows today's example.</p>
+      <p class="sello beta-l"><span class="beta">Beta</span> Experimental: these may be related; we do not claim one causes the other.</p>
+      <p class="sello">Descriptive, not advice. Market odds are prices set by traders, not NAOS forecasts.</p>
+    </div>
+    <div class="como-g" role="img"></div>
   </section>
 
   <div id="cinta" class="cinta"></div>
@@ -156,17 +185,31 @@
     </div>
   </section>
 
+  <!-- cintas que dividen las secciones y titulan los activos de la siguiente (PAG-01.5, D-221) -->
+  <div id="cinta-noticias" class="cinta" hidden></div>
+
   <!-- NEWS: plano de noche -->
   <section class="muro noche" id="noticias" data-plano aria-labelledby="t-not">
     <div class="plano-fondo noche"></div>
     <div class="plano-contenido">
       <header class="sec-cab"><h2 class="sec-t" id="t-not">News</h2><p class="sec-d">The wire by area, the arc from the Black Sea to Hormuz, the stories of the day and their prediction markets. Headlines verbatim with their source. Politics appears only as market impact.</p></header>
+      <div class="rejilla r-geo">
+        <article class="panel p-geo" id="mapa-historias" aria-labelledby="t-geo">
+          <header class="ph geo-cab"><h3 id="t-geo">Where the stories are <span class="beta">Beta</span></h3><span class="sello"></span></header>
+          <p class="geo-d">Each lit place has a live story, named with its assets and its market odds. Open a story for its monitor room.</p>
+          <p class="sello beta-l"><span class="beta">Beta</span> Experimental: these may be related; we do not claim one causes the other.</p>
+          <div class="geo-in"><div class="geo-mapa"></div><ol class="geo-lista"></ol></div>
+          <svg class="geo-l-svg" aria-hidden="true"></svg>
+          <p class="sello">Map: Natural Earth (public domain). Places are where a headline points, not exact locations.</p>
+        </article>
+      </div>
       <div class="rejilla r4">
         <article class="panel p-wire" id="wire">
-          <header class="ph"><h3>Wire, by area</h3><span class="sello" id="wire-sello"></span></header>
+          <header class="ph"><h3>Wire, by area <span class="beta">Beta</span></h3><span class="sello" id="wire-sello"></span></header>
           <div class="filtros" id="filtros" role="group" aria-label="Filter the wire by area"></div>
           <ol class="wire" id="wire-l"></ol>
           <p class="sello">"Moved" appears only when the headline itself names the asset and the move.</p>
+          <p class="sello beta-l"><span class="beta">Beta</span> Odds and monitor room chips are experimental: these may be related; we do not claim one causes the other.</p>
         </article>
         <article class="panel p-mapa" id="mapa">
           <header class="ph"><h3>The arc: Black Sea to Hormuz</h3><span class="sello">Natural Earth · routes approximate</span></header>
@@ -176,7 +219,7 @@
         </article>
       </div>
       <div class="rejilla r5" id="historias">
-        <div class="r5-cab"><h3>Stories of the day</h3><span class="sello"><span id="historias-fecha"></span>One each: AI, politics as market impact, crypto.</span></div>
+        <div class="r5-cab"><h3>Stories of the day</h3><span class="sello"><span id="historias-fecha"></span>One each: AI, politics as market impact, crypto. Click one for its monitor room.</span></div>
         <div class="cartas" id="cartas"></div>
       </div>
       <div class="rejilla r6" id="prediccion">
@@ -185,6 +228,8 @@
       </div>
     </div>
   </section>
+
+  <div id="cinta-ia" class="cinta" hidden></div>
 
   <!-- AI: Lab, plano gris frío -->
   <section class="muro lab" id="ia" data-plano="derecha" aria-labelledby="t-ia">
@@ -216,6 +261,8 @@
     </div>
   </section>
 
+  <div id="cinta-conducta" class="cinta" hidden></div>
+
   <!-- BEHAVIOR: respiración y mantra -->
   <section class="muro conducta" id="conducta" aria-labelledby="t-con">
     <header class="sec-cab"><h2 class="sec-t" id="t-con">Behavior</h2><p class="sec-d">One exercise before you go: four counts in, four counts out.</p></header>
@@ -224,6 +271,11 @@
       <p class="resp-t respira-txt" id="resp-t" aria-live="off">Inhale 1</p>
       <p class="sello">Four in, four out. The page will wait.</p>
     </div>
+  </section>
+  <!-- ESTA SEMANA (PAG-08.1, D-224): grilla pública sección x día, se llena desde data/semana.json -->
+  <section class="muro semana" id="semana" aria-labelledby="t-sem">
+    <header class="sec-cab"><h2 class="sec-t" id="t-sem">This week</h2><div class="cab-n"><span class="sello sem-sello"></span></div><p class="sec-d">What NAOS plans to publish, by section and format, week by week through the month. Pieces with a page link to it.</p></header>
+    <div class="sem-in"></div>
   </section>
   <!-- ASSETS: biblioteca (PAG-06.1, D-212, D-217); se llena desde data/assets.json -->
   <section class="muro biblioteca" id="assets" aria-labelledby="t-as">
@@ -244,9 +296,11 @@
       <p><b>Descriptive, not financial advice.</b> Data as of <span class="gen">14 Oct 2026 · 11:20 UTC</span>. Every reading carries its source and time. Readings older than their source's rhythm, and sample placeholders, are kept off the page until real data arrives.</p>
       <p>Yields: <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" rel="noopener">Source: U.S. Treasury</a>. Currencies: <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" rel="noopener">Source: ECB</a> reference rates; the NAOS dollar index is computed from them and is not ICE's DXY. <a href="https://www.coingecko.com" rel="noopener">Data provided by CoinGecko</a>. Metals: <a href="https://gold-api.com" rel="noopener">gold-api.com</a>. Energy: <a href="https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm" rel="noopener">Source: U.S. Energy Information Administration</a>. <a href="https://alternative.me/crypto/fear-and-greed-index/" rel="noopener">Crypto Fear &amp; Greed Index by alternative.me</a>. Red US events, forecasts and previous values: <a href="https://www.forexfactory.com/calendar" rel="noopener">Forex Factory</a> weekly calendar, each release linked to its official publisher.</p>
       <p>Widgets by <a href="https://www.tradingview.com" rel="noopener">TradingView</a>, embedded as provided. Prediction markets link to <a href="https://polymarket.com" rel="noopener">Polymarket</a> and <a href="https://kalshi.com" rel="noopener">Kalshi</a>. Headlines from the Federal Reserve, the SEC, BBC News, CoinDesk, MarketWatch and <a href="https://news.ycombinator.com" rel="noopener">Hacker News</a>, each linked to its source. Map: <a href="https://www.naturalearthdata.com" rel="noopener">Natural Earth</a> via world-atlas.</p>
-      <p><a href="privacidad.html">Privacy</a> · <a href="terminos.html">Terms</a> · <a href="archivo/index-anterior.html">About the NAOS YouTube app</a></p>
+      <p><a href="agenda.html">Upcoming: the year ahead, with calendar files</a> · <a href="privacidad.html">Privacy</a> · <a href="terminos.html">Terms</a> · <a href="archivo/index-anterior.html">About the NAOS YouTube app</a></p>
     </div>
   </div>
 </footer>
+<!-- sala de monitoreo por historia (PAG-03.2, D-221): se llena desde data/situacion.json (salas) -->
+<dialog class="sala noche" id="sala" aria-labelledby="sala-t"></dialog>
 </body>
 </html>

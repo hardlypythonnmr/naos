@@ -1,0 +1,39 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · IMF and World Bank Annual Meetings (4 to 9 Oct)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2027-10-04-imf-and-world-bank-annual-meetings-4-to-9-oct@naos.hardlypyt
+ honnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20271004
+DTEND;VALUE=DATE:20271010
+SUMMARY:IMF and World Bank Annual Meetings (4 to 9 Oct) (expected date)
+DESCRIPTION:Global outlook update and finance-minister meetings\; FX and de
+ bt headlines.\n\nTime not set by the source\; listed as an all-day event.\
+ n\nExpected date: provisional until the official announcement (moon sighti
+ ng or official calendar).\n\nNote: Dates from the IMF's future meetings li
+ st\; venue not stated there.\n\nSource: IMF Connect\, past and future meet
+ ings. https://www.imfconnect.org/content/imf/en/meetings/past-future-meeti
+ ngs.html\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.h
+ tml#2027-10-04-imf-and-world-bank-annual-meetings-4-to-9-oct\n\nDescriptiv
+ e\, not financial advice.
+URL:https://www.imfconnect.org/content/imf/en/meetings/past-future-meetings
+ .html
+CATEGORIES:Summits
+LOCATION:IMF / World Bank
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IMF and World Bank Annual Meetings (4 to 9 Oct) (expected date)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

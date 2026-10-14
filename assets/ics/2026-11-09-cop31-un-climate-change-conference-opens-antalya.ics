@@ -1,0 +1,37 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · COP31 UN Climate Change Conference opens (Antalya\, 9 
+ to 20 Nov)
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-09-cop31-un-climate-change-conference-opens-antalya@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261121
+SUMMARY:COP31 UN Climate Change Conference opens (Antalya\, 9 to 20 Nov)
+DESCRIPTION:Energy transition and carbon policy signals for oil\, gas and c
+ lean-energy shares.\n\nTime not set by the source\; listed as an all-day e
+ vent.\n\nSource: COP31 Türkiye (official site). https://cop31.tr\n\nNAOS 
+ Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-09-co
+ p31-un-climate-change-conference-opens-antalya\n\nDescriptive\, not financ
+ ial advice.
+URL:https://cop31.tr
+CATEGORIES:Summits
+LOCATION:Türkiye / UN
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:COP31 UN Climate Change Conference opens (Antalya\, 9 to 20 Nov
+ )
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

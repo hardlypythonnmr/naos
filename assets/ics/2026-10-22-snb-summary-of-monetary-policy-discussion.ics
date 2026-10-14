@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · SNB summary of monetary policy discussion
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-10-22-snb-summary-of-monetary-policy-discussion@naos.hardlypythonn
+ mr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261022T073000Z
+SUMMARY:SNB summary of monetary policy discussion
+DESCRIPTION:Hints on the franc and the December SNB decision (no rate decis
+ ion in this window).\n\nTime: 07:30 UTC\, 09:30 Europe/Zurich.\n\nSource: 
+ Swiss National Bank\, event schedule. https://www.snb.ch/en/services-event
+ s/digital-services/event-schedule\n\nNAOS Upcoming: https://hardlypythonnm
+ r.github.io/naos/agenda.html#2026-10-22-snb-summary-of-monetary-policy-dis
+ cussion\n\nDescriptive\, not financial advice.
+URL:https://www.snb.ch/en/services-events/digital-services/event-schedule
+CATEGORIES:Central banks
+LOCATION:Switzerland
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:SNB summary of monetary policy discussion
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Bank of Canada Summary of Deliberations
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-10-bank-of-canada-summary-of-deliberations@naos.hardlypythonnmr
+ .github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20261110T183000Z
+SUMMARY:Bank of Canada Summary of Deliberations
+DESCRIPTION:Detail behind the 28 Oct decision.\n\nTime: 18:30 UTC\, 13:30 A
+ merica/Toronto.\n\nSource: Bank of Canada\, upcoming events. https://www.b
+ ankofcanada.ca/press/upcoming-events/\n\nNAOS Upcoming: https://hardlypyth
+ onnmr.github.io/naos/agenda.html#2026-11-10-bank-of-canada-summary-of-deli
+ berations\n\nDescriptive\, not financial advice.
+URL:https://www.bankofcanada.ca/press/upcoming-events/
+CATEGORIES:Central banks
+LOCATION:Canada
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Bank of Canada Summary of Deliberations
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

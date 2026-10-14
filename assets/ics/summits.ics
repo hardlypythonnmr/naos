@@ -1,0 +1,217 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAOS//Upcoming agenda//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NAOS · Summits
+X-WR-CALDESC:Scheduled events from NAOS Upcoming\, each with the source tha
+ t states its date. Descriptive\, not financial advice.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:2026-11-09-cop31-un-climate-change-conference-opens-antalya@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261121
+SUMMARY:COP31 UN Climate Change Conference opens (Antalya\, 9 to 20 Nov)
+DESCRIPTION:Energy transition and carbon policy signals for oil\, gas and c
+ lean-energy shares.\n\nTime not set by the source\; listed as an all-day e
+ vent.\n\nSource: COP31 Türkiye (official site). https://cop31.tr\n\nNAOS 
+ Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-09-co
+ p31-un-climate-change-conference-opens-antalya\n\nDescriptive\, not financ
+ ial advice.
+URL:https://cop31.tr
+CATEGORIES:Summits
+LOCATION:Türkiye / UN
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:COP31 UN Climate Change Conference opens (Antalya\, 9 to 20 Nov
+ )
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-11-cop31-leaders-summit-11-to-12-nov@naos.hardlypythonnmr.githu
+ b.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261113
+SUMMARY:COP31 Leaders' Summit (11 to 12 Nov)
+DESCRIPTION:Heads of state on climate finance and fossil fuel phase-down la
+ nguage.\n\nTime not set by the source\; listed as an all-day event.\n\nSou
+ rce: COP31 Türkiye (official site). https://cop31.tr\n\nNAOS Upcoming: ht
+ tps://hardlypythonnmr.github.io/naos/agenda.html#2026-11-11-cop31-leaders-
+ summit-11-to-12-nov\n\nDescriptive\, not financial advice.
+URL:https://cop31.tr
+CATEGORIES:Summits
+LOCATION:Türkiye / UN
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:COP31 Leaders' Summit (11 to 12 Nov)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-18-apec-economic-leaders-meeting-shenzhen-18-to-19@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261120
+SUMMARY:APEC Economic Leaders' Meeting (Shenzhen\, 18 to 19 Nov)
+DESCRIPTION:US-China trade signals on the sidelines can move Asian FX and e
+ quities.\n\nTime not set by the source\; listed as an all-day event.\n\nSo
+ urce: Shenzhen Government Online (Xinhua). https://www.sz.gov.cn/en_szgov/
+ news/infocus/APEC2026/News/content/post_12977146.html\n\nNAOS Upcoming: ht
+ tps://hardlypythonnmr.github.io/naos/agenda.html#2026-11-18-apec-economic-
+ leaders-meeting-shenzhen-18-to-19\n\nDescriptive\, not financial advice.
+URL:https://www.sz.gov.cn/en_szgov/news/infocus/APEC2026/News/content/post_
+ 12977146.html
+CATEGORIES:Summits
+LOCATION:China / APEC
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:APEC Economic Leaders' Meeting (Shenzhen\, 18 to 19 Nov)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-14-g20-leaders-summit-trump-national-doral-miami-14@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20261214
+DTEND;VALUE=DATE:20261216
+SUMMARY:G20 Leaders' Summit (Trump National Doral\, Miami\, 14 to 15 Dec)
+DESCRIPTION:Trade\, tariffs and debt language from the US-hosted G20.\n\nTi
+ me not set by the source\; listed as an all-day event.\n\nSource: Wikipedi
+ a\, 2026 G20 Miami summit (citing the White House). https://en.wikipedia.o
+ rg/wiki/2026_G20_Miami_summit\n\nNAOS Upcoming: https://hardlypythonnmr.gi
+ thub.io/naos/agenda.html#2026-12-14-g20-leaders-summit-trump-national-dora
+ l-miami-14\n\nDescriptive\, not financial advice.
+URL:https://en.wikipedia.org/wiki/2026_G20_Miami_summit
+CATEGORIES:Summits
+LOCATION:United States / G20
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:G20 Leaders' Summit (Trump National Doral\, Miami\, 14 to 15 De
+ c)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-18-world-economic-forum-annual-meeting-davos-18-to@naos.hardlyp
+ ythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270123
+SUMMARY:World Economic Forum Annual Meeting (Davos\, 18 to 22 Jan)
+DESCRIPTION:CEO and leader soundbites on AI\, trade and growth\; heavy head
+ line flow.\n\nTime not set by the source\; listed as an all-day event.\n\n
+ Source: Davos Klosters tourism\, event listing. https://www.davos.ch/en/ex
+ perience/events/world-economic-forum-annual-meeting-2027\n\nNAOS Upcoming:
+  https://hardlypythonnmr.github.io/naos/agenda.html#2027-01-18-world-econo
+ mic-forum-annual-meeting-davos-18-to\n\nDescriptive\, not financial advice
+ .
+URL:https://www.davos.ch/en/experience/events/world-economic-forum-annual-m
+ eeting-2027
+CATEGORIES:Summits
+LOCATION:Switzerland / WEF
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:World Economic Forum Annual Meeting (Davos\, 18 to 22 Jan)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-12-imf-and-world-bank-spring-meetings-washington-12@naos.hardly
+ pythonnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20270412
+DTEND;VALUE=DATE:20270418
+SUMMARY:IMF and World Bank Spring Meetings (Washington\, 12 to 17 Apr) (exp
+ ected date)
+DESCRIPTION:World Economic Outlook and G20 finance talks\; growth forecasts
+  get quoted.\n\nTime not set by the source\; listed as an all-day event.\n
+ \nExpected date: provisional until the official announcement (moon sightin
+ g or official calendar).\n\nNote: Listed by the IMF as future meeting date
+ s\; earlier IMF pages called them tentative.\n\nSource: IMF Connect\, past
+  and future meetings. https://www.imfconnect.org/content/imf/en/meetings/p
+ ast-future-meetings.html\n\nNAOS Upcoming: https://hardlypythonnmr.github.
+ io/naos/agenda.html#2027-04-12-imf-and-world-bank-spring-meetings-washingt
+ on-12\n\nDescriptive\, not financial advice.
+URL:https://www.imfconnect.org/content/imf/en/meetings/past-future-meetings
+ .html
+CATEGORIES:Summits
+LOCATION:IMF / World Bank
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IMF and World Bank Spring Meetings (Washington\, 12 to 17 Apr) 
+ (expected date)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-09-07-un-general-assembly-82nd-session-opens@naos.hardlypythonnmr.
+ github.io
+DTSTAMP:20261014T000000Z
+DTSTART:20270907T190000Z
+SUMMARY:UN General Assembly 82nd session opens
+DESCRIPTION:Start of the UNGA season\; the leaders' general debate follows 
+ in the high-level week.\n\nTime: 19:00 UTC\, 15:00 America/New_York.\n\nNo
+ te: The UN gives the opening (Tuesday 7 Sep 2027\, 3 pm New York)\; the hi
+ gh-level week dates are not yet published.\n\nSource: United Nations\, Gen
+ eral Assembly home page. https://www.un.org/en/ga/\n\nNAOS Upcoming: https
+ ://hardlypythonnmr.github.io/naos/agenda.html#2027-09-07-un-general-assemb
+ ly-82nd-session-opens\n\nDescriptive\, not financial advice.
+URL:https://www.un.org/en/ga/
+CATEGORIES:Summits
+LOCATION:United Nations
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:UN General Assembly 82nd session opens
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-10-04-imf-and-world-bank-annual-meetings-4-to-9-oct@naos.hardlypyt
+ honnmr.github.io
+DTSTAMP:20261014T000000Z
+DTSTART;VALUE=DATE:20271004
+DTEND;VALUE=DATE:20271010
+SUMMARY:IMF and World Bank Annual Meetings (4 to 9 Oct) (expected date)
+DESCRIPTION:Global outlook update and finance-minister meetings\; FX and de
+ bt headlines.\n\nTime not set by the source\; listed as an all-day event.\
+ n\nExpected date: provisional until the official announcement (moon sighti
+ ng or official calendar).\n\nNote: Dates from the IMF's future meetings li
+ st\; venue not stated there.\n\nSource: IMF Connect\, past and future meet
+ ings. https://www.imfconnect.org/content/imf/en/meetings/past-future-meeti
+ ngs.html\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.h
+ tml#2027-10-04-imf-and-world-bank-annual-meetings-4-to-9-oct\n\nDescriptiv
+ e\, not financial advice.
+URL:https://www.imfconnect.org/content/imf/en/meetings/past-future-meetings
+ .html
+CATEGORIES:Summits
+LOCATION:IMF / World Bank
+TRANSP:TRANSPARENT
+STATUS:TENTATIVE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:IMF and World Bank Annual Meetings (4 to 9 Oct) (expected date)
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
