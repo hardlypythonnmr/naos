@@ -446,6 +446,7 @@
   } catch (e) { /* sin rasgos, sin cinta */ }
 
   N.comoLeemos($("#como"), d, { A, val, nombreCorto });
+  N.semana($("#semana")).catch((e) => { console.error(e); $("#semana").hidden = true; });
   // cabeceras de sección con sus cifras clave (una a tres); lo hondo queda en los paneles de abajo
   const cab = (sel, xs) => { const h = $(sel); const html = N.cifras(xs); if (h && html) h.insertAdjacentHTML("beforeend", `<div class="cab-n">${html}</div>`); };
   const cf = (id) => (A[id] && A[id].fresco ? { k: nombreCorto[id] || A[id].nombre, v: val(A[id]), a: A[id] } : null);

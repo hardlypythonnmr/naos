@@ -1,0 +1,4 @@
+{
+  "nota": "Eventos agendados fuera del calendario de Forex Factory (votos como el CLARITY Act, discursos, audiencias) para los briefs (PROD-01.3, D-224). Solo con fecha y hora verificadas y la URL que las publica. Formato: { titulo, hora (UTC, AAAA-MM-DDTHH:MMZ), fuente, url }. Vacío hasta tener una fuente citable.",
+  "eventos": []
+}

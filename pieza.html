@@ -22,6 +22,15 @@ h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-hei
 .ranura h2 { font-family: var(--font-sans); font-weight: 600; font-size: 17px; margin: 0 0 10px; padding-top: 12px; border-top: 1px solid var(--naos-ink); }
 .vacio { border: 1px dashed var(--naos-chart); padding: var(--s-3); color: var(--naos-grey); font-size: 14px; }
 .video .vacio { aspect-ratio: 16 / 9; display: grid; place-items: center; text-align: center; }
+.prox { margin-top: var(--s-4); border: 1px solid var(--naos-ink); border-top: 4px solid var(--lab-accent); padding: 14px 18px 12px; }
+.prox h2 { font-family: var(--font-sans); font-weight: 600; font-size: 16px; margin: 0 0 8px; }
+.prox ul { list-style: none; margin: 0; padding: 0; }
+.prox li { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; gap: 4px 12px; align-items: baseline; padding: 7px 0; border-top: 1px solid var(--naos-rule); font-size: 14px; }
+.prox .niv { font-family: var(--font-cond); font-weight: 600; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--lab-accent); }
+.prox .fe { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.prox .tbd { color: var(--naos-grey); font-weight: 400; }
+.prox .sello { margin: 8px 0 0; }
+@media (max-width: 640px) { .prox li { grid-template-columns: 1fr auto; } .prox .niv { grid-column: 1 / -1; } }
 .pie { padding: 20px var(--page-gutter) 40px; border-top: 1px solid var(--naos-rule); }
 @media (max-width: 640px) { .barra { padding: 12px 20px; } h1 { font-size: 30px; } .pie { padding: 16px 20px 32px; } }
 </style>
@@ -33,6 +42,7 @@ h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-hei
   <h1 id="titulo">Piece</h1>
   <p class="desc" id="desc"></p>
   <span class="chip" id="estado">Planned</span>
+  <section class="prox" id="prox" aria-labelledby="r-u" hidden><h2 id="r-u">Upcoming</h2><ul id="prox-l"></ul><p class="sello" id="prox-s"></p></section>
   <section class="ranura video" aria-labelledby="r-v"><h2 id="r-v">Video</h2><div class="vacio">The YouTube video goes here when the piece is published.</div></section>
   <section class="ranura" aria-labelledby="r-t"><h2 id="r-t">Transcript</h2><div class="vacio">The full transcript goes here, under the video.</div></section>
   <section class="ranura" aria-labelledby="r-p"><h2 id="r-p">Prompts</h2><div class="vacio">The prompts used in the piece go here, ready to copy.</div></section>
@@ -52,6 +62,22 @@ h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-hei
       document.title = "NAOS · " + x.titulo;
     }
   } catch (e) { console.warn("assets.json", e); }
+  // Upcoming (PAG-06.3, D-224): la próxima fecha del contenido ligado a esta pieza en cada nivel, desde data/semana.json
+  try {
+    const s = await (await fetch("data/semana.json")).json();
+    const xs = s.items.filter((x) => x.asset_id === id);
+    if (xs.length) {
+      const NIV = { medium: "Medium video", short: "Shorts", brief: "Brief", special: "Special" }, DIA = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], MES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const fe = (f) => { const t = new Date(f + "T12:00:00Z"); return `${DIA[t.getUTCDay()]} ${t.getUTCDate()} ${MES[t.getUTCMonth()]}`; };
+      const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+      const orden = ["medium", "short", "special", "brief"], niveles = orden.filter((k) => xs.some((x) => x.format === k));
+      document.getElementById("prox-l").innerHTML = niveles.map((k) => { const ys = xs.filter((x) => x.format === k), con = ys.filter((x) => x.dia).sort((a, b) => a.dia.localeCompare(b.dia));
+        const titulo = ys.length > 1 ? `${ys.length} pieces · ${esc(ys[0].title.split(" · ")[0])}` : esc(ys[0].title);
+        return `<li><span class="niv">${NIV[k] || k}</span><span>${titulo}</span><span class="fe${con.length ? "" : " tbd"}">${con.length ? fe(con[0].dia) : "Date TBD"}</span></li>`; }).join("");
+      document.getElementById("prox-s").textContent = `From the NAOS plan for the week of ${fe(s.semana.desde)}. Planned, not published; dates marked TBD are not set yet.`;
+      document.getElementById("prox").hidden = false;
+    }
+  } catch (e) { /* sin semana.json, sin tarjeta */ }
 })();
 </script>
 </body>

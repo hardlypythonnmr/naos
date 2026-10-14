@@ -24,6 +24,8 @@ builder lists them, with the reason and the plan to get real data, in `escondido
 | `data/mapa-predicciones.json` | NAOS's curated map: storyline, keywords, Polymarket market, related tickers, global rules (copy of the radar's map) |
 | `data/mundo.json` | world land for the story map and the monitor room (Natural Earth 110m, public domain, from G3 `geo.json`) |
 | `data/rasgos.json` | the Behavior tape: traits from the NAOS videos, one line each; edit here, not in HTML |
+| `data/semana.json` | the public week grid (D-224), built by `node scripts/construir-semana.mjs [--desde=YYYY-MM-DD]`; schema below |
+| `data/agenda.json` | scheduled events outside the Forex Factory calendar (votes, speeches), each with its source URL: `{ eventos: [{ titulo, hora: "YYYY-MM-DDTHH:MMZ", fuente, url }] }` |
 | `data/assets.json` | the Assets library: categories and pieces with their status (all "planned" for now); add pieces here, not in HTML |
 | `pieza.html` | the page of one Assets piece (`?id=`): video, transcript, prompts, sources (D-212); noindex while planned |
 | `scripts/construir-datos.mjs` | the data builder (Node 18+, no dependencies, no keys required) |
@@ -75,6 +77,24 @@ the story-map entry), its own linked assets, the one prediction-market price (sa
 headlines with source and time, Hacker News points and comments when the link is there, and how the tie was made. A room
 opens from a headline, a story card, the wire or the story map, and links as `#sala/<id>` (or `?sala=<id>`). Without data a
 tile is left out. `lectura` holds the run's counts for "How NAOS reads the day".
+
+### The week grid (`data/semana.json`, D-224)
+
+```json
+{ "semana": { "desde": "2026-10-19", "hasta": "2026-10-25" },
+  "secciones": [{ "id": "market", "titulo": "Market" }, "..."], "formatos": [{ "id": "brief", "titulo": "Brief" }, "..."],
+  "slots": [{ "id": "london", "titulo": "London open brief", "local": "08:20 UK" }, "..."],
+  "eventos_nota": "why the briefs list no events yet, or null",
+  "items": [{ "seccion": "market|news|ai|behavior", "dia": "YYYY-MM-DD or null (date TBD)", "slot": "london|ny|close|null",
+              "hora_utc": "brief time", "hora_local": "08:20 UK", "format": "brief|short|medium|special", "title": "...",
+              "asset_id": "id in data/assets.json (optional)", "status": "planned|scheduled|out",
+              "eventos": [{ "titulo": "USD CPI m/m", "hora": "YYYY-MM-DDTHH:MMZ", "fuente": "...", "url": "optional" }] }] }
+```
+
+Briefs: three fixed slots each weekday (London open 08:20 UK, New York open 09:41 ET, US close 16:22 ET). Each lists the
+high-impact events of the Forex Factory weekly calendar (title and time only, once the feed covers that week; it is published
+over the weekend) and `data/agenda.json`, from its slot to the next brief. Pieces without a known date carry `dia: null`.
+The home page shows the grid in "This week"; each piece page shows its "Upcoming" card from the same file.
 
 ## How the data refresh works
 

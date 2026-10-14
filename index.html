@@ -27,7 +27,7 @@
 <header class="barra">
   <div class="marca"><span class="naos">NAOS</span><span class="cond lema">Yourself, sharper.</span></div>
   <nav class="indice" aria-label="Sections">
-    <a href="#titulares">Headlines</a><a href="#mercados">Market</a><a href="#noticias">News</a><a href="#ia">AI</a><a href="#conducta">Behavior</a><a href="#assets">Assets</a>
+    <a href="#titulares">Headlines</a><a href="#mercados">Market</a><a href="#noticias">News</a><a href="#ia">AI</a><a href="#conducta">Behavior</a><a href="#semana">This week</a><a href="#assets">Assets</a>
   </nav>
   <p class="sello estado">Data as of <span class="gen">14 Oct 2026 · 11:20 UTC</span> · Not financial advice</p>
 </header>
@@ -266,6 +266,11 @@
       <p class="resp-t respira-txt" id="resp-t" aria-live="off">Inhale 1</p>
       <p class="sello">Four in, four out. The page will wait.</p>
     </div>
+  </section>
+  <!-- ESTA SEMANA (PAG-08.1, D-224): grilla pública sección x día, se llena desde data/semana.json -->
+  <section class="muro semana" id="semana" aria-labelledby="t-sem">
+    <header class="sec-cab"><h2 class="sec-t" id="t-sem">This week</h2><div class="cab-n"><span class="sello sem-sello"></span></div><p class="sec-d">What NAOS plans to publish, by section and format. Pieces with a page link to it.</p></header>
+    <div class="sem-in"></div>
   </section>
   <!-- ASSETS: biblioteca (PAG-06.1, D-212, D-217); se llena desde data/assets.json -->
   <section class="muro biblioteca" id="assets" aria-labelledby="t-as">
