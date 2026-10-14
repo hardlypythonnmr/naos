@@ -201,3 +201,47 @@ dialog.sala::backdrop { background: var(--naos-night); }
 .beta-l { margin: 6px 0 10px; font-size: 12px; }
 .beta-l .beta { margin: 0 6px 0 0; }
 .sala-cab .beta-l { margin: 8px 0 0; }
+
+/* ---------- color (D-221 r3, pedido de N: "more colour"): el cobalto de la marca como acento tranquilo para odds, lugares y líneas.
+   Esmeralda y borgoña siguen solo para dirección. Cobalto #2438C7 sobre blanco 7,3:1; #8C9BFF sobre noche 7,6:1 (AA). ---------- */
+:root { --acento: var(--lab-accent); --acento-n: var(--lab-night-accent); }
+.cifras { display: inline-flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+.cf { display: inline-flex; align-items: baseline; gap: 6px; white-space: nowrap; font-size: 14px; }
+.cf-k { font-family: var(--font-cond); font-weight: 600; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--naos-grey); }
+.cf b { font-family: var(--font-sans); font-weight: 600; font-size: 18px; letter-spacing: -.01em; }
+.cf-o b { color: var(--acento); }
+.noche .cf-k, .sala .cf-k { color: var(--naos-night-grey); }
+.noche .cf-o b, .sala .cf-o b { color: var(--acento-n); }
+.sec-cab { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
+.sec-cab .sec-d { grid-column: 1 / -1; }
+.cab-n { grid-row: 1; grid-column: 2; padding-bottom: 4px; }
+.sala-tc { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 32px; align-items: end; }
+.sala-tc .cifras { flex-direction: column; align-items: flex-end; gap: 4px; padding-bottom: 14px; }
+.sala-tc .cf b { font-size: 30px; font-weight: 500; }
+.sala-tc .cf { font-size: 18px; }
+.geo-k { justify-content: space-between; }
+.geo-lg { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.geo-d2 { font-size: 12px; }
+.odds-n, .geo-o b, .cn-e b { color: var(--acento-n); }
+.cn-e b { color: var(--acento); }
+.odds-r { color: var(--naos-night-text); }
+.clave-o { background: var(--acento); }
+.clave-o .clave-s { color: #D5DAF7; }
+.tl li.lectura:has(a[href*="polymarket"])::before { background: var(--acento-n); }
+.pin::before { background: var(--acento-n); box-shadow: 0 0 0 4px var(--naos-night), 0 0 0 5.5px var(--acento-n); }
+.pin.activo .pin-n, .pin:focus-visible .pin-n { background: var(--acento-n); color: var(--naos-night); }
+.geo-l-svg path { stroke: var(--acento-n); stroke-opacity: .55; }
+.geo-l-svg path.activo { stroke: var(--acento-n); stroke-opacity: 1; stroke-width: 2; }
+.geo-f.activo, .geo-f:hover, .geo-f:focus-visible { box-shadow: inset 2px 0 0 var(--acento-n); }
+.m-aqui::before { background: var(--acento-n); box-shadow: 0 0 0 5px var(--naos-night), 0 0 0 7px var(--acento-n); }
+.m-aqui span { background: var(--acento-n); color: var(--naos-night); }
+.m-otra::before { border-color: var(--acento-n); }
+.como-l path { stroke: var(--acento); }
+.cn.centro { background: var(--acento); border-color: var(--acento); }
+.cn.centro .cn-s, .cn.centro .cn-e { color: #E8EBFB; }
+.cn.centro .beta { color: #E8EBFB; border-color: #E8EBFB; }
+@media (max-width: 640px) {
+  .sec-cab { grid-template-columns: 1fr; } .cab-n { grid-column: 1; grid-row: auto; }
+  .sala-tc { grid-template-columns: 1fr; } .sala-tc .cifras { flex-direction: row; align-items: baseline; padding-bottom: 8px; }
+  .sala-tc .cf b { font-size: 24px; }
+}

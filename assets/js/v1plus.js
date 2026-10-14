@@ -241,7 +241,7 @@
     `<p class="tit-m">${salaDe(p.url) ? `<span class="tit-sala cond">Monitor room</span>` : ""}<span class="tit-a">${N.esc(p.area === "Politics" ? "Politics, as market impact" : p.area)}</span><span>${horaTit(p)}</span></p>` +
     `<h2 class="tit-t">${salaDe(p.url) ? salaA(salaDe(p.url), N.esc(p.titulo)) : p.url ? `<a href="${N.esc(p.url)}" rel="noopener">${N.esc(p.titulo)}</a>` : N.esc(p.titulo)}</h2>` +
     (p.mercado ? `<p class="tit-l"><span class="tit-k">${N.esc(p.mercado_etiqueta || "Moved")}</span>${N.esc(p.mercado)}</p>` : "") +
-    (p.conectado ? `<p class="tit-l"><span class="tit-k">May be related</span>${N.esc(p.conectado)}</p>` : "") +
+    (p.conectado ? `<p class="tit-l"><span class="tit-k">Tape</span>${N.esc(p.conectado)}</p>` : "") +
     (i === 0 ? clave(p) : p.odds ? `<p class="tit-l"><span class="tit-k">Odds</span>${oddsHtml(p.odds)}</p>` : "") + `</li>`).join("");
   if (tits.some((p) => p.odds) && d.odds_sello) $("#tits-pie").textContent = `Descriptive. ${d.odds_sello}`;
   if (!tits.length) { $("#tits").hidden = true; $("#tits-pie").hidden = true; }
@@ -400,6 +400,14 @@
   } catch (e) { /* sin rasgos, sin cinta */ }
 
   N.comoLeemos($("#como"), d, { A, val, nombreCorto });
+  // cabeceras de sección con sus cifras clave (una a tres); lo hondo queda en los paneles de abajo
+  const cab = (sel, xs) => { const h = $(sel); const html = N.cifras(xs); if (h && html) h.insertAdjacentHTML("beforeend", `<div class="cab-n">${html}</div>`); };
+  const cf = (id) => (A[id] && A[id].fresco ? { k: nombreCorto[id] || A[id].nombre, v: val(A[id]), a: A[id] } : null);
+  cab("#mercados .sec-cab", [cf("BTC"), cf("US10Y"), fng ? { k: "Crypto F&G", v: `${fng.valor} ${fng.clase}` } : null]);
+  const s0 = (d.salas || [])[0];
+  if (s0) cab("#noticias .sec-cab", [{ k: "Stories", v: String((d.salas || []).length) }, ...N.cifrasSala(s0, { A, val, nombreCorto }, 1)]);
+  const nIA = d.temas?.conteos?.AI, hn0 = (d.hn || [])[0];
+  cab("#ia .sec-cab", [nIA ? { k: "AI headlines", v: String(nIA) } : null, hn0 ? { k: "Top on HN", v: `${N.fmt(hn0.puntos)} pts` } : null]);
   N.mapaHistorias($("#mapa-historias"), d, { A, val, nombreCorto }).catch((e) => { console.error(e); $("#mapa-historias").hidden = true; });
 
   N.revelar(document);
