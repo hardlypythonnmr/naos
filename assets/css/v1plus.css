@@ -315,3 +315,6 @@ body { font-size: 14px; }
 .cit-g circle { fill: var(--naos-ink); }
 @media (max-width: 1180px) { .citados { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; } }
 .cinta-pausa[hidden] { display: none; }
+/* mercados de predicción como tarjetas con enlace (sin embed, sin cifras) */
+.pm-k .pm-n { font-family: var(--font-cond); font-weight: 600; font-size: 15px; line-height: 1.25; color: var(--naos-night-text); }
+.pm-k a.ir { align-self: flex-start; }

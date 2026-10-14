@@ -1,5 +1,5 @@
 /* V1+ · Sala de monitoreo con piezas de V3. Necesita gsap, ScrollTrigger y assets/comun/naos.js (defer, en orden).
- * Widgets de terceros (TradingView, Polymarket) se cargan solo al acercarse (IntersectionObserver), con su atribución intacta. */
+ * Widgets de terceros (TradingView) se cargan solo al acercarse (IntersectionObserver), con su atribución intacta. */
 (async function () {
   const N = window.NAOS;
   let d;
@@ -193,7 +193,10 @@
   /* ---------- wire por área ---------- */
   const AREAS = ["Politics", "Economy", "AI", "Energy", "Crypto", "Culture"];
   const wire = d.wire || [];
-  $("#wire-sello").textContent = `${wire.length} headlines · ${N.hora(d.generado)}`;
+  // wire, historias y cierres citados vienen del radar privado; en el repo público se conservan con su fecha (d.radar)
+  const rf = d.radar?.fecha || d.generado, radarTxt = `${N.fecha(rf)} ${N.hora(rf)}`;
+  $("#wire-sello").textContent = `${wire.length} headlines · as of ${radarTxt}`;
+  if ($("#historias-fecha")) $("#historias-fecha").textContent = `As of ${radarTxt}. `;
   const cuenta = (a) => wire.filter((t) => t.area === a).length;
   $("#filtros").innerHTML = `<button type="button" aria-pressed="true" data-area="">All<span class="n">${wire.length}</span></button>` + AREAS.filter(cuenta).map((a) => `<button type="button" aria-pressed="false" data-area="${a}">${a}<span class="n">${cuenta(a)}</span></button>`).join("");
   const horaCorta = (iso) => (iso ? `${N.fecha(iso)} ${iso.slice(11, 16)}` : "");
@@ -260,12 +263,17 @@
     c.addEventListener("pointermove", (e) => { const r = c.getBoundingClientRect(); ry(((e.clientX - r.left) / r.width - .5) * 6); rx(-((e.clientY - r.top) / r.height - .5) * 6); });
     c.addEventListener("pointerleave", () => { rx(0); ry(0); }); });
 
-  /* ---------- mercados de predicción ---------- */
+  /* ---------- mercados de predicción: tarjetas con enlace, sin cifras ----------
+     N quiere mercados de predicción dentro de cada informe (en estudio). Mientras tanto la página no muestra odds ni botones
+     de operar: solo el nombre del mercado y un enlace a Polymarket. Kalshi: solo enlace (sus Data Terms prohíben mostrar sus datos).
+     AQUÍ PUEDE VOLVER el embed oficial de Polymarket o una cifra citada con fecha y fuente, cuando N lo decida. El embed era:
+       <iframe src="https://embed.polymarket.com/market.html?market=${m.slug}&features=volume&theme=${tema(el)}"></iframe>
+     cargado con perezoso(el, fn) como los widgets de TradingView. */
   const pmTema = { Fed: "Fed decision", Geopolitics: "Geopolitics", AI: "AI" };
-  $("#pm").innerHTML = (d.prediccion?.polymarket || []).map((m) => `<div class="pm-c"><span class="tema">${pmTema[m.tema] || m.tema}</span><div class="tv" data-pm="${m.slug}"><p class="tv-espera sello">Polymarket embed loads when it comes into view</p></div>` +
-    `<a class="sello" href="https://polymarket.com/event/${m.evento}" rel="noopener">Source: Polymarket</a></div>`).join("") +
+  const pmNombre = (m) => m.nombre || m.evento.replace(/-\d{6,}$/, "").replace(/-/g, " ").replace(/^./, (c) => c.toUpperCase());
+  $("#pm").innerHTML = (d.prediccion?.polymarket || []).map((m) => `<div class="pm-c pm-k"><span class="tema">${N.esc(pmTema[m.tema] || m.tema)}</span>` +
+    `<p class="pm-n">${N.esc(pmNombre(m))}</p><a class="ir" href="https://polymarket.com/event/${encodeURIComponent(m.evento)}" rel="noopener">Odds on Polymarket</a></div>`).join("") +
     `<div class="pm-c pm-k"><span class="tema">Kalshi</span><p>Kalshi's data terms do not allow showing its odds on another site, so here is a link instead.</p><a class="ir" href="https://kalshi.com/markets" rel="noopener">Open Kalshi markets</a><span class="sello">Kalshi Data Terms of Use, personal non-commercial use only</span></div>`;
-  $$("[data-pm]").forEach((el) => perezoso(el, () => { el.innerHTML = `<iframe title="Polymarket market: ${el.dataset.pm.replace(/-\d{6,}$/, "").replace(/-/g, " ")}" src="https://embed.polymarket.com/market.html?market=${el.dataset.pm}&features=volume&theme=${tema(el)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`; }));
 
   /* ---------- Lab ---------- */
   const hn = d.hn || [];
