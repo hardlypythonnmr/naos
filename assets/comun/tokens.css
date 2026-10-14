@@ -1,0 +1,141 @@
+/* Copia de empresa/estilo/v8/G2/tokens.css para web/versiones (solo cambian las @font-face). NAOS v8 G2 · tokens.css (sube de G: energía y contraste, profundidad de movimiento, oficio; sub-look "NAOS Lab")
+ * Una sola fuente de verdad para la GitHub Page y el motor de video (escena.html + obra.js leen estas variables).
+ * Blanco puro para página y explicadores; noche (#0E1116) para Shorts y posts de alerta.
+ * Color solo para dirección: esmeralda sube, borgoña baja, siempre con signo, triángulo (relleno sube, contorno baja).
+ * Fuentes OFL ya registradas en motor/licencias.md (filas v8 y v8 r2 F): Newsreader, IBM Plex Sans,
+ * IBM Plex Sans Condensed, Schibsted Grotesk. Las rutas son relativas a este archivo: copiar fuentes/ junto a él. */
+
+/* Página: las mismas familias de G2 en woff2 con subconjunto latino (pyftsubset 4.66.1, 2026-10-14). Variables recortadas con fontTools varLib.instancer: Newsreader wght 300 a 400 y opsz fijo en 36, Plex Sans wght 400 a 600 y wdth 100. Schibsted queda fuera:
+   la página no lleva captions P. Licencias OFL en fuentes/. */
+@font-face { font-family: "Newsreader"; src: url("../fuentes/Newsreader.woff2") format("woff2"); font-weight: 300 400; font-display: swap; }
+@font-face { font-family: "Newsreader"; src: url("../fuentes/Newsreader-Italic.woff2") format("woff2"); font-weight: 300 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "IBM Plex Sans"; src: url("../fuentes/IBMPlexSans.woff2") format("woff2"); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "IBM Plex Sans Condensed"; src: url("../fuentes/IBMPlexSansCondensed-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "IBM Plex Sans Condensed"; src: url("../fuentes/IBMPlexSansCondensed-SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
+:root {
+  /* ---------- color: día (página, explicador 16:9) ---------- */
+  --naos-paper: #FFFFFF;        /* blanco puro, sin crema */
+  --naos-ink: #0E1116;          /* texto, cifra, marca; también el fondo noche */
+  --naos-sec: #454C57;          /* cuerpo, notas */
+  --naos-grey: #59616D;         /* gris único: cartela, sello, dato viejo con fecha */
+  --naos-up: #0B6B50;           /* SUBE esmeralda: solo cifra con signo, triángulo relleno, punto relleno */
+  --naos-down: #6F1530;         /* BAJA borgoña: solo cifra con signo, triángulo en contorno, anillo */
+  --naos-chart: #737B87;        /* filete de gráfico y punteado de dato viejo (no texto); sirve en día y en noche */
+  --naos-rule: #D7DBE0;         /* separador decorativo de 1 px, nunca para leer */
+  --naos-plate: #0E1116;        /* G2: plano de tinta sobre blanco (masa estructural, rótulo de capítulo, barrido) */
+  --naos-plate-text: #FFFFFF;   /* texto sobre el plano de tinta */
+
+  /* ---------- color: noche (Shorts, posts de alerta, cinta de la página) ---------- */
+  --naos-night: #0E1116;        /* fondo de F: tinta azulada fría, plano, sin degradado */
+  --naos-night-text: #F4F6F8;
+  --naos-night-sec: #C3C9D2;
+  --naos-night-grey: #9AA3B0;   /* sello, siglas, fechas, dato viejo */
+  --naos-night-up: #4FD9A8;
+  --naos-night-down: #FF7A94;   /* el borgoña #6F1530 sobre noche da 1,64: nunca */
+  --naos-night-rule: #2A303A;   /* separador decorativo */
+  --naos-night-plate: #F4F6F8;  /* G2: plano blanco sobre noche (la misma tinta clara del texto) */
+  --naos-night-plate-text: #0E1116;
+  --naos-night-tile: #1A1F27;   /* G2: ficha de la cinta de aletas (no texto); el pliegue es 2 px de --naos-night */
+
+  /* ---------- color: sub-look NAOS Lab (IA y repos; los mercados siguen en G estricto) ---------- */
+  --lab-paper: #F1F3F6;         /* papel gris frío muy claro, sin crema */
+  --lab-accent: #2438C7;        /* cobalto: SOLO números índice, marcas de capítulo y el asterisco; nunca en datos */
+  --lab-night-accent: #8C9BFF;  /* el mismo cobalto aclarado para la noche */
+  --lab-rule: #D5DAE1;          /* separador decorativo sobre --lab-paper */
+
+  /* ---------- tipo ---------- */
+  --font-serif: "Newsreader", Georgia, serif;                        /* cifra héroe, titular, palabra del ejercicio (de D) */
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;                 /* cartela, datos, sello */
+  --font-cond: "IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; /* cinta y siglas (de F) */
+  --font-caption: "Schibsted Grotesk", system-ui, sans-serif;          /* captions P */
+  --font-display: "IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; /* G2: rótulo de capítulo, 600 en mayúscula */
+
+  /* escala de video (px sobre 1080 de ancho; 32 es el piso legible) */
+  --v-hero: 300px;      /* G2 (G: 236). Newsreader 300, letter-spacing -0.035em; razón héroe/rótulo 9,4 (G: 7,4) */
+  --v-word: 264px;      /* G2 (G: 220). palabra del ejercicio */
+  --v-display: 64px;    /* G2: rótulo de capítulo en el plano, Plex Condensed 600 MAYÚSCULA, tracking -0.01em */
+  --v-display-xl: 176px;/* G2: título de capítulo de portada (carrusel), misma voz, interlínea 0.9 */
+  --v-title: 88px;      /* G2 (G: 76). Newsreader 300, titular de explicador o alerta */
+  --v-caption: 72px;    /* Schibsted 700; 64px si la línea pasa de 18 caracteres */
+  --v-data: 44px;       /* Plex 500/600 tabular */
+  --v-tape: 48px;       /* Plex Condensed 600, cifra de la cinta */
+  --v-label: 32px;      /* Plex 500: cartela, sello, siglas, fechas (mínimo) */
+
+  /* escala de página */
+  --p-hero: 200px;
+  --p-hero-390: 110px;
+  --p-title: 28px;      /* Newsreader 400, "NAOS Tape" */
+  --p-deck: 30px;       /* Newsreader itálica 300 (la frase de F) */
+  --p-data: 20px;
+  --p-label: 14px;      /* 16px a 390 */
+  --p-label-390: 16px;
+  --weight-hero: 300;
+  --tracking-hero: -0.035em;
+  --tracking-display: -0.01em;
+  --leading-display: 0.9;
+  --numeric: tabular-nums;
+
+  /* ---------- espacio (todo múltiplo de 8; rejilla invisible) ---------- */
+  --s-1: 8px; --s-2: 16px; --s-3: 24px; --s-4: 32px; --s-5: 40px; --s-6: 48px; --s-8: 64px; --s-10: 80px; --s-12: 96px; --s-16: 128px;
+  --axis-third: 33.333%;  /* eje vertical de D: la cifra a 1/3 */
+  --page-gutter: 80px;    /* 1440 */
+  --page-gutter-390: 20px;
+  /* zonas seguras del Short 1080x1920 (biblia v8 r2 §3.2 y §8.1; guías no oficiales) */
+  --safe-x: 140px; --safe-top: 220px; --safe-bottom: 430px;  /* nada legible bajo y 1490 */
+  --caption-top: 1100px; --caption-bottom: 1260px;
+  --tape-rule-y: 1290px; --stamp-y: 1312px; --tape-y: 1392px; --tape-cell: 200px; --tape-cell-h: 96px;
+  /* post de alerta 1080x1350 */
+  --card-margin: 96px;
+
+  /* ---------- línea y puntos ---------- */
+  --line-video: 6px;      /* serie del día */
+  --line-video-thin: 3px; /* series de comparación, filetes */
+  --rule-heavy: 6px;      /* G2: barra de tinta que abre y cierra bloques (el filete de 3 px de G queda para el sello) */
+  --plate-pad: 32px;      /* G2: relleno del plano de tinta (múltiplo de 8) */
+  --line-page: 2px;
+  --dot-video: 28px;      /* relleno = sube; anillo de 3 a 4 px = baja */
+  --dash-video: 8px 12px; /* dato viejo en video (2/3 se vuelve gris liso al recomprimir) */
+  --dash-page: 2px 3px;
+
+  /* ---------- movimiento ---------- */
+  --ease-enter: cubic-bezier(.2, 0, 0, 1);  /* entradas por opacidad */
+  --ease-line: linear;                       /* las líneas se dibujan a velocidad constante y se detienen */
+  --t-enter: 600ms;        /* entrada por opacidad; la salida es corte seco */
+  --t-stagger: 200ms;      /* filas del pase de lista: 6 cuadros a 30 fps */
+  --t-hold-min: 200ms;     /* pausa quieta de 6 a 12 cuadros entre cambios */
+  --t-hold-max: 400ms;
+  --t-breath: 600ms;       /* gesto firma: el punto final respira una vez */
+  --breath-scale: 1.15;
+  --t-pop: 67ms;           /* caption P: 100 > 108 > 100 % en 2 cuadros */
+  --pop-scale: 1.08;
+  --t-tape-step: 500ms;    /* la cinta avanza una celda cada 0,5 s */
+  --t-tape-move: 200ms;    /* y se mueve en 6 cuadros */
+  --t-tape-still: 3000ms;  /* la cinta queda quieta mientras se lee la cifra (0 a 3 s) */
+  --t-breath-phase: 4000ms;/* ejercicio: cada fase de la respiración cuadrada */
+  /* G2: profundidad de movimiento (todas en cuadros enteros a 30 fps; la curva es siempre --ease-enter) */
+  --t-mask: 700ms;         /* titular: cada línea sube de 100 % a 0 dentro de su máscara (21 cuadros) */
+  --t-mask-stagger: 133ms; /* entre líneas (4 cuadros) */
+  --t-odo: 800ms;          /* odómetro: solo ruedan los dígitos que cambian, hacia arriba si sube, hacia abajo si baja */
+  --t-odo-stagger: 67ms;   /* de derecha a izquierda, 2 cuadros por dígito */
+  --t-flip: 133ms;         /* cinta de aletas: una sola aleta del valor viejo al nuevo (4 cuadros), nunca dígitos al azar */
+  --t-flip-stagger: 67ms;  /* entre celdas (2 cuadros) */
+  --t-wipe: 467ms;         /* barrido del plano de tinta entre escenas (14 cuadros) */
+  --line-speed: 700;       /* px por segundo: toda línea se dibuja a la misma velocidad constante, la duración sale del largo */
+  --push-scale: 1.03;      /* "cámara": 1,00 a 1,03 a lo largo de toda la toma, lineal; nunca golpes de zoom */
+  /* tiempo de lectura (whaleyxbt §4, klik): una línea en pantalla >= max(1 s, 0,25 s + caracteres/17);
+     la cifra héroe >= 0,3 s por palabra + 1,5 s. Lo comprueba revisa-texto.mjs contra linea.json */
+  --read-min: 1000ms; --read-base: 250ms; --read-cps: 17; --read-hero-word: 300ms; --read-hero-base: 1500ms;
+}
+
+/* utilidades mínimas para la página */
+.naos-day { background: var(--naos-paper); color: var(--naos-ink); }
+.naos-night { background: var(--naos-night); color: var(--naos-night-text); }
+.naos-num { font-family: var(--font-sans); font-variant-numeric: var(--numeric); }
+.naos-hero { font-family: var(--font-serif); font-weight: var(--weight-hero); letter-spacing: var(--tracking-hero); }
+.naos-stale { color: var(--naos-grey); border-top: 2px dotted var(--naos-chart); }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --t-enter: 0ms; --t-breath: 0ms; --t-pop: 0ms; --t-tape-move: 0ms; --t-stagger: 0ms; --t-mask: 0ms; --t-mask-stagger: 0ms;
+          --t-odo: 0ms; --t-odo-stagger: 0ms; --t-flip: 0ms; --t-flip-stagger: 0ms; --t-wipe: 0ms; --push-scale: 1; }
+}

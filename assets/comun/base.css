@@ -1,0 +1,127 @@
+/* base.css · piezas compartidas por las 3 versiones: reset, cinta, odómetro, gráficos, revelado, sello, respiración, planos.
+   Todo color sale de tokens.css (G2). Color solo dice dirección: esmeralda sube, borgoña baja, siempre con signo y triángulo. */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html, body { margin: 0; padding: 0; }
+body { background: var(--naos-paper); color: var(--naos-ink); font-family: var(--font-sans); font-size: 16px; line-height: 1.45;
+  overflow-x: clip; -webkit-font-smoothing: antialiased; }
+img, svg, canvas { display: block; max-width: 100%; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+.cond { font-family: var(--font-cond); font-weight: 600; text-transform: uppercase; letter-spacing: .02em; }
+.up { color: var(--naos-up); } .down { color: var(--naos-down); }
+.noche .up, .cinta .up { color: var(--naos-night-up); } .noche .down, .cinta .down { color: var(--naos-night-down); }
+.noche { background: var(--naos-night); color: var(--naos-night-text); }
+.lab { background: var(--lab-paper); }
+.lab-idx { color: var(--lab-accent); }
+.noche .lab-idx { color: var(--lab-night-accent); }
+
+/* lo que se llena con datos no se ve hasta que está completo: aparece de una vez y no empuja nada (CLS) */
+html:not(.listo) [data-espera] { visibility: hidden; }
+
+/* ---------- marca SAMPLE ---------- */
+.muestra { display: inline-block; font-family: var(--font-cond); font-weight: 600; font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--naos-grey); border: 1px dashed var(--naos-chart); padding: 0 5px; line-height: 16px; vertical-align: 2px; white-space: nowrap; }
+.noche .muestra { color: var(--naos-night-grey); border-color: var(--naos-night-grey); }
+
+/* ---------- sello ---------- */
+.sello { font-family: var(--font-sans); font-size: 12px; line-height: 1.5; color: var(--naos-grey); }
+.noche .sello { color: var(--naos-night-grey); }
+.sello b { font-weight: 600; color: inherit; }
+
+/* ---------- cinta (NAOS Tape) ---------- */
+.cinta { position: relative; display: flex; align-items: stretch; background: var(--naos-night); color: var(--naos-night-text); height: 52px;
+  overflow: hidden; contain: layout paint; }
+.cinta-ventana { position: relative; flex: 1; overflow: hidden; perspective: 600px; }
+.cinta-pista { position: absolute; left: 0; top: 0; height: 100%; display: flex; align-items: center; will-change: transform; white-space: nowrap; }
+.cinta-celda { display: inline-flex; align-items: baseline; gap: 8px; height: 36px; padding: 0 16px; margin-right: 6px; line-height: 36px;
+  background: var(--naos-night-tile); font-family: var(--font-cond); font-weight: 600; font-size: 17px; letter-spacing: .01em;
+  transform-origin: 50% 50%; backface-visibility: hidden; position: relative; }
+.cinta-celda::before, .cinta-celda::after { content: ""; position: absolute; top: 17px; width: 3px; height: 2px; background: var(--naos-night); }
+.cinta-celda::before { left: 0; } .cinta-celda::after { right: 0; }
+.cinta-celda .s { color: var(--naos-night-grey); font-weight: 500; letter-spacing: .04em; }
+.cinta-celda .v { font-variant-numeric: tabular-nums; }
+.cinta-celda .t { font-family: var(--font-sans); font-weight: 500; font-size: 14px; letter-spacing: 0; text-transform: none; }
+.cinta-celda .muestra { color: var(--naos-night-grey); border-color: var(--naos-night-grey); align-self: center; }
+.cinta-pausa { flex: none; width: 52px; border: 0; border-left: 2px solid var(--naos-night); background: var(--naos-night-tile); color: var(--naos-night-text);
+  cursor: pointer; display: grid; place-items: center; }
+.cinta-pausa svg { width: 14px; height: 14px; }
+.cinta-pausa:focus-visible { outline-offset: -4px; }
+.cinta.quieta .cinta-ventana { overflow-x: auto; scrollbar-width: none; }
+.cinta.quieta .cinta-ventana::-webkit-scrollbar { display: none; }
+.cinta.quieta .cinta-pista { position: relative; }
+
+/* ---------- odómetro ---------- */
+.odo { display: inline-flex; align-items: baseline; font-variant-numeric: tabular-nums lining-nums; }
+.odo-d { display: inline-block; height: 1em; line-height: 1; overflow: hidden; vertical-align: baseline; position: relative; }
+.odo-c { display: flex; flex-direction: column; will-change: transform; }
+.odo-c span { display: block; height: 1em; line-height: 1; text-align: center; }
+.odo-x { display: inline-block; line-height: 1; }
+
+/* ---------- gráfico de línea ---------- */
+.graf { position: relative; width: 100%; touch-action: pan-y; outline: none; }
+.graf svg { overflow: visible; }
+.graf .serie { fill: none; stroke: var(--naos-ink); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.noche .graf .serie { stroke: var(--naos-night-text); }
+.graf .base { stroke: var(--naos-rule); stroke-width: 1; }
+.noche .graf .base { stroke: var(--naos-night-rule); }
+.graf .eje { font-family: var(--font-sans); font-size: 11px; fill: var(--naos-grey); font-variant-numeric: tabular-nums; }
+.noche .graf .eje { fill: var(--naos-night-grey); }
+.graf .punto-up { fill: var(--naos-up); } .graf .punto-down { fill: var(--naos-paper); stroke: var(--naos-down); stroke-width: 2.5; }
+.noche .graf .punto-up { fill: var(--naos-night-up); } .noche .graf .punto-down { fill: var(--naos-night); stroke: var(--naos-night-down); }
+.graf .punto-flat { fill: var(--naos-ink); } .noche .graf .punto-flat { fill: var(--naos-night-text); }
+.graf .mira { stroke: var(--naos-chart); stroke-width: 1; stroke-dasharray: 2 3; }
+.graf .mira-p { fill: var(--naos-ink); } .noche .graf .mira-p { fill: var(--naos-night-text); }
+.graf .barra { fill: var(--naos-ink); } .noche .graf .barra { fill: var(--naos-night-sec); }
+.graf-tip { position: absolute; top: 0; pointer-events: none; background: var(--naos-ink); color: var(--naos-paper); font-size: 12px; line-height: 1.3;
+  padding: 4px 8px; white-space: nowrap; font-variant-numeric: tabular-nums; opacity: 0; transform: translate(-50%, -110%); }
+.noche .graf-tip { background: var(--naos-night-plate); color: var(--naos-night-plate-text); }
+.graf.activo .graf-tip { opacity: 1; }
+.graf:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+/* ---------- barras horizontales ---------- */
+.barras { display: grid; gap: 6px; }
+.barras .fila { display: grid; grid-template-columns: 96px 1fr 36px; align-items: center; gap: 8px; font-size: 13px; }
+.barras .riel { height: 10px; background: transparent; border-bottom: 1px solid var(--naos-rule); position: relative; }
+.barras .relleno { position: absolute; left: 0; top: 0; bottom: 0; background: var(--naos-ink); transform-origin: 0 50%; }
+.noche .barras .relleno { background: var(--naos-night-text); }
+.barras .val { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ---------- revelado (hover, foco y toque) ---------- */
+[data-revela] { position: relative; cursor: default; }
+[data-revela]:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.revela-tarjeta { position: absolute; z-index: 30; left: 0; top: calc(100% + 6px); width: min(320px, 86vw); padding: 12px 14px; background: var(--naos-ink);
+  color: var(--naos-paper); font-size: 13px; line-height: 1.45; opacity: 0; visibility: hidden; transform: translateY(6px); pointer-events: none; }
+.revela-tarjeta a { pointer-events: auto; }
+.revela-tarjeta .sello { color: #B9C0CA; margin-top: 6px; }
+.noche .revela-tarjeta { background: var(--naos-night-plate); color: var(--naos-night-plate-text); }
+.noche .revela-tarjeta .sello { color: var(--naos-grey); }
+[data-revela].abierto .revela-tarjeta { opacity: 1; visibility: visible; transform: none; pointer-events: auto;
+  transition: opacity var(--t-enter) var(--ease-enter), transform var(--t-enter) var(--ease-enter); }
+[data-revela].arriba .revela-tarjeta { top: auto; bottom: calc(100% + 6px); }
+[data-revela].derecha .revela-tarjeta { left: auto; right: 0; }
+
+/* ---------- lectura por scroll ---------- */
+.leer .w { display: inline; }
+
+/* ---------- respiración ---------- */
+.respira { display: grid; place-items: center; }
+.respira svg { width: 100%; height: 100%; overflow: visible; }
+.respira-txt { font-family: var(--font-serif); font-style: italic; font-weight: 300; }
+
+/* ---------- planos ---------- */
+[data-plano] { position: relative; isolation: isolate; }
+[data-plano] > .plano-fondo { position: absolute; inset: 0; z-index: -1; }
+
+/* ---------- pie ---------- */
+.pie-fuentes { font-size: 12px; line-height: 1.6; color: var(--naos-grey); }
+.noche .pie-fuentes { color: var(--naos-night-grey); }
+.pie-fuentes a { color: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-revela].abierto .revela-tarjeta { transition: none; }
+}
