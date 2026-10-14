@@ -1,0 +1,25 @@
+/* franja.css · #secuencia, el Short y el Reel de hoy (PROD-08.8). Solo tokens; sin animación propia.
+ * Hoy lleva borde de 2 px en vino (como la grilla de "This week") y la palabra "Today"; el cobalto queda fuera. */
+#secuencia .fr { padding: var(--s-3) var(--page-gutter) var(--s-3); border-bottom: 1px solid var(--naos-rule); }
+.fr-in { max-width: 1120px; margin: 0 auto; }
+.fr-t { font-family: var(--font-serif); font-weight: 300; font-size: var(--p-title); line-height: 1.15; letter-spacing: -0.01em; margin: 0; color: var(--naos-ink); }
+.fr-sub { margin: 6px 0 16px; font-family: var(--font-sans); font-size: 14px; line-height: 1.45; color: var(--naos-sec); }
+.fr-sub a { color: var(--naos-ink); text-decoration: underline; text-underline-offset: 2px; }
+.fr-l { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.fr-f { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 14px 16px; border: 1px solid var(--naos-grey); background: var(--naos-paper); }
+.fr-hoy { border: 2px solid var(--vino, #5A1834); padding: 13px 15px; }
+.fr-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; font-family: var(--font-sans); font-size: 14px; color: var(--naos-sec); }
+.fr-tag { font-family: var(--font-cond); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--naos-ink); }
+.fr-n { font-family: var(--font-serif); font-size: 19px; line-height: 1.25; color: var(--naos-ink); overflow-wrap: anywhere;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.fr-e { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.fr-a { text-decoration: none; }
+.fr-prox { margin: 0; }
+.fr-s { margin: 12px 0 0; }
+.fr-viejo { color: var(--naos-grey); font-style: italic; }
+.fr-carga .fr-esq { height: 132px; background: var(--lab-paper); border: 1px solid var(--naos-rule); }
+@media (max-width: 760px) {
+  #secuencia .fr { padding: var(--s-2) var(--page-gutter-390) var(--s-2); }
+  .fr-l { grid-template-columns: minmax(0, 1fr); }
+  .fr-t { font-size: 26px; }
+}
