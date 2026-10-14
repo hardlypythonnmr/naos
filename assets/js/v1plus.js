@@ -237,12 +237,55 @@
   const tits = (d.portada || []).filter((p) => !p.viejo);
   const horaTit = (p) => (p.tipo === "agenda" ? `${N.esc(p.fuente)}` : `${N.esc(p.fuente)} · ${horaCorta(p.hora)} UTC`) +
     (salaDe(p.url) && p.url ? ` · <a class="tit-src" href="${N.esc(p.url)}" rel="noopener">Read at source</a>` : "");
-  $("#tits").innerHTML = tits.map((p, i) => `<li class="tit${i === 0 ? " lead" : ""}${p.tipo === "agenda" ? " agenda" : ""}" data-entra>` +
+  // la historia que lidera va al bento de arriba; la lista sigue con las demás
+  const lead = tits.find((p) => p.tipo === "historia") || null;
+  const resto = tits.filter((p) => p !== lead);
+  $("#tits").innerHTML = resto.map((p, i) => `<li class="tit${p.tipo === "agenda" ? " agenda" : ""}${p.tipo === "agenda" ? " agenda" : ""}" data-entra>` +
     `<p class="tit-m">${salaDe(p.url) ? `<span class="tit-sala cond">Monitor room</span>` : ""}<span class="tit-a">${N.esc(p.area === "Politics" ? "Politics, as market impact" : p.area)}</span><span>${horaTit(p)}</span></p>` +
     `<h2 class="tit-t">${salaDe(p.url) ? salaA(salaDe(p.url), N.esc(p.titulo)) : p.url ? `<a href="${N.esc(p.url)}" rel="noopener">${N.esc(p.titulo)}</a>` : N.esc(p.titulo)}</h2>` +
     (p.mercado ? `<p class="tit-l"><span class="tit-k">${N.esc(p.mercado_etiqueta || "Moved")}</span>${N.esc(p.mercado)}</p>` : "") +
     (p.conectado ? `<p class="tit-l"><span class="tit-k">Tape</span>${N.esc(p.conectado)}</p>` : "") +
-    (i === 0 ? clave(p) : p.odds ? `<p class="tit-l"><span class="tit-k">Odds</span>${oddsHtml(p.odds)}</p>` : "") + `</li>`).join("");
+    (p.odds ? `<p class="tit-l"><span class="tit-k">Odds</span>${oddsHtml(p.odds)}</p>` : "") + `</li>`).join("");
+
+  /* ---------- primera vista en bento (PAG-01.6, D-224): tamaños y formas desiguales, cada pieza con sus cifras ----------
+     Acentos: cobalto para las odds, esmeralda o borgoña solo para dirección, y el vino (raro, uno por vista) para el
+     próximo evento rojo de EE. UU., lo más importante que está agendado. */
+  (function bento() {
+    if (!lead) return;
+    const B = $("#bento-p"); B.hidden = false;
+    const sl = salaDe(lead.url), enlace = (html) => (sl ? salaA(sl, html) : lead.url ? `<a href="${N.esc(lead.url)}" rel="noopener">${html}</a>` : html);
+    $("#b-lead").innerHTML = `<p class="tit-m">${sl ? `<span class="tit-sala cond">Monitor room</span>` : ""}<span class="tit-a">${N.esc(lead.area)}</span><span>${horaTit(lead)}</span></p>` +
+      `<h2 class="b-t">${enlace(N.esc(lead.titulo))}</h2>` + (sl ? `<p class="b-cf">${N.cifras(N.cifrasSala(sl, { A, val, nombreCorto }))}</p>` : "") +
+      (lead.mercado ? `<p class="tit-l"><span class="tit-k">${N.esc(lead.mercado_etiqueta || "Moved")}</span>${N.esc(lead.mercado)}</p>` : "") +
+      (lead.conectado ? `<p class="tit-l"><span class="tit-k">Tape</span>${N.esc(lead.conectado)}</p>` : "");
+    // odds: las de la historia que lidera o, si no tiene, las de la primera historia con odds (una cifra por historia)
+    const so = (sl?.odds ? sl : (d.salas || []).find((s) => s.odds)) || null;
+    if (so) { const o = so.odds, b = $("#b-odds"); b.hidden = false; b.href = "#sala/" + so.id; b.dataset.sala = so.id;
+      b.innerHTML = `<span class="b-k cond">Market odds${so !== sl ? " · " + N.esc(so.lugar?.nombre || so.area) : ""}</span><span class="b-n num" data-odo-b="${o.p}%"></span>` +
+        `<span class="b-o">${N.esc(N.oddsTxt(o))}</span><span class="b-pie">${N.esc(N.oddsFuente(o))} · not a NAOS forecast</span>`;
+      N.odo($("[data-odo-b]", b), `${o.p}%`, { ya: true, retraso: .5, aria: `${o.p}%` }); }
+    // el próximo evento rojo de EE. UU.: el único elemento en vino de esta vista
+    if (prox) { const e = $("#b-evento"); e.hidden = false;
+      const et = new Date(prox.hora).toLocaleTimeString("en-US", { timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false });
+      const ms = Date.parse(prox.hora) - (N.captura ? Date.parse(d.generado) : Date.now()), h = Math.max(0, Math.floor(ms / 36e5)), m = Math.max(0, Math.floor(ms % 36e5 / 6e4));
+      e.innerHTML = `<span class="b-k cond">Next red US event</span><span class="b-ev">${N.esc(prox.evento.replace(/ [my]\/[my]$/, ""))}</span>` +
+        `<span class="b-n num">${ms > 0 ? (h >= 24 ? `${Math.floor(h / 24)}d ${h % 24}h` : `${h}h ${String(m).padStart(2, "0")}m`) : "now"}</span>` +
+        `<span class="b-pie">${N.esc(DIAS[new Date(prox.hora).getUTCDay()].slice(0, 3))} ${N.hora(prox.hora)} · ${et} ET · ${prox.url ? `<a href="${N.esc(prox.url)}" rel="noopener">${N.esc(prox.publicador || "publisher")}</a>` : "public calendar"}` +
+        `${prox.pronostico ? ` · forecast ${N.esc(prox.pronostico)}, previous ${N.esc(prox.previo || "n/a")}` : ""}</span>`; }
+    // un gráfico chico con datos propios (CoinGecko o Treasury): el primer activo fresco de la historia, o bitcoin
+    const ag = (sl?.activos || []).map((id) => A[id]).find((a) => a && a.fresco && a.serie?.length > 4) || (A.BTC?.fresco ? A.BTC : null);
+    if (ag) { const g = $("#b-graf"); g.hidden = false;
+      g.innerHTML = `<p class="b-k cond">${N.esc(ag.nombre)}, ${N.fecha(ag.serie[0][0])} to ${N.fecha(ag.serie.at(-1)[0])}</p><p class="b-cf">${N.cifras([{ k: nombreCorto[ag.id] || ag.id, v: val(ag), a: ag }])}</p><div class="graf-c" id="b-linea"></div>` +
+        `<p class="b-pie sello">${ag.id === "BTC" || ag.id === "ETH" ? "Data provided by CoinGecko" : N.esc(ag.fuente)} · ${fechaSello(ag)}</p>`;
+      N.linea($("#b-linea"), ag.serie, { h: 150, dec: DEC[ag.id] ?? 2, pre: ag.unidad === "USD" ? "$" : "", suf: ag.unidad === "%" ? "%" : "", titulo: ag.nombre, start: "top 100%", retraso: .6 }); }
+    // la lectura de hoy, armada por el constructor con los datos de la corrida
+    const hoy = (d.lectura?.hoy || []).filter((x) => x?.t);
+    if (hoy.length) { const r = $("#b-hoy"); r.hidden = false;
+      r.innerHTML = `<p class="b-k cond" id="hoy-h">Today's read</p><ol class="hoy" id="hoy"></ol><p class="b-pie sello"><a href="#como">How NAOS reads the day</a> · Descriptive, not advice.</p>`; }
+    // el mapa chico y una cinta de las historias con sus cifras
+    N.mapaMini($("#b-mapa"), d).then((ok) => { $("#b-mapa").hidden = !ok; }).catch(() => {});
+    if (!N.rm && window.gsap) gsap.from($$(".bento-p > .b:not([hidden])"), { y: 32, opacity: 0, clipPath: "inset(0 0 100% 0)", duration: .7, stagger: .08, delay: .15, clearProps: "clipPath,transform,opacity" });
+  })();
   if (tits.some((p) => p.odds) && d.odds_sello) $("#tits-pie").textContent = `Descriptive. ${d.odds_sello}`;
   if (!tits.length) { $("#tits").hidden = true; $("#tits-pie").hidden = true; }
 
@@ -305,7 +348,8 @@
     const pasos = [{ h: h.hora, t: `Published by ${h.fuente}`, ya: true },
       a ? { h: a.fecha.length > 10 ? a.fecha : null, t: `${nombreCorto[a.id] || a.nombre} ${val(a)}${a.cambio != null ? ", " + camTxt(a) : ""}`, ya: true, f: a.fecha } : { h: d.generado, t: "NAOS scan", ya: true },
       prox ? { h: prox.hora, t: `Next: US ${prox.evento.replace(/ [my]\/[my]$/, "").replace(/^Core /, "")}`, ya: false } : null].filter(Boolean);
-    return `<article class="carta" data-entra><span class="area"><span>${corto[h.area]}</span><span>${String(i + 1).padStart(2, "0")}</span></span>` +
+    return `<article class="carta" data-entra><span class="area"><span>${corto[h.area] || h.area}</span><span>${String(i + 1).padStart(2, "0")}</span></span>` +
+      (salaDe(h.url) ? `<p class="carta-cf">${N.cifras(N.cifrasSala(salaDe(h.url), { A, val, nombreCorto }))}</p>` : "") +
       `<h3 class="tt">${salaDe(h.url) ? salaA(salaDe(h.url), N.esc(h.titulo)) : `<a href="${N.esc(h.url)}" rel="noopener">${N.esc(h.titulo)}</a>`}</h3><span class="sello">${N.esc(h.fuente)} · ${horaCorta(h.hora)} UTC · headline verbatim${salaDe(h.url) ? ` · <a href="${N.esc(h.url)}" rel="noopener">source</a>` : ""}</span>` +
       ladosHtml(h.lados) +
       (h.contexto && !h.contexto_sample ? `<p class="ctx">${N.esc(h.contexto)}</p>` : "") +
@@ -385,6 +429,8 @@
   const cintaNoticias = (d.salas || []).filter((s) => s.lugar).map((s) => { const a = s.activos.map((id) => A[id]).find((x) => x && x.fresco);
     return a ? { s: s.lugar.nombre, v: `${nombreCorto[a.id] || a.nombre} ${val(a)}`, c: a.cambio == null ? null : a }
       : { s: s.lugar.nombre, t: s.odds ? N.oddsDentro(s.odds) : (AREA_C[s.area] || s.area) + (s.tv ? ` · ${s.tv.simbolo.split(":")[1]} chart in its room` : "") }; });
+  if (cintaNoticias.length && !$("#bento-p").hidden) { $("#b-cinta").hidden = false; $("#b-cinta").classList.add("cinta");
+    N.cinta($("#b-cinta"), cintaNoticias.slice(), { rotulo: "Stories", aria: "Stories tape: each story's place and its key move", retraso: .9 }); }
   if (cintaNoticias.length) { cintaNoticias.push({ s: "Wire", t: `${wire.length} headlines, verbatim` }); $("#cinta-noticias").hidden = false;
     N.cinta($("#cinta-noticias"), cintaNoticias, { rotulo: "News", aria: "News tape: the places and assets of the stories below", retraso: .1 }); }
   // AI: los mismos símbolos del rastreador de abajo, con cuántos titulares de hoy los nombran (sin precios: esos van en TradingView)

@@ -204,7 +204,11 @@ dialog.sala::backdrop { background: var(--naos-night); }
 
 /* ---------- color (D-221 r3, pedido de N: "more colour"): el cobalto de la marca como acento tranquilo para odds, lugares y líneas.
    Esmeralda y borgoña siguen solo para dirección. Cobalto #2438C7 sobre blanco 7,3:1; #8C9BFF sobre noche 7,6:1 (AA). ---------- */
-:root { --acento: var(--lab-accent); --acento-n: var(--lab-night-accent); }
+:root { --acento: var(--lab-accent); --acento-n: var(--lab-night-accent);
+  /* vino (D-224): acento raro, a lo sumo UN elemento por vista, para un caso especial (hoy: el próximo evento rojo de EE. UU.).
+     Se usa solo como plano con texto claro, nunca como color de cifra: así no se confunde con el borgoña de "baja".
+     #5A1834 con #F4F6F8 da 12,9:1; el plano se ve sobre blanco (11,9:1 contra el papel) y sobre noche lleva filete claro. */
+  --vino: #5A1834; --vino-texto: #F4F6F8; --vino-sec: #E3C9D3; }
 .cifras { display: inline-flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
 .cf { display: inline-flex; align-items: baseline; gap: 6px; white-space: nowrap; font-size: 14px; }
 .cf-k { font-family: var(--font-cond); font-weight: 600; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--naos-grey); }
@@ -245,3 +249,54 @@ dialog.sala::backdrop { background: var(--naos-night); }
   .sala-tc { grid-template-columns: 1fr; } .sala-tc .cifras { flex-direction: row; align-items: baseline; padding-bottom: 8px; }
   .sala-tc .cf b { font-size: 24px; }
 }
+
+/* ---------- portada en bento (PAG-01.6, D-224): tamaños y formas desiguales ---------- */
+.bento-p { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: minmax(150px, auto); gap: 10px; margin: 0 0 var(--s-5); }
+.b { position: relative; min-width: 0; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: inherit; overflow: hidden; }
+.b-k { font-size: 11px; letter-spacing: .06em; color: var(--naos-grey); }
+.b-pie { font-size: 11px; line-height: 1.4; margin-top: auto; }
+.b-lead { grid-column: 1 / 8; grid-row: 1; border-top: 4px solid var(--naos-ink); padding-left: 0; padding-right: 8px; }
+.b-t { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-height: 1.08; letter-spacing: -.015em; margin: 2px 0 6px; }
+.b-t a { text-decoration: none; } .b-t a:hover, .b-t a:focus-visible { text-decoration: underline; text-decoration-thickness: 1px; }
+.b-cf { margin: 0 0 6px; }
+.b-cf .cf b { font-size: 22px; }
+.b-odds { grid-column: 8 / 11; grid-row: 1; background: var(--acento); color: #fff; }
+.b-odds .b-k { color: #D5DAF7; }
+.b-odds .b-n { font-family: var(--font-sans); font-weight: 500; font-size: 56px; line-height: 1; letter-spacing: -.03em; }
+.b-odds .b-o { font-family: var(--font-serif); font-size: 17px; line-height: 1.25; }
+.b-odds .b-pie { color: #D5DAF7; }
+.b-odds:hover .b-o, .b-odds:focus-visible .b-o { text-decoration: underline; text-underline-offset: 3px; }
+.b-evento { grid-column: 11 / 13; grid-row: 1; background: var(--vino); color: var(--vino-texto); }
+.b-evento .b-k, .b-evento .b-pie, .b-evento a { color: var(--vino-sec); }
+.b-ev { font-family: var(--font-serif); font-size: 19px; line-height: 1.2; }
+.b-evento .b-n { font-family: var(--font-cond); font-weight: 600; font-size: 34px; line-height: 1; letter-spacing: .01em; }
+.b-graf { grid-column: 7 / 10; grid-row: 2; }
+.b-graf, .b-mapa { background: var(--naos-night); color: var(--naos-night-text); }
+.b-graf .b-k { color: var(--naos-night-grey); }
+.b-graf .graf-c { margin-top: 2px; }
+.b-hoy { grid-column: 1 / 7; grid-row: 2; background: var(--lab-paper); }
+.b-hoy .hoy { margin: 0; }
+.b-hoy .hoy li { font-size: 14px; padding: 6px 0; }
+.b-mapa { grid-column: 10 / 13; grid-row: 2; padding: 14px 16px; }
+.b-mapa .b-k { color: var(--naos-night-grey); }
+.b-mapa-c { position: relative; display: block; width: 100%; flex: 1 1 auto; min-height: 120px; overflow: hidden; border: 1px solid var(--naos-night-rule); }
+.b-mapa-c svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pin-m { position: absolute; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--acento-n); box-shadow: 0 0 0 3px var(--naos-night), 0 0 0 4.5px var(--acento-n); }
+.b-mapa:hover .b-k, .b-mapa:focus-visible .b-k { color: var(--naos-night-text); text-decoration: underline; }
+.b-cinta { grid-column: 1 / -1; padding: 0; }
+.carta-cf { margin: -2px 0 2px; }
+.carta-cf .cf b { font-size: 16px; }
+@media (max-width: 1180px) {
+  .bento-p { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .b-lead { grid-column: 1 / -1; grid-row: auto; }
+  .b-odds { grid-column: 1 / 4; grid-row: auto; } .b-evento { grid-column: 4 / 7; grid-row: auto; }
+  .b-graf, .b-hoy { grid-column: 1 / -1; grid-row: auto; } .b-mapa { grid-column: 1 / -1; grid-row: auto; min-height: 220px; }
+}
+@media (max-width: 640px) {
+  .bento-p { grid-template-columns: 1fr; gap: 8px; }
+  .bento-p > .b { grid-column: 1 / -1 !important; }
+  .b-t { font-size: 28px; }
+  .b-odds .b-n { font-size: 44px; }
+  .b { padding: 14px 16px; } .b-lead { padding: 12px 0 4px; }
+}
+.b.b-cinta { flex-direction: row; gap: 0; height: 52px; padding: 0; }

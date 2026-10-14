@@ -82,10 +82,10 @@
   N.comoLeemos = (el, d, ctx) => {
     const L = d.lectura; if (!el || !L) { if (el) el.hidden = true; return; }
     const hoy = (L.hoy || []).filter((x) => x && x.t);
-    const ol = $("#hoy", el);
-    if (hoy.length) { ol.innerHTML = hoy.map((x, i) => `<li data-k="${esc(x.k)}"><span class="hoy-i num">${String(i + 1).padStart(2, "0")}</span><span>${x.k === "liga" ? '<span class="beta">Beta</span> ' : ""}${esc(x.t)}</span></li>`).join("");
-      $("#hoy-h", el).textContent = `Today's read · ${horaTxt(d.generado)}`; }
-    else { ol.hidden = true; $("#hoy-h", el).hidden = true; }
+    const ol = $("#hoy");
+    if (!ol) {} else if (hoy.length) { ol.innerHTML = hoy.map((x, i) => `<li data-k="${esc(x.k)}"><span class="hoy-i num">${String(i + 1).padStart(2, "0")}</span><span>${x.k === "liga" ? '<span class="beta">Beta</span> ' : ""}${esc(x.t)}</span></li>`).join("");
+      $("#hoy-h").textContent = `Today's read · ${horaTxt(d.generado)}`; }
+    else { ol.hidden = true; $("#hoy-h").hidden = true; }
     const pl = (n, s, p = s + "s") => `${N.fmt(n)} ${n === 1 ? s : p}`;
     const ej = (d.salas || []).find((s) => s.id === L.ejemplo) || null, A = ctx?.A || {};
     const a = ej && ej.activos.map((id) => A[id]).find((x) => x && x.fresco);
@@ -297,6 +297,23 @@
       else history.replaceState(null, "", location.pathname + location.search.replace(/([?&])sala=[^&]*&?/, "$1").replace(/[?&]$/, "")); }
     Object.assign(api, { abrir: (id) => abrir(id, { push: true }), cerrar });
     return api;
+  };
+
+  /* ================= mapa chico del bento: los lugares encendidos, sin rótulos; lleva al mapa de historias ================= */
+  N.mapaMini = async (el, d) => {
+    const ls = []; for (const s of (d.salas || []).filter((x) => x.lugar)) if (!ls.some((l) => l.id === s.lugar.id)) ls.push({ ...s.lugar, y: merc(s.lugar.lat) });
+    if (!el || !ls.length) return false;
+    await cargarMundo();
+    const R = Math.max(1.1, el.clientWidth / Math.max(120, el.clientHeight - 40));
+    let x0 = Math.min(...ls.map((l) => l.lon)) - 18, x1 = Math.max(...ls.map((l) => l.lon)) + 18, y0 = Math.min(...ls.map((l) => l.y)) - 14, y1 = Math.max(...ls.map((l) => l.y)) + 14;
+    if ((x1 - x0) / (y1 - y0) > R) { const c = (y0 + y1) / 2, h = (x1 - x0) / R; y0 = c - h / 2; y1 = c + h / 2; } else { const c = (x0 + x1) / 2, w = (y1 - y0) * R; x0 = c - w / 2; x1 = c + w / 2; }
+    const vb = [x0, y0, x1 - x0, y1 - y0], pc = (px, py) => [((px - vb[0]) / vb[2] * 100).toFixed(2), ((py - vb[1]) / vb[3] * 100).toFixed(2)];
+    el.innerHTML = `<span class="b-k cond">Where the stories are <span class="beta">Beta</span></span><span class="b-mapa-c" style="aspect-ratio:${vb[2]} / ${vb[3]}"><svg viewBox="${vb.join(" ")}" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path class="m-t" d="${tierraMundo()}"/></svg>` +
+      ls.map((l) => { const [a, b] = pc(l.lon, l.y); return `<span class="pin-m" style="left:${a}%;top:${b}%" title="${esc(l.nombre)}"></span>`; }).join("") + `</span>` +
+      `<span class="b-pie sello">${ls.length} places lit · ${ls.map((l) => esc(l.nombre)).join(", ")}</span>`;
+    el.setAttribute("aria-label", `Story map: ${ls.map((l) => l.nombre).join(", ")}. Go to the map.`);
+    if (!N.rm && window.gsap) gsap.from($$(".pin-m", el), { scale: 0, duration: .4, stagger: .12, delay: .9 });
+    return true;
   };
 
   /* ================= mapa de historias en la portada (PAG-03.3) ================= */
