@@ -319,6 +319,14 @@ a.sf:hover, a.sf:focus-visible { border-color: var(--acento); color: var(--acent
 .sem-s { padding: 10px 8px; font-size: 13px; letter-spacing: .05em; border-left: 4px solid var(--sc); border-bottom: 1px solid var(--naos-rule); color: var(--naos-ink); }
 .sem-c { display: flex; flex-direction: column; gap: 4px; padding: 8px 6px; border-bottom: 1px solid var(--naos-rule); border-left: 1px solid var(--naos-rule); min-height: 46px; }
 .sem-c.tbd { background: var(--lab-paper); }
+.sem-h span.hoy { color: var(--naos-ink); box-shadow: inset 0 -2px 0 var(--acento); }
+.sem-nav { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; }
+.sem-b { min-height: 40px; padding: 6px 14px; border: 1px solid var(--naos-ink); background: var(--naos-paper); font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.sem-b:hover:not(:disabled), .sem-b:focus-visible { background: var(--naos-ink); color: var(--naos-paper); }
+.sem-b:disabled { border-color: var(--naos-rule); color: var(--naos-grey); cursor: default; }
+.sem-w { margin: 0; font-size: 13px; letter-spacing: .04em; flex: 1; text-align: center; }
+.sf-v { margin-left: 5px; font-family: var(--font-cond); font-weight: 600; font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--acento); }
+.sf-n { display: block; font-size: 11px; color: var(--naos-grey); margin-top: 2px; }
 .sem-r .sf-i { color: var(--sc); }
 .sem-m { display: none; }
 .semana .sello { margin-top: 10px; }
@@ -329,4 +337,5 @@ a.sf:hover, a.sf:focus-visible { border-color: var(--acento); color: var(--acent
   .sem-mi .sf-i { color: var(--sc); }
   .sem-ms { font-size: 11px; letter-spacing: .05em; color: var(--naos-sec); }
   .sem-ley-s { margin-left: 0; }
+  .sem-nav { flex-wrap: wrap; } .sem-w { order: -1; flex-basis: 100%; text-align: left; } .sem-b { flex: 1; }
 }

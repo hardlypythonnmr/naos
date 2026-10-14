@@ -29,6 +29,7 @@ h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-hei
 .prox .niv { font-family: var(--font-cond); font-weight: 600; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--lab-accent); }
 .prox .fe { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .prox .tbd { color: var(--naos-grey); font-weight: 400; }
+.prox .nota { display: block; font-size: 12px; color: var(--naos-grey); }
 .prox .sello { margin: 8px 0 0; }
 @media (max-width: 640px) { .prox li { grid-template-columns: 1fr auto; } .prox .niv { grid-column: 1 / -1; } }
 .pie { padding: 20px var(--page-gutter) 40px; border-top: 1px solid var(--naos-rule); }
@@ -175,14 +176,20 @@ function llenar(x, c, consultadas) {
     const s = await (await fetch("data/semana.json")).json();
     const xs = s.items.filter((x) => x.asset_id === id);
     if (xs.length) {
-      const NIV = { medium: "Medium video", short: "Shorts", brief: "Brief", special: "Special" }, DIA = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], MES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-      const fe = (f) => { const t = new Date(f + "T12:00:00Z"); return `${DIA[t.getUTCDay()]} ${t.getUTCDate()} ${MES[t.getUTCMonth()]}`; };
+      const NIV = { medium: "Medium video", short: "Shorts", brief: "Brief", special: "Special", page: "Page" }, DIA = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], MES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const fe = (f) => { const t = new Date(f + "T12:00:00Z"); return `${DIA[t.getUTCDay()]} ${t.getUTCDate()} ${MES[t.getUTCMonth()]}${f.slice(0, 4) !== s.semana.desde.slice(0, 4) ? " " + f.slice(0, 4) : ""}`; };
       const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-      const orden = ["medium", "short", "special", "brief"], niveles = orden.filter((k) => xs.some((x) => x.format === k));
-      document.getElementById("prox-l").innerHTML = niveles.map((k) => { const ys = xs.filter((x) => x.format === k), con = ys.filter((x) => x.dia).sort((a, b) => a.dia.localeCompare(b.dia));
-        const titulo = ys.length > 1 ? `${ys.length} pieces · ${esc(ys[0].title.split(" · ")[0])}` : esc(ys[0].title);
-        return `<li><span class="niv">${NIV[k] || k}</span><span>${titulo}</span><span class="fe${con.length ? "" : " tbd"}">${con.length ? fe(con[0].dia) : "Date TBD"}</span></li>`; }).join("");
-      document.getElementById("prox-s").textContent = `From the NAOS plan for the week of ${fe(s.semana.desde)}. Planned, not published; dates marked TBD are not set yet.`;
+      const hoy = new Date().toISOString().slice(0, 10);
+      // una fila por pieza fechada (la fecha del plan del mes, D-227); las sin fecha, juntas por nivel con su motivo
+      const orden = ["medium", "short", "special", "page", "brief"];
+      const filas = xs.filter((x) => x.dia).sort((a, b) => a.dia.localeCompare(b.dia) || orden.indexOf(a.format) - orden.indexOf(b.format));
+      const futuras = filas.filter((x) => x.dia >= hoy), vistas = futuras.length ? futuras : filas;
+      const sin = orden.filter((k) => xs.some((x) => x.format === k && !x.dia));
+      document.getElementById("prox-l").innerHTML = vistas.map((x) => `<li><span class="niv">${NIV[x.format] || x.format}</span><span>${esc(x.title)}${x.nota ? `<span class="nota">${esc(x.nota)}</span>` : ""}</span><span class="fe">${fe(x.dia)}</span></li>`).join("") +
+        sin.map((k) => { const ys = xs.filter((x) => x.format === k && !x.dia), n = ys.find((x) => x.nota)?.nota;
+          return `<li><span class="niv">${NIV[k] || k}</span><span>${ys.length > 1 ? `${ys.length} pieces · ${esc(ys[0].title.split(" · ")[0])}` : esc(ys[0].title)}${n ? `<span class="nota">${esc(n)}</span>` : ""}</span><span class="fe tbd">Date TBD</span></li>`; }).join("");
+      const ult = (s.semanas || [s.semana]).at(-1).hasta;
+      document.getElementById("prox-s").textContent = `From the NAOS month plan (${fe(s.semana.desde)} to ${fe(ult)}) and the dates it sets after it. Planned, not published; dates marked TBD are not set yet.`;
       document.getElementById("prox").hidden = false;
     }
   } catch (e) { /* sin semana.json, sin tarjeta */ }

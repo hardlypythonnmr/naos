@@ -84,16 +84,20 @@ tile is left out. `lectura` holds the run's counts for "How NAOS reads the day".
 ### The week grid (`data/semana.json`, D-224)
 
 ```json
-{ "semana": { "desde": "2026-10-19", "hasta": "2026-10-25" },
+{ "semana": { "desde": "2026-10-19", "hasta": "2026-10-25" }, "semanas": [{ "desde": "2026-10-19", "hasta": "2026-10-25" }, "..."],
   "secciones": [{ "id": "market", "titulo": "Market" }, "..."], "formatos": [{ "id": "brief", "titulo": "Brief" }, "..."],
   "slots": [{ "id": "london", "titulo": "London open brief", "local": "08:20 UK" }, "..."],
   "eventos_nota": "why the briefs list no events yet, or null",
   "items": [{ "seccion": "market|news|ai|behavior", "dia": "YYYY-MM-DD or null (date TBD)", "slot": "london|ny|close|null",
-              "hora_utc": "brief time", "hora_local": "08:20 UK", "format": "brief|short|medium|special", "title": "...",
+              "hora_utc": "brief time", "hora_local": "08:20 UK", "format": "brief|short|medium|special|page", "title": "...",
+              "video": "brief only: true for the close (Short EN) and one opening on a red-event day", "nota": "optional",
               "asset_id": "id in data/assets.json (optional)", "status": "planned|scheduled|out",
               "eventos": [{ "titulo": "USD CPI m/m", "hora": "YYYY-MM-DDTHH:MMZ", "fuente": "...", "url": "optional" }] }] }
 ```
 
+The builder covers the four weeks of the board's month plan (19 Oct to 15 Nov 2026, `acta-r1` §3, D-227) plus the dates
+the plan sets after it; the home page opens on the current week and switches with "Previous week" / "Next week". Pieces the
+plan does not date (Strategies, Indicator 1: waiting for the lawyer) keep `dia: null` with the reason in `nota`.
 Briefs: three fixed slots each weekday (London open 08:20 UK, New York open 09:41 ET, US close 16:22 ET). Each lists the
 high-impact events of the Forex Factory weekly calendar (title and time only, once the feed covers that week; it is published
 over the weekend) and `data/agenda.json`, from its slot to the next brief. Pieces without a known date carry `dia: null`.

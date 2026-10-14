@@ -379,6 +379,7 @@
     short: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="4.5" y="1.5" width="7" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 6.2v3.6L10 8z" fill="currentColor"/></svg>',
     medium: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="3.5" width="14" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 5.8v4.4L10.2 8z" fill="currentColor"/></svg>',
     special: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 14.5 8 8 14.5 1.5 8z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>',
+    page: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 1.5v3h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>',
   };
   const SLOT = { london: "London open", ny: "NY open", close: "US close" };
   const DIA = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], MES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -387,7 +388,9 @@
     let s, paginas = new Set();
     try { s = await (await fetch("data/semana.json")).json(); } catch (e) { el.hidden = true; return; }
     try { const a = await (await fetch("data/assets.json")).json(); for (const c of a.categorias) for (const x of c.piezas) if (x.pagina) paginas.add(x.id); } catch (e) {}
-    const dias = Array.from({ length: 7 }, (_, i) => new Date(Date.parse(s.semana.desde + "T00:00:00Z") + i * 864e5).toISOString().slice(0, 10));
+    // varias semanas (D-227): abre en la de hoy; antes del plan, la primera; después, la última
+    const semanas = s.semanas?.length ? s.semanas : [s.semana], hoy = new Date().toISOString().slice(0, 10);
+    let w = semanas.findIndex((x) => hoy <= x.hasta); if (w < 0) w = semanas.length - 1;
     // los Shorts sin fecha de una misma pieza van juntos en una ficha
     const juntar = (xs) => { const out = []; for (const x of xs) { const g = !x.dia && x.format === "short" && out.find((y) => y.format === "short" && y.asset_id === x.asset_id && y.n);
       if (g) g.n++; else out.push({ ...x, n: !x.dia && x.format === "short" ? 1 : 0 }); } return out; };
@@ -395,28 +398,42 @@
       const fmt = s.formatos.find((f) => f.id === x.format)?.titulo || x.format;
       const txt = x.format === "brief" ? SLOT[x.slot] || x.title : x.n > 1 ? `${x.n} Shorts · ${x.title.split(" · ")[0]}` : x.title;
       const ev = (x.eventos || []).length ? ` · ${x.eventos.length} scheduled event${x.eventos.length > 1 ? "s" : ""}` : "";
-      const tip = x.format === "brief" ? `${x.title}, ${x.hora_local}${(x.eventos || []).length ? ". Scheduled: " + x.eventos.map((e) => `${e.titulo} ${e.hora ? e.hora.slice(11, 16) + " UTC" : "(time TBD)"}`).join("; ") : ""}` : `${fmt}: ${x.title}${x.dia ? "" : ", date TBD"}`;
-      const cuerpo = `<span class="sf-i">${ICONO[x.format] || ""}</span><span class="sf-t">${esc(txt)}${esc(ev)}</span>`;
+      const tip = x.format === "brief" ? `${x.title}, ${x.hora_local}${x.video ? ". " + x.video_nota : ", on the page"}${(x.eventos || []).length ? ". Scheduled: " + x.eventos.map((e) => `${e.titulo} ${e.hora ? e.hora.slice(11, 16) + " UTC" : "(time TBD)"}`).join("; ") : ""}`
+        : `${fmt}: ${x.title}${x.dia ? "" : ", date TBD"}${x.nota ? ". " + x.nota : ""}`;
+      const vid = x.format === "brief" && x.video ? `<span class="sf-v">${x.slot === "close" ? "Short" : "video"}</span>` : "";
+      const cuerpo = `<span class="sf-i">${ICONO[x.format] || ""}</span><span class="sf-t">${esc(txt)}${esc(ev)}${vid}${!x.dia && x.nota ? `<span class="sf-n">${esc(x.nota)}</span>` : ""}</span>`;
       const cls = `sf sf-${esc(x.format)}${x.status === "out" ? " out" : ""}`;
       return x.asset_id && paginas.has(x.asset_id) ? `<a class="${cls}" href="pieza.html?id=${encodeURIComponent(x.asset_id)}" title="${esc(tip)}">${cuerpo}</a>` : `<span class="${cls}" title="${esc(tip)}">${cuerpo}</span>`;
     };
-    const celda = (sec, f) => juntar(s.items.filter((x) => x.seccion === sec && x.dia === f)).map(ficha).join("");
-    // escritorio: filas por sección, columnas por día y "date TBD"
-    let g = `<div class="sem-g" role="table" aria-label="This week by section and day"><div class="sem-h" role="row"><span role="columnheader"></span>${dias.map((f) => `<span role="columnheader">${diaTxt(f)}</span>`).join("")}<span role="columnheader">Date TBD</span></div>`;
-    for (const sec of s.secciones) g += `<div class="sem-r sec-${esc(sec.id)}" role="row"><span class="sem-s cond" role="rowheader">${esc(sec.titulo)}</span>` +
-      dias.map((f) => `<span class="sem-c" role="cell">${celda(sec.id, f)}</span>`).join("") + `<span class="sem-c tbd" role="cell">${celda(sec.id, null)}</span></div>`;
-    g += `</div>`;
-    // teléfono: por día, cada pieza con el color de su sección
     const sec = (id) => s.secciones.find((x) => x.id === id)?.titulo || id;
-    let m = `<div class="sem-m">`;
-    for (const f of [...dias, null]) { const xs = juntar(s.items.filter((x) => x.dia === f)); if (!xs.length) continue;
-      m += `<div class="sem-d"><p class="sem-dt cond">${f ? diaTxt(f) : "Date TBD"}</p>${xs.map((x) => `<div class="sem-mi sec-${esc(x.seccion)}"><span class="sem-ms cond">${esc(sec(x.seccion))}</span>${ficha(x)}</div>`).join("")}</div>`; }
-    m += `</div>`;
-    const ley = `<p class="sem-ley">${s.formatos.map((f) => `<span class="sf sf-${esc(f.id)}"><span class="sf-i">${ICONO[f.id]}</span><span class="sf-t">${esc(f.titulo)}</span></span>`).join("")}` +
+    const rango = (x) => `${diaTxt(x.desde)} ${MES[+x.desde.slice(5, 7) - 1]} to ${diaTxt(x.hasta)} ${MES[+x.hasta.slice(5, 7) - 1]}`;
+    const pintar = () => {
+      const W = semanas[w], dias = Array.from({ length: 7 }, (_, i) => new Date(Date.parse(W.desde + "T00:00:00Z") + i * 864e5).toISOString().slice(0, 10));
+      const celda = (sc, f) => juntar(s.items.filter((x) => x.seccion === sc && x.dia === f)).map(ficha).join("");
+      // escritorio: filas por sección, columnas por día y "date TBD"
+      let g = `<div class="sem-g" role="table" aria-label="Week of ${rango(W)} by section and day"><div class="sem-h" role="row"><span role="columnheader"></span>${dias.map((f) => `<span role="columnheader"${f === hoy ? ' class="hoy"' : ""}>${diaTxt(f)}</span>`).join("")}<span role="columnheader">Date TBD</span></div>`;
+      for (const x of s.secciones) g += `<div class="sem-r sec-${esc(x.id)}" role="row"><span class="sem-s cond" role="rowheader">${esc(x.titulo)}</span>` +
+        dias.map((f) => `<span class="sem-c" role="cell">${celda(x.id, f)}</span>`).join("") + `<span class="sem-c tbd" role="cell">${celda(x.id, null)}</span></div>`;
+      g += `</div>`;
+      // teléfono: por día, cada pieza con el color de su sección
+      let m = `<div class="sem-m">`;
+      for (const f of [...dias, null]) { const xs = juntar(s.items.filter((x) => x.dia === f)); if (!xs.length) continue;
+        m += `<div class="sem-d"><p class="sem-dt cond">${f ? diaTxt(f) + " " + MES[+f.slice(5, 7) - 1] : "Date TBD"}</p>${xs.map((x) => `<div class="sem-mi sec-${esc(x.seccion)}"><span class="sem-ms cond">${esc(sec(x.seccion))}</span>${ficha(x)}</div>`).join("")}</div>`; }
+      m += `</div>`;
+      el.querySelector(".sem-tabla").innerHTML = g + m;
+      el.querySelector(".sem-sello").textContent = rango(W);
+      el.querySelector(".sem-w").textContent = `Week ${w + 1} of ${semanas.length} · ${rango(W)}`;
+      el.querySelector("[data-w='-1']").disabled = w === 0; el.querySelector("[data-w='1']").disabled = w === semanas.length - 1;
+    };
+    const ley = `<p class="sem-ley">${s.formatos.map((f) => `<span class="sf sf-${esc(f.id)}"><span class="sf-i">${ICONO[f.id] || ""}</span><span class="sf-t">${esc(f.titulo)}</span></span>`).join("")}` +
       `<span class="sem-ley-s">${s.secciones.map((x) => `<span class="sem-sw sec-${esc(x.id)}">${esc(x.titulo)}</span>`).join("")}</span></p>`;
-    el.querySelector(".sem-in").innerHTML = ley + g + m +
-      `<p class="sello">Briefs at three fixed times each weekday: London open ${s.slots.find((x) => x.id === "london")?.local}, New York open ${s.slots.find((x) => x.id === "ny")?.local}, US close ${s.slots.find((x) => x.id === "close")?.local}. ` +
-      `Each brief looks ahead to what is scheduled before the next one.${s.eventos_nota ? " " + esc(s.eventos_nota) : ""} Everything here is planned; dates marked TBD are not set yet.</p>`;
-    el.querySelector(".sem-sello").textContent = `${diaTxt(s.semana.desde)} to ${diaTxt(s.semana.hasta)} ${MES[+s.semana.hasta.slice(5, 7) - 1]}`;
+    const nav = `<div class="sem-nav" role="group" aria-label="Choose the week"><button type="button" class="sem-b" data-w="-1"><span aria-hidden="true">&larr;</span> Previous week</button>` +
+      `<p class="sem-w cond" aria-live="polite"></p><button type="button" class="sem-b" data-w="1">Next week <span aria-hidden="true">&rarr;</span></button></div>`;
+    el.querySelector(".sem-in").innerHTML = nav + ley + `<div class="sem-tabla"></div>` +
+      `<p class="sello">Three briefs each weekday on the page: London open ${s.slots.find((x) => x.id === "london")?.local}, New York open ${s.slots.find((x) => x.id === "ny")?.local}, US close ${s.slots.find((x) => x.id === "close")?.local}. ` +
+      `The close also comes out as a Short; an opening gets a video only on a day with a red event. Each brief looks ahead to what is scheduled before the next one.${s.eventos_nota ? " " + esc(s.eventos_nota) : ""} Everything here is planned; dates marked TBD are not set yet. <a href="agenda.html">The year ahead in Upcoming</a>.</p>`;
+    el.querySelector(".sem-nav").addEventListener("click", (e) => { const b = e.target.closest("[data-w]"); if (!b || b.disabled) return; w += +b.dataset.w; pintar();
+      if (b.disabled) el.querySelector(`[data-w='${-b.dataset.w}']`).focus(); });
+    pintar();
   };
 })();
