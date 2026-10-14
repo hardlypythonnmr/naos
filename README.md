@@ -15,13 +15,15 @@ builder lists them, with the reason and the plan to get real data, in `escondido
 | path | what |
 |---|---|
 | `index.html` | the page |
-| `assets/css/`, `assets/js/` | page styles and script (`v1plus.css`, `v1plus.js`) |
+| `assets/css/`, `assets/js/` | page styles and script (`v1plus.css`, `v1plus.js`); `sala.js` and `sala.css`: the monitor room per story, the story map and "How NAOS reads the day" (D-221) |
 | `assets/comun/` | shared design tokens, base styles and the page engine (`naos.js`) |
 | `assets/fuentes/` | self-hosted fonts (woff2) with their licenses |
 | `assets/vendor/` | GSAP + ScrollTrigger, Lenis, with their licenses |
 | `data/situacion.json` | every value the page shows, rebuilt every 30 minutes |
 | `data/mapa.json` | the map (Natural Earth via world-atlas) |
 | `data/mapa-predicciones.json` | NAOS's curated map: storyline, keywords, Polymarket market, related tickers, global rules (copy of the radar's map) |
+| `data/mundo.json` | world land for the story map and the monitor room (Natural Earth 110m, public domain, from G3 `geo.json`) |
+| `data/rasgos.json` | the Behavior tape: traits from the NAOS videos, one line each; edit here, not in HTML |
 | `data/assets.json` | the Assets library: categories and pieces with their status (all "planned" for now); add pieces here, not in HTML |
 | `pieza.html` | the page of one Assets piece (`?id=`): video, transcript, prompts, sources (D-212); noindex while planned |
 | `scripts/construir-datos.mjs` | the data builder (Node 18+, no dependencies, no keys required) |
@@ -64,6 +66,15 @@ Rules the builder follows:
 - Plain-English text is built from templates over real data only: `portada` (3 to 5 headlines: what happened, what moved
   and how much, one connected reading, the prediction market link), `explica` (what the BTC move and the 2s10s curve
   mean, and over what timeframe) and `graficos` (one headline per TradingView chart: what moved and why, or nothing).
+
+### Monitor rooms (D-221)
+
+The builder writes `salas` in `data/situacion.json`: one room per front-page story, plus, for each story-map entry the front
+page does not use, the newest wire headline that names it. Each room carries the place (from the headline's words, else from
+the story-map entry), its own linked assets, the one prediction-market price (same rules, one market per story), related
+headlines with source and time, Hacker News points and comments when the link is there, and how the tie was made. A room
+opens from a headline, a story card, the wire or the story map, and links as `#sala/<id>` (or `?sala=<id>`). Without data a
+tile is left out. `lectura` holds the run's counts for "How NAOS reads the day".
 
 ## How the data refresh works
 

@@ -8,13 +8,16 @@
 <link rel="preload" href="assets/fuentes/IBMPlexSans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fuentes/IBMPlexSansCondensed-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="data/situacion.json" as="fetch" crossorigin>
+<link rel="icon" href="data:,">
 <link rel="preconnect" href="https://s3.tradingview.com" crossorigin>
 <link rel="stylesheet" href="assets/comun/tokens.css">
 <link rel="stylesheet" href="assets/comun/base.css">
 <link rel="stylesheet" href="assets/css/v1plus.css">
+<link rel="stylesheet" href="assets/css/sala.css">
 <script defer src="assets/vendor/gsap/gsap.min.js"></script>
 <script defer src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
 <script defer src="assets/comun/naos.js"></script>
+<script defer src="assets/js/sala.js"></script>
 <script defer src="assets/js/v1plus.js"></script>
 <noscript><style>[data-espera]{visibility:visible!important}</style></noscript>
 </head>
@@ -35,7 +38,7 @@
     <div class="dia-fila">
       <div>
         <h1 class="dia" id="dia-t">Today, <span id="dia">Wednesday 14 October 2026</span></h1>
-        <p class="sec-d">What is happening, what moved and what it is connected to. Headlines verbatim from their source, linked.</p>
+        <p class="sec-d">What is happening, what moved and what it is connected to. Headlines verbatim from their source. Click a headline to open its monitor room.</p>
       </div>
       <figure class="guardian" id="guardian" data-revela aria-label="Tikr, the page keeper">
         <svg id="tikr" viewBox="0 0 430 240" aria-hidden="true"></svg>
@@ -45,6 +48,18 @@
     </div>
     <ol class="tits" id="tits"></ol>
     <p class="sello tits-pie" id="tits-pie">Descriptive, not financial advice.</p>
+  </section>
+
+  <!-- CÓMO LEEMOS EL DÍA (PAG-01.4, D-221): qué leemos y cómo lo ligamos, con cuentas reales de la corrida -->
+  <section class="como" id="como" aria-labelledby="t-como">
+    <div class="como-txt">
+      <h2 class="como-t" id="t-como">How NAOS reads the day</h2>
+      <p>We read three things: news wires, US public data and prediction markets.</p>
+      <p>A short story map ties them together. When a headline names a story NAOS follows, such as the Fed or the Strait of Hormuz, it brings the place, the assets that usually react and one prediction market price, with its time and source.</p>
+      <p>Open any story to see all of it in one room.</p>
+      <p class="sello">Descriptive, not advice. Prediction prices are market prices set by traders, not NAOS forecasts.</p>
+    </div>
+    <div class="como-g" role="img"></div>
   </section>
 
   <div id="cinta" class="cinta"></div>
@@ -156,11 +171,23 @@
     </div>
   </section>
 
+  <!-- cintas que dividen las secciones y titulan los activos de la siguiente (PAG-01.5, D-221) -->
+  <div id="cinta-noticias" class="cinta" hidden></div>
+
   <!-- NEWS: plano de noche -->
   <section class="muro noche" id="noticias" data-plano aria-labelledby="t-not">
     <div class="plano-fondo noche"></div>
     <div class="plano-contenido">
       <header class="sec-cab"><h2 class="sec-t" id="t-not">News</h2><p class="sec-d">The wire by area, the arc from the Black Sea to Hormuz, the stories of the day and their prediction markets. Headlines verbatim with their source. Politics appears only as market impact.</p></header>
+      <div class="rejilla r-geo">
+        <article class="panel p-geo" id="mapa-historias" aria-labelledby="t-geo">
+          <header class="ph geo-cab"><h3 id="t-geo">Where the stories are</h3><span class="sello"></span></header>
+          <p class="geo-d">Each lit place has a live story. Its line runs to the story, the assets tied to it and, when one passes the rules, its prediction market. Open a story for its monitor room.</p>
+          <div class="geo-in"><div class="geo-mapa"></div><ol class="geo-lista"></ol></div>
+          <svg class="geo-l-svg" aria-hidden="true"></svg>
+          <p class="sello">Map: Natural Earth (public domain). Places are where a headline points, not exact locations.</p>
+        </article>
+      </div>
       <div class="rejilla r4">
         <article class="panel p-wire" id="wire">
           <header class="ph"><h3>Wire, by area</h3><span class="sello" id="wire-sello"></span></header>
@@ -176,7 +203,7 @@
         </article>
       </div>
       <div class="rejilla r5" id="historias">
-        <div class="r5-cab"><h3>Stories of the day</h3><span class="sello"><span id="historias-fecha"></span>One each: AI, politics as market impact, crypto.</span></div>
+        <div class="r5-cab"><h3>Stories of the day</h3><span class="sello"><span id="historias-fecha"></span>One each: AI, politics as market impact, crypto. Click one for its monitor room.</span></div>
         <div class="cartas" id="cartas"></div>
       </div>
       <div class="rejilla r6" id="prediccion">
@@ -185,6 +212,8 @@
       </div>
     </div>
   </section>
+
+  <div id="cinta-ia" class="cinta" hidden></div>
 
   <!-- AI: Lab, plano gris frío -->
   <section class="muro lab" id="ia" data-plano="derecha" aria-labelledby="t-ia">
@@ -215,6 +244,8 @@
       </div>
     </div>
   </section>
+
+  <div id="cinta-conducta" class="cinta" hidden></div>
 
   <!-- BEHAVIOR: respiración y mantra -->
   <section class="muro conducta" id="conducta" aria-labelledby="t-con">
@@ -248,5 +279,7 @@
     </div>
   </div>
 </footer>
+<!-- sala de monitoreo por historia (PAG-03.2, D-221): se llena desde data/situacion.json (salas) -->
+<dialog class="sala noche" id="sala" aria-labelledby="sala-t"></dialog>
 </body>
 </html>

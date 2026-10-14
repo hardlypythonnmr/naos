@@ -76,8 +76,9 @@
   N.cinta = (el, items, opt = {}) => {
     const VEL = opt.vel || 90; // px/s
     el.classList.add("cinta");
-    el.setAttribute("role", "region"); el.setAttribute("aria-label", "NAOS Tape, latest fresh readings");
-    el.innerHTML = `<div class="cinta-ventana"><div class="cinta-pista">${items.map(celda).join("")}</div></div>` +
+    el.setAttribute("role", "region"); el.setAttribute("aria-label", opt.aria || "NAOS Tape, latest fresh readings");
+    // opt.rotulo: la sección que la cinta titula (queda fija a la izquierda mientras la cinta corre)
+    el.innerHTML = (opt.rotulo ? `<span class="cinta-rotulo">${N.esc(opt.rotulo)}</span>` : "") + `<div class="cinta-ventana"><div class="cinta-pista">${items.map(celda).join("")}</div></div>` +
       `<button class="cinta-pausa" type="button" aria-pressed="false" aria-label="Pause the tape">${ICO_PAUSA}</button>`;
     const ven = el.querySelector(".cinta-ventana"), pista = el.querySelector(".cinta-pista"), btn = el.querySelector(".cinta-pausa");
     const unidad = pista.innerHTML;

@@ -31,7 +31,9 @@
   if (prox) items.splice(7, 0, { s: "Next red", t: `${prox.evento.replace(/ [my]\/[my]$/, "")} · ${N.hora(prox.hora)}` });
   const topIA = (d.hn || [])[0];
   if (topIA) items.push({ s: "AI · HN", t: `${topIA.titulo} · ${N.fmt(topIA.puntos)} pts` });
-  N.cinta($("#cinta"), items);
+  N.cinta($("#cinta"), items, { rotulo: "Market", aria: "Market tape: fresh readings for the Market section below" });
+  const salaDe = (url) => (d.salas || []).find((s) => s.url === url) || null;
+  const salaA = (s, html) => `<a href="#sala/${N.esc(s.id)}" data-sala="${N.esc(s.id)}">${html}</a>`;
 
   /* ---------- sellos, cifras, odómetros, líneas ---------- */
   $$("[data-sello]").forEach((e) => { const a = A[e.dataset.sello]; if (a) e.textContent = `${a.fuente} · ${fechaSello(a)}`; });
@@ -217,7 +219,7 @@
   const cuenta = (a) => wire.filter((t) => t.area === a).length;
   $("#filtros").innerHTML = `<button type="button" aria-pressed="true" data-area="">All<span class="n">${wire.length}</span></button>` + AREAS.filter(cuenta).map((a) => `<button type="button" aria-pressed="false" data-area="${a}">${a}<span class="n">${cuenta(a)}</span></button>`).join("");
   const horaCorta = (iso) => (iso ? `${N.fecha(iso)} ${iso.slice(11, 16)}` : "");
-  $("#wire-l").innerHTML = wire.map((t) => `<li data-area="${t.area}" data-entra><span class="w-m"><span class="w-area">${t.area}</span><span>${N.esc(t.fuente)} · ${horaCorta(t.hora)}</span>${t.movio ? `<span class="w-mov">moved: ${N.esc(t.movio)}</span>` : ""}${t.odds ? `<a class="w-mov" href="${N.esc(t.odds.url)}" rel="noopener">odds: ${N.esc(t.odds.nombre)}</a>` : ""}</span><a href="${N.esc(t.url)}" rel="noopener">${N.esc(t.titulo)}</a></li>`).join("");
+  $("#wire-l").innerHTML = wire.map((t) => `<li data-area="${t.area}" data-entra><span class="w-m"><span class="w-area">${t.area}</span><span>${N.esc(t.fuente)} · ${horaCorta(t.hora)}</span>${t.movio ? `<span class="w-mov">moved: ${N.esc(t.movio)}</span>` : ""}${t.odds ? `<a class="w-mov" href="${N.esc(t.odds.url)}" rel="noopener">odds: ${N.esc(t.odds.nombre)}</a>` : ""}${salaDe(t.url) ? `<a class="w-mov w-sala" href="#sala/${N.esc(salaDe(t.url).id)}" data-sala="${N.esc(salaDe(t.url).id)}">monitor room</a>` : ""}</span><a href="${N.esc(t.url)}" rel="noopener">${N.esc(t.titulo)}</a></li>`).join("");
   $("#filtros").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return;
     $$("#filtros button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
     $$("#wire-l li").forEach((li) => { li.hidden = !!b.dataset.area && li.dataset.area !== b.dataset.area; if (!li.hidden) li.style.opacity = 1; }); });
@@ -227,10 +229,11 @@
      predicción como enlace. Las frases las arma construir-datos.mjs con plantillas sobre datos reales. */
   const oddsHtml = (o) => (o ? `<a href="${N.esc(o.url)}" rel="noopener">${N.esc(o.texto)}</a>` : "");
   const tits = (d.portada || []).filter((p) => !p.viejo);
-  const horaTit = (p) => (p.tipo === "agenda" ? `${N.esc(p.fuente)}` : `${N.esc(p.fuente)} · ${horaCorta(p.hora)} UTC`);
+  const horaTit = (p) => (p.tipo === "agenda" ? `${N.esc(p.fuente)}` : `${N.esc(p.fuente)} · ${horaCorta(p.hora)} UTC`) +
+    (salaDe(p.url) && p.url ? ` · <a class="tit-src" href="${N.esc(p.url)}" rel="noopener">Read at source</a>` : "");
   $("#tits").innerHTML = tits.map((p, i) => `<li class="tit${i === 0 ? " lead" : ""}${p.tipo === "agenda" ? " agenda" : ""}" data-entra>` +
-    `<p class="tit-m"><span class="tit-a">${N.esc(p.area === "Politics" ? "Politics, as market impact" : p.area)}</span><span>${horaTit(p)}</span></p>` +
-    `<h2 class="tit-t">${p.url ? `<a href="${N.esc(p.url)}" rel="noopener">${N.esc(p.titulo)}</a>` : N.esc(p.titulo)}</h2>` +
+    `<p class="tit-m">${salaDe(p.url) ? `<span class="tit-sala cond">Monitor room</span>` : ""}<span class="tit-a">${N.esc(p.area === "Politics" ? "Politics, as market impact" : p.area)}</span><span>${horaTit(p)}</span></p>` +
+    `<h2 class="tit-t">${salaDe(p.url) ? salaA(salaDe(p.url), N.esc(p.titulo)) : p.url ? `<a href="${N.esc(p.url)}" rel="noopener">${N.esc(p.titulo)}</a>` : N.esc(p.titulo)}</h2>` +
     (p.mercado ? `<p class="tit-l"><span class="tit-k">${N.esc(p.mercado_etiqueta || "Moved")}</span>${N.esc(p.mercado)}</p>` : "") +
     (p.conectado ? `<p class="tit-l"><span class="tit-k">Connected</span>${N.esc(p.conectado)}</p>` : "") +
     (p.odds ? `<p class="tit-l"><span class="tit-k">Odds</span>${oddsHtml(p.odds)}</p>` : "") + `</li>`).join("");
@@ -288,6 +291,7 @@
     return partes.length ? `<p class="lados sello">${partes.join(" · ")}</p>` : "";
   };
   const corto = { AI: "AI", Politics: "Politics, as market impact", Crypto: "Crypto" };
+  const AREA_C = { Politics: "Politics, market impact", Economy: "Economy", Energy: "Energy", AI: "AI", Crypto: "Crypto" };
   const historias = vigente(d.historias);
   if (!historias.length) $("#historias").hidden = true;
   $("#cartas").innerHTML = historias.map((h, i) => {
@@ -296,7 +300,7 @@
       a ? { h: a.fecha.length > 10 ? a.fecha : null, t: `${nombreCorto[a.id] || a.nombre} ${val(a)}${a.cambio != null ? ", " + camTxt(a) : ""}`, ya: true, f: a.fecha } : { h: d.generado, t: "NAOS scan", ya: true },
       prox ? { h: prox.hora, t: `Next: US ${prox.evento.replace(/ [my]\/[my]$/, "").replace(/^Core /, "")}`, ya: false } : null].filter(Boolean);
     return `<article class="carta" data-entra><span class="area"><span>${corto[h.area]}</span><span>${String(i + 1).padStart(2, "0")}</span></span>` +
-      `<h3 class="tt"><a href="${N.esc(h.url)}" rel="noopener">${N.esc(h.titulo)}</a></h3><span class="sello">${N.esc(h.fuente)} · ${horaCorta(h.hora)} UTC · headline verbatim</span>` +
+      `<h3 class="tt">${salaDe(h.url) ? salaA(salaDe(h.url), N.esc(h.titulo)) : `<a href="${N.esc(h.url)}" rel="noopener">${N.esc(h.titulo)}</a>`}</h3><span class="sello">${N.esc(h.fuente)} · ${horaCorta(h.hora)} UTC · headline verbatim${salaDe(h.url) ? ` · <a href="${N.esc(h.url)}" rel="noopener">source</a>` : ""}</span>` +
       ladosHtml(h.lados) +
       (h.contexto && !h.contexto_sample ? `<p class="ctx">${N.esc(h.contexto)}</p>` : "") +
       `<ol class="mtl" aria-label="Timeline">${pasos.map((p) => `<li class="${p.ya ? "ya" : ""}"><span class="h">${p.h ? p.h.slice(11, 16) : N.fecha(p.f)}</span>${N.esc(p.t)}</li>`).join("")}</ol>` +
@@ -371,10 +375,33 @@
   };
   perezoso(capas, () => montarMapa().then(() => ScrollTrigger.refresh()));
 
+  /* ---------- cintas que dividen las secciones (PAG-01.5, D-221): cada una titula lo que viene abajo ---------- */
+  const cintaNoticias = (d.salas || []).filter((s) => s.lugar).map((s) => { const a = s.activos.map((id) => A[id]).find((x) => x && x.fresco);
+    return a ? { s: s.lugar.nombre, v: `${nombreCorto[a.id] || a.nombre} ${val(a)}`, c: a.cambio == null ? null : a }
+      : { s: s.lugar.nombre, t: (AREA_C[s.area] || s.area) + (s.tv ? ` · ${s.tv.simbolo.split(":")[1]} chart in its room` : "") }; });
+  if (cintaNoticias.length) { cintaNoticias.push({ s: "Wire", t: `${wire.length} headlines, verbatim` }); $("#cinta-noticias").hidden = false;
+    N.cinta($("#cinta-noticias"), cintaNoticias, { rotulo: "News", aria: "News tape: the places and assets of the stories below", retraso: .1 }); }
+  // AI: los mismos símbolos del rastreador de abajo, con cuántos titulares de hoy los nombran (sin precios: esos van en TradingView)
+  const IA = [["NVDA", "Nvidia", /\b(nvidia|geforce)\b/i], ["MSFT", "Microsoft", /\b(microsoft|openai)\b/i], ["GOOGL", "Alphabet", /\b(google|alphabet|gemini|deepmind)\b/i], ["AMZN", "Amazon", /\b(amazon|aws)\b/i],
+    ["META", "Meta", /\bmeta\b/i], ["AMD", "AMD", /\bamd\b/i], ["AVGO", "Broadcom", /\bbroadcom\b/i], ["TSM", "TSMC", /\b(tsmc|taiwan semiconductor)\b/i], ["ASML", "ASML", /\basml\b/i], ["SMH", "Chip ETF", /\b(chips?|semiconductors?)\b/i]];
+  const titHoy = [...vigente(d.wire), ...vigente(d.titulares), ...(d.hn || [])].map((t) => t.titulo).filter((t, i, xs) => xs.indexOf(t) === i);
+  const cintaIA = IA.map(([s, n, re]) => { const k = titHoy.filter((t) => re.test(t)).length; return { s, t: k ? `${n} · in ${k} headline${k > 1 ? "s" : ""} today` : n }; });
+  cintaIA.push({ s: "Prices", t: "AI market tracker below, via TradingView" });
+  $("#cinta-ia").hidden = false; N.cinta($("#cinta-ia"), cintaIA, { rotulo: "* AI", aria: "AI tape: the AI-linked tickers of the section below and how many of today's headlines name them", retraso: .1 });
+  // Behavior: rasgos de los videos (data/rasgos.json), en flujo lento (G3: 60 px/s)
+  try { const r = await (await fetch("data/rasgos.json")).json();
+    if (r.rasgos?.length) { $("#cinta-conducta").hidden = false; N.cinta($("#cinta-conducta"), r.rasgos.map((x) => ({ s: x.rasgo, t: x.linea })), { rotulo: "Behavior", vel: 60, retraso: .1, aria: "Behavior tape: traits from the NAOS videos" }); }
+  } catch (e) { /* sin rasgos, sin cinta */ }
+
+  N.comoLeemos($("#como"), d);
+  N.mapaHistorias($("#mapa-historias"), d, { A, val, nombreCorto }).catch((e) => { console.error(e); $("#mapa-historias").hidden = true; });
+
   N.revelar(document);
   N.planos();
   N.entradas();
   N.suave("assets/vendor/lenis/lenis.min.js");
   window.__guion = { hasta: 99999 }; // video de revisión: recorre la página entera
-  N.listo();
+  await N.listo();
+  // la sala al final: un enlace directo (#sala/<id> o ?sala=<id>) se abre con la página ya lista
+  N.salas(d, { A, val, nombreCorto, DEC, montarTV });
 })();

@@ -1,0 +1,160 @@
+/* sala.css · PAG-03.2 sala de monitoreo, PAG-03.3 mapa de historias, PAG-01.4 cómo leemos, PAG-01.5 cintas con rótulo (D-221).
+   Solo tokens (G2/G3). Color = dirección; la cifra de predicción va en tinta: es un precio de mercado, no un movimiento. */
+
+/* ---------- cintas que dividen secciones: el rótulo de la sección queda fijo a la izquierda ---------- */
+.cinta-rotulo { flex: none; display: grid; place-items: center; min-width: 104px; padding: 0 16px; background: var(--naos-night-plate); color: var(--naos-night-plate-text);
+  font-family: var(--font-cond); font-weight: 600; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+#cinta-ia .cinta-rotulo { background: var(--lab-paper); color: var(--lab-accent); }
+#cinta-conducta .cinta-celda .t { font-family: var(--font-serif); font-style: italic; font-size: 15px; }
+
+/* ---------- títulos que abren su sala ---------- */
+.tit-sala { font-size: 11px; letter-spacing: .05em; color: var(--naos-grey); border: 1px solid var(--naos-rule); padding: 0 5px; line-height: 16px; }
+.tit:has(.tit-t a:hover) .tit-sala, .tit:has(.tit-t a:focus-visible) .tit-sala { color: var(--naos-ink); border-color: var(--naos-ink); }
+.tit-src { color: var(--naos-grey); }
+.w-sala { text-decoration: none; }
+.w-sala:hover, .w-sala:focus-visible { background: var(--naos-night-plate); color: var(--naos-night-plate-text); }
+
+/* ---------- cómo leemos el día (PAG-01.4) ---------- */
+.como { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--s-6); margin: 0 var(--page-gutter); padding: var(--s-4) 0 var(--s-6); border-top: 1px solid var(--naos-ink); }
+.como-t { font-family: var(--font-serif); font-weight: 300; font-size: 30px; line-height: 1.1; letter-spacing: -.01em; margin: 0 0 12px; }
+.como-txt p { margin: 0 0 10px; font-size: 15px; line-height: 1.5; color: var(--naos-sec); max-width: 52ch; }
+.como-txt .sello { font-size: 12px; color: var(--naos-grey); margin-top: 14px; }
+.como-g { position: relative; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; align-self: center; }
+.cn-col { display: grid; gap: 14px; position: relative; z-index: 1; }
+.cn { display: grid; gap: 4px; padding: 12px 14px; border: 1px solid var(--naos-ink); background: var(--naos-paper); }
+.cn-t { font-size: 13px; letter-spacing: .05em; }
+.cn-s { font-size: 13px; line-height: 1.4; color: var(--naos-sec); }
+.cn.centro { background: var(--naos-plate); color: var(--naos-plate-text); border-color: var(--naos-plate); padding: 18px 16px; }
+.cn.centro .cn-s { color: #C3C9D2; }
+.cn.fin { border-width: 2px; }
+.como-l { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }
+.como-l path { fill: none; stroke: var(--naos-ink); stroke-width: 1.5; }
+.como-l path.fuerte { stroke-width: 3; }
+
+/* ---------- mapa de historias (PAG-03.3) ---------- */
+.p-geo { grid-column: 1 / -1; }
+.geo-d { margin: -4px 0 14px; font-size: 13px; line-height: 1.5; color: var(--naos-night-sec); max-width: 80ch; }
+.geo-in { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 56px; align-items: start; }
+.geo-mapa { position: relative; width: 100%; background: var(--naos-night); border: 1px solid var(--naos-night-rule); overflow: hidden; }
+.geo-mapa svg, .m-caja svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.m-t { fill: #262C36; stroke: #3A414D; stroke-width: .8; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.m-b { fill: none; stroke: #3A414D; stroke-width: .6; vector-effect: non-scaling-stroke; }
+.m-r { fill: none; stroke: var(--naos-night-sec); stroke-width: 1.4; stroke-dasharray: 5 4; vector-effect: non-scaling-stroke; }
+.m-c { fill: none; stroke: var(--naos-night-text); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.pin { position: absolute; width: 0; height: 0; text-decoration: none; color: var(--naos-night-text); z-index: 2; }
+.pin::before { content: ""; position: absolute; left: -8px; top: -8px; width: 16px; height: 16px; border-radius: 50%; background: var(--naos-night-text); box-shadow: 0 0 0 4px var(--naos-night), 0 0 0 5.5px var(--naos-night-text); }
+.pin .pin-n { position: absolute; left: 16px; top: -9px; font-family: var(--font-cond); font-weight: 600; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; line-height: 18px; padding: 0 5px; background: var(--naos-night); }
+.pin.izq .pin-n { left: auto; right: 16px; }
+.pin.activo .pin-n, .pin:focus-visible .pin-n { background: var(--naos-night-plate); color: var(--naos-night-plate-text); }
+.pin:focus-visible { outline: none; }
+.geo-lista { list-style: none; margin: 0; padding: 0; counter-reset: geo; }
+.geo-lista li { border-top: 1px solid var(--naos-night-rule); }
+.geo-lista li:last-child { border-bottom: 1px solid var(--naos-night-rule); }
+.geo-f { display: grid; gap: 6px; padding: 10px 10px 12px; text-decoration: none; color: inherit; }
+.geo-f:hover, .geo-f.activo, .geo-f:focus-visible { background: var(--naos-night-tile); outline: none; }
+.geo-k { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; font-size: 12px; }
+.geo-k .cond { letter-spacing: .05em; }
+.geo-ar { color: var(--naos-night-grey); font-size: 11px; }
+.geo-t { font-family: var(--font-serif); font-size: 18px; line-height: 1.22; }
+.geo-f:hover .geo-t, .geo-f:focus-visible .geo-t { text-decoration: underline; text-underline-offset: 3px; }
+.geo-l { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
+.chip-a, .chip-o { font-size: 12px; line-height: 20px; padding: 0 6px; border: 1px solid var(--naos-night-rule); background: var(--naos-night); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.chip-a .cond, .chip-o .cond { font-size: 11px; color: var(--naos-night-grey); margin-right: 2px; }
+.chip-o { border-style: dashed; border-color: var(--naos-night-grey); color: var(--naos-night-sec); }
+.geo-ir { font-size: 11px; letter-spacing: .05em; color: var(--naos-night-grey); }
+.geo-l-svg { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; z-index: 1; }
+.geo-l-svg path { fill: none; stroke: var(--naos-night-grey); stroke-width: 1; }
+.geo-l-svg path.activo { stroke: var(--naos-night-text); stroke-width: 2; }
+
+/* ---------- la sala (PAG-03.2): diálogo a pantalla completa, bento de noche ---------- */
+html.sala-abierta { overflow: hidden; }
+dialog.sala { position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0;
+  background: var(--naos-night); color: var(--naos-night-text); overflow-y: auto; overscroll-behavior: contain; }
+dialog.sala::backdrop { background: var(--naos-night); }
+.sala-in { max-width: 1440px; margin: 0 auto; padding: 20px var(--page-gutter) 48px; }
+.sala-cab { border-top: var(--rule-heavy) solid var(--naos-night-text); padding-top: 12px; margin-bottom: 20px; }
+.sala-k { display: flex; gap: 8px 16px; align-items: center; flex-wrap: wrap; margin: 0 0 12px; font-size: 12px; }
+.sala-k .cond { letter-spacing: .06em; }
+.sala-area { color: var(--naos-night-grey); }
+.sala-x { margin-left: auto; font-family: var(--font-cond); font-weight: 600; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; background: none; color: var(--naos-night-text);
+  border: 1px solid var(--naos-night-sec); padding: 8px 12px; cursor: pointer; }
+.sala-x:hover, .sala-x:focus-visible { background: var(--naos-night-plate); color: var(--naos-night-plate-text); }
+.sala-x kbd { font-family: var(--font-cond); font-size: 11px; border: 1px solid currentColor; padding: 0 4px; margin-left: 6px; opacity: .8; }
+.sala-t { font-family: var(--font-serif); font-weight: 300; font-size: 44px; line-height: 1.08; letter-spacing: -.015em; margin: 0 0 10px; max-width: 30ch; outline: none; }
+.sala-m { margin: 0; font-size: 13px; color: var(--naos-night-sec); }
+.sala-m a { color: var(--naos-night-text); }
+.bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1px; padding: 1px; background: var(--naos-night); }
+.bento > .t { background: var(--naos-night); box-shadow: 0 0 0 1px var(--naos-night-rule); padding: 16px 18px 18px; min-width: 0; grid-column: span 12; } /* sala.js reparte las columnas */
+.t-h { display: flex; align-items: baseline; gap: 8px; margin: -2px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--naos-night-rule); }
+.t-h h3 { margin: 0; font-family: var(--font-sans); font-weight: 600; font-size: 15px; white-space: nowrap; }
+.t-h .sello { margin-left: auto; text-align: right; font-size: 11px; }
+.t p { margin: 0 0 8px; }
+.t-nota { font-size: 13px; line-height: 1.45; color: var(--naos-night-sec); }
+.t a { color: var(--naos-night-text); }
+.m-caja { position: relative; width: 100%; background: var(--naos-night); border: 1px solid var(--naos-night-rule); overflow: hidden; }
+.m-aqui { position: absolute; width: 0; height: 0; z-index: 2; }
+.m-aqui::before { content: ""; position: absolute; left: -9px; top: -9px; width: 18px; height: 18px; border-radius: 50%; background: var(--naos-night-text); box-shadow: 0 0 0 5px var(--naos-night), 0 0 0 7px var(--naos-night-text); }
+.m-aqui span { position: absolute; left: 20px; top: -11px; white-space: nowrap; font-family: var(--font-cond); font-weight: 600; font-size: 13px; letter-spacing: .05em; text-transform: uppercase;
+  background: var(--naos-night-plate); color: var(--naos-night-plate-text); padding: 1px 7px; }
+.m-aqui.izq span { left: auto; right: 20px; }
+.m-otra { position: absolute; width: 0; height: 0; z-index: 1; text-decoration: none; color: var(--naos-night-sec); }
+.m-otra::before { content: ""; position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--naos-night-sec); background: var(--naos-night); box-sizing: border-box; }
+.m-otra span { position: absolute; left: 12px; top: -9px; white-space: nowrap; font-family: var(--font-cond); font-weight: 600; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; line-height: 18px; }
+.m-otra.izq span { left: auto; right: 12px; }
+.m-otra:hover span, .m-otra:focus-visible span { color: var(--naos-night-text); text-decoration: underline; }
+.odds-n { font-family: var(--font-sans); font-weight: 500; font-size: 96px; line-height: .95; letter-spacing: -.035em; margin: 4px 0 8px !important; }
+.odds-n span { font-size: 44px; letter-spacing: 0; margin-left: 4px; }
+.odds-r { font-family: var(--font-serif); font-size: 22px; line-height: 1.2; margin-bottom: 12px !important; max-width: 26ch; }
+.odds-s { border-top: 1px solid var(--naos-night-rule); padding-top: 8px; }
+.t-cinta .tablero { margin-bottom: 8px; }
+.t-cinta .tit-k, .t-liga .tit-k { color: var(--naos-night-grey); display: block; margin-bottom: 2px; }
+.tl { list-style: none; margin: 0; padding: 0; position: relative; }
+.tl::before { content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px; background: var(--naos-night-grey); }
+.tl li { position: relative; display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: 2px 12px; padding: 6px 0 8px 22px; font-size: 13px; line-height: 1.4; }
+.tl li::before { content: ""; position: absolute; left: 0; top: 10px; width: 11px; height: 11px; border-radius: 50%; background: var(--naos-night-text); box-sizing: border-box; }
+.tl li.futuro::before { background: var(--naos-night); border: 1.5px solid var(--naos-night-text); }
+.tl li.lectura::before { width: 9px; height: 9px; left: 1px; top: 11px; background: var(--naos-night-grey); }
+.tl li.yo .tl-t { font-weight: 600; }
+.tl-h { font-family: var(--font-cond); font-weight: 600; font-size: 12px; color: var(--naos-night-sec); padding-top: 1px; }
+.tl .sello { grid-column: 2; font-size: 11px; }
+.tl a { text-decoration: none; } .tl a:hover, .tl a:focus-visible { text-decoration: underline; }
+.dicen-n { font-size: 15px; color: var(--naos-night-sec); }
+.dicen-n b { font-family: var(--font-sans); font-weight: 500; font-size: 32px; color: var(--naos-night-text); letter-spacing: -.02em; margin-right: 4px; }
+.dicen-n b + b, .dicen-n b:nth-of-type(2) { margin-left: 14px; }
+.t-liga p { font-size: 14px; line-height: 1.5; color: var(--naos-night-sec); }
+.fu { list-style: none; margin: 0; padding: 0; }
+.fu li { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; border-bottom: 1px solid var(--naos-night-rule); font-size: 13px; }
+.fu li:last-child { border: 0; }
+.sala-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 20px; border-top: 1px solid var(--naos-night-rule); }
+.sala-nav a { display: grid; gap: 4px; padding: 12px 0; text-decoration: none; font-family: var(--font-serif); font-size: 18px; line-height: 1.25; }
+.sala-nav a:last-child { text-align: right; }
+.sala-nav a .cond { font-family: var(--font-cond); font-size: 11px; letter-spacing: .06em; color: var(--naos-night-grey); }
+.sala-nav a:hover, .sala-nav a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.sala-pie { margin: 16px 0 0; }
+
+@media (max-width: 1180px) {
+  .como { grid-template-columns: 1fr; margin: 0 20px; gap: var(--s-3); }
+  .geo-in { grid-template-columns: 1fr; gap: 20px; }
+  .geo-l-svg { display: none; }
+  .sala-in { padding: 16px 20px 40px; }
+  .bento > .t, .bento .t-odds, .bento .t-cinta, .bento .t-graf, .bento .t-liga, .bento .t-fuentes, .bento .t-dicen { grid-column: span 6 !important; }
+  .bento .t-mapa, .bento .t-tiempo { grid-column: span 12 !important; grid-row: auto !important; }
+}
+@media (max-width: 640px) {
+  .como { margin: 0 16px; padding-top: var(--s-3); }
+  .como-t { font-size: 26px; }
+  .como-g { grid-template-columns: 1fr; gap: 26px; }
+  .cinta-rotulo { min-width: 0; padding: 0 12px; font-size: 12px; }
+  .geo-t { font-size: 17px; }
+  .sala-in { padding: 12px 16px 32px; }
+  .sala-t { font-size: 28px; }
+  .bento { grid-template-columns: 1fr; }
+  .bento > .t { grid-column: 1 / -1 !important; grid-row: auto !important; padding: 14px; }
+  .t-h { flex-wrap: wrap; } .t-h .sello { margin-left: 0; text-align: left; flex-basis: 100%; }
+  .odds-n { font-size: 72px; }
+  .tl li { grid-template-columns: 1fr; }
+  .tl .sello { grid-column: 1; }
+  .sala-nav { grid-template-columns: 1fr; }
+  .sala-nav a:last-child { text-align: left; border-top: 1px solid var(--naos-night-rule); }
+}
+@media (prefers-reduced-motion: reduce) { .geo-f, .pin .pin-n { transition: none; } }
