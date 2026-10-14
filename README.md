@@ -21,6 +21,9 @@ builder lists them, with the reason and the plan to get real data, in `escondido
 | `assets/vendor/` | GSAP + ScrollTrigger, Lenis, with their licenses |
 | `data/situacion.json` | every value the page shows, rebuilt every 30 minutes |
 | `data/mapa.json` | the map (Natural Earth via world-atlas) |
+| `data/mapa-predicciones.json` | NAOS's curated map: storyline, keywords, Polymarket market, related tickers, global rules (copy of the radar's map) |
+| `data/assets.json` | the Assets library: categories and pieces with their status (all "planned" for now); add pieces here, not in HTML |
+| `pieza.html` | the page of one Assets piece (`?id=`): video, transcript, prompts, sources (D-212); noindex while planned |
 | `scripts/construir-datos.mjs` | the data builder (Node 18+, no dependencies, no keys required) |
 | `scripts/animo.py` | the "Credit and dollar" reading of NAOS Fear & Greed (Python 3, standard library only) |
 | `.github/workflows/datos.yml` | the data refresh Action |
@@ -43,7 +46,7 @@ builder lists them, with the reason and the plan to get real data, in `escondido
 | AI on the front page | Hacker News API | titles verbatim, linked |
 | Wire and stories of the day | Federal Reserve, SEC, BBC News, CoinDesk, MarketWatch, Hacker News | source and time on every headline, linked |
 | Indices, commodities, AI stocks, Nasdaq 100 heatmap, economic calendar | TradingView widgets, embedded as provided | TradingView's own attribution, intact |
-| Prediction markets | links to Polymarket and Kalshi; no odds are shown | Kalshi's data terms allow personal, non-commercial use only, so it is a link only |
+| Prediction markets | Polymarket Gamma API (public), read only for markets in `data/mapa-predicciones.json`: one number per story, with time, only if the market passes the map's rules and only on one story; Kalshi is a link only | "Polymarket" with the reading time; the map's stamp once on the page. Kalshi's data terms allow personal, non-commercial use only. No odds history, tables or charts |
 | Map | Natural Earth via world-atlas (public domain) | "Map: Natural Earth via world-atlas" |
 
 Rules the builder follows:
