@@ -8,6 +8,7 @@
 <link rel="icon" href="assets/marca/isotipo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/comun/tokens.css">
 <link rel="stylesheet" href="assets/comun/base.css">
+<link rel="stylesheet" href="assets/css/escalera.css">
 <script defer src="assets/comun/naos.js"></script><!-- N.estado y N.guarda (ola 0); sin gsap, naos.js solo define funciones -->
 <style>
 /* Página de una pieza de Assets (D-212): el video de YouTube arriba, después transcripción, prompts y fuentes.
@@ -121,13 +122,40 @@ h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-hei
     <section class="lleno" aria-labelledby="r-s"><h2 id="r-s">Sources</h2><ol class="fuentes" id="fuentes"></ol><p class="sello nota-f" id="nota-f"></p></section>
   </div>
   <section class="prox" id="prox" aria-labelledby="r-u" hidden><h2 id="r-u">Upcoming</h2><ul id="prox-l"></ul><p class="sello" id="prox-s"></p></section>
-  <section class="ranura video" aria-labelledby="r-v"><h2 id="r-v">Video</h2><div class="vacio">The YouTube video goes here when the piece is published.</div></section>
+  <section class="ranura video" aria-labelledby="r-v"><h2 id="r-v">Video</h2><div class="vacio">The YouTube video goes here when the piece is published. <span class="vacio-f" data-fecha></span></div></section>
   <section class="ranura" aria-labelledby="r-t"><h2 id="r-t">Transcript</h2><div class="vacio">The full transcript goes here, under the video.</div></section>
   <section class="ranura" aria-labelledby="r-p"><h2 id="r-p">Prompts</h2><div class="vacio">The prompts used in the piece go here, ready to copy.</div></section>
   <section class="ranura" aria-labelledby="r-f" id="ranura-f"><h2 id="r-f">Sources</h2><div class="vacio">Every source cited in the piece goes here, linked.</div></section>
   <p class="solo-imp imp-pie" id="imp-pie"></p>
 </main>
 <footer class="pie sello">NAOS · Yourself, sharper. This page is a planned piece: nothing here is published yet. Not financial advice.</footer>
+<script>
+/* Estado y aviso de la pieza (SER-03.3, SER-02.5). Corre al terminar de cargar para que naos.js (defer) ya esté: N.estado(id)
+   escribe "Comes out <fecha>", "Date to be confirmed" o "Published" con enlace al Short; los huecos vacíos repiten la fecha. */
+document.addEventListener("DOMContentLoaded", async () => {
+  const id = new URLSearchParams(location.search).get("id");
+  if (!id) return;
+  if (id === "trading-indicador-1") {
+    const a = document.getElementById("aviso-indicador");
+    a.className = "aviso";
+    a.setAttribute("role", "note");
+    a.textContent = "Education only. Not financial advice. Not a buy or sell signal. No strategy is perfect. Practice on paper or a demo account.";
+    a.hidden = false;
+  }
+  if (!window.NAOS || !NAOS.estado) return;
+  try {
+    const r = await NAOS.estado(id), p = document.getElementById("estado-texto");
+    if (r.url) {
+      const a = document.createElement("a");
+      a.className = "ag-chip"; a.href = r.url; a.rel = "noopener"; a.target = "_blank"; a.textContent = r.texto;
+      a.setAttribute("aria-label", `${r.texto}: watch ${document.getElementById("titulo").textContent} on YouTube`);
+      p.replaceChildren(a);
+    } else p.textContent = r.texto;
+    p.className = "estado-t"; p.hidden = false;
+    if (!r.url) document.querySelectorAll("[data-fecha]").forEach((e) => { e.textContent = r.texto + "."; });
+  } catch (e) { /* sin estado, la pieza sigue completa */ }
+});
+</script>
 <script>
 const MES_L = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const fecha = (f) => { const t = new Date(f + "T12:00:00Z"); return `${t.getUTCDate()} ${MES_L[t.getUTCMonth()]} ${t.getUTCFullYear()}`; };
