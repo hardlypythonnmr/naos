@@ -1,4 +1,415 @@
 {
-  "nota": "Eventos agendados fuera del calendario de Forex Factory (votos como el CLARITY Act, discursos, audiencias) para los briefs (PROD-01.3, D-224). Solo con fecha y hora verificadas y la URL que las publica. Formato: { titulo, hora (UTC, AAAA-MM-DDTHH:MMZ), fuente, url }. Vacío hasta tener una fuente citable.",
-  "eventos": []
+ "nota": "Eventos agendados fuera del calendario de Forex Factory para los briefs (PROD-01.3, D-224), del 19-oct al 15-nov-2026, investigados el 2026-10-14. Cada uno con la URL abierta que publica la fecha. hora en UTC (AAAA-MM-DDTHH:MMZ) o null si la fuente no da hora; hora_estado: official (la fuente da la hora), expected (hora habitual o de fuente secundaria, ver nota), time not set. angulo: el ángulo de mercado en una línea, neutral.",
+ "revisado": "2026-10-14",
+ "sin_fecha": [
+  {
+   "tema": "CLARITY Act (H.R. 3633)",
+   "estado": "Pasó la Cámara; la Comisión de Banca del Senado la aprobó 15-9 el 14-may-2026; el 15-sep-2026 el Senado rechazó la clausura de la moción para tratarla 49-50 y Tillis dejó una moción de reconsideración. Sin votación ni markup agendados; el Senado está en receso (state work period) del 5-oct al 6-nov.",
+   "urls": [
+    "https://defirate.com/clarity-act-fact-sheet/",
+    "https://www.senate.gov/legislative/2026_schedule.htm"
+   ]
+  },
+  {
+   "tema": "Selección del Secretario General de la ONU",
+   "estado": "Quinto sondeo informal del Consejo de Seguridad el 7-oct-2026; ninguna fecha publicada para el siguiente sondeo, la recomendación ni la votación de la Asamblea General.",
+   "urls": [
+    "https://www.securitycouncilreport.org/whatsinblue/2026/10/fifth-security-council-straw-poll-on-un-secretary-general-candidates.php"
+   ]
+  },
+  {
+   "tema": "Financiamiento del gobierno de EE.UU.",
+   "estado": "La resolución continua (P.L. 119-103) financia hasta el 11-dic-2026, fuera de esta ventana.",
+   "urls": [
+    "https://www.crfb.org/blogs/appropriations-watch-fy-2027"
+   ]
+  }
+ ],
+ "fuera_de_ventana": "SNB decide el 10-dic; APEC (Shenzhen) 18-19 nov; Microsoft Ignite 17-20 nov; Nvidia resultados 17 nov; G20 Miami en diciembre; FMI/Banco Mundial terminaron el 18-oct. Sin discursos del presidente de la Fed ni de Lagarde calendarizados oficialmente en la ventana, fuera de las conferencias de prensa.",
+ "eventos": [
+  {
+   "titulo": "PBoC Loan Prime Rates (1Y, 5Y) for October",
+   "fecha": "2026-10-20",
+   "hora": "2026-10-20T01:00Z",
+   "hora_local": "09:00 Asia/Shanghai",
+   "hora_estado": "expected",
+   "categoria": "central_bank",
+   "pais": "China",
+   "angulo": "Sets China's benchmark lending rates; read for credit easing and the yuan.",
+   "fuente": "FinanceCalendar listing (PBoC LPR October 2026)",
+   "url": "https://www.financecalendar.com/?p=2301",
+   "nota": "Date fixed by rule (20th of each month, english.www.gov.cn 2019); the 2019 notice said 9:30 Beijing, the listing says 9:00. Time not confirmed by the PBoC."
+  },
+  {
+   "titulo": "State visit to the UK by the Sultan of Oman (Windsor, 20 to 22 Oct)",
+   "fecha": "2026-10-20",
+   "fecha_fin": "2026-10-22",
+   "hora": null,
+   "hora_local": null,
+   "hora_estado": "time not set",
+   "categoria": "state_visit",
+   "pais": "United Kingdom / Oman",
+   "angulo": "Oman mediates on Hormuz shipping; any Gulf or energy statement can touch oil.",
+   "fuente": "The Royal Family (royal.uk), announcement of 3 Sep 2026",
+   "url": "https://www.everydayexceptional.royal.uk/news-and-activity/2026-09-03/announcement-of-a-state-visit-by-his-majesty-sultan-haitham-bin-tarik"
+  },
+  {
+   "titulo": "US housing starts and building permits (September)",
+   "fecha": "2026-10-20",
+   "hora": "2026-10-20T12:30Z",
+   "hora_local": "08:30 America/New_York",
+   "hora_estado": "official",
+   "categoria": "us_data",
+   "pais": "United States",
+   "angulo": "Housing activity under current mortgage rates.",
+   "fuente": "U.S. Census Bureau, 2026 economic indicator calendar",
+   "url": "https://www.census.gov/economic-indicators/calendar-listview-2026.html"
+  },
+  {
+   "titulo": "Meta Q3 2026 results and call (results after the close)",
+   "fecha": "2026-10-21",
+   "hora": "2026-10-21T20:30Z",
+   "hora_local": "16:30 America/New_York",
+   "hora_estado": "official",
+   "categoria": "tech_ai",
+   "pais": "United States",
+   "angulo": "AI capex guidance from a top spender moves megacap tech and AI suppliers.",
+   "fuente": "Meta via PR Newswire (on Finviz), 12 Oct 2026",
+   "url": "https://finviz.com/news/401445/meta-to-announce-third-quarter-2026-results"
+  },
+  {
+   "titulo": "SNB summary of monetary policy discussion",
+   "fecha": "2026-10-22",
+   "hora": "2026-10-22T07:30Z",
+   "hora_local": "09:30 Europe/Zurich",
+   "hora_estado": "official",
+   "categoria": "central_bank",
+   "pais": "Switzerland",
+   "angulo": "Hints on the franc and the December SNB decision (no rate decision in this window).",
+   "fuente": "Swiss National Bank, event schedule",
+   "url": "https://www.snb.ch/en/services-events/digital-services/event-schedule"
+  },
+  {
+   "titulo": "Brazil presidential and governor runoff (polls close 17:00 Brasília; results from then)",
+   "fecha": "2026-10-25",
+   "hora": "2026-10-25T20:00Z",
+   "hora_local": "17:00 America/Sao_Paulo",
+   "hora_estado": "official",
+   "categoria": "election",
+   "pais": "Brazil",
+   "angulo": "Fiscal path expectations drive the real, Brazilian rates and equities.",
+   "fuente": "Diário do Nordeste, on the TSE electoral calendar",
+   "url": "https://diariodonordeste.verdesmares.com.br/pontopoder/quando-e-o-segundo-turno-das-eleicoes-2026-veja-data-e-quem-pode-disputar-1.3795964"
+  },
+  {
+   "titulo": "US durable goods orders, advance (September)",
+   "fecha": "2026-10-27",
+   "hora": "2026-10-27T12:30Z",
+   "hora_local": "08:30 America/New_York",
+   "hora_estado": "official",
+   "categoria": "us_data",
+   "pais": "United States",
+   "angulo": "Business investment signal ahead of GDP.",
+   "fuente": "U.S. Census Bureau, 2026 economic indicator calendar",
+   "url": "https://www.census.gov/economic-indicators/calendar-listview-2026.html"
+  },
+  {
+   "titulo": "Bank of Canada rate announcement and Monetary Policy Report",
+   "fecha": "2026-10-28",
+   "hora": "2026-10-28T13:45Z",
+   "hora_local": "09:45 America/New_York",
+   "hora_estado": "official",
+   "categoria": "central_bank",
+   "pais": "Canada",
+   "angulo": "Moves the Canadian dollar and Canadian yields.",
+   "fuente": "Bank of Canada, upcoming events",
+   "url": "https://www.bankofcanada.ca/press/upcoming-events/"
+  },
+  {
+   "titulo": "FOMC statement (press conference 14:30 ET, Chair Kevin Warsh)",
+   "fecha": "2026-10-28",
+   "hora": "2026-10-28T18:00Z",
+   "hora_local": "14:00 America/New_York",
+   "hora_estado": "official",
+   "categoria": "central_bank",
+   "pais": "United States",
+   "angulo": "The fed funds path sets the tone for the dollar, Treasuries, equities and crypto.",
+   "fuente": "Federal Reserve, October 2026 calendar",
+   "url": "https://www.federalreserve.gov/newsevents/2026-october.htm"
+  },
+  {
+   "titulo": "Microsoft FY27 Q1 results",
+   "fecha": "2026-10-28",
+   "hora": null,
+   "hora_local": null,
+   "hora_estado": "time not set",
+   "categoria": "tech_ai",
+   "pais": "United States",
+   "angulo": "Azure and AI capex numbers move megacap tech.",
+   "fuente": "Microsoft Investor Relations",
+   "url": "https://www.microsoft.com/en-us/investor/default"
+  },
+  {
+   "titulo": "GitHub Universe (San Francisco, 28 to 29 Oct)",
+   "fecha": "2026-10-28",
+   "fecha_fin": "2026-10-29",
+   "hora": null,
+   "hora_local": null,
+   "hora_estado": "time not set",
+   "categoria": "tech_ai",
+   "pais": "United States",
+   "angulo": "Developer and AI coding tool announcements.",
+   "fuente": "GitHub Universe",
+   "url": "https://githubuniverse.com/"
+  },
+  {
+   "titulo": "US GDP Q3 advance estimate and Personal Income and Outlays (PCE, September)",
+   "fecha": "2026-10-29",
+   "hora": "2026-10-29T12:30Z",
+   "hora_local": "08:30 America/New_York",
+   "hora_estado": "official",
+   "categoria": "us_data",
+   "pais": "United States",
+   "angulo": "Growth and the Fed's preferred inflation gauge in one morning.",
+   "fuente": "U.S. Bureau of Economic Analysis, release schedule",
+   "url": "https://www.bea.gov/news/schedule"
+  },
+  {
+   "titulo": "ECB rate decision and press conference (President Lagarde)",
+   "fecha": "2026-10-29",
+   "hora": "2026-10-29T13:45Z",
+   "hora_local": "14:45 Europe/Berlin",
+   "hora_estado": "expected",
+   "categoria": "central_bank",
+   "pais": "Euro area",
+   "angulo": "Moves the euro and euro-area bonds.",
+   "fuente": "ECB, Governing Council meeting calendar",
+   "url": "https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html",
+   "nota": "Date official. 14:45 CET is the press conference time the ECB webcast page showed for the 10 Sep meeting; the 29 Oct time is not posted yet."
+  },
+  {
+   "titulo": "Bank of Japan policy decision and Outlook Report",
+   "fecha": "2026-10-30",
+   "hora": null,
+   "hora_local": null,
+   "hora_estado": "time not set",
+   "categoria": "central_bank",
+   "pais": "Japan",
+   "angulo": "Moves the yen and JGB yields; carry trades are sensitive to it.",
+   "fuente": "Bank of Japan, MPM schedule",
+   "url": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+   "nota": "Decision time not fixed in advance (released when the meeting ends)."
+  },
+  {
+   "titulo": "Banco de la República (Colombia) rate decision",
+   "fecha": "2026-10-30",
+   "hora": null,
+   "hora_local": null,
+   "hora_estado": "time not set",
+   "categoria": "central_bank",
+   "pais": "Colombia",
+   "angulo": "Moves the peso and TES; policy rate is 12.25% after September's hike.",
+   "fuente": "Portafolio, BanRep 2026 decision calendar",
+   "url": "https://www.portafolio.co/economia/gobierno/estas-son-las-fechas-clave-en-2026-para-las-decisiones-sobre-la-tasa-de-interes-del-banco-de-la-republica-487296",
+   "nota": "banrep.gov.co blocked automated access; date from Portafolio's report of the official calendar. Time not stated."
+  },
+  {
+   "titulo": "OPEC+ meeting of the seven voluntary-cut countries (December output)",
+   "fecha": "2026-11-01",
+   "hora": null,
+   "hora_local": null,
+   "hora_estado": "time not set",
+   "categoria": "energy",
+   "pais": "OPEC+",
+   "angulo": "Sets December supply; direct read for oil prices.",
+   "fuente": "OPEC press release, 4 Oct 2026",
+   "url": "https://www.opec.org/pr-detail/616-4-october-2026.html"
+  },
+  {
+   "titulo": "Fed Senior Loan Officer Opinion Survey (SLOOS)",
+   "fecha": "2026-11-02",
+   "hora": "2026-11-02T19:00Z",
+   "hora_local": "14:00 America/New_York",
+   "hora_estado": "official",
+   "categoria": "us_data",
+   "pais": "United States",
+   "angulo": "Bank lending standards, a credit-conditions signal.",
+   "fuente": "Federal Reserve, November 2026 calendar",
+   "url": "https://www.federalreserve.gov/newsevents/2026-november.htm"
+  },
+  {
+   "titulo": "RBA decision and Statement on Monetary Policy",
+   "fecha": "2026-11-03",
+   "hora": "2026-11-03T03:30Z",
+   "hora_local": "14:30 Australia/Sydney",
+   "hora_estado": "official",
+   "categoria": "central_bank",
+   "pais": "Australia",
+   "angulo": "Moves the Australian dollar and local rates.",
+   "fuente": "Reserve Bank of Australia, release schedule (SMP 2.30 pm, 3 Nov; Board meets 2 to 3 Nov)",
+   "url": "https://www.rba.gov.au/schedules-events/",
+   "url2": "https://www.rba.gov.au/schedules-events/board-meeting-schedules.html"
+  },
+  {
+   "titulo": "US midterm general election",
+   "fecha": "2026-11-03",
+   "hora": null,
+   "hora_local": null,
+   "hora_estado": "time not set",
+   "categoria": "election",
+   "pais": "United States",
+   "angulo": "Control of Congress shapes fiscal, tariff and crypto legislation odds.",
+   "fuente": "FEC, election results and voting information",
+   "url": "https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/"
+  },
+  {
+   "titulo": "US JOLTS job openings (September)",
+   "fecha": "2026-11-03",
+   "hora": "2026-11-03T15:00Z",
+   "hora_local": "10:00 America/New_York",
+   "hora_estado": "official",
+   "categoria": "us_data",
+   "pais": "United States",
+   "angulo": "Labor demand ahead of payrolls.",
+   "fuente": "U.S. Bureau of Labor Statistics, 2026 release calendar",
+   "url": "https://www.bls.gov/schedule/2026/home.htm"
+  },
+  {
+   "titulo": "Brazil Copom Selic decision (meeting 3 to 4 Nov)",
+   "fecha": "2026-11-04",
+   "hora": "2026-11-04T21:30Z",
+   "hora_local": "18:30 America/Sao_Paulo",
+   "hora_estado": "expected",
+   "categoria": "central_bank",
+   "pais": "Brazil",
+   "angulo": "Moves the real and Brazilian rates.",
+   "fuente": "Investidor10, on the BCB 2026 Copom calendar",
+   "url": "https://investidor10.com.br/amp/noticias/copom-em-2026-tera-oito-reunioes-veja-o-cronograma-divulgado-pelo-bc-113749/",
+   "url2": "https://borainvestir.b3.com.br/noticias/copom-tera-8-reunioes-em-2026-veja-calendario-e-projecao-para-a-selic/",
+   "nota": "Dates from the BCB calendar (via B3 and Investidor10; bcb.gov.br did not load). 18:30 Brasília is when decisions are usually released."
+  },
+  {
+   "titulo": "US international trade in goods and services (September)",
+   "fecha": "2026-11-04",
+   "hora": "2026-11-04T13:30Z",
+   "hora_local": "08:30 America/New_York",
+   "hora_estado": "official",
+   "categoria": "us_data",
+   "pais": "United States",
+   "angulo": "Trade gap under the tariff regime.",
+   "fuente": "U.S. Bureau of Economic Analysis, release schedule",
+   "url": "https://www.bea.gov/news/schedule"
+  },
+  {
+   "titulo": "Bank of England Bank Rate decision and Monetary Policy Report",
+   "fecha": "2026-11-05",
+   "hora": "2026-11-05T12:00Z",
+   "hora_local": "12:00 Europe/London",
+   "hora_estado": "official",
+   "categoria": "central_bank",
+   "pais": "United Kingdom",
+   "angulo": "Moves sterling and gilts.",
+   "fuente": "Bank of England, November 2026 Monetary Policy Summary (to be published at 12pm)",
+   "url": "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/november-2026"
+  },
+  {
+   "titulo": "Banxico rate decision",
+   "fecha": "2026-11-05",
+   "hora": "2026-11-05T19:00Z",
+   "hora_local": "13:00 America/Mexico_City",
+   "hora_estado": "official",
+   "categoria": "central_bank",
+   "pais": "Mexico",
+   "angulo": "Moves the peso and Mexican rates.",
+   "fuente": "BBVA Research, Agenda Económica 2026 (Banxico calendar; 13:00 Mexico City)",
+   "url": "https://www.bbvaresearch.com/wp-content/uploads/2026/03/AgendaEconomica_2026.pdf"
+  },
+  {
+   "titulo": "US Employment Situation (October payrolls)",
+   "fecha": "2026-11-06",
+   "hora": "2026-11-06T13:30Z",
+   "hora_local": "08:30 America/New_York",
+   "hora_estado": "official",
+   "categoria": "us_data",
+   "pais": "United States",
+   "angulo": "The month's main labor read; moves rate expectations.",
+   "fuente": "U.S. Bureau of Labor Statistics, 2026 release calendar",
+   "url": "https://www.bls.gov/schedule/2026/home.htm"
+  },
+  {
+   "titulo": "COP31 UN Climate Change Conference opens (Antalya, 9 to 20 Nov)",
+   "fecha": "2026-11-09",
+   "fecha_fin": "2026-11-20",
+   "hora": null,
+   "hora_local": null,
+   "hora_estado": "time not set",
+   "categoria": "summit",
+   "pais": "Türkiye / UN",
+   "angulo": "Energy transition and carbon policy signals for oil, gas and clean-energy shares.",
+   "fuente": "COP31 Türkiye (official site)",
+   "url": "https://cop31.tr"
+  },
+  {
+   "titulo": "Web Summit (Lisbon, 9 to 12 Nov)",
+   "fecha": "2026-11-09",
+   "fecha_fin": "2026-11-12",
+   "hora": null,
+   "hora_local": null,
+   "hora_estado": "time not set",
+   "categoria": "tech_ai",
+   "pais": "Portugal",
+   "angulo": "Tech and AI product and funding announcements.",
+   "fuente": "Web Summit",
+   "url": "https://websummit.com/"
+  },
+  {
+   "titulo": "US CPI (October)",
+   "fecha": "2026-11-10",
+   "hora": "2026-11-10T13:30Z",
+   "hora_local": "08:30 America/New_York",
+   "hora_estado": "official",
+   "categoria": "us_data",
+   "pais": "United States",
+   "angulo": "Inflation print that moves rate expectations, the dollar and risk assets.",
+   "fuente": "U.S. Bureau of Labor Statistics, 2026 release calendar",
+   "url": "https://www.bls.gov/schedule/2026/home.htm"
+  },
+  {
+   "titulo": "Bank of Canada Summary of Deliberations",
+   "fecha": "2026-11-10",
+   "hora": "2026-11-10T18:30Z",
+   "hora_local": "13:30 America/Toronto",
+   "hora_estado": "official",
+   "categoria": "central_bank",
+   "pais": "Canada",
+   "angulo": "Detail behind the 28 Oct decision.",
+   "fuente": "Bank of Canada, upcoming events",
+   "url": "https://www.bankofcanada.ca/press/upcoming-events/"
+  },
+  {
+   "titulo": "COP31 Leaders' Summit (11 to 12 Nov)",
+   "fecha": "2026-11-11",
+   "fecha_fin": "2026-11-12",
+   "hora": null,
+   "hora_local": null,
+   "hora_estado": "time not set",
+   "categoria": "summit",
+   "pais": "Türkiye / UN",
+   "angulo": "Heads of state on climate finance and fossil fuel phase-down language.",
+   "fuente": "COP31 Türkiye (official site)",
+   "url": "https://cop31.tr"
+  },
+  {
+   "titulo": "US PPI (October)",
+   "fecha": "2026-11-13",
+   "hora": "2026-11-13T13:30Z",
+   "hora_local": "08:30 America/New_York",
+   "hora_estado": "official",
+   "categoria": "us_data",
+   "pais": "United States",
+   "angulo": "Pipeline inflation after CPI.",
+   "fuente": "U.S. Bureau of Labor Statistics, 2026 release calendar",
+   "url": "https://www.bls.gov/schedule/2026/home.htm"
+  }
+ ]
 }

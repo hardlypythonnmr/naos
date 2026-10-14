@@ -1,6 +1,6 @@
 {
  "nota": "Grilla pública de la semana (D-224). La arma scripts/construir-semana.mjs; esquema en el README. Sin fecha conocida: dia null.",
- "generado": "2026-10-14T20:49Z",
+ "generado": "2026-10-14T21:25Z",
  "semana": {
   "desde": "2026-10-19",
   "hasta": "2026-10-25"
@@ -91,7 +91,14 @@
    "format": "brief",
    "title": "US close brief",
    "status": "planned",
-   "eventos": []
+   "eventos": [
+    {
+     "titulo": "PBoC Loan Prime Rates (1Y, 5Y) for October",
+     "hora": "2026-10-20T01:00Z",
+     "fuente": "FinanceCalendar listing (PBoC LPR October 2026)",
+     "url": "https://www.financecalendar.com/?p=2301"
+    }
+   ]
   },
   {
    "seccion": "market",
@@ -102,7 +109,21 @@
    "format": "brief",
    "title": "London open brief",
    "status": "planned",
-   "eventos": []
+   "eventos": [
+    {
+     "titulo": "State visit to the UK by the Sultan of Oman (Windsor, 20 to 22 Oct)",
+     "hora": null,
+     "fecha": "2026-10-20",
+     "fuente": "The Royal Family (royal.uk), announcement of 3 Sep 2026",
+     "url": "https://www.everydayexceptional.royal.uk/news-and-activity/2026-09-03/announcement-of-a-state-visit-by-his-majesty-sultan-haitham-bin-tarik"
+    },
+    {
+     "titulo": "US housing starts and building permits (September)",
+     "hora": "2026-10-20T12:30Z",
+     "fuente": "U.S. Census Bureau, 2026 economic indicator calendar",
+     "url": "https://www.census.gov/economic-indicators/calendar-listview-2026.html"
+    }
+   ]
   },
   {
    "seccion": "market",
@@ -157,7 +178,14 @@
    "format": "brief",
    "title": "US close brief",
    "status": "planned",
-   "eventos": []
+   "eventos": [
+    {
+     "titulo": "Meta Q3 2026 results and call (results after the close)",
+     "hora": "2026-10-21T20:30Z",
+     "fuente": "Meta via PR Newswire (on Finviz), 12 Oct 2026",
+     "url": "https://finviz.com/news/401445/meta-to-announce-third-quarter-2026-results"
+    }
+   ]
   },
   {
    "seccion": "market",
@@ -168,7 +196,14 @@
    "format": "brief",
    "title": "London open brief",
    "status": "planned",
-   "eventos": []
+   "eventos": [
+    {
+     "titulo": "SNB summary of monetary policy discussion",
+     "hora": "2026-10-22T07:30Z",
+     "fuente": "Swiss National Bank, event schedule",
+     "url": "https://www.snb.ch/en/services-events/digital-services/event-schedule"
+    }
+   ]
   },
   {
    "seccion": "market",
@@ -223,7 +258,14 @@
    "format": "brief",
    "title": "US close brief",
    "status": "planned",
-   "eventos": []
+   "eventos": [
+    {
+     "titulo": "Brazil presidential and governor runoff (polls close 17:00 Brasília; results from then)",
+     "hora": "2026-10-25T20:00Z",
+     "fuente": "Diário do Nordeste, on the TSE electoral calendar",
+     "url": "https://diariodonordeste.verdesmares.com.br/pontopoder/quando-e-o-segundo-turno-das-eleicoes-2026-veja-data-e-quem-pode-disputar-1.3795964"
+    }
+   ]
   },
   {
    "seccion": "ai",
@@ -340,6 +382,15 @@
    "format": "medium",
    "title": "Your first APIs",
    "asset_id": "ai-primeras-apis",
+   "status": "planned"
+  },
+  {
+   "seccion": "ai",
+   "dia": null,
+   "slot": null,
+   "format": "medium",
+   "title": "From one email to a campaign",
+   "asset_id": "ai-de-un-correo-a-una-campana",
    "status": "planned"
   },
   {

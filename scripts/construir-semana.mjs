@@ -49,9 +49,11 @@ if (!SIN_RED) {
   } catch (e) { ffNota = "Forex Factory calendar not reached: " + e.message; }
 }
 if (!ff.length && !ffNota) ffNota = "Forex Factory publishes the week's calendar over the weekend; the briefs list its red-folder events once it covers this week.";
-const agenda = (leer("data/agenda.json", { eventos: [] }).eventos || []).filter((e) => e.hora && e.url && e.hora.slice(0, 10) >= DIAS[0] && e.hora.slice(0, 10) <= DIAS[6])
-  .map((e) => ({ titulo: e.titulo, hora: e.hora, fuente: e.fuente, url: e.url }));
-const eventos = [...ff, ...agenda].sort((a, b) => a.hora.localeCompare(b.hora));
+// agenda: con hora (UTC) o solo con fecha (hora null: va al primer brief de ese día, o al último de la semana si cae en fin de semana)
+const agenda = (leer("data/agenda.json", { eventos: [] }).eventos || []).map((e) => ({ ...e, f: e.hora ? e.hora.slice(0, 10) : e.fecha }))
+  .filter((e) => e.f && e.url && e.f >= DIAS[0] && e.f <= DIAS[6])
+  .map((e) => ({ titulo: e.titulo, hora: e.hora || null, fecha: e.f, fuente: e.fuente, url: e.url }));
+const eventos = [...ff, ...agenda].sort((a, b) => (a.hora || a.fecha + "T00:00Z").localeCompare(b.hora || b.fecha + "T00:00Z"));
 
 const items = [];
 // briefs: cada uno anticipa lo agendado hasta el brief siguiente
@@ -60,7 +62,8 @@ for (const f of DIAS.slice(0, 5)) for (const s of SLOTS) briefs.push({ dia: f, s
 briefs.forEach((b, i) => {
   const hasta = briefs[i + 1]?.hora_utc || DIAS[6] + "T23:59Z";
   items.push({ seccion: "market", dia: b.dia, slot: b.slot, hora_utc: b.hora_utc, hora_local: b.hora_local, format: "brief", title: b.titulo, status: "planned",
-    eventos: eventos.filter((e) => e.hora >= b.hora_utc && e.hora < hasta).map(({ titulo, hora, fuente, url }) => ({ titulo, hora, fuente, ...(url ? { url } : {}) })) });
+    eventos: eventos.filter((e) => e.hora ? e.hora >= b.hora_utc && e.hora < hasta : (DIAS.indexOf(e.fecha) < 5 ? b.dia === e.fecha && b.slot === "london" : i === briefs.length - 1))
+      .map(({ titulo, hora, fecha, fuente, url }) => ({ titulo, hora: hora ?? null, ...(hora ? {} : { fecha }), fuente, ...(url ? { url } : {}) })) });
 });
 
 // la serie de IA (series/ia-del-chat-al-codigo): la parte 1, el lunes; sus Shorts sin fecha todavía

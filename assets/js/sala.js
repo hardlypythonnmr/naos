@@ -394,8 +394,8 @@
     const ficha = (x) => {
       const fmt = s.formatos.find((f) => f.id === x.format)?.titulo || x.format;
       const txt = x.format === "brief" ? SLOT[x.slot] || x.title : x.n > 1 ? `${x.n} Shorts · ${x.title.split(" · ")[0]}` : x.title;
-      const ev = (x.eventos || []).length ? ` · ${x.eventos.length} red event${x.eventos.length > 1 ? "s" : ""}` : "";
-      const tip = x.format === "brief" ? `${x.title}, ${x.hora_local}${(x.eventos || []).length ? ". Scheduled: " + x.eventos.map((e) => `${e.titulo} ${e.hora.slice(11, 16)} UTC`).join("; ") : ""}` : `${fmt}: ${x.title}${x.dia ? "" : ", date TBD"}`;
+      const ev = (x.eventos || []).length ? ` · ${x.eventos.length} scheduled event${x.eventos.length > 1 ? "s" : ""}` : "";
+      const tip = x.format === "brief" ? `${x.title}, ${x.hora_local}${(x.eventos || []).length ? ". Scheduled: " + x.eventos.map((e) => `${e.titulo} ${e.hora ? e.hora.slice(11, 16) + " UTC" : "(time TBD)"}`).join("; ") : ""}` : `${fmt}: ${x.title}${x.dia ? "" : ", date TBD"}`;
       const cuerpo = `<span class="sf-i">${ICONO[x.format] || ""}</span><span class="sf-t">${esc(txt)}${esc(ev)}</span>`;
       const cls = `sf sf-${esc(x.format)}${x.status === "out" ? " out" : ""}`;
       return x.asset_id && paginas.has(x.asset_id) ? `<a class="${cls}" href="pieza.html?id=${encodeURIComponent(x.asset_id)}" title="${esc(tip)}">${cuerpo}</a>` : `<span class="${cls}" title="${esc(tip)}">${cuerpo}</span>`;
