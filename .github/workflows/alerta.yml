@@ -1,0 +1,40 @@
+# NAOS · alerta rápida (D-194, D-195): revisa movimientos cada ~5 min y deja un post en plantilla.
+# Repo público: los minutos de Actions son gratis. El cron de GitHub puede atrasarse 5 a 15 min en horas pico.
+name: naos-alerta
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  issues: write
+concurrency: { group: naos-alerta, cancel-in-progress: false }
+jobs:
+  alerta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Revisar movimientos
+        run: python3 radar/alerta.py
+      - name: Guardar y avisar
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT: ${{ secrets.TELEGRAM_CHAT }}
+        run: |
+          git config user.name "naos-radar"
+          git config user.email "naos-radar@users.noreply.github.com"
+          git add radar/alertas
+          if ! git diff --cached --quiet; then
+            git commit -m "alerta $(date -u +%F-%H%M)"
+            git pull --rebase -q && git push -q
+          fi
+          AV=radar/alertas/aviso.md
+          if [ -f "$AV" ]; then
+            gh issue create --title "$(head -1 $AV | cut -c1-120)" --body-file "$AV"
+            if [ -n "$TELEGRAM_TOKEN" ] && [ -n "$TELEGRAM_CHAT" ]; then
+              curl -s "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage" \
+                --data-urlencode "chat_id=$TELEGRAM_CHAT" --data-urlencode "text=$(cat $AV)" > /dev/null
+            fi
+          fi
