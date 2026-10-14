@@ -303,12 +303,12 @@
           ` aria-label="${esc(l.nombre)}: ${l.salas.length} ${l.salas.length > 1 ? "stories" : "story"}. Open the monitor room"><span class="pin-n">${esc(l.nombre)}</span></a>`; }).join("");
     $(".geo-cab .sello", el).textContent = `${salas.length} ${salas.length > 1 ? "stories" : "story"} in ${lugares.length} ${lugares.length > 1 ? "places" : "place"} · as of ${horaTxt(d.radar?.fecha || d.generado)}`;
     const colocar = () => {
-      const rc = caja.getBoundingClientRect(), puestas = $$(".pin", caja).map((p) => { const r = p.getBoundingClientRect(); return { left: r.left - 9, right: r.left + 9, top: r.top - 9, bottom: r.top + 9 }; });
+      const rc = caja.getBoundingClientRect(), puestas = $$(".pin", caja).map((p) => { const r = p.getBoundingClientRect(); return { left: r.left + 3, right: r.right - 3, top: r.top + 3, bottom: r.bottom - 3 }; });
       const choca = (r) => r.left < rc.left + 2 || r.right > rc.right - 2 || r.top < rc.top || r.bottom > rc.bottom || puestas.some((q) => !(r.right <= q.left || r.left >= q.right || r.bottom <= q.top || r.top >= q.bottom));
       for (const pin of $$(".pin", caja)) { const n = $(".pin-n", pin), pref = pin.classList.contains("izq");
-        const ops = [[pref, -9], [!pref, -9], [pref, 10], [!pref, 10], [pref, -28], [!pref, -28]];
+        const ops = [[pref, 3], [!pref, 3], [pref, 22], [!pref, 22], [pref, -16], [!pref, -16]];
         let ok = false; for (const [izq, top] of ops) { pin.classList.toggle("izq", izq); n.style.top = top + "px"; if (!choca(n.getBoundingClientRect())) { ok = true; break; } }
-        if (!ok) { pin.classList.toggle("izq", pref); n.style.top = "-9px"; }
+        if (!ok) { pin.classList.toggle("izq", pref); n.style.top = "3px"; }
         puestas.push(n.getBoundingClientRect()); } };
     // líneas: cada lugar a sus filas; al pasar por una, se resaltan las dos puntas
     const svg = $(".geo-l-svg", el);

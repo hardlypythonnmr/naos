@@ -385,7 +385,7 @@
   const IA = [["NVDA", "Nvidia", /\b(nvidia|geforce)\b/i], ["MSFT", "Microsoft", /\b(microsoft|openai)\b/i], ["GOOGL", "Alphabet", /\b(google|alphabet|gemini|deepmind)\b/i], ["AMZN", "Amazon", /\b(amazon|aws)\b/i],
     ["META", "Meta", /\bmeta\b/i], ["AMD", "AMD", /\bamd\b/i], ["AVGO", "Broadcom", /\bbroadcom\b/i], ["TSM", "TSMC", /\b(tsmc|taiwan semiconductor)\b/i], ["ASML", "ASML", /\basml\b/i], ["SMH", "Chip ETF", /\b(chips?|semiconductors?)\b/i]];
   const titHoy = [...vigente(d.wire), ...vigente(d.titulares), ...(d.hn || [])].map((t) => t.titulo).filter((t, i, xs) => xs.indexOf(t) === i);
-  const cintaIA = IA.map(([s, n, re]) => { const k = titHoy.filter((t) => re.test(t)).length; return { s, t: k ? `${n} · in ${k} headline${k > 1 ? "s" : ""} today` : n }; });
+  const cintaIA = IA.map(([s, n, re]) => { const k = titHoy.filter((t) => re.test(t)).length; return { s, t: k ? `${n} · named in ${k} headline${k > 1 ? "s" : ""} on this page` : n }; });
   cintaIA.push({ s: "Prices", t: "AI market tracker below, via TradingView" });
   $("#cinta-ia").hidden = false; N.cinta($("#cinta-ia"), cintaIA, { rotulo: "* AI", aria: "AI tape: the AI-linked tickers of the section below and how many of today's headlines name them", retraso: .1 });
   // Behavior: rasgos de los videos (data/rasgos.json), en flujo lento (G3: 60 px/s)

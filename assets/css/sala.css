@@ -41,10 +41,10 @@
 .m-b { fill: none; stroke: #3A414D; stroke-width: .6; vector-effect: non-scaling-stroke; }
 .m-r { fill: none; stroke: var(--naos-night-sec); stroke-width: 1.4; stroke-dasharray: 5 4; vector-effect: non-scaling-stroke; }
 .m-c { fill: none; stroke: var(--naos-night-text); stroke-width: 2; vector-effect: non-scaling-stroke; }
-.pin { position: absolute; width: 0; height: 0; text-decoration: none; color: var(--naos-night-text); z-index: 2; }
-.pin::before { content: ""; position: absolute; left: -8px; top: -8px; width: 16px; height: 16px; border-radius: 50%; background: var(--naos-night-text); box-shadow: 0 0 0 4px var(--naos-night), 0 0 0 5.5px var(--naos-night-text); }
-.pin .pin-n { position: absolute; left: 16px; top: -9px; font-family: var(--font-cond); font-weight: 600; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; line-height: 18px; padding: 0 5px; background: var(--naos-night); }
-.pin.izq .pin-n { left: auto; right: 16px; }
+.pin { position: absolute; width: 24px; height: 24px; margin: -12px 0 0 -12px; text-decoration: none; color: var(--naos-night-text); z-index: 2; }
+.pin::before { content: ""; position: absolute; left: 4px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--naos-night-text); box-shadow: 0 0 0 4px var(--naos-night), 0 0 0 5.5px var(--naos-night-text); }
+.pin .pin-n { position: absolute; left: 28px; top: 3px; font-family: var(--font-cond); font-weight: 600; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; line-height: 18px; padding: 0 5px; background: var(--naos-night); }
+.pin.izq .pin-n { left: auto; right: 28px; }
 .pin.activo .pin-n, .pin:focus-visible .pin-n { background: var(--naos-night-plate); color: var(--naos-night-plate-text); }
 .pin:focus-visible { outline: none; }
 .geo-lista { list-style: none; margin: 0; padding: 0; counter-reset: geo; }
@@ -97,10 +97,10 @@ dialog.sala::backdrop { background: var(--naos-night); }
 .m-aqui span { position: absolute; left: 20px; top: -11px; white-space: nowrap; font-family: var(--font-cond); font-weight: 600; font-size: 13px; letter-spacing: .05em; text-transform: uppercase;
   background: var(--naos-night-plate); color: var(--naos-night-plate-text); padding: 1px 7px; }
 .m-aqui.izq span { left: auto; right: 20px; }
-.m-otra { position: absolute; width: 0; height: 0; z-index: 1; text-decoration: none; color: var(--naos-night-sec); }
-.m-otra::before { content: ""; position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--naos-night-sec); background: var(--naos-night); box-sizing: border-box; }
-.m-otra span { position: absolute; left: 12px; top: -9px; white-space: nowrap; font-family: var(--font-cond); font-weight: 600; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; line-height: 18px; }
-.m-otra.izq span { left: auto; right: 12px; }
+.m-otra { position: absolute; width: 20px; height: 20px; margin: -10px 0 0 -10px; z-index: 1; text-decoration: none; color: var(--naos-night-sec); }
+.m-otra::before { content: ""; position: absolute; left: 4px; top: 4px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--naos-night-sec); background: var(--naos-night); box-sizing: border-box; }
+.m-otra span { position: absolute; left: 22px; top: 1px; white-space: nowrap; font-family: var(--font-cond); font-weight: 600; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; line-height: 18px; }
+.m-otra.izq span { left: auto; right: 22px; }
 .m-otra:hover span, .m-otra:focus-visible span { color: var(--naos-night-text); text-decoration: underline; }
 .odds-n { font-family: var(--font-sans); font-weight: 500; font-size: 96px; line-height: .95; letter-spacing: -.035em; margin: 4px 0 8px !important; }
 .odds-n span { font-size: 44px; letter-spacing: 0; margin-left: 4px; }
