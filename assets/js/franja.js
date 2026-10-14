@@ -54,7 +54,8 @@
 
     const todosIg = fichas.every((f) => f.e && f.e.ig);
     let sub = deIg ? "Seen on Instagram? Here is today in the order we post it." : todosIg ? "Same sequence on YouTube Shorts and Instagram Reels." : "Videos on YouTube Shorts and Instagram Reels.";
-    if (!fichas.some((f) => f.hoy && f.e) && proxima) sub = "Nothing new today. Next: " + fe(proxima.dia) + (proxima.hora_local ? ", " + esc(proxima.hora_local) : "") + ".";
+    if (proxima && proxima.dia === hoy && !fichas.some((f) => f.hoy && f.e)) sub = "Today's video comes out at " + esc(proxima.hora_local || "a time to be confirmed") + ". No link until then.";
+    else if (!fichas.some((f) => f.hoy && f.e) && proxima) sub = "Nothing new today. Next: " + fe(proxima.dia) + (proxima.hora_local ? ", " + esc(proxima.hora_local) : "") + ".";
     const gen = sem.generado || "", viejo = gen && Date.now() - Date.parse(gen) > 24 * 36e5;
     const sello = gen ? `<p class="sello fr-s${viejo ? " fr-viejo" : ""}">Schedule: NAOS grid, updated ${Number(gen.slice(8, 10))} ${MES[+gen.slice(5, 7) - 1]} ${gen.slice(0, 4)} · ${gen.slice(11, 16)} UTC. Links: what is already published.</p>` : "";
 

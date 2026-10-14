@@ -1,11 +1,13 @@
 /* franja.css · #secuencia, el Short y el Reel de hoy (PROD-08.8). Solo tokens; sin animación propia.
  * Hoy lleva borde de 2 px en vino (como la grilla de "This week") y la palabra "Today"; el cobalto queda fuera. */
+/* .ficha de la ola 0 choca con la ficha de la cinta (v1plus.css: dos puntos a los lados): aquí se anulan; el aviso va a la sesión */
+.ag-chip.ficha::before, .ag-chip.ficha::after { content: none; }
 #secuencia .fr { padding: var(--s-3) var(--page-gutter) var(--s-3); border-bottom: 1px solid var(--naos-rule); }
 .fr-in { max-width: 1120px; margin: 0 auto; }
 .fr-t { font-family: var(--font-serif); font-weight: 300; font-size: var(--p-title); line-height: 1.15; letter-spacing: -0.01em; margin: 0; color: var(--naos-ink); }
 .fr-sub { margin: 6px 0 16px; font-family: var(--font-sans); font-size: 14px; line-height: 1.45; color: var(--naos-sec); }
 .fr-sub a { color: var(--naos-ink); text-decoration: underline; text-underline-offset: 2px; }
-.fr-l { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.fr-l { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
 .fr-f { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 14px 16px; border: 1px solid var(--naos-grey); background: var(--naos-paper); }
 .fr-hoy { border: 2px solid var(--vino, #5A1834); padding: 13px 15px; }
 .fr-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; font-family: var(--font-sans); font-size: 14px; color: var(--naos-sec); }
