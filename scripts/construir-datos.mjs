@@ -746,7 +746,7 @@ if (conOdds.length) { const hh = conOdds[0].odds.leido_utc.slice(11, 16);
   hoyL.push({ k: "odds", t: `What the markets say: ${conOdds.map((s) => `${oddsFrase(s.odds)} are ${s.odds.p}%`).join("; ").replace(/^./, (c) => c.toUpperCase())} (Polymarket, ${hh} UTC). Prices set by traders, not NAOS forecasts.` }); }
 const ej = salas.find((s) => s.odds && s.ligado?.historia && s.activos.some((id) => activos.find((a) => a.id === id && a.fresco))) || salas.find((s) => s.odds && s.ligado?.historia) || null;
 if (ej) { const a = ej.activos.map((id) => activos.find((x) => x.id === id && x.fresco)).find(Boolean);
-  hoyL.push({ k: "liga", t: `How it ties: the ${ej.fuente} headline uses ${ej.ligado.palabras.map((w) => `“${w}”`).join(" and ")}, ${ej.ligado.palabras.length > 1 ? "words" : "a word"} NAOS files under “${ej.ligado.historia}”, so its room holds ${a ? (CORTO[a.id] || a.nombre) + "'s move, " : ""}that market's ${oddsFrase(ej.odds)}${ej.lugar ? " and a map of " + conEl(ej.lugar.nombre) : ""}.` }); }
+  hoyL.push({ k: "liga", t: `Why they may be related: the ${ej.fuente} headline uses ${ej.ligado.palabras.map((w) => `“${w}”`).join(" and ")}, ${ej.ligado.palabras.length > 1 ? "words" : "a word"} NAOS files under “${ej.ligado.historia}”, so its room shows ${a ? (CORTO[a.id] || a.nombre) + "'s move, " : ""}that market's ${oddsFrase(ej.odds)}${ej.lugar ? " and a map of " + conEl(ej.lugar.nombre) : ""}.` }); }
 const lectura = { hoy: hoyL, ejemplo: ej?.id || null, titulares: temas.total || 0, wire: (wireFinal || []).filter((t) => !t.viejo).length, frescas: activos.filter((a) => a.fresco && !a.viejo).length,
   mercados_leidos: lecturasPM.size, mercados_mostrados: salas.filter((s) => s.odds).length, salas: salas.length };
 

@@ -76,7 +76,7 @@
     const L = d.lectura; if (!el || !L) { if (el) el.hidden = true; return; }
     const hoy = (L.hoy || []).filter((x) => x && x.t);
     const ol = $("#hoy", el);
-    if (hoy.length) { ol.innerHTML = hoy.map((x, i) => `<li data-k="${esc(x.k)}"><span class="hoy-i num">${String(i + 1).padStart(2, "0")}</span><span>${esc(x.t)}</span></li>`).join("");
+    if (hoy.length) { ol.innerHTML = hoy.map((x, i) => `<li data-k="${esc(x.k)}"><span class="hoy-i num">${String(i + 1).padStart(2, "0")}</span><span>${x.k === "liga" ? '<span class="beta">Beta</span> ' : ""}${esc(x.t)}</span></li>`).join("");
       $("#hoy-h", el).textContent = `Today's read · ${horaTxt(d.generado)}`; }
     else { ol.hidden = true; $("#hoy-h", el).hidden = true; }
     const pl = (n, s, p = s + "s") => `${N.fmt(n)} ${n === 1 ? s : p}`;
@@ -89,9 +89,9 @@
       nodo("noticias", "News", ej ? `${esc(ej.fuente)}, ${esc(horaTxt(ej.hora))}: “${esc(ej.titulo)}”` : "", `${pl(L.wire, "headline")} on the wire, ${pl(L.titulares, "headline")} scanned`) +
       nodo("datos", "US data and prices", a ? `${esc(ctx.nombreCorto[a.id] || a.nombre)} ${esc(ctx.val(a))}${a.cambio != null ? " " + N.cambioHTML(a) : ""} <span class="sello">${esc(a.fuente)}</span>` : "", `${pl(L.frescas, "fresh reading")}: Treasury yields, the BLS calendar, the dollar, crypto, metals`) +
       nodo("mercados", "Prediction markets", ej?.odds ? `${esc(N.oddsTxt(ej.odds))}: <b class="num">${esc(ej.odds.p)}%</b> <span class="sello">${esc(N.oddsFuente(ej.odds))}</span>` : "", `${pl(L.mercados_leidos, "market")} checked against the rules, odds shown for ${pl(L.mercados_mostrados, "story", "stories")}`) +
-      `</div><div class="cn-col">` + nodo("mapa", "NAOS story map", ej?.ligado?.historia ? `${ej.ligado.palabras.map((w) => `“${esc(w)}”`).join(" and ")} → ${esc(ej.ligado.historia)}` : "", "words in a headline tie it to a place, the assets that usually react and one market", "centro") +
+      `</div><div class="cn-col">` + nodo("mapa", `NAOS story map <span class="beta">Beta</span>`, ej?.ligado?.historia ? `${ej.ligado.palabras.map((w) => `“${esc(w)}”`).join(" and ")} → ${esc(ej.ligado.historia)}` : "", "words in a headline point to a place, assets and one market that may be related", "centro") +
       `</div><div class="cn-col">` + nodo("sala", "Monitor room", ej ? `<a href="#sala/${esc(ej.id)}" data-sala="${esc(ej.id)}">Open today's example</a>` : "", `${pl(L.salas, "story", "stories")} with a room today`, "fin") + `</div>`;
-    g.setAttribute("aria-label", `How NAOS ties its inputs${ej ? ", with today's example" : ""}: news, US data and prices, and prediction markets feed the NAOS story map, which opens a monitor room for each of ${L.salas} stories.`);
+    g.setAttribute("aria-label", `How NAOS groups what may be related${ej ? ", with today's example" : ""}: news, US data and prices, and prediction markets feed the NAOS story map, which opens a monitor room for each of ${L.salas} stories.`);
     const svg = $(".como-l", g), n = (k) => $(`[data-n="${k}"]`, g);
     let hecho = false;
     const dibujar = () => { const ps = conectar(svg, g, [[n("noticias"), n("mapa")], [n("datos"), n("mapa")], [n("mercados"), n("mapa")], [n("mapa"), n("sala"), "fuerte"]]);
@@ -113,7 +113,7 @@
     const fechado = (id) => A[id] && !A[id].fresco ? A[id] : null;
 
     /* ---------- piezas del bento ---------- */
-    const tile = (cls, titulo, cuerpo, sello = "") => `<section class="t ${cls}" aria-label="${esc(titulo)}"><header class="t-h"><h3>${esc(titulo)}</h3>${sello ? `<span class="sello">${sello}</span>` : ""}</header>${cuerpo}</section>`;
+    const tile = (cls, titulo, cuerpo, sello = "", beta = false) => `<section class="t ${cls}" aria-label="${esc(titulo)}"><header class="t-h"><h3>${esc(titulo)}${beta ? ' <span class="beta">Beta</span>' : ""}</h3>${sello ? `<span class="sello">${sello}</span>` : ""}</header>${cuerpo}</section>`;
     const fichas = (txt, cls = "") => [...txt].map((c) => `<span class="ficha ${cls}" aria-hidden="true">${c === " " ? "&nbsp;" : esc(c)}</span>`).join("");
     const CODIGO = { BTC: "BTC", ETH: "ETH", SOL: "SOL", XAU: "GOLD", XAG: "SILV", US2Y: "2Y", US10Y: "10Y", US30Y: "30Y", S2S10: "2S10S", USD: "NAOS$", EURUSD: "EUR", USDJPY: "JPY" };
 
@@ -122,7 +122,7 @@
       const o = partesOdds(s.odds);
       return tile("t-odds", "Market odds", `<p class="odds-n num">${esc(o.p)}<span>%</span></p><p class="odds-r">${esc(N.oddsTxt(s.odds))}</p>` +
         `<p class="sello">Source: ${esc(o.fuente)} · read ${esc(o.hora)} · <a href="${esc(s.odds.url)}" rel="noopener">Open the market</a></p>` +
-        `<p class="sello odds-s">${esc(d.odds_sello || "Market odds are prices set by traders, not NAOS forecasts. Not financial advice.")} No odds history is kept.</p>`, "one number for this story");
+        `<p class="sello odds-s">${esc(d.odds_sello || "Market odds are prices set by traders, not NAOS forecasts. Not financial advice.")} No odds history is kept.</p>`, "one number for this story", true);
     }
     function piezaCinta(s) {
       const fr = s.activos.map(vivoFresco).filter(Boolean), fe = s.activos.map(fechado).filter(Boolean), ot = s.otros || [];
@@ -132,9 +132,9 @@
           `<span class="tiras" role="cell" aria-label="${esc(ctx.val(a))}">${fichas(ctx.val(a).replace("$", ""))}</span>` +
           `<span class="tiras" role="cell" aria-label="${m ? esc(N.cambioTxt(a)) : "no change given"}">${m ? fichas(m, "chica " + N.dir(a.cambio)) : ""}</span></div>`; }).join("");
       const sellos = [...new Set(fr.map((a) => `${a.fuente} ${a.fecha.length > 10 ? a.fecha.slice(11, 16) + " UTC" : N.fecha(a.fecha)}`))].join(" · ");
-      return tile("t-cinta", "Assets on the tape", (fr.length ? `<div class="tablero" role="table" aria-label="Linked assets, fresh readings">${filas}</div><p class="sello">${esc(sellos)}${fr.some((a) => a.cambio == null) ? " · metals: price only, the source gives no change" : ""}</p>` : "") +
+      return tile("t-cinta", "Assets that may be related", (fr.length ? `<div class="tablero" role="table" aria-label="Assets that may be related, fresh readings">${filas}</div><p class="sello">${esc(sellos)}${fr.some((a) => a.cambio == null) ? " · metals: price only, the source gives no change" : ""}</p>` : "") +
         (fe.length ? `<p class="t-nota"><span class="tit-k">Dated, kept off the tape</span>${fe.map((a) => `${esc(a.nombre)} ${esc(ctx.val(a))}, as of ${N.fecha(a.fecha)} (${esc(a.fuente)})`).join("; ")}.</p>` : "") +
-        (ot.length ? `<p class="t-nota"><span class="tit-k">Also tied, no quote shown here</span>${ot.map((x) => `${esc(x.simbolo)} ${esc(x.nombre)}`).join(" · ")}</p>` : ""), "linked by the story map");
+        (ot.length ? `<p class="t-nota"><span class="tit-k">Also may be related, no quote shown here</span>${ot.map((x) => `${esc(x.simbolo)} ${esc(x.nombre)}`).join(" · ")}</p>` : ""), "per the story map", true);
     }
     function piezaGrafico(s) {
       const a = s.activos.map(vivoFresco).find((x) => x && x.serie?.length > 4);
@@ -158,11 +158,11 @@
     const piezaDicen = (s) => !s.dicen ? "" : tile("t-dicen", "What people are saying", `<p class="dicen-n"><b class="num">${N.fmt(s.dicen.puntos)}</b> points <b class="num">${N.fmt(s.dicen.comentarios)}</b> comments</p><p class="t-nota">On ${esc(s.dicen.fuente)}, where readers ranked and discussed this link.</p><p class="sello"><a href="${esc(s.dicen.url)}" rel="noopener">Read the discussion</a></p>`);
     function piezaLigado(s) {
       const L = s.ligado || {}, q = (w) => `“${esc(w)}”`, partes = [];
-      if (L.historia) partes.push(`The headline uses ${L.palabras.map(q).join(" and ")}, words NAOS files under “${esc(L.historia)}”. That entry lists the assets in this room` +
+      if (L.historia) partes.push(`They may be related: the headline uses ${L.palabras.map(q).join(" and ")}, words NAOS files under “${esc(L.historia)}”. That entry lists the assets in this room` +
         (s.odds ? " and its market odds." : ". Its market did not pass the NAOS rules this run, so no odds show here."));
       else partes.push("No entry on the NAOS story map matched this headline, so this room has no market odds.");
       if (s.lugar) partes.push(L.lugar_palabra ? `${q(L.lugar_palabra)} in the headline places it in ${esc(s.lugar.nombre)}.` : `The story map entry places it in ${esc(s.lugar.nombre)}.`);
-      return tile("t-liga", "How NAOS tied this", partes.map((p) => `<p>${p}</p>`).join("") + `<p class="sello">Descriptive, not advice. A tie is a match of words; it does not say one thing caused another.</p>`);
+      return tile("t-liga", "Why these appear related", partes.map((p) => `<p>${p}</p>`).join("") + `<p class="sello">Descriptive, not advice. A match of words, not a finding.</p>`, "", true);
     }
     function piezaFuentes(s) {
       const f = [[s.fuente, s.url, "headline"]];
@@ -226,7 +226,7 @@
         `<header class="sala-cab"><p class="sala-k"><span class="cond">Monitor room</span><span class="cond sala-area">${esc(AREA[s.area] || s.area || "")}</span><span class="sello">${i + 1} of ${salas.length}</span>` +
         `<button type="button" class="sala-x" data-cerrar>Close <kbd>Esc</kbd></button></p>` +
         `<h2 class="sala-t" id="sala-t" tabindex="-1">${esc(s.titulo)}</h2>` +
-        `<p class="sala-m">${esc(s.fuente)} · ${esc(horaTxt(s.hora))} · headline verbatim · <a href="${esc(s.url)}" rel="noopener">Read the original</a></p></header>` +
+        `<p class="sala-m">${esc(s.fuente)} · ${esc(horaTxt(s.hora))} · headline verbatim · <a href="${esc(s.url)}" rel="noopener">Read the original</a></p><p class="sello beta-l"><span class="beta">Beta</span> Experimental: these may be related; we do not claim one causes the other.</p></header>` +
         `<div class="bento">${piezaMapa(s)}${piezaOdds(s)}${piezaCinta(s)}${piezaTiempo(s)}${piezaGrafico(s)}${piezaDicen(s)}${piezaLigado(s)}${piezaFuentes(s)}</div>` +
         (salas.length > 1 ? `<nav class="sala-nav" aria-label="Other monitor rooms"><a href="#sala/${esc(ant.id)}" data-sala="${esc(ant.id)}"><span class="cond">Previous room</span>${esc(ant.titulo)}</a>` +
           `<a href="#sala/${esc(sig.id)}" data-sala="${esc(sig.id)}"><span class="cond">Next room</span>${esc(sig.titulo)}</a></nav>` : "") +

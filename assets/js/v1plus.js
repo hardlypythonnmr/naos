@@ -241,7 +241,7 @@
     `<p class="tit-m">${salaDe(p.url) ? `<span class="tit-sala cond">Monitor room</span>` : ""}<span class="tit-a">${N.esc(p.area === "Politics" ? "Politics, as market impact" : p.area)}</span><span>${horaTit(p)}</span></p>` +
     `<h2 class="tit-t">${salaDe(p.url) ? salaA(salaDe(p.url), N.esc(p.titulo)) : p.url ? `<a href="${N.esc(p.url)}" rel="noopener">${N.esc(p.titulo)}</a>` : N.esc(p.titulo)}</h2>` +
     (p.mercado ? `<p class="tit-l"><span class="tit-k">${N.esc(p.mercado_etiqueta || "Moved")}</span>${N.esc(p.mercado)}</p>` : "") +
-    (p.conectado ? `<p class="tit-l"><span class="tit-k">Connected</span>${N.esc(p.conectado)}</p>` : "") +
+    (p.conectado ? `<p class="tit-l"><span class="tit-k">May be related</span>${N.esc(p.conectado)}</p>` : "") +
     (i === 0 ? clave(p) : p.odds ? `<p class="tit-l"><span class="tit-k">Odds</span>${oddsHtml(p.odds)}</p>` : "") + `</li>`).join("");
   if (tits.some((p) => p.odds) && d.odds_sello) $("#tits-pie").textContent = `Descriptive. ${d.odds_sello}`;
   if (!tits.length) { $("#tits").hidden = true; $("#tits-pie").hidden = true; }

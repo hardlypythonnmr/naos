@@ -192,3 +192,12 @@ dialog.sala::backdrop { background: var(--naos-night); }
 .geo-o > span:not(.sello) { font-size: 13px; color: var(--naos-night-text); line-height: 1.3; }
 .geo-o .sello { font-size: 11px; }
 @media (max-width: 640px) { .clave-n { font-size: 40px; } .clave-v { font-size: 28px; } .clave-o { flex-basis: 100%; } .hoy li { font-size: 14px; } }
+
+/* ---------- beta (D-223): lo que la página muestra como relacionado es experimental ---------- */
+.beta { display: inline-block; vertical-align: 2px; font-family: var(--font-cond); font-weight: 600; font-size: 10px; line-height: 15px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--naos-grey); border: 1px dashed var(--naos-chart); padding: 0 4px; margin-left: 4px; white-space: nowrap; }
+.noche .beta, .sala .beta, .cn.centro .beta { color: var(--naos-night-grey); border-color: var(--naos-night-grey); }
+.hoy .beta { margin: 0 4px 0 0; }
+.beta-l { margin: 6px 0 10px; font-size: 12px; }
+.beta-l .beta { margin: 0 6px 0 0; }
+.sala-cab .beta-l { margin: 8px 0 0; }
