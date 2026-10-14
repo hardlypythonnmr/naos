@@ -5,12 +5,37 @@
       "id": "ai",
       "titulo": "AI",
       "descripcion": "Learn to work with AI by doing: from a chat window to code you own, one first step at a time.",
+      "escalera": {
+        "nombre": "The AI Ladder",
+        "grupos": {
+          "workspace": {
+            "titulo": "Workspace",
+            "linea": "Work in a folder your AI remembers"
+          },
+          "connect": {
+            "titulo": "Connect",
+            "linea": "Make tools talk to each other"
+          },
+          "publish": {
+            "titulo": "Publish",
+            "linea": "Put your work where others can use it"
+          }
+        },
+        "niveles": [
+          "Start",
+          "Build",
+          "Ship"
+        ]
+      },
       "piezas": [
         {
           "id": "ai-chat-al-codigo-1",
           "titulo": "From chat to code, part 1",
           "descripcion": "The first long video of the series: prompts you paste, and the AI does the work.",
           "estado": "planned",
+          "grupo": "workspace",
+          "nivel": 1,
+          "orden": 1,
           "tarjeta": "SER-01.1",
           "pagina": true,
           "texto": "If you use ChatGPT or Claude in a chat window every day, you know the feeling: each new chat starts from zero, and you explain your project again. This first long video shows another way to work. You paste a few prompts, and your AI sets up a private folder, writes a memory file it reads every time, and does a first real task while you watch and approve each step. You will not type a single command. You will learn what to expect at each stage, how long it takes, what can go wrong, and how to undo it. Claude Code is the worked example; the ideas carry over to other tools.",
@@ -96,6 +121,9 @@
           "titulo": "Your first commit",
           "descripcion": "Save a first version of your work in a private repository.",
           "estado": "planned",
+          "grupo": "publish",
+          "nivel": 1,
+          "orden": 1,
           "tarjeta": "SER-03.1",
           "pagina": true,
           "texto": "A commit is a saved snapshot of your work, with a short note saying what changed. Once you have one, you can always go back. In this piece you ask your AI to make the first commit in a private repository, read the note it proposes, and check what was saved before you agree. You will see the difference between a file that changed and a change that was saved, and why small commits with clear messages make mistakes cheap to fix. There are no commands to memorize: the AI runs them and explains each one in plain words.",
@@ -167,6 +195,9 @@
           "titulo": "Your first Claude environment",
           "descripcion": "Set up a place where Claude can read and change your files safely.",
           "estado": "planned",
+          "grupo": "workspace",
+          "nivel": 1,
+          "orden": 2,
           "tarjeta": "SER-03.1",
           "pagina": true,
           "texto": "Before your AI can help with real files, it needs a place to work: one folder, with clear limits on what it may do. This piece walks through setting up that place, with Claude Code as the example. You will see how to sign in, how to open a project folder, how to choose which actions it may take without asking you, and how a short memory file keeps your preferences between sessions. The focus is safety: start in a practice folder, keep keys out of the chat, and read every change before you accept it. By the end you have a workspace you understand and trust.",
@@ -244,6 +275,9 @@
           "titulo": "Your first GitHub page",
           "descripcion": "Put a simple web page online for free.",
           "estado": "planned",
+          "grupo": "publish",
+          "nivel": 2,
+          "orden": 2,
           "tarjeta": "SER-03.1",
           "pagina": true,
           "texto": "A web page can be one small file. GitHub Pages puts it online for free from a public repository, at an address you can share. In this piece your AI writes a simple page with you, saves it in a repository and turns on Pages, while you check each step. You will learn just enough HTML to read what it wrote, where the page lives, how long it takes to appear, and what to do when it does not. We also cover what should never go on a public page: personal details, keys and private notes, because everything in a public repository can be seen.",
@@ -315,6 +349,9 @@
           "titulo": "Your first token",
           "descripcion": "What a token is, why it matters, and how to keep it secret.",
           "estado": "planned",
+          "grupo": "connect",
+          "nivel": 1,
+          "orden": 1,
           "tarjeta": "SER-03.1",
           "pagina": true,
           "texto": "An access token is a long secret string that lets a program act on your behalf, the way a key opens a door. Websites and AI tools ask for one when your code needs to read data or publish something. This piece shows what a token is, how to create one with the fewest permissions that will do the job, where to keep it so it never lands in a chat or a public file, and what to do if it leaks: revoke it at once and create a new one with an expiration date. Small habits, and they protect everything else you build.",
@@ -388,6 +425,9 @@
           "titulo": "What an API is",
           "descripcion": "How one program asks another for data, in plain words.",
           "estado": "planned",
+          "grupo": "connect",
+          "nivel": 1,
+          "orden": 2,
           "tarjeta": "SER-03.1",
           "pagina": true,
           "texto": "An API is a way for one program to ask another for something and get an answer back in a format both understand. When a weather app shows tomorrow's rain, it asked a weather service through an API. This piece explains the idea in plain words: a request goes to an address, and the answer comes back, often as JSON, a simple text format of names and values. You will learn the few words you keep seeing (endpoint, request, response, status code, key) and why some APIs are open to anyone while others need a token.",
@@ -462,6 +502,9 @@
           "titulo": "Your first APIs",
           "descripcion": "Call a few free public APIs and see what comes back.",
           "estado": "planned",
+          "grupo": "connect",
+          "nivel": 2,
+          "orden": 3,
           "tarjeta": "SER-03.1",
           "pagina": true,
           "texto": "The fastest way to understand APIs is to call a few. In this piece your AI makes requests to free public APIs that need no account for personal use, such as a weather forecast and open data from the U.S. Treasury, and shows you the raw answer next to a readable version. You will learn to read what came back, spot an error, respect the limits each service sets, and give credit where the terms ask for it. Then you ask your AI to turn one answer into a small table or chart you can keep, with its source and date.",
@@ -532,6 +575,9 @@
           "titulo": "From one email to a campaign",
           "descripcion": "From asking an AI to help with one email you paste and send, to planning a segmented campaign of thousands of personalized emails, sent in batches with a person approving each one.",
           "estado": "planned",
+          "grupo": "publish",
+          "nivel": 3,
+          "orden": 3,
           "pagina": true,
           "texto": "Most people start by asking an AI to polish one email, which they paste and send. This piece follows the path from there to a full campaign: turning a messy list of contacts into clean segments, writing a message for each segment, personalizing thousands of HTML emails, and sending them in small batches. A person stays in the loop at every step, reviewing samples and approving each batch before it leaves. We cover consent, unsubscribe links and anti-spam law such as CAN-SPAM in the US and the GDPR in the EU, because a message only helps when the person agreed to hear from you.",
           "mapa": {
