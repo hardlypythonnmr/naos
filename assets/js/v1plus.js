@@ -5,7 +5,11 @@
   let d;
   try { d = await N.cargar("data/situacion.json"); } catch (e) { return N.error(e); }
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  // D-216: lo viejo y lo de muestra no se muestran; el armado los lista en d.escondido con su plan
+  for (const a of d.activos) if (a.viejo) delete d.porId[a.id];
   const A = d.porId, MENOS = "−";
+  const vigente = (xs) => (xs || []).filter((x) => !x.viejo);
+  if (d.calendario?.viejo) d.calendario = null;
   const DIAS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], MESES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   const g = new Date(d.generado);
   $$(".gen").forEach((e) => (e.textContent = d.genTxt));
@@ -20,7 +24,7 @@
   const nombreCorto = { BTC: "BTC", ETH: "ETH", SOL: "SOL", XAU: "Gold", XAG: "Silver", US2Y: "US 2Y", US10Y: "US 10Y", US30Y: "US 30Y", S2S10: "2s10s", USD: "NAOS $ index", EURUSD: "EUR/USD", USDJPY: "USD/JPY" };
 
   /* ---------- cinta: solo lecturas dentro de su ventana; la energía nunca ---------- */
-  const fng = d.miedo?.cripto, prox = d.calendario?.proximo;
+  const fng = d.miedo?.cripto?.viejo ? null : d.miedo?.cripto, prox = d.calendario?.proximo;
   const items = ["BTC", "ETH", "SOL", "XAU", "XAG", "US10Y", "US2Y", "S2S10", "US30Y", "USD", "EURUSD", "USDJPY"].map((k) => A[k]).filter((a) => a && a.fresco)
     .map((a) => ({ s: nombreCorto[a.id], v: val(a), c: a.cambio == null ? null : a }));
   if (fng) items.splice(3, 0, { s: "Crypto F&G", v: String(fng.valor), t: fng.clase });
@@ -37,6 +41,14 @@
   $$("[data-linea]").forEach((e) => { const a = A[e.dataset.linea]; if (a?.serie) N.linea(e, a.serie, { h: Number(e.dataset.h) || 100, dec: DEC[a.id] ?? 2, pre: a.unidad === "USD" ? "$" : "", titulo: a.nombre }); });
   const tarjeta = (a) => `<b>${a.nombre}, last 30 days</b><br>${N.signo(a.cambio30)} over the window. High $${N.fmt(Math.max(...a.serie.map((p) => p[1])))}, low $${N.fmt(Math.min(...a.serie.map((p) => p[1])))}. The needle shows the 30-day change on a scale of ten percent each way. Move along the chart, or focus it and use the arrow keys.<div class="sello">Data provided by CoinGecko · ${a.fecha.replace("T", " ").replace("Z", " UTC")} · not financial advice</div>`;
   $$("[data-tarjeta]").forEach((e) => { const a = A[e.dataset.tarjeta]; if (a) e.innerHTML = tarjeta(a); });
+  // paneles cuyo dato quedó escondido (viejo): fuera
+  [["BTC", ".p-btc"], ["ETH", ".p-eth"]].forEach(([k, c]) => { if (!A[k]) $(c).hidden = true; });
+  if (!A.XAU && !A.XAG) $(".p-metales").hidden = true;
+  // texto en llano bajo BTC y bajo la curva (PAG-02.5), armado por construir-datos.mjs
+  const explicar = (el, x) => { if (!el || !x?.texto) return; el.innerHTML = x.texto.map((t) => `<p>${N.esc(t)}</p>`).join("") +
+    `<p class="sello">${N.esc(x.fuente)} · as of ${N.fecha(x.fecha)}${x.fecha.length > 10 ? " " + N.hora(x.fecha) : ""}</p>`; };
+  if (A.BTC) explicar($("#btc-explica"), d.explica?.BTC);
+  if (A.S2S10) explicar($("#curva-explica"), d.explica?.S2S10);
 
   /* ---------- diales (pieza mecánica de V3) ---------- */
   const xy = (t, r) => [(Math.sin(t) * r).toFixed(1), (-Math.cos(t) * r).toFixed(1)];
@@ -68,7 +80,7 @@
   }
   if (fng?.serie) N.linea($("#fng-serie"), fng.serie, { h: 64, dec: 0, barras: true, titulo: "Crypto Fear and Greed Index, daily", dir: "flat" });
   if (A.XAU && A.XAG) $("#ratio").textContent = N.fmt(A.XAU.ultimo / A.XAG.ultimo, 1);
-  const animo = d.miedo?.naos || { estado: "review" };
+  const animo = d.miedo?.naos?.viejo ? { estado: "review" } : d.miedo?.naos || { estado: "review" };
   const enRevision = animo.valor == null;
   const franjasM = [[0, 25, "Extreme fear"], [25, 45, "Fear"], [45, 56, "Neutral"], [56, 76, "Greed"], [76, 100, "Extreme greed"]]; // bandas de animo.py
   dial($("#animo-dial"), enRevision ? { marcas: marcas100.map((m) => ({ ...m, txt: "" })), aguja: false, centro: "in review" }
@@ -140,8 +152,8 @@
 
   /* ---------- cierres citados: línea propia con puntos tomados de notas de prensa ---------- */
   (function citados() {
-    const c = d.cierres_citados; if (!c) return;
-    $("#citados-sello").innerHTML = c.muestra ? `<span class="muestra">sample</span> values until the New York radar writes the cited closes` : `Each point is a close quoted in a news report, linked · last ${c.indices[0]?.puntos.at(-1)?.fecha ? N.fecha(c.indices[0].puntos.at(-1).fecha) : ""}`;
+    const c = d.cierres_citados; if (!c || c.muestra) { $("#citados-r").hidden = true; return; }
+    $("#citados-sello").innerHTML = `Each point is a close quoted in a news report, linked · last ${c.indices[0]?.puntos.at(-1)?.fecha ? N.fecha(c.indices[0].puntos.at(-1).fecha) : ""}`;
     const W = 260, H = 46;
     $("#citados-l").innerHTML = c.indices.map((ix) => {
       const p = ix.puntos; if (!p.length) return `<div class="cit"><span class="cond">${ix.nombre}</span><span class="sello">No cited close yet</span></div>`;
@@ -152,15 +164,16 @@
       let dd = ""; p.forEach((x, k) => { dd += (k && t[k] - t[k - 1] <= 4 * 864e5 ? "L" : "M") + X(k).toFixed(1) + "," + Y(k).toFixed(1); });
       const u = p.at(-1), dir = u.cambio == null ? "flat" : N.dir(u.cambio);
       const dec = ix.id === "VIX" ? 2 : 2;
-      const de = u.sample ? `<span class="muestra">sample</span>` : `per <a href="${N.esc(u.url)}" rel="noopener">${N.esc(u.fuente)}</a>, ${N.fecha(u.fecha)}`;
+      const de = `per <a href="${N.esc(u.url)}" rel="noopener">${N.esc(u.fuente)}</a>, ${N.fecha(u.fecha)}`;
       return `<div class="cit"><div class="cit-t"><span class="cond">${ix.nombre}</span><b class="num">${N.fmt(u.cierre, dec)}</b>${u.cambio == null ? "" : `<span class="${dir}">${N.tri(u.cambio)} ${N.signo(u.cambio)}</span>`}</div>` +
-        `<svg class="cit-g" viewBox="0 0 ${W} ${H}" role="img" aria-label="${ix.nombre}, ${p.length} cited closes from ${N.fecha(p[0].fecha)} to ${N.fecha(u.fecha)}${u.sample ? ", sample values" : ""}"><path d="${dd}"/>${p.map((x, k) => `<circle cx="${X(k).toFixed(1)}" cy="${Y(k).toFixed(1)}" r="${k === p.length - 1 ? 3.5 : 2}"/>`).join("")}</svg>` +
+        `<svg class="cit-g" viewBox="0 0 ${W} ${H}" role="img" aria-label="${ix.nombre}, ${p.length} cited closes from ${N.fecha(p[0].fecha)} to ${N.fecha(u.fecha)}"><path d="${dd}"/>${p.map((x, k) => `<circle cx="${X(k).toFixed(1)}" cy="${Y(k).toFixed(1)}" r="${k === p.length - 1 ? 3.5 : 2}"/>`).join("")}</svg>` +
         `<span class="sello">${de} · ${p.length} cited close${p.length > 1 ? "s" : ""}</span></div>`;
     }).join("");
   })();
 
   /* ---------- energía, tendencia fechada ---------- */
   const en = ["WTI", "BRENT", "NG"].map((k) => A[k]).filter(Boolean);
+  if (!en.length) $(".p-energia").hidden = true;
   $("#energia-filas").innerHTML = en.map((a) => `<div class="en-fila"><div class="mini-t"><span class="cond">${a.nombre}</span> <b class="num">${val(a)}</b> <span class="sello">data as of ${N.fecha(a.fecha)}</span></div><div class="graf-c" data-en="${a.id}" data-h="58"></div></div>`).join("");
   en.forEach((a) => N.linea($(`[data-en="${a.id}"]`), a.serie, { h: 58, dec: 2, pre: "$", titulo: `${a.nombre}, EIA, data as of ${N.fecha(a.fecha)}`, etiquetas: false, dir: "flat" }));
   if (en[0]) $("#eia-sello").textContent = `EIA · data as of ${N.fecha(en[0].fecha)}`;
@@ -173,6 +186,7 @@
     const nombreG = (gr) => { const t = gr.ev.map((e) => e.evento.replace(/ [my]\/[my]$/, "").replace(/^Core /, "")); return [...new Set(t)].join(", ").replace(/Fed Chairman (\w+) Speaks/, "Fed Chair $1 speaks"); };
     const et = (iso) => new Date(iso).toLocaleTimeString("en-US", { timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false });
     const dia3 = (iso) => DIAS[new Date(iso).getUTCDay()].slice(0, 3);
+    const diaET = (iso) => new Date(iso).toLocaleDateString("en-US", { timeZone: "America/New_York", weekday: "short" });
     let gr = grupos.find((x) => Date.parse(x.hora) > ahora()) || null;
     const pintar = () => {
       if (!gr) { $("#rojo-ev").textContent = "No more red US events this week"; $("#rojo-cuenta").innerHTML = ""; return; }
@@ -187,12 +201,15 @@
     pintar();
     setInterval(() => { const antes = $("#rojo-cuenta").textContent; gr = grupos.find((x) => Date.parse(x.hora) > ahora()) || null; pintar();
       if (!N.rm && $("#rojo-cuenta").textContent !== antes) gsap.from("#rojo-cuenta .ficha", { rotateX: -90, duration: .27, stagger: .05, ease: "none" }); }, 15000);
-    $("#rojo-semana").innerHTML = grupos.filter((x) => x !== gr).slice(0, 4).map((x) => `<li${Date.parse(x.hora) < ahora() ? ' class="pasado"' : ""}><span class="h">${dia3(x.hora)} ${N.hora(x.hora).replace(" UTC", "")}</span><span>${N.esc(nombreG(x))}</span></li>`).join("");
-  }
+    // filas rojas reales de la semana con pronóstico y previo (DAT-07.4)
+    $("#rojo-tabla tbody").innerHTML = cal.semana.map((e) => `<tr${Date.parse(e.hora) < ahora() ? ' class="pasado"' : ""}><td class="h">${diaET(e.hora)} ${et(e.hora)}</td>` +
+      `<td>${e.url ? `<a href="${N.esc(e.url)}" rel="noopener">${N.esc(e.evento)}</a>` : N.esc(e.evento)}</td><td class="num">${N.esc(e.pronostico || "")}</td><td class="num">${N.esc(e.previo || "")}</td></tr>`).join("");
+    $("#rojo-fuente").innerHTML = `Times, forecasts and previous values: <a href="${N.esc(cal.fuente_url || "https://www.forexfactory.com/calendar")}" rel="noopener">${N.esc(cal.fuente || "Forex Factory weekly calendar")}</a>${cal.fecha ? `, as of ${N.fecha(cal.fecha)} ${N.hora(cal.fecha)}` : ""}. Each event links to its publisher. Passed rows in grey; results come from the publisher.`;
+  } else { $(".rojo-s").hidden = true; $("#rojo").hidden = true; }
 
   /* ---------- wire por área ---------- */
   const AREAS = ["Politics", "Economy", "AI", "Energy", "Crypto", "Culture"];
-  const wire = d.wire || [];
+  const wire = vigente(d.wire);
   // wire, historias y cierres citados vienen del radar privado; en el repo público se conservan con su fecha (d.radar)
   const rf = d.radar?.fecha || d.generado, radarTxt = `${N.fecha(rf)} ${N.hora(rf)}`;
   $("#wire-sello").textContent = `${wire.length} headlines · as of ${radarTxt}`;
@@ -204,6 +221,24 @@
   $("#filtros").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return;
     $$("#filtros button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
     $$("#wire-l li").forEach((li) => { li.hidden = !!b.dataset.area && li.dataset.area !== b.dataset.area; if (!li.hidden) li.style.opacity = 1; }); });
+
+  /* ---------- portada: titulares en texto (PAG-01.2) ----------
+     Cada historia: qué pasó (titular textual con fuente y hora), qué se movió y cuánto, una cosa conectada y el mercado de
+     predicción como enlace. Las frases las arma construir-datos.mjs con plantillas sobre datos reales. */
+  const tits = (d.portada || []).filter((p) => !p.viejo);
+  const horaTit = (p) => (p.tipo === "agenda" ? `${N.esc(p.fuente)}` : `${N.esc(p.fuente)} · ${horaCorta(p.hora)} UTC`);
+  $("#tits").innerHTML = tits.map((p, i) => `<li class="tit${i === 0 ? " lead" : ""}${p.tipo === "agenda" ? " agenda" : ""}" data-entra>` +
+    `<p class="tit-m"><span class="tit-a">${N.esc(p.area === "Politics" ? "Politics, as market impact" : p.area)}</span><span>${horaTit(p)}</span></p>` +
+    `<h2 class="tit-t">${p.url ? `<a href="${N.esc(p.url)}" rel="noopener">${N.esc(p.titulo)}</a>` : N.esc(p.titulo)}</h2>` +
+    (p.mercado ? `<p class="tit-l"><span class="tit-k">${N.esc(p.mercado_etiqueta || "Moved")}</span>${N.esc(p.mercado)}</p>` : "") +
+    (p.conectado ? `<p class="tit-l"><span class="tit-k">Connected</span>${N.esc(p.conectado)}</p>` : "") +
+    (p.prediccion ? `<p class="tit-l"><span class="tit-k">Odds</span><a href="${N.esc(p.prediccion.url)}" rel="noopener">${N.esc(p.prediccion.nombre)}</a> on Polymarket</p>` : "") + `</li>`).join("");
+  if (!tits.length) { $("#tits").hidden = true; $("#tits-pie").hidden = true; }
+
+  // una línea de texto con cada gráfico de TradingView (PAG-02.6): qué se movió y por qué, del titular que le corresponde
+  const lineaTV = (k) => { const t = d.graficos?.[k]; if (!t) return "";
+    return `<p class="tv-linea"><span class="tit-k">${t.movio ? "What moved and why" : "In the news"}</span>${N.esc(t.fuente)}${t.hora ? `, ${horaCorta(t.hora)}${t.hora.length > 10 ? " UTC" : ""}` : ""}: <a href="${N.esc(t.url)}" rel="noopener">${N.esc(t.titulo)}</a></p>`; };
+  $$("[data-tv-linea]").forEach((el) => { const h = lineaTV(el.dataset.tvLinea); if (h) { el.outerHTML = h; } });
 
   /* ---------- widgets de terceros, perezosos ---------- */
   const tema = (el) => (el.closest(".noche") ? "dark" : "light");
@@ -254,7 +289,9 @@
     return partes.length ? `<p class="lados sello">${partes.join(" · ")}</p>` : "";
   };
   const corto = { AI: "AI", Politics: "Politics, as market impact", Crypto: "Crypto" };
-  $("#cartas").innerHTML = (d.historias || []).map((h, i) => {
+  const historias = vigente(d.historias);
+  if (!historias.length) $("#historias").hidden = true;
+  $("#cartas").innerHTML = historias.map((h, i) => {
     const a = h.grafico.tipo === "propio" ? A[h.grafico.activo] : null;
     const pasos = [{ h: h.hora, t: `Published by ${h.fuente}`, ya: true },
       a ? { h: a.fecha.length > 10 ? a.fecha : null, t: `${nombreCorto[a.id] || a.nombre} ${val(a)}${a.cambio != null ? ", " + camTxt(a) : ""}`, ya: true, f: a.fecha } : { h: d.generado, t: "NAOS scan", ya: true },
@@ -262,9 +299,9 @@
     return `<article class="carta" data-entra><span class="area"><span>${corto[h.area]}</span><span>${String(i + 1).padStart(2, "0")}</span></span>` +
       `<h3 class="tt"><a href="${N.esc(h.url)}" rel="noopener">${N.esc(h.titulo)}</a></h3><span class="sello">${N.esc(h.fuente)} · ${horaCorta(h.hora)} UTC · headline verbatim</span>` +
       ladosHtml(h.lados) +
-      `<p class="ctx"><span class="muestra">sample</span> ${N.esc(h.contexto)}</p>` +
+      (h.contexto && !h.contexto_sample ? `<p class="ctx">${N.esc(h.contexto)}</p>` : "") +
       `<ol class="mtl" aria-label="Timeline">${pasos.map((p) => `<li class="${p.ya ? "ya" : ""}"><span class="h">${p.h ? p.h.slice(11, 16) : N.fecha(p.f)}</span>${N.esc(p.t)}</li>`).join("")}</ol>` +
-      `<div class="reac"><p class="cond rot">Market reaction · ${a ? N.esc(a.nombre) + ", 30 days" : N.esc(h.grafico.etiqueta)}</p>${a ? `<div class="graf-c" data-h-linea="${a.id}"></div><p class="sello">${a.id === "BTC" ? "Data provided by CoinGecko" : a.fuente}</p>` : `<div class="tv" data-tv-mini="${h.grafico.simbolo}"><p class="tv-espera sello">TradingView chart loads when it comes into view</p></div>`}</div></article>`;
+      `<div class="reac"><p class="cond rot">Market reaction · ${a ? N.esc(a.nombre) + ", 30 days" : N.esc(h.grafico.etiqueta)}</p>${a ? `<div class="graf-c" data-h-linea="${a.id}"></div><p class="sello">${a.id === "BTC" ? "Data provided by CoinGecko" : a.fuente}</p>` : `${lineaTV(h.grafico.simbolo)}<div class="tv" data-tv-mini="${h.grafico.simbolo}"><p class="tv-espera sello">TradingView chart loads when it comes into view</p></div>`}</div></article>`;
   }).join("");
   $$("[data-h-linea]").forEach((e) => { const a = A[e.dataset.hLinea]; N.linea(e, a.serie, { h: 120, dec: DEC[a.id], pre: a.unidad === "USD" ? "$" : "", titulo: a.nombre + ", 30 days" }); });
   $$("[data-tv-mini]").forEach((el) => perezoso(el, () => montarTV(el, "mini-symbol-overview", { symbol: el.dataset.tvMini, dateRange: "1M" })));
@@ -293,7 +330,9 @@
   const pila = $$("#pila .carta");
   if (!N.rm) { gsap.set(pila, { y: (i) => -24 - (i % 4) * 14, rotateX: -35, opacity: 0, transformOrigin: "50% 0" });
     ScrollTrigger.create({ trigger: "#pila", start: "top 85%", once: true, onEnter: () => gsap.to(pila, { y: 0, rotateX: 0, opacity: 1, duration: .6, stagger: .09 }) }); }
-  $("#repos").innerHTML = (d.muestra?.repos || []).map((r) => `<li><span class="i">${r.i}</span><span class="rn">${N.esc(r.repo)}</span><span class="st"><span class="up">▲ +${N.fmt(r.estrellas7d)}</span> <span class="sello">stars, 7 d</span></span>` +
+  const repos = (d.muestra?.repos || []).filter((r) => !r.sample);
+  if (!repos.length) { $("#repos-p").hidden = true; $(".p-hn").classList.add("solo"); }
+  $("#repos").innerHTML = repos.map((r) => `<li><span class="i">${r.i}</span><span class="rn">${N.esc(r.repo)}</span><span class="st"><span class="up">▲ +${N.fmt(r.estrellas7d)}</span> <span class="sello">stars, 7 d</span></span>` +
     `<span class="q"><b>What it does</b>${N.esc(r.que_hace || r.que)}</span><span class="q"><b>What it's for</b>${N.esc(r.para_que || "")}</span></li>`).join("");
 
   /* ---------- interludios ---------- */
@@ -302,18 +341,17 @@
 
   /* ---------- mapa en capas (V3) con el recuadro de Ormuz (V1) ---------- */
   const capas = $("#capas");
-  const notas = { hormuz: "Focus of the day. The narrow exit for Gulf oil and gas cargoes.", bab: "Red Sea entrance. Watch item for shipping advisories.", suez: "Canal and SUMED pipeline. Watch item for transit notices.",
-    israel: "Watch item. The wire links the sources of the day.", black: "Black Sea export terminals and the CPC pipeline end.", ukraine: "Front line region. Watch item for energy infrastructure news." };
   const montarMapa = async () => {
     const m = await N.cargarMapa("data/mapa.json");
     const vb = `viewBox="0 0 ${m.w} ${m.h}" preserveAspectRatio="xMidYMid slice"`;
     capas.innerHTML = `<div class="capa c1"><svg ${vb} aria-hidden="true"><path class="tierra" d="${m.land}"/></svg></div>` +
       `<div class="capa c2"><svg ${vb} aria-hidden="true">${m.rutas.map((r) => `<path class="${r.id === "lane" ? "carril" : "ruta"}" d="${r.d}"><title>${N.esc(r.label || "")}</title></path>`).join("")}</svg></div>` +
-      `<div class="capa c3">${m.marcas.map((k) => `<button class="capa-n${k.id === "hormuz" ? " foco" : ""}${k.xy[0] > m.w * .6 ? " izq" : ""}" data-revela data-x="${k.xy[0]}" data-y="${k.xy[1]}">${N.esc(k.label)}<span class="revela-tarjeta"><b>${N.esc(k.label)}</b><br>${notas[k.id] || ""} <span class="muestra">sample</span></span></button>`).join("")}</div>` +
+      `<div class="capa c3">${m.marcas.map((k) => `<span class="capa-n${k.id === "hormuz" ? " foco" : ""}${k.xy[0] > m.w * .6 ? " izq" : ""}" data-x="${k.xy[0]}" data-y="${k.xy[1]}">${N.esc(k.label)}</span>`).join("")}</div>` +
       "";
     $("#inset").innerHTML = `<div class="m-inset"><span class="i-t">Hormuz, detail</span><svg viewBox="0 0 ${m.inset.w} ${m.inset.h}" aria-hidden="true"><path class="i-tierra" d="${m.inset.land}"/><path class="i-in" d="${m.inset.lane_in}"/><path class="i-out" d="${m.inset.lane_out}"/>` +
       m.inset.marcas.map((k) => `<circle cx="${k.xy[0]}" cy="${k.xy[1]}" r="5" fill="none" stroke="#C3C9D2" stroke-width="2"/><text class="i-l" x="${k.xy[0] + 10}" y="${k.xy[1] + 7}">${k.label}</text>`).join("") + `</svg></div>`;
-    $("#esc").innerHTML = (d.muestra?.escenarios || []).map((e, i) => `<div class="e"><span class="n">${String(i + 1).padStart(2, "0")}</span><span class="si"><b>If</b>${N.esc(e.si)}</span><span class="en">${N.esc(e.entonces)} <span class="muestra">sample</span></span></div>`).join("");
+    const esc = (d.muestra?.escenarios || []).filter((e) => !e.sample);
+    if (esc.length) { $("#esc-c").hidden = false; $("#esc").innerHTML = esc.map((e, i) => `<div class="e"><span class="n">${String(i + 1).padStart(2, "0")}</span><span class="si"><b>If</b>${N.esc(e.si)}</span><span class="en">${N.esc(e.entonces)}</span></div>`).join(""); }
     const colocar = () => { const W = capas.clientWidth, H = capas.clientHeight + 80, s = Math.max(W / m.w, H / m.h), ox = (W - m.w * s) / 2, oy = (H - m.h * s) / 2 - 40;
       $$(".capa-n", capas).forEach((b) => { b.style.left = ox + b.dataset.x * s + "px"; b.style.top = oy + 40 + b.dataset.y * s + "px"; }); };
     colocar(); new ResizeObserver(colocar).observe(capas);

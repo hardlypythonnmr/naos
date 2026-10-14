@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NAOS · Yourself, sharper.</title>
-<meta name="description" content="NAOS situation room: markets, rates and the dollar, fear and greed, the economic calendar, a news wire by area, stories of the day, prediction markets, AI and technology, with room to breathe. Descriptive, not financial advice.">
+<meta name="description" content="NAOS: today's headlines in plain English, then markets, rates and the dollar, fear and greed, the economic calendar, a news wire by area, prediction markets, AI and technology, with room to breathe. Descriptive, not financial advice.">
 <link rel="preload" href="assets/fuentes/IBMPlexSans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fuentes/IBMPlexSansCondensed-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="data/situacion.json" as="fetch" crossorigin>
@@ -19,47 +19,57 @@
 <noscript><style>[data-espera]{visibility:visible!important}</style></noscript>
 </head>
 <body>
-<a class="sr" href="#muro">Skip to the wall</a>
+<a class="sr" href="#titulares">Skip to the headlines</a>
 
 <header class="barra">
   <div class="marca"><span class="naos">NAOS</span><span class="cond lema">Yourself, sharper.</span></div>
-  <nav class="indice cond" aria-label="Areas">
-    <a href="#mercados">Markets</a><a href="#curva">Rates and dollar</a><a href="#calendario">Calendar</a><a href="#wire">Wire</a><a href="#historias">Stories</a><a href="#prediccion">Odds</a><a href="#ia">AI</a><a href="#respira">Breathe</a>
+  <nav class="indice" aria-label="Sections">
+    <a href="#titulares">Headlines</a><a href="#mercados">Market</a><a href="#noticias">News</a><a href="#ia">AI</a><a href="#conducta">Behavior</a>
   </nav>
-  <p class="sello estado"><b>Data</b> <span class="gen">14 Oct 2026 · 11:20 UTC</span> · <span class="muestra">sample</span> items marked · Not financial advice</p>
+  <p class="sello estado">Data as of <span class="gen">14 Oct 2026 · 11:20 UTC</span> · Not financial advice</p>
 </header>
 
-<div class="dia-fila">
-  <h1 class="dia">Today, <span id="dia">Wednesday 14 October 2026</span></h1>
-  <figure class="guardian" id="guardian" data-revela aria-label="Tikr, the page keeper">
-    <svg id="tikr" viewBox="0 0 430 240" aria-hidden="true"></svg>
-    <figcaption><span class="cond">Tikr, the keeper</span><span class="sello" id="tikr-dice">Reads the NAOS Mood</span></figcaption>
-    <div class="revela-tarjeta" id="tikr-tarjeta"></div>
-  </figure>
-</div>
-<div id="cinta" class="cinta"></div>
-
 <main id="muro" data-espera>
-  <!-- MURO 01: mercados, papel -->
-  <section class="muro" aria-label="Wall 01, markets, rates, energy and the calendar">
-    <div class="rotulo"><span class="cond">Wall 01 · Markets</span><span class="sello">Our own charts use free public sources. Index and commodity quotes come inside TradingView widgets. Hover, tap or focus any panel for detail.</span></div>
+  <!-- PORTADA: titulares en texto (regla del titular, D-208 y D-219) -->
+  <section class="portada" id="titulares" aria-labelledby="dia-t">
+    <div class="dia-fila">
+      <div>
+        <h1 class="dia" id="dia-t">Today, <span id="dia">Wednesday 14 October 2026</span></h1>
+        <p class="sec-d">What is happening, what moved and what it is connected to. Headlines verbatim from their source, linked.</p>
+      </div>
+      <figure class="guardian" id="guardian" data-revela aria-label="Tikr, the page keeper">
+        <svg id="tikr" viewBox="0 0 430 240" aria-hidden="true"></svg>
+        <figcaption><span class="cond">Tikr, the keeper</span><span class="sello" id="tikr-dice">Reads the NAOS Mood</span></figcaption>
+        <div class="revela-tarjeta" id="tikr-tarjeta"></div>
+      </figure>
+    </div>
+    <ol class="tits" id="tits"></ol>
+    <p class="sello tits-pie" id="tits-pie">Descriptive, not financial advice. Prediction markets are linked, no odds shown here.</p>
+  </section>
+
+  <div id="cinta" class="cinta"></div>
+
+  <!-- MARKET -->
+  <section class="muro" id="mercados" aria-labelledby="t-mer">
+    <header class="sec-cab"><h2 class="sec-t" id="t-mer">Market</h2><p class="sec-d">Crypto, fear and greed, rates, the dollar, metals, energy and the week's red events. Our charts use free public sources; index and commodity quotes come inside TradingView widgets.</p></header>
     <div class="rejilla r1">
-      <article class="panel p-btc" id="mercados" data-revela>
-        <header class="ph"><span class="cod cond">01</span><h2 class="cond">Bitcoin</h2><span class="sello" data-sello="BTC"></span></header>
+      <article class="panel p-btc" data-revela>
+        <header class="ph"><h3>Bitcoin</h3><span class="sello" data-sello="BTC"></span></header>
         <div class="cripto-c"><svg class="dial chico" data-dial="BTC" viewBox="-220 -205 440 260" aria-hidden="true"></svg>
           <div class="cifra"><span class="odo-v" data-odo="BTC"></span><span class="cam" data-cam="BTC"></span></div></div>
-        <div class="graf-c" data-linea="BTC" data-h="150"></div>
+        <div class="graf-c" data-linea="BTC" data-h="140"></div>
+        <div class="explica" id="btc-explica"></div>
         <div class="revela-tarjeta" data-tarjeta="BTC"></div>
       </article>
       <article class="panel p-eth" data-revela>
-        <header class="ph"><span class="cod cond">02</span><h2 class="cond">Ethereum</h2><span class="sello" data-sello="ETH"></span></header>
+        <header class="ph"><h3>Ethereum</h3><span class="sello" data-sello="ETH"></span></header>
         <div class="cripto-c"><svg class="dial chico" data-dial="ETH" viewBox="-220 -205 440 260" aria-hidden="true"></svg>
           <div class="cifra"><span class="odo-v" data-odo="ETH"></span><span class="cam" data-cam="ETH"></span></div></div>
-        <div class="graf-c" data-linea="ETH" data-h="150"></div>
+        <div class="graf-c" data-linea="ETH" data-h="140"></div>
         <div class="revela-tarjeta" data-tarjeta="ETH"></div>
       </article>
       <article class="panel p-miedo" id="miedo" data-revela>
-        <header class="ph"><span class="cod cond">03</span><h2 class="cond">NAOS Fear &amp; Greed</h2><span class="sello" id="fng-sello"></span></header>
+        <header class="ph"><h3>NAOS Fear &amp; Greed</h3><span class="sello" id="fng-sello"></span></header>
         <div class="dos-diales">
           <figure class="fg"><svg class="dial fgd" id="fng-dial" viewBox="-220 -215 440 270" aria-hidden="true"></svg>
             <figcaption><span class="cond">Crypto</span> <b class="num" id="fng-v"></b> <span id="fng-c"></span></figcaption></figure>
@@ -72,20 +82,21 @@
         <div class="revela-tarjeta" id="fng-tarjeta"></div>
       </article>
       <article class="panel p-tablero noche" data-revela>
-        <header class="ph"><span class="cod cond">04</span><h2 class="cond">Readings board</h2><span class="sello">Fresh only</span></header>
+        <header class="ph"><h3>Readings board</h3><span class="sello">Fresh only</span></header>
         <div class="tablero-c"><div class="tablero" id="tablero" role="table" aria-label="Fresh readings"></div></div>
         <div class="revela-tarjeta"><b>What makes the board</b><br>Only readings inside their freshness window: crypto and metals the same day, Treasury and ECB one business day. Each tile turns once, to its value, and stays.<div class="sello">CoinGecko · gold-api.com · U.S. Treasury · ECB</div></div>
       </article>
     </div>
     <div class="rejilla r2">
       <article class="panel p-curva" id="curva" data-revela>
-        <header class="ph"><span class="cod cond">05</span><h2 class="cond">Yield curve and the dollar</h2><span class="sello" id="curva-sello"></span></header>
+        <header class="ph"><h3>Yield curve and the dollar</h3><span class="sello" id="curva-sello"></span></header>
         <div class="curva-in">
           <div>
             <div class="tasas" id="tasas"></div>
             <div class="mini-t"><span class="cond">2s10s, 10Y minus 2Y, 90 days</span> <b class="num" data-val="S2S10"></b> <span data-cam="S2S10"></span></div>
-            <div class="graf-c" id="g-curva" data-h="200"></div>
+            <div class="graf-c" id="g-curva" data-h="180"></div>
             <p class="sello">Source: U.S. Treasury, daily par yield curve</p>
+            <div class="explica" id="curva-explica"></div>
           </div>
           <div>
             <div class="mini-t"><span class="cond">NAOS dollar index</span> <b class="num" data-val="USD"></b> <span data-cam="USD"></span></div>
@@ -98,20 +109,21 @@
         <div class="revela-tarjeta" id="curva-tarjeta"></div>
       </article>
       <article class="panel p-tvm">
-        <header class="ph"><span class="cod cond">06</span><h2 class="cond">Indices and commodities</h2><span class="sello">Broker CFDs and Cboe futures via TradingView</span></header>
+        <header class="ph"><h3>Indices and commodities</h3><span class="sello">Broker CFDs and Cboe futures via TradingView</span></header>
+        <p class="tv-linea" data-tv-linea="indices" hidden></p>
         <div class="tv" data-tv="indices" style="--tvh:470px"><p class="tv-espera sello">TradingView widget loads when it comes into view</p></div>
         <p class="sello tv-nota">CFD prices from brokers track the index; they are not the official index value. Official S&amp;P, Nasdaq, Dow and VIX symbols do not load in free widgets.</p>
       </article>
     </div>
-    <div class="rejilla rc">
+    <div class="rejilla rc" id="citados-r">
       <article class="panel p-citados" id="citados">
-        <header class="ph"><span class="cod cond">06b</span><h2 class="cond">Index closes, as reported</h2><span class="sello" id="citados-sello">Each point is a close quoted in a news report, linked</span></header>
+        <header class="ph"><h3>Index closes, as reported</h3><span class="sello" id="citados-sello">Each point is a close quoted in a news report, linked</span></header>
         <div class="citados" id="citados-l"></div>
       </article>
     </div>
     <div class="rejilla r3">
       <article class="panel p-metales" data-revela>
-        <header class="ph"><span class="cod cond">07</span><h2 class="cond">Metals</h2><span class="sello" data-sello="XAU"></span></header>
+        <header class="ph"><h3>Metals</h3><span class="sello" data-sello="XAU"></span></header>
         <div class="metal"><span class="cond">Gold</span><span class="odo-v chica" data-odo="XAU"></span><span class="u sello">USD / oz, spot</span></div>
         <div class="metal"><span class="cond">Silver</span><span class="odo-v chica" data-odo="XAG"></span><span class="u sello">USD / oz, spot</span></div>
         <div class="metal"><span class="cond">Ratio</span><b class="num" id="ratio"></b><span class="u sello">gold / silver, NAOS calc.</span></div>
@@ -119,93 +131,100 @@
         <div class="revela-tarjeta"><b>Why no copper</b><br>gold-api's copper is a COMEX contract; whether it may be republished is unclear, so it stays off the page.<div class="sello">gold-api.com · spot · not financial advice</div></div>
       </article>
       <article class="panel p-energia" id="energia" data-revela>
-        <header class="ph"><span class="cod cond">08</span><h2 class="cond">Energy, dated trend</h2><span class="sello" id="eia-sello"></span></header>
+        <header class="ph"><h3>Energy, dated trend</h3><span class="sello" id="eia-sello"></span></header>
         <div id="energia-filas"></div>
         <div class="revela-tarjeta"><b>Why energy is not on the tape</b><br>EIA publishes spot prices with a lag of one to nine days. The series live here as dated trends and never on the tape. Live oil and gas CFDs sit in the TradingView panel.<div class="sello">Source: U.S. Energy Information Administration · public domain</div></div>
       </article>
       <article class="panel p-cal" id="calendario">
-        <header class="ph"><span class="cod cond">09</span><h2 class="cond">Economic calendar</h2><span class="sello">High importance, US and majors</span></header>
+        <header class="ph"><h3>Economic calendar</h3><span class="sello">High importance, US and majors</span></header>
         <div class="cal-in">
           <div class="rojo" id="rojo" data-revela>
-            <p class="cond rot">Next red event</p>
+            <p class="cond rot">Next red US event</p>
             <p class="rojo-ev" id="rojo-ev"></p>
             <div class="rojo-cuenta" id="rojo-cuenta" aria-live="off"></div>
             <p class="sello" id="rojo-pie"></p>
-            <ol class="rojo-semana" id="rojo-semana"></ol>
             <div class="revela-tarjeta"><b>How the countdown works</b><br>Release times are public facts from the publishers' calendars. The countdown runs on your clock. Nothing here predicts the number.<div class="sello">Schedules: BLS, Federal Reserve, BEA, Census</div></div>
           </div>
-          <div class="tv" data-tv="calendario" style="--tvh:370px"><p class="tv-espera sello">TradingView economic calendar loads when it comes into view</p></div>
+          <div class="rojo-s">
+            <p class="cond rot">Red US events this week, times in ET</p>
+            <table class="rojo-tabla" id="rojo-tabla"><thead><tr><th scope="col">When</th><th scope="col">Event</th><th scope="col">Forecast</th><th scope="col">Previous</th></tr></thead><tbody></tbody></table>
+            <p class="sello" id="rojo-fuente"></p>
+          </div>
         </div>
+        <div class="tv" data-tv="calendario" style="--tvh:370px"><p class="tv-espera sello">TradingView economic calendar loads when it comes into view</p></div>
       </article>
     </div>
   </section>
 
-  <!-- INTERLUDIO: inhala -->
-  <section class="interludio" id="respira" aria-label="Breathe">
-    <div class="resp-c" id="resp"></div>
-    <p class="resp-t respira-txt" id="resp-t" aria-live="off">Inhale 1</p>
-    <p class="sello">Four in, four out. The wall will wait.</p>
-  </section>
-
-  <!-- MURO 02: el mundo, plano de noche -->
-  <section class="muro noche" data-plano aria-label="Wall 02, the world: wire, map, stories and odds">
+  <!-- NEWS: plano de noche -->
+  <section class="muro noche" id="noticias" data-plano aria-labelledby="t-not">
     <div class="plano-fondo noche"></div>
     <div class="plano-contenido">
-      <div class="rotulo"><span class="cond">Wall 02 · The world</span><span class="sello">Headlines verbatim with their source. Politics appears only as market impact.</span></div>
+      <header class="sec-cab"><h2 class="sec-t" id="t-not">News</h2><p class="sec-d">The wire by area, the arc from the Black Sea to Hormuz, the stories of the day and their prediction markets. Headlines verbatim with their source. Politics appears only as market impact.</p></header>
       <div class="rejilla r4">
         <article class="panel p-wire" id="wire">
-          <header class="ph"><span class="cod cond">10</span><h2 class="cond">Wire, by area</h2><span class="sello" id="wire-sello"></span></header>
+          <header class="ph"><h3>Wire, by area</h3><span class="sello" id="wire-sello"></span></header>
           <div class="filtros" id="filtros" role="group" aria-label="Filter the wire by area"></div>
           <ol class="wire" id="wire-l"></ol>
           <p class="sello">"Moved" appears only when the headline itself names the asset and the move.</p>
         </article>
         <article class="panel p-mapa" id="mapa">
-          <header class="ph"><span class="cod cond">11</span><h2 class="cond">The arc: Black Sea to Hormuz</h2><span class="sello">Natural Earth · routes approximate · <span class="muestra">sample</span> notes</span></header>
+          <header class="ph"><h3>The arc: Black Sea to Hormuz</h3><span class="sello">Natural Earth · routes approximate</span></header>
           <div class="capas" id="capas"><div class="capa-carga sello">Loading map</div></div>
-          <p class="sello">Three layers: land, routes, names. They separate as you scroll. Tap or focus a name.</p>
-          <div class="mapa-bajo"><div id="inset"></div><div><p class="cond rot">Scenario board · if this, watch that</p><div class="esc" id="esc"></div></div></div>
+          <p class="sello">Three layers: land, routes, names. They separate as you scroll.</p>
+          <div class="mapa-bajo"><div id="inset"></div><div id="esc-c" hidden><p class="cond rot">Scenario board · if this, watch that</p><div class="esc" id="esc"></div></div></div>
         </article>
       </div>
       <div class="rejilla r5" id="historias">
-        <div class="r5-cab"><span class="cod cond">12</span><h2 class="cond">Stories of the day</h2><span class="sello"><span id="historias-fecha"></span>One each: AI, politics as market impact, crypto. Headlines real; context <span class="muestra">sample</span> until the radar writes it</span></div>
+        <div class="r5-cab"><h3>Stories of the day</h3><span class="sello"><span id="historias-fecha"></span>One each: AI, politics as market impact, crypto.</span></div>
         <div class="cartas" id="cartas"></div>
       </div>
       <div class="rejilla r6" id="prediccion">
-        <div class="r5-cab"><span class="cod cond">13</span><h2 class="cond">Prediction markets</h2><span class="sello">Links to the markets, no odds shown here. Market prices are not NAOS forecasts; trading is not offered here.</span></div>
+        <div class="r5-cab"><h3>Prediction markets</h3><span class="sello">Links to the markets, no odds shown here. Market prices are not NAOS forecasts; trading is not offered here.</span></div>
         <div class="pm" id="pm"></div>
       </div>
     </div>
   </section>
 
-  <!-- MURO 03: Lab, plano gris frío -->
-  <section class="muro lab" id="ia" data-plano="derecha" aria-label="Wall 03, AI and technology">
+  <!-- AI: Lab, plano gris frío -->
+  <section class="muro lab" id="ia" data-plano="derecha" aria-labelledby="t-ia">
     <div class="plano-fondo lab"></div>
     <div class="plano-contenido">
-      <div class="rotulo"><span class="cond"><span class="lab-idx">*</span> NAOS Lab · Wall 03 · AI and technology</span><span class="sello">AI stocks and ETFs via TradingView (delayed). Headlines are today's Hacker News front page, verbatim.</span></div>
+      <header class="sec-cab"><h2 class="sec-t" id="t-ia"><span class="lab-idx">*</span> AI</h2><p class="sec-d">NAOS Lab: AI stocks and ETFs via TradingView (delayed), the Nasdaq 100 heatmap, and today's AI headlines from the Hacker News front page, verbatim.</p></header>
       <div class="rejilla r7">
         <article class="panel p-aim">
-          <header class="ph"><span class="cod cond lab-idx">14</span><h2 class="cond">AI market tracker</h2><span class="sello">Stocks and ETFs, delayed, via TradingView</span></header>
+          <header class="ph"><h3>AI market tracker</h3><span class="sello">Stocks and ETFs, delayed, via TradingView</span></header>
+          <p class="tv-linea" data-tv-linea="ia" hidden></p>
           <div class="tv" data-tv="ia" style="--tvh:520px"><p class="tv-espera sello">TradingView market overview loads when it comes into view</p></div>
         </article>
         <article class="panel p-mapa-calor">
-          <header class="ph"><span class="cod cond lab-idx">15</span><h2 class="cond">Nasdaq 100 heatmap</h2><span class="sello">Size by market cap, color by the day's change, via TradingView</span></header>
+          <header class="ph"><h3>Nasdaq 100 heatmap</h3><span class="sello">Size by market cap, color by the day's change, via TradingView</span></header>
+          <p class="tv-linea" data-tv-linea="calor" hidden></p>
           <div class="tv" data-tv="calor" style="--tvh:520px"><p class="tv-espera sello">TradingView heatmap loads when it comes into view</p></div>
         </article>
       </div>
       <div class="rejilla r8">
         <article class="panel p-hn">
-          <header class="ph"><span class="cod cond lab-idx">16</span><h2 class="cond">AI on the front page</h2><span class="sello" id="hn-hora"></span></header>
+          <header class="ph"><h3>AI on the front page</h3><span class="sello" id="hn-hora"></span></header>
           <div class="pila" id="pila"></div>
         </article>
-        <article class="panel p-repos">
-          <header class="ph"><span class="cod cond lab-idx">17</span><h2 class="cond">Repos of the week</h2><span class="sello"><span class="muestra">sample</span> names and numbers</span></header>
+        <article class="panel p-repos" id="repos-p">
+          <header class="ph"><h3>Repos of the week</h3><span class="sello">GitHub</span></header>
           <ol class="repos" id="repos"></ol>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- INTERLUDIO: mantra -->
+  <!-- BEHAVIOR: respiración y mantra -->
+  <section class="muro conducta" id="conducta" aria-labelledby="t-con">
+    <header class="sec-cab"><h2 class="sec-t" id="t-con">Behavior</h2><p class="sec-d">One exercise before you go: four counts in, four counts out.</p></header>
+    <div class="interludio" id="respira">
+      <div class="resp-c" id="resp"></div>
+      <p class="resp-t respira-txt" id="resp-t" aria-live="off">Inhale 1</p>
+      <p class="sello">Four in, four out. The page will wait.</p>
+    </div>
+  </section>
   <section class="interludio mantra-s noche" data-plano aria-label="Mantra">
     <div class="plano-fondo noche"></div>
     <div class="plano-contenido"><p class="mantra leer" id="mantra">Read slowly. Breathe once. The situation will still be here when you look up.</p></div>
@@ -216,8 +235,8 @@
   <div class="pie-in">
     <p class="naos">NAOS <span class="cond">Closer to yourself.</span></p>
     <div class="pie-fuentes">
-      <p><b>Descriptive, not financial advice.</b> Data as of <span class="gen">14 Oct 2026 · 11:20 UTC</span>. Items tagged <span class="muestra">sample</span> are placeholders for design, not real data.</p>
-      <p>Yields: <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" rel="noopener">Source: U.S. Treasury</a>. Currencies: <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" rel="noopener">Source: ECB</a> reference rates; the NAOS dollar index is computed from them and is not ICE's DXY. <a href="https://www.coingecko.com" rel="noopener">Data provided by CoinGecko</a>. Metals: <a href="https://gold-api.com" rel="noopener">gold-api.com</a>. Energy: <a href="https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm" rel="noopener">Source: U.S. Energy Information Administration</a>. <a href="https://alternative.me/crypto/fear-and-greed-index/" rel="noopener">Crypto Fear &amp; Greed Index by alternative.me</a>.</p>
+      <p><b>Descriptive, not financial advice.</b> Data as of <span class="gen">14 Oct 2026 · 11:20 UTC</span>. Every reading carries its source and time. Readings older than their source's rhythm, and sample placeholders, are kept off the page until real data arrives.</p>
+      <p>Yields: <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" rel="noopener">Source: U.S. Treasury</a>. Currencies: <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" rel="noopener">Source: ECB</a> reference rates; the NAOS dollar index is computed from them and is not ICE's DXY. <a href="https://www.coingecko.com" rel="noopener">Data provided by CoinGecko</a>. Metals: <a href="https://gold-api.com" rel="noopener">gold-api.com</a>. Energy: <a href="https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm" rel="noopener">Source: U.S. Energy Information Administration</a>. <a href="https://alternative.me/crypto/fear-and-greed-index/" rel="noopener">Crypto Fear &amp; Greed Index by alternative.me</a>. Red US events, forecasts and previous values: <a href="https://www.forexfactory.com/calendar" rel="noopener">Forex Factory</a> weekly calendar, each release linked to its official publisher.</p>
       <p>Widgets by <a href="https://www.tradingview.com" rel="noopener">TradingView</a>, embedded as provided. Prediction markets link to <a href="https://polymarket.com" rel="noopener">Polymarket</a> and <a href="https://kalshi.com" rel="noopener">Kalshi</a>. Headlines from the Federal Reserve, the SEC, BBC News, CoinDesk, MarketWatch and <a href="https://news.ycombinator.com" rel="noopener">Hacker News</a>, each linked to its source. Map: <a href="https://www.naturalearthdata.com" rel="noopener">Natural Earth</a> via world-atlas.</p>
       <p><a href="privacidad.html">Privacy</a> · <a href="terminos.html">Terms</a> · <a href="archivo/index-anterior.html">About the NAOS YouTube app</a></p>
     </div>
