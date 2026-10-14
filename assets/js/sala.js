@@ -182,6 +182,12 @@
         pts.filter(([, px, py]) => dentro(px, py) && Math.hypot(px - pt[0], py - pt[1]) > vb[2] * .04).map(([o, px, py]) => { const [a, b] = pc(px, py);
           return `<a class="m-otra${Number(a) > 70 ? " izq" : ""}" href="#sala/${esc(o.id)}" data-sala="${esc(o.id)}" style="left:${a}%;top:${b}%" aria-label="Open the monitor room: ${esc(o.titulo)}"><span>${esc(o.lugar.nombre)}</span></a>`; }).join("") +
         `<span class="m-aqui${Number(lx) > 62 ? " izq" : ""}" style="left:${lx}%;top:${ly}%"><span>${esc(s.lugar.nombre)}</span></span>`;
+      // rótulos siempre dentro del marco: si se salen por un lado, pasan al otro
+      const dentro2 = () => { const rc = caja.getBoundingClientRect();
+        $$(".m-aqui, .m-otra", caja).forEach((m) => { const sp = $("span", m); if (!sp) return; let r = sp.getBoundingClientRect();
+          if (r.right > rc.right - 2) m.classList.add("izq"); else if (r.left < rc.left + 2) m.classList.remove("izq");
+          r = sp.getBoundingClientRect(); if (r.left < rc.left + 2 || r.right > rc.right - 2) sp.style.maxWidth = (Math.max(rc.right - r.left, r.right - rc.left) - 6) + "px"; }); };
+      dentro2(); new ResizeObserver(dentro2).observe(caja);
     }
 
     // bento sin huecos: cada fila suma 12 columnas con las piezas que esta sala sí tiene

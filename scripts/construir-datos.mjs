@@ -666,20 +666,26 @@ const LUGARES = [
   { id: "washington", nombre: "Washington", lon: -77, lat: 38.9, re: /\b(fed|federal reserve|fomc|powell|cpi|ppi|inflation|bls|white house|congress|senate|midterms?|treasury|sec|social security)\b/i, re2: /(^|[^\w.])(US|U\.S\.)(?![\w])/ },
 ];
 const LUGAR_DE_HISTORIA = { "fed-octubre": "washington", "ipc-septiembre": "washington", ormuz: "hormuz", "iran-cese-fuego": "iran", "midterms-camara": "washington", "fed-kalshi-citado": "washington" };
+// si el titular nombra dos lugares o más ("between Ukraine and US") la lectura no es clara: sin alfiler, salvo que uno sea
+// el lugar de su historia del mapa. Mejor sin lugar que un lugar adivinado.
 const lugarDe = (texto, sl) => {
-  for (const l of LUGARES) { const m = texto.match(l.re) || (l.re2 && texto.match(l.re2)); if (m) return { l, palabra: (m[2] || m[1] || m[0]).trim() }; }
-  const l = sl && LUGARES.find((x) => x.id === LUGAR_DE_HISTORIA[sl.id]);
-  return l ? { l, palabra: null } : null;
+  const hs = LUGARES.map((l) => { const m = texto.match(l.re) || (l.re2 && texto.match(l.re2)); return m ? { l, palabra: (m[2] || m[1] || m[0]).trim() } : null; }).filter(Boolean);
+  const deHistoria = sl && LUGARES.find((x) => x.id === LUGAR_DE_HISTORIA[sl.id]);
+  if (hs.length === 1) return hs[0];
+  if (hs.length > 1) return hs.find((x) => x.l === deHistoria) || null;
+  return deHistoria ? { l: deHistoria, palabra: null } : null;
 };
+// regla G3: la política solo como impacto en mercado; sin palabra de mercado (las de mapear) queda fuera de las salas
+const sinMercado = (t, sl) => (t.area === "Politics" || sl?.politica) && !MERCADO_PALABRAS.some((w) => new RegExp("\\b" + w + "\\b").test(t.titulo.toLowerCase()));
 const palabrasDe = (texto, h) => { const t = " " + texto.toLowerCase().replace(/[^a-z0-9$%. -]/g, " ") + " ";
   return (h?.palabras || []).filter((p) => new RegExp("(?<![a-z])" + escRe(p.toLowerCase()) + "(?![a-z])").test(t)); };
 const slug = (s) => s.toLowerCase().normalize("NFD").replace(/[^a-z0-9 ]/g, "").split(/\s+/).filter((w) => w.length > 2).slice(0, 4).join("-") || "historia";
 const TV_AREA = { AI: { simbolo: "NASDAQ:SMH", etiqueta: "VanEck Semiconductor ETF (SMH), delayed, via TradingView" }, Energy: { simbolo: "TVC:UKOIL", etiqueta: "Brent crude CFD via TradingView" } };
-const candidatas = portada.filter((p) => p.tipo === "historia").map((p) => ({ t: p, p, sl: MAPA_PM.historias.find((h) => h.id === p.historia_mapa) || null }));
+const candidatas = portada.filter((p) => p.tipo === "historia").map((p) => ({ t: p, p, sl: MAPA_PM.historias.find((h) => h.id === p.historia_mapa) || null })).filter((c) => !sinMercado(c.t, c.sl));
 const slUsadas = new Set(candidatas.map((c) => c.sl?.id).filter(Boolean));
 for (const t of (wireFinal || []).filter((x) => !x.viejo)) { // el wire más nuevo primero
   const sl = historiaDe(t.titulo);
-  if (!sl || sl.fuente !== "polymarket" || slUsadas.has(sl.id) || candidatas.some((c) => c.t.url === t.url)) continue; // "citar": solo con cifra de un medio
+  if (!sl || sl.fuente !== "polymarket" || sinMercado(t, sl) || slUsadas.has(sl.id) || candidatas.some((c) => c.t.url === t.url)) continue; // "citar": solo con cifra de un medio
   slUsadas.add(sl.id); candidatas.push({ t, p: null, sl });
 }
 const salas = [], idsSala = new Set();
