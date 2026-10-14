@@ -200,7 +200,7 @@
   const cuenta = (a) => wire.filter((t) => t.area === a).length;
   $("#filtros").innerHTML = `<button type="button" aria-pressed="true" data-area="">All<span class="n">${wire.length}</span></button>` + AREAS.filter(cuenta).map((a) => `<button type="button" aria-pressed="false" data-area="${a}">${a}<span class="n">${cuenta(a)}</span></button>`).join("");
   const horaCorta = (iso) => (iso ? `${N.fecha(iso)} ${iso.slice(11, 16)}` : "");
-  $("#wire-l").innerHTML = wire.map((t) => `<li data-area="${t.area}" data-entra><span class="w-m"><span class="w-area">${t.area}</span><span>${N.esc(t.fuente)} · ${horaCorta(t.hora)}</span>${t.movio ? `<span class="w-mov">moved: ${N.esc(t.movio)}</span>` : ""}</span><a href="${N.esc(t.url)}" rel="noopener">${N.esc(t.titulo)}</a></li>`).join("");
+  $("#wire-l").innerHTML = wire.map((t) => `<li data-area="${t.area}" data-entra><span class="w-m"><span class="w-area">${t.area}</span><span>${N.esc(t.fuente)} · ${horaCorta(t.hora)}</span>${t.movio ? `<span class="w-mov">moved: ${N.esc(t.movio)}</span>` : ""}${t.odds ? `<a class="w-mov" href="${N.esc(t.odds.url)}" rel="noopener">odds: ${N.esc(t.odds.nombre)}</a>` : ""}</span><a href="${N.esc(t.url)}" rel="noopener">${N.esc(t.titulo)}</a></li>`).join("");
   $("#filtros").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return;
     $$("#filtros button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
     $$("#wire-l li").forEach((li) => { li.hidden = !!b.dataset.area && li.dataset.area !== b.dataset.area; if (!li.hidden) li.style.opacity = 1; }); });
@@ -244,6 +244,15 @@
   $$("[data-tv]").forEach((el) => perezoso(el, () => { const [w, c] = TV[el.dataset.tv](); montarTV(el, w, c); }));
 
   /* ---------- historias del día ---------- */
+  // regla del titular (D-208): mercado (el gráfico de la carta), mercado de predicción (enlace, sin cifra) y una cosa conectada
+  const ladosHtml = (l) => {
+    if (!l) return "";
+    const c = l.conectado, p = l.prediccion;
+    const cTxt = c ? `${nombreCorto[c.id] || c.nombre} ${c.cambio_bp != null ? (c.cambio_bp > 0 ? "+" : c.cambio_bp < 0 ? "−" : "") + Math.abs(c.cambio_bp) + " bp" : c.cambio != null ? (c.cambio >= 0 ? "+" : "−") + Math.abs(c.cambio).toFixed(2) + "%" : ""}`.trim() : null;
+    const partes = [p ? `Odds: <a href="${N.esc(p.url)}" rel="noopener">${N.esc(p.nombre)}</a> (Polymarket)` : null,
+      cTxt ? `Also watch: ${N.esc(cTxt)}` : null].filter(Boolean);
+    return partes.length ? `<p class="lados sello">${partes.join(" · ")}</p>` : "";
+  };
   const corto = { AI: "AI", Politics: "Politics, as market impact", Crypto: "Crypto" };
   $("#cartas").innerHTML = (d.historias || []).map((h, i) => {
     const a = h.grafico.tipo === "propio" ? A[h.grafico.activo] : null;
@@ -252,6 +261,7 @@
       prox ? { h: prox.hora, t: `Next: US ${prox.evento.replace(/ [my]\/[my]$/, "").replace(/^Core /, "")}`, ya: false } : null].filter(Boolean);
     return `<article class="carta" data-entra><span class="area"><span>${corto[h.area]}</span><span>${String(i + 1).padStart(2, "0")}</span></span>` +
       `<h3 class="tt"><a href="${N.esc(h.url)}" rel="noopener">${N.esc(h.titulo)}</a></h3><span class="sello">${N.esc(h.fuente)} · ${horaCorta(h.hora)} UTC · headline verbatim</span>` +
+      ladosHtml(h.lados) +
       `<p class="ctx"><span class="muestra">sample</span> ${N.esc(h.contexto)}</p>` +
       `<ol class="mtl" aria-label="Timeline">${pasos.map((p) => `<li class="${p.ya ? "ya" : ""}"><span class="h">${p.h ? p.h.slice(11, 16) : N.fecha(p.f)}</span>${N.esc(p.t)}</li>`).join("")}</ol>` +
       `<div class="reac"><p class="cond rot">Market reaction · ${a ? N.esc(a.nombre) + ", 30 days" : N.esc(h.grafico.etiqueta)}</p>${a ? `<div class="graf-c" data-h-linea="${a.id}"></div><p class="sello">${a.id === "BTC" ? "Data provided by CoinGecko" : a.fuente}</p>` : `<div class="tv" data-tv-mini="${h.grafico.simbolo}"><p class="tv-espera sello">TradingView chart loads when it comes into view</p></div>`}</div></article>`;
