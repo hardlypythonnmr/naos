@@ -282,6 +282,15 @@ async function cierresCitados(txt) {
   }) };
 }
 
+/* ---------- BBC, Guardian y Hacker News salen el lunes 19-oct-2026 (D-235, D-236) ----------
+   La misma fecha que SALE_EL de motor/radar/politica_fuentes.py (radar privado). Este constructor lee Hacker News por su
+   cuenta y conserva el wire anterior si el radar no empuja, así que la compuerta va también aquí: desde esa hora no se
+   pide Hacker News y nada con esas fuentes pasa a situacion.json, venga del radar, de --wire-rss o de la corrida anterior. */
+const SALEN_D1 = Date.parse("2026-10-19T00:00:00Z");
+const sinD1 = Date.now() >= SALEN_D1;
+const RE_D1 = /\b(BBC|Guardian|Hacker News)\b/i;
+const fueraD1 = (xs) => (sinD1 && Array.isArray(xs) ? xs.filter((t) => !RE_D1.test(t.fuente || "")) : xs);
+
 /* ---------- armar ---------- */
 const [tes, fx, btc, eth, sol, xau, xag, hg, energia, animo, cal, hn] = [
   await intento("Tesoro", tesoro), await intento("BCE", bce),
@@ -289,7 +298,7 @@ const [tes, fx, btc, eth, sol, xau, xag, hg, energia, animo, cal, hn] = [
   await intento("CoinGecko SOL", () => cripto("solana", "Solana", "SOL")),
   await intento("gold-api XAU", () => metal("XAU", "Gold")), await intento("gold-api XAG", () => metal("XAG", "Silver")),
   await intento("gold-api HG", () => metal("HG", "Copper")),
-  await intento("EIA", eia), await intento("miedo", miedo), await intento("calendario", calendario), await intento("Hacker News", hackerNews),
+  await intento("EIA", eia), await intento("miedo", miedo), await intento("calendario", calendario), sinD1 ? null : await intento("Hacker News", hackerNews),
 ];
 const activosNuevos = [btc, eth, sol, xau, xag, hg, ...(tes || []), ...(fx || []), ...(energia || [])].filter(Boolean);
 // si una fuente pública falló en esta corrida, se conserva la lectura que ya se mostraba (con su fecha; la frescura se recalcula,
@@ -318,6 +327,7 @@ let wireFinal = null, historias = null, radarFecha = null, radarEstado = "carrie
 if (radarIn?.wire) { wireFinal = sinOKX(radarIn.wire); historias = sinOKX(radarIn.historias); radarFecha = radarIn.fecha; radarEstado = "radar"; }
 else if (WIRE_RSS) { ({ wireFinal, historias } = await wireDesdeRSS()); radarFecha = GENERADO; radarEstado = "rss"; }
 else { wireFinal = sinOKX(ANTERIOR?.wire); historias = sinOKX(ANTERIOR?.historias); radarFecha = ANTERIOR?.radar?.fecha || ANTERIOR?.generado || null; }
+wireFinal = fueraD1(wireFinal); historias = fueraD1(historias);
 const citados = radarIn?.cierres_csv ? await intento("cierres citados", () => cierresCitados(radarIn.cierres_csv))
   : (ANTERIOR?.cierres_citados || await intento("cierres citados", () => cierresCitados(null)));
 
@@ -377,7 +387,7 @@ const hnLab = hnIA.sort((a, b) => b.puntos - a.puntos).slice(0, 8).map((h) => ({
 
 // temas y titulares del radar (compatibilidad con V1 a V3): de data/radar.json o los últimos conservados
 const temas = radarIn?.temas || ANTERIOR?.temas || { fuente: "NAOS radar", total: 0, conteos: {} };
-const titularesRadar = sinOKX(radarIn?.titulares || ANTERIOR?.titulares);
+const titularesRadar = fueraD1(sinOKX(radarIn?.titulares || ANTERIOR?.titulares));
 
 // MUESTRAS
 const muestra = {
@@ -801,7 +811,7 @@ const salida = {
     goldapi: { texto: "Metals: gold-api.com", url: "https://gold-api.com" },
     eia: { texto: "Source: U.S. Energy Information Administration", url: "https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm" },
     fng: { texto: "Crypto Fear & Greed Index by alternative.me", url: "https://alternative.me/crypto/fear-and-greed-index/" },
-    hn: { texto: "Headlines from Hacker News", url: "https://news.ycombinator.com" },
+    ...(sinD1 ? {} : { hn: { texto: "Headlines from Hacker News", url: "https://news.ycombinator.com" } }),
     mapa: { texto: "Map: Natural Earth via world-atlas (public domain). Routes approximate", url: "https://www.naturalearthdata.com" },
   },
   activos,
@@ -822,7 +832,7 @@ const salida = {
   graficos,
   explica,
   escondido,
-  hn: hnLab.length ? hnLab : ANTERIOR?.hn || [],
+  hn: hnLab.length ? hnLab : sinD1 ? [] : ANTERIOR?.hn || [],
   muestra,
   errores,
   mapa: "data/mapa.json (loaded when the map comes near the viewport)",

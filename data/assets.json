@@ -1050,21 +1050,21 @@
     {
       "id": "behavior",
       "titulo": "Behavior",
-      "descripcion": "Exercises and habits, each with the studies behind it.",
+      "descripcion": "Behaviors and habits, each with the studies behind it.",
       "piezas": [
         {
           "id": "behavior-articulos",
-          "titulo": "Exercise articles",
-          "descripcion": "Each exercise with the peer-reviewed studies behind it. Drafted by NAOS, read and signed by N.",
+          "titulo": "Behavior articles",
+          "descripcion": "Each behavior with the peer-reviewed studies behind it. Drafted by NAOS, read and signed by N.",
           "estado": "planned",
           "tarjeta": "PAG-05.1",
           "pagina": true,
-          "texto": "NAOS Shorts teach small exercises: a slower breath, naming a feeling, giving worry its own time. Each article takes one exercise and lays out the study behind it: who took part, what they did, what was measured, what changed, and what the study cannot tell us. NAOS drafts each article, and N reads and signs it. The aim is that you can judge the evidence yourself, try the exercise with realistic expectations, and know when a practice is not enough and it is time to talk to a professional.",
+          "texto": "NAOS Shorts carry small behaviors: a slower breath, naming a feeling, giving worry its own time. Each article takes one behavior and lays out the study behind it: who took part, what they did, what was measured, what changed, and what the study cannot tell us. NAOS drafts each article, and N reads and signs it. The aim is that you can judge the evidence yourself, try the behavior with realistic expectations, and know when a practice is not enough and it is time to talk to a professional.",
           "mapa": {
-            "raiz": "Exercise articles",
+            "raiz": "Behavior articles",
             "ramas": [
               {
-                "t": "The exercise",
+                "t": "The behavior",
                 "hojas": [
                   "What to do",
                   "How long",
@@ -1127,14 +1127,14 @@
         },
         {
           "id": "behavior-largos-ejercicio",
-          "titulo": "Exercise sessions, long form",
-          "descripcion": "Longer sessions built from the exercise Shorts, to follow along.",
+          "titulo": "Behavior sessions, long form",
+          "descripcion": "Longer sessions built from the behavior Shorts, to follow along.",
           "estado": "planned",
           "tarjeta": "SER-05.1",
           "pagina": true,
-          "texto": "Some exercises work better with time than in a 60-second Short. These long sessions join several of them into one guided practice you can follow from start to finish: slow breathing with longer exhales, resting attention on the breath and coming back when the mind wanders, naming what you feel, and letting someone steady you. Each step names the study it comes from and keeps its claim modest. You can pause at any point, and the steps are written out to download. These are practices for calm and do not replace therapy; if anxiety is heavy, talk to a professional.",
+          "texto": "Some behaviors work better with time than in a 60-second Short. These long sessions join several of them into one guided practice you can follow from start to finish: slow breathing with longer exhales, resting attention on the breath and coming back when the mind wanders, naming what you feel, and letting someone steady you. Each step names the study it comes from and keeps its claim modest. You can pause at any point, and the steps are written out to download. These are practices for calm and do not replace therapy; if anxiety is heavy, talk to a professional.",
           "mapa": {
-            "raiz": "Exercise sessions, long form",
+            "raiz": "Behavior sessions, long form",
             "ramas": [
               {
                 "t": "Arrive",

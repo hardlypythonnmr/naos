@@ -52,7 +52,7 @@ if (!SIN_RED) {
     const d = await r.json();
     ff = d.filter((e) => e.impact === "High").map((e) => ({ titulo: `${e.country} ${e.title}`, hora: new Date(e.date).toISOString().slice(0, 16) + "Z", fuente: "Forex Factory weekly calendar", rojo: true }))
       .filter((e) => e.hora.slice(0, 10) >= DIAS[0] && e.hora.slice(0, 10) <= DIAS.at(-1));
-  } catch (e) { ffNota = "Forex Factory calendar not reached: " + e.message; }
+  } catch (e) { console.error("Forex Factory:", e.message); ffNota = "Forex Factory's weekly calendar could not be read in this run; the briefs list its red-folder events once it is."; } // el detalle del error va al log, nunca a la página
 }
 if (!ff.length && !ffNota) ffNota = "Forex Factory publishes each week's calendar over the weekend; the briefs list its red-folder events once it covers that week.";
 // agenda: con hora (UTC) o solo con fecha (hora null: va al primer brief de ese día, o al último de la semana si cae en fin de semana).
@@ -83,9 +83,9 @@ briefs.forEach((b, i) => {
 const SERIE = [[1, "Why the chat forgets"], [2, "What you need"], [3, "The first prompt"], [4, "A memory file"], [5, "Your first real task"], [6, "Guardrails and undo"]];
 const CORTOS = ["2026-10-21", "2026-10-23", "2026-10-29", "2026-10-31", "2026-11-04", "2026-11-07"];
 const PLAN = [
-  ["2026-10-19", "ai", "medium", "From chat to code, part 1", "ai-chat-al-codigo-1", "With a LinkedIn post in Spanish"],
+  ["2026-10-19", "ai", "medium", "From chat to code, part 1", "ai-chat-al-codigo-1", null],
   ...SERIE.map(([n, t], i) => [CORTOS[i], "ai", "short", `From chat to code · ${n}. ${t}`, "ai-chat-al-codigo-1", null]),
-  ["2026-10-24", "behavior", "page", "Exercise articles no. 1", "behavior-articulos", null],
+  ["2026-10-24", "behavior", "page", "Behavior articles no. 1", "behavior-articulos", null],
   ["2026-10-26", "news", "page", "FOMC: what to watch", null, "Date, time and what is expected; no forecast"],
   ["2026-10-27", "market", "medium", "What a price is", "trading-que-es-el-precio", null],
   ["2026-10-28", "news", "special", "FOMC anchor", null, "Prearmed: press conference 14:30 ET, out around 16:30 ET with the figure"],
@@ -94,16 +94,16 @@ const PLAN = [
   ["2026-11-03", "news", "page", "US elections: market impact only", null, "Politics as market impact; no synthetic images of politicians"],
   ["2026-11-05", "news", "page", "Payrolls preview", null, "Preview of the October jobs report"],
   ["2026-11-06", "news", "special", "Payrolls anchor", null, "Only if the FOMC anchor passed green; otherwise a page"],
-  ["2026-11-07", "behavior", "page", "Exercise sessions, long form: the session map", "behavior-largos-ejercicio", "The video comes on Sun 29 Nov"],
+  ["2026-11-07", "behavior", "page", "Behavior sessions, long form: the session map", "behavior-largos-ejercicio", "The video comes on Sun 29 Nov"],
   ["2026-11-09", "news", "page", "CPI preview", null, "Preview of the October CPI"],
   ["2026-11-10", "market", "medium", "Reading charts", "trading-graficos", null],
   ["2026-11-10", "news", "special", "CPI anchor", null, "Same rule as payrolls: only if the anchors pass green"],
-  ["2026-11-14", "behavior", "page", "Exercise articles no. 2", "behavior-articulos", null],
+  ["2026-11-14", "behavior", "page", "Behavior articles no. 2", "behavior-articulos", null],
   ["2026-11-15", "behavior", "special", "Affirmations for sleep: guided review in Spanish", "behavior-afirmaciones-dormir", "In Spanish"],
   // después del mes
   ["2026-11-16", "ai", "medium", "Your first commit", "ai-primer-commit", null],
   ["2026-11-24", "market", "medium", "Candles", "trading-velas", null],
-  ["2026-11-29", "behavior", "medium", "Exercise sessions, long form", "behavior-largos-ejercicio", null],
+  ["2026-11-29", "behavior", "medium", "Behavior sessions, long form", "behavior-largos-ejercicio", null],
   ["2026-11-30", "ai", "medium", "Your first GitHub page", "ai-primera-pagina-github", null],
   ["2026-12-09", "news", "special", "FOMC anchor (December)", null, "Second anchor of the plan"],
   ["2026-12-14", "ai", "medium", "Your first token", "ai-primer-token", null],
@@ -113,6 +113,14 @@ const PLAN = [
 ];
 for (const [d, seccion, format, title, asset_id, nota] of PLAN)
   items.push({ seccion, dia: d, slot: null, format, title, ...(asset_id ? { asset_id } : {}), status: "planned", ...(nota ? { nota } : {}) });
+
+// lo ya publicado antes del mes (D-234): su clave en data/enlaces.json es dia|asset_id, así "Today's Short" lo muestra con su enlace
+// [dia, sección, título, asset_id, hora UTC, hora local]
+const PUBLICADOS = [
+  ["2026-10-15", "behavior", "Closer to yourself. This is NAOS", "promo", "2026-10-15T19:30Z", "15:30 ET"],
+];
+for (const [d, seccion, title, asset_id, hora_utc, hora_local] of PUBLICADOS)
+  items.push({ seccion, dia: d, slot: null, hora_utc, hora_local, format: "short", title, asset_id, status: "published", nota: "Launch promo, on YouTube Shorts and Instagram Reels" });
 
 // el resto de la biblioteca (data/assets.json): sin fecha en el acta, va sin fecha y con su motivo
 const SECCION = { ai: "ai", trading: "market", behavior: "behavior" };

@@ -148,7 +148,7 @@ html.pjs:not([data-u="present"]) { scroll-padding-bottom: 0; } /* la ficha de la
 #humanity .sec-cab { border-top: 0; padding-top: 0; display: grid; grid-template-columns: 1fr 2fr; gap: var(--s-1) var(--s-4); align-items: baseline; margin-bottom: var(--s-6); }
 #humanity .sec-t { grid-column: 2; grid-row: 1; font-size: clamp(44px, 5vw, 72px); line-height: 1; letter-spacing: -.025em; }
 #humanity .sec-d { grid-column: 1; grid-row: 1; font-size: 16px; max-width: 22em; }
-#humanity .sec-cab .cab-n { grid-column: 2; }
+#humanity .sec-cab .cab-n { grid-column: 2; grid-row: 2; } /* debajo del título: sala.css lo pone en la fila 1 y pisaba "This week" */
 #humanity .muro { padding-top: var(--s-12); }
 #humanity .bib { gap: var(--s-10); }
 #humanity .bib-cat { display: grid; grid-template-columns: 1fr 2fr; grid-template-rows: auto 1fr; align-items: start; gap: var(--s-2) var(--s-4); }
