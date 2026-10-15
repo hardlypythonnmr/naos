@@ -129,7 +129,7 @@ h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-hei
   <section class="ranura" aria-labelledby="r-f" id="ranura-f"><h2 id="r-f">Sources</h2><div class="vacio">Every source cited in the piece goes here, linked. <span class="vacio-f" data-fecha></span></div></section>
   <p class="solo-imp imp-pie" id="imp-pie"></p>
 </main>
-<footer class="pie sello" id="pie">NAOS · Yourself, sharper. <span id="pie-t">This page is a planned piece: nothing here is published yet.</span> Not financial advice.</footer>
+<footer class="pie sello" id="pie">NAOS · Closer to yourself. <span id="pie-t">This page is a planned piece: nothing here is published yet.</span> Not financial advice.</footer>
 <script>
 /* Estado y aviso de la pieza (SER-03.3, SER-02.5). Corre al terminar de cargar para que naos.js (defer) ya esté: N.estado(id)
    escribe "Comes out <fecha>", "Date to be confirmed" o "Published" con enlace al Short; los huecos vacíos repiten la fecha. */
@@ -200,7 +200,7 @@ function llenar(x, c, consultadas) {
   if (x.pdf) { const p = document.getElementById("pdf"); p.href = x.pdf; } else document.getElementById("pdf").hidden = true;
   const url = `hardlypythonnmr.github.io/naos/pieza.html?id=${x.id}`;
   document.getElementById("imp-url").textContent = "Assets · " + c.titulo;
-  document.getElementById("imp-pie").textContent = `NAOS · Yourself, sharper. ${window.NAOS_PUB ? "" : "A planned piece: the video is not published yet. "}${c.id === "trading" ? "Education only, not financial advice. " : ""}${url}`;
+  document.getElementById("imp-pie").textContent = `NAOS · Closer to yourself. ${window.NAOS_PUB ? "" : "A planned piece: the video is not published yet. "}${c.id === "trading" ? "Education only, not financial advice. " : ""}${url}`;
   document.getElementById("lleno").hidden = false;
 }
 (async () => {
