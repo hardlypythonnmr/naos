@@ -49,11 +49,10 @@
   <!-- PUNTOS DE MONTAJE (ola 0, D-234): vacíos e invisibles (hidden) hasta que un equipo monta en ellos; el orden de arriba abajo es este.
        Cada equipo quita el hidden de SU ranura y escribe solo dentro; ver empresa/infraestructura/2026-10-14-historias/construccion/cimientos.md.
        #secuencia: el Short y el Reel de hoy (espejo, assets/js/franja.js). #guia: la hoja de la guía y la ficha "Guide" (assets/js/guia.js).
-       #live: región de estado de LIVE (assets/js/live.js). Convención LIVE: cualquier titular, ficha o fila lleva data-live="AAAA-MM-DDTHH:MMZ"
+       Convención LIVE (assets/js/live.js, sin región de estado ni aria-live): cualquier titular, ficha o fila lleva data-live="AAAA-MM-DDTHH:MMZ"
        (hora UTC de la fuente); live.js pone el sello rojo --naos-live si pasaron menos de 2 h. Nadie más pinta ese sello. -->
   <div id="secuencia" hidden></div>
   <div id="guia" hidden></div>
-  <div id="live" hidden></div>
   <!-- PORTADA: titulares en texto (regla del titular, D-208 y D-219) -->
   <section class="portada" id="titulares" aria-labelledby="dia-t">
     <div class="dia-fila">
