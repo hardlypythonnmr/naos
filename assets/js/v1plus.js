@@ -16,16 +16,16 @@
   $("#dia").textContent = `${DIAS[g.getUTCDay()]} ${g.getUTCDate()} ${MESES[g.getUTCMonth()]} ${g.getUTCFullYear()}`;
 
   /* ---------- formato propio por activo ---------- */
-  const DEC = { BTC: 0, ETH: 0, SOL: 2, XAU: 0, XAG: 2, EURUSD: 4, USDJPY: 2, USD: 2, US2Y: 2, US10Y: 2, US30Y: 2, S2S10: 2, WTI: 2, BRENT: 2, NG: 2 };
+  const DEC = { BTC: 0, ETH: 0, SOL: 2, XAU: 0, XAG: 2, HG: 2, EURUSD: 4, USDJPY: 2, USD: 2, US2Y: 2, US10Y: 2, US30Y: 2, S2S10: 2, WTI: 2, BRENT: 2, NG: 2 };
   const val = (a) => (a.unidad === "USD" ? "$" : a.unidad.startsWith("USD/") ? "$" : "") + N.fmt(a.ultimo, DEC[a.id] ?? 2) + (a.unidad === "%" ? "%" : a.unidad === "pp" ? " pp" : "");
   const camTxt = (a) => (a.cambio == null ? "" : N.cambioTxt(a));
   const camHTML = (a) => (a.cambio == null ? "" : N.cambioHTML(a));
   const fechaSello = (a) => `${N.fecha(a.fecha)}${a.fecha.length > 10 ? " " + N.hora(a.fecha) : ""}`;
-  const nombreCorto = { BTC: "BTC", ETH: "ETH", SOL: "SOL", XAU: "Gold", XAG: "Silver", US2Y: "US 2Y", US10Y: "US 10Y", US30Y: "US 30Y", S2S10: "2s10s", USD: "NAOS $ index", EURUSD: "EUR/USD", USDJPY: "USD/JPY" };
+  const nombreCorto = { BTC: "BTC", ETH: "ETH", SOL: "SOL", XAU: "Gold", XAG: "Silver", HG: "Copper", US2Y: "US 2Y", US10Y: "US 10Y", US30Y: "US 30Y", S2S10: "2s10s", USD: "NAOS $ index", EURUSD: "EUR/USD", USDJPY: "USD/JPY" };
 
   /* ---------- cinta: solo lecturas dentro de su ventana; la energía nunca ---------- */
   const fng = d.miedo?.cripto?.viejo ? null : d.miedo?.cripto, prox = d.calendario?.proximo;
-  const items = ["BTC", "ETH", "SOL", "XAU", "XAG", "US10Y", "US2Y", "S2S10", "US30Y", "USD", "EURUSD", "USDJPY"].map((k) => A[k]).filter((a) => a && a.fresco)
+  const items = ["BTC", "ETH", "SOL", "XAU", "XAG", "HG", "US10Y", "US2Y", "S2S10", "US30Y", "USD", "EURUSD", "USDJPY"].map((k) => A[k]).filter((a) => a && a.fresco)
     .map((a) => ({ s: nombreCorto[a.id], v: val(a), c: a.cambio == null ? null : a }));
   if (fng) items.splice(3, 0, { s: "Crypto F&G", v: String(fng.valor), t: fng.clase });
   if (prox) items.splice(7, 0, { s: "Next red", t: `${prox.evento.replace(/ [my]\/[my]$/, "")} · ${N.hora(prox.hora)}` });
@@ -45,7 +45,8 @@
   $$("[data-tarjeta]").forEach((e) => { const a = A[e.dataset.tarjeta]; if (a) e.innerHTML = tarjeta(a); });
   // paneles cuyo dato quedó escondido (viejo): fuera
   [["BTC", ".p-btc"], ["ETH", ".p-eth"]].forEach(([k, c]) => { if (!A[k]) $(c).hidden = true; });
-  if (!A.XAU && !A.XAG) $(".p-metales").hidden = true;
+  if (!A.XAU && !A.XAG && !A.HG) $(".p-metales").hidden = true;
+  if (!A.HG) $("#metal-cobre").hidden = true; // cobre (D-241): solo cuando el armado ya lo trae y está fresco
   // texto en llano bajo BTC y bajo la curva (PAG-02.5), armado por construir-datos.mjs
   const explicar = (el, x) => { if (!el || !x?.texto) return; el.innerHTML = x.texto.map((t) => `<p>${N.esc(t)}</p>`).join("") +
     `<p class="sello">${N.esc(x.fuente)} · as of ${N.fecha(x.fecha)}${x.fecha.length > 10 ? " " + N.hora(x.fecha) : ""}</p>`; };
@@ -97,8 +98,8 @@
 
   /* ---------- tablero de aletas ---------- */
   const fichas = (txt, cls = "") => [...txt].map((c) => `<span class="ficha ${cls}" aria-hidden="true">${c === " " ? "&nbsp;" : N.esc(c)}</span>`).join("");
-  const codigo = { BTC: "BTC", ETH: "ETH", SOL: "SOL", XAU: "GOLD", XAG: "SILV", US2Y: "2Y", US10Y: "10Y", US30Y: "30Y", S2S10: "2S10S", USD: "NAOS$", EURUSD: "EUR", USDJPY: "JPY" };
-  const enTablero = ["BTC", "ETH", "SOL", "XAU", "XAG", "US2Y", "US10Y", "US30Y", "S2S10", "USD", "EURUSD", "USDJPY"].map((k) => A[k]).filter((a) => a && a.fresco);
+  const codigo = { BTC: "BTC", ETH: "ETH", SOL: "SOL", XAU: "GOLD", XAG: "SILV", HG: "COPR", US2Y: "2Y", US10Y: "10Y", US30Y: "30Y", S2S10: "2S10S", USD: "NAOS$", EURUSD: "EUR", USDJPY: "JPY" };
+  const enTablero = ["BTC", "ETH", "SOL", "XAU", "XAG", "HG", "US2Y", "US10Y", "US30Y", "S2S10", "USD", "EURUSD", "USDJPY"].map((k) => A[k]).filter((a) => a && a.fresco);
   $("#tablero").innerHTML = enTablero.map((a) => {
     const v = N.fmt(a.ultimo, a.id === "BTC" || a.id === "ETH" || a.id === "XAU" ? 0 : DEC[a.id]) + (a.unidad === "%" ? "%" : "");
     const m = a.cambio == null ? "" : (N.tri(a.cambio) + N.cambioTxt(a).replace(" ", ""));

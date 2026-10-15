@@ -16,7 +16,7 @@
 //   Tesoro de EE. UU.: curva par diaria (CSV), 2, 10 y 30 años y el 2s10s. Dominio público. "Source: U.S. Treasury".
 //   BCE: tasas de referencia (90 días). EUR/USD, USD/JPY (cruce) e "Índice del dólar (cálculo NAOS)" con la fórmula del
 //        DXY. No es el DXY de ICE. "Source: ECB".
-//   gold-api.com: oro y plata al momento (sus términos permiten uso comercial). Cobre fuera de la página (posible licencia CME).
+//   gold-api.com: oro, plata y cobre al momento (sus términos permiten uso comercial). El cobre (HG, contrato COMEX) se publica por decisión de N (D-241, "Accept, I take the risk"), con la misma atribución.
 //   CoinGecko: BTC, ETH, SOL, 30 días. "Data provided by CoinGecko" con enlace.
 //   EIA: WTI, Brent y Henry Hub, tendencia fechada; nunca en la cinta (llega con 1 a 9 días de rezago).
 //   alternative.me: Crypto Fear & Greed Index, 30 días, con atribución y enlace.
@@ -283,14 +283,15 @@ async function cierresCitados(txt) {
 }
 
 /* ---------- armar ---------- */
-const [tes, fx, btc, eth, sol, xau, xag, energia, animo, cal, hn] = [
+const [tes, fx, btc, eth, sol, xau, xag, hg, energia, animo, cal, hn] = [
   await intento("Tesoro", tesoro), await intento("BCE", bce),
   await intento("CoinGecko BTC", () => cripto("bitcoin", "Bitcoin", "BTC")), await intento("CoinGecko ETH", () => cripto("ethereum", "Ethereum", "ETH")),
   await intento("CoinGecko SOL", () => cripto("solana", "Solana", "SOL")),
   await intento("gold-api XAU", () => metal("XAU", "Gold")), await intento("gold-api XAG", () => metal("XAG", "Silver")),
+  await intento("gold-api HG", () => metal("HG", "Copper")),
   await intento("EIA", eia), await intento("miedo", miedo), await intento("calendario", calendario), await intento("Hacker News", hackerNews),
 ];
-const activosNuevos = [btc, eth, sol, xau, xag, ...(tes || []), ...(fx || []), ...(energia || [])].filter(Boolean);
+const activosNuevos = [btc, eth, sol, xau, xag, hg, ...(tes || []), ...(fx || []), ...(energia || [])].filter(Boolean);
 // si una fuente pública falló en esta corrida, se conserva la lectura que ya se mostraba (con su fecha; la frescura se recalcula,
 // así que una lectura vieja sale de la cinta y del tablero). No es un histórico: es el último valor publicado.
 const fuenteClave = { CoinGecko: "coingecko", "gold-api.com": "goldapi", "U.S. Treasury": "tesoro", ECB: "bce", "U.S. Energy Information Administration": "eia" };
@@ -301,7 +302,7 @@ for (const viejo of ANTERIOR?.activos || []) {
   errores.push(`${viejo.id}: sin dato nuevo, se conserva el de ${viejo.fecha}`);
   activosNuevos.push(cerrar({ ...viejo }, fuenteClave[viejo.fuente] || "eia"));
 }
-const ORDEN = ["BTC", "ETH", "SOL", "XAU", "XAG", "US2Y", "US10Y", "US30Y", "S2S10", "USD", "EURUSD", "USDJPY", "WTI", "BRENT", "NG"];
+const ORDEN = ["BTC", "ETH", "SOL", "XAU", "XAG", "HG", "US2Y", "US10Y", "US30Y", "S2S10", "USD", "EURUSD", "USDJPY", "WTI", "BRENT", "NG"];
 activos.push(...activosNuevos.sort((a, b) => ORDEN.indexOf(a.id) - ORDEN.indexOf(b.id)));
 
 const RE_FUERA = /cancer|diagnos|surgery|memory loss|\bdie[sd]?\b|death|sentenced|murder|accused|on trial|charged|arrest(?:ed)?|allegations?|dinners?|penthouse|mansion|spy/i;
@@ -551,7 +552,7 @@ const DIA3 = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const fechaTxt = (f) => { const t = new Date(diaUTC(f)); return `${t.getUTCDate()} ${MES[t.getUTCMonth()]}`; };
 const pctTxt = (x) => { const v = Math.abs(x); return (v < 0.1 ? v.toFixed(2) : v < 10 ? v.toFixed(1) : v.toFixed(0)) + "%"; };
 const fmtN = (x, dec = 0) => Number(x).toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec });
-const NOMBRE_TXT = { BTC: "bitcoin", ETH: "ether", SOL: "solana", XAU: "gold", XAG: "silver", US2Y: "the US 2-year yield", US10Y: "the US 10-year yield", US30Y: "the US 30-year yield",
+const NOMBRE_TXT = { BTC: "bitcoin", ETH: "ether", SOL: "solana", XAU: "gold", XAG: "silver", HG: "copper", US2Y: "the US 2-year yield", US10Y: "the US 10-year yield", US30Y: "the US 30-year yield",
   S2S10: "the 2s10s curve", USD: "the NAOS dollar index", EURUSD: "EUR/USD", USDJPY: "USD/JPY", WTI: "WTI oil", BRENT: "Brent oil", NG: "US natural gas" };
 const may = (s) => s[0].toUpperCase() + s.slice(1);
 const vivo = (id) => activos.find((a) => a.id === id && !a.viejo);
@@ -560,13 +561,13 @@ function frase(a) {
   const n = NOMBRE_TXT[a.id] || a.nombre, intradia = a.fecha.length > 10;
   const sello = intradia ? `(${a.fuente}, ${a.fecha.slice(11, 16)} UTC)` : `(${a.fuente})`;
   if (a.cambio_bp != null) return `${may(n)} ${a.cambio_bp > 0 ? `rose ${a.cambio_bp} bp` : a.cambio_bp < 0 ? `fell ${-a.cambio_bp} bp` : "was unchanged"} to ${a.ultimo.toFixed(2)}% on ${fechaTxt(a.fecha)} ${sello}.`;
-  if (a.cambio == null) return `${may(n)} trades at $${fmtN(a.ultimo)}${a.unidad === "USD" && /XAU|XAG/.test(a.id) ? " an ounce" : ""}, spot ${sello}.`;
+  if (a.cambio == null) return `${may(n)} trades at $${fmtN(a.ultimo)}${a.unidad === "USD" && /XAU|XAG/.test(a.id) ? " an ounce" : a.id === "HG" ? " a pound" : ""}, spot ${sello}.`;
   if (intradia) return `${may(n)} is ${a.cambio > 0 ? "up" : a.cambio < 0 ? "down" : "flat"}${a.cambio ? " " + pctTxt(a.cambio) : ""} today ${sello}.`;
   return `${may(n)} ${a.cambio > 0 ? "rose" : a.cambio < 0 ? "fell" : "was flat"}${a.cambio ? " " + pctTxt(a.cambio) : ""} on ${fechaTxt(a.fecha)} ${sello}.`;
 }
 const sinPunto = (s) => s.replace(/\.$/, "");
 // "On the tape": los tickers de la historia del mapa que existen en activos, con su cambio y fuente; sin historia, nada
-const CORTO = { BTC: "bitcoin", ETH: "ether", XAU: "gold", XAG: "silver", US2Y: "US 2-year yield", US10Y: "US 10-year yield", US30Y: "US 30-year yield", USD: "NAOS dollar index", WTI: "WTI oil", BRENT: "Brent oil", NG: "natural gas" };
+const CORTO = { BTC: "bitcoin", ETH: "ether", XAU: "gold", XAG: "silver", HG: "copper", US2Y: "US 2-year yield", US10Y: "US 10-year yield", US30Y: "US 30-year yield", USD: "NAOS dollar index", WTI: "WTI oil", BRENT: "Brent oil", NG: "natural gas" };
 function enCinta(sl, sinId) {
   if (!sl) return null;
   const as = tickersDe(sl, null).map((t) => t.radar && vivo(t.radar)).filter((a) => a && a.id !== sinId).filter((a, i, xs) => xs.indexOf(a) === i);
@@ -825,7 +826,7 @@ const salida = {
   muestra,
   errores,
   mapa: "data/mapa.json (loaded when the map comes near the viewport)",
-  fuera: ["S&P 500, Nasdaq, Dow, VIX: no free source with display rights; shown only inside TradingView widgets as broker CFDs", "Copper: gold-api's HG is a COMEX contract, CME redistribution license unclear", "Kalshi: data terms forbid publishing its data; link only"],
+  fuera: ["S&P 500, Nasdaq, Dow, VIX: no free source with display rights; shown only inside TradingView widgets as broker CFDs", "Kalshi: data terms forbid publishing its data; link only"],
 };
 fs.writeFileSync(SALIDA, JSON.stringify(salida));
 console.log("situacion.json", (fs.statSync(SALIDA).size / 1024).toFixed(1), "KB · generado", GENERADO);
