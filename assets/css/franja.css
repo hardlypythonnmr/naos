@@ -20,7 +20,10 @@
 .fr-prox { margin: 0; }
 .fr-s { margin: 12px 0 0; }
 .fr-viejo { color: var(--naos-grey); font-style: italic; }
-.fr-carga .fr-esq { height: 132px; background: var(--lab-paper); border: 1px solid var(--naos-rule); }
+/* esqueleto: la misma estructura que la franja final, texto invisible sobre barras de papel */
+.fr-carga .fr-t, .fr-carga .fr-sub, .fr-carga .fr-h, .fr-carga .fr-n, .fr-carga .fr-a, .fr-carga .fr-s { color: transparent; background: var(--lab-paper); }
+.fr-carga .fr-sub { width: 60%; } .fr-carga .fr-s { width: 70%; }
+.fr-carga .fr-a { min-width: 72px; }
 @media (max-width: 760px) {
   #secuencia .fr { padding: var(--s-2) var(--page-gutter-390) var(--s-2); }
   .fr-l { grid-template-columns: minmax(0, 1fr); }

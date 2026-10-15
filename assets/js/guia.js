@@ -57,7 +57,21 @@
     ficha.addEventListener("click", () => { descartada = true; poner(!arriba, true); });
     raiz.querySelector(".gu-x").addEventListener("click", () => cerrar(true, true));
     raiz.querySelector(".gu-no").addEventListener("click", () => cerrar(true, true));
-    hoja.addEventListener("click", (e) => { const a = e.target.closest(".gu-c"); if (!a) return; guarda("guia", { cerrada: true, ultima: a.dataset.id }); descartada = true; poner(false, false); });
+    // Lenis (anchors) anima hacia una posición calculada antes de que las secciones fijadas con GSAP muevan el destino: se salta sin animar y se repite hasta que el destino quede arriba
+    const ir = (sel) => {
+      const t = document.querySelector(sel); if (!t) return; let n = 0;
+      html.style.scrollBehavior = "auto";
+      const paso = () => { if (N.lenis && N.lenis.scrollTo) N.lenis.scrollTo(t, { immediate: true, force: true }); else t.scrollIntoView({ block: "start" }); if (++n < 10 && Math.abs(t.getBoundingClientRect().top) > 2) setTimeout(paso, 120); else { html.style.scrollBehavior = ""; history.pushState(null, "", sel); } };
+      paso();
+    };
+    hoja.addEventListener("click", (e) => { const a = e.target.closest(".gu-c"); if (!a) return; e.preventDefault(); guarda("guia", { cerrada: true, ultima: a.dataset.id }); descartada = true; poner(false, false); ir(a.getAttribute("href")); });
+    // Chrome no desplaza al enfocar algo que ya está en pantalla aunque quede bajo la hoja o la ficha: se sube lo justo
+    document.addEventListener("focusin", (e) => {
+      const t = e.target, tapa = arriba ? hoja : ficha; if (!t || t === document.body || tapa.contains(t) || ficha.contains(t)) return;
+      const r = t.getBoundingClientRect(), c = tapa.getBoundingClientRect();
+      if (r.width === 0 || r.right <= c.left || r.left >= c.right || r.bottom <= c.top || r.top >= c.bottom) return;
+      scrollBy({ top: Math.min(r.bottom - c.top + 16, Math.max(r.top - 8, 0)), behavior: "instant" });
+    });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && arriba) cerrar(hoja.contains(document.activeElement), true); });
     let raf = 0; const tick = () => { raf = 0; acomoda(); sube(); };
     const pide = () => { if (!raf) raf = requestAnimationFrame(tick); };
