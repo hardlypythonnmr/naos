@@ -34,7 +34,7 @@
     if (foco) (si ? titulo : ficha).focus({ preventScroll: true });
   };
   const cerrar = (foco, guardar) => { descartada = true; if (guardar) guarda("guia", Object.assign(guarda("guia") || {}, { cerrada: true })); poner(false, foco); };
-  // la ficha sube sobre la cinta Tikr en vez de taparla
+  // la ficha sube sobre la cinta (NAOS Tape) en vez de taparla
   const acomoda = () => {
     let b = 16; const h = innerHeight;
     document.querySelectorAll(".cinta").forEach((c) => { const r = c.getBoundingClientRect(); if (r.top < h && r.bottom > h - 76) b = Math.max(b, h - r.top + 12); });
@@ -42,7 +42,10 @@
     if (arriba) tope();
     padding();
   };
-  const sube = () => { if (descartada || arriba || fin) return; fin = true; poner(true, true); };
+  // con las dos puertas (assets/js/puertas.js) la portada ya pregunta adónde ir: la hoja no se abre sola encima de las puertas
+  // ni al entrar a un universo; la ficha "Guide" sigue en The Present para abrirla a mano
+  const conPuertas = () => !!document.getElementById("doors");
+  const sube = () => { if (descartada || arriba || fin || conPuertas()) return; fin = true; poner(true, true); };
 
   Promise.race([fetch("data/guia.json").then((r) => r.json()).catch(() => null), new Promise((r) => setTimeout(r, 400, null))]).then((g) => {
     const G = valido(g) ? g : DEF;

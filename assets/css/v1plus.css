@@ -36,9 +36,8 @@ body { font-size: 14px; }
 .tit.agenda .tit-t { font-family: var(--font-sans); font-weight: 600; font-size: 17px; }
 .tits-pie { margin: var(--s-1) 0 0; }
 .guardian { margin: 0; display: flex; align-items: center; gap: 10px; cursor: help; }
-.guardian svg { width: 150px; height: auto; overflow: visible; color: var(--naos-ink); }
-.guardian figcaption { display: grid; gap: 0; }
-.guardian figcaption .cond { font-size: 12px; }
+.guardian #cella { width: 120px; }
+.cella-v svg { display: block; width: 100%; height: auto; overflow: visible; }
 .guardian .revela-tarjeta { left: auto; right: 0; top: calc(100% + 4px); }
 
 /* secciones (visión: Market, News, AI, Behavior): cabecera liviana, un filete y aire */
@@ -314,8 +313,7 @@ body { font-size: 14px; }
   .ph h3 { white-space: normal; }
   .rojo-tabla { font-size: 12px; }
   .dia-fila { align-items: flex-start; gap: 10px; }
-  .guardian { margin-top: 14px; } .guardian svg { width: 92px; }
-  .guardian figcaption { display: none; }
+  .guardian { margin-top: 6px; } .guardian #cella { width: 84px; }
   .ph { flex-wrap: wrap; }
   .ph .sello { margin-left: 0; text-align: left; flex-basis: 100%; }
   .curva-in, .cal-in { grid-template-columns: 1fr; }

@@ -1,0 +1,190 @@
+/* puertas.css · las dos puertas de la portada y los dos universos (N, sesión 5: "Two doors ... a huge division ... one to each side
+ * in each of the main accent colors or white ... you click and you enter that door and it opens that universe").
+ * Humanity en blanco (--naos-paper) y The Present en cobalto (--lab-accent: la marca de capítulo de G3). Sin degradados ni sombras.
+ * Escala como mensaje (título de puerta a 200 px contra 16 px de los enlaces), un eje a 1/3 del alto, letra recortada por el borde.
+ * Estados en <html data-u>: "puertas" (solo las puertas y el pie), "present" o "humanity" (un universo). Sin JS (sin .pjs) todo se ve en orden. */
+
+/* ---------- estados ---------- */
+html.pjs .barra { display: none; }                        /* cada universo trae su placa con la navegación: no hay cabecera repetida */
+html.pjs:not([data-u="puertas"]) .puertas { display: none; }
+html.pjs[data-u="puertas"] .universo,
+html.pjs[data-u="present"] #humanity,
+html.pjs[data-u="humanity"] #the-present { height: 0; overflow: hidden; visibility: hidden; } /* se queda armado (anchos reales para gráficos) pero fuera */
+html.pjs:not([data-u="present"]) #guia { display: none; }  /* la guía lleva a Market, News y AI: vive en The Present */
+html:not(.listo) .puertas { visibility: visible; }       /* las puertas no esperan los datos */
+html.pjs:not([data-u="present"]) { scroll-padding-bottom: 0; } /* la ficha de la guía no está: no reserva sitio abajo */
+
+/* ---------- las dos puertas ---------- */
+.puertas { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 100vh; min-height: 100svh; }
+.puerta { position: relative; overflow: hidden; overflow: clip; min-height: 100vh; min-height: 100svh; }
+.puerta-hum { background: var(--naos-paper); color: var(--naos-ink); }
+.puerta-pres { background: var(--lab-accent); color: var(--naos-paper); }
+.puertas-marca { position: absolute; z-index: 3; top: 28px; left: var(--page-gutter); margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: 30px;
+  line-height: 1; letter-spacing: -.01em; color: var(--naos-ink); }
+
+/* el título es la puerta entera: el enlace se estira sobre todo el panel; los enlaces de sección quedan encima */
+.puerta-t { position: absolute; z-index: 1; bottom: 0; margin: 0; font-family: var(--font-serif); font-weight: 300; letter-spacing: -.035em;
+  font-size: clamp(96px, 13.4vw, 200px); line-height: .8; white-space: nowrap; }
+.puerta-a { color: inherit; text-decoration: none; }
+.puerta-a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.puerta-t .puerta-a::after { position: fixed; }            /* el título está posicionado: el área del enlace es el panel (ver .puerta) */
+.puerta { contain: paint; }                               /* hace que el ::after fijo se mida contra el panel, no contra la pantalla */
+.puerta-a:focus-visible { outline: none; }
+.puerta-a:focus-visible::after { outline: 3px solid currentColor; outline-offset: -12px; }
+/* la letra baja con un desplazamiento relativo: se recorta en el suelo, pero la caja del enlace queda dentro de la pantalla
+   (al enfocarlo con el teclado la página no salta) */
+.puerta-t .puerta-a { display: block; height: .6em; }   /* caja del enlace más baja que la letra: el foco no hace saltar la página */
+.puerta-t .c { position: relative; display: block; }
+.puerta-hum .puerta-t { left: -.06em; }                   /* toca el borde izquierdo; la cola de la y se corta en el suelo */
+.puerta-hum .puerta-t .c { top: 0; }
+.puerta-pres .puerta-t { right: -.04em; text-align: right; }
+.puerta-pres .puerta-t .c { top: -.64em; }
+.puerta-pres .puerta-t .c span { display: block; }
+.puerta-pres .puerta-t .t1 { font-style: italic; font-size: .5em; letter-spacing: -.02em; margin-right: .1em; line-height: 1; }
+
+.puerta-cuerpo { position: absolute; z-index: 2; pointer-events: none; top: var(--axis-third); left: var(--page-gutter); right: var(--page-gutter); transform: translateY(-50%); }
+.puerta-pres .puerta-cuerpo { left: var(--s-6); right: var(--page-gutter); }   /* pegado a la división: lo mira Cella desde el otro lado */
+.puerta-d { margin: 0 0 var(--s-3); max-width: 13em; font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: var(--p-deck); line-height: 1.2; }
+.puerta-h { margin: 0 0 var(--s-3); max-width: 17em; font-family: var(--font-serif); font-weight: 300; font-size: clamp(26px, 2.6vw, 40px); line-height: 1.12; letter-spacing: -.01em; }
+.puerta-m { margin: 0 0 10px; font-size: 14px; line-height: 1.4; color: var(--naos-night-sec); }
+.puerta-l { position: relative; z-index: 2; margin: 0; display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 16px; }
+.puerta-l a { position: relative; z-index: 2; pointer-events: auto; display: inline-block; padding: 10px 0; color: inherit; text-underline-offset: 5px; }
+.puerta-hum .puerta-l a { color: var(--naos-sec); }
+.puerta-hum .puerta-l a:hover { color: var(--naos-ink); }
+.puerta-l a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+/* Cella de pie sobre la palabra Humanity, del lado de la división, mirando hacia The Present */
+.puerta-cella { position: absolute; z-index: 2; right: var(--s-4); bottom: calc(clamp(96px, 13.4vw, 200px) * .56); width: clamp(120px, 15vw, 230px); pointer-events: none; }
+
+/* la puerta entreabierta: al pasar sobre una, la división se corre un poco hacia la otra */
+@media (prefers-reduced-motion: no-preference) and (min-width: 761px) {
+  .puertas { transition: grid-template-columns 600ms var(--ease-enter); }
+  .puertas:has(.puerta-pres:hover) { grid-template-columns: minmax(0, 46fr) minmax(0, 54fr); }
+  .puertas:has(.puerta-hum:hover) { grid-template-columns: minmax(0, 54fr) minmax(0, 46fr); }
+}
+
+/* la inundación: el color de la puerta elegida cubre la pantalla y después se retira hacia arriba sobre el universo */
+.inunda { position: fixed; inset: 0; z-index: 90; pointer-events: none; }
+.inunda-present { background: var(--lab-accent); color: var(--naos-paper); }
+.inunda-humanity { background: var(--naos-paper); color: var(--naos-ink); }
+.inunda .puerta { position: absolute; min-height: 0; margin: 0; }
+.cella-v svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+/* ---------- placas: la entrada de cada universo, en el color de su puerta ---------- */
+.placa { position: relative; overflow: hidden; padding: 20px var(--page-gutter) 0; }
+.placa-pres { background: var(--lab-accent); color: var(--naos-paper); }
+.placa-hum { background: var(--naos-paper); color: var(--naos-ink); }
+.placa-nav { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 28px; font-size: 16px; }
+.placa-nav a { display: inline-block; padding: 8px 0; color: inherit; text-decoration: none; }
+.placa-nav a:hover, .placa-nav a:focus-visible { text-decoration: underline; }
+.placa-sec { display: flex; flex-wrap: wrap; gap: 4px 22px; flex: 1; }
+.placa-hum .placa-sec a { color: var(--naos-sec); }
+.placa-volver { font-family: var(--font-serif); font-size: 20px; }
+.placa-otra { margin-left: auto; font-family: var(--font-serif); font-style: italic; font-size: 20px; }
+.placa-in { position: relative; display: grid; grid-template-columns: 2fr 1fr; align-items: end; gap: var(--s-4); margin-top: var(--s-12); }
+.placa-t { grid-column: 1; margin: 0 0 -.17em -.06em; font-family: var(--font-serif); font-weight: 300; letter-spacing: -.035em; line-height: .8;
+  font-size: clamp(88px, 15vw, 232px); white-space: nowrap; }
+.placa-t:focus { outline: none; }
+.placa-pres .placa-t span:first-child { font-style: italic; font-size: .5em; letter-spacing: -.02em; }
+.placa-d { grid-column: 2; padding-bottom: var(--s-5); }
+.placa-q { margin: 0 0 var(--s-2); font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: var(--p-deck); line-height: 1.15; max-width: 12em; }
+.placa-s { margin: 0; font-size: 16px; line-height: 1.5; color: var(--naos-night-sec); max-width: 26em; }
+.placa-hum .placa-in { grid-template-columns: 1fr auto; }
+.placa-hum .placa-q { grid-column: 1; grid-row: 1; align-self: start; margin: 0 0 var(--s-6) 33.333%; }
+.placa-hum .placa-t { grid-row: 2; }
+.placa-cella { grid-column: 2; grid-row: 1 / 3; align-self: end; width: clamp(140px, 17vw, 260px); margin-bottom: -2px; }
+
+/* ---------- los cinco pilares: una frase al eje de 1/3 y la glosa al margen ---------- */
+.pilares { display: grid; grid-template-columns: 1fr 2fr; gap: var(--s-4); padding: var(--s-16) var(--page-gutter) var(--s-12); }
+.pil-glosa { margin: .7em 0 0; max-width: 17em; font-size: 16px; line-height: 1.5; color: var(--naos-sec); }
+.pil-frase { margin: 0; font-family: var(--font-serif); font-weight: 300; font-size: clamp(36px, 4.6vw, 68px); line-height: 1.08; letter-spacing: -.02em; max-width: 14em; }
+/* ningún pilar va en cursiva: la glosa dice que se sostienen entre sí (tell 14: una palabra acentuada) */
+
+/* ---------- salida de cada universo ---------- */
+.cierre-u { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--s-2) var(--s-4);
+  padding: var(--s-12) var(--page-gutter) var(--s-10); }
+.cierre-otra { font-family: var(--font-serif); font-weight: 300; font-size: clamp(28px, 3.4vw, 48px); line-height: 1.1; text-decoration: none; }
+.cierre-otra span { font-style: italic; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .15em; }
+.cierre-volver { font-size: 16px; color: var(--naos-sec); padding: 10px 0; }
+
+/* ---------- teléfono: las puertas se apilan (arriba Humanity, abajo The Present) ----------
+ * Lado a lado quedarían dos columnas de 195 px: el titular en 9 o 10 líneas y los títulos a 40 px. Apiladas, cada puerta mide 390 de ancho,
+ * The Present lleva el titular en 3 o 4 líneas y la división se vuelve un suelo sobre el que está parada Cella. */
+@media (max-width: 760px) {
+  .puertas { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto; }
+  .puerta { min-height: 50vh; min-height: 50svh; }
+  .puertas-marca { left: var(--page-gutter-390); top: 18px; font-size: 24px; }
+  .puerta-t { font-size: clamp(64px, 19vw, 96px); }
+  .puerta-cuerpo { left: var(--page-gutter-390); right: var(--page-gutter-390); top: 64px; transform: none; }
+  .puerta-pres .puerta-cuerpo { left: var(--page-gutter-390); top: 22px; }
+  .puerta-d { font-size: 22px; max-width: 11em; margin-bottom: 8px; }
+  .puerta-h { font-size: 22px; margin-bottom: 8px; }
+  .puerta-l { gap: 0 18px; font-size: 15px; }
+  .puerta-l a { padding: 8px 0; }
+  .puerta-cella { right: var(--s-2); bottom: calc(clamp(64px, 19vw, 96px) * .58); width: 96px; }
+  .placa { padding: 12px var(--page-gutter-390) 0; }
+  .placa-nav { gap: 0 18px; font-size: 15px; }
+  .placa-sec { flex-basis: 100%; order: 3; gap: 0 18px; }
+  .placa-otra { font-size: 18px; } .placa-volver { font-size: 18px; }
+  .placa-in { grid-template-columns: 1fr; margin-top: var(--s-6); gap: var(--s-2); }
+  .placa-t { font-size: clamp(64px, 21vw, 110px); }
+  .placa-d { grid-column: 1; grid-row: 1; padding-bottom: 0; }
+  .placa-pres .placa-t { grid-row: 2; }
+  .placa-hum .placa-in { grid-template-columns: 1fr 88px; }
+  .placa-hum .placa-q { grid-column: 1; margin: 0 0 var(--s-2); font-size: 24px; align-self: end; }
+  .placa-hum .placa-t { grid-column: 1 / -1; }
+  .placa-cella { grid-row: 1; width: 88px; margin-bottom: 8px; }
+  .pilares { grid-template-columns: 1fr; padding: var(--s-10) var(--page-gutter-390) var(--s-8); gap: var(--s-3); }
+  .pil-glosa { order: 2; margin: 0; }
+  .pil-frase { font-size: 38px; }
+  .cierre-u { padding: var(--s-8) var(--page-gutter-390) var(--s-8); }
+}
+
+/* ---------- Humanity por dentro: biblioteca, no tablero (tells 1, 2, 4, 5, 12) ----------
+ * Las cabeceras de sección pierden el filete y el título va al eje de 1/3 con la descripción como glosa al margen;
+ * la biblioteca deja las tarjetas con borde y se lee como el índice de un libro: categoría a la izquierda, piezas en filas.
+ * El chip "Planned" (no el "Published") se repite en cada pieza cuando la sección ya dice que todo está planeado: se quita (queda para lectores de pantalla
+ * en la frase de la sección). La escalera (grupo y nivel) se queda, en minúscula y sin caja. */
+#humanity .sec-cab { border-top: 0; padding-top: 0; display: grid; grid-template-columns: 1fr 2fr; gap: var(--s-1) var(--s-4); align-items: baseline; margin-bottom: var(--s-6); }
+#humanity .sec-t { grid-column: 2; grid-row: 1; font-size: clamp(44px, 5vw, 72px); line-height: 1; letter-spacing: -.025em; }
+#humanity .sec-d { grid-column: 1; grid-row: 1; font-size: 16px; max-width: 22em; }
+#humanity .sec-cab .cab-n { grid-column: 2; }
+#humanity .muro { padding-top: var(--s-12); }
+#humanity .bib { gap: var(--s-10); }
+#humanity .bib-cat { display: grid; grid-template-columns: 1fr 2fr; grid-template-rows: auto 1fr; align-items: start; gap: var(--s-2) var(--s-4); }
+#humanity .bib-cat h3 { grid-column: 1; font-family: var(--font-serif); font-weight: 300; font-size: 36px; line-height: 1.05; }
+#humanity .bib-d { grid-column: 1; margin: 0; font-size: 16px; max-width: 22em; }
+#humanity .bib-l { grid-column: 2; grid-row: 1 / span 2; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4) var(--s-4); }
+#humanity .bib-p { border: 0; padding: 0; background: transparent; gap: 4px; }
+#humanity .bib-p h4 { font-weight: 300; font-size: 24px; letter-spacing: -.01em; }
+#humanity .bib-p p { font-size: 16px; line-height: 1.5; }
+#humanity .bib-chips .chip-planned { display: none; }
+#humanity .chip-esc { order: 2; border: 0; padding: 0; font-family: var(--font-sans); font-weight: 400; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--naos-sec); }
+#humanity .bib-chips { order: 3; }
+@media (max-width: 760px) {
+  #humanity .sec-cab, #humanity .bib-cat { grid-template-columns: 1fr; }
+  #humanity .sec-t, #humanity .sec-d, #humanity .sec-cab .cab-n, #humanity .bib-cat h3, #humanity .bib-d, #humanity .bib-l { grid-column: 1; grid-row: auto; }
+  #humanity .sec-t { font-size: 44px; }
+  #humanity .bib-l { grid-template-columns: 1fr; }
+  #humanity .muro { padding-top: var(--s-8); }
+}
+
+/* pantallas bajas (teléfono, o zoom al 200 %): la puerta deja de componer en absoluto y fluye, para que nada se pise;
+   crece si su contenido no cabe en la mitad de la pantalla */
+@media (max-width: 760px), (max-height: 640px) {
+  .puerta { display: flex; flex-direction: column; min-width: 0; }
+  .puerta-cuerpo { order: 1; position: relative; top: auto; left: auto; right: auto; transform: none; margin: 64px var(--page-gutter-390) 0; }
+  .puerta-pres .puerta-cuerpo { margin-top: 22px; left: auto; right: auto; }
+  .puerta-hum .puerta-cuerpo { margin-bottom: 96px; }      /* el sitio de Cella, de pie sobre la palabra */
+  .puerta-t { order: 2; position: relative; bottom: auto; margin-top: auto; padding-top: var(--s-2); }
+  .puerta-pres .puerta-t { align-self: flex-end; }
+  .puerta-hum .puerta-t { left: -.06em; }
+  .puerta-pres .puerta-t { right: -.04em; }
+}
+@media (max-height: 640px) and (min-width: 761px) {
+  .puertas-marca { top: 20px; }
+  .puerta-cuerpo { margin: 96px var(--page-gutter) 0; }
+  .puerta-pres .puerta-cuerpo { margin-top: 96px; margin-left: var(--s-6); }
+  .puerta-hum .puerta-cuerpo { margin-bottom: 160px; }
+  .puerta-t { font-size: clamp(96px, 11vw, 160px); }
+}

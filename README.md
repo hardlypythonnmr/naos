@@ -48,7 +48,7 @@ builder lists them, with the reason and the plan to get real data, in `escondido
 | US 2, 10 and 30-year yields, 2s10s | U.S. Treasury, daily par yield curve (public domain) | "Source: U.S. Treasury" |
 | EUR/USD, USD/JPY, NAOS dollar index | ECB euro reference rates | "Source: ECB"; "NAOS dollar index, computed from ECB reference rates. Not ICE's DXY." |
 | Bitcoin, Ethereum, Solana | CoinGecko API | "Data provided by CoinGecko", linked |
-| Gold, silver | gold-api.com | "Metals: gold-api.com" |
+| Gold, silver, copper (HG, a COMEX contract; published by N's decision D-241) | gold-api.com | "Metals: gold-api.com" |
 | WTI, Brent, Henry Hub (dated trend, never on the tape) | U.S. Energy Information Administration (public domain) | "Source: U.S. Energy Information Administration" |
 | Crypto Fear & Greed | alternative.me | "Crypto Fear & Greed Index by alternative.me", linked |
 | Credit and dollar (NAOS Fear & Greed) | Office of Financial Research Financial Stress Index and ECB rates (public domain), NAOS calculation in `scripts/animo.py` | "Credit and dollar: Office of Financial Research, ECB (NAOS calculation)" |
