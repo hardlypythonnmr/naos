@@ -381,4 +381,5 @@ body { font-size: 14px; }
   .ficha.chica { min-width: 9px; font-size: 12px; }
   .revela-tarjeta { width: min(320px, calc(100vw - 48px)); }
   .rojo .revela-tarjeta { left: auto; right: 0; }
+  .lab .carta .revela-tarjeta { left: auto; right: 0; } /* la tarjeta de Hacker News se pasaba 4 px del borde a 320 */
 }
