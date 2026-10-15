@@ -4,12 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NAOS · Yourself, sharper.</title>
+<meta property="og:image" content="https://hardlypythonnmr.github.io/naos/assets/marca/avatar-800.png">
+<meta property="og:title" content="NAOS">
 <meta name="description" content="NAOS: today's headlines in plain English, then markets, rates and the dollar, fear and greed, the economic calendar, a news wire by area, prediction markets, AI and technology, with room to breathe. Descriptive, not financial advice.">
 <link rel="preload" href="assets/fuentes/IBMPlexSans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fuentes/IBMPlexSansCondensed-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="data/situacion.json" as="fetch" crossorigin>
-<link rel="icon" href="assets/marca/isotipo.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/marca/isotipo-320.png">
+<link rel="icon" href="assets/marca/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/marca/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/marca/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="assets/marca/avatar-800.png">
 <link rel="preconnect" href="https://s3.tradingview.com" crossorigin>
 <link rel="stylesheet" href="assets/comun/tokens.css">
 <link rel="stylesheet" href="assets/comun/base.css">
@@ -24,6 +28,8 @@
 <script defer src="assets/vendor/gsap/gsap.min.js"></script>
 <script defer src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
 <script defer src="assets/comun/naos.js"></script>
+<script defer src="assets/js/figura.js"></script>
+<script defer src="assets/js/cella.js"></script>
 <script defer src="assets/js/sala.js"></script>
 <script defer src="assets/js/v1plus.js"></script>
 <script defer src="assets/js/agenda-comun.js"></script>
@@ -60,10 +66,10 @@
         <h1 class="dia" id="dia-t">Today, <span id="dia">Wednesday 14 October 2026</span></h1>
         <p class="sec-d">What is happening and what moved, named together. Headlines verbatim from their source. Click a headline to open its monitor room.</p>
       </div>
-      <figure class="guardian" id="guardian" data-revela aria-label="Tikr, the page keeper">
-        <svg id="tikr" viewBox="0 0 430 240" aria-hidden="true"></svg>
-        <figcaption><span class="cond">Tikr, the keeper</span><span class="sello" id="tikr-dice">Reads the NAOS Mood</span></figcaption>
-        <div class="revela-tarjeta" id="tikr-tarjeta"></div>
+      <figure class="guardian" id="guardian" data-revela aria-labelledby="cella-dice">
+        <div id="cella" aria-hidden="true"></div>
+        <figcaption class="sr" id="cella-dice">Cella, the page keeper</figcaption>
+        <div class="revela-tarjeta" id="cella-tarjeta"></div>
       </figure>
     </div>
     <!-- primera vista en bento (PAG-01.6, D-224): historia que lidera, sus odds, el próximo evento (acento vino), un gráfico, la lectura de hoy, el mapa y una cinta -->

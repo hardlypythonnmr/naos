@@ -34,7 +34,7 @@
     if (foco) (si ? titulo : ficha).focus({ preventScroll: true });
   };
   const cerrar = (foco, guardar) => { descartada = true; if (guardar) guarda("guia", Object.assign(guarda("guia") || {}, { cerrada: true })); poner(false, foco); };
-  // la ficha sube sobre la cinta Tikr en vez de taparla
+  // la ficha sube sobre la cinta (NAOS Tape) en vez de taparla
   const acomoda = () => {
     let b = 16; const h = innerHeight;
     document.querySelectorAll(".cinta").forEach((c) => { const r = c.getBoundingClientRect(); if (r.top < h && r.bottom > h - 76) b = Math.max(b, h - r.top + 12); });

@@ -95,36 +95,6 @@
     ? `<b>Two dials, two markets</b><br>Crypto: alternative.me's index. NAOS Mood, for markets in general, shows no number until its method is published.<div class="sello">alternative.me · NAOS method in review · not financial advice</div>`
     : `<b>NAOS Fear &amp; Greed: two dated readings</b><br><b>Credit and dollar ${animo.valor}, ${N.esc(animo.clase || "")}</b>: equal-weight average of ${animo.vivos} of ${animo.total} live inputs, each scored 0 to 100 (higher means calmer, greedier): ${(animo.componentes || []).map((c) => `${N.esc(c.nombre.replace(/ \(.*\)$/, "").replace("OFR FSI category: ", ""))} ${Math.round(c.sub)}`).join(", ")}. Credit stress runs two or three business days behind. The crypto dial is alternative.me's index, shown as published with its attribution.<div class="sello">Credit and dollar: Office of Financial Research, ECB (NAOS calculation), animo.py v${N.esc(animo.version || "")} · Crypto: alternative.me · not financial advice</div>`;
 
-  /* ---------- Tikr, el guardián (G3): reacciona al NAOS Mood ---------- */
-  (function tikr() {
-    const svg = $("#tikr"), dirM = enRevision ? null : animo.valor >= 56 ? "u" : animo.valor <= 44 ? "d" : null;
-    const texto = enRevision ? "MOOD IN REVIEW" : `CREDIT+USD ${animo.valor}`;
-    const col = "currentColor"; // el ánimo no es un precio: Tikr lo dice en tinta, sin esmeralda ni borgoña
-    let s = `<defs><clipPath id="tk-o"><circle cx="120" cy="104" r="36"/></clipPath><clipPath id="tk-p"><rect x="192" y="0" width="240" height="240"/></clipPath></defs><g class="tk-cuerpo">`;
-    s += `<path d="M92 188 L86 222 M74 222 H100 M148 188 L154 222 M140 222 H166" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="square"/>`;
-    s += `<g clip-path="url(#tk-p)"><g class="tk-papel"><rect x="190" y="146" width="236" height="30" fill="var(--naos-paper)" stroke="currentColor" stroke-width="3"/><text x="414" y="169" text-anchor="end" font-family="IBM Plex Sans Condensed" font-weight="600" font-size="20" fill="${col}">${texto}</text></g></g>`;
-    s += `<rect x="50" y="56" width="140" height="132" rx="20" fill="var(--naos-paper)" stroke="currentColor" stroke-width="6"/><path d="M190 146 V176" stroke="currentColor" stroke-width="8"/>`;
-    s += `<g class="tk-estilete"><path d="M120 56 V34" stroke="currentColor" stroke-width="6"/><circle cx="120" cy="26" r="8" fill="currentColor"/></g>`;
-    s += `<circle cx="120" cy="104" r="36" fill="var(--naos-paper)" stroke="currentColor" stroke-width="5"/>`;
-    for (let a = -60; a <= 60; a += 20) { const ra = a * Math.PI / 180; s += `<line x1="${(120 + 25 * Math.sin(ra)).toFixed(1)}" y1="${(104 - 25 * Math.cos(ra)).toFixed(1)}" x2="${(120 + 31 * Math.sin(ra)).toFixed(1)}" y2="${(104 - 31 * Math.cos(ra)).toFixed(1)}" stroke="currentColor" stroke-width="3"/>`; }
-    s += `<line class="tk-aguja" x1="120" y1="104" x2="120" y2="78" stroke="${dirM ? col : "currentColor"}" stroke-width="5" stroke-linecap="round"/><circle cx="120" cy="104" r="6" fill="currentColor"/>`;
-    s += `<rect class="tk-parpado" clip-path="url(#tk-o)" x="80" y="68" width="80" height="72" fill="currentColor" transform="scale(1 0)" transform-origin="120 68"/>`;
-    s += `<path d="M92 158 H148" stroke="currentColor" stroke-width="5" stroke-linecap="square"/></g>`;
-    svg.innerHTML = s;
-    const cuerpo = $(".tk-cuerpo", svg), aguja = $(".tk-aguja", svg), papel = $(".tk-papel", svg), estilete = $(".tk-estilete", svg), parpado = $(".tk-parpado", svg);
-    const lean = dirM === "u" ? 5 : dirM === "d" ? -5 : 0, angA = dirM === "u" ? 48 : dirM === "d" ? -48 : 0;
-    $("#tikr-dice").textContent = enRevision ? "Mood in review: Tikr waits" : `Credit and dollar ${animo.valor}, ${(animo.clase || "").toLowerCase()}: Tikr leans ${dirM === "u" ? "forward" : dirM === "d" ? "back" : "level"}`;
-    $("#tikr-tarjeta").innerHTML = `<b>Tikr keeps the page</b><br>It reads the Credit and dollar reading of NAOS Fear &amp; Greed. It leans forward when the reading runs to greed and back when it runs to fear, and prints it on its paper, in ink: a mood is not a price. While a reading is in review it stays level and prints that.<div class="sello">NAOS · character from the G3 system</div>`;
-    if (N.rm) { gsap.set(cuerpo, { rotation: lean, svgOrigin: "120 222" }); gsap.set(aguja, { rotation: angA, svgOrigin: "120 104" }); gsap.set(papel, { x: 0 }); return; }
-    gsap.set(papel, { x: -236 });
-    const tl = gsap.timeline({ delay: 1.2 });
-    tl.to(cuerpo, { rotation: lean, svgOrigin: "120 222", duration: .6 }).to(aguja, { rotation: angA, svgOrigin: "120 104", duration: 1.2 }, "<")
-      .to(papel, { x: 0, duration: 1.4, ease: "none" }, "-=.4")
-      .to(estilete, { y: 4, duration: .1, repeat: 13, yoyo: true, ease: "none" }, "<");
-    const parpadeo = () => { gsap.timeline().to(parpado, { scaleY: 1, duration: .1, ease: "none" }).to(parpado, { scaleY: 0, duration: .1, ease: "none" }); gsap.delayedCall(6.5, parpadeo); };
-    gsap.delayedCall(4, parpadeo);
-  })();
-
   /* ---------- tablero de aletas ---------- */
   const fichas = (txt, cls = "") => [...txt].map((c) => `<span class="ficha ${cls}" aria-hidden="true">${c === " " ? "&nbsp;" : N.esc(c)}</span>`).join("");
   const codigo = { BTC: "BTC", ETH: "ETH", SOL: "SOL", XAU: "GOLD", XAG: "SILV", US2Y: "2Y", US10Y: "10Y", US30Y: "30Y", S2S10: "2S10S", USD: "NAOS$", EURUSD: "EUR", USDJPY: "JPY" };
@@ -285,6 +255,18 @@
     // el mapa chico y una cinta de las historias con sus cifras
     N.mapaMini($("#b-mapa"), d).then((ok) => { $("#b-mapa").hidden = !ok; }).catch(() => {});
     if (!N.rm && window.gsap) gsap.from($$(".bento-p > .b:not([hidden])"), { y: 32, opacity: 0, clipPath: "inset(0 0 100% 0)", duration: .7, stagger: .08, delay: .15, clearProps: "clipPath,transform,opacity" });
+  })();
+  /* ---------- Cella, la guardiana (marca v5, reemplaza a Tikr): se vuelve hacia la historia que lidera ----------
+     Abre los ojos, se inclina hacia el titular y se tiñe entera del color del dato (assets/js/cella.js): esmeralda si el activo
+     de la historia sube, borgoña si baja, cobalto si es noticia sin cifra. La figura no imprime cifras: la cifra va en el titular. */
+  (function cella() {
+    const el = $("#cella"); if (!el || !window.NAOS_CELLA) return;
+    const sl = lead ? salaDe(lead.url) : null, a = sl?.activos.map((id) => A[id]).find((x) => x && x.fresco && x.cambio != null);
+    const dato = a ? (a.cambio > 0 ? "u" : a.cambio < 0 ? "d" : "n") : lead ? "n" : null;
+    N.cella = window.NAOS_CELLA(el, { estado: lead ? "present" : "humanity", dato, hacia: -1, t0: 1.2 });
+    const que = a ? `${nombreCorto[a.id] || a.nombre} ${a.cambio > 0 ? "up" : a.cambio < 0 ? "down" : "flat"}, so it turns ${a.cambio > 0 ? "green" : a.cambio < 0 ? "burgundy" : "blue"}` : "news without a number, so it turns blue";
+    $("#cella-dice").textContent = lead ? `Cella turns to the lead story: ${que}.` : "No lead story yet: Cella breathes.";
+    $("#cella-tarjeta").innerHTML = `<b>Cella keeps the room</b><br>In Humanity it breathes with its eyes closed. Here, in The Present, it opens its eyes, leans toward the lead story and fills with the colour of its move: green when the story's asset is up, burgundy when it is down, blue for news without a number. It never prints a number; the number stays in the headline.<div class="sello">NAOS · brand figure v5</div>`;
   })();
   if (tits.some((p) => p.odds) && d.odds_sello) $("#tits-pie").textContent = `Descriptive. ${d.odds_sello}`;
   if (!tits.length) { $("#tits").hidden = true; $("#tits-pie").hidden = true; }
