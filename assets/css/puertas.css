@@ -12,9 +12,10 @@ html.pjs[data-u="present"] #humanity,
 html.pjs[data-u="humanity"] #the-present { height: 0; overflow: hidden; visibility: hidden; } /* se queda armado (anchos reales para gráficos) pero fuera */
 html.pjs:not([data-u="present"]) #guia { display: none; }  /* la guía lleva a Market, News y AI: vive en The Present */
 html:not(.listo) .puertas { visibility: visible; }       /* las puertas no esperan los datos */
+html.pjs:not([data-u="present"]) { scroll-padding-bottom: 0; } /* la ficha de la guía no está: no reserva sitio abajo */
 
 /* ---------- las dos puertas ---------- */
-.puertas { position: relative; display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; min-height: 100svh; }
+.puertas { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 100vh; min-height: 100svh; }
 .puerta { position: relative; overflow: hidden; overflow: clip; min-height: 100vh; min-height: 100svh; }
 .puerta-hum { background: var(--naos-paper); color: var(--naos-ink); }
 .puerta-pres { background: var(--lab-accent); color: var(--naos-paper); }
@@ -32,11 +33,12 @@ html:not(.listo) .puertas { visibility: visible; }       /* las puertas no esper
 .puerta-a:focus-visible::after { outline: 3px solid currentColor; outline-offset: -12px; }
 /* la letra baja con un desplazamiento relativo: se recorta en el suelo, pero la caja del enlace queda dentro de la pantalla
    (al enfocarlo con el teclado la página no salta) */
+.puerta-t .puerta-a { display: block; height: .6em; }   /* caja del enlace más baja que la letra: el foco no hace saltar la página */
 .puerta-t .c { position: relative; display: block; }
 .puerta-hum .puerta-t { left: -.06em; }                   /* toca el borde izquierdo; la cola de la y se corta en el suelo */
-.puerta-hum .puerta-t .c { top: .2em; }
+.puerta-hum .puerta-t .c { top: 0; }
 .puerta-pres .puerta-t { right: -.04em; text-align: right; }
-.puerta-pres .puerta-t .c { top: .06em; }
+.puerta-pres .puerta-t .c { top: -.64em; }
 .puerta-pres .puerta-t .c span { display: block; }
 .puerta-pres .puerta-t .t1 { font-style: italic; font-size: .5em; letter-spacing: -.02em; margin-right: .1em; line-height: 1; }
 
@@ -57,8 +59,8 @@ html:not(.listo) .puertas { visibility: visible; }       /* las puertas no esper
 /* la puerta entreabierta: al pasar sobre una, la división se corre un poco hacia la otra */
 @media (prefers-reduced-motion: no-preference) and (min-width: 761px) {
   .puertas { transition: grid-template-columns 600ms var(--ease-enter); }
-  .puertas:has(.puerta-pres:hover) { grid-template-columns: 46fr 54fr; }
-  .puertas:has(.puerta-hum:hover) { grid-template-columns: 54fr 46fr; }
+  .puertas:has(.puerta-pres:hover) { grid-template-columns: minmax(0, 46fr) minmax(0, 54fr); }
+  .puertas:has(.puerta-hum:hover) { grid-template-columns: minmax(0, 54fr) minmax(0, 46fr); }
 }
 
 /* la inundación: el color de la puerta elegida cubre la pantalla y después se retira hacia arriba sobre el universo */
@@ -96,7 +98,7 @@ html:not(.listo) .puertas { visibility: visible; }       /* las puertas no esper
 .pilares { display: grid; grid-template-columns: 1fr 2fr; gap: var(--s-4); padding: var(--s-16) var(--page-gutter) var(--s-12); }
 .pil-glosa { margin: .7em 0 0; max-width: 17em; font-size: 16px; line-height: 1.5; color: var(--naos-sec); }
 .pil-frase { margin: 0; font-family: var(--font-serif); font-weight: 300; font-size: clamp(36px, 4.6vw, 68px); line-height: 1.08; letter-spacing: -.02em; max-width: 14em; }
-.pil-frase span:nth-child(4) { font-style: italic; }
+/* ningún pilar va en cursiva: la glosa dice que se sostienen entre sí (tell 14: una palabra acentuada) */
 
 /* ---------- salida de cada universo ---------- */
 .cierre-u { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--s-2) var(--s-4);
@@ -109,7 +111,7 @@ html:not(.listo) .puertas { visibility: visible; }       /* las puertas no esper
  * Lado a lado quedarían dos columnas de 195 px: el titular en 9 o 10 líneas y los títulos a 40 px. Apiladas, cada puerta mide 390 de ancho,
  * The Present lleva el titular en 3 o 4 líneas y la división se vuelve un suelo sobre el que está parada Cella. */
 @media (max-width: 760px) {
-  .puertas { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+  .puertas { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto; }
   .puerta { min-height: 50vh; min-height: 50svh; }
   .puertas-marca { left: var(--page-gutter-390); top: 18px; font-size: 24px; }
   .puerta-t { font-size: clamp(64px, 19vw, 96px); }
@@ -136,4 +138,53 @@ html:not(.listo) .puertas { visibility: visible; }       /* las puertas no esper
   .pil-glosa { order: 2; margin: 0; }
   .pil-frase { font-size: 38px; }
   .cierre-u { padding: var(--s-8) var(--page-gutter-390) var(--s-8); }
+}
+
+/* ---------- Humanity por dentro: biblioteca, no tablero (tells 1, 2, 4, 5, 12) ----------
+ * Las cabeceras de sección pierden el filete y el título va al eje de 1/3 con la descripción como glosa al margen;
+ * la biblioteca deja las tarjetas con borde y se lee como el índice de un libro: categoría a la izquierda, piezas en filas.
+ * El chip "Planned" (no el "Published") se repite en cada pieza cuando la sección ya dice que todo está planeado: se quita (queda para lectores de pantalla
+ * en la frase de la sección). La escalera (grupo y nivel) se queda, en minúscula y sin caja. */
+#humanity .sec-cab { border-top: 0; padding-top: 0; display: grid; grid-template-columns: 1fr 2fr; gap: var(--s-1) var(--s-4); align-items: baseline; margin-bottom: var(--s-6); }
+#humanity .sec-t { grid-column: 2; grid-row: 1; font-size: clamp(44px, 5vw, 72px); line-height: 1; letter-spacing: -.025em; }
+#humanity .sec-d { grid-column: 1; grid-row: 1; font-size: 16px; max-width: 22em; }
+#humanity .sec-cab .cab-n { grid-column: 2; }
+#humanity .muro { padding-top: var(--s-12); }
+#humanity .bib { gap: var(--s-10); }
+#humanity .bib-cat { display: grid; grid-template-columns: 1fr 2fr; grid-template-rows: auto 1fr; align-items: start; gap: var(--s-2) var(--s-4); }
+#humanity .bib-cat h3 { grid-column: 1; font-family: var(--font-serif); font-weight: 300; font-size: 36px; line-height: 1.05; }
+#humanity .bib-d { grid-column: 1; margin: 0; font-size: 16px; max-width: 22em; }
+#humanity .bib-l { grid-column: 2; grid-row: 1 / span 2; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4) var(--s-4); }
+#humanity .bib-p { border: 0; padding: 0; background: transparent; gap: 4px; }
+#humanity .bib-p h4 { font-weight: 300; font-size: 24px; letter-spacing: -.01em; }
+#humanity .bib-p p { font-size: 16px; line-height: 1.5; }
+#humanity .bib-chips .chip-planned { display: none; }
+#humanity .chip-esc { order: 2; border: 0; padding: 0; font-family: var(--font-sans); font-weight: 400; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--naos-sec); }
+#humanity .bib-chips { order: 3; }
+@media (max-width: 760px) {
+  #humanity .sec-cab, #humanity .bib-cat { grid-template-columns: 1fr; }
+  #humanity .sec-t, #humanity .sec-d, #humanity .sec-cab .cab-n, #humanity .bib-cat h3, #humanity .bib-d, #humanity .bib-l { grid-column: 1; grid-row: auto; }
+  #humanity .sec-t { font-size: 44px; }
+  #humanity .bib-l { grid-template-columns: 1fr; }
+  #humanity .muro { padding-top: var(--s-8); }
+}
+
+/* pantallas bajas (teléfono, o zoom al 200 %): la puerta deja de componer en absoluto y fluye, para que nada se pise;
+   crece si su contenido no cabe en la mitad de la pantalla */
+@media (max-width: 760px), (max-height: 640px) {
+  .puerta { display: flex; flex-direction: column; min-width: 0; }
+  .puerta-cuerpo { order: 1; position: relative; top: auto; left: auto; right: auto; transform: none; margin: 64px var(--page-gutter-390) 0; }
+  .puerta-pres .puerta-cuerpo { margin-top: 22px; left: auto; right: auto; }
+  .puerta-hum .puerta-cuerpo { margin-bottom: 96px; }      /* el sitio de Cella, de pie sobre la palabra */
+  .puerta-t { order: 2; position: relative; bottom: auto; margin-top: auto; padding-top: var(--s-2); }
+  .puerta-pres .puerta-t { align-self: flex-end; }
+  .puerta-hum .puerta-t { left: -.06em; }
+  .puerta-pres .puerta-t { right: -.04em; }
+}
+@media (max-height: 640px) and (min-width: 761px) {
+  .puertas-marca { top: 20px; }
+  .puerta-cuerpo { margin: 96px var(--page-gutter) 0; }
+  .puerta-pres .puerta-cuerpo { margin-top: 96px; margin-left: var(--s-6); }
+  .puerta-hum .puerta-cuerpo { margin-bottom: 160px; }
+  .puerta-t { font-size: clamp(96px, 11vw, 160px); }
 }

@@ -374,7 +374,7 @@
   /* ---------- Assets: biblioteca desde data/assets.json; lo planeado dice "Planned", nada se da por publicado ---------- */
   try {
     const bib = await (await fetch("data/assets.json")).json();
-    const chip = (e) => `<span class="chip">${e === "published" ? "Published" : "Planned"}</span>`;
+    const chip = (e) => `<span class="chip chip-${e === "published" ? "published" : "planned"}">${e === "published" ? "Published" : "Planned"}</span>`;
     // Escalera de IA (SER-03.3): chip de contorno "Grupo · Nivel" si la pieza trae grupo y la categoría trae su bloque escalera; sin ellos, nada cambia
     const esc = (c, x) => { const g = c.escalera?.grupos?.[x.grupo]?.titulo, n = c.escalera?.niveles?.[x.nivel - 1]; return g && n ? `<span class="chip chip-esc">${N.esc(g)} · ${N.esc(n)}</span>` : ""; };
     $("#bib").innerHTML = bib.categorias.map((c) => `<div class="bib-cat"><h3>${N.esc(c.titulo)}</h3><p class="bib-d">${N.esc(c.descripcion)}</p>` +
