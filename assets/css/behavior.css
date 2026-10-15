@@ -1,0 +1,8 @@
+/* Behavior (PROD-05.4, lunes 19-oct): botón Pause del anillo y línea de seguridad. */
+#pausa .ag-chip { min-width: 96px; }
+/* pausado: el chip va en tinta con texto papel; el contorno de base.css (currentColor) quedaría papel sobre papel */
+#pausa .ag-chip:focus-visible { outline-color: var(--naos-ink); }
+.noche #pausa .ag-chip:focus-visible { outline-color: var(--naos-night-text); }
+.seguridad { font-family: var(--font-sans); font-size: 14px; line-height: 1.55; color: var(--naos-ink); max-width: 56ch; margin: var(--s-4) auto 0; text-align: center; }
+.seguridad a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.noche .seguridad { color: var(--naos-night-text); }

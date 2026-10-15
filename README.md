@@ -33,6 +33,9 @@ builder lists them, with the reason and the plan to get real data, in `escondido
 | `assets/pdf/<id>.pdf` | one-page PDF per planned piece (what you will learn, the map, the sources), printed from `pieza.html` by `NODE_PATH=$(npm root -g) node scripts/pdf-piezas.mjs [id ...]` (Playwright + Chromium; checks one page and under 300 KB) |
 | `scripts/construir-datos.mjs` | the data builder (Node 18+, no dependencies, no keys required) |
 | `scripts/animo.py` | the "Credit and dollar" reading of NAOS Fear & Greed (Python 3, standard library only) |
+| `data/enlaces.json` | links of what is published (D-234), the single source for the Short and Reel URLs: `{ generado, piezas: { "YYYY-MM-DD\|slot" or "YYYY-MM-DD\|asset_id": { yt, ig, publicado_utc, teaser_de } } }`; `yt` is a YouTube Shorts, watch or youtu.be URL, `ig` an Instagram Reel URL and only with `yt`; no builder rewrites it; checked by `scripts/validar.mjs` |
+| `scripts/validar.mjs` | `node scripts/validar.mjs`: JSON parses, `enlaces.json` prefixes and keys, local link targets exist, no OKX, no em dashes in our own data (Node 18+, no dependencies) |
+| `scripts/qa.mjs` | `NODE_PATH=$(npm root -g) node scripts/qa.mjs <url> [--out DIR] [--nombre x]`: screenshots at 320, 390, 1440 and 200 % zoom, console errors, horizontal scroll, Tab reach and reduced motion (Playwright + Chromium) |
 | `.github/workflows/datos.yml` | the data refresh Action |
 | `privacidad.html`, `terminos.html` | privacy policy and terms (linked from the Google OAuth consent screen; keep) |
 | `googlec0e927a7df959aad.html` | Google Search Console verification (keep) |

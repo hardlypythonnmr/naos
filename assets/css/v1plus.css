@@ -9,6 +9,7 @@ body { font-size: 14px; }
 /* barra superior */
 .barra { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px; padding: 14px var(--page-gutter); border-bottom: 2px solid var(--naos-ink); }
 .marca { display: flex; align-items: baseline; gap: 14px; }
+.iso { width: 30px; height: 30px; align-self: center; flex: none; } /* isotipo v4, marfil sobre tinta (D-233) */
 .naos { font-family: var(--font-serif); font-weight: 400; font-size: 30px; letter-spacing: -.01em; line-height: 1; }
 .lema { font-size: 13px; color: var(--naos-sec); }
 .indice { display: flex; gap: 24px; justify-content: center; font-size: 14px; flex-wrap: wrap; }
@@ -373,3 +374,12 @@ body { font-size: 14px; }
 .chip { align-self: flex-start; font-family: var(--font-cond); font-weight: 600; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--naos-grey); border: 1px solid var(--naos-chart); padding: 0 6px; line-height: 18px; }
 @media (max-width: 1180px) { .bib-l { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .bib-l { grid-template-columns: 1fr; } }
+/* 320: las fichas del tablero de aletas no caben en una fila de 288 px; se estrechan para que la página no tenga scroll horizontal */
+@media (max-width: 360px) {
+  .tablero { column-gap: 6px; grid-template-columns: auto auto minmax(0, 1fr); }
+  .tiras { gap: 1px; }
+  .ficha.chica { min-width: 9px; font-size: 12px; }
+  .revela-tarjeta { width: min(320px, calc(100vw - 48px)); }
+  .rojo .revela-tarjeta { left: auto; right: 0; }
+  .lab .carta .revela-tarjeta { left: auto; right: 0; } /* la tarjeta de Hacker News se pasaba 4 px del borde a 320 */
+}

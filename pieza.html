@@ -5,8 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>NAOS Assets · piece</title>
+<link rel="icon" href="assets/marca/isotipo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/comun/tokens.css">
 <link rel="stylesheet" href="assets/comun/base.css">
+<link rel="stylesheet" href="assets/css/escalera.css">
+<script defer src="assets/comun/naos.js"></script><!-- N.estado y N.guarda (ola 0); sin gsap, naos.js solo define funciones -->
 <style>
 /* Página de una pieza de Assets (D-212): el video de YouTube arriba, después transcripción, prompts y fuentes.
    Esqueleto: cada lugar vacío lo dice. Los datos salen de data/assets.json (?id=). */
@@ -102,13 +105,16 @@ h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-hei
 </style>
 </head>
 <body>
-<header class="barra"><a class="naos" href="./#assets">NAOS</a><a class="sello" href="./#assets">Back to Assets</a></header>
+<header class="barra"><img class="iso" src="assets/marca/isotipo.svg" alt="" width="30" height="30"><a class="naos" href="./#assets">NAOS</a><a class="sello" href="./#assets">Back to Assets</a></header>
 <main>
   <div class="solo-imp imp-cab"><b>NAOS</b><span class="sello" id="imp-url"></span></div>
   <p class="cat" id="cat">Assets</p>
   <h1 id="titulo">Piece</h1>
   <p class="desc" id="desc"></p>
   <span class="chip" id="estado">Planned</span>
+  <!-- ranuras vacías (ola 0): #estado-texto recibe N.estado(asset_id) (Published con enlace, Comes out <fecha>, Date to be confirmed); #aviso-indicador, el aviso fijo de la pieza del indicador (indicadores) -->
+  <p id="estado-texto" hidden></p>
+  <div id="aviso-indicador" hidden></div>
   <div id="lleno" hidden>
     <a class="descarga" id="pdf" href="#" download><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9m0 0L4.5 6.5M8 10l3.5-3.5M2 12v2.5h12V12" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Download the one-page PDF <small>(text, map, sources)</small></a>
     <section class="lleno" aria-labelledby="r-a"><h2 id="r-a">What you will learn</h2><p class="texto" id="texto"></p></section>
@@ -116,13 +122,51 @@ h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-hei
     <section class="lleno" aria-labelledby="r-s"><h2 id="r-s">Sources</h2><ol class="fuentes" id="fuentes"></ol><p class="sello nota-f" id="nota-f"></p></section>
   </div>
   <section class="prox" id="prox" aria-labelledby="r-u" hidden><h2 id="r-u">Upcoming</h2><ul id="prox-l"></ul><p class="sello" id="prox-s"></p></section>
-  <section class="ranura video" aria-labelledby="r-v"><h2 id="r-v">Video</h2><div class="vacio">The YouTube video goes here when the piece is published.</div></section>
-  <section class="ranura" aria-labelledby="r-t"><h2 id="r-t">Transcript</h2><div class="vacio">The full transcript goes here, under the video.</div></section>
-  <section class="ranura" aria-labelledby="r-p"><h2 id="r-p">Prompts</h2><div class="vacio">The prompts used in the piece go here, ready to copy.</div></section>
-  <section class="ranura" aria-labelledby="r-f" id="ranura-f"><h2 id="r-f">Sources</h2><div class="vacio">Every source cited in the piece goes here, linked.</div></section>
+  <section class="ranura video" aria-labelledby="r-v"><h2 id="r-v">Video</h2><div class="vacio">The YouTube video goes here when the piece is published. <span class="vacio-f" data-fecha></span></div></section>
+  <section class="ranura" aria-labelledby="r-t"><h2 id="r-t">Transcript</h2><div class="vacio">The full transcript goes here, under the video. <span class="vacio-f" data-fecha></span></div></section>
+  <section class="ranura" aria-labelledby="r-p"><h2 id="r-p">Prompts</h2><div class="vacio">The prompts used in the piece go here, ready to copy. <span class="vacio-f" data-fecha></span></div></section>
+  <section class="ranura" aria-labelledby="r-f" id="ranura-f"><h2 id="r-f">Sources</h2><div class="vacio">Every source cited in the piece goes here, linked. <span class="vacio-f" data-fecha></span></div></section>
   <p class="solo-imp imp-pie" id="imp-pie"></p>
 </main>
-<footer class="pie sello">NAOS · Yourself, sharper. This page is a planned piece: nothing here is published yet. Not financial advice.</footer>
+<footer class="pie sello" id="pie">NAOS · Yourself, sharper. <span id="pie-t">This page is a planned piece: nothing here is published yet.</span> Not financial advice.</footer>
+<script>
+/* Estado y aviso de la pieza (SER-03.3, SER-02.5). Corre al terminar de cargar para que naos.js (defer) ya esté: N.estado(id)
+   escribe "Comes out <fecha>", "Date to be confirmed" o "Published" con enlace al Short; los huecos vacíos repiten la fecha. */
+document.addEventListener("DOMContentLoaded", async () => {
+  const id = new URLSearchParams(location.search).get("id");
+  if (!id) return;
+  if (id === "trading-indicador-1") {
+    const a = document.getElementById("aviso-indicador");
+    a.className = "aviso";
+    a.setAttribute("role", "note");
+    a.textContent = "Education only. Not financial advice. Not a buy or sell signal. No strategy is perfect. Practice on paper or a demo account.";
+    a.hidden = false;
+  }
+  if (!window.NAOS || !NAOS.estado) return;
+  try {
+    const r = await NAOS.estado(id), p = document.getElementById("estado-texto");
+    // href solo https: un valor javascript: o data: en enlaces.json no se vuelve enlace
+    let u = null;
+    try { const t = new URL(r.url); if (t.protocol === "https:") u = t.href; } catch (e) { /* sin enlace valido */ }
+    if (u) {
+      const a = document.createElement("a");
+      a.className = "ag-chip"; a.href = u; a.rel = "noopener"; a.target = "_blank"; a.textContent = r.texto;
+      // el nombre accesible empieza por el texto visible (WCAG 2.5.3) y no depende del titulo, que llega con otro fetch
+      a.setAttribute("aria-label", `${r.texto}, watch on YouTube (opens a new tab)`);
+      p.replaceChildren(a);
+      // una sola fuente de verdad: publicada deja de decir "Planned" en el chip, la ranura Video y los pies
+      window.NAOS_PUB = true;
+      document.getElementById("estado").textContent = "Published";
+      document.querySelector(".video .vacio").textContent = "The video is on YouTube: use the Published link above.";
+      document.getElementById("pie-t").textContent = "This page is a published piece.";
+      const ip = document.getElementById("imp-pie");
+      ip.textContent = ip.textContent.replace("A planned piece: the video is not published yet. ", "");
+    } else { if (r.url) r.texto = "Date to be confirmed"; p.textContent = r.texto; } // enlace no valido: no se declara publicada
+    p.className = "estado-t"; p.hidden = false;
+    if (!u) document.querySelectorAll("[data-fecha]").forEach((e) => { e.textContent = r.texto + "."; });
+  } catch (e) { /* sin estado, la pieza sigue completa */ }
+});
+</script>
 <script>
 const MES_L = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const fecha = (f) => { const t = new Date(f + "T12:00:00Z"); return `${t.getUTCDate()} ${MES_L[t.getUTCMonth()]} ${t.getUTCFullYear()}`; };
@@ -155,7 +199,7 @@ function llenar(x, c, consultadas) {
   if (x.pdf) { const p = document.getElementById("pdf"); p.href = x.pdf; } else document.getElementById("pdf").hidden = true;
   const url = `hardlypythonnmr.github.io/naos/pieza.html?id=${x.id}`;
   document.getElementById("imp-url").textContent = "Assets · " + c.titulo;
-  document.getElementById("imp-pie").textContent = `NAOS · Yourself, sharper. A planned piece: the video is not published yet. ${c.id === "trading" ? "Education only, not financial advice. " : ""}${url}`;
+  document.getElementById("imp-pie").textContent = `NAOS · Yourself, sharper. ${window.NAOS_PUB ? "" : "A planned piece: the video is not published yet. "}${c.id === "trading" ? "Education only, not financial advice. " : ""}${url}`;
   document.getElementById("lleno").hidden = false;
 }
 (async () => {
@@ -166,7 +210,7 @@ function llenar(x, c, consultadas) {
       document.getElementById("cat").textContent = "Assets · " + c.titulo;
       document.getElementById("titulo").textContent = x.titulo;
       document.getElementById("desc").textContent = x.descripcion;
-      document.getElementById("estado").textContent = x.estado === "published" ? "Published" : "Planned";
+      document.getElementById("estado").textContent = x.estado === "published" || window.NAOS_PUB ? "Published" : "Planned";
       document.title = "NAOS · " + x.titulo;
       if (x.texto && x.mapa) llenar(x, c, d.fuentes_consultadas);
     }

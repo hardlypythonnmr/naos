@@ -1,0 +1,10 @@
+{
+ "nota": "Guia de la portada (lunes 19-oct): tres fichas con destino fijo. Sin datos personales. Si este archivo no carga, assets/js/guia.js usa los mismos destinos. El Short de ?src sale de enlaces.json, no de aqui.",
+ "generado": "2026-10-14T00:00Z",
+ "pregunta": "What brings you here?",
+ "caminos": [
+  { "id": "market", "ficha": "See what moves today", "ayuda": "Today's brief and its sources", "destino": "#mercados", "seccion": "Market" },
+  { "id": "ai", "ficha": "Learn one thing", "ayuda": "A short lesson, no jargon", "destino": "#ia", "seccion": "AI" },
+  { "id": "news", "ficha": "Explore a topic", "ayuda": "Pick a theme and follow it", "destino": "#noticias", "seccion": "News" }
+ ]
+}
