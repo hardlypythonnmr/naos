@@ -1,6 +1,6 @@
 {
  "nota": "Grilla pública del mes (D-224, D-227). La arma scripts/construir-semana.mjs desde el plan del mes de la junta; esquema en el README. Sin fecha en el acta: dia null y nota.",
- "generado": "2026-10-15T20:42Z",
+ "generado": "2026-10-15T21:56Z",
  "semana": {
   "desde": "2026-10-19",
   "hasta": "2026-10-25"
@@ -80,7 +80,7 @@
    "local": "16:22 ET"
   }
  ],
- "eventos_nota": "Forex Factory publishes each week's calendar over the weekend; the briefs list its red-folder events once it covers that week.",
+ "eventos_nota": "Forex Factory calendar not reached: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
  "items": [
   {
    "seccion": "ai",
