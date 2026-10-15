@@ -19,7 +19,7 @@
   const esVideo = (x) => x.dia && (x.video === true || x.format === "short");
   const YT_OK = /^https:\/\/(www\.youtube\.com|youtu\.be)\//, IG_OK = /^https:\/\/www\.instagram\.com\//; // la misma regla por plataforma que validar.mjs: un yt que apunta a Instagram no pasa
   const ENL = '<a href="agenda.html">Upcoming</a>';
-  const RE_ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z$/; // la misma forma que valida validar.mjs
+  const RE_ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?Z$/; // la misma forma que valida validar.mjs (con o sin segundos: enlaces.json los trae)
   const esViejo = (iso, horas) => Date.now() - Date.parse(iso) > horas * 36e5;
   const aviso = (txt) => { el.innerHTML = `<section class="fr" aria-labelledby="fr-t"><div class="fr-in"><h2 class="fr-t" id="fr-t">Today's Short</h2>` +
     `<p class="fr-sub" role="status">${txt} See <a href="#semana">This week</a> or ${ENL}.</p></div></section>`; };
