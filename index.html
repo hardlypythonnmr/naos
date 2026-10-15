@@ -25,6 +25,9 @@
 <link rel="stylesheet" href="assets/css/live.css">
 <link rel="stylesheet" href="assets/css/behavior.css">
 <link rel="stylesheet" href="assets/css/escalera.css">
+<link rel="stylesheet" href="assets/css/puertas.css">
+<script>/* las dos puertas: el estado se pone antes de pintar para que no parpadee (assets/js/puertas.js lo corrige al cargar) */
+(function(){var h=document.documentElement,x=location.hash,q=/[?&]sala=/.test(location.search),H=["#humanity","#pillars","#cinta-conducta","#conducta","#respira","#assets","#semana"];h.classList.add("pjs");h.setAttribute("data-u",q||/^#sala\//.test(x)?"present":!x||x==="#doors"?"puertas":H.indexOf(x)>=0?"humanity":"present");})();</script>
 <script defer src="assets/vendor/gsap/gsap.min.js"></script>
 <script defer src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
 <script defer src="assets/comun/naos.js"></script>
@@ -38,6 +41,7 @@
 <script defer src="assets/js/live.js"></script>
 <script defer src="assets/js/guia.js"></script>
 <script defer src="assets/js/behavior.js"></script>
+<script defer src="assets/js/puertas.js"></script>
 <noscript><style>[data-espera]{visibility:visible!important}</style></noscript>
 </head>
 <body>
@@ -57,13 +61,50 @@
        #secuencia: el Short y el Reel de hoy (espejo, assets/js/franja.js). #guia: la hoja de la guía y la ficha "Guide" (assets/js/guia.js).
        Convención LIVE (assets/js/live.js, sin región de estado ni aria-live): cualquier titular, ficha o fila lleva data-live="AAAA-MM-DDTHH:MMZ"
        (hora UTC de la fuente); live.js pone el sello rojo --naos-live si pasaron menos de 2 h. Nadie más pinta ese sello. -->
-  <div id="secuencia" hidden></div>
   <div id="guia" hidden></div>
+  <!-- LAS DOS PUERTAS (N, sesión 5): Humanity y The Present, cada una en un color de G3 (blanco y cobalto). Al tocar una, su color
+       inunda la pantalla y se entra a ese universo (assets/js/puertas.js). Cada puerta deja ver algo de adentro: Cella que respira en
+       Humanity, un titular vivo en The Present; y los enlaces directos a cada sección. Sin JS: las puertas, y debajo todo en orden. -->
+  <section class="puertas" id="doors" aria-labelledby="doors-t">
+    <h1 class="puertas-marca" id="doors-t">NAOS<span class="sr">: two doors, Humanity and The Present</span></h1>
+    <div class="puerta puerta-hum">
+      <h2 class="puerta-t"><a class="puerta-a" href="#humanity"><span class="c">Humanity</span></a></h2>
+      <div class="puerta-cuerpo">
+        <p class="puerta-d">Come here, stop, breathe with me, now move on.</p>
+        <p class="puerta-l"><a href="#conducta">Breathe</a> <a href="#pillars">The five pillars</a> <a href="#assets">The library</a> <a href="#semana">This week</a></p>
+      </div>
+      <div class="puerta-cella" id="cella-puerta" aria-hidden="true"></div>
+    </div>
+    <div class="puerta puerta-pres">
+      <h2 class="puerta-t"><a class="puerta-a" href="#the-present"><span class="c"><span class="t1">The</span> <span class="t2">Present</span></span></a></h2>
+      <div class="puerta-cuerpo">
+        <div class="puerta-tit" id="puerta-tit"><p class="puerta-h">Markets, news, AI and tech, as they happen.</p></div>
+        <p class="puerta-l"><a href="#titulares">Headlines</a> <a href="#mercados">Market</a> <a href="#noticias">News</a> <a href="#ia">AI</a> <a href="agenda.html">Upcoming</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="universo" id="the-present" aria-labelledby="u-pres-t">
+  <header class="placa placa-pres">
+    <nav class="placa-nav" aria-label="The Present">
+      <a class="placa-volver" href="#doors">Back to the doors</a>
+      <span class="placa-sec"><a href="#titulares">Headlines</a> <a href="#mercados">Market</a> <a href="#noticias">News</a> <a href="#ia">AI</a> <a href="agenda.html">Upcoming</a></span>
+      <a class="placa-otra" href="#humanity">Humanity</a>
+    </nav>
+    <div class="placa-in">
+      <h1 class="placa-t" id="u-pres-t" tabindex="-1"><span>The</span> <span>Present</span></h1>
+      <div class="placa-d">
+        <p class="placa-q">Are you leveraging the present?</p>
+        <p class="placa-s">Markets, news, AI and tech, read as they happen, with the doubt left in. Data as of <span class="gen">15 Oct 2026, 16:26 UTC</span>. Descriptive, not financial advice.</p>
+      </div>
+    </div>
+  </header>
+  <div id="secuencia" hidden></div>
   <!-- PORTADA: titulares en texto (regla del titular, D-208 y D-219) -->
   <section class="portada" id="titulares" aria-labelledby="dia-t">
     <div class="dia-fila">
       <div>
-        <h1 class="dia" id="dia-t">Today, <span id="dia">Wednesday 14 October 2026</span></h1>
+        <h2 class="dia" id="dia-t">Today, <span id="dia">Wednesday 14 October 2026</span></h2>
         <p class="sec-d">What is happening and what moved, named together. Headlines verbatim from their source. Click a headline to open its monitor room.</p>
       </div>
       <figure class="guardian" id="guardian" data-revela aria-labelledby="cella-dice">
@@ -284,6 +325,31 @@
     </div>
   </section>
 
+  <nav class="cierre-u" aria-label="Leave The Present">
+    <a class="cierre-otra" href="#humanity">Through the other door: <span>Humanity</span></a>
+    <a class="cierre-volver" href="#doors">Back to the doors</a>
+  </nav>
+  </section>
+
+  <section class="universo" id="humanity" aria-labelledby="u-hum-t">
+  <header class="placa placa-hum">
+    <nav class="placa-nav" aria-label="Humanity">
+      <a class="placa-volver" href="#doors">Back to the doors</a>
+      <span class="placa-sec"><a href="#pillars">The five pillars</a> <a href="#conducta">Breathe</a> <a href="#assets">The library</a> <a href="#semana">This week</a></span>
+      <a class="placa-otra" href="#the-present">The Present</a>
+    </nav>
+    <div class="placa-in">
+      <h1 class="placa-t" id="u-hum-t" tabindex="-1">Humanity</h1>
+      <p class="placa-q">Come here, stop, breathe with me, now move on.</p>
+      <div class="placa-cella" id="cella-hum" aria-hidden="true"></div>
+    </div>
+  </header>
+  <!-- LOS CINCO PILARES (N, sesión 5, literal): una sola frase, porque no son una secuencia; glosa al margen -->
+  <section class="pilares" id="pillars" aria-labelledby="pil-t">
+    <h2 class="sr" id="pil-t">The five pillars</h2>
+    <p class="pil-glosa">The five pillars. One sentence, not a list: they hold each other up. The behaviors and the stories behind each one come to the library as they are made.</p>
+    <p class="pil-frase"><span>Eat well,</span> <span>sleep well,</span> <span>get moving,</span> <span>have a relationship with God,</span> <span>and build community.</span></p>
+  </section>
   <div id="cinta-conducta" class="cinta" hidden></div>
 
   <!-- BEHAVIOR: respiración y mantra -->
@@ -299,20 +365,25 @@
       <div id="seguridad"><p class="seguridad">An exercise, not treatment. If this is weighing on you, talk to someone you trust or a professional. If you may hurt yourself, call a helpline: Colombia 106 · US 988 · <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a></p></div>
     </div>
   </section>
-  <!-- ESTA SEMANA (PAG-08.1, D-224): grilla pública sección x día, se llena desde data/semana.json -->
-  <section class="muro semana" id="semana" aria-labelledby="t-sem">
-    <header class="sec-cab"><h2 class="sec-t" id="t-sem">This week</h2><div class="cab-n"><span class="sello sem-sello"></span></div><p class="sec-d">What NAOS plans to publish, by section and format, week by week through the month. Pieces with a page link to it.</p></header>
-    <div class="sem-in"></div>
-  </section>
   <!-- ASSETS: biblioteca (PAG-06.1, D-212, D-217); se llena desde data/assets.json -->
   <section class="muro biblioteca" id="assets" aria-labelledby="t-as">
     <header class="sec-cab"><h2 class="sec-t" id="t-as">Assets</h2><p class="sec-d">The NAOS library: what we are making, by category. Each piece gets its own page with the video, transcript, prompts and sources. Everything below is planned; nothing is published yet.</p></header>
     <div class="bib" id="bib"></div>
   </section>
 
+  <!-- ESTA SEMANA (PAG-08.1, D-224): grilla pública sección x día, se llena desde data/semana.json -->
+  <section class="muro semana" id="semana" aria-labelledby="t-sem">
+    <header class="sec-cab"><h2 class="sec-t" id="t-sem">This week</h2><div class="cab-n"><span class="sello sem-sello"></span></div><p class="sec-d">What NAOS plans to publish, by section and format, week by week through the month. Pieces with a page link to it.</p></header>
+    <div class="sem-in"></div>
+  </section>
   <section class="interludio mantra-s noche" data-plano aria-label="Mantra">
     <div class="plano-fondo noche"></div>
     <div class="plano-contenido"><p class="mantra leer" id="mantra">Read slowly. Breathe once. The situation will still be here when you look up.</p></div>
+  </section>
+  <nav class="cierre-u" aria-label="Leave Humanity">
+    <a class="cierre-otra" href="#the-present">Through the other door: <span>The Present</span></a>
+    <a class="cierre-volver" href="#doors">Back to the doors</a>
+  </nav>
   </section>
 </main>
 
