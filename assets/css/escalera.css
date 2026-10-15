@@ -1,0 +1,12 @@
+/* Escalera de IA (SER-03.3): chip de grupo y nivel en las tarjetas de Assets. Solo tokens.
+   Contorno, sin relleno, para que nadie lea "Workspace · Start" como estado (el chip Planned queda igual). */
+.bib-chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: flex-start; }
+.bib-chips .chip { align-self: auto; }
+.chip-esc { font-size: 12px; line-height: 20px; color: var(--naos-ink); border-color: var(--naos-ink); background: transparent; white-space: normal; }
+
+/* pieza.html: texto de estado (fecha honesta) y aviso fijo del indicador (SER-02.5). Tinta sobre blanco, sin color de mercado. */
+.estado-t { margin: 8px 0 0; font-weight: 600; font-size: 15px; color: var(--naos-ink); font-variant-numeric: tabular-nums; }
+.estado-t .ag-chip { display: inline-flex; align-items: center; }
+.aviso { margin: 12px 0 0; padding: 12px 14px; border: 1px solid var(--naos-ink); border-left-width: 4px; font-size: 15px; line-height: 1.45; color: var(--naos-ink); }
+.vacio-f { display: block; margin-top: 6px; font-weight: 600; color: var(--naos-ink); }
+.vacio-f:empty { display: none; }
