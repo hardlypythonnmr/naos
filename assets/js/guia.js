@@ -1,6 +1,6 @@
 /* guia.js · #guia: la hoja de la guía (3 fichas-enlace a Market, AI y News) y la ficha "Guide" (PAG-09.3, lunes 19-oct).
- * Una sola cosa arriba: #secuencia. En escritorio la hoja sube a los 2 s o al primer scroll de 120 px, pero solo si deja libre #secuencia; no roba el foco.
- * En móvil (hasta 760 px) y con ?src=ig nunca sube sola: queda la ficha "Guide" y la hoja abre con un toque (quien llega de un Short está leyendo).
+ * La hoja abre sola al cargar, en todas partes y en cada visita: es lo primero que se ve (N, 2026-10-15, D-236: "deberia abrir sola en todas
+ * partes deberia ser lo primero que alguien ve siempre en cualquier journey y poder skipearse igual"). No roba el foco.
  * "Not now", la X y Esc la bajan y dejan la ficha. Mientras está arriba, scroll-padding-bottom iguala su alto (WCAG 2.4.11: nada enfocado queda tapado).
  * Guarda en el navegador solo naos:guia = { cerrada, ultima } con N.guarda (try/catch adentro). Los destinos salen de data/guia.json; si no carga, estos mismos. */
 (function () {
@@ -15,9 +15,7 @@
   const valido = (g) => g && g.pregunta && Array.isArray(g.caminos) && g.caminos.length === 3 &&
     g.caminos.every((c) => c.ficha && c.ayuda && c.seccion && /^#[\w-]+$/.test(c.destino) && document.querySelector(c.destino));
   const html = document.documentElement, secuencia = document.getElementById("secuencia");
-  const solaNo = matchMedia("(max-width: 760px)"), deIg = new URLSearchParams(location.search).get("src") === "ig";
-  const MIN = 220;          // alto mínimo de la hoja para subir sola; con menos espacio queda la ficha
-  let hoja, ficha, titulo, arriba = false, descartada = false, fin = false, pasaron2s = false;
+  let hoja, ficha, titulo, arriba = false, descartada = false, fin = false;
 
   const sitio = () => { // px libres entre el pie de #secuencia y el borde de abajo
     const b = secuencia && !secuencia.hidden ? secuencia.getBoundingClientRect().bottom : 0;
@@ -43,7 +41,7 @@
     if (arriba) tope();
     padding();
   };
-  const sube = () => { if (solaNo.matches || deIg || !(pasaron2s || scrollY >= 120) || descartada || arriba || fin || guarda("guia")?.cerrada) return; if (sitio() >= MIN) { fin = true; poner(true, false); } };
+  const sube = () => { if (descartada || arriba || fin) return; fin = true; poner(true, false); };
 
   Promise.race([fetch("data/guia.json").then((r) => r.json()).catch(() => null), new Promise((r) => setTimeout(r, 400, null))]).then((g) => {
     const G = valido(g) ? g : DEF;
@@ -80,6 +78,6 @@
     addEventListener("scroll", pide, { passive: true }); addEventListener("resize", pide);
     document.addEventListener("naos:secuencia", pide);
     acomoda();
-    if (!guarda("guia")?.cerrada) { setTimeout(() => { pasaron2s = true; pide(); }, 2000); }
+    sube();
   });
 })();
