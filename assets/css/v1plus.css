@@ -374,3 +374,11 @@ body { font-size: 14px; }
 .chip { align-self: flex-start; font-family: var(--font-cond); font-weight: 600; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--naos-grey); border: 1px solid var(--naos-chart); padding: 0 6px; line-height: 18px; }
 @media (max-width: 1180px) { .bib-l { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .bib-l { grid-template-columns: 1fr; } }
+/* 320: las fichas del tablero de aletas no caben en una fila de 288 px; se estrechan para que la página no tenga scroll horizontal */
+@media (max-width: 360px) {
+  .tablero { column-gap: 6px; grid-template-columns: auto auto minmax(0, 1fr); }
+  .tiras { gap: 1px; }
+  .ficha.chica { min-width: 9px; font-size: 12px; }
+  .revela-tarjeta { width: min(320px, calc(100vw - 48px)); }
+  .rojo .revela-tarjeta { left: auto; right: 0; }
+}

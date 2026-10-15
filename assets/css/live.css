@@ -1,0 +1,8 @@
+/* live.css · sello LIVE (PAG-09.7, D-234). Forma propia: cápsula con punto relleno y la palabra; el BAJA es texto borgoña sin cápsula.
+   Día: texto y punto en --naos-live sobre papel (6,04:1). Noche: fondo --naos-live y texto blanco (6,04:1). Sin animación. */
+.live-sello { display: inline-flex; align-items: center; gap: 5px; padding: 1px 8px 1px 6px; border: 1.5px solid var(--naos-live); border-radius: 999px;
+  font-family: var(--font-cond); font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: .08em; text-transform: uppercase; color: var(--naos-live); white-space: nowrap; }
+.live-punto { width: 8px; height: 8px; border-radius: 50%; background: var(--naos-live); flex: none; }
+.noche .live-sello, .naos-night .live-sello { background: var(--naos-live); color: #fff; border-color: var(--naos-live); }
+.noche .live-punto, .naos-night .live-punto { background: #fff; }
+@media (forced-colors: active) { .live-sello { border-color: CanvasText; color: CanvasText; } .live-punto { background: CanvasText; } }
