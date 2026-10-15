@@ -1,4 +1,4 @@
-/* guia.js · #guia: la hoja de la guía (3 fichas-enlace a Market, Assets y News) y la ficha "Guide" (PAG-09.3, lunes 19-oct).
+/* guia.js · #guia: la hoja de la guía (3 fichas-enlace a Market, AI y News) y la ficha "Guide" (PAG-09.3, lunes 19-oct).
  * Una sola cosa arriba: #secuencia. La hoja sube a los 2 s o al primer scroll de 120 px, pero solo si deja libre #secuencia; no roba el foco,
  * "Not now", la X y Esc la bajan y dejan la ficha. Mientras está arriba, scroll-padding-bottom iguala su alto (WCAG 2.4.11: nada enfocado queda tapado).
  * Guarda en el navegador solo naos:guia = { cerrada, ultima } con N.guarda (try/catch adentro). Los destinos salen de data/guia.json; si no carga, estos mismos. */
@@ -9,7 +9,7 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const DEF = { pregunta: "What brings you here?", caminos: [
     { id: "market", ficha: "See what moves today", ayuda: "Today's brief and its sources", destino: "#mercados", seccion: "Market" },
-    { id: "assets", ficha: "Learn one thing", ayuda: "A short lesson, no jargon", destino: "#assets", seccion: "Assets" },
+    { id: "ai", ficha: "Learn one thing", ayuda: "A short lesson, no jargon", destino: "#ia", seccion: "AI" },
     { id: "news", ficha: "Explore a topic", ayuda: "Pick a theme and follow it", destino: "#noticias", seccion: "News" }] };
   const valido = (g) => g && g.pregunta && Array.isArray(g.caminos) && g.caminos.length === 3 &&
     g.caminos.every((c) => c.ficha && c.ayuda && c.seccion && /^#[\w-]+$/.test(c.destino) && document.querySelector(c.destino));
@@ -46,7 +46,7 @@
   Promise.race([fetch("data/guia.json").then((r) => r.json()).catch(() => null), new Promise((r) => setTimeout(r, 400, null))]).then((g) => {
     const G = valido(g) ? g : DEF;
     raiz.innerHTML = `<button type="button" class="ag-chip ficha gu-ficha" aria-expanded="false" aria-controls="gu-hoja">Guide</button>` +
-      `<div class="gu-hoja" id="gu-hoja" role="region" aria-label="Guide" aria-live="polite">` +
+      `<div class="gu-hoja" id="gu-hoja" role="region" aria-label="Guide">` +
       `<div class="gu-cab"><h2 class="gu-t" tabindex="-1">${esc(G.pregunta)}</h2>` +
       `<button type="button" class="ag-chip ficha gu-x" aria-label="Close guide">&times;</button></div>` +
       `<ul class="gu-l">${G.caminos.map((c) => `<li><a class="gu-c" href="${esc(c.destino)}" data-id="${esc(c.id)}"><span class="gu-ct"><b>${esc(c.ficha)}</b><span>${esc(c.ayuda)}</span></span><span class="gu-s">${esc(c.seccion)}</span></a></li>`).join("")}</ul>` +

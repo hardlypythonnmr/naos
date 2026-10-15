@@ -4,7 +4,7 @@
  "pregunta": "What brings you here?",
  "caminos": [
   { "id": "market", "ficha": "See what moves today", "ayuda": "Today's brief and its sources", "destino": "#mercados", "seccion": "Market" },
-  { "id": "assets", "ficha": "Learn one thing", "ayuda": "A short lesson, no jargon", "destino": "#assets", "seccion": "Assets" },
+  { "id": "ai", "ficha": "Learn one thing", "ayuda": "A short lesson, no jargon", "destino": "#ia", "seccion": "AI" },
   { "id": "news", "ficha": "Explore a topic", "ayuda": "Pick a theme and follow it", "destino": "#noticias", "seccion": "News" }
  ]
 }

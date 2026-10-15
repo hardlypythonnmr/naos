@@ -12,8 +12,9 @@
 .fr-hoy { border: 2px solid var(--vino, #5A1834); padding: 13px 15px; }
 .fr-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; font-family: var(--font-sans); font-size: 14px; color: var(--naos-sec); }
 .fr-tag { font-family: var(--font-cond); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--naos-ink); }
-.fr-n { font-family: var(--font-serif); font-size: 19px; line-height: 1.25; color: var(--naos-ink); overflow-wrap: anywhere;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.fr-n { font-family: var(--font-serif); font-size: 19px; line-height: 1.25; color: var(--naos-ink); overflow-wrap: anywhere; }
+/* el sello LIVE lo pinta live.js dentro de la ficha; aquí solo su lugar en la columna */
+.fr-f > .live-sello { align-self: flex-start; }
 .fr-e { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
 .fr-a { text-decoration: none; }
 .fr-prox { margin: 0; }

@@ -9,12 +9,18 @@
   const MES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], DIA = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const fe = (f) => { const t = new Date(f + "T12:00:00Z"); return `${DIA[t.getUTCDay()]} ${t.getUTCDate()} ${MES[t.getUTCMonth()]}`; };
   const q = new URLSearchParams(location.search);
-  const hoy = /^\d{4}-\d{2}-\d{2}$/.test(q.get("hoy") || "") ? q.get("hoy") : new Date().toISOString().slice(0, 10);
+  // "hoy" es el día de la grilla (hora de Nueva York, la zona de los briefs de mercado), no el día UTC: pasadas las 19:00 en Colombia el UTC ya es mañana
+  const diaGrilla = () => new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  const hoy = /^\d{4}-\d{2}-\d{2}$/.test(q.get("hoy") || "") ? q.get("hoy") : diaGrilla();
   const deIg = q.get("src") === "ig";
   const clave = (x) => x.dia + "|" + (x.slot || x.asset_id);
   const esVideo = (x) => x.dia && (x.video === true || x.format === "short");
   const URL_OK = /^https:\/\/(www\.youtube\.com|youtu\.be|www\.instagram\.com)\//;
   const ENL = '<a href="agenda.html">Upcoming</a>';
+  const RE_ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z$/; // la misma forma que valida validar.mjs
+  const esViejo = (iso, horas) => Date.now() - Date.parse(iso) > horas * 36e5;
+  const aviso = (txt) => { el.innerHTML = `<section class="fr" aria-labelledby="fr-t"><div class="fr-in"><h2 class="fr-t" id="fr-t">Today's Short</h2>` +
+    `<p class="fr-sub" role="status">${txt} See <a href="#semana">This week</a> or ${ENL}.</p></div></section>`; };
 
   // esqueleto del alto de una ficha mientras llegan los datos (sin salto de layout)
   el.innerHTML = '<div class="fr fr-carga" aria-hidden="true"><div class="fr-in"><div class="fr-esq"></div></div></div>'; el.hidden = false;
@@ -23,6 +29,8 @@
     fetch("data/semana.json").then((r) => r.json()),
     fetch("data/enlaces.json").then((r) => r.json()).catch(() => ({ piezas: {} })),
   ]).then(([sem, enl]) => {
+    // con la grilla de más de 72 h no se pintan fichas "Next" ni "Published" como si fueran actuales
+    if (RE_ISO.test(sem.generado || "") && esViejo(sem.generado, 72)) { aviso("The schedule is out of date."); return; }
     const piezas = (enl && enl.piezas) || {}, items = (sem.items || []).filter(esVideo);
     const enlace = (x) => { const e = piezas[clave(x)]; return e && URL_OK.test(e.yt || "") ? e : null; };
     const hora = (x) => x.hora_utc || x.dia + "T23:59Z";
@@ -56,15 +64,12 @@
     let sub = deIg ? "Seen on Instagram? Here is today in the order we post it." : todosIg ? "Same sequence on YouTube Shorts and Instagram Reels." : "Videos on YouTube Shorts and Instagram Reels.";
     if (proxima && proxima.dia === hoy && !fichas.some((f) => f.hoy && f.e)) sub = "Today's video comes out at " + esc(proxima.hora_local || "a time to be confirmed") + ". No link until then.";
     else if (!fichas.some((f) => f.hoy && f.e) && proxima) sub = "Nothing new today. Next: " + fe(proxima.dia) + (proxima.hora_local ? ", " + esc(proxima.hora_local) : "") + ".";
-    const gen = sem.generado || "", viejo = gen && Date.now() - Date.parse(gen) > 24 * 36e5;
-    const sello = gen ? `<p class="sello fr-s${viejo ? " fr-viejo" : ""}">Schedule: NAOS grid, updated ${Number(gen.slice(8, 10))} ${MES[+gen.slice(5, 7) - 1]} ${gen.slice(0, 4)} · ${gen.slice(11, 16)} UTC. Links: what is already published.</p>` : "";
+    const gen = RE_ISO.test(sem.generado || "") ? sem.generado : "", viejo = gen && esViejo(gen, 24);
+    const sello = gen ? `<p class="sello fr-s${viejo ? " fr-viejo" : ""}">${esc(`Schedule: NAOS grid, updated ${Number(gen.slice(8, 10))} ${MES[+gen.slice(5, 7) - 1]} ${gen.slice(0, 4)} · ${gen.slice(11, 16)} UTC. Links: what is already published.`)}</p>` : "";
 
     el.innerHTML = `<section class="fr" aria-labelledby="fr-t"><div class="fr-in">` +
       `<h2 class="fr-t" id="fr-t">Today's Short</h2><p class="fr-sub">${sub}</p>` +
       `<ol class="fr-l" aria-label="Today's sequence">${lista}</ol>${sello}</div></section>`;
     document.dispatchEvent(new CustomEvent("naos:secuencia"));
-  }).catch(() => {
-    el.innerHTML = `<section class="fr" aria-labelledby="fr-t"><div class="fr-in"><h2 class="fr-t" id="fr-t">Today's Short</h2>` +
-      `<p class="fr-sub" role="status">Could not load the sequence. See <a href="#semana">This week</a> or ${ENL}.</p></div></section>`;
-  });
+  }).catch(() => aviso("Could not load the sequence."));
 })();
