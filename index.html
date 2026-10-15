@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="assets/css/franja.css">
 <link rel="stylesheet" href="assets/css/guia.css">
 <link rel="stylesheet" href="assets/css/live.css">
+<link rel="stylesheet" href="assets/css/behavior.css">
 <script defer src="assets/vendor/gsap/gsap.min.js"></script>
 <script defer src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
 <script defer src="assets/comun/naos.js"></script>
@@ -29,6 +30,7 @@
 <script defer src="assets/js/franja.js"></script>
 <script defer src="assets/js/live.js"></script>
 <script defer src="assets/js/guia.js"></script>
+<script defer src="assets/js/behavior.js"></script>
 <noscript><style>[data-espera]{visibility:visible!important}</style></noscript>
 </head>
 <body>
@@ -287,8 +289,8 @@
       <!-- ranura del botón Pause del anillo (behavior, 48 px, aria-pressed) -->
       <div id="pausa" hidden></div>
       <p class="sello">Four in, four out. The page will wait.</p>
-      <!-- ranura de la línea de seguridad (behavior, 14 px en tinta, no .sello) -->
-      <div id="seguridad" hidden></div>
+      <!-- línea de seguridad (behavior, 14 px en tinta, no .sello). Copy fijado por N en D-235: 106 es la línea nacional de salud mental de Colombia (Minsalud, 24/7) -->
+      <div id="seguridad"><p class="seguridad">An exercise, not treatment. If this is weighing on you, talk to someone you trust or a professional. If you may hurt yourself, call a helpline: Colombia 106 · US 988 · <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a></p></div>
     </div>
   </section>
   <!-- ESTA SEMANA (PAG-08.1, D-224): grilla pública sección x día, se llena desde data/semana.json -->
