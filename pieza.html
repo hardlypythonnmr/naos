@@ -123,12 +123,12 @@ h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-hei
   </div>
   <section class="prox" id="prox" aria-labelledby="r-u" hidden><h2 id="r-u">Upcoming</h2><ul id="prox-l"></ul><p class="sello" id="prox-s"></p></section>
   <section class="ranura video" aria-labelledby="r-v"><h2 id="r-v">Video</h2><div class="vacio">The YouTube video goes here when the piece is published. <span class="vacio-f" data-fecha></span></div></section>
-  <section class="ranura" aria-labelledby="r-t"><h2 id="r-t">Transcript</h2><div class="vacio">The full transcript goes here, under the video.</div></section>
-  <section class="ranura" aria-labelledby="r-p"><h2 id="r-p">Prompts</h2><div class="vacio">The prompts used in the piece go here, ready to copy.</div></section>
-  <section class="ranura" aria-labelledby="r-f" id="ranura-f"><h2 id="r-f">Sources</h2><div class="vacio">Every source cited in the piece goes here, linked.</div></section>
+  <section class="ranura" aria-labelledby="r-t"><h2 id="r-t">Transcript</h2><div class="vacio">The full transcript goes here, under the video. <span class="vacio-f" data-fecha></span></div></section>
+  <section class="ranura" aria-labelledby="r-p"><h2 id="r-p">Prompts</h2><div class="vacio">The prompts used in the piece go here, ready to copy. <span class="vacio-f" data-fecha></span></div></section>
+  <section class="ranura" aria-labelledby="r-f" id="ranura-f"><h2 id="r-f">Sources</h2><div class="vacio">Every source cited in the piece goes here, linked. <span class="vacio-f" data-fecha></span></div></section>
   <p class="solo-imp imp-pie" id="imp-pie"></p>
 </main>
-<footer class="pie sello">NAOS · Yourself, sharper. This page is a planned piece: nothing here is published yet. Not financial advice.</footer>
+<footer class="pie sello" id="pie">NAOS · Yourself, sharper. <span id="pie-t">This page is a planned piece: nothing here is published yet.</span> Not financial advice.</footer>
 <script>
 /* Estado y aviso de la pieza (SER-03.3, SER-02.5). Corre al terminar de cargar para que naos.js (defer) ya esté: N.estado(id)
    escribe "Comes out <fecha>", "Date to be confirmed" o "Published" con enlace al Short; los huecos vacíos repiten la fecha. */
@@ -145,14 +145,25 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!window.NAOS || !NAOS.estado) return;
   try {
     const r = await NAOS.estado(id), p = document.getElementById("estado-texto");
-    if (r.url) {
+    // href solo https: un valor javascript: o data: en enlaces.json no se vuelve enlace
+    let u = null;
+    try { const t = new URL(r.url); if (t.protocol === "https:") u = t.href; } catch (e) { /* sin enlace valido */ }
+    if (u) {
       const a = document.createElement("a");
-      a.className = "ag-chip"; a.href = r.url; a.rel = "noopener"; a.target = "_blank"; a.textContent = r.texto;
-      a.setAttribute("aria-label", `${r.texto}: watch ${document.getElementById("titulo").textContent} on YouTube`);
+      a.className = "ag-chip"; a.href = u; a.rel = "noopener"; a.target = "_blank"; a.textContent = r.texto;
+      // el nombre accesible empieza por el texto visible (WCAG 2.5.3) y no depende del titulo, que llega con otro fetch
+      a.setAttribute("aria-label", `${r.texto}, watch on YouTube (opens a new tab)`);
       p.replaceChildren(a);
-    } else p.textContent = r.texto;
+      // una sola fuente de verdad: publicada deja de decir "Planned" en el chip, la ranura Video y los pies
+      window.NAOS_PUB = true;
+      document.getElementById("estado").textContent = "Published";
+      document.querySelector(".video .vacio").textContent = "The video is on YouTube: use the Published link above.";
+      document.getElementById("pie-t").textContent = "This page is a published piece.";
+      const ip = document.getElementById("imp-pie");
+      ip.textContent = ip.textContent.replace("A planned piece: the video is not published yet. ", "");
+    } else { if (r.url) r.texto = "Date to be confirmed"; p.textContent = r.texto; } // enlace no valido: no se declara publicada
     p.className = "estado-t"; p.hidden = false;
-    if (!r.url) document.querySelectorAll("[data-fecha]").forEach((e) => { e.textContent = r.texto + "."; });
+    if (!u) document.querySelectorAll("[data-fecha]").forEach((e) => { e.textContent = r.texto + "."; });
   } catch (e) { /* sin estado, la pieza sigue completa */ }
 });
 </script>
@@ -188,7 +199,7 @@ function llenar(x, c, consultadas) {
   if (x.pdf) { const p = document.getElementById("pdf"); p.href = x.pdf; } else document.getElementById("pdf").hidden = true;
   const url = `hardlypythonnmr.github.io/naos/pieza.html?id=${x.id}`;
   document.getElementById("imp-url").textContent = "Assets · " + c.titulo;
-  document.getElementById("imp-pie").textContent = `NAOS · Yourself, sharper. A planned piece: the video is not published yet. ${c.id === "trading" ? "Education only, not financial advice. " : ""}${url}`;
+  document.getElementById("imp-pie").textContent = `NAOS · Yourself, sharper. ${window.NAOS_PUB ? "" : "A planned piece: the video is not published yet. "}${c.id === "trading" ? "Education only, not financial advice. " : ""}${url}`;
   document.getElementById("lleno").hidden = false;
 }
 (async () => {
@@ -199,7 +210,7 @@ function llenar(x, c, consultadas) {
       document.getElementById("cat").textContent = "Assets · " + c.titulo;
       document.getElementById("titulo").textContent = x.titulo;
       document.getElementById("desc").textContent = x.descripcion;
-      document.getElementById("estado").textContent = x.estado === "published" ? "Published" : "Planned";
+      document.getElementById("estado").textContent = x.estado === "published" || window.NAOS_PUB ? "Published" : "Planned";
       document.title = "NAOS · " + x.titulo;
       if (x.texto && x.mapa) llenar(x, c, d.fuentes_consultadas);
     }

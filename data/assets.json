@@ -114,7 +114,8 @@
               "url": "https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository"
             }
           ],
-          "pdf": "assets/pdf/ai-chat-al-codigo-1.pdf"
+          "pdf": "assets/pdf/ai-chat-al-codigo-1.pdf",
+          "minutos": 8
         },
         {
           "id": "ai-primer-commit",
@@ -188,7 +189,8 @@
               "url": "https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories"
             }
           ],
-          "pdf": "assets/pdf/ai-primer-commit.pdf"
+          "pdf": "assets/pdf/ai-primer-commit.pdf",
+          "minutos": 8
         },
         {
           "id": "ai-primer-entorno-claude",
@@ -268,7 +270,8 @@
               "url": "https://code.claude.com/docs/en/memory"
             }
           ],
-          "pdf": "assets/pdf/ai-primer-entorno-claude.pdf"
+          "pdf": "assets/pdf/ai-primer-entorno-claude.pdf",
+          "minutos": 10
         },
         {
           "id": "ai-primera-pagina-github",
@@ -342,7 +345,8 @@
               "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website"
             }
           ],
-          "pdf": "assets/pdf/ai-primera-pagina-github.pdf"
+          "pdf": "assets/pdf/ai-primera-pagina-github.pdf",
+          "minutos": 10
         },
         {
           "id": "ai-primer-token",
@@ -418,7 +422,8 @@
               "url": "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html"
             }
           ],
-          "pdf": "assets/pdf/ai-primer-token.pdf"
+          "pdf": "assets/pdf/ai-primer-token.pdf",
+          "minutos": 8
         },
         {
           "id": "ai-que-es-una-api",
@@ -495,7 +500,8 @@
               "url": "https://www.rfc-editor.org/rfc/rfc8259"
             }
           ],
-          "pdf": "assets/pdf/ai-que-es-una-api.pdf"
+          "pdf": "assets/pdf/ai-que-es-una-api.pdf",
+          "minutos": 8
         },
         {
           "id": "ai-primeras-apis",
@@ -568,7 +574,8 @@
               "url": "https://fiscaldata.treasury.gov/api-documentation/"
             }
           ],
-          "pdf": "assets/pdf/ai-primeras-apis.pdf"
+          "pdf": "assets/pdf/ai-primeras-apis.pdf",
+          "minutos": 10
         },
         {
           "id": "ai-de-un-correo-a-una-campana",
@@ -663,7 +670,8 @@
               "url": "https://www.nist.gov/itl/ai-risk-management-framework"
             }
           ],
-          "pdf": "assets/pdf/ai-de-un-correo-a-una-campana.pdf"
+          "pdf": "assets/pdf/ai-de-un-correo-a-una-campana.pdf",
+          "minutos": 12
         }
       ]
     },
