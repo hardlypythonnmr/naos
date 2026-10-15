@@ -1,184 +1,240 @@
 {
- "fecha": "2026-10-14T16:44Z",
+ "fecha": "2026-10-15T16:58Z",
  "wire": [
   {
-   "titulo": "Burnham rules out coalition with Greens after 'Zionism is racism' motion",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cr3el59j9y17o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-14T16:37Z",
-   "area": "Politics",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Kalshi CEO says state-led oversight of U.S. prediction markets would push them out",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/policy/2026/10/14/kalshi-ceo-says-state-led-oversight-of-u-s-prediction-markets-would-push-them-out",
-   "hora": "2026-10-14T16:34Z",
-   "area": "Crypto",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Rising bond yields and higher inflation leave the Fed trapped in a rate-hike dilemma",
+   "titulo": "Nvidia and other chip stocks face renewed pressure as AI fears swell",
    "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/rising-bond-yields-and-higher-inflation-leave-the-fed-trapped-in-a-rate-hike-dilemma-d34ba326?mod=mw_rss_topstories",
-   "hora": "2026-10-14T16:27Z",
-   "area": "Economy",
-   "movio": "bond",
-   "sample": false,
-   "odds": {
-    "nombre": "Fed decision, Oct 28",
-    "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537"
-   },
-   "viejo": false
-  },
-  {
-   "titulo": "Kenya confirms second Ebola case as relative of country's first victim",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cw5yn8rn04ljo?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-14T16:23Z",
-   "area": "Politics",
+   "url": "https://www.marketwatch.com/story/micron-nvidia-and-other-chip-stocks-face-renewed-pressure-as-ai-fears-swell-4e0dc989?mod=mw_rss_topstories",
+   "hora": "2026-10-15T16:55Z",
+   "area": "AI",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "Russell Brand was a 'sexual predator', prosecution alleges as rape trial begins",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/c3qjn45pepx1o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-14T16:22Z",
-   "area": "Culture",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Your Social Security check will rise an average of $75 a month — will it be able to keep up with inflation?",
+   "titulo": "Investors are dumping AI stocks as ‘tech wreck’ worsens. Here’s where they’re turning now.",
    "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/social-securitys-cola-will-be-3-6-in-2027-as-inflation-persists-f7c9dff2?mod=mw_rss_topstories",
-   "hora": "2026-10-14T16:20Z",
-   "area": "Economy",
+   "url": "https://www.marketwatch.com/story/traders-pile-into-bonds-and-defensive-stocks-as-the-tech-wreck-picks-up-steam-48c04374?mod=mw_rss_topstories",
+   "hora": "2026-10-15T16:53Z",
+   "area": "AI",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "Rising diesel prices have helped fuel inflation — and we’re about to see how much worse it could get",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/rising-diesel-prices-have-helped-fuel-inflation-and-were-about-to-see-how-much-worse-it-could-get-430f36d1?mod=mw_rss_topstories",
-   "hora": "2026-10-14T16:07Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Sally Rooney books withdrawn in UK over Palestine Action support",
+   "titulo": "Russia accuses Ukraine of attacking oil refinery after Zelensky says strikes to resume",
    "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cmx23q4g307vo?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-14T16:00Z",
-   "area": "Culture",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Burnham says he wants to 'repair bridges' between Ukraine and US",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cq98z59xdny5o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-14T15:56Z",
-   "area": "Politics",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Netflix to lay off 1,000 staff in steepest cuts since 2022",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/c6zxj0gzk4x4o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-14T15:51Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "AI agents make 138 million crypto payments as U.S. dominates spending on AI models",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/business/2026/10/14/ai-agents-make-138-million-crypto-payments-as-u-s-dominates-spending-on-ai-models",
-   "hora": "2026-10-14T15:35Z",
-   "area": "Crypto",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Container ship hit by projectile sinks in Strait of Hormuz, Singapore says",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/crkg7q97z078o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-14T15:34Z",
+   "url": "https://www.bbc.co.uk/news/articles/cqwyrnwd9dw1o?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-15T16:50Z",
    "area": "Energy",
    "sample": false,
-   "odds": {
-    "nombre": "Strait of Hormuz traffic",
-    "url": "https://polymarket.com/event/strait-of-hormuz-traffic-returns-to-normal-by-december-31"
-   },
    "viejo": false
   },
   {
-   "titulo": "US inflation rises more than expected - here's what is happening with prices",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cwy8lx3pg4k2o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-14T15:26Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Micron wins praise from Elon Musk for not being too greedy",
+   "titulo": "Tesla may finally debut a flying car today, after testing fans’ patience for nearly a decade",
    "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/micron-wins-praise-from-elon-musk-for-not-being-too-greedy-616fa15f?mod=mw_rss_topstories",
-   "hora": "2026-10-14T15:07Z",
+   "url": "https://www.marketwatch.com/story/tesla-may-finally-debut-a-flying-car-today-after-testing-fans-patience-for-nearly-a-decade-9a23c8e8?mod=mw_rss_topstories",
+   "hora": "2026-10-15T16:43Z",
    "area": "Economy",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "Crypto Long & Short: Why gold and bitcoin belong in the same portfolio",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/coindesk-indices/2026/10/14/crypto-long-and-short-why-gold-and-bitcoin-belong-in-the-same-portfolio",
-   "hora": "2026-10-14T15:05Z",
-   "area": "Crypto",
+   "titulo": "Farage defends Reform's vetting after councillors filmed making racist comments",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/crlykvgx1wvxo?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-15T16:36Z",
+   "area": "Politics",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "Show HN: Graphicle, a Rust port of Graphify with memory for coding agents",
+   "titulo": "Equality watchdog writes to Greens over 'Zionism is racism' motion",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/cmly0np1gldvo?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-15T16:35Z",
+   "area": "Politics",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Russell Brand accuser says he turned 'monster-like' before alleged rape",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/cwy7ldzl7j4po?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-15T16:35Z",
+   "area": "Culture",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Trump calls off livestream of Fort Hood attacker's execution by firing squad",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/crx23qlnj27qo?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-15T16:28Z",
+   "area": "Politics",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "CoreWeave investors are feeling spooked, as the company’s stock and bonds see fresh pressure",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/coreweave-investors-are-feeling-spooked-as-the-companys-stock-and-bonds-see-fresh-pressure-ba39a931?mod=mw_rss_topstories",
+   "hora": "2026-10-15T16:20Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Market selloff, rising rates test AI data centre deal boom",
    "fuente": "Hacker News",
-   "url": "https://github.com/graphicle-ai/graphicle",
-   "hora": "2026-10-14T15:00Z",
+   "url": "https://www.reuters.com/business/finance/market-selloff-rising-rates-test-ai-data-centre-deal-boom-2026-10-15/",
+   "hora": "2026-10-15T16:17Z",
+   "area": "AI",
+   "movio": "Market",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "School headscarf ban sparks rare protests in Azerbaijan and row with Turkey",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/cwly0g2r4k3po?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-15T16:15Z",
+   "area": "Politics",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "‘Some people did everything right’: I lost my home in the Great Recession. I rent in my 50s. Why is that judged as failure?",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/i-earn-110-000-a-year-i-lost-my-home-in-the-great-recession-im-renting-in-my-50s-why-is-that-judged-as-failure-d1371d67?mod=mw_rss_topstories",
+   "hora": "2026-10-15T16:15Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Krea 3 – Frontier Image Model 4× faster than Nano Banana Pro",
+   "fuente": "Hacker News",
+   "url": "https://www.krea.ai/krea-3",
+   "hora": "2026-10-15T16:04Z",
    "area": "AI",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "EasyA hits $1.1 billion valuation, targets 2027 public listing and tokenized shares",
+   "titulo": "I’m 64 years old, with two sons, but only one works in the family firm. Should I leave him 70% of the business?",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/im-64-years-old-with-two-sons-but-only-one-works-in-the-family-firm-should-i-leave-him-70-of-the-business-2fe6c382?mod=mw_rss_topstories",
+   "hora": "2026-10-15T16:00Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "UK threatens to ban Eritreans over migrant return policy",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/c30rl1q1j200o?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-15T15:51Z",
+   "area": "Politics",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "At least 33 pupils and teacher killed after school roof collapses in Pakistan",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/cked326llddgo?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-15T15:26Z",
+   "area": "Politics",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Crypto for Advisors: Wall Street is done waiting on Congress for crypto rules",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/business/2026/10/14/easya-hits-usd1-1-billion-valuation-targets-2027-public-listing-and-tokenized-shares",
-   "hora": "2026-10-14T14:49Z",
+   "url": "https://www.coindesk.com/coindesk-indices/2026/10/15/crypto-for-advisors-wall-street-is-done-waiting-on-congress-for-crypto-rules",
+   "hora": "2026-10-15T15:00Z",
    "area": "Crypto",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "ASML's strong orders ease fears AI spending boom is running out of steam",
+   "titulo": "Simons Foundation launches $15M effort to help mathematicians navigate AI era",
    "fuente": "Hacker News",
-   "url": "https://www.reuters.com/business/asml-forecasts-q4-sales-above-expectations-ai-chip-demand-2026-10-14/",
-   "hora": "2026-10-14T14:38Z",
+   "url": "https://www.simonsfoundation.org/news/simons-foundation-launches-15m-effort-to-help-mathematicians-navigate-ai-era/",
+   "hora": "2026-10-15T14:58Z",
    "area": "AI",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "BlackRock's crypto ETF assets surge 63% but remain far below 2025 peak",
+   "titulo": "Nandy 'minded to intervene' in Sky's £1.6bn takeover of ITV entertainment arm",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/cm79pe5yej7no?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-15T14:55Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "GTA 6 - all you need to know about Rockstar's blockbuster game",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/c9q20djz4wno?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-15T14:25Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "How Brooklyn prosecutors and the FBI took down a massive crypto fraud network targeting Russian speakers",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/14/blackrock-s-crypto-etf-assets-surge-63-but-remain-far-below-2025-peak",
-   "hora": "2026-10-14T14:31Z",
+   "url": "https://www.coindesk.com/business/2026/10/15/how-brooklyn-prosecutors-and-the-fbi-took-down-a-massive-crypto-fraud-network-targeting-russian-speakers",
+   "hora": "2026-10-15T12:35Z",
    "area": "Crypto",
-   "movio": "crypto",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Under pressure, Ledger unveils plan to turn its crypto hardware wallet into a smartphone",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/tech/2026/10/15/under-pressure-ledger-unveils-plan-to-turn-its-crypto-hardware-wallet-into-a-smartphone",
+   "hora": "2026-10-15T12:00Z",
+   "area": "Crypto",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "AI giant Anthropic woos potential investors ahead of stock market debut",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/cqzjx448vxkgo?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-15T11:34Z",
+   "area": "AI",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "BBC News channel launches on YouTube for viewers in UK and US",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/c60merk2je80o?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-15T11:26Z",
+   "area": "Culture",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Bitcoin, copper, stocks, yields all fall; gold rises",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/daybook-us/2026/10/15/bitcoin-copper-stocks-yields-all-fall-gold-rises",
+   "hora": "2026-10-15T11:15Z",
+   "area": "Crypto",
+   "movio": "Bitcoin",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Altcoins lead crypto declines as Asian stocks drop; bitcoin little changed since midnight",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/markets/2026/10/15/bitcoin-holds-above-usd80-000-as-an-asian-stock-rout-drags-altcoins-lower",
+   "hora": "2026-10-15T10:52Z",
+   "area": "Crypto",
+   "movio": "Altcoins",
    "sample": false,
    "viejo": false
   },
@@ -192,87 +248,11 @@
    "viejo": false
   },
   {
-   "titulo": "Analysis: Burnham careful ahead of meeting with Zelensky",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cmx23q4dwvneo?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-14T14:30Z",
-   "area": "Politics",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Hundreds of thousands of workers on strike across Republic of Ireland",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cjn5vxlrgqn4o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-14T14:18Z",
-   "area": "Politics",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "How Iran’s $2 trillion threat puts your AI stocks at risk",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/how-irans-2-trillion-threat-puts-your-ai-stocks-at-risk-2721af43?mod=mw_rss_topstories",
-   "hora": "2026-10-14T14:17Z",
-   "area": "AI",
-   "sample": false,
-   "odds": {
-    "nombre": "US-Iran ceasefire",
-    "url": "https://polymarket.com/event/us-iran-ceasefire-continues-throughptptpt"
-   },
-   "viejo": false
-  },
-  {
-   "titulo": "Australia's first-ever Michelin stars go to 11 restaurants in one state",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/crje5we583qwo?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-14T13:35Z",
-   "area": "Politics",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Nvidia's first GPU: GeForce 256",
-   "fuente": "Hacker News",
-   "url": "https://dfarq.homeip.net/nvidias-first-gpu-geforce-256/",
-   "hora": "2026-10-14T12:05Z",
-   "area": "AI",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "TV4 postpones show after AI agent erases edited material",
-   "fuente": "Hacker News",
-   "url": "https://swedenherald.com/article/tv4-postpones-the-challenge-until-2027-after-technical-failure-erases-edited-footage",
-   "hora": "2026-10-14T10:28Z",
-   "area": "AI",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "'I applied for 200 jobs' - How 'spray and pray' AI job applications can backfire",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/c623dnkn8pkyo?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-14T08:27Z",
-   "area": "AI",
-   "sample": false,
-   "viejo": false
-  },
-  {
    "titulo": "Minutes of the Board's discount rate meetings on August 17, September 9, and September 16, 2026",
    "fuente": "Federal Reserve",
    "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261013a.htm",
    "hora": "2026-10-13T18:00Z",
    "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Argentina targets UK in legal claim over Falklands oil exploration",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cmp3g14p3z2ko?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-13T17:36Z",
-   "area": "Energy",
    "sample": false,
    "viejo": false
   },
@@ -283,16 +263,16 @@
    "hora": "2026-10-09T14:59Z",
    "area": "Economy",
    "sample": false,
-   "viejo": false
+   "viejo": true
   }
  ],
  "historias": [
   {
    "area": "AI",
-   "titulo": "ASML's strong orders ease fears AI spending boom is running out of steam",
-   "fuente": "Hacker News",
-   "url": "https://www.reuters.com/business/asml-forecasts-q4-sales-above-expectations-ai-chip-demand-2026-10-14/",
-   "hora": "2026-10-14T14:38Z",
+   "titulo": "Nvidia and other chip stocks face renewed pressure as AI fears swell",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/micron-nvidia-and-other-chip-stocks-face-renewed-pressure-as-ai-fears-swell-4e0dc989?mod=mw_rss_topstories",
+   "hora": "2026-10-15T16:55Z",
    "grafico": {
     "tipo": "tradingview",
     "simbolo": "NASDAQ:SMH",
@@ -301,7 +281,7 @@
    "contexto": "Two lines of context will come from the London and New York radar briefs. Until they run, this card shows the format only.",
    "contexto_sample": true,
    "lados": {
-    "quien": "Hacker News: headline verbatim",
+    "quien": "MarketWatch: headline verbatim",
     "historia_mapa": null,
     "prediccion": null,
     "mercado": "VanEck Semiconductor ETF (SMH), delayed, via TradingView",
@@ -312,14 +292,13 @@
   },
   {
    "area": "Politics",
-   "titulo": "Burnham says he wants to 'repair bridges' between Ukraine and US",
+   "titulo": "Farage defends Reform's vetting after councillors filmed making racist comments",
    "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cq98z59xdny5o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-14T15:56Z",
+   "url": "https://www.bbc.co.uk/news/articles/crlykvgx1wvxo?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-15T16:36Z",
    "grafico": {
-    "tipo": "tradingview",
-    "simbolo": "TVC:UKOIL",
-    "etiqueta": "Brent crude CFD via TradingView"
+    "tipo": "propio",
+    "activo": "USD"
    },
    "contexto": "Two lines of context will come from the London and New York radar briefs. Until they run, this card shows the format only.",
    "contexto_sample": true,
@@ -327,7 +306,7 @@
     "quien": "BBC News: headline verbatim",
     "historia_mapa": null,
     "prediccion": null,
-    "mercado": "Brent crude CFD via TradingView",
+    "mercado": "USD",
     "odds": null,
     "conectado": null
    },
@@ -335,10 +314,10 @@
   },
   {
    "area": "Crypto",
-   "titulo": "BlackRock's crypto ETF assets surge 63% but remain far below 2025 peak",
+   "titulo": "Bitcoin, copper, stocks, yields all fall; gold rises",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/14/blackrock-s-crypto-etf-assets-surge-63-but-remain-far-below-2025-peak",
-   "hora": "2026-10-14T14:31Z",
+   "url": "https://www.coindesk.com/daybook-us/2026/10/15/bitcoin-copper-stocks-yields-all-fall-gold-rises",
+   "hora": "2026-10-15T11:15Z",
    "grafico": {
     "tipo": "propio",
     "activo": "BTC"
@@ -351,10 +330,11 @@
     "prediccion": null,
     "mercado": "BTC",
     "odds": {
-     "texto": "Markets price it: 46% Bitcoin above $82,000 on Oct 15 (Polymarket, 14 Oct 16:44 UTC)",
-     "url": "https://polymarket.com/event/bitcoin-above-on-october-15-2026",
-     "p": 46,
-     "leido_utc": "2026-10-14T16:44Z",
+     "texto": "Markets price it: 54% Bitcoin above $82,000 on Oct 16 (Polymarket, 15 Oct 16:58 UTC)",
+     "resultado": "Bitcoin above $82,000 on Oct 16",
+     "url": "https://polymarket.com/event/bitcoin-above-on-october-16-2026",
+     "p": 54,
+     "leido_utc": "2026-10-15T16:58Z",
      "historia": "bitcoin-umbral"
     },
     "conectado": null
@@ -363,89 +343,72 @@
   }
  ],
  "temas": {
-  "fuente": "NAOS radar 2026-10-14",
-  "total": 94,
+  "fuente": "NAOS radar 2026-10-15",
+  "total": 336,
   "conteos": {
-   "AI": 12,
-   "Fed y tasas": 1,
-   "Política": 2,
-   "Energía": 3,
-   "Trabajo": 2,
-   "Geopolítica": 1
+   "AI": 43,
+   "Fed y tasas": 5,
+   "Política": 54,
+   "Energía": 17,
+   "Trabajo": 9,
+   "Geopolítica": 76
   }
  },
  "titulares": [
   {
-   "titulo": "Who Is Planting Backdoors in Ledger Crypto Wallets?",
-   "fuente": "Hacker News",
-   "url": "https://www.zetter-zeroday.com/who-is-planting-backdoors-in-ledger-crypto-wallets/",
-   "tema": "Bitcoin"
+   "titulo": "Micron, Nvidia and other chip stocks face renewed pressure as AI fears swell",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/micron-nvidia-and-other-chip-stocks-face-renewed-pressure-as-ai-fears-swell-4e0dc989?mod=mw_rss_topstories",
+   "tema": "Nasdaq"
   },
   {
-   "titulo": "Kraken parent Payward to become first crypto firm to buy a EU bank as it expands into deposits, lending",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/business/2026/10/14/kraken-parent-payward-to-become-first-crypto-firm-to-buy-a-eu-bank-as-it-expands-into-deposits-lending",
-   "tema": "Bitcoin"
+   "titulo": "This 30-year market veteran is alarmed by a record-chasing S&P 500. Here’s where he’s investing instead.",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/this-30-year-market-veteran-is-alarmed-by-a-near-record-s-p-500-heres-where-hes-investing-instead-c6611143?mod=mw_rss_topstories",
+   "tema": "S&P 500"
   },
   {
-   "titulo": "U.S. September CPI comes in hot, sending bitcoin sharply lower",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/14/u-s-september-cpi-comes-in-hot-sending-bitcoin-sharply-lower",
-   "tema": "Bitcoin"
+   "titulo": "There’s a ‘monstrous bull market’ developing under the surface of the S&P 500. This hedge-fund manager tells you where it’s at.",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/theres-a-monstrous-bull-market-developing-under-the-surface-of-the-s-p-500-this-hedge-fund-manager-tells-you-where-its-at-98450ef4?mod=mw_rss_topstories",
+   "tema": "S&P 500"
   },
   {
-   "titulo": "US inflation rises more than expected ahead of midterm elections",
+   "titulo": "US inflation rises more than expected - here's what is happening with prices",
    "fuente": "BBC Business",
    "url": "https://www.bbc.co.uk/news/articles/cwy8lx3pg4k2o?at_medium=RSS&at_campaign=rss",
    "tema": "US 10Y yield"
   },
   {
-   "titulo": "Social Security’s COLA will be 3.6% in 2027 as inflation persists",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/social-securitys-cola-will-be-3-6-in-2027-as-inflation-persists-f7c9dff2?mod=mw_rss_topstories",
+   "titulo": "'It's rough out here': Americans struggle with rising inflation",
+   "fuente": "BBC Business",
+   "url": "https://www.bbc.co.uk/news/articles/c305649p2d6o?at_medium=RSS&at_campaign=rss",
    "tema": "US 10Y yield"
   },
   {
-   "titulo": "Here's how analysts see U.S. inflation influencing bitcoin",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/daybook-us/2026/10/14/here-s-how-analysts-see-u-s-inflation-influencing-bitcoin",
+   "titulo": "Will mortgage rates stay above 7% in 2027? Signs point to yes.",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/will-mortgage-rates-stay-above-7-in-2027-437873bd?mod=mw_rss_topstories",
    "tema": "US 10Y yield"
   },
   {
-   "titulo": "Charles Schwab and DoorDash ranked among bargain stocks that could lead the market higher",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/from-charles-schwab-to-doordash-why-these-bargain-stocks-could-lead-the-market-higher-4d99fb97?mod=mw_rss_topstories",
-   "tema": "S&P 500"
-  },
-  {
-   "titulo": "S&P 500 options are the hottest bet on this Hyperliquid exchange",
+   "titulo": "How Brooklyn prosecutors and the FBI took down a massive crypto fraud network targeting Russian speakers",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/14/s-and-p-500-options-are-the-hottest-bet-on-this-hyperliquid-exchange",
-   "tema": "S&P 500"
+   "url": "https://www.coindesk.com/business/2026/10/15/how-brooklyn-prosecutors-and-the-fbi-took-down-a-massive-crypto-fraud-network-targeting-russian-speakers",
+   "tema": "Bitcoin"
   },
   {
-   "titulo": "BNY, Citadel Securities test tokenized U.S. Treasuries to speed up Wall Street financing",
+   "titulo": "Under pressure Ledger unveils plan to turn its crypto hardware wallet into a smartphone",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/business/2026/10/13/bny-citadel-securities-test-tokenized-u-s-treasuries-to-speed-up-wall-street-financing",
-   "tema": "S&P 500"
+   "url": "https://www.coindesk.com/tech/2026/10/15/under-pressure-ledger-unveils-plan-to-turn-its-crypto-hardware-wallet-into-a-smartphone",
+   "tema": "Bitcoin"
   },
   {
-   "titulo": "Heating oil customers face tough winter despite shake-up promise",
-   "fuente": "BBC Business",
-   "url": "https://www.bbc.co.uk/news/articles/cxnv0z09r882o?at_medium=RSS&at_campaign=rss",
-   "tema": "Oil WTI"
-  },
-  {
-   "titulo": "How oil-rich Alberta's economy might fare if it broke away from Canada",
-   "fuente": "BBC Business",
-   "url": "https://www.bbc.co.uk/news/articles/cy745jznvxpo?at_medium=RSS&at_campaign=rss",
-   "tema": "Oil WTI"
-  },
-  {
-   "titulo": "How the oil capital of the US welcomed a solar power boom",
-   "fuente": "BBC Business",
-   "url": "https://www.bbc.co.uk/news/articles/cmx2zxv6936zo?at_medium=RSS&at_campaign=rss",
-   "tema": "Oil WTI"
+   "titulo": "Bitcoin, copper, stocks, yields all fall; gold rises",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/daybook-us/2026/10/15/bitcoin-copper-stocks-yields-all-fall-gold-rises",
+   "tema": "Bitcoin"
   }
- ]
+ ],
+ "cierres_csv": "fecha,indice,cierre,cambio_pct,fuente,url\n2026-10-14,S&P 500,7718.94,-1.11,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n2026-10-14,Nasdaq Composite,26692.87,-1.88,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n2026-10-14,Dow Jones,51621.48,-0.09,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n"
 }
