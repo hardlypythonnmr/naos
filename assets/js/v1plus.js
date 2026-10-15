@@ -360,6 +360,7 @@
 
   /* ---------- Lab ---------- */
   const hn = d.hn || [];
+  if (!hn.length) $(".p-hn").hidden = true; // desde el 19-oct no hay Hacker News (D-236): sin tarjeta vacía
   $("#hn-hora").textContent = `Hacker News · ${N.hora(d.generado)}`;
   $("#pila").innerHTML = hn.slice(0, 8).map((h, i) => `<article class="carta" data-revela><span class="i">${String(i + 1).padStart(2, "0")}</span><span class="tt">${N.esc(h.titulo)}</span><span class="pt"><span>Hacker News</span><span>${N.fmt(h.puntos)} points</span></span>` +
     `<span class="revela-tarjeta"><b>${N.fmt(h.puntos)} points, ${N.fmt(h.comentarios || 0)} comments</b>, posted ${N.hora(h.hora)} ${N.fecha(h.hora)}.<br><a href="${N.esc(h.url)}" rel="noopener">Open the source</a> · <a href="${N.esc(h.hn || "https://news.ycombinator.com")}" rel="noopener">Discussion</a><span class="sello">Title verbatim from Hacker News</span></span></article>`).join("");
@@ -368,6 +369,7 @@
     ScrollTrigger.create({ trigger: "#pila", start: "top 85%", once: true, onEnter: () => gsap.to(pila, { y: 0, rotateX: 0, opacity: 1, duration: .6, stagger: .09 }) }); }
   const repos = (d.muestra?.repos || []).filter((r) => !r.sample);
   if (!repos.length) { $("#repos-p").hidden = true; $(".p-hn").classList.add("solo"); }
+  if (!hn.length && !repos.length) $(".r8").hidden = true;
   $("#repos").innerHTML = repos.map((r) => `<li><span class="i">${r.i}</span><span class="rn">${N.esc(r.repo)}</span><span class="st"><span class="up">▲ +${N.fmt(r.estrellas7d)}</span> <span class="sello">stars, 7 d</span></span>` +
     `<span class="q"><b>What it does</b>${N.esc(r.que_hace || r.que)}</span><span class="q"><b>What it's for</b>${N.esc(r.para_que || "")}</span></li>`).join("");
 
