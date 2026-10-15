@@ -1,6 +1,6 @@
 {
  "nota": "Grilla pública del mes (D-224, D-227). La arma scripts/construir-semana.mjs desde el plan del mes de la junta; esquema en el README. Sin fecha en el acta: dia null y nota.",
- "generado": "2026-10-15T22:35Z",
+ "generado": "2026-10-15T22:40Z",
  "semana": {
   "desde": "2026-10-19",
   "hasta": "2026-10-25"
@@ -101,8 +101,7 @@
    "format": "medium",
    "title": "From chat to code, part 1",
    "asset_id": "ai-chat-al-codigo-1",
-   "status": "planned",
-   "nota": "With a LinkedIn post in Spanish"
+   "status": "planned"
   },
   {
    "seccion": "market",

@@ -83,7 +83,7 @@ briefs.forEach((b, i) => {
 const SERIE = [[1, "Why the chat forgets"], [2, "What you need"], [3, "The first prompt"], [4, "A memory file"], [5, "Your first real task"], [6, "Guardrails and undo"]];
 const CORTOS = ["2026-10-21", "2026-10-23", "2026-10-29", "2026-10-31", "2026-11-04", "2026-11-07"];
 const PLAN = [
-  ["2026-10-19", "ai", "medium", "From chat to code, part 1", "ai-chat-al-codigo-1", "With a LinkedIn post in Spanish"],
+  ["2026-10-19", "ai", "medium", "From chat to code, part 1", "ai-chat-al-codigo-1", null],
   ...SERIE.map(([n, t], i) => [CORTOS[i], "ai", "short", `From chat to code · ${n}. ${t}`, "ai-chat-al-codigo-1", null]),
   ["2026-10-24", "behavior", "page", "Behavior articles no. 1", "behavior-articulos", null],
   ["2026-10-26", "news", "page", "FOMC: what to watch", null, "Date, time and what is expected; no forecast"],
