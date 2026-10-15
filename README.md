@@ -1,8 +1,9 @@
 # NAOS
 
-**Yourself, sharper.** The NAOS home page: today's headlines in plain English first, then four sections (Market, News, AI,
-Behavior): markets, rates and the dollar, fear and greed, the economic calendar, a news wire by area, stories of the day,
-prediction markets, AI and technology, with room to breathe.
+**Closer to yourself.** The NAOS home page: two doors, two sections (D-238). **Humanity** leads: eat, sleep, move, the
+divine, community, with small behaviors, the library (Assets) and the week. **The Present** is the short window: the news
+with doubt and both sides, AI, and markets around the big events (headlines, rates and the dollar, fear and greed, the
+economic calendar, the wire, stories of the day with their monitor rooms, prediction market odds).
 
 Live at <https://hardlypythonnmr.github.io/naos/>. Static site, no build step, served by GitHub Pages from `main`, root.
 
@@ -53,8 +54,8 @@ builder lists them, with the reason and the plan to get real data, in `escondido
 | Crypto Fear & Greed | alternative.me | "Crypto Fear & Greed Index by alternative.me", linked |
 | Credit and dollar (NAOS Fear & Greed) | Office of Financial Research Financial Stress Index and ECB rates (public domain), NAOS calculation in `scripts/animo.py` | "Credit and dollar: Office of Financial Research, ECB (NAOS calculation)" |
 | Next red US event, the week's red US rows with forecast and previous | Forex Factory weekly calendar (`ff_calendar_thisweek.json`) | "Forex Factory weekly calendar", linked; each release linked to its official publisher (BLS, Federal Reserve, BEA, Census) |
-| AI on the front page | Hacker News API | titles verbatim, linked |
-| Wire and stories of the day | Federal Reserve, SEC, BBC News, CoinDesk, MarketWatch, Hacker News | source and time on every headline, linked |
+| AI on the front page | Hacker News API, until 19 Oct 2026 00:00 UTC (D-235, D-236; `SALEN_D1` in the builder) | titles verbatim, linked |
+| Wire and stories of the day | Federal Reserve, SEC, CoinDesk, MarketWatch (BBC News and Hacker News until 19 Oct 2026; the builder drops them after that, whatever the radar sends) | source and time on every headline, linked |
 | Indices, commodities, AI stocks, Nasdaq 100 heatmap, economic calendar | TradingView widgets, embedded as provided | TradingView's own attribution, intact |
 | Prediction markets | Polymarket Gamma API (public), read only for markets in `data/mapa-predicciones.json`: one number per story, with time, only if the market passes the map's rules and only on one story; Kalshi is a link only | "Polymarket" with the reading time; the map's stamp once on the page. Kalshi's data terms allow personal, non-commercial use only. No odds history, tables or charts |
 | Map | Natural Earth via world-atlas (public domain) | "Map: Natural Earth via world-atlas" |
@@ -98,7 +99,8 @@ tile is left out. `lectura` holds the run's counts for "How NAOS reads the day".
               "eventos": [{ "titulo": "USD CPI m/m", "hora": "YYYY-MM-DDTHH:MMZ", "fuente": "...", "url": "optional" }] }] }
 ```
 
-The builder covers the four weeks of the board's month plan (19 Oct to 15 Nov 2026, `acta-r1` §3, D-227) plus the dates
+Pieces already out before the month plan (the launch promo of 15 Oct) go in `PUBLICADOS` in the builder with
+`status: "published"`, so their `enlaces.json` key exists and "Today's Short" shows them. The builder covers the four weeks of the board's month plan (19 Oct to 15 Nov 2026, `acta-r1` §3, D-227) plus the dates
 the plan sets after it; the home page opens on the current week and switches with "Previous week" / "Next week". Pieces the
 plan does not date (Strategies, Indicator 1: waiting for the lawyer) keep `dia: null` with the reason in `nota`.
 Briefs: three fixed slots each weekday (London open 08:20 UK, New York open 09:41 ET, US close 16:22 ET). Each lists the
