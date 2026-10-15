@@ -1,6 +1,8 @@
 /* guia.css · #guia: hoja inferior no modal (390) y tarjeta flotante de 420 px (1440), más la ficha "Guide" (PAG-09.3, lunes 19-oct).
  * Tinta y blanco de tokens.css; sin cobalto, sin vino, sin rojo. El movimiento (200 ms) solo con prefers-reduced-motion: no-preference. */
 html { scroll-padding-bottom: var(--gu-pad, 0px); }
+.gu-velo { position: fixed; inset: 0; z-index: 44; background: rgba(14, 17, 22, .62); } /* opaca la página bajo la guía (D-237) */
+.gu-velo[hidden] { display: none; }
 .gu-ficha { position: fixed; right: 16px; bottom: 16px; z-index: 40; box-shadow: 0 0 0 2px var(--naos-paper); }
 .gu-ficha.gu-oculta { visibility: hidden; }
 .gu-hoja { position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; max-height: var(--gu-max, 45vh); overflow-y: auto; overscroll-behavior: contain;

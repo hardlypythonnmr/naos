@@ -1,6 +1,7 @@
 /* guia.js · #guia: la hoja de la guía (3 fichas-enlace a Market, AI y News) y la ficha "Guide" (PAG-09.3, lunes 19-oct).
  * La hoja abre sola al cargar, en todas partes y en cada visita: es lo primero que se ve (N, 2026-10-15, D-236: "deberia abrir sola en todas
- * partes deberia ser lo primero que alguien ve siempre en cualquier journey y poder skipearse igual"). No roba el foco.
+ * partes deberia ser lo primero que alguien ve siempre en cualquier journey y poder skipearse igual"). Un velo de tinta opaca lo demás
+ * mientras está arriba ("deberia aparecer opacando lo demas para que pueda ser utilizada") y el foco va al título; tocar el velo la cierra.
  * "Not now", la X y Esc la bajan y dejan la ficha. Mientras está arriba, scroll-padding-bottom iguala su alto (WCAG 2.4.11: nada enfocado queda tapado).
  * Guarda en el navegador solo naos:guia = { cerrada, ultima } con N.guarda (try/catch adentro). Los destinos salen de data/guia.json; si no carga, estos mismos. */
 (function () {
@@ -15,7 +16,7 @@
   const valido = (g) => g && g.pregunta && Array.isArray(g.caminos) && g.caminos.length === 3 &&
     g.caminos.every((c) => c.ficha && c.ayuda && c.seccion && /^#[\w-]+$/.test(c.destino) && document.querySelector(c.destino));
   const html = document.documentElement, secuencia = document.getElementById("secuencia");
-  let hoja, ficha, titulo, arriba = false, descartada = false, fin = false;
+  let hoja, ficha, titulo, velo, arriba = false, descartada = false, fin = false;
 
   const sitio = () => { // px libres entre el pie de #secuencia y el borde de abajo
     const b = secuencia && !secuencia.hidden ? secuencia.getBoundingClientRect().bottom : 0;
@@ -27,7 +28,7 @@
     hoja.style.setProperty("--gu-max", m + "px"); hoja.classList.toggle("gu-compacta", m < 350);
   };
   const poner = (si, foco) => {
-    arriba = si; hoja.classList.toggle("gu-abierta", si); ficha.setAttribute("aria-expanded", String(si));
+    arriba = si; hoja.classList.toggle("gu-abierta", si); velo.hidden = !si; ficha.setAttribute("aria-expanded", String(si));
     if (si) tope();
     ficha.classList.toggle("gu-oculta", si); padding();
     if (foco) (si ? titulo : ficha).focus({ preventScroll: true });
@@ -41,16 +42,17 @@
     if (arriba) tope();
     padding();
   };
-  const sube = () => { if (descartada || arriba || fin) return; fin = true; poner(true, false); };
+  const sube = () => { if (descartada || arriba || fin) return; fin = true; poner(true, true); };
 
   Promise.race([fetch("data/guia.json").then((r) => r.json()).catch(() => null), new Promise((r) => setTimeout(r, 400, null))]).then((g) => {
     const G = valido(g) ? g : DEF;
-    raiz.innerHTML = `<button type="button" class="ag-chip ficha gu-ficha" aria-expanded="false" aria-controls="gu-hoja">Guide</button>` +
+    raiz.innerHTML = `<div class="gu-velo" hidden></div><button type="button" class="ag-chip ficha gu-ficha" aria-expanded="false" aria-controls="gu-hoja">Guide</button>` +
       `<div class="gu-hoja" id="gu-hoja" role="region" aria-label="Guide">` +
       `<div class="gu-cab"><h2 class="gu-t" tabindex="-1">${esc(G.pregunta)}</h2>` +
       `<button type="button" class="ag-chip ficha gu-x" aria-label="Close guide">&times;</button></div>` +
       `<ul class="gu-l">${G.caminos.map((c) => `<li><a class="gu-c" href="${esc(c.destino)}" data-id="${esc(c.id)}"><span class="gu-ct"><b>${esc(c.ficha)}</b><span>${esc(c.ayuda)}</span></span><span class="gu-s">${esc(c.seccion)}</span></a></li>`).join("")}</ul>` +
       `<div class="gu-pie"><button type="button" class="ag-chip grande gu-no">Not now</button><span class="sello">Descriptive, not financial advice.</span></div></div>`;
+    velo = raiz.querySelector(".gu-velo"); velo.addEventListener("click", () => cerrar(true, true));
     ficha = raiz.querySelector(".gu-ficha"); hoja = raiz.querySelector(".gu-hoja"); titulo = raiz.querySelector(".gu-t");
     if (N.rm) hoja.classList.add("gu-quieto");
     raiz.hidden = false;
