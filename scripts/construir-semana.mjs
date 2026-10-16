@@ -8,8 +8,8 @@
 //   cuando ese calendario cubre la semana (lo publica el fin de semana; solo título y hora) y data/agenda.json (eventos
 //   fuera del calendario, cada uno con su URL). D-227: los tres viven en la página; en video solo el cierre (Short EN) y
 //   una apertura solo el día con evento rojo (video: true).
-//   Piezas fechadas: el plan del mes de la junta (empresa/junta/2026-10-14-plan-mes/acta-r1.md §3) y las fechas que da para
-//   después del mes. Sin fecha en el acta, dia null ("date TBD") con su motivo en nota: nada se inventa.
+//   Las piezas fechadas de la grilla ya no van aquí (lote E, D-252): las lleva data/temas.json. Sin fecha, dia null ("date TBD")
+//   con su motivo en nota: nada se inventa.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -79,40 +79,8 @@ briefs.forEach((b, i) => {
     eventos: evs.map(({ titulo, hora, fecha, fuente, url }) => ({ titulo, hora: hora ?? null, ...(hora ? {} : { fecha }), fuente, ...(url ? { url } : {}) })) });
 });
 
-// el plan del mes de la junta (acta-r1 §3, D-227) y las fechas que da después del mes. [dia, sección, formato, título, asset_id, nota]
-const SERIE = [[1, "Why the chat forgets"], [2, "What you need"], [3, "The first prompt"], [4, "A memory file"], [5, "Your first real task"], [6, "Guardrails and undo"]];
-const CORTOS = ["2026-10-21", "2026-10-23", "2026-10-29", "2026-10-31", "2026-11-04", "2026-11-07"];
-const PLAN = [
-  ["2026-10-19", "ai", "medium", "From chat to code, part 1", "ai-chat-al-codigo-1", null],
-  ...SERIE.map(([n, t], i) => [CORTOS[i], "ai", "short", `From chat to code · ${n}. ${t}`, "ai-chat-al-codigo-1", null]),
-  ["2026-10-24", "behavior", "page", "Behavior articles no. 1", "behavior-articulos", null],
-  ["2026-10-26", "news", "page", "FOMC: what to watch", null, "Date, time and what is expected; no forecast"],
-  ["2026-10-27", "market", "medium", "What a price is", "trading-que-es-el-precio", null],
-  ["2026-10-28", "news", "special", "FOMC anchor", null, "Prearmed: press conference 14:30 ET, out around 16:30 ET with the figure"],
-  ["2026-11-01", "behavior", "special", "Affirmations for sleep: 20-minute guided review", "behavior-afirmaciones-dormir", "A guided review, no hidden loop. An illustration, not a sleep treatment"],
-  ["2026-11-02", "ai", "medium", "Your first Claude environment", "ai-primer-entorno-claude", null],
-  ["2026-11-03", "news", "page", "US elections: market impact only", null, "Politics as market impact; no synthetic images of politicians"],
-  ["2026-11-05", "news", "page", "Payrolls preview", null, "Preview of the October jobs report"],
-  ["2026-11-06", "news", "special", "Payrolls anchor", null, "Only if the FOMC anchor passed green; otherwise a page"],
-  ["2026-11-07", "behavior", "page", "Behavior sessions, long form: the session map", "behavior-largos-ejercicio", "The video comes on Sun 29 Nov"],
-  ["2026-11-09", "news", "page", "CPI preview", null, "Preview of the October CPI"],
-  ["2026-11-10", "market", "medium", "Reading charts", "trading-graficos", null],
-  ["2026-11-10", "news", "special", "CPI anchor", null, "Same rule as payrolls: only if the anchors pass green"],
-  ["2026-11-14", "behavior", "page", "Behavior articles no. 2", "behavior-articulos", null],
-  ["2026-11-15", "behavior", "special", "Affirmations for sleep: guided review in Spanish", "behavior-afirmaciones-dormir", "In Spanish"],
-  // después del mes
-  ["2026-11-16", "ai", "medium", "Your first commit", "ai-primer-commit", null],
-  ["2026-11-24", "market", "medium", "Candles", "trading-velas", null],
-  ["2026-11-29", "behavior", "medium", "Behavior sessions, long form", "behavior-largos-ejercicio", null],
-  ["2026-11-30", "ai", "medium", "Your first GitHub page", "ai-primera-pagina-github", null],
-  ["2026-12-09", "news", "special", "FOMC anchor (December)", null, "Second anchor of the plan"],
-  ["2026-12-14", "ai", "medium", "Your first token", "ai-primer-token", null],
-  ["2027-01-11", "ai", "medium", "What an API is", "ai-que-es-una-api", null],
-  ["2027-01-25", "ai", "medium", "Your first APIs", "ai-primeras-apis", null],
-  ["2027-02-08", "ai", "medium", "From one email to a campaign", "ai-de-un-correo-a-una-campana", "Closes the AI ladder"],
-];
-for (const [d, seccion, format, title, asset_id, nota] of PLAN)
-  items.push({ seccion, dia: d, slot: null, format, title, ...(asset_id ? { asset_id } : {}), status: "planned", ...(nota ? { nota } : {}) });
+// el plan del mes de D-227 (acta-r1 §3) salió con el lote E (D-252): las piezas fechadas viven en la grilla (data/temas.json,
+// scripts/construir-temas.mjs) y la portada las lee de ahí. Aquí quedan los briefs, lo ya publicado y la biblioteca sin fecha.
 
 // lo ya publicado antes del mes (D-234): su clave en data/enlaces.json es dia|asset_id, así "Today's Short" lo muestra con su enlace
 // [dia, sección, título, asset_id, hora UTC, hora local]
@@ -125,7 +93,7 @@ for (const [d, seccion, title, asset_id, hora_utc, hora_local] of PUBLICADOS)
 // el resto de la biblioteca (data/assets.json): sin fecha en el acta, va sin fecha y con su motivo
 const SECCION = { ai: "ai", trading: "market", behavior: "behavior" };
 const ESPERA = { "trading-estrategias": "In review: waits for the lawyer's opinion", "trading-indicador-1": "In review: waits for the lawyer's opinion" };
-const fechados = new Set(PLAN.map((x) => x[4]).filter(Boolean));
+const fechados = new Set();
 for (const c of leer("data/assets.json", { categorias: [] }).categorias) for (const x of c.piezas) {
   if (fechados.has(x.id)) continue;
   items.push({ seccion: SECCION[c.id] || "ai", dia: null, slot: null, format: "medium", title: x.titulo, asset_id: x.id, status: x.estado === "published" ? "out" : "planned", ...(ESPERA[x.id] ? { nota: ESPERA[x.id] } : {}) });
@@ -133,7 +101,7 @@ for (const c of leer("data/assets.json", { categorias: [] }).categorias) for (co
 items.sort((a, b) => (a.dia || "9999").localeCompare(b.dia || "9999") || (a.hora_utc || "").localeCompare(b.hora_utc || ""));
 
 const salida = {
-  nota: "Grilla pública del mes (D-224, D-227). La arma scripts/construir-semana.mjs desde el plan del mes de la junta; esquema en el README. Sin fecha en el acta: dia null y nota.",
+  nota: "Briefs, lo ya publicado y la biblioteca sin fecha (D-224). Las piezas fechadas viven en data/temas.json desde el lote E (D-252); esquema en el README. Sin fecha: dia null y nota.",
   generado: new Date().toISOString().slice(0, 16) + "Z",
   semana: semanas[0],
   semanas,
@@ -148,3 +116,5 @@ console.log("semana.json", semanas[0].desde, "a", semanas.at(-1).hasta, "·", it
 
 // el calendario descargable (Upcoming): un .ics por evento, por categoría y uno con todo, desde la misma agenda
 try { (await import("./construir-ics.mjs")).construirIcs(); } catch (e) { console.error("construir-ics:", e.message); }
+// las páginas de tema, los hubs, los enlaces cortos y el sitemap (lote E, D-252), desde data/temas.json y data/enlaces.json
+try { (await import("./construir-temas.mjs")).construirTemas(); } catch (e) { console.error("construir-temas:", e.message); }

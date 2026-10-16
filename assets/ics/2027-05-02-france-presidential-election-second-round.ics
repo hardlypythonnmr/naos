@@ -15,13 +15,12 @@ DTSTAMP:20261014T000000Z
 DTSTART;VALUE=DATE:20270502
 DTEND;VALUE=DATE:20270503
 SUMMARY:France presidential election\, second round
-DESCRIPTION:OAT-Bund spread and euro risk premium around the result.\n\nTim
- e not set by the source\; listed as an all-day event.\n\nSource: Service-P
- ublic.fr\, dates set by the Council of Ministers (1 Jul 2026). https://www
- .service-public.gouv.fr/particuliers/actualites/A15053?lang=fr\n\nNAOS Upc
- oming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-05-02-franc
- e-presidential-election-second-round\n\nDescriptive\, not financial advice
- .
+DESCRIPTION:Time not set by the source\; listed as an all-day event.\n\nSou
+ rce: Service-Public.fr\, dates set by the Council of Ministers (1 Jul 2026
+ ). https://www.service-public.gouv.fr/particuliers/actualites/A15053?lang=
+ fr\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#20
+ 27-05-02-france-presidential-election-second-round\n\nDescriptive\, not fi
+ nancial advice.
 URL:https://www.service-public.gouv.fr/particuliers/actualites/A15053?lang=
  fr
 CATEGORIES:Elections

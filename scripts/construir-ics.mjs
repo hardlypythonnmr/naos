@@ -38,12 +38,12 @@ function resumen(e) {
   return e.titulo + (marcas.length ? ` (${marcas.join(", ")})` : "");
 }
 function descripcion(e) {
-  const l = [e.angulo];
+  const l = e.angulo ? [e.angulo] : [];
   if (e.hora) l.push(`Time: ${e.hora.slice(11, 16)} UTC${e.hora_local ? `, ${e.hora_local}` : ""}${e.hora_estado === "expected" ? " (expected, not confirmed by the source)" : ""}.`);
   else l.push("Time not set by the source; listed as an all-day event.");
   if (e.fecha_estado === "expected") l.push("Expected date: provisional until the official announcement (moon sighting or official calendar).");
   if (e.nota) l.push(`Note: ${e.nota}`);
-  l.push(`Source: ${e.fuente}. ${e.url}`);
+  l.push(e.url ? `Source: ${e.fuente}. ${e.url}` : "Date and topic only. Official source pending.");
   if (e.url2) l.push(`Also: ${e.url2}`);
   l.push(`NAOS Upcoming: ${SITIO}agenda.html#${e.id}`);
   l.push("Descriptive, not financial advice.");
@@ -53,7 +53,7 @@ function vevent(e, dtstamp) {
   const c = A.cat(e.categoria), L = ["BEGIN:VEVENT", `UID:${e.id}@naos.hardlypythonnmr.github.io`, `DTSTAMP:${dtstamp}`];
   if (e.hora) L.push(`DTSTART:${utcICS(e.hora)}`);
   else L.push(`DTSTART;VALUE=DATE:${fechaICS(e.fecha)}`, `DTEND;VALUE=DATE:${fechaICS(masUnDia(e.fecha_fin || e.fecha))}`);
-  L.push(`SUMMARY:${esc(resumen(e))}`, `DESCRIPTION:${esc(descripcion(e))}`, `URL:${e.url}`, `CATEGORIES:${esc(c.nombre)}`);
+  L.push(`SUMMARY:${esc(resumen(e))}`, `DESCRIPTION:${esc(descripcion(e))}`, `URL:${e.url || SITIO + "agenda.html#" + e.id}`, `CATEGORIES:${esc(c.nombre)}`);
   if (e.pais) L.push(`LOCATION:${esc(e.pais)}`);
   L.push("TRANSP:TRANSPARENT", `STATUS:${e.fecha_estado === "expected" || e.hora_estado === "expected" ? "TENTATIVE" : "CONFIRMED"}`);
   L.push("BEGIN:VALARM", "ACTION:DISPLAY", `DESCRIPTION:${esc(resumen(e))}`,
@@ -70,7 +70,7 @@ function calendario(nombre, desc, eventos, dtstamp) {
 
 export function construirIcs({ silencio = false } = {}) {
   const ag = JSON.parse(fs.readFileSync(path.join(V, "data/agenda.json"), "utf8"));
-  const eventos = A.conIds(ag.eventos || []);
+  const eventos = A.conIds(ag.eventos || []).map(A.publico);
   const dtstamp = fechaICS(ag.revisado || new Date().toISOString().slice(0, 10)) + "T000000Z";
   const dir = path.join(V, A.ICS);
   fs.mkdirSync(dir, { recursive: true });

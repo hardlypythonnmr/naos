@@ -14,12 +14,11 @@ DTSTAMP:20261014T000000Z
 DTSTART;VALUE=DATE:20261103
 DTEND;VALUE=DATE:20261104
 SUMMARY:US midterm general election
-DESCRIPTION:Control of Congress shapes fiscal\, tariff and crypto legislati
- on odds.\n\nTime not set by the source\; listed as an all-day event.\n\nSo
- urce: FEC\, election results and voting information. https://www.fec.gov/i
- ntroduction-campaign-finance/election-results-and-voting-information/\n\nN
- AOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-0
- 3-us-midterm-general-election\n\nDescriptive\, not financial advice.
+DESCRIPTION:Time not set by the source\; listed as an all-day event.\n\nSou
+ rce: FEC\, election results and voting information. https://www.fec.gov/in
+ troduction-campaign-finance/election-results-and-voting-information/\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-03
+ -us-midterm-general-election\n\nDescriptive\, not financial advice.
 URL:https://www.fec.gov/introduction-campaign-finance/election-results-and-
  voting-information/
 CATEGORIES:Elections

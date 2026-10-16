@@ -50,7 +50,26 @@
     d.porId = Object.fromEntries(d.activos.map((a) => [a.id, a]));
     d.frescos = d.activos.filter((a) => a.fresco);
     d.genTxt = N.fecha(d.generado) + " " + d.generado.slice(0, 4) + " · " + N.hora(d.generado);
+    N.limpiarMercados(d);
     N.d = d; return d;
+  };
+  /* mercados de predicción (D-252): solo atribución ("Polymarket shows X is n% likely", con hora y fuente), sin tickers al lado
+     ("On the tape" fuera). Los electorales también se reportan así, sin tomar partido (N, D-252: "Report it, Polymarket shows
+     house control is x% likely, something like that, or versions of that"). Corre sobre el dato antes de pintar, así lo
+     que llegue del radar privado con la plantilla vieja tampoco sale. construir-datos.mjs aplica la misma regla al armar. */
+  N.ELECTORAL = /\b(midterms?|elections?|electoral|ballots?|votes?|voters?|primar(?:y|ies)|runoffs?|referendum|presidential|house control|senate control|control of (?:the )?(?:house|senate|congress)|balotaje|elecci[oó]n(?:es)?)\b/i;
+  N.limpiarMercados = (d) => {
+    const ver = (x) => {
+      if (Array.isArray(x)) { x.forEach(ver); return; }
+      if (!x || typeof x !== "object") return;
+      if (typeof x.conectado === "string" && /^On the tape/i.test(x.conectado)) x.conectado = null;
+      if (x.odds && typeof x.odds === "object") {
+        if (x.odds.p != null && x.odds.resultado) x.odds.texto = `Polymarket shows ${x.odds.resultado} is ${x.odds.p}% likely (${x.odds.leido_utc ? N.fecha(x.odds.leido_utc) + " " + N.hora(x.odds.leido_utc) : "Polymarket"})`;
+      }
+      for (const k of Object.keys(x)) if (k !== "odds") ver(x[k]);
+    };
+    ver(d);
+    return d;
   };
   N.mapa = null;
   N.cargarMapa = async (ruta = "../data/mapa.json") => (N.mapa = N.mapa || (await (await fetch(ruta)).json()));

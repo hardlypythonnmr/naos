@@ -1,6 +1,6 @@
 {
- "nota": "Grilla pública del mes (D-224, D-227). La arma scripts/construir-semana.mjs desde el plan del mes de la junta; esquema en el README. Sin fecha en el acta: dia null y nota.",
- "generado": "2026-10-15T22:48Z",
+ "nota": "Briefs, lo ya publicado y la biblioteca sin fecha (D-224). Las piezas fechadas viven en data/temas.json desde el lote E (D-252); esquema en el README. Sin fecha: dia null y nota.",
+ "generado": "2026-10-16T00:59Z",
  "semana": {
   "desde": "2026-10-19",
   "hasta": "2026-10-25"
@@ -93,15 +93,6 @@
    "asset_id": "promo",
    "status": "published",
    "nota": "Launch promo, on YouTube Shorts and Instagram Reels"
-  },
-  {
-   "seccion": "ai",
-   "dia": "2026-10-19",
-   "slot": null,
-   "format": "medium",
-   "title": "From chat to code, part 1",
-   "asset_id": "ai-chat-al-codigo-1",
-   "status": "planned"
   },
   {
    "seccion": "market",
@@ -199,15 +190,6 @@
    "eventos": []
   },
   {
-   "seccion": "ai",
-   "dia": "2026-10-21",
-   "slot": null,
-   "format": "short",
-   "title": "From chat to code · 1. Why the chat forgets",
-   "asset_id": "ai-chat-al-codigo-1",
-   "status": "planned"
-  },
-  {
    "seccion": "market",
    "dia": "2026-10-21",
    "slot": "london",
@@ -296,15 +278,6 @@
    "eventos": []
   },
   {
-   "seccion": "ai",
-   "dia": "2026-10-23",
-   "slot": null,
-   "format": "short",
-   "title": "From chat to code · 2. What you need",
-   "asset_id": "ai-chat-al-codigo-1",
-   "status": "planned"
-  },
-  {
    "seccion": "market",
    "dia": "2026-10-23",
    "slot": "london",
@@ -349,24 +322,6 @@
    ]
   },
   {
-   "seccion": "behavior",
-   "dia": "2026-10-24",
-   "slot": null,
-   "format": "page",
-   "title": "Behavior articles no. 1",
-   "asset_id": "behavior-articulos",
-   "status": "planned"
-  },
-  {
-   "seccion": "news",
-   "dia": "2026-10-26",
-   "slot": null,
-   "format": "page",
-   "title": "FOMC: what to watch",
-   "status": "planned",
-   "nota": "Date, time and what is expected; no forecast"
-  },
-  {
    "seccion": "market",
    "dia": "2026-10-26",
    "slot": "london",
@@ -402,15 +357,6 @@
    "video": true,
    "video_nota": "Short (EN)",
    "eventos": []
-  },
-  {
-   "seccion": "market",
-   "dia": "2026-10-27",
-   "slot": null,
-   "format": "medium",
-   "title": "What a price is",
-   "asset_id": "trading-que-es-el-precio",
-   "status": "planned"
   },
   {
    "seccion": "market",
@@ -455,15 +401,6 @@
    "video": true,
    "video_nota": "Short (EN)",
    "eventos": []
-  },
-  {
-   "seccion": "news",
-   "dia": "2026-10-28",
-   "slot": null,
-   "format": "special",
-   "title": "FOMC anchor",
-   "status": "planned",
-   "nota": "Prearmed: press conference 14:30 ET, out around 16:30 ET with the figure"
   },
   {
    "seccion": "market",
@@ -530,15 +467,6 @@
    "video": true,
    "video_nota": "Short (EN)",
    "eventos": []
-  },
-  {
-   "seccion": "ai",
-   "dia": "2026-10-29",
-   "slot": null,
-   "format": "short",
-   "title": "From chat to code · 3. The first prompt",
-   "asset_id": "ai-chat-al-codigo-1",
-   "status": "planned"
   },
   {
    "seccion": "market",
@@ -653,34 +581,6 @@
    ]
   },
   {
-   "seccion": "ai",
-   "dia": "2026-10-31",
-   "slot": null,
-   "format": "short",
-   "title": "From chat to code · 4. A memory file",
-   "asset_id": "ai-chat-al-codigo-1",
-   "status": "planned"
-  },
-  {
-   "seccion": "behavior",
-   "dia": "2026-11-01",
-   "slot": null,
-   "format": "special",
-   "title": "Affirmations for sleep: 20-minute guided review",
-   "asset_id": "behavior-afirmaciones-dormir",
-   "status": "planned",
-   "nota": "A guided review, no hidden loop. An illustration, not a sleep treatment"
-  },
-  {
-   "seccion": "ai",
-   "dia": "2026-11-02",
-   "slot": null,
-   "format": "medium",
-   "title": "Your first Claude environment",
-   "asset_id": "ai-primer-entorno-claude",
-   "status": "planned"
-  },
-  {
    "seccion": "market",
    "dia": "2026-11-02",
    "slot": "london",
@@ -730,15 +630,6 @@
      "url": "https://www.rba.gov.au/schedules-events/"
     }
    ]
-  },
-  {
-   "seccion": "news",
-   "dia": "2026-11-03",
-   "slot": null,
-   "format": "page",
-   "title": "US elections: market impact only",
-   "status": "planned",
-   "nota": "Politics as market impact; no synthetic images of politicians"
   },
   {
    "seccion": "market",
@@ -793,15 +684,6 @@
    "eventos": []
   },
   {
-   "seccion": "ai",
-   "dia": "2026-11-04",
-   "slot": null,
-   "format": "short",
-   "title": "From chat to code · 5. Your first real task",
-   "asset_id": "ai-chat-al-codigo-1",
-   "status": "planned"
-  },
-  {
    "seccion": "market",
    "dia": "2026-11-04",
    "slot": "london",
@@ -853,15 +735,6 @@
    ]
   },
   {
-   "seccion": "news",
-   "dia": "2026-11-05",
-   "slot": null,
-   "format": "page",
-   "title": "Payrolls preview",
-   "status": "planned",
-   "nota": "Preview of the October jobs report"
-  },
-  {
    "seccion": "market",
    "dia": "2026-11-05",
    "slot": "london",
@@ -911,15 +784,6 @@
    "video": true,
    "video_nota": "Short (EN)",
    "eventos": []
-  },
-  {
-   "seccion": "news",
-   "dia": "2026-11-06",
-   "slot": null,
-   "format": "special",
-   "title": "Payrolls anchor",
-   "status": "planned",
-   "nota": "Only if the FOMC anchor passed green; otherwise a page"
   },
   {
    "seccion": "market",
@@ -975,34 +839,6 @@
    ]
   },
   {
-   "seccion": "ai",
-   "dia": "2026-11-07",
-   "slot": null,
-   "format": "short",
-   "title": "From chat to code · 6. Guardrails and undo",
-   "asset_id": "ai-chat-al-codigo-1",
-   "status": "planned"
-  },
-  {
-   "seccion": "behavior",
-   "dia": "2026-11-07",
-   "slot": null,
-   "format": "page",
-   "title": "Behavior sessions, long form: the session map",
-   "asset_id": "behavior-largos-ejercicio",
-   "status": "planned",
-   "nota": "The video comes on Sun 29 Nov"
-  },
-  {
-   "seccion": "news",
-   "dia": "2026-11-09",
-   "slot": null,
-   "format": "page",
-   "title": "CPI preview",
-   "status": "planned",
-   "nota": "Preview of the October CPI"
-  },
-  {
    "seccion": "market",
    "dia": "2026-11-09",
    "slot": "london",
@@ -1053,24 +889,6 @@
    "video": true,
    "video_nota": "Short (EN)",
    "eventos": []
-  },
-  {
-   "seccion": "market",
-   "dia": "2026-11-10",
-   "slot": null,
-   "format": "medium",
-   "title": "Reading charts",
-   "asset_id": "trading-graficos",
-   "status": "planned"
-  },
-  {
-   "seccion": "news",
-   "dia": "2026-11-10",
-   "slot": null,
-   "format": "special",
-   "title": "CPI anchor",
-   "status": "planned",
-   "nota": "Same rule as payrolls: only if the anchors pass green"
   },
   {
    "seccion": "market",
@@ -1251,27 +1069,17 @@
    "eventos": []
   },
   {
-   "seccion": "behavior",
-   "dia": "2026-11-14",
+   "seccion": "ai",
+   "dia": null,
    "slot": null,
-   "format": "page",
-   "title": "Behavior articles no. 2",
-   "asset_id": "behavior-articulos",
+   "format": "medium",
+   "title": "From chat to code, part 1",
+   "asset_id": "ai-chat-al-codigo-1",
    "status": "planned"
   },
   {
-   "seccion": "behavior",
-   "dia": "2026-11-15",
-   "slot": null,
-   "format": "special",
-   "title": "Affirmations for sleep: guided review in Spanish",
-   "asset_id": "behavior-afirmaciones-dormir",
-   "status": "planned",
-   "nota": "In Spanish"
-  },
-  {
    "seccion": "ai",
-   "dia": "2026-11-16",
+   "dia": null,
    "slot": null,
    "format": "medium",
    "title": "Your first commit",
@@ -1279,26 +1087,17 @@
    "status": "planned"
   },
   {
-   "seccion": "market",
-   "dia": "2026-11-24",
+   "seccion": "ai",
+   "dia": null,
    "slot": null,
    "format": "medium",
-   "title": "Candles",
-   "asset_id": "trading-velas",
-   "status": "planned"
-  },
-  {
-   "seccion": "behavior",
-   "dia": "2026-11-29",
-   "slot": null,
-   "format": "medium",
-   "title": "Behavior sessions, long form",
-   "asset_id": "behavior-largos-ejercicio",
+   "title": "Your first Claude environment",
+   "asset_id": "ai-primer-entorno-claude",
    "status": "planned"
   },
   {
    "seccion": "ai",
-   "dia": "2026-11-30",
+   "dia": null,
    "slot": null,
    "format": "medium",
    "title": "Your first GitHub page",
@@ -1306,17 +1105,8 @@
    "status": "planned"
   },
   {
-   "seccion": "news",
-   "dia": "2026-12-09",
-   "slot": null,
-   "format": "special",
-   "title": "FOMC anchor (December)",
-   "status": "planned",
-   "nota": "Second anchor of the plan"
-  },
-  {
    "seccion": "ai",
-   "dia": "2026-12-14",
+   "dia": null,
    "slot": null,
    "format": "medium",
    "title": "Your first token",
@@ -1325,7 +1115,7 @@
   },
   {
    "seccion": "ai",
-   "dia": "2027-01-11",
+   "dia": null,
    "slot": null,
    "format": "medium",
    "title": "What an API is",
@@ -1334,7 +1124,7 @@
   },
   {
    "seccion": "ai",
-   "dia": "2027-01-25",
+   "dia": null,
    "slot": null,
    "format": "medium",
    "title": "Your first APIs",
@@ -1343,13 +1133,39 @@
   },
   {
    "seccion": "ai",
-   "dia": "2027-02-08",
+   "dia": null,
    "slot": null,
    "format": "medium",
    "title": "From one email to a campaign",
    "asset_id": "ai-de-un-correo-a-una-campana",
-   "status": "planned",
-   "nota": "Closes the AI ladder"
+   "status": "planned"
+  },
+  {
+   "seccion": "market",
+   "dia": null,
+   "slot": null,
+   "format": "medium",
+   "title": "What a price is",
+   "asset_id": "trading-que-es-el-precio",
+   "status": "planned"
+  },
+  {
+   "seccion": "market",
+   "dia": null,
+   "slot": null,
+   "format": "medium",
+   "title": "Reading charts",
+   "asset_id": "trading-graficos",
+   "status": "planned"
+  },
+  {
+   "seccion": "market",
+   "dia": null,
+   "slot": null,
+   "format": "medium",
+   "title": "Candles",
+   "asset_id": "trading-velas",
+   "status": "planned"
   },
   {
    "seccion": "market",
@@ -1370,6 +1186,33 @@
    "asset_id": "trading-indicador-1",
    "status": "planned",
    "nota": "In review: waits for the lawyer's opinion"
+  },
+  {
+   "seccion": "behavior",
+   "dia": null,
+   "slot": null,
+   "format": "medium",
+   "title": "Behavior articles",
+   "asset_id": "behavior-articulos",
+   "status": "planned"
+  },
+  {
+   "seccion": "behavior",
+   "dia": null,
+   "slot": null,
+   "format": "medium",
+   "title": "Behavior sessions, long form",
+   "asset_id": "behavior-largos-ejercicio",
+   "status": "planned"
+  },
+  {
+   "seccion": "behavior",
+   "dia": null,
+   "slot": null,
+   "format": "medium",
+   "title": "Affirmations for sleep",
+   "asset_id": "behavior-afirmaciones-dormir",
+   "status": "planned"
   }
  ]
 }

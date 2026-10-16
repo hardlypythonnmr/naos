@@ -417,7 +417,6 @@ const prediccion = {
     { tema: "Fed", nombre: "Fed decision in October", slug: "will-there-be-no-change-in-fed-interest-rates-after-the-october-2026-meeting-20260617190324031", evento: "fed-decision-in-october-20260617190323537" },
     { tema: "Geopolitics", nombre: "Strait of Hormuz traffic returns to normal by December 31?", slug: "strait-of-hormuz-traffic-returns-to-normal-by-december-31", evento: "strait-of-hormuz-traffic-returns-to-normal-by-december-31" },
     { tema: "AI", nombre: "Which company has the best AI model at the end of October?", slug: "will-google-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841120", evento: "which-company-has-the-best-ai-model-end-of-october" },
-    { tema: "Geopolitics", nombre: "US-Iran ceasefire continues through the midterms?", slug: "us-iran-ceasefire-continues-through-the-midterms", evento: "us-iran-ceasefire-continues-through-the-midterms" },
   ],
   kalshi: { url: "https://kalshi.com/markets", nota: "Kalshi Data Terms of Use allow personal, non-commercial use only and prohibit publicly displaying Kalshi Data without written authorization: link only." },
 };
@@ -468,12 +467,14 @@ const MESES_PM = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep",
 const MESES_LARGOS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 const gamma = (ruta) => bajar(`pm-${ruta.replace(/\W+/g, "-").slice(0, 80)}.json`, `https://gamma-api.polymarket.com/${ruta}`, { tipo: "json", guardar: false, intentos: 2, ms: 20000 });
 const lecturasPM = new Map(); // una lectura por mercado y corrida
+const ELECTORAL_PM = /\b(midterms?|elections?|electoral|ballots?|votes?|voters?|primar(?:y|ies)|runoffs?|referendum|presidential|house control|senate control|control of (?:the )?(?:house|senate|congress))\b/i;
 async function leerPM(h0) {
   if (lecturasPM.has(h0.id)) return lecturasPM.get(h0.id);
   const leer = async (h) => {
     const r = { ...REGLAS_PM }; for (const k of ["volumen_min_usd", "spread_max"]) if (k in h) r[k] = h[k];
     const base = { id: h.id, titulo: h.titulo, fuente: "Polymarket" };
     if (h.fuente !== "polymarket") return { ...base, omitir: "cited-only source" };
+    // D-252: los electorales se reportan como atribución ("Polymarket shows X is n% likely"), sin tickers ni tomar partido
     let slug = h.evento, dia = new Date(AHORA), e;
     try {
       if (!slug && h.buscar) {
@@ -497,8 +498,9 @@ async function leerPM(h0) {
     const grupo = (m.groupItemTitle || "").trim();
     const resultado = h.resultado_en.replace("{grupo}", (h.grupos || {})[grupo] || grupo).replace("{fecha_evento}", `${MESES_PM[dia.getUTCMonth()]} ${dia.getUTCDate()}`);
     const leido = GENERADO, hora = `${Number(leido.slice(8, 10))} ${MESES_PM[Number(leido.slice(5, 7)) - 1]} ${leido.slice(11, 16)}`;
-    // solo la plantilla "linea" (una cifra); la parte "On the tape" la arma la página con los activos propios
-    const linea = r.linea.split(" · On the tape")[0].replace("{p}", Math.round(p * 100)).replace("{resultado}", resultado).replace("{fuente}", "Polymarket").replace("{hora}", hora);
+    // D-252: atribución sola, "Polymarket shows X is n% likely", con hora y fuente; sin tickers ("On the tape" fuera), sea cual
+    // sea la plantilla que traiga la copia del mapa privado
+    const linea = `Polymarket shows ${resultado.replace(/^that /, "")} is ${Math.round(p * 100)}% likely (${hora} UTC)`;
     if (/\b(bet|bets|betting|wager|gamble|odds boost|buy yes|buy no)\b/i.test(linea)) return { ...base, omitir: "forbidden wording" };
     return { ...base, mercado: m.slug, grupo, p: Math.round(p * 100), leido_utc: leido, linea, resultado, tickers: tickersDe(h, grupo).map((t) => t.simbolo), omitir: null };
   };
@@ -579,6 +581,7 @@ const sinPunto = (s) => s.replace(/\.$/, "");
 // "On the tape": los tickers de la historia del mapa que existen en activos, con su cambio y fuente; sin historia, nada
 const CORTO = { BTC: "bitcoin", ETH: "ether", XAU: "gold", XAG: "silver", HG: "copper", US2Y: "US 2-year yield", US10Y: "US 10-year yield", US30Y: "US 30-year yield", USD: "NAOS dollar index", WTI: "WTI oil", BRENT: "Brent oil", NG: "natural gas" };
 function enCinta(sl, sinId) {
+  return null; // D-252: sin tickers junto a las odds; la línea "On the tape" no se publica (se deja la función por si N la reabre)
   if (!sl) return null;
   const as = tickersDe(sl, null).map((t) => t.radar && vivo(t.radar)).filter((a) => a && a.id !== sinId).filter((a, i, xs) => xs.indexOf(a) === i);
   if (!as.length) return null;
@@ -754,7 +757,7 @@ const movidos = [...new Set(salas.flatMap((s) => s.activos))].map((id) => activo
 if (movidos.length) hoyL.push({ k: "movio", t: "What moved: " + movidos.map((a) => sinPunto(frase(a))).join(". ") + "." });
 const conOdds = salas.filter((s) => s.odds).slice(0, 2);
 if (conOdds.length) { const hh = conOdds[0].odds.leido_utc.slice(11, 16);
-  hoyL.push({ k: "odds", t: `What the markets say: ${conOdds.map((s) => `${oddsFrase(s.odds)} are ${s.odds.p}%`).join("; ").replace(/^./, (c) => c.toUpperCase())} (Polymarket, ${hh} UTC). Prices set by traders, not NAOS forecasts.` }); }
+  hoyL.push({ k: "odds", t: `What the markets say: ${conOdds.map((s) => `Polymarket shows ${String(s.odds.resultado || "this outcome").replace(/^that /, "")} is ${s.odds.p}% likely`).join("; ")} (${hh} UTC). Prices set by traders, not NAOS forecasts.` }); }
 const ej = salas.find((s) => s.odds && s.ligado?.historia && s.activos.some((id) => activos.find((a) => a.id === id && a.fresco))) || salas.find((s) => s.odds && s.ligado?.historia) || null;
 if (ej) { const a = ej.activos.map((id) => activos.find((x) => x.id === id && x.fresco)).find(Boolean);
   hoyL.push({ k: "liga", t: `In one room: the ${ej.fuente} headline uses ${ej.ligado.palabras.map((w) => `“${w}”`).join(" and ")}, ${ej.ligado.palabras.length > 1 ? "words" : "a word"} NAOS files under “${ej.ligado.historia}”, so its room shows ${a ? (CORTO[a.id] || a.nombre) + "'s move, " : ""}that market's ${oddsFrase(ej.odds)}${ej.lugar ? " and a map of " + conEl(ej.lugar.nombre) : ""}.` }); }

@@ -26,6 +26,7 @@ h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-hei
 .ranura h2 { font-family: var(--font-sans); font-weight: 600; font-size: 17px; margin: 0 0 10px; padding-top: 12px; border-top: 1px solid var(--naos-ink); }
 .vacio { border: 1px dashed var(--naos-chart); padding: var(--s-3); color: var(--naos-grey); font-size: 14px; }
 .video .vacio { aspect-ratio: 16 / 9; display: grid; place-items: center; text-align: center; }
+.video .voz-s { margin: 0 0 8px; }
 .prox { margin-top: var(--s-4); border: 1px solid var(--naos-ink); border-top: 4px solid var(--lab-accent); padding: 14px 18px 12px; }
 .prox h2 { font-family: var(--font-sans); font-weight: 600; font-size: 16px; margin: 0 0 8px; }
 .prox ul { list-style: none; margin: 0; padding: 0; }
@@ -123,13 +124,13 @@ h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-hei
     <section class="lleno" aria-labelledby="r-s"><h2 id="r-s">Sources</h2><ol class="fuentes" id="fuentes"></ol><p class="sello nota-f" id="nota-f"></p></section>
   </div>
   <section class="prox" id="prox" aria-labelledby="r-u" hidden><h2 id="r-u">Upcoming</h2><ul id="prox-l"></ul><p class="sello" id="prox-s"></p></section>
-  <section class="ranura video" aria-labelledby="r-v"><h2 id="r-v">Video</h2><div class="vacio">The YouTube video goes here when the piece is published. <span class="vacio-f" data-fecha></span></div></section>
+  <section class="ranura video" aria-labelledby="r-v"><h2 id="r-v">Video</h2><p class="sello voz-s">Voice: synthetic.</p><div class="vacio">The YouTube video goes here when the piece is published. <span class="vacio-f" data-fecha></span></div></section>
   <section class="ranura" aria-labelledby="r-t"><h2 id="r-t">Transcript</h2><div class="vacio">The full transcript goes here, under the video. <span class="vacio-f" data-fecha></span></div></section>
   <section class="ranura" aria-labelledby="r-p"><h2 id="r-p">Prompts</h2><div class="vacio">The prompts used in the piece go here, ready to copy. <span class="vacio-f" data-fecha></span></div></section>
   <section class="ranura" aria-labelledby="r-f" id="ranura-f"><h2 id="r-f">Sources</h2><div class="vacio">Every source cited in the piece goes here, linked. <span class="vacio-f" data-fecha></span></div></section>
   <p class="solo-imp imp-pie" id="imp-pie"></p>
 </main>
-<footer class="pie sello" id="pie">NAOS · Closer to yourself. <span id="pie-t">This page is a planned piece: nothing here is published yet.</span> Not financial advice.</footer>
+<footer class="pie sello" id="pie"><p class="ayuda-l" id="ayuda">If this is weighing on you, talk to someone now. Colombia: <a href="tel:106">106</a>, national mental health line, 24/7, or <a href="tel:123">123</a> in immediate danger. US: <a href="tel:988">988</a>. Anywhere else: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a>.</p>NAOS · Closer to yourself. <span id="pie-t">This page is a planned piece: nothing here is published yet.</span> Not financial advice. The voices in NAOS pieces are synthetic. Cella's replies to comments are written with AI; a person reads the hard ones.</footer>
 <script>
 /* Estado y aviso de la pieza (SER-03.3, SER-02.5). Corre al terminar de cargar para que naos.js (defer) ya esté: N.estado(id)
    escribe "Comes out <fecha>", "Date to be confirmed" o "Published" con enlace al Short; los huecos vacíos repiten la fecha. */
@@ -200,7 +201,7 @@ function llenar(x, c, consultadas) {
   if (x.pdf) { const p = document.getElementById("pdf"); p.href = x.pdf; } else document.getElementById("pdf").hidden = true;
   const url = `hardlypythonnmr.github.io/naos/pieza.html?id=${x.id}`;
   document.getElementById("imp-url").textContent = "Assets · " + c.titulo;
-  document.getElementById("imp-pie").textContent = `NAOS · Closer to yourself. ${window.NAOS_PUB ? "" : "A planned piece: the video is not published yet. "}${c.id === "trading" ? "Education only, not financial advice. " : ""}${url}`;
+  document.getElementById("imp-pie").textContent = `NAOS · Closer to yourself. Voice: synthetic. ${window.NAOS_PUB ? "" : "A planned piece: the video is not published yet. "}${c.id === "trading" ? "Education only, not financial advice. " : ""}${url}`;
   document.getElementById("lleno").hidden = false;
 }
 (async () => {
@@ -234,7 +235,7 @@ function llenar(x, c, consultadas) {
         sin.map((k) => { const ys = xs.filter((x) => x.format === k && !x.dia), n = ys.find((x) => x.nota)?.nota;
           return `<li><span class="niv">${NIV[k] || k}</span><span>${ys.length > 1 ? `${ys.length} pieces · ${esc(ys[0].title.split(" · ")[0])}` : esc(ys[0].title)}${n ? `<span class="nota">${esc(n)}</span>` : ""}</span><span class="fe tbd">Date TBD</span></li>`; }).join("");
       const ult = (s.semanas || [s.semana]).at(-1).hasta;
-      document.getElementById("prox-s").textContent = `From the NAOS month plan (${fe(s.semana.desde)} to ${fe(ult)}) and the dates it sets after it. Planned, not published; dates marked TBD are not set yet.`;
+      document.getElementById("prox-s").textContent = filas.length ? `From the NAOS schedule (${fe(s.semana.desde)} to ${fe(ult)}). Planned, not published; dates marked TBD are not set yet.` : "Planned, not published; dates marked TBD are not set yet. The NAOS grid and its topic pages are in Topics.";
       document.getElementById("prox").hidden = false;
     }
   } catch (e) { /* sin semana.json, sin tarjeta */ }

@@ -1,86 +1,84 @@
-/* franja.js · #secuencia, el primer bloque de la portada (PROD-08.8): el Short y el Reel de hoy, con el enlace de cada plataforma.
- * Lee data/semana.json (qué piezas con video hay y a qué hora) y data/enlaces.json (el yt y el ig de lo ya publicado; lo escribe una sola mano).
- * Sin enlace no hay botón: la ficha dice "Next". Si hoy no hay nada publicado se muestra la última pieza publicada; si tampoco hay, la próxima con fecha.
- * Los briefs de hoy sin video (Londres, Nueva York) salen como "On the page" con enlace a Market. Con la semana vacía: "Nothing is scheduled yet." (no es un error de carga).
- * Desviación registrada del diseno.md (datos viejos): con la grilla de más de 72 h no se esconde la franja, se reemplaza por "The schedule is out of date." con enlaces a This week y Upcoming, para no dejar un hueco mudo en el primer bloque.
- * Nunca un hueco: solo si semana.json no carga se muestra el aviso con un enlace a la semana. ?src=ig agrega el saludo; ?hoy=AAAA-MM-DD es para probar. */
+/* franja.js · #secuencia, el primer bloque de The Present en la portada: la franja urgente (lote E, D-252).
+ * Hoy y lo que sigue, desde la grilla (data/temas.json, su proyección pública): cada pieza de hoy con su hora en Nueva York (ET)
+ * y en Medellín, su estado ("Out" con enlace en data/enlaces.json, si no "Coming") y el enlace a su tarjeta en su página de tema;
+ * después la próxima pieza. Reemplaza al plan del mes de D-227 (data/semana.json ya no manda aquí).
+ * Noticias y elecciones: solo fecha y tema hasta el sello I4 (D-252). Sin enlace no hay botón de video.
+ * "Hoy" es el día de la grilla en Nueva York; ?hoy=AAAA-MM-DD es para probar. ?src=ig agrega el saludo.
+ * Dos ediciones (D-253): en la portada EN las piezas en español enlazan a su tarjeta en es/temas/; con data-lang="es" (es/)
+ * la franja habla en español, enlaza a es/temas/ y marca con lang="en" los títulos en inglés. El lang va solo en el título. */
 (function () {
   "use strict";
   const el = document.getElementById("secuencia"); if (!el) return;
   const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const MES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], DIA = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const ES = el.dataset.lang === "es", raiz = el.dataset.raiz || "", LANG = ES ? "es" : "en";
+  const MES = ES ? ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"] : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const DIA = ES ? ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"] : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const fe = (f) => { const t = new Date(f + "T12:00:00Z"); return `${DIA[t.getUTCDay()]} ${t.getUTCDate()} ${MES[t.getUTCMonth()]}`; };
+  const X = ES ? {
+    titulo: "Hoy y lo próximo", ver: "Mira los <a href=\"temas/\">temas</a> o la <a href=\"" + raiz + "agenda.html\" hreflang=\"en\">agenda</a> (en inglés).", nada: "Todavía no hay nada programado.", error: "No se pudieron cargar las piezas de hoy.",
+    hoy: "Hoy", sigue: "Después", de: (i, n) => `${i} de ${n}, `, abre: "se abre en una pestaña nueva", voz: "Voz: sintética", mercado: "Descriptivo, sin asesoría financiera", salio: "Publicada", proximo: "Próximamente",
+    enOtro: "En inglés", voces: (xs) => "Voces: " + xs.map((l) => ({ en: "inglés", es: "español" }[l])).join(", después "), noticia: "Noticias",
+    sub: "Horas de Nueva York (ET) y Medellín. Cada pieza enlaza a su página de tema.", ig: "¿Lo viste en Instagram? Aquí está hoy, en el orden en que publicamos.",
+    nadaHoy: (f, h) => `Hoy no sale nada. Próxima: ${f}, ${h} ET.`, pie: `Desde la grilla de NAOS. Una pieza dice «Publicada», con sus enlaces, cuando sale. <a href="temas/">Todos los temas</a> · <a href="${raiz}agenda.html" hreflang="en">Agenda (en inglés)</a>`,
+    formato: { "short+reel": "Short y Reel", medio: "Video mediano en YouTube", carrusel: "Carrusel de Instagram", historia: "Historia de Instagram", es: "Short y Reel en español" },
+  } : {
+    titulo: "Today and next", ver: "See <a href=\"temas/\">Topics</a> or <a href=\"agenda.html\">Upcoming</a>.", nada: "Nothing is scheduled yet.", error: "Could not load today's pieces.",
+    hoy: "Today", sigue: "Next", de: (i, n) => `${i} of ${n}, `, abre: "opens in a new tab", voz: "Voice: synthetic", mercado: "Descriptive, not financial advice", salio: "Out", proximo: "Coming",
+    enOtro: "In Spanish", voces: (xs) => "Voices: " + xs.map((l) => ({ en: "English", es: "Spanish" }[l])).join(", then "), noticia: "News",
+    sub: "Times in New York (ET) and Medellín. Each piece links to its topic page.", ig: "Seen on Instagram? Here is today in the order we post it.",
+    nadaHoy: (f, h) => `Nothing out today. Next: ${f}, ${h} ET.`, pie: 'From the NAOS grid. A piece shows "Out" with its links once it is published. <a href="temas/">All topics</a> · <a href="agenda.html">Upcoming</a>',
+    formato: null,
+  };
   const q = new URLSearchParams(location.search);
-  // "hoy" es el día de la grilla (hora de Nueva York, la zona de los briefs de mercado), no el día UTC: pasadas las 19:00 en Colombia el UTC ya es mañana
-  const diaGrilla = () => new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
-  const hoy = /^\d{4}-\d{2}-\d{2}$/.test(q.get("hoy") || "") ? q.get("hoy") : diaGrilla();
-  const deIg = q.get("src") === "ig";
-  const clave = (x) => x.dia + "|" + (x.slot || x.asset_id);
-  const esVideo = (x) => x.dia && (x.video === true || x.format === "short");
-  const YT_OK = /^https:\/\/(www\.youtube\.com|youtu\.be)\//, IG_OK = /^https:\/\/www\.instagram\.com\//; // la misma regla por plataforma que validar.mjs: un yt que apunta a Instagram no pasa
-  const ENL = '<a href="agenda.html">Upcoming</a>';
-  const RE_ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?Z$/; // la misma forma que valida validar.mjs (con o sin segundos: enlaces.json los trae)
-  const esViejo = (iso, horas) => Date.now() - Date.parse(iso) > horas * 36e5;
-  const aviso = (txt) => { el.innerHTML = `<section class="fr" aria-labelledby="fr-t"><div class="fr-in"><h2 class="fr-t" id="fr-t">Today's Short</h2>` +
-    `<p class="fr-sub" role="status">${txt} See <a href="#semana">This week</a> or ${ENL}.</p></div></section>`; };
+  const diaNY = (d) => new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(d);
+  const hoy = /^\d{4}-\d{2}-\d{2}$/.test(q.get("hoy") || "") ? q.get("hoy") : diaNY(new Date());
+  const YT_OK = /^https:\/\/(www\.youtube\.com|youtu\.be)\//, IG_OK = /^https:\/\/www\.instagram\.com\//;
+  const aviso = (txt) => { el.innerHTML = `<section class="fr" aria-labelledby="fr-t"><div class="fr-in"><h2 class="fr-t" id="fr-t">${X.titulo}</h2>` +
+    `<p class="fr-sub" role="status">${txt} ${X.ver}</p></div></section>`; };
 
-  // esqueleto con la misma estructura y los mismos tamaños que la franja final: título, subtítulo, 3 fichas (a 390 solo la primera: una columna) y sello; sin salto de layout
-  const esq = '<li class="fr-f fr-esq"><span class="fr-h num">&nbsp;</span><span class="fr-n">&nbsp;<br>&nbsp;</span><span class="fr-e"><span class="ag-chip ficha fr-a">&nbsp;</span></span></li>';
+  // esqueleto con la misma estructura que la franja final, para que nada salte
+  const esq = '<li class="fr-f fr-esq"><span class="fr-h num">&nbsp;</span><span class="fr-n">&nbsp;</span><span class="fr-m sello">&nbsp;</span></li>';
   el.innerHTML = '<div class="fr fr-carga" aria-hidden="true"><div class="fr-in"><h2 class="fr-t">&nbsp;</h2><p class="fr-sub">&nbsp;</p><ol class="fr-l">' + esq + esq + esq + '</ol><p class="sello fr-s">&nbsp;</p></div></div>'; el.hidden = false;
 
   Promise.all([
-    fetch("data/semana.json").then((r) => r.json()),
-    fetch("data/enlaces.json").then((r) => r.json()).catch(() => ({ piezas: {} })),
-  ]).then(([sem, enl]) => {
-    // con la grilla de más de 72 h no se pintan fichas "Next" ni "Published" como si fueran actuales
-    if (RE_ISO.test(sem.generado || "") && esViejo(sem.generado, 72)) { aviso("The schedule is out of date."); return; }
-    const piezas = (enl && enl.piezas) || {}, items = (sem.items || []).filter(esVideo);
-    const enlace = (x) => { const e = piezas[clave(x)]; return e && YT_OK.test(e.yt || "") ? e : null; };
-    const hora = (x) => x.hora_utc || x.dia + "T23:59Z";
-    const deHoy = items.filter((x) => x.dia === hoy).sort((a, b) => hora(a).localeCompare(hora(b)));
-    // briefs de hoy sin video (Londres, Nueva York): viven en la página, no tienen Short; ficha "On the page" con enlace a Market
-    const enPagina = (sem.items || []).filter((x) => x.dia === hoy && x.video === false && x.seccion === "market" && x.format === "brief");
-    const publicadas = items.filter(enlace).sort((a, b) => (enlace(b).publicado_utc || b.dia).localeCompare(enlace(a).publicado_utc || a.dia));
-    const proxima = items.filter((x) => x.dia >= hoy && !enlace(x)).sort((a, b) => hora(a).localeCompare(hora(b)))[0];
-    // qué fichas: lo de hoy; si hoy nada tiene enlace, la última publicada; si no hay ninguna, la próxima con fecha
-    let fichas = deHoy.map((x) => ({ x, e: enlace(x), hoy: true }));
-    const ultima = publicadas.find((x) => x.dia !== hoy);
-    if (!fichas.some((f) => f.e)) {
-      if (ultima) fichas = [{ x: ultima, e: enlace(ultima), ultima: true }].concat(fichas);
-      else if (!fichas.length && proxima) fichas = [{ x: proxima, e: null }];
-    }
-    // semana vacía: no es un error de carga, simplemente no hay nada programado ni publicado
-    if (!fichas.length && !enPagina.length) { aviso("Nothing is scheduled yet."); return; }
-    const conVideo = fichas.slice();
-    fichas = fichas.concat(enPagina.map((x) => ({ x, e: null, hoy: true, pagina: true })))
-      .sort((a, b) => (a.ultima ? "" : hora(a.x)).localeCompare(b.ultima ? "" : hora(b.x)));
-
-    const vivo = (f) => (f.e && f.e.publicado_utc ? ` data-live="${esc(f.e.publicado_utc)}"` : "");
-    const marca = (f) => (f.hoy ? '<span class="fr-tag">Today</span>' : f.ultima ? '<span class="fr-tag">Latest</span>' : "");
-    const publicada = (iso) => RE_ISO.test(iso || "") ? " · " + fe(iso.slice(0, 10)) + " · " + iso.slice(11, 16) + " UTC" : ""; // fecha y hora de la fuente, nunca solo "Published"
-    const cuando = (f) => (f.pagina ? "On the page · " + esc(f.x.hora_local || "time to be confirmed") : f.e ? "Published" + publicada(f.e.publicado_utc) : "Next · " + (f.x.dia === hoy ? "" : fe(f.x.dia) + " · ") + esc(f.x.hora_local || "time to be confirmed"));
-    const enl2 = (f) => {
-      const t = esc(f.x.title);
-      if (f.pagina) return `<a class="ag-chip ficha fr-a" href="#mercados" aria-label="${t}, on the page, go to Market">Market</a>`;
-      if (!f.e) return `<span class="fr-prox sello">Not out yet. No link until it is published.</span>`;
-      return `<a class="ag-chip ficha fr-a" href="${esc(f.e.yt)}" target="_blank" rel="noopener" aria-label="${t}, Short, opens in a new tab">Short</a>` +
-        (f.e.ig && IG_OK.test(f.e.ig) ? `<a class="ag-chip ficha fr-a" href="${esc(f.e.ig)}" target="_blank" rel="noopener" aria-label="${t}, Reel, opens in a new tab">Reel</a>` : "");
-    };
-    const lista = fichas.map((f, i) => `<li class="fr-f${f.hoy ? " fr-hoy" : ""}"${vivo(f)}>` +
-      `<span class="fr-h num">${marca(f)}${cuando(f)}</span>` +
-      `<span class="fr-n"><span class="sr">${i + 1} of ${fichas.length}, </span>${esc(f.x.title)}</span>` +
-      `<span class="fr-e">${enl2(f)}</span></li>`).join("");
-
-    const todosIg = conVideo.length > 0 && conVideo.every((f) => f.e && f.e.ig);
-    let sub = deIg ? "Seen on Instagram? Here is today in the order we post it." : todosIg ? "Same sequence on YouTube Shorts and Instagram Reels." : "Videos on YouTube Shorts and Instagram Reels.";
-    if (proxima && proxima.dia === hoy && !fichas.some((f) => f.hoy && f.e)) sub = "Today's video comes out at " + esc(proxima.hora_local || "a time to be confirmed") + ". No link until then.";
-    else if (!fichas.some((f) => f.hoy && f.e) && proxima) sub = "Nothing new today. Next: " + fe(proxima.dia) + (proxima.hora_local ? ", " + esc(proxima.hora_local) : "") + ".";
-    const gen = RE_ISO.test(sem.generado || "") ? sem.generado : "", viejo = gen && esViejo(gen, 24);
-    const sello = gen ? `<p class="sello fr-s${viejo ? " fr-viejo" : ""}">${esc(`Schedule: NAOS grid, updated ${Number(gen.slice(8, 10))} ${MES[+gen.slice(5, 7) - 1]} ${gen.slice(0, 4)} · ${gen.slice(11, 16)} UTC. Links: what is already published.`)}</p>` : "";
-
+    fetch(raiz + "data/temas.json").then((r) => r.json()),
+    fetch(raiz + "data/enlaces.json").then((r) => r.json()).catch(() => ({ piezas: {} })),
+  ]).then(([D, enl]) => {
+    const piezas = (D.piezas || []).slice().sort((a, b) => a.utc.localeCompare(b.utc));
+    const pag = Object.fromEntries((D.paginas || []).map((p) => [p.slug, p]));
+    const enlace = (x) => { const e = ((enl && enl.piezas) || {})[x.fecha + "|" + x.codigo]; return e && YT_OK.test(e.yt || "") ? e : null; };
+    const deHoy = piezas.filter((x) => x.fecha === hoy);
+    const proxima = piezas.find((x) => x.fecha > hoy);
+    if (!deHoy.length && !proxima) { aviso(X.nada); return; }
+    const fichas = deHoy.map((x) => ({ x, hoy: true })).concat(proxima ? [{ x: proxima }] : []);
+    const titPag = (p) => (ES ? p.titulo_es || p.titulo : p.titulo);
+    const formato = (x) => (X.formato && X.formato[x.canal]) || x.formato;
+    const nombre = (x) => (x.noticia ? (pag[x.pagina] && pag[x.pagina].pilar === "news" ? X.noticia + ": " + titPag(pag[x.pagina]) : X.noticia) : x.titulo || formato(x));
+    // la tarjeta de una pieza en español vive en la edición ES; en la portada EN se enlaza allá
+    const bil = (x) => (x.idiomas || []).length > 1;
+    const ruta = (x) => (!ES && x.lang === "es" && !bil(x) ? "es/" : "") + `temas/${encodeURIComponent(x.pagina)}/#${encodeURIComponent(x.id)}`;
+    const lista = fichas.map((f, i) => {
+      const x = f.x, e = enlace(x), href = ruta(x), t = esc(nombre(x));
+      const langT = x.titulo && !x.noticia && x.lang !== LANG ? ` lang="${x.lang}"` : "";
+      // fila de horario (pase de arte 16-oct): el día se nombra una vez ("Today" en la primera de hoy, "Next" con su fecha),
+      // la hora en ET y Medellín en su columna, el título es el enlace a su tarjeta; YouTube e Instagram solo si ya salió
+      const primera = !f.hoy || i === 0;
+      const marca = `<span class="fr-tag${primera ? "" : " sr"}">${f.hoy ? X.hoy : X.sigue}</span>${f.hoy ? "" : `<span class="fr-w">${esc(fe(x.fecha))}</span>`}`;
+      const cuando = `<span class="fr-w">${esc(x.hora_et)} ET</span><span class="fr-w">${esc(x.hora_medellin)} Medellín</span>`;
+      const botones = e ? `<span class="fr-e"><a class="ag-chip ficha fr-a" href="${esc(e.yt)}" target="_blank" rel="noopener" aria-label="${t}, YouTube, ${X.abre}">YouTube</a>` +
+        (IG_OK.test(e.ig || "") ? `<a class="ag-chip ficha fr-a" href="${esc(e.ig)}" target="_blank" rel="noopener" aria-label="${t}, Instagram, ${X.abre}">Instagram</a>` : "") + `</span>` : "";
+      const meta = [formato(x), bil(x) ? X.voces(x.idiomas) : x.lang !== LANG && x.canal !== "es" ? (ES ? X.enOtro : "") : "", x.voz ? X.voz : "", x.mercado ? X.mercado : "", e ? X.salio : X.proximo].filter(Boolean).join(". ");
+      return `<li class="fr-f${f.hoy ? " fr-hoy" : ""}${primera ? "" : " fr-sigue"}">` +
+        `<span class="fr-h num">${marca}${cuando}</span>` +
+        `<span class="fr-c"><a class="fr-n" href="${href}"><span class="sr">${X.de(i + 1, fichas.length)}</span><span${langT}>${t}</span></a>` +
+        `<span class="fr-m sello">${esc(meta)}</span></span>${botones}</li>`;
+    }).join("");
+    let sub = q.get("src") === "ig" ? X.ig : X.sub;
+    if (!deHoy.length) sub = X.nadaHoy(esc(fe(proxima.fecha)), esc(proxima.hora_et));
     el.innerHTML = `<section class="fr" aria-labelledby="fr-t"><div class="fr-in">` +
-      `<h2 class="fr-t" id="fr-t">Today's Short</h2><p class="fr-sub">${sub}</p>` +
-      `<ol class="fr-l" aria-label="Today's sequence">${lista}</ol>${sello}</div></section>`;
+      `<h2 class="fr-t" id="fr-t">${X.titulo}</h2><p class="fr-sub">${sub}</p>` +
+      `<ol class="fr-l" aria-label="${X.titulo}">${lista}</ol>` +
+      `<p class="sello fr-s">${X.pie}</p></div></section>`;
     document.dispatchEvent(new CustomEvent("naos:secuencia"));
-  }).catch(() => aviso("Could not load the sequence."));
+  }).catch(() => aviso(X.error));
 })();

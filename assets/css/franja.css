@@ -1,31 +1,49 @@
-/* franja.css · #secuencia, el Short y el Reel de hoy (PROD-08.8). Solo tokens; sin animación propia.
+/* franja.css · #secuencia, la franja urgente de hoy y lo que sigue desde la grilla (lote E, D-252), y "This week" por día. Solo tokens; sin animación propia.
  * Hoy lleva borde de 2 px en vino (como la grilla de "This week") y la palabra "Today"; el cobalto queda fuera. */
 /* .ficha de la ola 0 choca con la ficha de la cinta (v1plus.css: dos puntos a los lados): aquí se anulan; el aviso va a la sesión */
 .ag-chip.ficha::before, .ag-chip.ficha::after { content: none; }
-#secuencia .fr { padding: var(--s-3) var(--page-gutter) var(--s-3); border-bottom: 1px solid var(--naos-rule); }
+#secuencia .fr { padding: var(--s-4) var(--page-gutter) var(--s-3); border-bottom: 1px solid var(--naos-rule); }
 .fr-in { max-width: 1120px; margin: 0 auto; }
 .fr-t { font-family: var(--font-serif); font-weight: 300; font-size: var(--p-title); line-height: 1.15; letter-spacing: -0.01em; margin: 0; color: var(--naos-ink); }
-.fr-sub { margin: 6px 0 16px; font-family: var(--font-sans); font-size: 14px; line-height: 1.45; color: var(--naos-sec); }
+.fr-sub { margin: 6px 0 var(--s-2); font-family: var(--font-sans); font-size: 14px; line-height: 1.45; color: var(--naos-sec); }
 .fr-sub a { color: var(--naos-ink); text-decoration: underline; text-underline-offset: 2px; }
-.fr-l { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
-.fr-f { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 14px 16px; border: 1px solid var(--naos-grey); background: var(--naos-paper); }
-.fr-hoy { border: 2px solid var(--vino, #5A1834); padding: 13px 15px; }
-.fr-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; font-family: var(--font-sans); font-size: 14px; color: var(--naos-sec); }
-.fr-tag { font-family: var(--font-cond); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--naos-ink); }
-.fr-n { font-family: var(--font-serif); font-size: 19px; line-height: 1.25; color: var(--naos-ink); overflow-wrap: anywhere; }
-/* el sello LIVE lo pinta live.js dentro de la ficha; aquí solo su lugar en la columna */
-.fr-f > .live-sello { align-self: flex-start; }
-.fr-e { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+/* pase de arte 16-oct: un horario, no una fila de cajas. Filete de tinta donde cambia el día (Today, Next), gris entre piezas del mismo día */
+.fr-l { list-style: none; margin: 0; padding: 0; }
+.fr-f { display: grid; grid-template-columns: 11rem minmax(0, 1fr) auto; align-items: baseline; gap: 4px 24px; min-width: 0; padding: 12px 0 14px; border-top: 1px solid var(--naos-ink); }
+.fr-f.fr-sigue { border-top-color: var(--naos-rule); }
+.fr-h { display: flex; flex-direction: column; font-family: var(--font-sans); font-size: 14px; line-height: 1.35; color: var(--naos-sec); }
+.fr-tag { font-family: var(--font-serif); font-size: 18px; line-height: 1.25; color: var(--naos-ink); margin-bottom: 2px; }
+.fr-hoy .fr-tag { color: var(--vino, #5A1834); }
+.fr-c { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.fr-n { font-family: var(--font-serif); font-size: 21px; line-height: 1.22; color: var(--naos-ink); overflow-wrap: anywhere; text-decoration: none; text-wrap: balance; }
+.fr-n:hover, .fr-n:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.fr-m { font-size: 13px; }
+/* el sello LIVE lo pinta live.js dentro de la ficha; aquí solo su lugar */
+.fr-f > .live-sello { align-self: start; }
+.fr-e { display: flex; flex-wrap: wrap; gap: 8px; }
 .fr-a { text-decoration: none; }
 .fr-prox { margin: 0; }
-.fr-s { margin: 12px 0 0; }
+.fr-s { margin: 12px 0 0; padding-top: 12px; border-top: 1px solid var(--naos-rule); }
 .fr-viejo { color: var(--naos-grey); font-style: italic; }
 /* esqueleto: la misma estructura que la franja final, texto invisible sobre barras de papel */
-.fr-carga .fr-t, .fr-carga .fr-sub, .fr-carga .fr-h, .fr-carga .fr-n, .fr-carga .fr-a, .fr-carga .fr-s { color: transparent; background: var(--lab-paper); }
+.fr-carga .fr-t, .fr-carga .fr-sub, .fr-carga .fr-h, .fr-carga .fr-n, .fr-carga .fr-m, .fr-carga .fr-s { color: transparent; background: var(--lab-paper); }
 .fr-carga .fr-sub { width: 60%; } .fr-carga .fr-s { width: 70%; }
-.fr-carga .fr-a { min-width: 72px; }
 @media (max-width: 760px) {
-  #secuencia .fr { padding: var(--s-2) var(--page-gutter-390) var(--s-2); }
-  .fr-l { grid-template-columns: minmax(0, 1fr); }
+  #secuencia .fr { padding: var(--s-3) var(--page-gutter-390) var(--s-2); }
+  .fr-f { grid-template-columns: 6.75rem minmax(0, 1fr); gap: 4px 16px; }
+  .fr-e { grid-column: 2; }
+  .fr-n { font-size: 19px; }
   .fr-t { font-size: 26px; }
 }
+.fr-m { margin: 0; }
+/* "This week" desde la grilla (sala.js, N.semana): una lista por día, en todos los anchos */
+.gs-dias { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.gs-d { min-width: 0; }
+.gs-dt { margin: 0 0 6px; font-size: 13px; letter-spacing: .05em; border-top: 2px solid var(--naos-ink); padding-top: 6px; }
+.gs-hoy .gs-dt { border-top-color: var(--vino, #5A1834); }
+.gs-l { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.gs-i { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; padding-left: 8px; border-left: 4px solid var(--sc, var(--naos-sec)); }
+.gs-i .sf { min-height: 32px; gap: 8px; }
+.gs-h { flex: none; color: var(--naos-sec); }
+.gs-s { font-size: 11px; letter-spacing: .05em; color: var(--naos-sec); }
+@media (min-width: 900px) { .gs-dias { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); } }

@@ -188,3 +188,13 @@ html.pjs:not([data-u="present"]) { scroll-padding-bottom: 0; } /* la ficha de la
   .puerta-hum .puerta-cuerpo { margin-bottom: 160px; }
   .puerta-t { font-size: clamp(96px, 11vw, 160px); }
 }
+
+/* ---------- pausa de Cella (WCAG 2.2.2, D-252): un botón junto a cada Cella que respira; todas comparten el estado ---------- */
+.ag-chip.cella-pausa { min-height: 32px; min-width: 0; padding: 4px 10px; font-size: 13px; }
+.puerta-hum > .cella-pausa { position: absolute; z-index: 3; top: 22px; right: var(--s-4); }
+.placa-in > .cella-pausa { position: absolute; right: 0; top: calc(-1 * var(--s-6)); }
+.dia-fila > .cella-pausa { flex: none; align-self: center; }
+@media (max-width: 760px) {
+  .puerta-hum > .cella-pausa { top: 14px; right: var(--s-2); }
+  .placa-in > .cella-pausa { top: -40px; }
+}

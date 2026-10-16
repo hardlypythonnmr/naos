@@ -45,7 +45,18 @@
     return { txt: `in ${d} days`, ya: false, d };
   }
   const proximos = (eventos, ahora = Date.now()) => eventos.filter((e) => fin(e) > ahora).sort((a, b) => inicio(a) - inicio(b));
-  const A = { CATEGORIAS, cat, slug, conIds, ICS, todo: "naos-agenda", inicio, fin, dias, cuenta, proximos,
+  // elecciones (D-252, rojo 5): fecha y tema, sin ángulo de mercado, y la fuente solo si es la autoridad electoral o el
+  // diario oficial; si no, "official source pending". La fecha se queda: es lo que la página promete.
+  const OFICIAL = /(^|\.)(fec\.gov|eac\.gov|tse\.jus\.br|boe\.es|juntaelectoralcentral\.es|service-public\.gouv\.fr|ine\.mx|inecnigeria\.org|elections\.ca|aec\.gov\.au)$/;
+  const publico = (e) => {
+    if (e.categoria !== "election") return e;
+    let host = ""; try { host = new URL(e.url).hostname; } catch (x) { /* sin URL */ }
+    return { ...e, angulo: null, ...(OFICIAL.test(host) ? {} : { fuente: null, url: null, url2: null }) };
+  };
+  // idioma de una etiqueta de fuente (WCAG 3.1.2): una frase en español dentro de una página en inglés lleva lang="es"
+  const ES_FUENTE = /[¿¡ñ]|\b(calendario|agenda|anuncios|política|económica|elecciones|año|según)\b/i;
+  const langDe = (t) => (ES_FUENTE.test(String(t || "")) ? "es" : "");
+  const A = { CATEGORIAS, cat, slug, conIds, ICS, todo: "naos-agenda", inicio, fin, dias, cuenta, proximos, publico, langDe,
     rutaEvento: (e) => `${ICS}${e.id}.ics`, rutaCategoria: (id) => `${ICS}${cat(id).archivo}.ics`, rutaTodo: () => `${ICS}naos-agenda.ics` };
   if (typeof module === "object" && module.exports) module.exports = A; else raiz.NAOS_AGENDA = A;
 })(typeof window !== "undefined" ? window : globalThis);

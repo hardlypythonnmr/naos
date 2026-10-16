@@ -15,14 +15,12 @@ DTSTAMP:20261014T000000Z
 DTSTART;VALUE=DATE:20270116
 DTEND;VALUE=DATE:20270117
 SUMMARY:Nigeria presidential and National Assembly elections
-DESCRIPTION:Africa's largest economy\; the naira\, Eurobonds and oil output
-  policy.\n\nTime not set by the source\; listed as an all-day event.\n\nSo
- urce: Voice of Nigeria\, INEC revised timetable. https://von.gov.ng/inec-i
- ssues-revised-timetable-for-2027-general-election/\n\nNAOS Upcoming: https
- ://hardlypythonnmr.github.io/naos/agenda.html#2027-01-16-nigeria-president
- ial-and-national-assembly-elect\n\nDescriptive\, not financial advice.
-URL:https://von.gov.ng/inec-issues-revised-timetable-for-2027-general-elect
- ion/
+DESCRIPTION:Time not set by the source\; listed as an all-day event.\n\nDat
+ e and topic only. Official source pending.\n\nNAOS Upcoming: https://hardl
+ ypythonnmr.github.io/naos/agenda.html#2027-01-16-nigeria-presidential-and-
+ national-assembly-elect\n\nDescriptive\, not financial advice.
+URL:https://hardlypythonnmr.github.io/naos/agenda.html#2027-01-16-nigeria-p
+ residential-and-national-assembly-elect
 CATEGORIES:Elections
 LOCATION:Nigeria
 TRANSP:TRANSPARENT

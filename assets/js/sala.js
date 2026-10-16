@@ -36,10 +36,11 @@
      Polymarket se nombra como fuente, en letra chica, con la hora. Una cifra por historia. */
   const resultadoDe = (o) => o.resultado || partesOdds(o).resultado || "this outcome";
   const deQue = (o) => (/^that /.test(resultadoDe(o)) ? "" : "of ") + resultadoDe(o);
-  N.oddsTxt = (o) => `Market odds ${deQue(o)}`;
+  // atribución (D-252): "Polymarket shows <resultado> is n% likely"; la hora y la fuente van en N.oddsFuente
+  N.oddsTxt = (o) => `Polymarket shows ${resultadoDe(o).replace(/^that /, "")} is ${o.p}% likely`;
   N.oddsDentro = (o) => `The market's odds ${deQue(o)} are inside`;
   N.oddsFuente = (o) => `Polymarket, ${horaTxt(o.leido_utc)}`;
-  N.oddsHTML = (o) => !o ? "" : `<a href="${esc(o.url)}" rel="noopener">${esc(N.oddsTxt(o))}: <b class="num">${esc(o.p)}%</b></a> <span class="sello">${esc(N.oddsFuente(o))}</span>`;
+  N.oddsHTML = (o) => !o ? "" : `<a href="${esc(o.url)}" rel="noopener">${esc(N.oddsTxt(o))}</a> <span class="sello">${esc(N.oddsFuente(o))}</span>`;
 
   /* ---------- cifras clave en la cabecera (D-221 r3): una a tres, los movimientos y la única cifra de odds; lo hondo va abajo ---------- */
   N.cifras = (items) => { const xs = items.filter(Boolean).slice(0, 3); if (!xs.length) return "";
@@ -95,7 +96,7 @@
       `<div class="cn-col">` +
       nodo("noticias", "News", ej ? `${esc(ej.fuente)}, ${esc(horaTxt(ej.hora))}: “${esc(ej.titulo)}”` : "", `${pl(L.wire, "headline")} on the wire, ${pl(L.titulares, "headline")} scanned`) +
       nodo("datos", "US data and prices", a ? `${esc(ctx.nombreCorto[a.id] || a.nombre)} ${esc(ctx.val(a))}${a.cambio != null ? " " + N.cambioHTML(a) : ""} <span class="sello">${esc(a.fuente)}</span>` : "", `${pl(L.frescas, "fresh reading")}: Treasury yields, the BLS calendar, the dollar, crypto, metals`) +
-      nodo("mercados", "Prediction markets", ej?.odds ? `${esc(N.oddsTxt(ej.odds))}: <b class="num">${esc(ej.odds.p)}%</b> <span class="sello">${esc(N.oddsFuente(ej.odds))}</span>` : "", `${pl(L.mercados_leidos, "market")} checked against the rules, odds shown for ${pl(L.mercados_mostrados, "story", "stories")}`) +
+      nodo("mercados", "Prediction markets", ej?.odds ? `${esc(N.oddsTxt(ej.odds))} <span class="sello">${esc(N.oddsFuente(ej.odds))}</span>` : "", `${pl(L.mercados_leidos, "market")} checked against the rules, odds shown for ${pl(L.mercados_mostrados, "story", "stories")}`) +
       `</div><div class="cn-col">` + nodo("mapa", `NAOS story map <span class="beta">Beta</span>`, ej?.ligado?.historia ? `${ej.ligado.palabras.map((w) => `“${esc(w)}”`).join(" and ")} → ${esc(ej.ligado.historia)}` : "", "words in a headline point to a place, its assets and one market", "centro") +
       `</div><div class="cn-col">` + nodo("sala", "Monitor room", ej ? `<a href="#sala/${esc(ej.id)}" data-sala="${esc(ej.id)}">Open today's example</a>` : "", `${pl(L.salas, "story", "stories")} with a room today`, "fin") + `</div>`;
     g.setAttribute("aria-label", `How NAOS reads the day${ej ? ", with today's example" : ""}: news, US data and prices, and prediction markets feed the NAOS story map, which opens a monitor room for each of ${L.salas} stories.`);
@@ -371,67 +372,42 @@
   };
 })();
 
-/* ================= esta semana (PAG-08.1, D-224): grilla pública sección x día, con formato por ícono ================= */
+/* ================= esta semana (lote E, D-252): la semana de la grilla, día por día, desde data/temas.json =================
+ * Reemplaza al plan del mes de D-227. Cada pieza enlaza a su tarjeta en su página de tema; hora en Nueva York (ET).
+ * Noticias y elecciones: solo fecha y tema (D-252). Abre en la semana de hoy (ET); antes de la grilla, la primera. */
 (function () {
   const N = window.NAOS, esc = (s) => N.esc(s ?? "");
-  const ICONO = {
-    brief: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="1.5" width="10" height="13" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 5h5M5.5 8h5M5.5 11h3" stroke="currentColor" stroke-width="1.5"/></svg>',
-    short: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="4.5" y="1.5" width="7" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 6.2v3.6L10 8z" fill="currentColor"/></svg>',
-    medium: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="3.5" width="14" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 5.8v4.4L10.2 8z" fill="currentColor"/></svg>',
-    special: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 14.5 8 8 14.5 1.5 8z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>',
-    page: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 1.5v3h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>',
-  };
-  const SLOT = { london: "London open", ny: "NY open", close: "US close" };
   const DIA = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], MES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  const diaTxt = (f) => { const t = new Date(f + "T12:00:00Z"); return `${DIA[t.getUTCDay()]} ${t.getUTCDate()}`; };
+  const diaTxt = (f) => { const t = new Date(f + "T12:00:00Z"); return `${DIA[t.getUTCDay()]} ${t.getUTCDate()} ${MES[t.getUTCMonth()]}`; };
+  const masDias = (f, n) => new Date(Date.parse(f + "T12:00:00Z") + n * 864e5).toISOString().slice(0, 10);
+  const lunes = (f) => masDias(f, -((new Date(f + "T12:00:00Z").getUTCDay() + 6) % 7));
+  const SEC = { markets: "market", news: "news", ai: "ai" }; // Humanity va con el color de Behavior
   N.semana = async (el) => {
-    let s, paginas = new Set();
-    try { s = await (await fetch("data/semana.json")).json(); } catch (e) { el.hidden = true; return; }
-    try { const a = await (await fetch("data/assets.json")).json(); for (const c of a.categorias) for (const x of c.piezas) if (x.pagina) paginas.add(x.id); } catch (e) {}
-    // varias semanas (D-227): abre en la de hoy; antes del plan, la primera; después, la última
-    const semanas = s.semanas?.length ? s.semanas : [s.semana], hoy = new Date().toISOString().slice(0, 10);
-    let w = semanas.findIndex((x) => hoy <= x.hasta); if (w < 0) w = semanas.length - 1;
-    // los Shorts sin fecha de una misma pieza van juntos en una ficha
-    const juntar = (xs) => { const out = []; for (const x of xs) { const g = !x.dia && x.format === "short" && out.find((y) => y.format === "short" && y.asset_id === x.asset_id && y.n);
-      if (g) g.n++; else out.push({ ...x, n: !x.dia && x.format === "short" ? 1 : 0 }); } return out; };
-    const ficha = (x) => {
-      const fmt = s.formatos.find((f) => f.id === x.format)?.titulo || x.format;
-      const txt = x.format === "brief" ? SLOT[x.slot] || x.title : x.n > 1 ? `${x.n} Shorts · ${x.title.split(" · ")[0]}` : x.title;
-      const ev = (x.eventos || []).length ? ` · ${x.eventos.length} scheduled event${x.eventos.length > 1 ? "s" : ""}` : "";
-      const tip = x.format === "brief" ? `${x.title}, ${x.hora_local}${x.video ? ". " + x.video_nota : ", on the page"}${(x.eventos || []).length ? ". Scheduled: " + x.eventos.map((e) => `${e.titulo} ${e.hora ? e.hora.slice(11, 16) + " UTC" : "(time TBD)"}`).join("; ") : ""}`
-        : `${fmt}: ${x.title}${x.dia ? "" : ", date TBD"}${x.nota ? ". " + x.nota : ""}`;
-      const vid = x.format === "brief" && x.video ? `<span class="sf-v">${x.slot === "close" ? "Short" : "video"}</span>` : "";
-      const cuerpo = `<span class="sf-i">${ICONO[x.format] || ""}</span><span class="sf-t">${esc(txt)}${esc(ev)}${vid}${!x.dia && x.nota ? `<span class="sf-n">${esc(x.nota)}</span>` : ""}</span>`;
-      const cls = `sf sf-${esc(x.format)}${x.status === "out" ? " out" : ""}`;
-      return x.asset_id && paginas.has(x.asset_id) ? `<a class="${cls}" href="pieza.html?id=${encodeURIComponent(x.asset_id)}" title="${esc(tip)}">${cuerpo}</a>` : `<span class="${cls}" title="${esc(tip)}">${cuerpo}</span>`;
-    };
-    const sec = (id) => s.secciones.find((x) => x.id === id)?.titulo || id;
-    const rango = (x) => `${diaTxt(x.desde)} ${MES[+x.desde.slice(5, 7) - 1]} to ${diaTxt(x.hasta)} ${MES[+x.hasta.slice(5, 7) - 1]}`;
+    let D;
+    try { D = await (await fetch("data/temas.json")).json(); } catch (e) { el.hidden = true; return; }
+    const piezas = (D.piezas || []).slice().sort((a, b) => a.utc.localeCompare(b.utc));
+    if (!piezas.length) { el.hidden = true; return; }
+    const pag = Object.fromEntries((D.paginas || []).map((p) => [p.slug, p]));
+    const hoy = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+    const semanas = [...new Set(piezas.map((x) => lunes(x.fecha)))];
+    let w = semanas.indexOf(lunes(hoy)); if (w < 0) w = hoy < semanas[0] ? 0 : semanas.length - 1;
+    const nombre = (x) => (x.noticia ? (pag[x.pagina] && pag[x.pagina].pilar === "news" ? "News: " + pag[x.pagina].titulo : "News") : x.titulo || x.formato);
+    const rango = (l) => `${diaTxt(l)} to ${diaTxt(masDias(l, 6))}`;
     const pintar = () => {
-      const W = semanas[w], dias = Array.from({ length: 7 }, (_, i) => new Date(Date.parse(W.desde + "T00:00:00Z") + i * 864e5).toISOString().slice(0, 10));
-      const celda = (sc, f) => juntar(s.items.filter((x) => x.seccion === sc && x.dia === f)).map(ficha).join("");
-      // escritorio: filas por sección, columnas por día y "date TBD"
-      let g = `<div class="sem-g" role="table" aria-label="Week of ${rango(W)} by section and day"><div class="sem-h" role="row"><span role="columnheader"></span>${dias.map((f) => `<span role="columnheader"${f === hoy ? ' class="hoy"' : ""}>${diaTxt(f)}</span>`).join("")}<span role="columnheader">Date TBD</span></div>`;
-      for (const x of s.secciones) g += `<div class="sem-r sec-${esc(x.id)}" role="row"><span class="sem-s cond" role="rowheader">${esc(x.titulo)}</span>` +
-        dias.map((f) => `<span class="sem-c" role="cell">${celda(x.id, f)}</span>`).join("") + `<span class="sem-c tbd" role="cell">${celda(x.id, null)}</span></div>`;
-      g += `</div>`;
-      // teléfono: por día, cada pieza con el color de su sección
-      let m = `<div class="sem-m">`;
-      for (const f of [...dias, null]) { const xs = juntar(s.items.filter((x) => x.dia === f)); if (!xs.length) continue;
-        m += `<div class="sem-d"><p class="sem-dt cond">${f ? diaTxt(f) + " " + MES[+f.slice(5, 7) - 1] : "Date TBD"}</p>${xs.map((x) => `<div class="sem-mi sec-${esc(x.seccion)}"><span class="sem-ms cond">${esc(sec(x.seccion))}</span>${ficha(x)}</div>`).join("")}</div>`; }
-      m += `</div>`;
-      el.querySelector(".sem-tabla").innerHTML = g + m;
-      el.querySelector(".sem-sello").textContent = rango(W);
-      el.querySelector(".sem-w").textContent = `Week ${w + 1} of ${semanas.length} · ${rango(W)}`;
+      const l = semanas[w], dias = Array.from({ length: 7 }, (_, i) => masDias(l, i));
+      el.querySelector(".gs-dias").innerHTML = dias.map((f) => {
+        const xs = piezas.filter((x) => x.fecha === f); if (!xs.length) return "";
+        return `<div class="gs-d${f === hoy ? " gs-hoy" : ""}"><h3 class="gs-dt cond">${f === hoy ? "Today, " : ""}${diaTxt(f)}</h3><ul class="gs-l">` + xs.map((x) =>
+          `<li class="gs-i sec-${SEC[x.pilar] || "behavior"}"><a class="sf" href="${x.lang === "es" && !(x.idiomas || []).length ? "es/" : ""}temas/${encodeURIComponent(x.pagina)}/#${encodeURIComponent(x.id)}"><span class="gs-h num">${esc(x.hora_et)} ET</span><span class="sf-t"${x.lang === "es" ? ' lang="es"' : ""}>${esc(nombre(x))}</span></a><span class="gs-s cond">${esc(x.seccion)}</span></li>`).join("") + `</ul></div>`;
+      }).join("");
+      el.querySelector(".sem-sello").textContent = rango(l);
+      el.querySelector(".sem-w").textContent = `Week ${w + 1} of ${semanas.length} · ${rango(l)}`;
       el.querySelector("[data-w='-1']").disabled = w === 0; el.querySelector("[data-w='1']").disabled = w === semanas.length - 1;
     };
-    const ley = `<p class="sem-ley">${s.formatos.map((f) => `<span class="sf sf-${esc(f.id)}"><span class="sf-i">${ICONO[f.id] || ""}</span><span class="sf-t">${esc(f.titulo)}</span></span>`).join("")}` +
-      `<span class="sem-ley-s">${s.secciones.map((x) => `<span class="sem-sw sec-${esc(x.id)}">${esc(x.titulo)}</span>`).join("")}</span></p>`;
     const nav = `<div class="sem-nav" role="group" aria-label="Choose the week"><button type="button" class="sem-b" data-w="-1"><span aria-hidden="true">&larr;</span> Previous week</button>` +
       `<p class="sem-w cond" aria-live="polite"></p><button type="button" class="sem-b" data-w="1">Next week <span aria-hidden="true">&rarr;</span></button></div>`;
-    el.querySelector(".sem-in").innerHTML = nav + ley + `<div class="sem-tabla"></div>` +
-      `<p class="sello">Three briefs each weekday on the page: London open ${s.slots.find((x) => x.id === "london")?.local}, New York open ${s.slots.find((x) => x.id === "ny")?.local}, US close ${s.slots.find((x) => x.id === "close")?.local}. ` +
-      `The close also comes out as a Short; an opening gets a video only on a day with a red event. Each brief looks ahead to what is scheduled before the next one.${s.eventos_nota ? " " + esc(s.eventos_nota) : ""} Everything here is planned; dates marked TBD are not set yet. <a href="agenda.html">The year ahead in Upcoming</a>.</p>`;
+    el.querySelector(".sem-in").innerHTML = nav + `<div class="gs-dias"></div>` +
+      `<p class="sello">From the NAOS grid. Times in New York (ET). Everything here is planned until it is out. Voice: synthetic on every Short, Reel and video. Markets pieces are descriptive, not financial advice. Spanish pieces link to <a href="es/temas/" hreflang="es" lang="es">NAOS en español</a>. <a href="temas/">All topics</a> · <a href="agenda.html">The year ahead in Upcoming</a>.</p>`;
     el.querySelector(".sem-nav").addEventListener("click", (e) => { const b = e.target.closest("[data-w]"); if (!b || b.disabled) return; w += +b.dataset.w; pintar();
       if (b.disabled) el.querySelector(`[data-w='${-b.dataset.w}']`).focus(); });
     pintar();
