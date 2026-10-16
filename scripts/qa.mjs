@@ -14,7 +14,7 @@ const { chromium } = require("playwright");
 const args = process.argv.slice(2);
 const url = args.find((a) => !a.startsWith("--") && /^https?:/.test(a));
 const op = (k, d) => { const i = args.indexOf("--" + k); return i >= 0 ? args[i + 1] : d; };
-if (!url) { console.error("uso: node scripts/qa.mjs <url> [--out DIR] [--nombre x] [--solo 390,1440] [--tab 600] [--vivo]"); process.exit(2); }
+if (!url) { console.error("uso: node scripts/qa.mjs <url> [--out DIR] [--nombre x] [--solo 390,1440] [--tab 600] [--vivo] | <url-base> --temas"); process.exit(2); }
 const OUT = op("out", "qa-salida"), NOMBRE = op("nombre", "pagina"), MAXTAB = Number(op("tab", 600));
 const TODOS = [
   { id: "320", w: 320, h: 640, dsf: 2 },
@@ -49,6 +49,80 @@ async function esperar(page) {
 }
 
 const browser = await chromium.launch();
+
+// ---------- --temas: las páginas de tema, los enlaces cortos y la portada nueva (lote E, D-252) ----------
+// NODE_PATH=$(npm root -g) node scripts/qa.mjs http://localhost:8123/ --temas [--out DIR]
+// 1. todo enlace interno de los hubs y las páginas de tema responde 200 (y su ancla existe); 2. cada enlace corto termina en su
+// tarjeta con ?src= y la marca "You came from this Short"; 3. la guía nunca abre en páginas de tema ni con ?src= o ancla, y sí al
+// entrar a The Present desde la portada limpia; 4. la pausa de Cella detiene a todas; 5. la franja trae hoy y lo próximo desde la grilla.
+if (args.includes("--temas")) {
+  const base = url.endsWith("/") ? url : url + "/";
+  const T = JSON.parse(await (await fetch(base + "data/temas.json")).text());
+  const r = { enlaces: 0, enlaces_rotos: [], anclas_rotas: [], cortos: 0, cortos_mal: [], guia: {}, cella: null, franja: null, errores: [] };
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
+  const page = await ctx.newPage();
+  page.on("pageerror", (e) => r.errores.push("pageerror " + page.url() + ": " + e.message));
+  page.on("console", (m) => { if (m.type() === "error" && (m.location().url || "").startsWith(new URL(base).origin)) r.errores.push("console " + page.url() + ": " + m.text()); });
+  // 1. enlaces internos de hubs y páginas de tema
+  const paginas = ["temas/", "temas/humanity/", "temas/the-present/", ...T.pilares.filter((P) => T.paginas.some((p) => p.pilar === P.id)).map((P) => `temas/pilar/${P.id}/`), ...T.paginas.map((p) => `temas/${p.slug}/`)];
+  const estado = new Map(), ids = new Map();
+  const idsDe = async (u) => { if (!ids.has(u)) { const h = await (await page.request.get(u)).text(); ids.set(u, new Set([...h.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]))); } return ids.get(u); };
+  for (const pg of paginas) {
+    await page.goto(base + pg, { waitUntil: "load" });
+    const hrefs = await page.evaluate(() => [...document.querySelectorAll("a[href], link[rel=stylesheet], script[src], link[rel=icon]")].map((a) => a.href || a.src));
+    for (const h of hrefs) {
+      if (!h.startsWith(new URL(base).origin)) continue;
+      const [sinAncla, ancla] = h.split("#");
+      if (!estado.has(sinAncla)) { const res = await page.request.get(sinAncla); estado.set(sinAncla, res.status()); r.enlaces++; }
+      if (estado.get(sinAncla) !== 200) r.enlaces_rotos.push(`${pg} -> ${h} (${estado.get(sinAncla)})`);
+      else if (ancla && /\/$|\.html$/.test(sinAncla.split("?")[0]) && !(await idsDe(sinAncla)).has(decodeURIComponent(ancla))) r.anclas_rotas.push(`${pg} -> ${h}`);
+    }
+    if (await page.locator("#guia, .gu-hoja").count()) r.guia["tema:" + pg] = "la guía aparece";
+  }
+  // 2. enlaces cortos
+  for (const x of T.piezas.filter((x) => x.corto)) {
+    await page.goto(base + `s/${x.codigo}/`, { waitUntil: "load" });
+    await page.waitForURL((u) => u.pathname.includes("/temas/"), { timeout: 4000 }).catch(() => {});
+    const u = new URL(page.url());
+    const ok = u.pathname.endsWith(`/temas/${x.pagina}/`) && u.searchParams.get("src") === x.codigo && u.hash === "#" + x.id &&
+      await page.locator(`#${x.id}.t-vienes`).count() === 1 && await page.locator(`#${x.id} .t-marca-js`).first().textContent().catch(() => "") === "You came from this Short";
+    if (ok) r.cortos++; else r.cortos_mal.push(`${x.codigo} -> ${page.url()}`);
+  }
+  // 3. la guía: abre solo al entrar a The Present desde la portada limpia
+  const abierta = async () => page.evaluate(() => !!document.querySelector(".gu-hoja.gu-abierta"));
+  for (const [k, q, entrar] of [["portada limpia, al entrar a The Present", "", true], ["portada con ?src=", "?src=1019h", true], ["portada con ancla", "#mercados", false]]) {
+    await page.goto(base + q, { waitUntil: "load" });
+    await page.waitForTimeout(900);
+    if (entrar && await page.locator(".puerta-pres .puerta-a").count()) { await page.locator(".puerta-pres .puerta-a").click(); await page.waitForTimeout(2200); }
+    await page.mouse.wheel(0, 300); await page.waitForTimeout(600);
+    r.guia[k] = await abierta();
+  }
+  // 4. la pausa de Cella (portada limpia, en las puertas): todas quedan quietas y aria-pressed cambia en todos los botones
+  await page.goto(base, { waitUntil: "load" }); await page.waitForTimeout(1200);
+  const foto = () => page.evaluate(() => [...document.querySelectorAll(".cella-v")].map((e) => e.innerHTML.length + ":" + e.innerHTML.slice(200, 400)).join("|"));
+  const nb = await page.locator(".cella-pausa").count();
+  const a1 = await foto(); await page.waitForTimeout(700); const a2 = await foto();
+  if (nb) await page.locator(".puerta-hum .cella-pausa").click();
+  await page.waitForTimeout(300); const b1 = await foto(); await page.waitForTimeout(900); const b2 = await foto();
+  const pres = await page.evaluate(() => [...document.querySelectorAll(".cella-pausa")].map((b) => b.getAttribute("aria-pressed")));
+  r.cella = { botones: nb, se_mueve_antes: a1 !== a2, quieta_despues: b1 === b2, aria_pressed: pres };
+  // 5. la franja: hoy (o lo próximo) desde la grilla, con enlace a la tarjeta
+  await page.goto(base + "?hoy=2026-10-20#the-present", { waitUntil: "load" }); await page.waitForTimeout(1500);
+  r.franja = await page.evaluate(() => ({ fichas: document.querySelectorAll("#secuencia .fr-f").length, titulo: document.querySelector("#fr-t")?.textContent, enlaces: [...document.querySelectorAll("#secuencia a[href*='temas/']")].map((a) => a.getAttribute("href")) }));
+  await ctx.close(); await browser.close();
+  writeFileSync(`${OUT}/report-temas.json`, JSON.stringify(r, null, 1));
+  const malo = r.enlaces_rotos.length || r.anclas_rotas.length || r.cortos_mal.length || r.errores.length || Object.entries(r.guia).some(([k, v]) => (k.startsWith("tema:") ? true : k.startsWith("portada limpia") ? v !== true : v !== false)) ||
+    !r.cella.botones || !r.cella.quieta_despues || r.cella.aria_pressed.some((x) => x !== "true") || !r.franja.fichas || !r.franja.enlaces.length;
+  console.log(`enlaces internos: ${r.enlaces} revisados, rotos ${r.enlaces_rotos.length}, anclas rotas ${r.anclas_rotas.length}`);
+  console.log(`enlaces cortos: ${r.cortos} de ${T.piezas.filter((x) => x.corto).length} aterrizan en su tarjeta${r.cortos_mal.length ? "; mal: " + r.cortos_mal.slice(0, 5).join(", ") : ""}`);
+  console.log(`guía: ${JSON.stringify(r.guia)}`);
+  console.log(`Cella: ${JSON.stringify(r.cella)}`);
+  console.log(`franja (?hoy=2026-10-20): ${r.franja.fichas} fichas, ${r.franja.enlaces.length} enlaces a tarjetas`);
+  for (const e of [...r.enlaces_rotos, ...r.anclas_rotas, ...r.errores].slice(0, 20)) console.log("  " + e);
+  console.log(malo ? "QA temas: FALLA" : "QA temas: ok");
+  process.exit(malo ? 1 : 0);
+}
+
 for (const v of VISTAS) {
   const { ctx, page, errores, caidas, terceros } = await abrir(browser, v);
   await esperar(page);
