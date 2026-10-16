@@ -1,6 +1,6 @@
 {
   "version": "2026-10-14",
-  "nota": "Mapa curado de historias -> mercado de predicción + tickers relacionados. Lo lee predicciones.py. Editar a mano cuando cambie la historia o el mercado venza. 'fuente': polymarket = se lee de la API pública Gamma (una cifra por historia, con hora); citar = solo se cita de un reporte público de noticias (Kalshi, CME FedWatch), con URL. Nunca es asesoría financiera.",
+  "nota": "Mapa curado de historias -> mercado de predicción + tickers relacionados. Lo lee predicciones.py. Editar a mano cuando cambie la historia o el mercado venza. 'fuente': polymarket = se lee de la API pública Gamma (una cifra por historia, con hora); citar = solo se cita de un reporte público de noticias (Kalshi, CME FedWatch), con URL. Nunca es asesoría financiera. D-252: solo atribución, sin tickers junto a la cifra y sin mercados electorales; construir-datos.mjs lo aplica aunque esta copia traiga otra plantilla.",
   "reglas_globales": {
     "volumen_min_usd": 250000,
     "spread_max": 0.05,
@@ -18,9 +18,9 @@
       "mention",
       "tweet"
     ],
-    "linea": "Markets price it: {p}% {resultado} ({fuente}, {hora} UTC) · On the tape: {tickers}",
-    "linea_movida": "Markets price it: {p}% {resultado} ({fuente}, {hora} UTC), {mov} pts in 24h · On the tape: {tickers}",
-    "linea_citada": "Traders on {plataforma} put {p}% on {resultado}, per {medio} ({fecha}) · On the tape: {tickers}",
+    "linea": "Polymarket shows {resultado} is {p}% likely ({hora} UTC)",
+    "linea_movida": "Polymarket shows {resultado} is {p}% likely ({hora} UTC), {mov} pts in 24h",
+    "linea_citada": "{medio} reports that {plataforma} shows {resultado} is {p}% likely ({fecha})",
     "sello": "Market odds are prices set by traders, not NAOS forecasts. Not financial advice."
   },
   "historias": [
@@ -323,51 +323,6 @@
         }
       ],
       "volumen_min_usd": 100000
-    },
-    {
-      "id": "midterms-camara",
-      "titulo": "2026 midterms, House control",
-      "palabras": [
-        "midterm",
-        "midterms",
-        "house control",
-        "congress",
-        "election",
-        "senate"
-      ],
-      "fuente": "polymarket",
-      "evento": "which-party-will-win-the-house-in-2026",
-      "eleccion": "lider",
-      "resultado_en": "{grupo} winning the House",
-      "vence": "2026-11-03",
-      "politica": true,
-      "nota": "Política solo como impacto de mercado (regla G3): la línea va únicamente en una historia sobre sectores, gasto o tasas, nunca en una sobre candidatos.",
-      "tickers": [
-        {
-          "simbolo": "XLF",
-          "nombre": "Financials ETF",
-          "radar": null
-        },
-        {
-          "simbolo": "XLV",
-          "nombre": "Health care ETF",
-          "radar": null
-        },
-        {
-          "simbolo": "XLE",
-          "nombre": "Energy ETF",
-          "radar": null
-        },
-        {
-          "simbolo": "US10Y",
-          "nombre": "US 10Y yield",
-          "radar": "US10Y"
-        }
-      ],
-      "grupos": {
-        "Democratic Party": "Democrats",
-        "Republican Party": "Republicans"
-      }
     },
     {
       "id": "fed-kalshi-citado",

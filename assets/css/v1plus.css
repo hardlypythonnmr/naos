@@ -284,6 +284,7 @@ body { font-size: 14px; }
 /* pie */
 .pie { border-top: var(--rule-heavy) solid var(--naos-ink); padding: 28px var(--page-gutter) 48px; }
 .pie-in { display: grid; grid-template-columns: 280px 1fr; gap: 32px; }
+.pie-in > .ayuda-l { grid-column: 1 / -1; margin: 0; }
 .pie .naos { margin: 0; } .pie .naos .cond { font-size: 13px; color: var(--naos-sec); margin-left: 8px; }
 .pie-fuentes p { margin: 0 0 8px; max-width: 980px; }
 

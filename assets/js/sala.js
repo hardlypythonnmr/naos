@@ -36,10 +36,11 @@
      Polymarket se nombra como fuente, en letra chica, con la hora. Una cifra por historia. */
   const resultadoDe = (o) => o.resultado || partesOdds(o).resultado || "this outcome";
   const deQue = (o) => (/^that /.test(resultadoDe(o)) ? "" : "of ") + resultadoDe(o);
-  N.oddsTxt = (o) => `Market odds ${deQue(o)}`;
+  // atribución (D-252): "Polymarket shows <resultado> is n% likely"; la hora y la fuente van en N.oddsFuente
+  N.oddsTxt = (o) => `Polymarket shows ${resultadoDe(o).replace(/^that /, "")} is ${o.p}% likely`;
   N.oddsDentro = (o) => `The market's odds ${deQue(o)} are inside`;
   N.oddsFuente = (o) => `Polymarket, ${horaTxt(o.leido_utc)}`;
-  N.oddsHTML = (o) => !o ? "" : `<a href="${esc(o.url)}" rel="noopener">${esc(N.oddsTxt(o))}: <b class="num">${esc(o.p)}%</b></a> <span class="sello">${esc(N.oddsFuente(o))}</span>`;
+  N.oddsHTML = (o) => !o ? "" : `<a href="${esc(o.url)}" rel="noopener">${esc(N.oddsTxt(o))}</a> <span class="sello">${esc(N.oddsFuente(o))}</span>`;
 
   /* ---------- cifras clave en la cabecera (D-221 r3): una a tres, los movimientos y la única cifra de odds; lo hondo va abajo ---------- */
   N.cifras = (items) => { const xs = items.filter(Boolean).slice(0, 3); if (!xs.length) return "";
@@ -95,7 +96,7 @@
       `<div class="cn-col">` +
       nodo("noticias", "News", ej ? `${esc(ej.fuente)}, ${esc(horaTxt(ej.hora))}: “${esc(ej.titulo)}”` : "", `${pl(L.wire, "headline")} on the wire, ${pl(L.titulares, "headline")} scanned`) +
       nodo("datos", "US data and prices", a ? `${esc(ctx.nombreCorto[a.id] || a.nombre)} ${esc(ctx.val(a))}${a.cambio != null ? " " + N.cambioHTML(a) : ""} <span class="sello">${esc(a.fuente)}</span>` : "", `${pl(L.frescas, "fresh reading")}: Treasury yields, the BLS calendar, the dollar, crypto, metals`) +
-      nodo("mercados", "Prediction markets", ej?.odds ? `${esc(N.oddsTxt(ej.odds))}: <b class="num">${esc(ej.odds.p)}%</b> <span class="sello">${esc(N.oddsFuente(ej.odds))}</span>` : "", `${pl(L.mercados_leidos, "market")} checked against the rules, odds shown for ${pl(L.mercados_mostrados, "story", "stories")}`) +
+      nodo("mercados", "Prediction markets", ej?.odds ? `${esc(N.oddsTxt(ej.odds))} <span class="sello">${esc(N.oddsFuente(ej.odds))}</span>` : "", `${pl(L.mercados_leidos, "market")} checked against the rules, odds shown for ${pl(L.mercados_mostrados, "story", "stories")}`) +
       `</div><div class="cn-col">` + nodo("mapa", `NAOS story map <span class="beta">Beta</span>`, ej?.ligado?.historia ? `${ej.ligado.palabras.map((w) => `“${esc(w)}”`).join(" and ")} → ${esc(ej.ligado.historia)}` : "", "words in a headline point to a place, its assets and one market", "centro") +
       `</div><div class="cn-col">` + nodo("sala", "Monitor room", ej ? `<a href="#sala/${esc(ej.id)}" data-sala="${esc(ej.id)}">Open today's example</a>` : "", `${pl(L.salas, "story", "stories")} with a room today`, "fin") + `</div>`;
     g.setAttribute("aria-label", `How NAOS reads the day${ej ? ", with today's example" : ""}: news, US data and prices, and prediction markets feed the NAOS story map, which opens a monitor room for each of ${L.salas} stories.`);
