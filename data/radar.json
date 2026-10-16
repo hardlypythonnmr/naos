@@ -1,12 +1,132 @@
 {
- "fecha": "2026-10-16T18:48Z",
+ "fecha": "2026-10-16T21:53Z",
  "wire": [
+  {
+   "titulo": "This Senate race where data centers are a crucial issue has more spending than any other midterm clash",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/this-senate-race-where-data-centers-are-a-crucial-issue-has-more-spending-than-any-other-midterm-clash-5152b43d?mod=mw_rss_topstories",
+   "hora": "2026-10-16T21:43Z",
+   "area": "AI",
+   "sample": false,
+   "odds": {
+    "nombre": "2026 midterms, House control",
+    "url": "https://polymarket.com/event/which-party-will-win-the-house-in-2026"
+   },
+   "viejo": false
+  },
   {
    "titulo": "Could an Anthropic IPO put your 401(k) at risk? The AI safety debate hits a new dimension.",
    "fuente": "MarketWatch",
    "url": "https://www.marketwatch.com/story/could-an-anthropic-ipo-put-your-401-k-at-risk-the-ai-safety-debate-hits-a-new-dimension-db3f09f7?mod=mw_rss_topstories",
-   "hora": "2026-10-16T18:37Z",
+   "hora": "2026-10-16T21:35Z",
    "area": "AI",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "The bond market shrugged off two inflation shocks. Why stock investors should pay attention.",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/the-bond-market-shrugged-off-two-inflation-shocks-why-stock-investors-should-pay-attention-5da4f771?mod=mw_rss_topstories",
+   "hora": "2026-10-16T21:30Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "New SEC rules would fleece everyday investors to enrich Wall Street",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/new-sec-rules-would-fleece-everyday-investors-to-enrich-wall-street-0a00fe03?mod=mw_rss_topstories",
+   "hora": "2026-10-16T21:21Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Don’t buy this dip: Several signs suggest there’s more pain ahead for tech stocks",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/dont-buy-this-dip-several-signs-suggest-theres-more-pain-ahead-for-tech-stocks-83f971d7?mod=mw_rss_topstories",
+   "hora": "2026-10-16T20:58Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "EchoStar’s stock looks like a stealthy way to ride the SpaceX wave, J.P. Morgan says",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/echostars-stock-looks-like-a-stealthy-way-to-ride-the-spacex-wave-j-p-morgan-says-c4effa5d?mod=mw_rss_topstories",
+   "hora": "2026-10-16T20:05Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Your Social Security check will rise an average of $75 a month — will it be able to keep up with inflation?",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/social-securitys-cola-will-be-3-6-in-2027-as-inflation-persists-f7c9dff2?mod=mw_rss_topstories",
+   "hora": "2026-10-16T19:45Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Did this year’s COLA beat inflation? Here’s how spending by American seniors stacks up so far in 2026.",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/did-this-years-cola-beat-inflation-heres-how-spending-by-american-seniors-stacks-up-so-far-in-2026-917c400c?mod=mw_rss_topstories",
+   "hora": "2026-10-16T19:45Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Trump denies limiting Ukraine access to Starlink network",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/ckz65g34wyd8o?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-16T19:33Z",
+   "area": "Politics",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "How the Claude Code team does code review",
+   "fuente": "Hacker News",
+   "url": "https://claude.dev/blog/solving-code-review-at-anthropic/",
+   "hora": "2026-10-16T19:04Z",
+   "area": "AI",
+   "sample": false,
+   "odds": {
+    "nombre": "Best AI model, end of October",
+    "url": "https://polymarket.com/event/which-company-has-the-best-ai-model-end-of-october"
+   },
+   "viejo": false
+  },
+  {
+   "titulo": "Police assess Palestine Action post by national security adviser's wife",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/crn4el88y7p2o?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-16T18:58Z",
+   "area": "Politics",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Claude reveals ECDSA curve origins",
+   "fuente": "Hacker News",
+   "url": "https://www.anthropic.com/research/ecdsa-curve-origins",
+   "hora": "2026-10-16T18:55Z",
+   "area": "AI",
+   "sample": false,
+   "odds": {
+    "nombre": "Best AI model, end of October",
+    "url": "https://polymarket.com/event/which-company-has-the-best-ai-model-end-of-october"
+   },
+   "viejo": false
+  },
+  {
+   "titulo": "Reform councillor quits over offensive remarks",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/c64g1803dkp7o?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-16T18:53Z",
+   "area": "Politics",
    "sample": false,
    "viejo": false
   },
@@ -16,42 +136,6 @@
    "url": "https://github.com/cobanov/PS5LM",
    "hora": "2026-10-16T18:32Z",
    "area": "AI",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Toxic algorithms wouldn't let them go - now Australia wants an off switch",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cwr7y8er1n8vo?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T18:11Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "I’m 64 with two sons, but only one works in the family firm. Should I leave him 70% of the business?",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/im-64-years-old-with-two-sons-but-only-one-works-in-the-family-firm-should-i-leave-him-70-of-the-business-2fe6c382?mod=mw_rss_topstories",
-   "hora": "2026-10-16T18:01Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Welcome to the ‘AI burnout trade’ — as investors grow tired of debating tech’s promises",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/welcome-to-the-ai-burnout-trade-as-investors-grow-tired-of-debating-techs-promises-6ae7836e?mod=mw_rss_topstories",
-   "hora": "2026-10-16T18:01Z",
-   "area": "AI",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "The U.S. budget deficit just hit almost $2 trillion — and Washington isn’t doing much about it",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/the-u-s-budget-deficit-just-hit-almost-2-trillion-and-washington-isnt-doing-much-about-it-a1b5c4ea?mod=mw_rss_topstories",
-   "hora": "2026-10-16T18:00Z",
-   "area": "Economy",
    "sample": false,
    "viejo": false
   },
@@ -69,33 +153,20 @@
    "viejo": false
   },
   {
-   "titulo": "90% of US working hours are spent on tasks not covered well by AI benchmarks",
-   "fuente": "Hacker News",
-   "url": "https://www.mercor.com/research/labor-index/benchmark-map/",
-   "hora": "2026-10-16T17:08Z",
-   "area": "AI",
+   "titulo": "Sean 'Diddy' Combs moved to low-security facility in Pennsylvania",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/cmwy4qnyjg4zo?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-16T17:36Z",
+   "area": "Culture",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "Here’s how the Fed should reveal its outlook for the economy",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/heres-how-the-fed-should-reveal-its-outlook-for-the-economy-79629f25?mod=mw_rss_topstories",
-   "hora": "2026-10-16T17:07Z",
-   "area": "Economy",
-   "sample": false,
-   "odds": {
-    "nombre": "Fed decision, Oct 28",
-    "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537"
-   },
-   "viejo": false
-  },
-  {
-   "titulo": "Elon Musk may have just taken a major step toward consolidating his empire",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/elon-musk-may-have-just-taken-a-major-step-toward-consolidating-his-empire-7d82dea6?mod=mw_rss_topstories",
-   "hora": "2026-10-16T16:39Z",
-   "area": "Economy",
+   "titulo": "Dame Judi Dench joins Archers Birmingham campaign",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/cw98zj4jn6ryo?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-16T17:18Z",
+   "area": "Culture",
    "sample": false,
    "viejo": false
   },
@@ -109,15 +180,6 @@
    "viejo": false
   },
   {
-   "titulo": "Many of 2026’s hottest stocks have seen dramatic comedowns this week",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/many-of-2026s-hottest-stocks-have-seen-dramatic-comedowns-this-week-e5ae5d06?mod=mw_rss_topstories",
-   "hora": "2026-10-16T16:09Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
    "titulo": "Inside Ukrainian offensive pushing Russia back - with Starlink playing a key role",
    "fuente": "BBC News",
    "url": "https://www.bbc.co.uk/news/articles/cvx284w16z1po?at_medium=RSS&at_campaign=rss",
@@ -127,28 +189,10 @@
    "viejo": false
   },
   {
-   "titulo": "Zelensky says Ukraine has right to defend itself after Trump calls latest strikes a 'disgrace'",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/c58jz174w89ro?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T15:59Z",
-   "area": "Politics",
-   "sample": false,
-   "viejo": false
-  },
-  {
    "titulo": "Housing loans granted while Burnham was mayor investigated by councillors",
    "fuente": "BBC News",
    "url": "https://www.bbc.co.uk/news/articles/ck5yn70v2yp8o?at_medium=RSS&at_campaign=rss",
    "hora": "2026-10-16T15:46Z",
-   "area": "Politics",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Reform councillor quits over offensive remarks",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/c64g1803dkp7o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T15:18Z",
    "area": "Politics",
    "sample": false,
    "viejo": false
@@ -172,37 +216,6 @@
    "url": "https://www.coindesk.com/opinion/2026/10/16/big-tech-s-ai-auditors-will-only-see-what-they-re-shown",
    "hora": "2026-10-16T14:58Z",
    "area": "Crypto",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Patients in chains rescued from suspected illegal rehab centre in South Africa",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cmwyvxj49gpwo?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T14:57Z",
-   "area": "Politics",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Show HN: Gemini 4 Argon plays StarCraft",
-   "fuente": "Hacker News",
-   "url": "https://starskirmish.com/bench/v0-2/",
-   "hora": "2026-10-16T14:18Z",
-   "area": "AI",
-   "sample": false,
-   "odds": {
-    "nombre": "Best AI model, end of October",
-    "url": "https://polymarket.com/event/which-company-has-the-best-ai-model-end-of-october"
-   },
-   "viejo": false
-  },
-  {
-   "titulo": "Woman says she was left 'bewildered and confused' by alleged Russell Brand assault",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/ck8dz6m1d2n6o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T14:06Z",
-   "area": "Culture",
    "sample": false,
    "viejo": false
   },
@@ -257,15 +270,6 @@
    "viejo": false
   },
   {
-   "titulo": "London housing project wins top architecture award",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cq8jzgl7zz9po?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-15T20:36Z",
-   "area": "Culture",
-   "sample": false,
-   "viejo": false
-  },
-  {
    "titulo": "SEC Small Business Advisory Committee to Discuss IPO Modernization and Regulation Crowdfunding",
    "fuente": "SEC",
    "url": "https://www.sec.gov/newsroom/press-releases/2026-105-sec-small-business-advisory-committee-discuss-ipo-modernization-regulation-crowdfunding",
@@ -287,10 +291,10 @@
  "historias": [
   {
    "area": "AI",
-   "titulo": "Could an Anthropic IPO put your 401(k) at risk? The AI safety debate hits a new dimension.",
+   "titulo": "This Senate race where data centers are a crucial issue has more spending than any other midterm clash",
    "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/could-an-anthropic-ipo-put-your-401-k-at-risk-the-ai-safety-debate-hits-a-new-dimension-db3f09f7?mod=mw_rss_topstories",
-   "hora": "2026-10-16T18:37Z",
+   "url": "https://www.marketwatch.com/story/this-senate-race-where-data-centers-are-a-crucial-issue-has-more-spending-than-any-other-midterm-clash-5152b43d?mod=mw_rss_topstories",
+   "hora": "2026-10-16T21:43Z",
    "grafico": {
     "tipo": "tradingview",
     "simbolo": "NASDAQ:SMH",
@@ -300,20 +304,30 @@
    "contexto_sample": true,
    "lados": {
     "quien": "MarketWatch: headline verbatim",
-    "historia_mapa": null,
-    "prediccion": null,
+    "historia_mapa": "midterms-camara",
+    "prediccion": {
+     "nombre": "2026 midterms, House control",
+     "url": "https://polymarket.com/event/which-party-will-win-the-house-in-2026"
+    },
     "mercado": "VanEck Semiconductor ETF (SMH), delayed, via TradingView",
-    "odds": null,
+    "odds": {
+     "texto": "Polymarket shows Democrats winning the House is 91% likely (16 Oct 21:53 UTC)",
+     "resultado": "Democrats winning the House",
+     "url": "https://polymarket.com/event/which-party-will-win-the-house-in-2026",
+     "p": 91,
+     "leido_utc": "2026-10-16T21:53Z",
+     "historia": "midterms-camara"
+    },
     "conectado": null
    },
    "viejo": false
   },
   {
    "area": "Politics",
-   "titulo": "Inside Ukrainian offensive pushing Russia back - with Starlink playing a key role",
+   "titulo": "Trump denies limiting Ukraine access to Starlink network",
    "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cvx284w16z1po?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T16:00Z",
+   "url": "https://www.bbc.co.uk/news/articles/ckz65g34wyd8o?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-16T19:33Z",
    "grafico": {
     "tipo": "tradingview",
     "simbolo": "TVC:UKOIL",
@@ -349,11 +363,11 @@
     "prediccion": null,
     "mercado": "BTC",
     "odds": {
-     "texto": "Polymarket shows Bitcoin above $82,000 on Oct 17 is 13% likely (16 Oct 18:48 UTC)",
+     "texto": "Polymarket shows Bitcoin above $82,000 on Oct 17 is 33% likely (16 Oct 21:53 UTC)",
      "resultado": "Bitcoin above $82,000 on Oct 17",
      "url": "https://polymarket.com/event/bitcoin-above-on-october-17-2026",
-     "p": 13,
-     "leido_utc": "2026-10-16T18:48Z",
+     "p": 33,
+     "leido_utc": "2026-10-16T21:53Z",
      "historia": "bitcoin-umbral"
     },
     "conectado": null
@@ -363,14 +377,14 @@
  ],
  "temas": {
   "fuente": "NAOS radar 2026-10-16",
-  "total": 331,
+  "total": 329,
   "conteos": {
-   "AI": 53,
-   "Fed y tasas": 7,
-   "Política": 56,
-   "Energía": 11,
-   "Trabajo": 8,
-   "Geopolítica": 60
+   "AI": 51,
+   "Fed y tasas": 1,
+   "Política": 78,
+   "Energía": 12,
+   "Trabajo": 13,
+   "Geopolítica": 46
   }
  },
  "titulares": [
@@ -381,15 +395,15 @@
    "tema": "US 10Y yield"
   },
   {
-   "titulo": "Here are the key things Fed Chairman Kevin Warsh said — and didn’t say — while Americans were sleeping Thursday night",
+   "titulo": "Your Social Security check will rise an average of $75 a month — will it be able to keep up with inflation?",
    "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/here-are-the-key-things-fed-chairman-kevin-warsh-said-and-didnt-say-while-americans-were-sleeping-thursday-night-b82238a1?mod=mw_rss_topstories",
+   "url": "https://www.marketwatch.com/story/social-securitys-cola-will-be-3-6-in-2027-as-inflation-persists-f7c9dff2?mod=mw_rss_topstories",
    "tema": "US 10Y yield"
   },
   {
-   "titulo": "Live updates: Bitcoin steady near $82,000 after Fed Chair Warsh's comments",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/16/live-updates-bitcoin-back-above-usd82-000-zec-jumps-11-as-etf-outflows-continue",
+   "titulo": "Did this year’s COLA beat inflation? Here’s how spending by American seniors stacks up so far in 2026.",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/did-this-years-cola-beat-inflation-heres-how-spending-by-american-seniors-stacks-up-so-far-in-2026-917c400c?mod=mw_rss_topstories",
    "tema": "US 10Y yield"
   },
   {
@@ -411,22 +425,10 @@
    "tema": "NAOS dollar index (ECB rates)"
   },
   {
-   "titulo": "Nearly 40% of the S&P 500 is in a bear market. Here are 10 of those stocks that analysts say can gain up to 81%.",
+   "titulo": "AI investors have woken up to the bond market’s warning signs",
    "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/nearly-40-of-the-s-p-500-is-in-a-bear-market-here-are-10-of-those-stocks-that-analysts-say-can-gain-up-to-81-93a51af6?mod=mw_rss_topstories",
-   "tema": "S&P 500"
-  },
-  {
-   "titulo": "Scammer gets scammed in Ledger spy-chip exploit, loses almost $5 million in bitcoin",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/business/2026/10/16/scammer-gets-scammed-in-ledger-spy-chip-exploit-loses-almost-usd5-million-in-bitcoin",
-   "tema": "S&P 500"
-  },
-  {
-   "titulo": "Bitcoin buyers snap up a brief drop below $80,000 as Asian stocks rebound",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/16/bitcoin-buyers-snap-up-a-brief-drop-below-usd80-000-as-asian-stocks-rebound",
-   "tema": "S&P 500"
+   "url": "https://www.marketwatch.com/story/ai-investors-have-woken-up-to-the-bond-markets-warning-signs-6f604c61?mod=mw_rss_topstories",
+   "tema": "US 30Y yield"
   },
   {
    "titulo": "Quantum Alliance forms amid warnings 6.4 million bitcoin face future quantum threat",
@@ -441,11 +443,23 @@
    "tema": "Bitcoin"
   },
   {
-   "titulo": "Ship attack reports near Hormuz reach record high as oil exports slow",
-   "fuente": "BBC Business",
-   "url": "https://www.bbc.co.uk/news/articles/cmde8dpg8g0no?at_medium=RSS&at_campaign=rss",
-   "tema": "Oil WTI"
+   "titulo": "Scammer gets scammed in Ledger spy-chip exploit, loses almost $5 million in bitcoin",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/business/2026/10/16/scammer-gets-scammed-in-ledger-spy-chip-exploit-loses-almost-usd5-million-in-bitcoin",
+   "tema": "Bitcoin"
+  },
+  {
+   "titulo": "Bitcoin buyers snap up a brief drop below $80,000 as Asian stocks rebound",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/markets/2026/10/16/bitcoin-buyers-snap-up-a-brief-drop-below-usd80-000-as-asian-stocks-rebound",
+   "tema": "S&P 500"
+  },
+  {
+   "titulo": "Crypto for Advisors: Wall Street is done waiting on Congress for crypto rules",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/coindesk-indices/2026/10/15/crypto-for-advisors-wall-street-is-done-waiting-on-congress-for-crypto-rules",
+   "tema": "S&P 500"
   }
  ],
- "cierres_csv": "fecha,indice,cierre,cambio_pct,fuente,url\n2026-10-14,S&P 500,7718.94,-1.11,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n2026-10-14,Nasdaq Composite,26692.87,-1.88,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n2026-10-14,Dow Jones,51621.48,-0.09,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n2026-10-15,Dow Jones,52177.69,1.08,CNN 4:00 PM ET market page (value as quoted via search),https://www.cnn.com/markets\n2026-10-15,S&P 500,7744.06,0.33,CNN 4:00 PM ET market page (value as quoted via search),https://www.cnn.com/markets\n2026-10-15,Nasdaq Composite,26713.03,0.08,CNN 4:00 PM ET market page (value as quoted via search),https://www.cnn.com/markets\n"
+ "cierres_csv": "fecha,indice,cierre,cambio_pct,fuente,url\n2026-10-14,S&P 500,7718.94,-1.11,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n2026-10-14,Nasdaq Composite,26692.87,-1.88,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n2026-10-14,Dow Jones,51621.48,-0.09,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n2026-10-15,Dow Jones,52177.69,1.08,CNN 4:00 PM ET market page (value as quoted via search),https://www.cnn.com/markets\n2026-10-15,S&P 500,7744.06,0.33,CNN 4:00 PM ET market page (value as quoted via search),https://www.cnn.com/markets\n2026-10-15,Nasdaq Composite,26713.03,0.08,CNN 4:00 PM ET market page (value as quoted via search),https://www.cnn.com/markets\n2026-10-16,Dow Jones,52002.41,-0.34,TheStreet live blog (value as quoted via search; page blocks fetch),https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026\n2026-10-16,S&P 500,7659.44,-1.09,TheStreet live blog (value as quoted via search; BNN Bloomberg showed -1.1% at 2:01 PM ET),https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026\n2026-10-16,Nasdaq Composite,26140.03,-2.14,TheStreet live blog (value as quoted via search; BNN Bloomberg showed -2.1% at 2:01 PM ET),https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026\n"
 }
