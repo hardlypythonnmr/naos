@@ -1,6 +1,24 @@
 {
- "fecha": "2026-10-16T21:53Z",
+ "fecha": "2026-10-16T23:56Z",
  "wire": [
+  {
+   "titulo": "Oregon teacher fought school attacker before armed dad shot suspect 'multiple times'",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/cv98zw1k8kp3o?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-16T23:07Z",
+   "area": "Politics",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Nowhere to hide: Tech selloff hits software and chip stocks alike",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/nowhere-to-hide-tech-selloff-hits-software-and-chip-stocks-alike-6d96773c?mod=mw_rss_topstories",
+   "hora": "2026-10-16T21:59Z",
+   "area": "AI",
+   "sample": false,
+   "viejo": false
+  },
   {
    "titulo": "This Senate race where data centers are a crucial issue has more spending than any other midterm clash",
    "fuente": "MarketWatch",
@@ -42,6 +60,15 @@
    "viejo": false
   },
   {
+   "titulo": "Katie Zacharia leaving her White House role less than five days on the job",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/c32l4ekpvzl8o?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-16T21:05Z",
+   "area": "Politics",
+   "sample": false,
+   "viejo": false
+  },
+  {
    "titulo": "Don’t buy this dip: Several signs suggest there’s more pain ahead for tech stocks",
    "fuente": "MarketWatch",
    "url": "https://www.marketwatch.com/story/dont-buy-this-dip-several-signs-suggest-theres-more-pain-ahead-for-tech-stocks-83f971d7?mod=mw_rss_topstories",
@@ -63,15 +90,6 @@
    "titulo": "Your Social Security check will rise an average of $75 a month — will it be able to keep up with inflation?",
    "fuente": "MarketWatch",
    "url": "https://www.marketwatch.com/story/social-securitys-cola-will-be-3-6-in-2027-as-inflation-persists-f7c9dff2?mod=mw_rss_topstories",
-   "hora": "2026-10-16T19:45Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Did this year’s COLA beat inflation? Here’s how spending by American seniors stacks up so far in 2026.",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/did-this-years-cola-beat-inflation-heres-how-spending-by-american-seniors-stacks-up-so-far-in-2026-917c400c?mod=mw_rss_topstories",
    "hora": "2026-10-16T19:45Z",
    "area": "Economy",
    "sample": false,
@@ -140,16 +158,12 @@
    "viejo": false
   },
   {
-   "titulo": "Designing more efficient quantum circuits with Claude",
-   "fuente": "Hacker News",
-   "url": "https://www.anthropic.com/research/designing-efficient-quantum-circuits",
-   "hora": "2026-10-16T18:00Z",
-   "area": "AI",
+   "titulo": "Toxic algorithms wouldn't let them go - now Australia wants an off switch",
+   "fuente": "BBC News",
+   "url": "https://www.bbc.co.uk/news/articles/cwr7y8er1n8vo?at_medium=RSS&at_campaign=rss",
+   "hora": "2026-10-16T18:11Z",
+   "area": "Economy",
    "sample": false,
-   "odds": {
-    "nombre": "Best AI model, end of October",
-    "url": "https://polymarket.com/event/which-company-has-the-best-ai-model-end-of-october"
-   },
    "viejo": false
   },
   {
@@ -175,24 +189,6 @@
    "fuente": "BBC News",
    "url": "https://www.bbc.co.uk/news/articles/c64g18r402geo?at_medium=RSS&at_campaign=rss",
    "hora": "2026-10-16T16:38Z",
-   "area": "Politics",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Inside Ukrainian offensive pushing Russia back - with Starlink playing a key role",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cvx284w16z1po?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T16:00Z",
-   "area": "Politics",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Housing loans granted while Burnham was mayor investigated by councillors",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/ck5yn70v2yp8o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T15:46Z",
    "area": "Politics",
    "sample": false,
    "viejo": false
@@ -291,10 +287,10 @@
  "historias": [
   {
    "area": "AI",
-   "titulo": "This Senate race where data centers are a crucial issue has more spending than any other midterm clash",
+   "titulo": "Nowhere to hide: Tech selloff hits software and chip stocks alike",
    "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/this-senate-race-where-data-centers-are-a-crucial-issue-has-more-spending-than-any-other-midterm-clash-5152b43d?mod=mw_rss_topstories",
-   "hora": "2026-10-16T21:43Z",
+   "url": "https://www.marketwatch.com/story/nowhere-to-hide-tech-selloff-hits-software-and-chip-stocks-alike-6d96773c?mod=mw_rss_topstories",
+   "hora": "2026-10-16T21:59Z",
    "grafico": {
     "tipo": "tradingview",
     "simbolo": "NASDAQ:SMH",
@@ -304,20 +300,10 @@
    "contexto_sample": true,
    "lados": {
     "quien": "MarketWatch: headline verbatim",
-    "historia_mapa": "midterms-camara",
-    "prediccion": {
-     "nombre": "2026 midterms, House control",
-     "url": "https://polymarket.com/event/which-party-will-win-the-house-in-2026"
-    },
+    "historia_mapa": null,
+    "prediccion": null,
     "mercado": "VanEck Semiconductor ETF (SMH), delayed, via TradingView",
-    "odds": {
-     "texto": "Polymarket shows Democrats winning the House is 91% likely (16 Oct 21:53 UTC)",
-     "resultado": "Democrats winning the House",
-     "url": "https://polymarket.com/event/which-party-will-win-the-house-in-2026",
-     "p": 91,
-     "leido_utc": "2026-10-16T21:53Z",
-     "historia": "midterms-camara"
-    },
+    "odds": null,
     "conectado": null
    },
    "viejo": false
@@ -363,11 +349,11 @@
     "prediccion": null,
     "mercado": "BTC",
     "odds": {
-     "texto": "Polymarket shows Bitcoin above $82,000 on Oct 17 is 33% likely (16 Oct 21:53 UTC)",
+     "texto": "Polymarket shows Bitcoin above $82,000 on Oct 17 is 22% likely (16 Oct 23:56 UTC)",
      "resultado": "Bitcoin above $82,000 on Oct 17",
      "url": "https://polymarket.com/event/bitcoin-above-on-october-17-2026",
-     "p": 33,
-     "leido_utc": "2026-10-16T21:53Z",
+     "p": 22,
+     "leido_utc": "2026-10-16T23:56Z",
      "historia": "bitcoin-umbral"
     },
     "conectado": null
