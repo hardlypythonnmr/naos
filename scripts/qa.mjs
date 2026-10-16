@@ -58,13 +58,21 @@ const browser = await chromium.launch();
 if (args.includes("--temas")) {
   const base = url.endsWith("/") ? url : url + "/";
   const T = JSON.parse(await (await fetch(base + "data/temas.json")).text());
-  const r = { enlaces: 0, enlaces_rotos: [], anclas_rotas: [], cortos: 0, cortos_mal: [], guia: {}, cella: null, franja: null, errores: [] };
+  const r = { enlaces: 0, enlaces_rotos: [], anclas_rotas: [], cortos: 0, cortos_mal: [], guia: {}, cella: null, franja: null, franja_es: null, idioma_partes: [], errores: [] };
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
   const page = await ctx.newPage();
   page.on("pageerror", (e) => r.errores.push("pageerror " + page.url() + ": " + e.message));
   page.on("console", (m) => { if (m.type() === "error" && (m.location().url || "").startsWith(new URL(base).origin)) r.errores.push("console " + page.url() + ": " + m.text()); });
   // 1. enlaces internos de hubs y páginas de tema
-  const paginas = ["temas/", "temas/humanity/", "temas/the-present/", ...T.pilares.filter((P) => T.paginas.some((p) => p.pilar === P.id)).map((P) => `temas/pilar/${P.id}/`), ...T.paginas.map((p) => `temas/${p.slug}/`)];
+  const una = ["temas/", "temas/humanity/", "temas/the-present/", ...T.pilares.filter((P) => T.paginas.some((p) => p.pilar === P.id)).map((P) => `temas/pilar/${P.id}/`), ...T.paginas.map((p) => `temas/${p.slug}/`)];
+  const paginas = [...una, "es/", ...una.map((u) => "es/" + u)]; // dos ediciones (D-253)
+  // idioma de las partes (WCAG 3.1.2): texto con marcas del español (ñ, ¿, ¡, tildes o tres palabras vacías) fuera de un [lang=es]
+  // en una página en inglés; los nombres propios cortos (Medellín, Bogotá) no cuentan
+  const partes = () => { const ES = /[ñ¿¡]|[áéíóú]\w*\s+\w+|\b(de|del|la|las|los|el|para|con|una|y)\b(?:.*\b(de|del|la|las|los|el|para|con|una|y)\b){2}/i, PROPIO = /^(Medellín|Bogotá|Brasília|Medellín\s*)$/;
+    const out = [], w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    for (let n; (n = w.nextNode());) { const t = n.textContent.trim(), e = n.parentElement; if (!t || !e || e.closest("script,style,[hidden]")) continue;
+      const l = (e.closest("[lang]") || document.documentElement).getAttribute("lang"); if (l === "en" && ES.test(t) && !PROPIO.test(t)) out.push(t.slice(0, 80)); }
+    return out; };
   const estado = new Map(), ids = new Map();
   const idsDe = async (u) => { if (!ids.has(u)) { const h = await (await page.request.get(u)).text(); ids.set(u, new Set([...h.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]))); } return ids.get(u); };
   for (const pg of paginas) {
@@ -78,14 +86,15 @@ if (args.includes("--temas")) {
       else if (ancla && /\/$|\.html$/.test(sinAncla.split("?")[0]) && !(await idsDe(sinAncla)).has(decodeURIComponent(ancla))) r.anclas_rotas.push(`${pg} -> ${h}`);
     }
     if (await page.locator("#guia, .gu-hoja").count()) r.guia["tema:" + pg] = "la guía aparece";
+    if (!pg.startsWith("es/")) for (const t of await page.evaluate(partes)) r.idioma_partes.push(`${pg}: "${t}"`);
   }
   // 2. enlaces cortos
   for (const x of T.piezas.filter((x) => x.corto)) {
     await page.goto(base + `s/${x.codigo}/`, { waitUntil: "load" });
     await page.waitForURL((u) => u.pathname.includes("/temas/"), { timeout: 4000 }).catch(() => {});
-    const u = new URL(page.url());
-    const ok = u.pathname.endsWith(`/temas/${x.pagina}/`) && u.searchParams.get("src") === x.codigo && u.hash === "#" + x.id &&
-      await page.locator(`#${x.id}.t-vienes`).count() === 1 && await page.locator(`#${x.id} .t-marca-js`).first().textContent().catch(() => "") === "You came from this Short";
+    const u = new URL(page.url()), es = x.lang === "es" && !(x.idiomas || []).length;
+    const ok = u.pathname.endsWith(`${es ? "/es" : ""}/temas/${x.pagina}/`) && (es || !u.pathname.includes("/es/")) && u.searchParams.get("src") === x.codigo && u.hash === "#" + x.id &&
+      await page.locator(`#${x.id}.t-vienes`).count() === 1 && await page.locator(`#${x.id} .t-marca-js`).first().textContent().catch(() => "") === (es ? "Viniste de este Short" : "You came from this Short");
     if (ok) r.cortos++; else r.cortos_mal.push(`${x.codigo} -> ${page.url()}`);
   }
   // 3. la guía: abre solo al entrar a The Present desde la portada limpia
@@ -109,15 +118,26 @@ if (args.includes("--temas")) {
   // 5. la franja: hoy (o lo próximo) desde la grilla, con enlace a la tarjeta
   await page.goto(base + "?hoy=2026-10-20#the-present", { waitUntil: "load" }); await page.waitForTimeout(1500);
   r.franja = await page.evaluate(() => ({ fichas: document.querySelectorAll("#secuencia .fr-f").length, titulo: document.querySelector("#fr-t")?.textContent, enlaces: [...document.querySelectorAll("#secuencia a[href*='temas/']")].map((a) => a.getAttribute("href")) }));
+  // la franja en español (es/): el día del primer Short en español, con su tarjeta en es/temas/
+  const diaES = (T.piezas.find((x) => x.lang === "es") || {}).fecha;
+  if (diaES) { await page.goto(base + `es/?hoy=${diaES}`, { waitUntil: "load" }); await page.waitForTimeout(1500);
+    r.franja_es = await page.evaluate(() => ({ fichas: document.querySelectorAll("#secuencia .fr-f").length, titulo: document.querySelector("#fr-t")?.textContent, guia: !!document.querySelector(".gu-hoja"),
+      enlaces: [...document.querySelectorAll("#secuencia a.fr-n")].map((a) => a.getAttribute("href")), en: [...document.querySelectorAll("#secuencia .fr-n [lang=en]")].length })); }
+  // y en la portada EN, ese mismo día: la pieza en español enlaza a su tarjeta de la edición ES
+  if (diaES) { await page.goto(base + `?hoy=${diaES}#the-present`, { waitUntil: "load" }); await page.waitForTimeout(1500);
+    r.franja.es_a_es = await page.evaluate(() => [...document.querySelectorAll("#secuencia a.fr-n")].filter((a) => a.querySelector("[lang=es]")).every((a) => a.getAttribute("href").startsWith("es/temas/"))); }
   await ctx.close(); await browser.close();
   writeFileSync(`${OUT}/report-temas.json`, JSON.stringify(r, null, 1));
   const malo = r.enlaces_rotos.length || r.anclas_rotas.length || r.cortos_mal.length || r.errores.length || Object.entries(r.guia).some(([k, v]) => (k.startsWith("tema:") ? true : k.startsWith("portada limpia") ? v !== true : v !== false)) ||
-    !r.cella.botones || !r.cella.quieta_despues || r.cella.aria_pressed.some((x) => x !== "true") || !r.franja.fichas || !r.franja.enlaces.length;
+    !r.cella.botones || !r.cella.quieta_despues || r.cella.aria_pressed.some((x) => x !== "true") || !r.franja.fichas || !r.franja.enlaces.length ||
+    r.idioma_partes.length || (r.franja_es && (!r.franja_es.fichas || r.franja_es.titulo !== "Hoy y lo próximo" || r.franja_es.guia || r.franja.es_a_es === false));
   console.log(`enlaces internos: ${r.enlaces} revisados, rotos ${r.enlaces_rotos.length}, anclas rotas ${r.anclas_rotas.length}`);
   console.log(`enlaces cortos: ${r.cortos} de ${T.piezas.filter((x) => x.corto).length} aterrizan en su tarjeta${r.cortos_mal.length ? "; mal: " + r.cortos_mal.slice(0, 5).join(", ") : ""}`);
   console.log(`guía: ${JSON.stringify(r.guia)}`);
   console.log(`Cella: ${JSON.stringify(r.cella)}`);
-  console.log(`franja (?hoy=2026-10-20): ${r.franja.fichas} fichas, ${r.franja.enlaces.length} enlaces a tarjetas`);
+  console.log(`franja (?hoy=2026-10-20): ${r.franja.fichas} fichas, ${r.franja.enlaces.length} enlaces a tarjetas; pieza ES de la portada EN a su tarjeta ES: ${r.franja.es_a_es}`);
+  if (r.franja_es) console.log(`franja ES: ${r.franja_es.fichas} fichas, "${r.franja_es.titulo}", ${r.franja_es.en} títulos con lang="en", guía: ${r.franja_es.guia}`);
+  console.log(`idioma de las partes (texto español fuera de lang="es" en páginas EN): ${r.idioma_partes.length}${r.idioma_partes.length ? "; " + r.idioma_partes.slice(0, 5).join(" | ") : ""}`);
   for (const e of [...r.enlaces_rotos, ...r.anclas_rotas, ...r.errores].slice(0, 20)) console.log("  " + e);
   console.log(malo ? "QA temas: FALLA" : "QA temas: ok");
   process.exit(malo ? 1 : 0);
