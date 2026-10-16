@@ -16,6 +16,9 @@
 import fs from "node:fs";
 import path from "node:path";
 
+// arte 16-oct: el h1 va a escala de puerta; una palabra compuesta ("full-moon") no se parte en el guion (solo texto, fuera de etiquetas)
+const sinCorteGuion = (h) => h.replace(/(<[^>]*>)|([\p{L}\p{N}]+(?:-[\p{L}\p{N}]+)+)/gu, (m, tag, w) => tag || `<span class="t-nw">${w}</span>`);
+
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const leerJSON = (f, d = null) => { try { return JSON.parse(fs.readFileSync(f, "utf8")); } catch { return d; } };
 
@@ -359,7 +362,7 @@ export function cuerpoTema({ L, D, p, X, md, raiz, xs, carta, enlaces }) {
       const [cab, , ...cuerpo] = f.filas, ks = celdas(cab);
       return `<div class="t-tabla"><table><thead><tr>${ks.map((c) => `<th scope="col">${inl(c)}</th>`).join("")}</tr></thead><tbody>${cuerpo.map((r) => `<tr>${celdas(r).map((c, i) => i ? `<td data-k="${esc(ks[i])}">${C.partesEN(c)}</td>` : `<th scope="row">${C.partesEN(c)}</th>`).join("")}</tr>`).join("")}</tbody></table></div>`;
     }
-    if (f.t === "h") return f.n === 1 ? `<h1>${inl(f.txt)}</h1>` : `<h4${f.id ? ` id="${f.id}"` : ""}>${inl(f.txt)}</h4>`;
+    if (f.t === "h") return f.n === 1 ? `<h1>${sinCorteGuion(inl(f.txt))}</h1>` : `<h4${f.id ? ` id="${f.id}"` : ""}>${inl(f.txt)}</h4>`;
     if (f.t !== "p") return "";
     const ls = f.lineas.map((x) => x.replace(FIN_PLIEGUE, ""));
     const s = ls.join(" ").trim(), id = f.id ? ` id="${f.id}"` : "";
