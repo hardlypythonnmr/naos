@@ -30,7 +30,7 @@
     const c = A.cat(e.categoria); el.hidden = false;
     el.innerHTML = `<p class="ag-k cond">Next · ${esc(c.nombre)}</p><h2 class="ag-hero-t"><a href="#${esc(e.id)}">${esc(e.titulo)}</a></h2>` +
       `<p class="ag-hero-n num" data-cuenta="${esc(e.id)}">${A.cuenta(e).txt}</p>` +
-      `<p class="ag-hero-w">${rango(e)} · ${esc(hora(e))}</p><p class="ag-hero-a">${esc(e.angulo)}</p>${anadir(e)}`;
+      `<p class="ag-hero-w">${rango(e)} · ${esc(hora(e))}</p>${e.angulo ? `<p class="ag-hero-a">${esc(e.angulo)}</p>` : ""}${anadir(e)}`;
   }
   function siguen() {
     const xs = A.proximos(eventos).slice(1, 5); $("#ag-siguen").hidden = !xs.length;
@@ -82,7 +82,7 @@
           `<div class="ag-ev-c"><p class="ag-ev-m"><span class="ag-dot" aria-hidden="true"></span><span class="cond">${esc(c.nombre)}</span><span>${esc(e.pais || "")}</span>${marcas(e)}</p>` +
           `<h3 class="ag-ev-t">${esc(e.titulo)}</h3><p class="ag-ev-h">${esc(e.fecha_fin ? rango(e) + " · " + hora(e) : hora(e))}</p>` +
           (e.fecha_fin ? `<span class="ag-ev-p" aria-hidden="true"><span style="width:${Math.min(100, A.dias(e) / 45 * 100).toFixed(1)}%"></span></span>` : "") +
-          `<p class="ag-ev-a">${esc(e.angulo)}</p><p class="ag-ev-s sello">Source: <a href="${esc(e.url)}" rel="noopener">${esc(e.fuente)}</a></p></div>` +
+          (e.angulo ? `<p class="ag-ev-a">${esc(e.angulo)}</p>` : "") + (e.url ? `<p class="ag-ev-s sello">Source: <a href="${esc(e.url)}" rel="noopener"${A.langDe(e.fuente) ? ` lang="${A.langDe(e.fuente)}"` : ""}>${esc(e.fuente)}</a></p>` : `<p class="ag-ev-s sello">Date and topic only. Official source pending.</p>`) + `</div>` +
           `<div class="ag-ev-x"><span class="ag-ev-cd num${cu.ya ? " ya" : ""}" data-cuenta="${esc(e.id)}">${cu.txt}</span>${anadir(e)}</div></li>`; }
       h += `</ol></section>`;
     }
@@ -100,7 +100,7 @@
 
   async function iniciar() {
     let ag; try { ag = await (await fetch("data/agenda.json")).json(); } catch (e) { $("#ag-sello").textContent = "The agenda could not be loaded."; return; }
-    eventos = A.conIds(ag.eventos || []).sort((a, b) => A.inicio(a) - A.inicio(b));
+    eventos = A.conIds(ag.eventos || []).map(A.publico).sort((a, b) => A.inicio(a) - A.inicio(b));
     const q = new URLSearchParams(location.search).get("cat");
     if (q && A.CATEGORIAS.some((c) => c.id === q)) filtro = q;
     const vivos = A.proximos(eventos), ult = eventos.reduce((m, e) => ((e.fecha_fin || e.fecha) > m ? e.fecha_fin || e.fecha : m), "");

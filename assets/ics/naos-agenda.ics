@@ -140,15 +140,12 @@ DTSTAMP:20261014T000000Z
 DTSTART:20261025T200000Z
 SUMMARY:Brazil presidential and governor runoff (polls close 17:00 Brasíli
  a\; results from then)
-DESCRIPTION:Fiscal path expectations drive the real\, Brazilian rates and e
- quities.\n\nTime: 20:00 UTC\, 17:00 America/Sao_Paulo.\n\nSource: Diário 
- do Nordeste\, on the TSE electoral calendar. https://diariodonordeste.verd
- esmares.com.br/pontopoder/quando-e-o-segundo-turno-das-eleicoes-2026-veja-
- data-e-quem-pode-disputar-1.3795964\n\nNAOS Upcoming: https://hardlypython
- nmr.github.io/naos/agenda.html#2026-10-25-brazil-presidential-and-governor
- -runoff-polls-cl\n\nDescriptive\, not financial advice.
-URL:https://diariodonordeste.verdesmares.com.br/pontopoder/quando-e-o-segun
- do-turno-das-eleicoes-2026-veja-data-e-quem-pode-disputar-1.3795964
+DESCRIPTION:Time: 20:00 UTC\, 17:00 America/Sao_Paulo.\n\nDate and topic on
+ ly. Official source pending.\n\nNAOS Upcoming: https://hardlypythonnmr.git
+ hub.io/naos/agenda.html#2026-10-25-brazil-presidential-and-governor-runoff
+ -polls-cl\n\nDescriptive\, not financial advice.
+URL:https://hardlypythonnmr.github.io/naos/agenda.html#2026-10-25-brazil-pr
+ esidential-and-governor-runoff-polls-cl
 CATEGORIES:Elections
 LOCATION:Brazil
 TRANSP:TRANSPARENT
@@ -458,12 +455,11 @@ DTSTAMP:20261014T000000Z
 DTSTART;VALUE=DATE:20261103
 DTEND;VALUE=DATE:20261104
 SUMMARY:US midterm general election
-DESCRIPTION:Control of Congress shapes fiscal\, tariff and crypto legislati
- on odds.\n\nTime not set by the source\; listed as an all-day event.\n\nSo
- urce: FEC\, election results and voting information. https://www.fec.gov/i
- ntroduction-campaign-finance/election-results-and-voting-information/\n\nN
- AOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-0
- 3-us-midterm-general-election\n\nDescriptive\, not financial advice.
+DESCRIPTION:Time not set by the source\; listed as an all-day event.\n\nSou
+ rce: FEC\, election results and voting information. https://www.fec.gov/in
+ troduction-campaign-finance/election-results-and-voting-information/\n\nNA
+ OS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-03
+ -us-midterm-general-election\n\nDescriptive\, not financial advice.
 URL:https://www.fec.gov/introduction-campaign-finance/election-results-and-
  voting-information/
 CATEGORIES:Elections
@@ -909,14 +905,12 @@ DTSTAMP:20261014T000000Z
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:Spain snap general election
-DESCRIPTION:Government formation risk for Spanish bonds and banks.\n\nTime 
- not set by the source\; listed as an all-day event.\n\nSource: Al Jazeera\
- , 5 Oct 2026 (Sánchez announces the vote). https://www.aljazeera.com/amp/
- news/2026/10/5/spanish-prime-minister-pedro-sanchez-announces-snap-electio
- n\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#202
- 6-11-29-spain-snap-general-election\n\nDescriptive\, not financial advice.
-URL:https://www.aljazeera.com/amp/news/2026/10/5/spanish-prime-minister-ped
- ro-sanchez-announces-snap-election
+DESCRIPTION:Time not set by the source\; listed as an all-day event.\n\nDat
+ e and topic only. Official source pending.\n\nNAOS Upcoming: https://hardl
+ ypythonnmr.github.io/naos/agenda.html#2026-11-29-spain-snap-general-electi
+ on\n\nDescriptive\, not financial advice.
+URL:https://hardlypythonnmr.github.io/naos/agenda.html#2026-11-29-spain-sna
+ p-general-election
 CATEGORIES:Elections
 LOCATION:Spain
 TRANSP:TRANSPARENT
@@ -1630,14 +1624,12 @@ DTSTAMP:20261014T000000Z
 DTSTART;VALUE=DATE:20270116
 DTEND;VALUE=DATE:20270117
 SUMMARY:Nigeria presidential and National Assembly elections
-DESCRIPTION:Africa's largest economy\; the naira\, Eurobonds and oil output
-  policy.\n\nTime not set by the source\; listed as an all-day event.\n\nSo
- urce: Voice of Nigeria\, INEC revised timetable. https://von.gov.ng/inec-i
- ssues-revised-timetable-for-2027-general-election/\n\nNAOS Upcoming: https
- ://hardlypythonnmr.github.io/naos/agenda.html#2027-01-16-nigeria-president
- ial-and-national-assembly-elect\n\nDescriptive\, not financial advice.
-URL:https://von.gov.ng/inec-issues-revised-timetable-for-2027-general-elect
- ion/
+DESCRIPTION:Time not set by the source\; listed as an all-day event.\n\nDat
+ e and topic only. Official source pending.\n\nNAOS Upcoming: https://hardl
+ ypythonnmr.github.io/naos/agenda.html#2027-01-16-nigeria-presidential-and-
+ national-assembly-elect\n\nDescriptive\, not financial advice.
+URL:https://hardlypythonnmr.github.io/naos/agenda.html#2027-01-16-nigeria-p
+ residential-and-national-assembly-elect
 CATEGORIES:Elections
 LOCATION:Nigeria
 TRANSP:TRANSPARENT
@@ -2669,14 +2661,13 @@ DTSTAMP:20261014T000000Z
 DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
 SUMMARY:France presidential election\, first round
-DESCRIPTION:OAT-Bund spread and euro risk premium around the result.\n\nTim
- e not set by the source\; listed as an all-day event.\n\nNote: Overseas te
- rritories vote on Saturday 17 Apr. Convocation decree still to be publishe
- d.\n\nSource: Service-Public.fr\, dates set by the Council of Ministers (1
-  Jul 2026). https://www.service-public.gouv.fr/particuliers/actualites/A15
- 053?lang=fr\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agend
- a.html#2027-04-18-france-presidential-election-first-round\n\nDescriptive\
- , not financial advice.
+DESCRIPTION:Time not set by the source\; listed as an all-day event.\n\nNot
+ e: Overseas territories vote on Saturday 17 Apr. Convocation decree still 
+ to be published.\n\nSource: Service-Public.fr\, dates set by the Council o
+ f Ministers (1 Jul 2026). https://www.service-public.gouv.fr/particuliers/
+ actualites/A15053?lang=fr\n\nNAOS Upcoming: https://hardlypythonnmr.github
+ .io/naos/agenda.html#2027-04-18-france-presidential-election-first-round\n
+ \nDescriptive\, not financial advice.
 URL:https://www.service-public.gouv.fr/particuliers/actualites/A15053?lang=
  fr
 CATEGORIES:Elections
@@ -2897,13 +2888,12 @@ DTSTAMP:20261014T000000Z
 DTSTART;VALUE=DATE:20270502
 DTEND;VALUE=DATE:20270503
 SUMMARY:France presidential election\, second round
-DESCRIPTION:OAT-Bund spread and euro risk premium around the result.\n\nTim
- e not set by the source\; listed as an all-day event.\n\nSource: Service-P
- ublic.fr\, dates set by the Council of Ministers (1 Jul 2026). https://www
- .service-public.gouv.fr/particuliers/actualites/A15053?lang=fr\n\nNAOS Upc
- oming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-05-02-franc
- e-presidential-election-second-round\n\nDescriptive\, not financial advice
- .
+DESCRIPTION:Time not set by the source\; listed as an all-day event.\n\nSou
+ rce: Service-Public.fr\, dates set by the Council of Ministers (1 Jul 2026
+ ). https://www.service-public.gouv.fr/particuliers/actualites/A15053?lang=
+ fr\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#20
+ 27-05-02-france-presidential-election-second-round\n\nDescriptive\, not fi
+ nancial advice.
 URL:https://www.service-public.gouv.fr/particuliers/actualites/A15053?lang=
  fr
 CATEGORIES:Elections
@@ -3240,15 +3230,12 @@ DTSTART;VALUE=DATE:20270606
 DTEND;VALUE=DATE:20270607
 SUMMARY:Mexico federal midterm election (Chamber of Deputies\, 17 governors
  hips)
-DESCRIPTION:Congressional balance for reforms\; the peso and Mexican assets
- .\n\nTime not set by the source\; listed as an all-day event.\n\nSource: E
- xpansión Política\, INE 2026-2027 calendar. https://politica.expansion.m
- x/mexico/2026/09/11/elecciones-mexico-2027-que-se-vota-fechas-clave-ine\n\
- nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-06
- -06-mexico-federal-midterm-election-chamber-of-deput\n\nDescriptive\, not 
- financial advice.
-URL:https://politica.expansion.mx/mexico/2026/09/11/elecciones-mexico-2027-
- que-se-vota-fechas-clave-ine
+DESCRIPTION:Time not set by the source\; listed as an all-day event.\n\nDat
+ e and topic only. Official source pending.\n\nNAOS Upcoming: https://hardl
+ ypythonnmr.github.io/naos/agenda.html#2027-06-06-mexico-federal-midterm-el
+ ection-chamber-of-deput\n\nDescriptive\, not financial advice.
+URL:https://hardlypythonnmr.github.io/naos/agenda.html#2027-06-06-mexico-fe
+ deral-midterm-election-chamber-of-deput
 CATEGORIES:Elections
 LOCATION:Mexico
 TRANSP:TRANSPARENT

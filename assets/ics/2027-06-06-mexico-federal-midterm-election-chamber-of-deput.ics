@@ -17,15 +17,12 @@ DTSTART;VALUE=DATE:20270606
 DTEND;VALUE=DATE:20270607
 SUMMARY:Mexico federal midterm election (Chamber of Deputies\, 17 governors
  hips)
-DESCRIPTION:Congressional balance for reforms\; the peso and Mexican assets
- .\n\nTime not set by the source\; listed as an all-day event.\n\nSource: E
- xpansión Política\, INE 2026-2027 calendar. https://politica.expansion.m
- x/mexico/2026/09/11/elecciones-mexico-2027-que-se-vota-fechas-clave-ine\n\
- nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agenda.html#2027-06
- -06-mexico-federal-midterm-election-chamber-of-deput\n\nDescriptive\, not 
- financial advice.
-URL:https://politica.expansion.mx/mexico/2026/09/11/elecciones-mexico-2027-
- que-se-vota-fechas-clave-ine
+DESCRIPTION:Time not set by the source\; listed as an all-day event.\n\nDat
+ e and topic only. Official source pending.\n\nNAOS Upcoming: https://hardl
+ ypythonnmr.github.io/naos/agenda.html#2027-06-06-mexico-federal-midterm-el
+ ection-chamber-of-deput\n\nDescriptive\, not financial advice.
+URL:https://hardlypythonnmr.github.io/naos/agenda.html#2027-06-06-mexico-fe
+ deral-midterm-election-chamber-of-deput
 CATEGORIES:Elections
 LOCATION:Mexico
 TRANSP:TRANSPARENT

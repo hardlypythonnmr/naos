@@ -15,14 +15,13 @@ DTSTAMP:20261014T000000Z
 DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
 SUMMARY:France presidential election\, first round
-DESCRIPTION:OAT-Bund spread and euro risk premium around the result.\n\nTim
- e not set by the source\; listed as an all-day event.\n\nNote: Overseas te
- rritories vote on Saturday 17 Apr. Convocation decree still to be publishe
- d.\n\nSource: Service-Public.fr\, dates set by the Council of Ministers (1
-  Jul 2026). https://www.service-public.gouv.fr/particuliers/actualites/A15
- 053?lang=fr\n\nNAOS Upcoming: https://hardlypythonnmr.github.io/naos/agend
- a.html#2027-04-18-france-presidential-election-first-round\n\nDescriptive\
- , not financial advice.
+DESCRIPTION:Time not set by the source\; listed as an all-day event.\n\nNot
+ e: Overseas territories vote on Saturday 17 Apr. Convocation decree still 
+ to be published.\n\nSource: Service-Public.fr\, dates set by the Council o
+ f Ministers (1 Jul 2026). https://www.service-public.gouv.fr/particuliers/
+ actualites/A15053?lang=fr\n\nNAOS Upcoming: https://hardlypythonnmr.github
+ .io/naos/agenda.html#2027-04-18-france-presidential-election-first-round\n
+ \nDescriptive\, not financial advice.
 URL:https://www.service-public.gouv.fr/particuliers/actualites/A15053?lang=
  fr
 CATEGORIES:Elections
