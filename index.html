@@ -50,7 +50,7 @@
 <header class="barra">
   <div class="marca"><img class="iso" src="assets/marca/isotipo.svg" alt="" width="30" height="30"><span class="naos">NAOS</span><span class="cond lema">Closer to yourself.</span></div>
   <nav class="indice" aria-label="Sections">
-    <a href="#humanity">Humanity</a><a href="#the-present">The Present</a><a href="#semana">This week</a><a href="agenda.html">Upcoming</a><a href="#assets">Assets</a>
+    <a href="#humanity">Humanity</a><a href="#the-present">The Present</a><a href="#semana">This week</a><a href="temas/">Topics</a><a href="agenda.html">Upcoming</a><a href="#assets">Assets</a>
   </nav>
   <p class="sello estado">Data as of <span class="gen">14 Oct 2026 · 11:20 UTC</span> · Not financial advice</p>
 </header>
@@ -362,8 +362,8 @@
       <!-- ranura del botón Pause del anillo (behavior, 48 px, aria-pressed) -->
       <div id="pausa" hidden></div>
       <p class="sello">Four in, four out. The page will wait.</p>
-      <!-- línea de seguridad (behavior, 14 px en tinta, no .sello). Copy fijado por N en D-235: 106 es la línea nacional de salud mental de Colombia (Minsalud, 24/7) -->
-      <div id="seguridad"><p class="seguridad">A behavior to try. It does not replace treatment. If this is weighing on you, talk to someone you trust or a professional. If you may hurt yourself, call a helpline: Colombia 106 · US 988 · <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a></p></div>
+      <!-- línea de seguridad (behavior, 14 px en tinta, no .sello). Líneas verificadas el 16-oct en minsalud.gov.co (D-252): Colombia 106, línea nacional de salud mental 24/7, o 123 en peligro inmediato; US 988; findahelpline.com. El mismo texto va primero en el pie de cada página (WCAG 3.2.6) -->
+      <div id="seguridad"><p class="seguridad">A behavior to try. It does not replace treatment. If you may hurt yourself, call a helpline. If this is weighing on you, talk to someone now. Colombia: <a href="tel:106">106</a>, national mental health line, 24/7, or <a href="tel:123">123</a> in immediate danger. US: <a href="tel:988">988</a>. Anywhere else: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a>.</p></div>
     </div>
   </section>
   <!-- ASSETS: biblioteca (PAG-06.1, D-212, D-217); se llena desde data/assets.json -->
@@ -372,9 +372,9 @@
     <div class="bib" id="bib"></div>
   </section>
 
-  <!-- ESTA SEMANA (PAG-08.1, D-224): grilla pública sección x día, se llena desde data/semana.json -->
+  <!-- ESTA SEMANA (lote E, D-252): la semana de la grilla por día, se llena desde data/temas.json (sala.js, N.semana); el plan del mes de D-227 salió -->
   <section class="muro semana" id="semana" aria-labelledby="t-sem">
-    <header class="sec-cab"><h2 class="sec-t" id="t-sem">This week</h2><div class="cab-n"><span class="sello sem-sello"></span></div><p class="sec-d">What NAOS plans to publish, by section and format, week by week through the month. Pieces with a page link to it.</p></header>
+    <header class="sec-cab"><h2 class="sec-t" id="t-sem">This week</h2><div class="cab-n"><span class="sello sem-sello"></span></div><p class="sec-d">What NAOS plans to publish, day by day, from the grid through 31 December. Each piece links to its topic page.</p></header>
     <div class="sem-in"></div>
   </section>
   <section class="interludio mantra-s noche" data-plano aria-label="Mantra">
@@ -392,11 +392,12 @@
   <div class="pie-in">
     <p class="naos">NAOS <span class="cond">Closer to yourself.</span></p>
     <div class="pie-fuentes">
+      <p class="ayuda-l" id="ayuda">If this is weighing on you, talk to someone now. Colombia: <a href="tel:106">106</a>, national mental health line, 24/7, or <a href="tel:123">123</a> in immediate danger. US: <a href="tel:988">988</a>. Anywhere else: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a>.</p>
       <p><b>Descriptive, not financial advice.</b> Data as of <span class="gen">14 Oct 2026 · 11:20 UTC</span>. Every reading carries its source and time. Readings older than their source's rhythm, and sample placeholders, are kept off the page until real data arrives.</p>
       <p>Yields: <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" rel="noopener">Source: U.S. Treasury</a>. Currencies: <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" rel="noopener">Source: ECB</a> reference rates; the NAOS dollar index is computed from them and is not ICE's DXY. <a href="https://www.coingecko.com" rel="noopener">Data provided by CoinGecko</a>. Metals: <a href="https://gold-api.com" rel="noopener">gold-api.com</a>. Energy: <a href="https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm" rel="noopener">Source: U.S. Energy Information Administration</a>. <a href="https://alternative.me/crypto/fear-and-greed-index/" rel="noopener">Crypto Fear &amp; Greed Index by alternative.me</a>. Red US events, forecasts and previous values: <a href="https://www.forexfactory.com/calendar" rel="noopener">Forex Factory</a> weekly calendar, each release linked to its official publisher.</p>
       <p>Widgets by <a href="https://www.tradingview.com" rel="noopener">TradingView</a>, embedded as provided. Market odds: <a href="https://polymarket.com" rel="noopener">Polymarket</a>, one number per story with the time it was read; prices set by traders, not NAOS forecasts. <a href="https://kalshi.com" rel="noopener">Kalshi</a>: link only. Headlines from the Federal Reserve, the SEC, CoinDesk and MarketWatch, each linked to its source; BBC News and <a href="https://news.ycombinator.com" rel="noopener">Hacker News</a> until 19 October 2026. Map: <a href="https://www.naturalearthdata.com" rel="noopener">Natural Earth</a> via world-atlas.</p>
       <p>The voices in NAOS pieces are synthetic. Cella's replies to comments are written with AI; a person reads the hard ones. NAOS is on YouTube Shorts and Instagram, in English for now; Spanish comes later.</p>
-      <p><a href="agenda.html">Upcoming: the year ahead, with calendar files</a> · <a href="privacidad.html">Privacy</a> · <a href="terminos.html">Terms</a> · <a href="archivo/index-anterior.html">About the NAOS YouTube app</a></p>
+      <p><a href="temas/">Topics: every topic page</a> · <a href="agenda.html">Upcoming: the year ahead, with calendar files</a> · <a href="privacidad.html">Privacy</a> · <a href="terminos.html">Terms</a> · <a href="archivo/index-anterior.html">About the NAOS YouTube app</a></p>
     </div>
   </div>
 </footer>

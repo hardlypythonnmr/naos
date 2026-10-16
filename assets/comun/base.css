@@ -119,6 +119,9 @@ html:not(.listo) [data-espera] { visibility: hidden; }
 [data-plano] > .plano-fondo { position: absolute; inset: 0; z-index: -1; }
 
 /* ---------- pie ---------- */
+/* líneas de ayuda (D-252): el mismo texto, primero en el pie de cada página (WCAG 3.2.6, ayuda consistente) */
+.ayuda-l { font-family: var(--font-sans); font-size: 15px; line-height: 1.5; color: var(--naos-ink); }
+.ayuda-l a { display: inline-block; min-height: 24px; font-weight: 600; color: inherit; }
 .pie-fuentes { font-size: 12px; line-height: 1.6; color: var(--naos-grey); }
 .noche .pie-fuentes { color: var(--naos-night-grey); }
 .pie-fuentes a { color: inherit; }

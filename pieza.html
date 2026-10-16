@@ -129,7 +129,7 @@ h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-hei
   <section class="ranura" aria-labelledby="r-f" id="ranura-f"><h2 id="r-f">Sources</h2><div class="vacio">Every source cited in the piece goes here, linked. <span class="vacio-f" data-fecha></span></div></section>
   <p class="solo-imp imp-pie" id="imp-pie"></p>
 </main>
-<footer class="pie sello" id="pie">NAOS · Closer to yourself. <span id="pie-t">This page is a planned piece: nothing here is published yet.</span> Not financial advice.</footer>
+<footer class="pie sello" id="pie"><p class="ayuda-l" id="ayuda">If this is weighing on you, talk to someone now. Colombia: <a href="tel:106">106</a>, national mental health line, 24/7, or <a href="tel:123">123</a> in immediate danger. US: <a href="tel:988">988</a>. Anywhere else: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a>.</p>NAOS · Closer to yourself. <span id="pie-t">This page is a planned piece: nothing here is published yet.</span> Not financial advice.</footer>
 <script>
 /* Estado y aviso de la pieza (SER-03.3, SER-02.5). Corre al terminar de cargar para que naos.js (defer) ya esté: N.estado(id)
    escribe "Comes out <fecha>", "Date to be confirmed" o "Published" con enlace al Short; los huecos vacíos repiten la fecha. */
@@ -234,7 +234,7 @@ function llenar(x, c, consultadas) {
         sin.map((k) => { const ys = xs.filter((x) => x.format === k && !x.dia), n = ys.find((x) => x.nota)?.nota;
           return `<li><span class="niv">${NIV[k] || k}</span><span>${ys.length > 1 ? `${ys.length} pieces · ${esc(ys[0].title.split(" · ")[0])}` : esc(ys[0].title)}${n ? `<span class="nota">${esc(n)}</span>` : ""}</span><span class="fe tbd">Date TBD</span></li>`; }).join("");
       const ult = (s.semanas || [s.semana]).at(-1).hasta;
-      document.getElementById("prox-s").textContent = `From the NAOS month plan (${fe(s.semana.desde)} to ${fe(ult)}) and the dates it sets after it. Planned, not published; dates marked TBD are not set yet.`;
+      document.getElementById("prox-s").textContent = filas.length ? `From the NAOS schedule (${fe(s.semana.desde)} to ${fe(ult)}). Planned, not published; dates marked TBD are not set yet.` : "Planned, not published; dates marked TBD are not set yet. The NAOS grid and its topic pages are in Topics.";
       document.getElementById("prox").hidden = false;
     }
   } catch (e) { /* sin semana.json, sin tarjeta */ }

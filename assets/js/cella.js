@@ -6,7 +6,9 @@
  * NAOS_CELLA(el, o) -> { presente(dato, hacia), humanidad(), estado }
  *   o: { estado: "humanity" | "present", dato: "u" | "d" | "n" | null, hacia: 1 | -1, noche: bool, t0: s (retraso de la reacción) }
  * Movimiento reducido (o ?quieto): nada se mueve; cada estado se dibuja ya en su forma final (ojos abiertos y tinta llena en present).
- * Solo pinta mientras está en pantalla y la pestaña se ve (IntersectionObserver), a unos 30 cuadros por segundo. */
+ * Solo pinta mientras está en pantalla y la pestaña se ve (IntersectionObserver), a unos 30 cuadros por segundo.
+ * Pausa (WCAG 2.2.2, D-252): cada Cella que se mueve lleva al lado un botón "Pause Cella" (aria-pressed); todos comparten un solo
+ * estado, así que pausar una las detiene todas, quietas en su forma final. Con movimiento reducido no hay botón: nada se mueve. */
 (function () {
   "use strict";
   const F = window.NAOS_FIGURA; if (!F) return;
@@ -15,6 +17,22 @@
   const respira = (t, T) => 0.5 - 0.5 * Math.cos(2 * Math.PI * t / T);
   const mezcla = (a, b, x) => a + (b - a) * Math.max(0, Math.min(1, x));
   let uid = 0;
+  // pausa compartida por todas las Cellas de la página
+  const P = { on: false, botones: [], vivas: [] };
+  const quieta = () => rm() || P.on;
+  const alternar = () => {
+    P.on = !P.on;
+    P.botones.forEach((b) => b.setAttribute("aria-pressed", String(P.on)));
+    P.vivas.forEach((v) => { v.pintar(); v.seguir(); });
+  };
+  const boton = (el) => {
+    if (rm()) return;
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "ag-chip cella-pausa"; b.textContent = "Pause Cella"; b.setAttribute("aria-pressed", String(P.on));
+    b.addEventListener("click", (e) => { e.stopPropagation(); alternar(); });
+    (el.closest(".guardian") || el).insertAdjacentElement("afterend", b);
+    P.botones.push(b);
+  };
 
   window.NAOS_CELLA = function (el, o) {
     o = o || {};
@@ -28,7 +46,7 @@
 
     function pintar() {
       const t = ahora(), p = F.pal(!!o.noche);
-      if (rm()) {
+      if (quieta()) {
         const pres = st.estado === "present" && st.t1 == null;
         F.cella(el, { estado: pres ? "present" : "humanity", dato: st.dato, hacia: st.hacia, p, id, b: 0.3, r: pres ? 1 : 0, k: pres && st.dato ? 1 : 0, abiertos: pres });
         return;
@@ -45,14 +63,16 @@
     }
     function bucle(ms) {
       raf = 0;
-      if (!visible || document.hidden || rm()) return;
+      if (!visible || document.hidden || quieta()) return;
       if (ms - ultimo > 32) { ultimo = ms; pintar(); }
       raf = requestAnimationFrame(bucle);
     }
-    const seguir = () => { if (!raf && visible && !document.hidden && !rm()) raf = requestAnimationFrame(bucle); };
+    const seguir = () => { if (!raf && visible && !document.hidden && !quieta()) raf = requestAnimationFrame(bucle); };
     if ("IntersectionObserver" in window) new IntersectionObserver((es) => { visible = es[0].isIntersecting; if (visible) { pintar(); seguir(); } }).observe(el);
     document.addEventListener("visibilitychange", seguir);
     pintar(); seguir();
+    P.vivas.push({ pintar, seguir });
+    if (o.pausa !== false) boton(el);
 
     return {
       get estado() { return st.estado; },
@@ -69,7 +89,7 @@
         const t = ahora();
         if (st.t0 == null || t < st.t0) { st.estado = "humanity"; st.t0 = null; pintar(); return; }
         st.t1 = Math.max(t, st.t0 + 0.6); pintar(); seguir();
-        if (rm()) { st.t0 = null; st.t1 = null; st.estado = "humanity"; pintar(); }
+        if (quieta()) { st.t0 = null; st.t1 = null; st.estado = "humanity"; pintar(); }
       },
       pintar,
     };

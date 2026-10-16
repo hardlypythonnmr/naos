@@ -1,4 +1,4 @@
-/* franja.css · #secuencia, el Short y el Reel de hoy (PROD-08.8). Solo tokens; sin animación propia.
+/* franja.css · #secuencia, la franja urgente de hoy y lo que sigue desde la grilla (lote E, D-252), y "This week" por día. Solo tokens; sin animación propia.
  * Hoy lleva borde de 2 px en vino (como la grilla de "This week") y la palabra "Today"; el cobalto queda fuera. */
 /* .ficha de la ola 0 choca con la ficha de la cinta (v1plus.css: dos puntos a los lados): aquí se anulan; el aviso va a la sesión */
 .ag-chip.ficha::before, .ag-chip.ficha::after { content: none; }
@@ -29,3 +29,15 @@
   .fr-l { grid-template-columns: minmax(0, 1fr); }
   .fr-t { font-size: 26px; }
 }
+.fr-m { margin: 0; }
+/* "This week" desde la grilla (sala.js, N.semana): una lista por día, en todos los anchos */
+.gs-dias { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.gs-d { min-width: 0; }
+.gs-dt { margin: 0 0 6px; font-size: 13px; letter-spacing: .05em; border-top: 2px solid var(--naos-ink); padding-top: 6px; }
+.gs-hoy .gs-dt { border-top-color: var(--vino, #5A1834); }
+.gs-l { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.gs-i { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; padding-left: 8px; border-left: 4px solid var(--sc, var(--naos-sec)); }
+.gs-i .sf { min-height: 32px; gap: 8px; }
+.gs-h { flex: none; color: var(--naos-sec); }
+.gs-s { font-size: 11px; letter-spacing: .05em; color: var(--naos-sec); }
+@media (min-width: 900px) { .gs-dias { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); } }

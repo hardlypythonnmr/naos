@@ -1,6 +1,6 @@
 /* guia.js · #guia: la hoja de la guía (3 fichas-enlace a Market, AI y News) y la ficha "Guide" (PAG-09.3, lunes 19-oct).
- * La hoja abre sola al cargar, en todas partes y en cada visita: es lo primero que se ve (N, 2026-10-15, D-236: "deberia abrir sola en todas
- * partes deberia ser lo primero que alguien ve siempre en cualquier journey y poder skipearse igual"). Un velo de tinta opaca lo demás
+ * La hoja abre sola solo en la portada (D-252, corrige el "en todas partes" de D-236): llegada limpia, sin ancla ni ?src= ni ?sala=,
+ * y al entrar a The Present, donde vive. Nunca en páginas de tema. Un velo de tinta opaca lo demás
  * mientras está arriba ("deberia aparecer opacando lo demas para que pueda ser utilizada") y el foco va al título; tocar el velo la cierra.
  * "Not now", la X y Esc la bajan y dejan la ficha. Mientras está arriba, scroll-padding-bottom iguala su alto (WCAG 2.4.11: nada enfocado queda tapado).
  * Guarda en el navegador solo naos:guia = { cerrada, ultima } con N.guarda (try/catch adentro). Los destinos salen de data/guia.json; si no carga, estos mismos. */
@@ -42,10 +42,12 @@
     if (arriba) tope();
     padding();
   };
-  // con las dos puertas (assets/js/puertas.js) la portada ya pregunta adónde ir: la hoja no se abre sola encima de las puertas
-  // ni al entrar a un universo; la ficha "Guide" sigue en The Present para abrirla a mano
-  const conPuertas = () => !!document.getElementById("doors");
-  const sube = () => { if (descartada || arriba || fin || conPuertas()) return; fin = true; poner(true, true); };
+  // D-252: la hoja abre sola solo si se llegó a la portada limpia (sin ancla, sin ?src= de un Short, sin ?sala=); nunca en las
+  // páginas de tema (no cargan este archivo). Con las dos puertas (puertas.js) la guía vive en The Present: abre al entrar ahí,
+  // nunca encima de las puertas. La ficha "Guide" queda en The Present para abrirla a mano en cualquier llegada.
+  const llegadaLimpia = !location.hash && !/[?&](src|sala)=/.test(location.search) && /(^|\/)(index\.html)?$/.test(location.pathname);
+  const enPresent = () => !document.getElementById("doors") || html.getAttribute("data-u") === "present";
+  const sube = () => { if (descartada || arriba || fin || !llegadaLimpia || !enPresent()) return; fin = true; poner(true, true); };
 
   Promise.race([fetch("data/guia.json").then((r) => r.json()).catch(() => null), new Promise((r) => setTimeout(r, 400, null))]).then((g) => {
     const G = valido(g) ? g : DEF;
@@ -82,6 +84,7 @@
     const pide = () => { if (!raf) raf = requestAnimationFrame(tick); };
     addEventListener("scroll", pide, { passive: true }); addEventListener("resize", pide);
     document.addEventListener("naos:secuencia", pide);
+    document.addEventListener("naos:universo", pide);
     acomoda();
     sube();
   });
