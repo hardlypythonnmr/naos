@@ -1,0 +1,59 @@
+{
+ "id": "sol",
+ "kit": "K4 (dos puntos por fila, sin serie)",
+ "slug": "the-cella",
+ "veredicto_i3": "OK",
+ "fuente": {
+  "nombre": "U.S. Naval Observatory, Astronomical Applications API, rstt/oneday",
+  "consultada": "2026-10-16",
+  "licencia": "dominio público (gobierno de EE. UU.)",
+  "urls": [
+   "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-10-19&coords=6.25,-75.56&tz=-5",
+   "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-12-31&coords=6.25,-75.56&tz=-5"
+  ],
+  "coordenadas": {
+   "medellin": [
+    6.25,
+    -75.56
+   ],
+   "nueva_york": [
+    40.71,
+    -74.01
+   ]
+  },
+  "fuente_en_pagina": "[21]"
+ },
+ "fechas": [
+  "2026-10-19",
+  "2026-12-31"
+ ],
+ "unidad": "hora de reloj local, hh:mm",
+ "en": {
+  "titulo": "When the light comes in",
+  "subtitulo": "Sunrise on the days of the first and last Short, by each city's own clock",
+  "alt": "Dot chart of sunrise by local clock: Medellín 05:48 on 19 October and 06:12 on 31 December; New York 07:12 EDT on 19 October and 07:20 EST on 31 December.",
+  "desc": "Two rows, one per city. Each row joins two points on a clock axis from 05:30 to 07:30: a filled dot for 19 October and a ring for 31 December. Medellín goes from 05:48 to 06:12, 24 minutes later. New York goes from 07:12 EDT to 07:20 EST, 8 minutes later on the clock.",
+  "fecha1": "19 Oct",
+  "fecha2": "31 Dec",
+  "que_es": "What this shows.",
+  "que_muestra": "On the days of the first and last Short, the sun comes up at 05:48 and 06:12 in Medellín and at 07:12 and 07:20 in New York, by each city's own clock. The door opens when the morning does, wherever you are.",
+  "fuente": "Source: U.S. Naval Observatory, queried 16 October 2026 [21]. Medellín at 6.25, -75.56; New York at 40.71, -74.01. Rounded to the minute.",
+  "tabla_resumen": "Data table",
+  "col_lugar": "City and clock",
+  "col_dif": "Difference"
+ },
+ "es": {
+  "titulo": "Cuándo entra la luz",
+  "subtitulo": "La salida del sol en los días del primer y del último Short, según el reloj de cada ciudad",
+  "alt": "Gráfica de puntos de la salida del sol según el reloj local: Medellín, 5:48 el 19 de octubre y 6:12 el 31 de diciembre; Nueva York, 7:12 EDT el 19 de octubre y 7:20 EST el 31 de diciembre.",
+  "desc": "Dos filas, una por ciudad. Cada fila une dos puntos en un eje de reloj de 5:30 a 7:30: un punto lleno para el 19 de octubre y un anillo para el 31 de diciembre. En Medellín pasa de 5:48 a 6:12, 24 minutos más tarde. En Nueva York pasa de 7:12 EDT a 7:20 EST, 8 minutos más tarde en el reloj.",
+  "fecha1": "19 oct",
+  "fecha2": "31 dic",
+  "que_es": "Qué muestra.",
+  "que_muestra": "En los días del primer y del último Short, el sol sale a las 5:48 y a las 6:12 en Medellín, y a las 7:12 y a las 7:20 en Nueva York, según el reloj de cada ciudad. La puerta se abre cuando llega la mañana, donde estés.",
+  "fuente": "Fuente: Observatorio Naval de Estados Unidos (USNO), consultado el 16 de octubre de 2026 [21]. Medellín en 6,25 y -75,56; Nueva York en 40,71 y -74,01. Redondeado al minuto.",
+  "tabla_resumen": "Tabla de datos",
+  "col_lugar": "Ciudad y reloj",
+  "col_dif": "Diferencia"
+ }
+}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 170" width="800" height="170" role="img" aria-labelledby="vm-en-ancho-t vm-en-ancho-d" style="max-width:100%;height:auto">
+<title id="vm-en-ancho-t">From a headline to its source</title>
+<desc id="vm-en-ancho-d">Six pieces in date order, from the headline toward the original. The piece you came from lights up. 1, Mon 19 Oct: A weekend headline. 2, Tue 20 Oct: Label every AI image?. 3, Sat 14 Nov: A COP31 headline. 4, Mon 16 Nov, noon: Summaries: yes or no?. 5, Mon 16 Nov, evening: AI summaries and clicks. 6, Mon 28 Dec: The story you doubt. Stops are evenly spaced, not to scale.</desc>
+<style>
+.vm-t{font-family:var(--font-serif,"Newsreader",Georgia,serif);font-size:17px;fill:var(--naos-ink,#0E1116)}
+.vm-f{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:13px;fill:var(--naos-grey,#59616D)}
+.vm-n{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-weight:600;font-size:14px;fill:var(--naos-ink,#0E1116);font-variant-numeric:tabular-nums}
+.vm-lin{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.vm-pta{fill:var(--naos-ink,#0E1116)}
+.vm-plato{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.vm-aro{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2;opacity:0}
+.vm-origen .vm-plato{fill:var(--naos-ink,#0E1116)}
+.vm-origen .vm-n{fill:var(--naos-paper,#FFFFFF)}
+.vm-origen .vm-aro{opacity:1}
+.vm-origen .vm-t{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+</style>
+<path class="vm-lin" d="M24 62 H782"/><path class="vm-pta" d="M796 62 l-14 -7 v14 z"/>
+<g class="vm-seat" data-n="1" data-src="1019p"><circle class="vm-aro" cx="80" cy="62" r="23"/><circle class="vm-plato" cx="80" cy="62" r="16"/><text class="vm-n" x="80" y="67" text-anchor="middle">1</text><text class="vm-f" x="80" y="28" text-anchor="middle">Mon 19 Oct</text><text class="vm-t" x="80" y="112" text-anchor="middle">A weekend</text><text class="vm-t" x="80" y="134" text-anchor="middle">headline</text></g>
+<g class="vm-seat" data-n="2" data-src="1020p"><circle class="vm-aro" cx="208" cy="62" r="23"/><circle class="vm-plato" cx="208" cy="62" r="16"/><text class="vm-n" x="208" y="67" text-anchor="middle">2</text><text class="vm-f" x="208" y="28" text-anchor="middle">Tue 20 Oct</text><text class="vm-t" x="208" y="112" text-anchor="middle">Label every AI</text><text class="vm-t" x="208" y="134" text-anchor="middle">image?</text></g>
+<g class="vm-seat" data-n="3" data-src="1114p"><circle class="vm-aro" cx="336" cy="62" r="23"/><circle class="vm-plato" cx="336" cy="62" r="16"/><text class="vm-n" x="336" y="67" text-anchor="middle">3</text><text class="vm-f" x="336" y="28" text-anchor="middle">Sat 14 Nov</text><text class="vm-t" x="336" y="112" text-anchor="middle">A COP31</text><text class="vm-t" x="336" y="134" text-anchor="middle">headline</text></g>
+<g class="vm-seat" data-n="4" data-src="1116p-story-1200"><circle class="vm-aro" cx="464" cy="62" r="23"/><circle class="vm-plato" cx="464" cy="62" r="16"/><text class="vm-n" x="464" y="67" text-anchor="middle">4</text><text class="vm-f" x="464" y="12" text-anchor="middle">Mon 16 Nov,</text><text class="vm-f" x="464" y="28" text-anchor="middle">noon</text><text class="vm-t" x="464" y="112" text-anchor="middle">Summaries: yes</text><text class="vm-t" x="464" y="134" text-anchor="middle">or no?</text></g>
+<g class="vm-seat" data-n="5" data-src="1116p"><circle class="vm-aro" cx="592" cy="62" r="23"/><circle class="vm-plato" cx="592" cy="62" r="16"/><text class="vm-n" x="592" y="67" text-anchor="middle">5</text><text class="vm-f" x="592" y="12" text-anchor="middle">Mon 16 Nov,</text><text class="vm-f" x="592" y="28" text-anchor="middle">evening</text><text class="vm-t" x="592" y="112" text-anchor="middle">AI summaries</text><text class="vm-t" x="592" y="134" text-anchor="middle">and clicks</text></g>
+<g class="vm-seat" data-n="6" data-src="1228p"><circle class="vm-aro" cx="720" cy="62" r="23"/><circle class="vm-plato" cx="720" cy="62" r="16"/><text class="vm-n" x="720" y="67" text-anchor="middle">6</text><text class="vm-f" x="720" y="28" text-anchor="middle">Mon 28 Dec</text><text class="vm-t" x="720" y="112" text-anchor="middle">The story you</text><text class="vm-t" x="720" y="134" text-anchor="middle">doubt</text></g>
+</svg>

@@ -7,6 +7,10 @@
 //      temas/<slug>/index.html (una por tema), los hubs (temas/, temas/humanity/, temas/the-present/, temas/pilar/<id>/),
 //      un enlace corto estático por Short (s/<codigo>/index.html, redirige a su tarjeta con ?src=<codigo>) y sitemap.xml.
 //        node scripts/construir-temas.mjs
+//   3. Cuerpo (lote 0+1 en adelante; solo donde está el lote privado): copia el texto, la meta y los visuales de las páginas
+//      selladas por I4 a data/temas/ y assets/temas/ (scripts/cuerpo-temas.mjs); desde ahí el paso 2 arma esas páginas con sus
+//      bloques 0 a 8 y las demás siguen como esqueleto.
+//        node scripts/construir-temas.mjs --cuerpo=<carpeta del lote> --sellados=slug,slug
 // Salida determinista: mismo dato, mismos bytes (sin hora de corrida). Las tarjetas pasan a "Out" solo con enlace en
 // data/enlaces.json (clave "AAAA-MM-DD|<codigo>"). Lo corre construir-semana.mjs al final, como construir-ics.mjs.
 // Reglas (D-252, D-253): títulos con estado "Coming", salvo noticias y elecciones (solo fecha y tema); dos ediciones, EN
@@ -19,6 +23,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { importar, cuerpoTema } from "./cuerpo-temas.mjs";
 
 const V = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const BASE = "https://hardlypythonnmr.github.io/naos/";
@@ -35,8 +40,8 @@ const NO_CONSEJO = "Descriptive, not financial advice.";
 const SIN_SIGNO = new Set(["a-lamp-on-the-night-without-a-moon", "light-in-the-window", "walk-to-the-water", "the-longest-night", "how-a-month-is-announced"]);
 // títulos de página en español (D-253; latinoamericano general, D-242). Traducción del constructor: N la revisa con el lote
 const TITULO_ES = {
-  "the-cella": "La cella vacía, la cella llena", "the-full-moon-table": "La mesa de luna llena", "walks-by-the-moon": "Caminatas con la luna",
-  "saints-and-souls": "Santos y almas", "keep-your-hour": "Cambió el reloj. Mantén tu hora.", "a-lamp-on-the-night-without-a-moon": "Una lámpara en la noche sin luna",
+  "the-cella": "La sala vacía, la sala llena", "the-full-moon-table": "La mesa de luna llena", "walks-by-the-moon": "Caminatas con la luna",
+  "saints-and-souls": "Santos y Difuntos", "keep-your-hour": "Cambió el reloj. Mantén tu hora.", "a-lamp-on-the-night-without-a-moon": "Una lámpara en la noche sin luna",
   moon: "La luna esta temporada", "walk-to-the-water": "Camina hasta el agua", "phones-in-the-bread-basket": "Los teléfonos en la panera",
   "a-good-party": "Una buena fiesta", "advent-waiting": "Adviento: la espera", "light-in-the-window": "Luz en la ventana",
   "how-a-month-is-announced": "Cómo se anuncia un mes", "the-longest-night": "La noche más larga", "back-to-the-hour": "De vuelta a la hora",
@@ -52,6 +57,8 @@ const TITULO_ES = {
 const ES_FUENTE = /[¿¡ñ]|\b(calendario|agenda|anuncios|política|económica|elecciones|año|según)\b/i;
 // fuentes de elecciones: solo la autoridad electoral, el diario oficial o el texto de ley hasta el sello I4 (acta, rojo 6)
 const ELECCION = /\b(elections?|electoral|ballots?|votes?|voting|voters?|runoffs?|midterms?|referendum|presidential|elecci[oó]n|balotaje)\b/i;
+// fuentes heredadas que una página no lleva, por su revisión de fuentes (moon-40: Wikipedia fuera de la página de la luna)
+const FUERA_DE_PAGINA = { moon: /(^|\.)wikipedia\.org$/ };
 const OFICIAL_ELECCION = /(^|\.)(fec\.gov|eac\.gov|tse\.jus\.br|boe\.es|juntaelectoralcentral\.es|law\.cornell\.edu|ine\.mx|service-public\.gouv\.fr)$/;
 
 // ---------- vocabulario público ----------
@@ -223,6 +230,7 @@ function proyectar({ grilla, paginas, afirmaciones, agenda }) {
       const k = f.url || f.titulo; if (vistos.has(k)) continue; vistos.add(k);
       let host = ""; try { host = new URL(f.url).hostname; } catch { /* obra sin URL */ }
       if (ELECCION.test(`${f.titulo} ${f.url || ""}`.replace(/-/g, " ")) && !OFICIAL_ELECCION.test(host)) continue;
+      if (FUERA_DE_PAGINA[p.slug] && FUERA_DE_PAGINA[p.slug].test(host)) continue;
       fuentes.push(ES_FUENTE.test(f.titulo) ? { ...f, lang: "es" } : f);
     }
     const P = pil(p.pilar);
@@ -311,7 +319,7 @@ export const ED = {
 const enEdicion = (x, L) => L.lang === "es" || x.lang !== "es" || (x.idiomas || []).length > 1;
 const langAttr = (t, L) => (t && t !== L.lang ? ` lang="${t}"` : "");
 
-function cabeza({ L, titulo, descripcion, ruta, raiz, jsonld, alterna, css = [] }) {
+function cabeza({ L, titulo, descripcion, ruta, raiz, jsonld, alterna, css = [], og = null }) {
   const url = BASE + L.pref + ruta;
   const alt = alterna ? `\n<link rel="alternate" hreflang="en" href="${esc(BASE + ruta)}">\n<link rel="alternate" hreflang="es" href="${esc(BASE + "es/" + ruta)}">\n<link rel="alternate" hreflang="x-default" href="${esc(BASE + ruta)}">` : "";
   return `<!doctype html>
@@ -322,11 +330,11 @@ function cabeza({ L, titulo, descripcion, ruta, raiz, jsonld, alterna, css = [] 
 <title>${esc(titulo)}</title>
 <meta name="description" content="${esc(descripcion)}">
 <link rel="canonical" href="${esc(url)}">${alt}
-<meta property="og:type" content="website">
+<meta property="og:type" content="${og ? og.tipo : "website"}">
 <meta property="og:site_name" content="NAOS">
 <meta property="og:locale" content="${L.lang === "es" ? "es_419" : "en_US"}">
-<meta property="og:title" content="${esc(titulo)}">
-<meta property="og:description" content="${esc(descripcion)}">
+<meta property="og:title" content="${esc(og ? og.titulo : titulo)}">
+<meta property="og:description" content="${esc(og ? og.descripcion : descripcion)}">
 <meta property="og:url" content="${esc(url)}">
 <meta property="og:image" content="${BASE}assets/marca/avatar-800.png">
 <meta name="twitter:card" content="summary">
@@ -350,12 +358,18 @@ function barra(L, raiz, actual, ruta) {
   <nav class="t-nav" aria-label="${L.nav}">${a(P + "temas/humanity/", L.seccion.Humanity, "humanity")}${a(P + "temas/the-present/", L.seccion["The Present"], "the-present")}${a(P + "temas/", L.temas, "temas")}${a(raiz + "agenda.html", L.agenda, "agenda", L.lang === "en" ? "" : ' hreflang="en"')}<a class="t-idioma" href="${otra}" hreflang="${L.otra.lang}" lang="${L.otra.lang}">${L.otra.txt}</a></nav>
 </header>`;
 }
-function pie(L, raiz, seccion, extra = "") {
+// texto (páginas con cuerpo): { cita, lineas } del pie del texto sellado. La línea de ayuda sigue siendo la verificada del
+// constructor, en el mismo lugar (decisión 1 de N: el pie corto en las páginas que no son sensibles); van después las líneas de
+// N y el sello tal como los trae el texto.
+function pie(L, raiz, seccion, extra = "", texto = null) {
   const P = raiz + L.pref;
+  const N = ["Closer to yourself.", "Eat well, sleep well, get moving, have a relationship with the divine, and build community.", "Más cerca de ti.", "Come bien, duerme bien, muévete, ten una relación con lo divino y construye comunidad."];
+  const lineas = texto && texto.lineas.length
+    ? texto.lineas.map((t) => N.includes(t) ? `  <p class="t-linea-n"${L.lang === "es" && /^Closer/.test(t) ? ' lang="en"' : ""}>${esc(t)}</p>` : `  <p class="sello">${esc(t)}</p>`).join("\n")
+    : `  <p class="t-linea-n">${esc(L.linea[seccion] || L.linea["The Present"])}</p>\n  <p class="sello">${extra}${L.sello}</p>`;
   return `<footer class="t-pie">
-  <p class="ayuda-l" id="ayuda">${L.ayuda}</p>
-  <p class="t-linea-n">${esc(L.linea[seccion] || L.linea["The Present"])}</p>
-  <p class="sello">${extra}${L.sello}</p>
+  <p class="ayuda-l" id="ayuda">${L.ayuda}${texto ? texto.cita : ""}</p>
+${lineas}
   <p class="sello"><a href="${P}">${L.inicio}</a> · <a href="${P}temas/">${L.temas}</a> · <a href="${raiz}agenda.html"${L.lang === "en" ? "" : ' hreflang="en"'}>${L.agenda}</a> · <a href="${raiz}privacidad.html"${L.lang === "es" ? "" : ' hreflang="es"'}>${L.privacidad}</a> · <a href="${raiz}terminos.html"${L.lang === "es" ? "" : ' hreflang="es"'}>${L.terminos}</a></p>
 </footer>`;
 }
@@ -366,17 +380,19 @@ const secId = (s) => (s === "Humanity" ? "humanity" : "the-present");
 // cuerpo (título, línea, formato) y, solo en Humanity, la columna de la luna (lo medido a la vista, con su barra de luz).
 // El día se escribe una vez: las filas siguientes del mismo día lo llevan solo para lector de pantalla (t-sigue); la luna,
 // igual: si no cambió desde la fila anterior del mismo día, no se repite (t-luna-igual).
-function carta(L, x, pag, enlace, raiz, sigue = false, lunaIgual = false) {
+// extra (páginas con cuerpo): { titulo, cuerpo } del texto sellado; el título y las líneas del texto reemplazan los de la grilla,
+// el formato, la voz, el aviso de Markets, la hora y el estado siguen saliendo del dato.
+function carta(L, x, pag, enlace, raiz, sigue = false, lunaIgual = false, extra = null) {
   const out = enlace && /^https:\/\/(www\.youtube\.com|youtu\.be)\//.test(enlace.yt || "");
   const estado = out
     ? `<p class="t-estado t-out"><span class="t-tag">${L.salio}</span> <a class="t-ver" href="${esc(enlace.yt)}" rel="noopener">YouTube</a>${/^https:\/\/www\.instagram\.com\//.test(enlace.ig || "") ? ` <a class="t-ver" href="${esc(enlace.ig)}" rel="noopener">Instagram</a>` : ""}</p>`
     : `<p class="t-estado"><span class="t-tag">${L.proximo}</span></p>`;
   const formato = L.formato[x.canal] || x.formato;
-  const titulo = x.noticia
+  const titulo = extra && extra.titulo ? `<h3 class="t-tit">${extra.titulo}</h3>` : x.noticia
     ? `<h3 class="t-tit">${pag.pilar === "news" ? esc(L.noticia(L.titulo(pag))) : L.noticiaSola}</h3><p class="t-nota">${L.noticiaNota}</p>`
     : x.titulo ? `<h3 class="t-tit"${langAttr(x.lang, L)}>${esc(x.titulo)}</h3>` : `<h3 class="t-tit">${esc(formato)}</h3>`;
   const bil = (x.idiomas || []).length > 1;
-  const fmt = [x.titulo || x.noticia ? formato : "", !bil && x.lang !== L.lang && x.canal !== "es" ? L.enOtro[x.lang] : "", bil ? L.voces(x.idiomas) : "",
+  const fmt = [x.titulo || x.noticia || (extra && extra.titulo) ? formato : "", !bil && x.lang !== L.lang && x.canal !== "es" ? L.enOtro[x.lang] : "", bil ? L.voces(x.idiomas) : "",
     x.voz ? L.voz : "", x.mercado ? L.noConsejo.slice(0, -1) : ""].filter(Boolean).join(". ") + (x.mercado ? "." : "");
   const luna = x.luna ? `
   <div class="t-luna">
@@ -392,7 +408,7 @@ function carta(L, x, pag, enlace, raiz, sigue = false, lunaIgual = false) {
   </div>
   <div class="t-cuerpo">
     ${titulo.replace("<h3 class=\"t-tit\"", `<h3 class="t-tit" id="${esc(x.id)}-t"`)}
-    ${x.linea ? `<p class="t-linea"${langAttr(x.lang, L)}>${esc(x.linea)}</p>` : ""}
+    ${extra ? extra.cuerpo : x.linea ? `<p class="t-linea"${langAttr(x.lang, L)}>${esc(x.linea)}</p>` : ""}
     ${fmt ? `<p class="t-fmt">${esc(fmt)}</p>` : ""}
     ${corto}
   </div>${luna}
@@ -400,6 +416,8 @@ function carta(L, x, pag, enlace, raiz, sigue = false, lunaIgual = false) {
 }
 
 function paginaTema(L, D, p, enlaces) {
+  const md = path.join(V, `data/temas/${p.slug}.${L.lang}.md`), X = leerJSON(path.join(V, `data/temas/${p.slug}.json`));
+  if (fs.existsSync(md) && X) return paginaCuerpo(L, D, p, enlaces, { ...X, _V: V }, fs.readFileSync(md, "utf8"));
   const raiz = L.lang === "es" ? "../../../" : "../../", P = pilarDe(D, p.pilar);
   const todas = p.piezas.map((id) => D.piezas.find((x) => x.id === id)), xs = todas.filter((x) => enEdicion(x, L));
   const desde = xs[0].fecha, hasta = xs.at(-1).fecha, nES = todas.filter((x) => !enEdicion(x, L)).length;
@@ -436,6 +454,44 @@ ${xs.map((x, i) => carta(L, x, p, enlaces[x.fecha + "|" + x.codigo], raiz, i > 0
   </section>${fuentes}
 </main>
 ${pie(L, raiz, p.seccion, mercado ? L.noConsejo + " " : "")}
+</body>
+</html>
+`;
+}
+
+// Página con cuerpo (lote 0+1 en adelante, solo páginas selladas por I4): bloques 0 a 8 del texto (acta 2(b)), el registro de
+// tarjetas del constructor dentro del bloque 5, los visuales de assets/temas/<slug>/ y la meta de su meta.json. Misma barra, mismo
+// pie, mismas reglas fijas de tarjeta que el esqueleto.
+function paginaCuerpo(L, D, p, enlaces, X, md) {
+  const raiz = L.lang === "es" ? "../../../" : "../../", P = pilarDe(D, p.pilar);
+  const xs = p.piezas.map((id) => D.piezas.find((x) => x.id === id)).filter((x) => enEdicion(x, L));
+  const nES = p.piezas.map((id) => D.piezas.find((x) => x.id === id)).filter((x) => !enEdicion(x, L)).length;
+  const mercado = p.pilar === "markets" || xs.some((x) => x.mercado);
+  const ruta = `temas/${p.slug}/`, M = X.meta[L.lang];
+  const c = cuerpoTema({ L, D, p, X, md, raiz, xs, carta, enlaces });
+  const nombre = (x) => (c.nombres[x.id] || "").replace(/\s*·\s*en inglés:.*$/, "") || (x.noticia ? `${L.noticiaSola}, ${L.fe(x.fecha)}` : x.titulo || `${L.formato[x.canal] || x.formato}, ${L.fe(x.fecha)}`);
+  const jsonld = { "@context": "https://schema.org", "@type": "CollectionPage", name: M.h1, headline: M.og_title, description: M.description, url: BASE + L.pref + ruta, inLanguage: L.lang,
+    isPartOf: { "@type": "WebSite", name: "NAOS", url: BASE + L.pref }, about: L.pilar(P),
+    mainEntity: { "@type": "ItemList", numberOfItems: xs.length, itemListElement: xs.map((x, i) => ({ "@type": "ListItem", position: i + 1, url: BASE + L.pref + ruta + "#" + x.id, name: nombre(x) })) } };
+  const pref = (r) => r.replace(/^(?!https?:)/, `${raiz}assets/temas/${p.slug}/`);
+  const css = (X.css || []).map((f) => `assets/temas/${p.slug}/${f}`);
+  const mods = (X.modulos || []);
+  const modulo = mods.length ? `\n<script type="module">${mods.map((m, i) => `import{montar as m${i}}from${JSON.stringify(pref(m.src))};`).join("")}const q=matchMedia("(prefers-reduced-motion: reduce)").matches;${mods.map((m, i) => `document.querySelectorAll(${JSON.stringify(m.sel)}).forEach((e)=>{try{m${i}(e${m.quieto ? ",{quieto:q}" : ",{quieto:false}"})}catch(x){}});`).join("")}</script>` : "";
+  const scripts = (X.scripts || []).map((s) => `\n<script defer src="${pref(s)}"></script>`).join("");
+  const umbralAviso = mercado && !c.umbral.includes(L.noConsejo) ? `\n    <p class="t-aviso">${L.noConsejo}</p>` : "";
+  const piezasId = (md.match(/^## 5 · .*\{#([\w-]+)\}/m) || [])[1] || "main";
+  return `${cabeza({ L, titulo: M.title, descripcion: M.description, ruta, raiz, jsonld, alterna: true, css, og: { titulo: M.og_title, descripcion: M.og_description, tipo: "article" } })}
+<body class="t-${secId(p.seccion)} t-con-cuerpo">
+<a class="sr" href="#${piezasId}">${L.saltar}</a>
+${barra(L, raiz, "", ruta)}
+<main id="main"${X.cambio ? ` data-cambio="${esc(X.cambio)}"` : ""}>
+  <header class="t-umbral" id="${(md.match(/^## 0 · .*\{#([\w-]+)\}/m) || [])[1] || "arriba"}">
+    <nav class="t-migas" aria-label="${L.migas}"><a href="${raiz}${L.pref}temas/">${L.temas}</a> / <a href="${raiz}${L.pref}temas/${secId(p.seccion)}/">${esc(L.seccion[p.seccion])}</a> / <a href="${raiz}${L.pref}temas/pilar/${P.id}/">${esc(L.pilar(P))}</a></nav>
+${c.umbral}${umbralAviso}${nES ? "\n    " + L.enEspanol(nES, `${raiz}es/${ruta}`) : ""}
+  </header>
+${c.bloques}
+</main>
+${pie(L, raiz, p.seccion, "", c.pie)}${scripts}${modulo}
 </body>
 </html>
 `;
@@ -598,7 +654,9 @@ export function construirTemas({ silencio = false } = {}) {
 
 // ---------- uso directo ----------
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const g = arg("grilla"), p = arg("paginas"), a = arg("afirmaciones");
+  const g = arg("grilla"), p = arg("paginas"), a = arg("afirmaciones"), cu = arg("cuerpo"), se = arg("sellados");
+  // cuerpo de las páginas selladas (solo donde está el lote privado): texto, meta y visuales a data/temas/ y assets/temas/
+  if (cu) { if (!se) { console.error("uso: node scripts/construir-temas.mjs --cuerpo=<carpeta del lote> --sellados=slug,slug"); process.exit(2); } importar({ V, lote: cu, slugs: se.split(",").filter(Boolean) }); }
   if (g || p) {
     if (!g || !p) { console.error("uso: node scripts/construir-temas.mjs --grilla=<grilla.json> --paginas=<paginas.json> [--afirmaciones=<csv>]"); process.exit(2); }
     const D = proyectar({ grilla: leerJSON(g), paginas: leerJSON(p), afirmaciones: a ? csv(fs.readFileSync(a, "utf8")) : [], agenda: leerJSON(path.join(V, "data/agenda.json")) });

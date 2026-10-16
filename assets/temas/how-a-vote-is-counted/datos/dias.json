@@ -1,0 +1,110 @@
+{
+ "leido": "2026-10-16",
+ "eje": {
+  "max": 20,
+  "paso": 5
+ },
+ "grupos": [
+  {
+   "id": "br",
+   "voto": "2026-10-25",
+   "fuentes": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "us",
+   "voto": "2026-11-03",
+   "fuentes": [
+    17
+   ]
+  },
+  {
+   "id": "es",
+   "voto": "2026-11-29",
+   "fuentes": [
+    34
+   ]
+  }
+ ],
+ "textos": {
+  "en": {
+   "titulo": "Days from voting day to each official step",
+   "subtitulo": "Where our sources give a date. Michigan and Georgia are two examples: each US state sets its own dates.",
+   "eje": "Days after voting day (0 is voting day)",
+   "grupo": {
+    "br": "Brazil, runoff · Sun 25 Oct",
+    "us": "United States, midterms · Tue 3 Nov",
+    "es": "Spain, general · Sun 29 Nov"
+   },
+   "valor": {
+    "br-primero": "Official date: not confirmed in our sources",
+    "mi-condado": "by day 2 · Thu 5 Nov",
+    "ga-condados": "by day 6 · Mon 9 Nov",
+    "ga-estado": "by day 17 · Fri 20 Nov",
+    "es-general": "days 5 to 8 · Fri 4 to Mon 7 Dec"
+   },
+   "leyenda": {
+    "primero": "First number, on voting night",
+    "oficial": "Official step (a long shape is a window of days)",
+    "antigua": "Dashed ring: date read from an older copy, checked again before 3 Nov",
+    "sin": "Dotted line: no official date confirmed"
+   },
+   "pie": "Sources: [2] [3] [4] [17] [25] [27] [34] [35] [40]. Read on 16 October 2026. Georgia's dates come from a Wayback copy of its calendar dated 26 March 2026.",
+   "alt": "Chart of days from voting day to each official step. Brazil: first count on voting day at 17:00 Brasília; no official date confirmed. United States: Michigan's county boards meet by day 2, Georgia's counties certify by day 6, Georgia's state certifies by day 17. Spain: the official general count runs from day 5 to day 8.",
+   "que_muestra": "How many days pass between voting day and each official step, where our sources give a date. In the United States, Michigan's county boards meet by day 2, Georgia's counties certify by day 6 and its state by day 17. In Spain, the official general count runs from day 5 to day 8. In each case the first number comes on voting night and the official step has its own date. Brazil's first count starts at 17:00 Brasília; our sources give no official-result date, so that row ends in a dotted line. Michigan and Georgia are two examples; each US state sets its own dates. This is the calendar the law sets; how fast a count goes is a different question.",
+   "tabla": {
+    "caption": "Days from voting day to each official step",
+    "cols": [
+     "Election",
+     "Step",
+     "Day",
+     "Date",
+     "Source",
+     "Read"
+    ],
+    "fuente": "Day counts are the difference between voting day and the date, worked out by us. Voting days: Brazil [2], United States [17], Spain [34]. Georgia's dates come from a Wayback copy of its calendar dated 26 March 2026 and are checked again before 3 November."
+   }
+  },
+  "es": {
+   "titulo": "Días desde el día de votar hasta cada paso oficial",
+   "subtitulo": "Donde nuestras fuentes dan una fecha. Michigan y Georgia son dos ejemplos: cada estado de EE. UU. pone sus propias fechas.",
+   "eje": "Días después del día de votar (0 es el día de votar)",
+   "grupo": {
+    "br": "Brasil, segunda vuelta · dom 25 oct",
+    "us": "Estados Unidos, medio término · mar 3 nov",
+    "es": "España, generales · dom 29 nov"
+   },
+   "valor": {
+    "br-primero": "Fecha oficial: no la confirmamos en nuestras fuentes",
+    "mi-condado": "a más tardar el día 2 · jue 5 nov",
+    "ga-condados": "a más tardar el día 6 · lun 9 nov",
+    "ga-estado": "a más tardar el día 17 · vie 20 nov",
+    "es-general": "días 5 a 8 · vie 4 a lun 7 dic"
+   },
+   "leyenda": {
+    "primero": "La primera cifra, la noche de votar",
+    "oficial": "Paso oficial (una forma larga es una ventana de días)",
+    "antigua": "Aro de trazo cortado: fecha leída en una copia anterior, se revisa de nuevo antes del 3 nov",
+    "sin": "Línea punteada: sin fecha oficial confirmada"
+   },
+   "pie": "Fuentes: [2] [3] [4] [17] [25] [27] [34] [35] [40]. Leídas el 16 de octubre de 2026. Las fechas de Georgia salen de una copia de Wayback de su calendario, del 26 de marzo de 2026.",
+   "alt": "Gráfica de los días desde el día de votar hasta cada paso oficial. Brasil: primer conteo el mismo día, a las 17:00 de Brasilia; sin fecha oficial confirmada. Estados Unidos: las juntas de condado de Michigan se reúnen a más tardar el día 2, los condados de Georgia certifican a más tardar el día 6 y el estado de Georgia, a más tardar el día 17. España: el escrutinio general oficial va del día 5 al día 8.",
+   "que_muestra": "Cuántos días pasan entre el día de votar y cada paso oficial, donde nuestras fuentes dan una fecha. En Estados Unidos, las juntas de condado de Michigan se reúnen a más tardar el día 2, los condados de Georgia certifican a más tardar el día 6 y el estado, a más tardar el día 17. En España, el escrutinio general oficial va del día 5 al día 8. En cada caso la primera cifra llega la noche de votar y el paso oficial tiene su propia fecha. El primer conteo de Brasil empieza a las 17:00 de Brasilia; nuestras fuentes no dan una fecha del resultado oficial, así que esa fila termina en una línea punteada. Michigan y Georgia son dos ejemplos; cada estado de EE. UU. pone sus fechas. Es el calendario que fija la ley; qué tan rápido va un conteo es otra pregunta.",
+   "tabla": {
+    "caption": "Días desde el día de votar hasta cada paso oficial",
+    "cols": [
+     "Elección",
+     "Paso",
+     "Día",
+     "Fecha",
+     "Fuente",
+     "Leída"
+    ],
+    "fuente": "Los días son la diferencia entre el día de votar y la fecha, calculada por nosotros. Días de votar: Brasil [2], Estados Unidos [17], España [34]. Las fechas de Georgia salen de una copia de Wayback de su calendario, del 26 de marzo de 2026, y se revisan de nuevo antes del 3 de noviembre."
+   }
+  }
+ }
+}

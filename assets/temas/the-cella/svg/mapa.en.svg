@@ -1,0 +1,67 @@
+<svg class="cm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 860" width="440" height="860" role="img" aria-labelledby="cm-t-en cm-d-en" lang="en">
+<title id="cm-t-en">Map of this page: a temple floor plan in dots, its one door at the east end, with seven pieces set along the path of the morning light, from 19 October to 31 December.</title>
+<desc id="cm-d-en">Seven pieces along the path of the morning light, from the east door to the back wall. The room is empty at the door on 19 October and full at the back wall on 31 December: it fills as the year does. Filled dots are out, rings are coming. The spacing is even and does not follow the calendar scale. The piece you came from is circled and the path lights up to it.</desc>
+<style>svg.cm{--ink:var(--naos-ink,#0E1116);--sec:var(--naos-sec,#454C57);--grey:var(--naos-grey,#59616D);--chart:var(--naos-chart,#737B87);--rule:var(--naos-rule,#D7DBE0);--paper:var(--naos-paper,#FFFFFF);font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif)}svg.cm[data-tono=noche]{--ink:var(--naos-night-text,#F4F6F8);--sec:var(--naos-night-sec,#C3C9D2);--grey:var(--naos-night-grey,#9AA3B0);--chart:var(--naos-night-grey,#9AA3B0);--rule:var(--naos-night-rule,#2A303A);--paper:var(--naos-night,#0E1116)}svg.cm text{fill:var(--ink)}svg.cm .cm-d{fill:var(--grey);font-size:17px;font-variant-numeric:tabular-nums}svg.cm .cm-t{font-family:var(--font-serif,'Newsreader',Georgia,serif);font-size:22px;font-weight:400}svg.cm .cm-k{fill:var(--grey);font-size:17px}svg.cm .cm-w{stroke:var(--ink);stroke-width:4.4;stroke-linecap:round;fill:none}svg.cm .cm-f{stroke:var(--rule);stroke-width:3.2;stroke-linecap:round;fill:none}svg.cm .cm-bd{stroke:var(--chart);stroke-width:3.6;stroke-linecap:round;fill:none}svg.cm .cm-halo{fill:var(--paper)}svg.cm .cm-out{fill:var(--ink)}svg.cm .cm-in{fill:var(--paper);stroke:var(--ink);stroke-width:2.5}svg.cm .cm-lead{stroke:var(--chart);stroke-width:1;stroke-dasharray:1 4;stroke-linecap:round}svg.cm .cm-sel{display:none;fill:none;stroke:var(--ink);stroke-width:2}svg.cm .is-from .cm-sel{display:inline}svg.cm .is-from .cm-t{font-weight:600}svg.cm[data-from="1"] .cm-bd[data-hasta="1"]{stroke:var(--ink)}svg.cm[data-from="2"] .cm-bd[data-hasta="1"],svg.cm[data-from="2"] .cm-bd[data-hasta="2"]{stroke:var(--ink)}svg.cm[data-from="3"] .cm-bd[data-hasta="1"],svg.cm[data-from="3"] .cm-bd[data-hasta="2"],svg.cm[data-from="3"] .cm-bd[data-hasta="3"]{stroke:var(--ink)}svg.cm[data-from="4"] .cm-bd[data-hasta="1"],svg.cm[data-from="4"] .cm-bd[data-hasta="2"],svg.cm[data-from="4"] .cm-bd[data-hasta="3"],svg.cm[data-from="4"] .cm-bd[data-hasta="4"]{stroke:var(--ink)}svg.cm[data-from="5"] .cm-bd[data-hasta="1"],svg.cm[data-from="5"] .cm-bd[data-hasta="2"],svg.cm[data-from="5"] .cm-bd[data-hasta="3"],svg.cm[data-from="5"] .cm-bd[data-hasta="4"],svg.cm[data-from="5"] .cm-bd[data-hasta="5"]{stroke:var(--ink)}svg.cm[data-from="6"] .cm-bd[data-hasta="1"],svg.cm[data-from="6"] .cm-bd[data-hasta="2"],svg.cm[data-from="6"] .cm-bd[data-hasta="3"],svg.cm[data-from="6"] .cm-bd[data-hasta="4"],svg.cm[data-from="6"] .cm-bd[data-hasta="5"],svg.cm[data-from="6"] .cm-bd[data-hasta="6"]{stroke:var(--ink)}svg.cm[data-from="7"] .cm-bd[data-hasta="1"],svg.cm[data-from="7"] .cm-bd[data-hasta="2"],svg.cm[data-from="7"] .cm-bd[data-hasta="3"],svg.cm[data-from="7"] .cm-bd[data-hasta="4"],svg.cm[data-from="7"] .cm-bd[data-hasta="5"],svg.cm[data-from="7"] .cm-bd[data-hasta="6"],svg.cm[data-from="7"] .cm-bd[data-hasta="7"]{stroke:var(--ink)}</style>
+<path class="cm-w"  d="M20 80h.01M20 770h.01M30 80h.01M30 770h.01M40 80h.01M40 770h.01M50 80h.01M50 770h.01M60 80h.01M60 770h.01M70 80h.01M70 770h.01M80 770h.01M90 770h.01M100 770h.01M110 80h.01M110 770h.01M120 80h.01M120 770h.01M130 80h.01M130 770h.01M140 80h.01M140 770h.01M150 80h.01M150 770h.01M160 80h.01M160 770h.01M20 90h.01M160 90h.01M20 100h.01M160 100h.01M20 110h.01M160 110h.01M20 120h.01M160 120h.01M20 130h.01M160 130h.01M20 140h.01M160 140h.01M20 150h.01M160 150h.01M20 160h.01M160 160h.01M20 170h.01M160 170h.01M20 180h.01M160 180h.01M20 190h.01M160 190h.01M20 200h.01M160 200h.01M20 210h.01M160 210h.01M20 220h.01M160 220h.01M20 230h.01M160 230h.01M20 240h.01M160 240h.01M20 250h.01M160 250h.01M20 260h.01M160 260h.01M20 270h.01M160 270h.01M20 280h.01M160 280h.01M20 290h.01M160 290h.01M20 300h.01M160 300h.01M20 310h.01M160 310h.01M20 320h.01M160 320h.01M20 330h.01M160 330h.01M20 340h.01M160 340h.01M20 350h.01M160 350h.01M20 360h.01M160 360h.01M20 370h.01M160 370h.01M20 380h.01M160 380h.01M20 390h.01M160 390h.01M20 400h.01M160 400h.01M20 410h.01M160 410h.01M20 420h.01M160 420h.01M20 430h.01M160 430h.01M20 440h.01M160 440h.01M20 450h.01M160 450h.01M20 460h.01M160 460h.01M20 470h.01M160 470h.01M20 480h.01M160 480h.01M20 490h.01M160 490h.01M20 500h.01M160 500h.01M20 510h.01M160 510h.01M20 520h.01M160 520h.01M20 530h.01M160 530h.01M20 540h.01M160 540h.01M20 550h.01M160 550h.01M20 560h.01M160 560h.01M20 570h.01M160 570h.01M20 580h.01M160 580h.01M20 590h.01M160 590h.01M20 600h.01M160 600h.01M20 610h.01M160 610h.01M20 620h.01M160 620h.01M20 630h.01M160 630h.01M20 640h.01M160 640h.01M20 650h.01M160 650h.01M20 660h.01M160 660h.01M20 670h.01M160 670h.01M20 680h.01M160 680h.01M20 690h.01M160 690h.01M20 700h.01M160 700h.01M20 710h.01M160 710h.01M20 720h.01M160 720h.01M20 730h.01M160 730h.01M20 740h.01M160 740h.01M20 750h.01M160 750h.01M20 760h.01M160 760h.01"/>
+<path class="cm-f"  d="M30 104h.01M30 128h.01M30 152h.01M30 176h.01M30 200h.01M30 224h.01M30 248h.01M30 272h.01M30 296h.01M30 320h.01M30 344h.01M30 368h.01M30 392h.01M30 416h.01M30 440h.01M30 464h.01M30 488h.01M30 512h.01M30 536h.01M30 560h.01M30 584h.01M30 608h.01M30 632h.01M30 656h.01M30 680h.01M30 704h.01M30 728h.01M30 752h.01M50 104h.01M50 128h.01M50 152h.01M50 176h.01M50 200h.01M50 224h.01M50 248h.01M50 272h.01M50 296h.01M50 320h.01M50 344h.01M50 368h.01M50 392h.01M50 416h.01M50 440h.01M50 464h.01M50 488h.01M50 512h.01M50 536h.01M50 560h.01M50 584h.01M50 608h.01M50 632h.01M50 656h.01M50 680h.01M50 704h.01M50 728h.01M50 752h.01M130 104h.01M130 128h.01M130 152h.01M130 176h.01M130 200h.01M130 224h.01M130 248h.01M130 272h.01M130 296h.01M130 320h.01M130 344h.01M130 368h.01M130 392h.01M130 416h.01M130 440h.01M130 464h.01M130 488h.01M130 512h.01M130 536h.01M130 560h.01M130 584h.01M130 608h.01M130 632h.01M130 656h.01M130 680h.01M130 704h.01M130 728h.01M130 752h.01M150 104h.01M150 128h.01M150 152h.01M150 176h.01M150 200h.01M150 224h.01M150 248h.01M150 272h.01M150 296h.01M150 320h.01M150 344h.01M150 368h.01M150 392h.01M150 416h.01M150 440h.01M150 464h.01M150 488h.01M150 512h.01M150 536h.01M150 560h.01M150 584h.01M150 608h.01M150 632h.01M150 656h.01M150 680h.01M150 704h.01M150 728h.01M150 752h.01"/>
+<path class="cm-bd" data-hasta="1" d="M70 104h.01M70 128h.01M90 104h.01M90 128h.01M110 104h.01M110 128h.01"/>
+<path class="cm-bd" data-hasta="2" d="M70 152h.01M70 176h.01M70 200h.01M70 224h.01M90 152h.01M90 176h.01M90 200h.01M90 224h.01M110 152h.01M110 176h.01M110 200h.01M110 224h.01"/>
+<path class="cm-bd" data-hasta="3" d="M70 248h.01M70 272h.01M70 296h.01M70 320h.01M90 248h.01M90 272h.01M90 296h.01M90 320h.01M110 248h.01M110 272h.01M110 296h.01M110 320h.01"/>
+<path class="cm-bd" data-hasta="4" d="M70 344h.01M70 368h.01M70 392h.01M70 416h.01M90 344h.01M90 368h.01M90 392h.01M90 416h.01M110 344h.01M110 368h.01M110 392h.01M110 416h.01"/>
+<path class="cm-bd" data-hasta="5" d="M70 440h.01M70 464h.01M70 488h.01M70 512h.01M90 440h.01M90 464h.01M90 488h.01M90 512h.01M110 440h.01M110 464h.01M110 488h.01M110 512h.01"/>
+<path class="cm-bd" data-hasta="6" d="M70 536h.01M70 560h.01M70 584h.01M70 608h.01M90 536h.01M90 560h.01M90 584h.01M90 608h.01M110 536h.01M110 560h.01M110 584h.01M110 608h.01"/>
+<path class="cm-bd" data-hasta="7" d="M70 632h.01M70 656h.01M70 680h.01M70 704h.01M70 728h.01M70 752h.01M90 632h.01M90 656h.01M90 680h.01M90 704h.01M90 728h.01M90 752h.01M110 632h.01M110 656h.01M110 680h.01M110 704h.01M110 728h.01M110 752h.01"/>
+<text class="cm-k" x="90" y="62" text-anchor="middle">East door</text>
+<text class="cm-k" x="90" y="798" text-anchor="middle">Back wall</text>
+<g class="cm-n" data-i="1">
+<line class="cm-lead" x1="108" y1="150" x2="182" y2="150"/>
+<circle class="cm-halo" cx="90" cy="150" r="13"/>
+<circle class="cm-out" cx="90" cy="150" r="8"/>
+<circle class="cm-sel" cx="90" cy="150" r="15.5"/>
+<text class="cm-d" x="184" y="144">Mon 19 Oct, noon</text>
+<text class="cm-t" x="184" y="169">In. In. Out.</text></g>
+<g class="cm-n" data-i="2" data-src="1019h">
+<line class="cm-lead" x1="108" y1="242" x2="182" y2="242"/>
+<circle class="cm-halo" cx="90" cy="242" r="13"/>
+<circle class="cm-out" cx="90" cy="242" r="8"/>
+<circle class="cm-sel" cx="90" cy="242" r="15.5"/>
+<text class="cm-d" x="184" y="236">Mon 19 Oct, night</text>
+<text class="cm-t" x="184" y="261">The empty cella</text></g>
+<g class="cm-n" data-i="3">
+<line class="cm-lead" x1="108" y1="333" x2="182" y2="333"/>
+<circle class="cm-halo" cx="90" cy="333" r="13"/>
+<circle class="cm-in" cx="90" cy="333" r="7"/>
+<circle class="cm-sel" cx="90" cy="333" r="15.5"/>
+<text class="cm-d" x="184" y="327">Tue 29 Dec, noon</text>
+<text class="cm-t" x="184" y="352">One thing to keep</text></g>
+<g class="cm-n" data-i="4" data-src="1229h">
+<line class="cm-lead" x1="108" y1="425" x2="182" y2="425"/>
+<circle class="cm-halo" cx="90" cy="425" r="13"/>
+<circle class="cm-in" cx="90" cy="425" r="7"/>
+<circle class="cm-sel" cx="90" cy="425" r="15.5"/>
+<text class="cm-d" x="184" y="419">Tue 29 Dec, night</text>
+<text class="cm-t" x="184" y="444">The keeper of the year</text></g>
+<g class="cm-n" data-i="5">
+<line class="cm-lead" x1="108" y1="517" x2="182" y2="517"/>
+<circle class="cm-halo" cx="90" cy="517" r="13"/>
+<circle class="cm-in" cx="90" cy="517" r="7"/>
+<circle class="cm-sel" cx="90" cy="517" r="15.5"/>
+<text class="cm-d" x="184" y="511">Wed 30 Dec</text>
+<text class="cm-t" x="184" y="536">Seven slides, one thing</text></g>
+<g class="cm-n" data-i="6">
+<line class="cm-lead" x1="108" y1="608" x2="182" y2="608"/>
+<circle class="cm-halo" cx="90" cy="608" r="13"/>
+<circle class="cm-in" cx="90" cy="608" r="7"/>
+<circle class="cm-sel" cx="90" cy="608" r="15.5"/>
+<text class="cm-d" x="184" y="602">Thu 31 Dec, noon</text>
+<text class="cm-t" x="184" y="627">The full cella, still</text></g>
+<g class="cm-n" data-i="7" data-src="1231h">
+<line class="cm-lead" x1="108" y1="700" x2="182" y2="700"/>
+<circle class="cm-halo" cx="90" cy="700" r="13"/>
+<circle class="cm-in" cx="90" cy="700" r="7"/>
+<circle class="cm-sel" cx="90" cy="700" r="15.5"/>
+<text class="cm-d" x="184" y="694">Thu 31 Dec, night</text>
+<text class="cm-t" x="184" y="719">The full cella</text></g>
+<circle class="cm-out" cx="30" cy="838" r="8"/><text class="cm-k" x="46" y="843">Out</text>
+<circle class="cm-in" cx="170" cy="838" r="7"/><text class="cm-k" x="186" y="843">Coming</text>
+</svg>

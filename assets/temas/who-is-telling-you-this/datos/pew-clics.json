@@ -1,0 +1,146 @@
+{
+ "medida": "share of visits with a click",
+ "fuente_pew": {
+  "nombre": "Pew Research Center",
+  "fecha": "2025-07-22",
+  "url": "https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/",
+  "n_pagina": 31
+ },
+ "muestra": {
+  "adultos": 900,
+  "busquedas": 68879,
+  "periodo": "2025-03",
+  "pais": "US",
+  "buscador": "Google"
+ },
+ "fuente_google": {
+  "nombre": "Google, Liz Reid",
+  "fecha": "2025-08-06",
+  "url": "https://blog.google/products/search/ai-search-driving-more-queries-higher-quality-clicks/",
+  "n_pagina": 33,
+  "vocero": {
+   "nombre": "MediaPost",
+   "fecha": "2025-07-24",
+   "url": "https://www.mediapost.com/publications/article/407651/google-hits-back-at-pew-report.html",
+   "n_pagina": 32
+  }
+ },
+ "leido": "2026-10-16",
+ "citas_google": {
+  "post": "total organic click volume from Google Search to websites has been relatively stable year-over-year",
+  "vocero": "This study uses a flawed methodology and skewed query-set that is not representative of Search traffic"
+ },
+ "grupos": [
+  {
+   "id": "sin",
+   "barras": [
+    {
+     "id": "sin-normal",
+     "valor": 15,
+     "aprox": false
+    }
+   ]
+  },
+  {
+   "id": "con",
+   "barras": [
+    {
+     "id": "con-normal",
+     "valor": 8,
+     "aprox": false
+    },
+    {
+     "id": "con-enlace",
+     "valor": 1,
+     "aprox": true
+    }
+   ]
+  }
+ ],
+ "eje": {
+  "max": 20,
+  "paso": 5
+ },
+ "textos": {
+  "en": {
+   "titulo": "Clicks on Google, with and without an AI summary",
+   "subtitulo": "Share of visits in which people clicked. Pew Research Center, 22 July 2025: 900 US adults, 68,879 searches, March 2025.",
+   "grupo": {
+    "sin": "Pages without an AI summary",
+    "con": "Pages with an AI summary"
+   },
+   "barra": {
+    "sin-normal": "A regular result",
+    "con-normal": "A regular result",
+    "con-enlace": "A link inside the summary"
+   },
+   "aprox": "about ",
+   "eje": "Share of visits",
+   "google_t": "Google disagrees",
+   "google": "A Google spokesperson called Pew's method a \"flawed methodology\". Google's own post says total organic clicks from Google Search to websites have been \"relatively stable year-over-year\". It gives no figures, so there is nothing of Google's to plot.",
+   "pie": "Pew Research Center, 22 July 2025. Google, 6 August 2025. MediaPost, 24 July 2025. Read 16 October 2026.",
+   "alt": "Bar chart of the share of visits with a click. On pages without an AI summary, 15% clicked a regular result. On pages with one, 8% clicked a regular result and about 1% clicked a link inside the summary.",
+   "que_muestra": "When an AI summary appeared on a Google results page, people clicked a regular result in 8% of visits. Without one, in 15%. In about 1% of visits to pages with a summary, someone clicked a link inside it. This is Pew's count of what 900 US adults did in March 2025. Google disputes the method and gives no figures of its own. It shows what people did in one period, in the US, on Google; it does not show why.",
+   "tabla": {
+    "caption": "Share of visits with a click, by kind of page and kind of click",
+    "cols": [
+     "Page",
+     "What people clicked",
+     "Share of visits"
+    ],
+    "google_cap": "Google's answer, in its own words",
+    "google_filas": [
+     [
+      "Google, 6 August 2025",
+      "\"total organic click volume from Google Search to websites has been relatively stable year-over-year.\" The post gives no figures."
+     ],
+     [
+      "A Google spokesperson, 24 July 2025 (MediaPost)",
+      "\"This study uses a flawed methodology and skewed query-set that is not representative of Search traffic.\""
+     ]
+    ],
+    "fuente": "Source: Pew Research Center, 22 July 2025 [31]; Google [33]; MediaPost [32]. Read 16 October 2026."
+   }
+  },
+  "es": {
+   "titulo": "Clics en Google, con y sin resumen de IA",
+   "subtitulo": "Parte de las visitas en las que alguien hizo clic. Pew Research Center, 22 de julio de 2025: 900 adultos de EE. UU., 68.879 búsquedas, marzo de 2025.",
+   "grupo": {
+    "sin": "Páginas sin resumen de IA",
+    "con": "Páginas con resumen de IA"
+   },
+   "barra": {
+    "sin-normal": "Un resultado normal",
+    "con-normal": "Un resultado normal",
+    "con-enlace": "Un enlace dentro del resumen"
+   },
+   "aprox": "cerca de ",
+   "eje": "Parte de las visitas",
+   "google_t": "Google no está de acuerdo",
+   "google": "Un vocero de Google dijo que el estudio usa una \"⟪flawed methodology⟫\" (metodología defectuosa). La propia entrada de Google dice que el volumen total de clics orgánicos de Google hacia los sitios web ha sido \"⟪relatively stable year-over-year⟫\" (relativamente estable de un año a otro). No da cifras, así que no hay nada de Google para graficar. Entre paréntesis, nuestra traducción.",
+   "pie": "Pew Research Center, 22 de julio de 2025. Google, 6 de agosto de 2025. MediaPost, 24 de julio de 2025. Leído el 16 de octubre de 2026.",
+   "alt": "Gráfica de barras de la parte de las visitas con un clic. En páginas sin resumen de IA, el 15 % hizo clic en un resultado normal. En páginas con resumen, el 8 % hizo clic en un resultado normal y cerca del 1 % en un enlace dentro del resumen.",
+   "que_muestra": "Cuando salía un resumen de IA en la página de resultados de Google, la gente hacía clic en un resultado normal en el 8 % de las visitas. Sin resumen, en el 15 %. En cerca del 1 % de las visitas a páginas con resumen, alguien hizo clic en un enlace dentro del resumen. Es el conteo de Pew sobre lo que hicieron 900 adultos de EE. UU. en marzo de 2025. Google discute el método y no da cifras propias. Muestra qué hizo la gente en un solo periodo, en EE. UU. y en Google; no explica por qué.",
+   "tabla": {
+    "caption": "Parte de las visitas con un clic, por tipo de página y tipo de clic",
+    "cols": [
+     "Página",
+     "Dónde hicieron clic",
+     "Parte de las visitas"
+    ],
+    "google_cap": "La respuesta de Google, con sus palabras (entre paréntesis, nuestra traducción)",
+    "google_filas": [
+     [
+      "Google, 6 de agosto de 2025",
+      "\"⟪total organic click volume from Google Search to websites has been relatively stable year-over-year⟫\" (el volumen total de clics orgánicos de Google hacia los sitios web ha sido relativamente estable de un año a otro). La entrada no da cifras."
+     ],
+     [
+      "Un vocero de Google, 24 de julio de 2025 (MediaPost)",
+      "\"⟪This study uses a flawed methodology and skewed query-set that is not representative of Search traffic⟫\" (este estudio usa una metodología defectuosa y un conjunto de consultas sesgado que no representa el tráfico de Search)."
+     ]
+    ],
+    "fuente": "Fuente: Pew Research Center, 22 de julio de 2025 [31]; Google [33]; MediaPost [32]. Leído el 16 de octubre de 2026."
+   }
+  }
+ }
+}

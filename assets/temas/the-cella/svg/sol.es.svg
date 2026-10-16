@@ -1,0 +1,30 @@
+<svg class="cs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 372" width="400" height="372" role="img" aria-labelledby="cs-t-es cs-d-es" lang="es">
+<title id="cs-t-es">Gráfica de puntos de la salida del sol según el reloj local: Medellín, 5:48 el 19 de octubre y 6:12 el 31 de diciembre; Nueva York, 7:12 EDT el 19 de octubre y 7:20 EST el 31 de diciembre.</title>
+<desc id="cs-d-es">Dos filas, una por ciudad. Cada fila une dos puntos en un eje de reloj de 5:30 a 7:30: un punto lleno para el 19 de octubre y un anillo para el 31 de diciembre. En Medellín pasa de 5:48 a 6:12, 24 minutos más tarde. En Nueva York pasa de 7:12 EDT a 7:20 EST, 8 minutos más tarde en el reloj.</desc>
+<style>svg.cs{--ink:var(--naos-ink,#0E1116);--sec:var(--naos-sec,#454C57);--grey:var(--naos-grey,#59616D);--chart:var(--naos-chart,#737B87);--rule:var(--naos-rule,#D7DBE0);--paper:var(--naos-paper,#FFFFFF);font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif)}svg.cs[data-tono=noche]{--ink:var(--naos-night-text,#F4F6F8);--sec:var(--naos-night-sec,#C3C9D2);--grey:var(--naos-night-grey,#9AA3B0);--chart:var(--naos-night-grey,#9AA3B0);--rule:var(--naos-night-rule,#2A303A);--paper:var(--naos-night,#0E1116)}svg.cs text{fill:var(--ink)}svg.cs .cs-g{fill:var(--grey);font-size:16px;paint-order:stroke;stroke:var(--paper);stroke-width:4px;stroke-linejoin:round}svg.cs .cs-h{font-size:16px;font-weight:600}svg.cs .cs-h{paint-order:stroke;stroke:var(--paper);stroke-width:4px;stroke-linejoin:round}svg.cs .cs-h tspan{font-weight:400;fill:var(--grey);font-size:15px}svg.cs .cs-v{font-size:18px;font-weight:500;font-variant-numeric:tabular-nums}svg.cs .cs-grid{stroke:var(--rule);stroke-width:1}svg.cs .cs-ax{stroke:var(--chart);stroke-width:1}svg.cs .cs-con{stroke:var(--chart);stroke-width:2}svg.cs .cs-a{fill:var(--ink)}svg.cs .cs-b{fill:var(--paper);stroke:var(--ink);stroke-width:2.5}</style>
+<line class="cs-grid" x1="24" y1="40" x2="24" y2="296"/>
+<text class="cs-g" x="24" y="318" text-anchor="middle">5:30</text>
+<line class="cs-grid" x1="99.5" y1="40" x2="99.5" y2="296"/>
+<text class="cs-g" x="99.5" y="318" text-anchor="middle">6:00</text>
+<line class="cs-grid" x1="175" y1="40" x2="175" y2="296"/>
+<text class="cs-g" x="175" y="318" text-anchor="middle">6:30</text>
+<line class="cs-grid" x1="250.5" y1="40" x2="250.5" y2="296"/>
+<text class="cs-g" x="250.5" y="318" text-anchor="middle">7:00</text>
+<line class="cs-grid" x1="326" y1="40" x2="326" y2="296"/>
+<text class="cs-g" x="326" y="318" text-anchor="middle">7:30</text>
+<line class="cs-ax" x1="24" y1="296" x2="326" y2="296"/>
+<text class="cs-h" x="24" y="60">Medellín<tspan dx="8">reloj UTC-5</tspan></text>
+<line class="cs-con" x1="69.3" y1="116" x2="129.7" y2="116"/>
+<text class="cs-g" x="99.5" y="100" text-anchor="middle">+24 min</text>
+<circle class="cs-a" cx="69.3" cy="116" r="7.5"/><circle class="cs-b" cx="129.7" cy="116" r="6.5"/>
+<text class="cs-v" x="56.3" y="122" text-anchor="end">5:48</text>
+<text class="cs-v" x="142.7" y="122">6:12</text>
+<text class="cs-h" x="24" y="178">Nueva York<tspan dx="8">EDT el 19 oct, EST el 31 dic</tspan></text>
+<line class="cs-con" x1="280.7" y1="234" x2="300.83" y2="234"/>
+<text class="cs-g" x="290.77" y="218" text-anchor="middle">+8 min</text>
+<circle class="cs-a" cx="280.7" cy="234" r="7.5"/><circle class="cs-b" cx="300.83" cy="234" r="6.5"/>
+<text class="cs-v" x="267.7" y="240" text-anchor="end">7:12</text>
+<text class="cs-v" x="313.83" y="240">7:20</text>
+<circle class="cs-a" cx="30" cy="356" r="8"/><text class="cs-g" x="46" y="361">19 oct</text>
+<circle class="cs-b" cx="150" cy="356" r="7"/><text class="cs-g" x="166" y="361">31 dic</text>
+</svg>

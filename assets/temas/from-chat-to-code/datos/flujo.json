@@ -1,0 +1,230 @@
+{
+ "id": "flujo",
+ "kit": "K2",
+ "leido": "2026-10-16",
+ "zonas": [
+  {
+   "id": "chat",
+   "pasos": [
+    1,
+    2
+   ],
+   "en": "Chat",
+   "es": "Chat"
+  },
+  {
+   "id": "carpeta",
+   "pasos": [
+    3,
+    4
+   ],
+   "en": "Folder",
+   "es": "Carpeta"
+  },
+  {
+   "id": "codigo",
+   "pasos": [
+    5
+   ],
+   "en": "Code",
+   "es": "Código"
+  }
+ ],
+ "pasos": [
+  {
+   "n": 1,
+   "fuentes": [
+    1,
+    2
+   ],
+   "en": {
+    "titulo": "It starts almost empty",
+    "linea": "Each new chat starts almost empty. Where memory is on, it carries a few saved topics.",
+    "tipo": "Official docs"
+   },
+   "es": {
+    "titulo": "Arranca casi vacío",
+    "linea": "Cada chat nuevo empieza casi vacío. Si la memoria está activada, trae algunos temas guardados.",
+    "tipo": "Documentación oficial"
+   }
+  },
+  {
+   "n": 2,
+   "fuentes": [
+    3,
+    11,
+    12
+   ],
+   "en": {
+    "titulo": "A handover",
+    "linea": "You ask for the goal, the decisions and the open questions, and keep them outside the chat.",
+    "tipo": "Our method"
+   },
+   "es": {
+    "titulo": "Un resumen para retomar",
+    "linea": "Pides la meta, las decisiones y las preguntas abiertas, y las guardas fuera del chat.",
+    "tipo": "Nuestro método"
+   }
+  },
+  {
+   "n": 3,
+   "fuentes": [
+    7,
+    8
+   ],
+   "en": {
+    "titulo": "A private folder",
+    "linea": "A private repository keeps every saved step, and you can go back to any of them.",
+    "tipo": "Official docs"
+   },
+   "es": {
+    "titulo": "Una carpeta privada",
+    "linea": "Un repositorio privado conserva cada paso guardado, y puedes volver a cualquiera de ellos.",
+    "tipo": "Documentación oficial"
+   }
+  },
+  {
+   "n": 4,
+   "fuentes": [
+    5,
+    24
+   ],
+   "en": {
+    "titulo": "A notes file",
+    "linea": "Claude Code reads it at the start of every session. Short notes work best.",
+    "tipo": "Official docs · Study"
+   },
+   "es": {
+    "titulo": "Un archivo de notas",
+    "linea": "Claude Code lo lee al empezar cada sesión. Las notas cortas funcionan mejor.",
+    "tipo": "Documentación oficial · Estudio"
+   }
+  },
+  {
+   "n": 5,
+   "fuentes": [
+    9,
+    13,
+    25
+   ],
+   "en": {
+    "titulo": "Your first real task",
+    "linea": "You ask the AI to work on its own branch, list every file it changed and wait for your OK.",
+    "tipo": "Our method · Study"
+   },
+   "es": {
+    "titulo": "Tu primera tarea de verdad",
+    "linea": "Le pides a la IA que trabaje en su propia rama, liste cada archivo que cambió y espere tu visto bueno.",
+    "tipo": "Nuestro método · Estudio"
+   }
+  }
+ ],
+ "cifras": [
+  {
+   "id": "c1",
+   "paso": 4,
+   "fuente": 5,
+   "viejo": false,
+   "valor": {
+    "en": "Under 200 lines",
+    "es": "Menos de 200"
+   },
+   "numero": 200,
+   "unidad": "lines",
+   "que": {
+    "en": "The size Anthropic suggests for a notes file.",
+    "es": "líneas: el tamaño que sugiere Anthropic para un archivo de notas."
+   },
+   "origen": {
+    "en": "Claude Code docs, read 16 Oct 2026",
+    "es": "Documentación de Claude Code, leída el 16 oct 2026"
+   },
+   "origen_corto": {
+    "en": "Claude Code docs, read 16 Oct 2026",
+    "es": "Doc. de Claude Code, leída el 16 oct 2026"
+   }
+  },
+  {
+   "id": "c2",
+   "paso": 4,
+   "fuente": 24,
+   "viejo": false,
+   "valor": {
+    "en": "Over 20%",
+    "es": "Más de 20 %"
+   },
+   "numero": 20,
+   "unidad": "percent",
+   "que": {
+    "en": "more cost on average with context files, in a study of code repositories. No general gain in task success.",
+    "es": "de costo extra en promedio con archivos de contexto, en un estudio de repositorios de código. Sin mejora general en el éxito de las tareas."
+   },
+   "origen": {
+    "en": "Gloaguen and others, version 3, 29 Sep 2026",
+    "es": "Gloaguen y otros, versión 3, 29 sep 2026"
+   },
+   "origen_corto": {
+    "en": "Gloaguen and others, v3, 29 Sep 2026",
+    "es": "Gloaguen y otros, v3, 29 sep 2026"
+   }
+  },
+  {
+   "id": "c3",
+   "paso": 5,
+   "fuente": 25,
+   "viejo": true,
+   "valor": {
+    "en": "47 people",
+    "es": "47 personas"
+   },
+   "numero": 47,
+   "unidad": "people",
+   "que": {
+    "en": "In a study of five security tasks, those who used an AI assistant wrote less secure code and felt more sure it was fine. The assistant was from 2022.",
+    "es": "En un estudio de cinco tareas de seguridad, quienes usaron un asistente de IA escribieron código menos seguro y estaban más seguros de que su código era seguro. El asistente era de 2022."
+   },
+   "origen": {
+    "en": "Perry and others, 2023",
+    "es": "Perry y otros, 2023"
+   },
+   "origen_corto": {
+    "en": "Perry and others, 2023",
+    "es": "Perry y otros, 2023"
+   }
+  }
+ ],
+ "en": {
+  "titulo": "Where your project lives",
+  "subtitulo": "Five steps from a chat to a first real task. The numbers come from the sources, with the date we read them.",
+  "alt": "Flow in five steps across three places: a chat that starts almost empty, a handover, a private folder, a notes file under 200 lines, and a first real task on its own branch.",
+  "desc": "A path with five steps in three places. In the chat: 1, it starts almost empty; 2, a handover that you keep outside the chat. In the folder: 3, a private folder that keeps every saved step; 4, a notes file, with two numbers: under 200 lines is the size Anthropic suggests, and a study of code repositories found over 20 percent more cost on average. In the code: 5, your first real task, with one number: in a study of 47 people, those with an AI assistant wrote less secure code. A dotted rule marks the older evidence, an assistant from 2022.",
+  "que_es": "What this shows",
+  "que_muestra": "The path of a project, from a chat that starts almost empty to a first real task, where you ask the AI to work on its own branch and wait for your OK. Three numbers sit where they matter, each with its source and the date we read it.",
+  "viejo": "Dotted rule: older evidence",
+  "texto_version": "Text version and the numbers",
+  "pasos_titulo": "The five steps",
+  "cifras_titulo": "The numbers, with source and date",
+  "col_paso": "Step",
+  "col_cifra": "Number",
+  "col_que": "What it is",
+  "col_fuente": "Source and date",
+  "ver_fuentes": "Sources in section 8"
+ },
+ "es": {
+  "titulo": "Dónde vive tu proyecto",
+  "subtitulo": "Cinco pasos de un chat a una primera tarea de verdad. Las cifras salen de las fuentes, con la fecha en que las leímos.",
+  "alt": "Flujo de cinco pasos en tres lugares: un chat que arranca casi vacío, un resumen para retomar, una carpeta privada, un archivo de notas de menos de 200 líneas y una primera tarea de verdad en su propia rama.",
+  "desc": "Un camino de cinco pasos en tres lugares. En el chat: 1, arranca casi vacío; 2, un resumen para retomar, que guardas fuera del chat. En la carpeta: 3, una carpeta privada que guarda cada paso; 4, un archivo de notas, con dos cifras: menos de 200 líneas es el tamaño que sugiere Anthropic, y un estudio de repositorios de código halló más de 20 por ciento de costo extra en promedio. En el código: 5, tu primera tarea de verdad, con una cifra: en un estudio de 47 personas, quienes usaron un asistente de IA escribieron código menos seguro. Una regla punteada marca la evidencia más vieja, un asistente de 2022.",
+  "que_es": "Qué muestra",
+  "que_muestra": "El camino de un proyecto, desde un chat que arranca casi vacío hasta una primera tarea de verdad, en la que le pides a la IA trabajar en su propia rama y esperar tu visto bueno. Tres cifras están donde importan, cada una con su fuente y la fecha en que la leímos.",
+  "viejo": "Regla punteada: evidencia más vieja",
+  "texto_version": "Versión en texto y las cifras",
+  "pasos_titulo": "Los cinco pasos",
+  "cifras_titulo": "Las cifras, con fuente y fecha",
+  "col_paso": "Paso",
+  "col_cifra": "Cifra",
+  "col_que": "Qué es",
+  "col_fuente": "Fuente y fecha",
+  "ver_fuentes": "Fuentes en la sección 8"
+ }
+}

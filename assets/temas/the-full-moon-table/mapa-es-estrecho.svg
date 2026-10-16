@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" lang="es-419" xml:lang="es-419" viewBox="0 0 350 548" width="350" height="548" role="img" aria-labelledby="vm-es-estrecho-t vm-es-estrecho-d" style="max-width:100%;height:auto">
+<title id="vm-es-estrecho-t">La mesa: nueve piezas, del 20 al 30 de octubre</title>
+<desc id="vm-es-estrecho-d">Cada puesto es una pieza, en orden de fecha. La luna llena cae en la mitad, el domingo 25. Se ilumina el puesto del que vienes. 1, mar 20: Dos platos. 2, mié 21: Quién te enseñó a agradecer. 3, vie 23: Con quién comes. 4, sáb 24: En español: comer con alguien. 5, dom 25, mañana: Una mesa bajo la luna. 6, dom 25, noche: Un plato afuera. 7, lun 26: Tazón bajo la luna. 8, mié 28: Antes de comer, mirar arriba. 9, vie 30: La silla vacía. Luna llena, dom 25, 23:12 en Medellín.</desc>
+<style>
+.vm-t{font-family:var(--font-serif,"Newsreader",Georgia,serif);fill:var(--naos-ink,#0E1116)}
+.vm-f{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);fill:var(--naos-grey,#59616D);font-size:14px}
+.vm-s{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);fill:var(--naos-sec,#454C57);font-size:14px}
+.vm-n{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-weight:600;font-size:15px;fill:var(--naos-ink,#0E1116);font-variant-numeric:tabular-nums}
+.vm-h{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);fill:var(--naos-ink,#0E1116);font-size:15px;font-variant-numeric:tabular-nums}
+.vm-mesa{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-chart,#737B87);stroke-width:2}
+.vm-plato{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.vm-aro{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2;opacity:0}
+.vm-lun{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:2.5}
+.vm-g{stroke:var(--naos-chart,#737B87);stroke-width:1}
+.vm-banda{fill:var(--naos-rule,#D7DBE0);opacity:.45}
+.vm-barra{fill:var(--naos-ink,#0E1116)}
+.vm-origen .vm-plato{fill:var(--naos-ink,#0E1116)}
+.vm-origen .vm-n{fill:var(--naos-paper,#FFFFFF)}
+.vm-origen .vm-aro{opacity:1}
+</style>
+<g font-size="16"><rect class="vm-mesa" x="22" y="10" width="46" height="516" rx="23"/>
+<circle class="vm-lun" cx="45" cy="293.0" r="17"/>
+<text class="vm-t" x="84" y="290.0" font-size="17">Luna llena</text>
+<text class="vm-f" x="84" y="310.0">dom 25, 23:12 en Medellín</text>
+<g class="vm-seat" data-n="1" data-src="1020h"><circle class="vm-aro" cx="45" cy="40" r="20"/><circle class="vm-plato" cx="45" cy="40" r="14"/><text class="vm-n" x="45" y="45" text-anchor="middle">1</text><text class="vm-f" x="84" y="34">mar 20</text><text class="vm-t" x="84" y="54" text-anchor="start">Dos platos</text></g>
+<g class="vm-seat" data-n="2" data-src="1021h"><circle class="vm-aro" cx="45" cy="90" r="20"/><circle class="vm-plato" cx="45" cy="90" r="14"/><text class="vm-n" x="45" y="95" text-anchor="middle">2</text><text class="vm-f" x="84" y="84">mié 21</text><text class="vm-t" x="84" y="104" text-anchor="start">Quién te enseñó a agradecer</text></g>
+<g class="vm-seat" data-n="3" data-src="1023h"><circle class="vm-aro" cx="45" cy="140" r="20"/><circle class="vm-plato" cx="45" cy="140" r="14"/><text class="vm-n" x="45" y="145" text-anchor="middle">3</text><text class="vm-f" x="84" y="134">vie 23</text><text class="vm-t" x="84" y="154" text-anchor="start">Con quién comes</text></g>
+<g class="vm-seat" data-n="4" data-src="1024es"><circle class="vm-aro" cx="45" cy="190" r="20"/><circle class="vm-plato" cx="45" cy="190" r="14"/><text class="vm-n" x="45" y="195" text-anchor="middle">4</text><text class="vm-f" x="84" y="184">sáb 24</text><text class="vm-t" x="84" y="204" text-anchor="start">En español: comer con alguien</text></g>
+<g class="vm-seat" data-n="5" data-src=""><circle class="vm-aro" cx="45" cy="240" r="20"/><circle class="vm-plato" cx="45" cy="240" r="14"/><text class="vm-n" x="45" y="245" text-anchor="middle">5</text><text class="vm-f" x="84" y="234">dom 25, mañana</text><text class="vm-t" x="84" y="254" text-anchor="start">Una mesa bajo la luna</text></g>
+<g class="vm-seat" data-n="6" data-src="1025h"><circle class="vm-aro" cx="45" cy="346" r="20"/><circle class="vm-plato" cx="45" cy="346" r="14"/><text class="vm-n" x="45" y="351" text-anchor="middle">6</text><text class="vm-f" x="84" y="340">dom 25, noche</text><text class="vm-t" x="84" y="360" text-anchor="start">Un plato afuera</text></g>
+<g class="vm-seat" data-n="7" data-src="1026h"><circle class="vm-aro" cx="45" cy="396" r="20"/><circle class="vm-plato" cx="45" cy="396" r="14"/><text class="vm-n" x="45" y="401" text-anchor="middle">7</text><text class="vm-f" x="84" y="390">lun 26</text><text class="vm-t" x="84" y="410" text-anchor="start">Tazón bajo la luna</text></g>
+<g class="vm-seat" data-n="8" data-src="1028h"><circle class="vm-aro" cx="45" cy="446" r="20"/><circle class="vm-plato" cx="45" cy="446" r="14"/><text class="vm-n" x="45" y="451" text-anchor="middle">8</text><text class="vm-f" x="84" y="440">mié 28</text><text class="vm-t" x="84" y="460" text-anchor="start">Antes de comer, mirar arriba</text></g>
+<g class="vm-seat" data-n="9" data-src="1030h"><circle class="vm-aro" cx="45" cy="496" r="20"/><circle class="vm-plato" cx="45" cy="496" r="14"/><text class="vm-n" x="45" y="501" text-anchor="middle">9</text><text class="vm-f" x="84" y="490">vie 30</text><text class="vm-t" x="84" y="510" text-anchor="start">La silla vacía</text></g></g>
+</svg>

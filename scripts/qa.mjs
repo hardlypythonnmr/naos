@@ -8,6 +8,7 @@
 // movimiento reducido corren a 390. El zoom 200 % es una ventana de 1280 px vista a 200 %: 640 px CSS con escala 2.
 import { mkdirSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
+import { NOMBRES_PROPIOS } from "./cuerpo-temas.mjs";
 const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
 
@@ -68,10 +69,13 @@ if (args.includes("--temas")) {
   const paginas = [...una, "es/", ...una.map((u) => "es/" + u)]; // dos ediciones (D-253)
   // idioma de las partes (WCAG 3.1.2): texto con marcas del español (ñ, ¿, ¡, tildes o tres palabras vacías) fuera de un [lang=es]
   // en una página en inglés; los nombres propios cortos (Medellín, Bogotá) no cuentan
-  const partes = () => { const ES = /[ñ¿¡]|[áéíóú]\w*\s+\w+|\b(de|del|la|las|los|el|para|con|una|y)\b(?:.*\b(de|del|la|las|los|el|para|con|una|y)\b){2}/i, PROPIO = /^(Medellín|Bogotá|Brasília|Medellín\s*)$/;
+  // los nombres propios (NOMBRES_PROPIOS de cuerpo-temas.mjs: Medellín, Banco de la República…) se quitan antes de mirar, y una
+  // URL escrita como enlace (a[translate=no]) no tiene idioma
+  const partes = (propios) => { const ES = /[ñ¿¡]|[áéíóú]\w*\s+\w+|\b(de|del|la|las|los|el|para|con|una|y)\b(?:.*\b(de|del|la|las|los|el|para|con|una|y)\b){2}/i, PROPIO = /^(Medellín|Bogotá|Brasília|Medellín\s*)$/;
     const out = [], w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-    for (let n; (n = w.nextNode());) { const t = n.textContent.trim(), e = n.parentElement; if (!t || !e || e.closest("script,style,[hidden]")) continue;
-      const l = (e.closest("[lang]") || document.documentElement).getAttribute("lang"); if (l === "en" && ES.test(t) && !PROPIO.test(t)) out.push(t.slice(0, 80)); }
+    for (let n; (n = w.nextNode());) { const t0 = n.textContent.trim(), e = n.parentElement; if (!t0 || !e || e.closest("script,style,[hidden],[translate=no]")) continue;
+      const t = propios.reduce((a, x) => a.split(x).join(" "), t0);
+      const l = (e.closest("[lang]") || document.documentElement).getAttribute("lang"); if (l === "en" && ES.test(t) && !PROPIO.test(t)) out.push(t0.slice(0, 80)); }
     return out; };
   const estado = new Map(), ids = new Map();
   const idsDe = async (u) => { if (!ids.has(u)) { const h = await (await page.request.get(u)).text(); ids.set(u, new Set([...h.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]))); } return ids.get(u); };
@@ -86,7 +90,7 @@ if (args.includes("--temas")) {
       else if (ancla && /\/$|\.html$/.test(sinAncla.split("?")[0]) && !(await idsDe(sinAncla)).has(decodeURIComponent(ancla))) r.anclas_rotas.push(`${pg} -> ${h}`);
     }
     if (await page.locator("#guia, .gu-hoja").count()) r.guia["tema:" + pg] = "la guía aparece";
-    if (!pg.startsWith("es/")) for (const t of await page.evaluate(partes)) r.idioma_partes.push(`${pg}: "${t}"`);
+    if (!pg.startsWith("es/")) for (const t of await page.evaluate(partes, NOMBRES_PROPIOS)) r.idioma_partes.push(`${pg}: "${t}"`);
   }
   // 2. enlaces cortos
   for (const x of T.piezas.filter((x) => x.corto)) {
@@ -171,7 +175,9 @@ for (const v of VISTAS) {
   const { ctx, page } = await abrir(browser, TODOS[1]);
   await esperar(page);
   const lista = await page.evaluate(() => {
-    const visible = (e) => { const r = e.getBoundingClientRect(), s = getComputedStyle(e); return r.width > 0 && r.height > 0 && s.visibility !== "hidden" && s.display !== "none" && !e.closest("[hidden],[inert]"); };
+    const visible = (e) => { const r = e.getBoundingClientRect(), s = getComputedStyle(e); return r.width > 0 && r.height > 0 && s.visibility !== "hidden" && s.display !== "none" && !e.closest("[hidden],[inert]") && !plegado(e); };
+    // dentro de un <details> cerrado solo se ve su <summary> (Chromium le da caja al contenido plegado, pero Tab no entra)
+    const plegado = (e) => { for (let d = e.closest("details:not([open])"); d; d = d.parentElement && d.parentElement.closest("details:not([open])")) { const su = d.querySelector(":scope > summary"); if (!(su && su.contains(e))) return true; } return false; };
     const nom = (e) => (e.id ? "#" + e.id : e.tagName.toLowerCase() + (typeof e.className === "string" && e.className ? "." + e.className.trim().split(/\s+/)[0] : "")) + (e.getAttribute("href") ? `[${e.getAttribute("href").slice(0, 40)}]` : "");
     window.__nom = nom;
     return [...document.querySelectorAll('a[href],button,input,select,textarea,summary,[tabindex]')].filter((e) => e.tabIndex >= 0 && !e.disabled && visible(e) && !e.closest("dialog:not([open])")).map(nom);

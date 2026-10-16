@@ -1,0 +1,133 @@
+{
+ "id": "mapa",
+ "kit": "K1",
+ "nodos": [
+  {
+   "i": 1,
+   "canal": "medio",
+   "ancla": "c-2026-10-20-0900-p-medio",
+   "en": {
+    "fecha": "Tue 20 Oct",
+    "titulo": "All six parts, one video"
+   },
+   "es": {
+    "fecha": "Mar 20 oct",
+    "titulo": "Las seis partes, en un video"
+   }
+  },
+  {
+   "i": 2,
+   "canal": "short",
+   "src": "1021p",
+   "ancla": "c-2026-10-21-1800-p-short-reel",
+   "en": {
+    "fecha": "Wed 21 Oct",
+    "titulo": "Why the chat forgets"
+   },
+   "es": {
+    "fecha": "Mié 21 oct",
+    "titulo": "Por qué se olvida el chat"
+   }
+  },
+  {
+   "i": 3,
+   "canal": "short",
+   "src": "1023p",
+   "ancla": "c-2026-10-23-1800-p-short-reel",
+   "en": {
+    "fecha": "Fri 23 Oct",
+    "titulo": "What you need"
+   },
+   "es": {
+    "fecha": "Vie 23 oct",
+    "titulo": "Lo que necesitas"
+   }
+  },
+  {
+   "i": 4,
+   "canal": "short",
+   "src": "1025p",
+   "ancla": "c-2026-10-25-1800-p-short-reel",
+   "en": {
+    "fecha": "Sun 25 Oct",
+    "titulo": "The first prompt"
+   },
+   "es": {
+    "fecha": "Dom 25 oct",
+    "titulo": "El primer prompt"
+   }
+  },
+  {
+   "i": 5,
+   "canal": "short",
+   "src": "1029p",
+   "ancla": "c-2026-10-29-1800-p-short-reel",
+   "en": {
+    "fecha": "Thu 29 Oct",
+    "titulo": "A memory file"
+   },
+   "es": {
+    "fecha": "Jue 29 oct",
+    "titulo": "Un archivo de memoria"
+   }
+  },
+  {
+   "i": 6,
+   "canal": "short",
+   "src": "1107p",
+   "ancla": "c-2026-11-07-1800-p-short-reel",
+   "en": {
+    "fecha": "Sat 7 Nov",
+    "titulo": "Your first real task"
+   },
+   "es": {
+    "fecha": "Sáb 7 nov",
+    "titulo": "Tu primera tarea de verdad"
+   }
+  },
+  {
+   "i": 7,
+   "canal": "short",
+   "src": "1117p",
+   "ancla": "c-2026-11-17-1800-p-short-reel",
+   "en": {
+    "fecha": "Tue 17 Nov",
+    "titulo": "Guardrails and undo"
+   },
+   "es": {
+    "fecha": "Mar 17 nov",
+    "titulo": "Reglas de la casa y deshacer"
+   }
+  }
+ ],
+ "en": {
+  "titulo": "From a chat to a project that remembers",
+  "alt": "Map of this page: seven pieces on one ladder, from the full video on 20 October up to guardrails and undo on 17 November.",
+  "desc": "Seven steps go down and to the right like a staircase, in date order. It starts with a chat that forgets and ends with a project that remembers. Step 1, Tuesday 20 October: all six parts in one video. 2, Wednesday 21 October: why the chat forgets. 3, Friday 23 October: what you need. 4, Sunday 25 October: the first prompt. 5, Thursday 29 October: a memory file. 6, Saturday 7 November: your first real task. 7, Tuesday 17 November: guardrails and undo. A square marks the video and a dot marks each Short and Reel.",
+  "arriba": "A chat that forgets",
+  "abajo": "A project that remembers",
+  "de_aqui": "You came from here",
+  "canal_medio": "Video",
+  "canal_short": "Short and Reel",
+  "leyenda_medio": "Medium video",
+  "leyenda_short": "Short and Reel",
+  "que_es": "What this shows",
+  "que_muestra": "Each step is one piece, in date order, from a chat that forgets to a project with a home, notes, a safe place to try things and a way back. The piece you came from lights up.",
+  "texto_version": "Text version of the map"
+ },
+ "es": {
+  "titulo": "De un chat a un proyecto que recuerda",
+  "alt": "Mapa de esta página: siete piezas en una sola escalera, desde el video completo del 20 de octubre hasta las reglas de la casa y deshacer el 17 de noviembre.",
+  "desc": "Siete peldaños bajan hacia la derecha como una escalera, en orden de fecha. Empiezan en un chat que se olvida y terminan en un proyecto que recuerda. Peldaño 1, martes 20 de octubre: las seis partes en un video. 2, miércoles 21 de octubre: por qué se olvida el chat. 3, viernes 23 de octubre: lo que necesitas. 4, domingo 25 de octubre: el primer prompt. 5, jueves 29 de octubre: un archivo de memoria. 6, sábado 7 de noviembre: tu primera tarea de verdad. 7, martes 17 de noviembre: reglas de la casa y deshacer. Un cuadrado marca el video y un punto marca cada Short y Reel.",
+  "arriba": "Un chat que se olvida",
+  "abajo": "Un proyecto que recuerda",
+  "de_aqui": "Vienes de aquí",
+  "canal_medio": "Video",
+  "canal_short": "Short y Reel",
+  "leyenda_medio": "Video",
+  "leyenda_short": "Short y Reel",
+  "que_es": "Qué muestra",
+  "que_muestra": "Cada peldaño es una pieza, en orden de fecha, desde un chat que se olvida hasta un proyecto con casa, notas, un lugar seguro para probar y una forma de volver atrás. La pieza de la que vienes se ilumina.",
+  "texto_version": "Versión en texto del mapa"
+ }
+}

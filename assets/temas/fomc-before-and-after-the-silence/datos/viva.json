@@ -1,0 +1,163 @@
+{
+ "id": "viva",
+ "kit": "K2 (proceso, 6 pasos, vertical)",
+ "tiempos": {
+  "viaje_ms": 700,
+  "espera_base_ms": 1400,
+  "espera_por_caracter_ms": 28
+ },
+ "pasos": [
+  {
+   "id": 1,
+   "utc": "2026-10-28T18:00Z",
+   "fuentes": [
+    2,
+    9
+   ],
+   "en": {
+    "cuando": "Wed 28 Oct, 2:00 p.m. ET",
+    "que": "The statement and the vote",
+    "texto": "2:00 p.m. ET (1:00 p.m. in Medellín): the statement comes out. It lists the vote and who voted against.",
+    "alt": "Wed 28 Oct, 2:00 p.m. ET, 1:00 p.m. in Medellín. The statement comes out. It lists the vote and who voted against."
+   },
+   "es": {
+    "cuando": "mié 28 oct, 2:00 p. m. ET",
+    "que": "El comunicado y la votación",
+    "texto": "2:00 p. m. ET (1:00 p. m. en Colombia): sale el comunicado, con la votación y quién votó en contra.",
+    "alt": "Miércoles 28 de octubre, 2:00 p. m. ET, 1:00 p. m. en Colombia. Sale el comunicado, con la votación y quién votó en contra."
+   }
+  },
+  {
+   "id": 2,
+   "utc": "2026-10-28T18:00Z",
+   "fuentes": [
+    10
+   ],
+   "en": {
+    "cuando": "At the same moment",
+    "que": "The note with the Fed's tool rates",
+    "texto": "At the same moment: the implementation note lists the rates on the Fed's own tools, such as reserves and overnight repos.",
+    "alt": "At the same moment. The implementation note lists the rates on the Fed's own tools."
+   },
+   "es": {
+    "cuando": "En ese mismo momento",
+    "que": "La nota con las tasas de la Fed",
+    "texto": "En ese mismo momento: la nota de implementación trae las tasas de las herramientas de la propia Fed, como las reservas y la recompra a un día.",
+    "alt": "En ese mismo momento. La nota de implementación trae las tasas de las herramientas de la propia Fed."
+   }
+  },
+  {
+   "id": 3,
+   "utc": "2026-10-28T18:30Z",
+   "fuentes": [
+    2
+   ],
+   "en": {
+    "cuando": "Wed 28 Oct, 2:30 p.m. ET",
+    "que": "The Chair's press conference",
+    "texto": "2:30 p.m. ET (1:30 p.m. in Medellín): Chair Kevin Warsh speaks to the press.",
+    "alt": "Wed 28 Oct, 2:30 p.m. ET, 1:30 p.m. in Medellín. Chair Kevin Warsh speaks to the press."
+   },
+   "es": {
+    "cuando": "mié 28 oct, 2:30 p. m. ET",
+    "que": "La conferencia de prensa",
+    "texto": "2:30 p. m. ET (1:30 p. m. en Colombia): el presidente de la Fed, Kevin Warsh, habla con la prensa.",
+    "alt": "Miércoles 28 de octubre, 2:30 p. m. ET, 1:30 p. m. en Colombia. El presidente de la Fed, Kevin Warsh, habla con la prensa."
+   }
+  },
+  {
+   "id": 4,
+   "utc": "2026-10-29T13:00Z",
+   "fuentes": [
+    19
+   ],
+   "en": {
+    "cuando": "Thu 29 Oct, about 9:00 a.m. ET",
+    "que": "The effective rate, from the New York Fed",
+    "texto": "About 9:00 a.m. ET on Thursday (8:00 a.m. in Medellín): the New York Fed posts the effective rate.",
+    "alt": "Thursday 29 October, about 9:00 a.m. ET, 8:00 a.m. in Medellín. The New York Fed posts the effective rate."
+   },
+   "es": {
+    "cuando": "jue 29 oct, hacia las 9:00 a. m. ET",
+    "que": "La tasa efectiva, de la Fed de Nueva York",
+    "texto": "Hacia las 9:00 a. m. ET del jueves (8:00 a. m. en Colombia): la Fed de Nueva York publica la tasa efectiva.",
+    "alt": "Jueves 29 de octubre, hacia las 9:00 a. m. ET, 8:00 a. m. en Colombia. La Fed de Nueva York publica la tasa efectiva."
+   }
+  },
+  {
+   "id": 5,
+   "utc": "2026-10-30T03:59Z",
+   "fuentes": [
+    5
+   ],
+   "en": {
+    "cuando": "Thu 29 Oct, 11:59 p.m. ET",
+    "que": "The silence ends",
+    "texto": "11:59 p.m. ET (10:59 p.m. in Medellín): the silence ends. From Friday 30 October, officials talk again.",
+    "alt": "Thursday 29 October, 11:59 p.m. ET, 10:59 p.m. in Medellín. The silence ends. From Friday 30 October, officials talk again."
+   },
+   "es": {
+    "cuando": "jue 29 oct, 11:59 p. m. ET",
+    "que": "Termina el silencio",
+    "texto": "11:59 p. m. ET (10:59 p. m. en Colombia): termina el silencio. Desde el viernes 30 los miembros de la Fed vuelven a hablar.",
+    "alt": "Jueves 29 de octubre, 11:59 p. m. ET, 10:59 p. m. en Colombia. Termina el silencio. Desde el viernes 30 los miembros de la Fed vuelven a hablar."
+   }
+  },
+  {
+   "id": 6,
+   "utc": "2026-11-18T19:00Z",
+   "fuentes": [
+    3,
+    20
+   ],
+   "en": {
+    "cuando": "Wed 18 Nov, 2:00 p.m. ET",
+    "que": "The minutes, and the survey",
+    "texto": "Wed 18 Nov, 2:00 p.m. ET (2:00 p.m. in Medellín): the minutes of this meeting come out. The New York Fed's survey of what markets expected comes out about then too.",
+    "alt": "Wednesday 18 November, 2:00 p.m. ET, 2:00 p.m. in Medellín. The minutes of this meeting come out. The New York Fed's survey of what markets expected comes out about then too."
+   },
+   "es": {
+    "cuando": "mié 18 nov, 2:00 p. m. ET",
+    "que": "Las actas y la encuesta",
+    "texto": "Miércoles 18 de noviembre, 2:00 p. m. ET (2:00 p. m. en Colombia): salen las actas de esta reunión. Hacia esa fecha sale también la encuesta de expectativas de la Fed de Nueva York.",
+    "alt": "Miércoles 18 de noviembre, 2:00 p. m. ET, 2:00 p. m. en Colombia. Salen las actas de esta reunión. Hacia esa fecha sale también la encuesta de expectativas de la Fed de Nueva York."
+   }
+  }
+ ],
+ "en": {
+  "titulo": "What comes out, in order",
+  "alt": "Process: six things that come out after the Fed decides on 28 October, in order, from the statement at 2:00 p.m. ET to the minutes on 18 November.",
+  "desc": "A vertical line with six steps. One: Wednesday 28 October at 2:00 p.m. ET, the statement and the vote. Two: at the same moment, the note with the Fed's tool rates. Three: 2:30 p.m. ET, the Chair's press conference. Four: Thursday 29 October at about 9:00 a.m. ET, the effective rate from the New York Fed. Five: Thursday 29 October at 11:59 p.m. ET, the silence ends. Six: Wednesday 18 November at 2:00 p.m. ET, the minutes and the survey. A heavy line marks the silence, up to step five.",
+  "que_es": "What this shows",
+  "que_muestra": "After the decision on 28 October, six things come out, in this order and from different places. Play it, or go one step at a time.",
+  "leyenda_silencio": "Heavy line: the silence",
+  "pasos_titulo": "Text version of the process",
+  "pasos_pie": "Medellín is one hour behind New York until Sunday 1 November, and on the same hour after that.",
+  "ahora": "now",
+  "play": "Play",
+  "pause": "Pause",
+  "again": "Play again",
+  "next": "Next step",
+  "restart": "Start over",
+  "paso_de": "Step {n} of {t}",
+  "ayuda_boton": "Plays once. Nothing starts by itself."
+ },
+ "es": {
+  "titulo": "Qué sale y en qué orden",
+  "alt": "Proceso: seis cosas que salen después de que la Fed decide el 28 de octubre, en orden, desde el comunicado a las 2:00 p. m. ET hasta las actas del 18 de noviembre.",
+  "desc": "Una línea vertical con seis pasos. Uno: miércoles 28 de octubre a las 2:00 p. m. ET, el comunicado y la votación. Dos: en ese mismo momento, la nota con las tasas de la Fed. Tres: 2:30 p. m. ET, la conferencia de prensa. Cuatro: jueves 29 de octubre hacia las 9:00 a. m. ET, la tasa efectiva de la Fed de Nueva York. Cinco: jueves 29 de octubre a las 11:59 p. m. ET, termina el silencio. Seis: miércoles 18 de noviembre a las 2:00 p. m. ET, las actas y la encuesta. Una línea gruesa marca el silencio, hasta el paso cinco.",
+  "que_es": "Qué muestra",
+  "que_muestra": "Después de la decisión del 28 de octubre salen seis cosas, en este orden y de lugares distintos. Reprodúcelo, o avanza un paso a la vez.",
+  "leyenda_silencio": "Línea gruesa: el silencio",
+  "pasos_titulo": "Versión en texto del proceso",
+  "pasos_pie": "Colombia va una hora atrás de Nueva York hasta el domingo 1 de noviembre; desde ese día tienen la misma hora.",
+  "ahora": "ahora",
+  "play": "Reproducir",
+  "pause": "Pausar",
+  "again": "Otra vez",
+  "next": "Siguiente paso",
+  "restart": "Volver al inicio",
+  "paso_de": "Paso {n} de {t}",
+  "ayuda_boton": "Se reproduce una vez. Nada arranca solo."
+ }
+}

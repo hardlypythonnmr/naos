@@ -1,0 +1,45 @@
+/* conteo.css · el conteo en cuatro pasos (cosa viva de how-a-vote-is-counted). Solo tokens G3; sin sombras, sin degradados.
+ * Nada se mueve por CSS: lo mueve conteo.js, solo tras pulsar Reproducir. Generado por construir-visuales.py. */
+.cv { margin: 0; max-width: 40rem; }
+.cv-etq { margin: 0 0 12px; font: 13px/1.4 var(--font-sans, system-ui, sans-serif); color: var(--naos-grey, #59616D); }
+.cv-tabs, .cv-ctl { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+.cv-ctl { margin: 20px 0 8px; }
+.cv-tabs[hidden], .cv-ctl[hidden], .cv-pais[hidden] { display: none; }
+.cv-btn { min-height: 44px; padding: 8px 18px; border: 1px solid var(--naos-ink, #0E1116); border-radius: 0; background: var(--naos-paper, #fff); color: var(--naos-ink, #0E1116); font: 500 15px var(--font-sans, system-ui, sans-serif); cursor: pointer; }
+.cv-btn:hover, .cv-btn[aria-pressed="true"] { background: var(--naos-plate, #0E1116); color: var(--naos-plate-text, #fff); }
+.cv-btn:focus-visible { outline: 3px solid var(--naos-ink, #0E1116); outline-offset: 3px; }
+.cv-pais { margin: 0 0 40px; }
+.cv-tabs:not([hidden]) ~ .cv-pais { margin-bottom: 8px; }
+.cv-h4 { margin: 0 0 4px; font: 300 30px/1.1 var(--font-serif, Georgia, serif); color: var(--naos-ink, #0E1116); }
+.cv-svg { display: block; width: 100%; max-width: 520px; height: auto; }
+.cv-pasos { margin: 8px 0 0; padding: 0; list-style: none; counter-reset: cv; }
+.cv-paso { counter-increment: cv; position: relative; margin: 0; padding: 8px 0 8px 36px; border-left: 4px solid transparent; font: 15px/1.5 var(--font-sans, system-ui, sans-serif); color: var(--naos-sec, #454C57); max-width: 36rem; }
+.cv-paso::before { content: counter(cv) "."; position: absolute; left: 12px; font-variant-numeric: tabular-nums; color: var(--naos-grey, #59616D); }
+.cv-paso.is-act { border-left-color: var(--naos-ink, #0E1116); color: var(--naos-ink, #0E1116); }
+.cv-paso strong { color: var(--naos-ink, #0E1116); font-weight: 600; }
+.cv-ref { font-size: 13px; color: var(--naos-grey, #59616D); }
+.cv-meta { display: block; margin-top: 2px; font-size: 13px; color: var(--naos-grey, #59616D); }
+.cv-es-t { font-weight: 600; color: var(--naos-ink, #0E1116); }
+.cv-fu { margin: 8px 0 0 36px; font: 13px/1.4 var(--font-sans, system-ui, sans-serif); color: var(--naos-grey, #59616D); }
+.cv-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.cv-cap { margin: 16px 0 0; max-width: 44rem; font: 15px/1.5 var(--font-sans, system-ui, sans-serif); color: var(--naos-sec, #454C57); }
+.cv-cap strong { color: var(--naos-ink, #0E1116); font-weight: 600; }
+@media (forced-colors: active) { .cv-ficha-l, .cv-avance { fill: CanvasText; stroke: CanvasText; } .cv-st.is-act .cv-c { fill: Highlight; } }
+/* partes del dibujo */
+.cv-base{stroke:var(--naos-chart,#737B87);stroke-width:3;fill:none}
+.cv-avance{stroke:var(--naos-ink,#0E1116);stroke-width:4;fill:none}
+.cv-st .cv-c{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:3}
+.cv-st .cv-nn{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-weight:600;font-size:14px;fill:var(--naos-ink,#0E1116);font-variant-numeric:tabular-nums}
+.cv-st .cv-aro{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2;opacity:0}
+.cv-st.is-fut .cv-c{stroke:var(--naos-chart,#737B87);stroke-width:2}
+.cv-st.is-fut .cv-nn{fill:var(--naos-grey,#59616D)}
+.cv-st.is-act .cv-c{fill:var(--naos-ink,#0E1116)}
+.cv-st.is-act .cv-nn{fill:var(--naos-paper,#FFFFFF)}
+.cv-st.is-act .cv-aro{opacity:1}
+.cv-lb{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:13px;fill:var(--naos-sec,#454C57)}
+.cv-st.is-act .cv-lb{fill:var(--naos-ink,#0E1116);font-weight:600}
+.cv-es{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:13px;font-weight:600;fill:var(--naos-ink,#0E1116)}
+.cv-cu{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:13px;fill:var(--naos-grey,#59616D)}
+.cv-ficha-r{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.cv-ficha-l{fill:var(--naos-ink,#0E1116)}
+.cv-pais-t{font-family:var(--font-serif,"Newsreader",Georgia,serif);font-size:20px;fill:var(--naos-ink,#0E1116)}

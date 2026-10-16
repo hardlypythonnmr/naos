@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 503" width="940" height="503" role="img" aria-labelledby="tmq-es-ancho-t tmq-es-ancho-d" style="max-width:100%;height:auto">
+<title id="tmq-es-ancho-t">Los tres movimientos, hechos una vez con un caso cerrado</title>
+<desc id="tmq-es-ancho-d">Tres paneles pequeños: un titular con su medio subrayado y una línea para escribir quién; una pestaña nueva con tres preguntas; lo que leíste unido con líneas al original y a otro lado, con la pregunta de quién gana. Los tres movimientos, en un boceto que no muestra ningún medio real. Cada paso está escrito al lado de su dibujo, con el caso Jarre hecho una vez. Nuestro método: no hemos cronometrado estos movimientos ni medido si te ayudan.</desc>
+<style>
+.tm-card{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-chart,#737B87);stroke-width:2}
+.tm-doc{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.tm-bar{fill:var(--naos-ink,#0E1116)}
+.tm-ln{fill:var(--naos-chart,#737B87)}
+.tm-s{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:13px;fill:var(--naos-sec,#454C57)}
+.tm-f{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:13px;fill:var(--naos-grey,#59616D)}
+.tm-q{font-family:var(--font-serif,"Newsreader",Georgia,serif);font-size:19px;fill:var(--naos-ink,#0E1116)}
+.tm-sub{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.tm-campo{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:1.5}
+.tm-tab{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:1.5}
+.tm-tab-on{fill:var(--naos-ink,#0E1116);stroke:var(--naos-ink,#0E1116);stroke-width:1.5}
+.tm-tab-ont{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:13px;fill:var(--naos-paper,#FFFFFF)}
+.tm-busca{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-chart,#737B87);stroke-width:1.5}
+.tm-pt{fill:var(--naos-ink,#0E1116)}
+.tm-con{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.tm-onda{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2;stroke-linecap:round}
+.tmq-num{font-family:var(--font-serif,"Newsreader",Georgia,serif);font-weight:300;font-size:30px;fill:var(--naos-ink,#0E1116)}
+.tmq-h{font-family:var(--font-serif,"Newsreader",Georgia,serif);font-size:20px;fill:var(--naos-ink,#0E1116)}
+.tmq-pp{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:14px;fill:var(--naos-sec,#454C57)}
+</style>
+<g transform="translate(10 8)"><defs><clipPath id="tmq-es-ancho-1-c1"><rect x="20" y="164" width="260" height="52"/></clipPath></defs><rect class="tm-card" x="20" y="14" width="260" height="136" rx="4"/><text class="tm-s" x="34" y="40">El medio</text><path class="tm-sub" d="M34 47 H89"/><g><text class="tm-q" x="150" y="44">¿Quién?</text></g><rect class="tm-bar" x="34" y="62" width="212" height="12"/><rect class="tm-bar" x="34" y="80" width="150" height="12"/><rect class="tm-ln" x="34" y="104" width="224" height="3"/><rect class="tm-ln" x="34" y="116" width="200" height="3"/><rect class="tm-ln" x="34" y="128" width="176" height="3"/><g><rect class="tm-campo" x="20" y="164" width="260" height="52" rx="3"/><g clip-path="url(#tmq-es-ancho-1-c1)"><text class="tm-s" x="32" y="186">¿Quién te está contando esto?</text><text class="tm-f" x="32" y="205">Un medio, una persona, una empresa.</text></g></g></g>
+<text class="tmq-num" x="10" y="266">1</text>
+<text class="tmq-h" x="10" y="294" text-anchor="start">Ponle nombre.</text>
+<text class="tmq-pp" x="10" y="326" text-anchor="start">Escribe en una línea quién te lo cuenta:</text><text class="tmq-pp" x="10" y="345" text-anchor="start">un medio, una persona, una empresa o un</text><text class="tmq-pp" x="10" y="364" text-anchor="start">mensaje reenviado sin firma.</text>
+<text class="tmq-pp" x="10" y="391" text-anchor="start">Jarre: varios obituarios, y en todos la</text><text class="tmq-pp" x="10" y="410" text-anchor="start">misma cita.</text>
+<g transform="translate(330 8)"><g><rect class="tm-card" x="20" y="40" width="260" height="176" rx="4"/><rect class="tm-tab" x="20" y="14" width="104" height="26" rx="3"/><text class="tm-s" x="72" y="32" text-anchor="middle">La página</text><g><rect class="tm-tab-on" x="128" y="14" width="116" height="26" rx="3"/><text class="tm-tab-ont" x="186" y="32" text-anchor="middle">Pestaña nueva</text></g><g><rect class="tm-busca" x="32" y="52" width="236" height="28" rx="3"/><circle class="tm-con" cx="48" cy="66" r="5"/><path class="tm-con" d="M52 70 l6 6"/><text class="tm-f" x="68" y="71">el nombre</text></g><g><circle class="tm-pt" cx="38" cy="112" r="3.5"/><text class="tm-s" x="52" y="116">¿Quién lo dirige?</text></g><g><circle class="tm-pt" cx="38" cy="146" r="3.5"/><text class="tm-s" x="52" y="150">¿Quién lo paga?</text></g><g><circle class="tm-pt" cx="38" cy="180" r="3.5"/><text class="tm-s" x="52" y="184">¿Quién más cuenta lo mismo?</text></g></g></g>
+<text class="tmq-num" x="330" y="266">2</text>
+<text class="tmq-h" x="330" y="294" text-anchor="start">Sal de la página.</text>
+<text class="tmq-pp" x="330" y="326" text-anchor="start">Abre una pestaña nueva y busca ese nombre</text><text class="tmq-pp" x="330" y="345" text-anchor="start">o esa frase. ¿Quién lo dirige? ¿Quién lo</text><text class="tmq-pp" x="330" y="364" text-anchor="start">paga? ¿Quién más cuenta lo mismo?</text>
+<text class="tmq-pp" x="330" y="391" text-anchor="start">Jarre: sigue la cita hacia atrás y llegas</text><text class="tmq-pp" x="330" y="410" text-anchor="start">a la Wikipedia de Jarre: un estudiante de</text><text class="tmq-pp" x="330" y="429" text-anchor="start">22 años la puso ahí justo después de su</text><text class="tmq-pp" x="330" y="448" text-anchor="start">muerte.</text>
+<g transform="translate(650 8)"><g><rect class="tm-doc" x="12" y="70" width="80" height="84" rx="3"/><rect class="tm-bar" x="20" y="80" width="64" height="8"/><rect class="tm-bar" x="20" y="94" width="44" height="8"/><rect class="tm-ln" x="20" y="112" width="64" height="3"/><rect class="tm-ln" x="20" y="122" width="64" height="3"/><rect class="tm-ln" x="20" y="132" width="48" height="3"/><text class="tm-f" x="52" y="174" text-anchor="middle">Lo que leíste</text><path class="tm-con" d="M92 100 H136 V45 H180"/><g><rect class="tm-doc" x="180" y="12" width="108" height="66" rx="3"/><rect class="tm-bar" x="190" y="22" width="60" height="8"/><rect class="tm-ln" x="190" y="40" width="88" height="3"/><rect class="tm-ln" x="190" y="50" width="88" height="3"/><rect class="tm-ln" x="190" y="60" width="64" height="3"/><text class="tm-s" x="234" y="97" text-anchor="middle">El original</text></g><path class="tm-con" d="M92 124 H136 V157 H180"/><g><rect class="tm-doc" x="180" y="126" width="108" height="66" rx="3"/><rect class="tm-bar" x="190" y="136" width="48" height="8"/><rect class="tm-ln" x="190" y="154" width="88" height="3"/><rect class="tm-ln" x="190" y="164" width="76" height="3"/><rect class="tm-ln" x="190" y="174" width="88" height="3"/><text class="tm-s" x="234" y="211" text-anchor="middle">Otro lado</text></g><g><circle class="tm-pt" cx="20" cy="206" r="3.5"/><text class="tm-q" x="32" y="212">¿Quién gana?</text></g></g></g>
+<text class="tmq-num" x="650" y="266">3</text>
+<text class="tmq-h" x="650" y="294" text-anchor="start">Busca el original y míralo</text><text class="tmq-h" x="650" y="318" text-anchor="start">otra vez, desde otro lado.</text>
+<text class="tmq-pp" x="650" y="350" text-anchor="start">El documento, los datos, la cita</text><text class="tmq-pp" x="650" y="369" text-anchor="start">completa. Luego, alguien que diga otra</text><text class="tmq-pp" x="650" y="388" text-anchor="start">cosa con sus propias palabras. Pregúntate</text><text class="tmq-pp" x="650" y="407" text-anchor="start">quién gana si te lo crees tal cual.</text>
+<text class="tmq-pp" x="650" y="434" text-anchor="start">Jarre: no había original. El estudiante</text><text class="tmq-pp" x="650" y="453" text-anchor="start">se inventó la cita, y el Guardian publicó</text><text class="tmq-pp" x="650" y="472" text-anchor="start">una corrección.</text>
+</svg>

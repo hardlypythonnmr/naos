@@ -9,6 +9,9 @@
 //    redirección y los vivos aterrizan en su tarjeta; reglas fijas de cada tarjeta y del pie; idioma de las partes en las fuentes;
 //    fuentes electorales solo oficiales; mercados de predicción como atribución; nada privado; sitemap completo.
 //    Con --grilla=<grilla.json> (donde está la grilla privada) además: cada slot de la grilla hasta el 31-dic tiene exactamente una tarjeta.
+// 7. cuerpo de las páginas selladas (data/temas/<slug>.<lang>.md, .json; assets/temas/<slug>/): parsea, sin comentarios ni texto
+//    privado, sin rayas largas, sin "exercises"; los fragmentos de figura (assets/temas/*/fig/) se revisan dentro de la página que
+//    los lleva, no sueltos.
 // Sale con código 1 si algo falla: entonces queda el archivo anterior.
 import { readFileSync, readdirSync, existsSync, statSync } from "node:fs";
 import { join, dirname, resolve, relative, extname } from "node:path";
@@ -66,7 +69,8 @@ const todos = [...archivos(RAIZ)];
 const rel = (p) => relative(RAIZ, p);
 
 // ---------- 3. destinos locales ----------
-for (const p of todos.filter((f) => f.endsWith(".html") && !rel(f).startsWith("archivo/"))) {
+const FRAGMENTO = /^assets\/temas\/[^/]+\/fig\//; // partes de una página: sus anclas y enlaces se revisan en la página que las lleva
+for (const p of todos.filter((f) => f.endsWith(".html") && !rel(f).startsWith("archivo/") && !FRAGMENTO.test(rel(f)))) {
   const h = readFileSync(p, "utf8").replace(/<!--[\s\S]*?-->/g, "").replace(/<script[\s\S]*?<\/script>/g, "");
   const ids = new Set([...h.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]));
   for (const m of h.matchAll(/\s(?:href|src)="([^"]*)"/g)) {
@@ -160,8 +164,10 @@ if (T) {
       voz: "Voz: sintética", noConsejo: "Descriptivo, sin asesoría financiera.", estado: /<span class="t-tag">(Próximamente|Publicada)<\/span>/, noticia: "Solo fecha y tema", zodiaco: "Zodíaco tropical occidental",
       sello: "Las voces de las piezas de NAOS son sintéticas.", tiene: () => true },
   };
-  const PRIVADO = /\/home\/|n-system|revisa_N|por_que|\bcola\/|\bmotor\/|\b(conductas|tradiciones|evidencia|demanda|astrologia|cielo|calendario)-\d{2}\b|agenda\.json|\bD-\d{3}\b|\btrig_|L[áa]mina|Se lee en|Se escribe con|\blote \d|\bN:\d|linea-es\.md|\.py\b/;
+  const PRIVADO = /\/home\/|n-system|revisa_N|por_que|\bcola\/|\bmotor\/|\b(conductas|tradiciones|evidencia|demanda|astrologia|cielo|calendario|cella|fmt|quien|voto|fomc|chat|santos)-(br-|us-|es-)?\d{2}\b|agenda\.json|\bD-\d{3}\b|\btrig_|L[áa]mina|Se lee en|Se escribe con|\blote \d|\bN:\d|linea-es\.md|\.py\b/;
   const html = (r) => { const f = join(RAIZ, r); return existsSync(f) ? readFileSync(f, "utf8") : null; };
+  // página sellada con cuerpo (decisión 4 de N: con el sello I4, las tarjetas de noticias llevan su título)
+  const conCuerpo = (slug, lang) => existsSync(join(RAIZ, `data/temas/${slug}.${lang}.md`));
   let tarjetas = 0;
   for (const [lang, E] of Object.entries(ED)) {
     const vistos = new Map();
@@ -184,6 +190,7 @@ if (T) {
       if (!h) { falla(r, "no existe"); continue; }
       pieOk(h, r, `temas/${p.slug}/`);
       const deEd = p.piezas.filter((id) => piezas.has(id) && E.tiene(piezas.get(id)));
+      const cuerpo = conCuerpo(p.slug, lang);
       const cartas = [...h.matchAll(/<article class="t-carta[^"]*" id="([^"]+)"[\s\S]*?<\/article>/g)];
       const ids = cartas.map((m) => m[1]);
       if (ids.length !== deEd.length || deEd.some((id) => !ids.includes(id))) falla(r, `tarjetas ${ids.length}, piezas de la edición ${deEd.length}: no coinciden`);
@@ -196,14 +203,15 @@ if (T) {
         if (x.mercado && !bloque.includes(E.noConsejo)) falla(r, `${id}: falta "${E.noConsejo}"`);
         if (!E.estado.test(bloque)) falla(r, `${id}: sin estado`);
         if (!bloque.includes(`${x.hora_et} ET`) || !bloque.includes(`${x.hora_medellin} Medellín`)) falla(r, `${id}: falta la hora ET o Medellín`);
-        if (x.titulo && !x.noticia && x.lang !== lang && !new RegExp(`<h3 class="t-tit"[^>]*lang="${x.lang}"`).test(bloque)) falla(r, `${id}: título en ${x.lang} sin lang="${x.lang}"`);
+        // con cuerpo, el título es el del texto sellado (en la edición ES, en español, con el inglés marcado con su lang)
+        if (!cuerpo && x.titulo && !x.noticia && x.lang !== lang && !new RegExp(`<h3 class="t-tit"[^>]*lang="${x.lang}"|<h3 class="t-tit"[^>]*>[^<]*<span lang="${x.lang}">`).test(bloque)) falla(r, `${id}: título en ${x.lang} sin lang="${x.lang}"`);
         if (x.luna?.signo && !bloque.includes(`<summary>${E.zodiaco}</summary>`)) falla(r, `${id}: el signo va tras el toque "${E.zodiaco}"`);
         if (x.luna && !x.luna.signo && /<details class="t-signo"/.test(bloque)) falla(r, `${id}: signo en una página de tradición con calendario propio`);
-        if (x.noticia && !bloque.includes(E.noticia)) falla(r, `${id}: noticia con título`);
+        if (x.noticia && !cuerpo && !bloque.includes(E.noticia)) falla(r, `${id}: noticia con título`);
       }
       if ((p.pilar === "markets") && !new RegExp(`<header class="t-umbral"[\\s\\S]*${E.noConsejo.replace(/\./g, "\\.")}[\\s\\S]*<\\/header>`).test(h)) falla(r, "página de Markets sin el aviso arriba");
       // idioma de las partes (3.1.2): fuentes en otro idioma con su lang
-      for (const f of p.fuentes || []) { const fl = f.lang || "en"; if (fl !== lang && !h.includes(`lang="${fl}">${f.titulo.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;")}<`)) falla(r, `fuente en ${fl} sin lang: ${f.titulo}`); }
+      if (!cuerpo) for (const f of p.fuentes || []) { const fl = f.lang || "en"; if (fl !== lang && !h.includes(`lang="${fl}">${f.titulo.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;")}<`)) falla(r, `fuente en ${fl} sin lang: ${f.titulo}`); }
     }
     const nPag = (T.paginas || []).length;
     for (const r of [`${E.pref}temas/index.html`, `${E.pref}temas/humanity/index.html`, `${E.pref}temas/the-present/index.html`, ...(T.pilares || []).filter((P) => (T.paginas || []).some((p) => p.pilar === P.id)).map((P) => `${E.pref}temas/pilar/${P.id}/index.html`), ...(lang === "es" ? ["es/index.html"] : [])]) {
@@ -270,5 +278,22 @@ if (T) {
   resumenTemas = ` · temas: ${(T.paginas || []).length} páginas por edición, ${tarjetas} tarjetas (${enEN} EN y ${piezas.size} ES), ${cortos} enlaces cortos vivos${retirados ? ` y ${retirados} retirados` : ""}` + resumenTemas;
 }
 
+// ---------- 7. cuerpo de las páginas selladas ----------
+let resumenCuerpo = "";
+if (existsSync(join(RAIZ, "data/temas"))) {
+  const PRIV = /\/home\/|n-system|revisa_N|\bcola\/|\bmotor\/|\b(conductas|tradiciones|evidencia|demanda|astrologia|cielo|calendario|cella|fmt|quien|voto|fomc|chat|luna|santos)-\d{2}\b|\bD-\d{3}\b|\blote \d|\.py\b|<!--/;
+  const fs7 = readdirSync(join(RAIZ, "data/temas")).sort();
+  for (const n of fs7) {
+    const r = "data/temas/" + n, t = leer(r);
+    if (n.endsWith(".json")) { try { JSON.parse(t); } catch (e) { falla(r, "no parsea: " + e.message); } }
+    if (t.includes("—")) falla(r, "raya larga");
+    const m = PRIV.exec(t); if (m) falla(r, `texto privado o interno: ${m[0]}`);
+    if (n.endsWith(".en.md") && /\bexercises?\b/i.test(t)) falla(r, '"exercises": la casa dice "behaviors"');
+    if (n.endsWith(".md")) { const slug = n.replace(/\.(en|es)\.md$/, ""); if (!existsSync(join(RAIZ, "data/temas", slug + ".json"))) falla(r, "cuerpo sin su .json"); if (!existsSync(join(RAIZ, "assets/temas", slug))) falla(r, "cuerpo sin assets/temas/" + slug); }
+  }
+  for (const p of todos.filter((f) => /^assets\/temas\//.test(rel(f)))) { const t = readFileSync(p, "utf8"); if (t.includes("—")) falla(rel(p), "raya larga"); if (/\/home\/|n-system/.test(t)) falla(rel(p), "ruta privada"); const m = /<!--|\b(cella|fmt|quien|voto|fomc|chat|moon|santos)-(br-|us-|es-)?\d{2}\b/.exec(t); if (m) falla(rel(p), `interno en un asset público: ${m[0]}`); }
+  resumenCuerpo = ` · cuerpo: ${fs7.filter((n) => n.endsWith(".md")).length / 2} páginas selladas`;
+}
+
 if (errores.length) { console.error(errores.map((e) => "  x " + e).join("\n")); console.error(`\nvalidar: ${errores.length} problema(s)`); process.exit(1); }
-console.log(`validar: ok (${Object.keys(datos).length} JSON, ${todos.filter((f) => f.endsWith(".html")).length} HTML, enlaces: ${Object.keys(enl?.piezas || {}).length}${resumenTemas})`);
+console.log(`validar: ok (${Object.keys(datos).length} JSON, ${todos.filter((f) => f.endsWith(".html")).length} HTML, enlaces: ${Object.keys(enl?.piezas || {}).length}${resumenTemas}${resumenCuerpo})`);

@@ -1,0 +1,130 @@
+{
+ "slug": "the-full-moon-table",
+ "meta": {
+  "en": {
+   "title": "The full-moon table · NAOS",
+   "h1": "The full-moon table",
+   "description": "Kheer left out under the Sharad Purnima moon, Epicurus' rule about who you eat with, and one meal to try on Sunday 25 October, with company or alone.",
+   "og_title": "The full-moon table",
+   "og_description": "A bowl left out all night, an old rule about who you eat with, and one meal under the full moon on Sunday 25 October. With sources."
+  },
+  "es": {
+   "title": "La mesa de luna llena · NAOS",
+   "h1": "La mesa de luna llena",
+   "description": "El kheer que pasa la noche bajo la luna de Sharad Purnima, la regla de Epicuro sobre con quién comer y una comida para el domingo 25 de octubre, con alguien o a solas.",
+   "og_title": "La mesa de luna llena",
+   "og_description": "Un tazón que pasa la noche afuera, una regla vieja sobre con quién comer y una comida bajo la luna llena el domingo 25 de octubre. Con fuentes."
+  }
+ },
+ "cortos": {
+  "1020h": {
+   "en": "First eat with someone",
+   "es": "First eat with someone (en inglés)",
+   "aterriza": {
+    "en": "tonight",
+    "es": "tonight"
+   }
+  },
+  "1021h": {
+   "en": "Who taught you to give thanks?",
+   "es": "Who taught you to give thanks? (en inglés)",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1023h": {
+   "en": "Who you eat with",
+   "es": "Who you eat with (en inglés)",
+   "aterriza": {
+    "en": "a-second-root",
+    "es": "a-second-root"
+   }
+  },
+  "1024es": {
+   "en": "Primero, comer con alguien",
+   "es": "Primero, comer con alguien",
+   "aterriza": {
+    "en": "esta-noche",
+    "es": "esta-noche"
+   }
+  },
+  "1025h": {
+   "en": "Eat one meal where you can see the moon",
+   "es": "Eat one meal where you can see the moon (en inglés)",
+   "aterriza": {
+    "en": "tonight",
+    "es": "tonight"
+   }
+  },
+  "1026h": {
+   "en": "Rice pudding under the moon",
+   "es": "Rice pudding under the moon (en inglés)",
+   "aterriza": {
+    "en": "the-tale",
+    "es": "the-tale"
+   }
+  },
+  "1028h": {
+   "en": "Look up before the first bite",
+   "es": "Look up before the first bite (en inglés)",
+   "aterriza": {
+    "en": "tonight",
+    "es": "tonight"
+   }
+  },
+  "1030h": {
+   "en": "The empty chair",
+   "es": "The empty chair (en inglés)",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  }
+ },
+ "enviar": {
+  "en": null,
+  "es": null
+ },
+ "luna": {},
+ "visuales": [
+  {
+   "id": "mapa",
+   "en": "map",
+   "es": "mapa"
+  },
+  {
+   "id": "grafica",
+   "en": "where-they-disagree",
+   "es": "no-coinciden",
+   "despues": {
+    "en": "^\\*\\*The date\\.\\*\\*",
+    "es": "^\\*\\*La fecha\\.\\*\\*"
+   }
+  },
+  {
+   "id": "viva",
+   "en": "tonight",
+   "es": "esta-noche",
+   "reemplaza": {
+    "en": "^That's it\\.$",
+    "es": "^Eso es todo\\.$"
+   }
+  }
+ ],
+ "modulos": [
+  {
+   "src": "anim/mesa-luna.js",
+   "sel": "[data-ml]"
+  }
+ ],
+ "pliegues": {},
+ "css": [
+  "visuales.css",
+  "anim/mesa-luna.css"
+ ],
+ "scripts": [
+  "mapa-origen.js"
+ ],
+ "flechas": {}
+}

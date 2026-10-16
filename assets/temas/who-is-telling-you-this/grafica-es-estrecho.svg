@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 867" width="360" height="867" role="img" aria-labelledby="vg-es-estrecho-t vg-es-estrecho-d" style="max-width:100%;height:auto">
+<title id="vg-es-estrecho-t">Clics en Google, con y sin resumen de IA</title>
+<desc id="vg-es-estrecho-d">Cuando salía un resumen de IA en la página de resultados de Google, la gente hacía clic en un resultado normal en el 8 % de las visitas. Sin resumen, en el 15 %. En cerca del 1 % de las visitas a páginas con resumen, alguien hizo clic en un enlace dentro del resumen. Es el conteo de Pew sobre lo que hicieron 900 adultos de EE. UU. en marzo de 2025. Google discute el método y no da cifras propias. Muestra qué hizo la gente en un solo periodo, en EE. UU. y en Google; no explica por qué. Pew Research Center, 22 de julio de 2025. Google, 6 de agosto de 2025. MediaPost, 24 de julio de 2025. Leído el 16 de octubre de 2026.</desc>
+<style>
+.vg-t{font-family:var(--font-serif,"Newsreader",Georgia,serif);fill:var(--naos-ink,#0E1116)}
+.vg-f{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:13px;fill:var(--naos-grey,#59616D)}
+.vg-s{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:14px;fill:var(--naos-sec,#454C57)}
+.vg-v{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-weight:600;font-size:16px;fill:var(--naos-ink,#0E1116);font-variant-numeric:tabular-nums}
+.vg-barra{fill:var(--naos-ink,#0E1116)}
+.vg-grid{stroke:var(--naos-rule,#D7DBE0);stroke-width:1}
+.vg-base{stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.vg-sep{stroke:var(--naos-ink,#0E1116);stroke-width:1}
+.vg-f{font-size:16px}
+.vg-s{font-size:16px}
+.vg-v{font-size:17px}
+</style>
+<line class="vg-grid" x1="16" x2="16" y1="238" y2="272"/>
+<line class="vg-grid" x1="16" x2="16" y1="340" y2="374"/>
+<line class="vg-grid" x1="16" x2="16" y1="400" y2="434"/>
+<text class="vg-f" x="16" y="472" text-anchor="middle">0 %</text>
+<line class="vg-grid" x1="76" x2="76" y1="238" y2="272"/>
+<line class="vg-grid" x1="76" x2="76" y1="340" y2="374"/>
+<line class="vg-grid" x1="76" x2="76" y1="400" y2="434"/>
+<text class="vg-f" x="76" y="472" text-anchor="middle">5 %</text>
+<line class="vg-grid" x1="136" x2="136" y1="238" y2="272"/>
+<line class="vg-grid" x1="136" x2="136" y1="340" y2="374"/>
+<line class="vg-grid" x1="136" x2="136" y1="400" y2="434"/>
+<text class="vg-f" x="136" y="472" text-anchor="middle">10 %</text>
+<line class="vg-grid" x1="196" x2="196" y1="238" y2="272"/>
+<line class="vg-grid" x1="196" x2="196" y1="340" y2="374"/>
+<line class="vg-grid" x1="196" x2="196" y1="400" y2="434"/>
+<text class="vg-f" x="196" y="472" text-anchor="middle">15 %</text>
+<line class="vg-grid" x1="256" x2="256" y1="238" y2="272"/>
+<line class="vg-grid" x1="256" x2="256" y1="340" y2="374"/>
+<line class="vg-grid" x1="256" x2="256" y1="400" y2="434"/>
+<text class="vg-f" x="256" y="472" text-anchor="middle">20 %</text>
+<text class="vg-t" font-size="22" x="16" y="34" text-anchor="start">Clics en Google, con y sin</text><text class="vg-t" font-size="22" x="16" y="60" text-anchor="start">resumen de IA</text>
+<text class="vg-f" x="16" y="84" text-anchor="start">Parte de las visitas en las que</text><text class="vg-f" x="16" y="102" text-anchor="start">alguien hizo clic. Pew Research</text><text class="vg-f" x="16" y="120" text-anchor="start">Center, 22 de julio de 2025: 900</text><text class="vg-f" x="16" y="138" text-anchor="start">adultos de EE. UU., 68.879 búsquedas,</text><text class="vg-f" x="16" y="156" text-anchor="start">marzo de 2025.</text>
+<text class="vg-t" x="16" y="206" font-size="17">Páginas sin resumen de IA</text>
+<text class="vg-s" x="16" y="234">Un resultado normal</text>
+<text class="vg-t" x="16" y="308" font-size="17">Páginas con resumen de IA</text>
+<text class="vg-s" x="16" y="336">Un resultado normal</text>
+<text class="vg-s" x="16" y="396">Un enlace dentro del resumen</text>
+<rect class="vg-barra" x="16" y="242" width="180" height="26"/>
+<text class="vg-v" x="204" y="262">15 %</text>
+<rect class="vg-barra" x="16" y="344" width="96" height="26"/>
+<text class="vg-v" x="120" y="364">8 %</text>
+<rect class="vg-barra" x="16" y="404" width="12" height="26"/>
+<text class="vg-v" x="36" y="424">cerca de 1 %</text>
+<line class="vg-base" x1="16" x2="16" y1="238" y2="272"/>
+<line class="vg-base" x1="16" x2="16" y1="340" y2="374"/>
+<line class="vg-base" x1="16" x2="16" y1="400" y2="434"/>
+<text class="vg-f" x="136.0" y="492" text-anchor="middle">Parte de las visitas</text>
+<line class="vg-sep" x1="16" x2="344" y1="516" y2="516"/>
+<text class="vg-t" x="16" y="542" font-size="17">Google no está de acuerdo</text>
+<text class="vg-s" x="16" y="564" text-anchor="start">Un vocero de Google dijo que el</text><text class="vg-s" x="16" y="583" text-anchor="start">estudio usa una &quot;<tspan lang="en" xml:lang="en">flawed methodology</tspan>&quot;</text><text class="vg-s" x="16" y="602" text-anchor="start">(metodología defectuosa). La propia</text><text class="vg-s" x="16" y="621" text-anchor="start">entrada de Google dice que el volumen</text><text class="vg-s" x="16" y="640" text-anchor="start">total de clics orgánicos de Google</text><text class="vg-s" x="16" y="659" text-anchor="start">hacia los sitios web ha sido</text><text class="vg-s" x="16" y="678" text-anchor="start">&quot;<tspan lang="en" xml:lang="en">relatively stable year-over-year</tspan>&quot;</text><text class="vg-s" x="16" y="697" text-anchor="start">(relativamente estable de un año a</text><text class="vg-s" x="16" y="716" text-anchor="start">otro). No da cifras, así que no hay</text><text class="vg-s" x="16" y="735" text-anchor="start">nada de Google para graficar. Entre</text><text class="vg-s" x="16" y="754" text-anchor="start">paréntesis, nuestra traducción.</text>
+<text class="vg-f" x="16" y="793" text-anchor="start">Pew Research Center, 22 de julio de</text><text class="vg-f" x="16" y="810" text-anchor="start">2025. Google, 6 de agosto de 2025.</text><text class="vg-f" x="16" y="827" text-anchor="start">MediaPost, 24 de julio de 2025. Leído</text><text class="vg-f" x="16" y="844" text-anchor="start">el 16 de octubre de 2026.</text>
+</svg>

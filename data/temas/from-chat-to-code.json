@@ -1,0 +1,108 @@
+{
+ "slug": "from-chat-to-code",
+ "meta": {
+  "en": {
+   "title": "From chat to code · NAOS",
+   "h1": "From chat to code",
+   "description": "Your AI chat starts almost empty every time. One small step to try, seven pieces from 20 October, and every source with its link.",
+   "og_title": "From chat to code",
+   "og_description": "Give a project a home your AI can find. One small step to try, and every source with its link."
+  },
+  "es": {
+   "title": "Del chat al código · NAOS",
+   "h1": "Del chat al código",
+   "description": "Tu chat de IA arranca casi vacío cada vez. Un paso pequeño para probar, siete piezas desde el 20 de octubre y cada fuente con su enlace.",
+   "og_title": "Del chat al código",
+   "og_description": "Dale a tu proyecto una casa donde tu IA lo encuentre. Un paso pequeño para probar y cada fuente con su enlace."
+  }
+ },
+ "cortos": {
+  "1021p": {
+   "en": "Why the chat forgets",
+   "es": "Por qué se olvida el chat",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1023p": {
+   "en": "What you need",
+   "es": "Lo que necesitas",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1025p": {
+   "en": "The first prompt",
+   "es": "El primer prompt",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1029p": {
+   "en": "A memory file",
+   "es": "Un archivo de memoria",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1107p": {
+   "en": "Your first real task",
+   "es": "Tu primera tarea de verdad",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1117p": {
+   "en": "Guardrails and undo",
+   "es": "Reglas de la casa y deshacer",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  }
+ },
+ "enviar": {
+  "en": null,
+  "es": null
+ },
+ "luna": {},
+ "visuales": [
+  {
+   "id": "viva",
+   "en": "try-it",
+   "es": "try-it"
+  },
+  {
+   "id": "mapa",
+   "en": "map",
+   "es": "map"
+  },
+  {
+   "id": "flujo",
+   "en": "where-this-comes-from",
+   "es": "where-this-comes-from"
+  }
+ ],
+ "modulos": [
+  {
+   "src": "viva/traspaso-viva.js",
+   "sel": "[data-hc]",
+   "quieto": true
+  },
+  {
+   "src": "svg/mapa.js",
+   "sel": "svg.mp"
+  }
+ ],
+ "pliegues": {},
+ "css": [
+  "viz.css"
+ ],
+ "scripts": [],
+ "flechas": {}
+}

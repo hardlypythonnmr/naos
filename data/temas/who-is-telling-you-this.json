@@ -1,0 +1,114 @@
+{
+ "slug": "who-is-telling-you-this",
+ "meta": {
+  "en": {
+   "title": "Who is telling you this? · NAOS",
+   "h1": "Who is telling you this?",
+   "description": "Two questions for anything you read: who is telling you this, and what it looks like from another side. A short step to try, and every source.",
+   "og_title": "Who is telling you this?",
+   "og_description": "Look again, from another side. A short step to try, six pieces, every source with its link."
+  },
+  "es": {
+   "title": "¿Quién te está contando esto? · NAOS",
+   "h1": "¿Quién te está contando esto?",
+   "description": "Dos preguntas para lo que leas: quién te lo cuenta y cómo se ve desde otro lado. Un paso corto para probar y todas las fuentes.",
+   "og_title": "¿Quién te está contando esto?",
+   "og_description": "Míralo otra vez, desde otro lado. Un paso corto para probar, seis piezas y cada fuente con su enlace."
+  }
+ },
+ "cortos": {
+  "1019p": {
+   "en": "Who is telling you this?",
+   "es": "¿Quién te está contando esto?",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1020p": {
+   "en": "Should every image made with AI carry a label?",
+   "es": "¿Toda imagen hecha con IA debería llevar una etiqueta?",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1114p": {
+   "en": "A COP31 headline, traced to its source",
+   "es": "Un titular de la COP31, rastreado hasta su fuente",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1116p": {
+   "en": "Should AI summaries replace the story?",
+   "es": "¿Los resúmenes de IA deberían reemplazar a la noticia?",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1228p": {
+   "en": "Which story of the year do you still doubt?",
+   "es": "¿De qué historia del año todavía dudas?",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1116p-story-1200": {
+   "en": "Should AI summaries replace reading the story?",
+   "es": "¿Los resúmenes de IA deberían reemplazar la lectura de la noticia?",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  }
+ },
+ "enviar": {
+  "en": null,
+  "es": null
+ },
+ "luna": {},
+ "visuales": [
+  {
+   "id": "viva",
+   "en": "try-it",
+   "es": "try-it",
+   "reemplaza": {
+    "en": "^\\*Jarre:\\* there was no original",
+    "es": "^\\*Jarre:\\* no había original"
+   }
+  },
+  {
+   "id": "mapa",
+   "en": "map",
+   "es": "map"
+  },
+  {
+   "id": "grafica",
+   "en": "h:Where they disagree",
+   "es": "h:Dónde no coinciden",
+   "despues": {
+    "en": "^\\*\\*Google and Pew\\.\\*\\*",
+    "es": "^\\*\\*Google y Pew\\.\\*\\*"
+   }
+  }
+ ],
+ "modulos": [
+  {
+   "src": "anim/tres-movimientos.js",
+   "sel": "[data-tm]"
+  }
+ ],
+ "pliegues": {},
+ "css": [
+  "visuales.css",
+  "anim/tres-movimientos.css"
+ ],
+ "scripts": [
+  "mapa-origen.js"
+ ],
+ "flechas": {}
+}

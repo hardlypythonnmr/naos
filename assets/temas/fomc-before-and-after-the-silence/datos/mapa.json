@@ -1,0 +1,193 @@
+{
+ "id": "mapa",
+ "kit": "K1",
+ "grupos": [
+  {
+   "id": "antes",
+   "en": "Before",
+   "es": "Antes"
+  },
+  {
+   "id": "semana",
+   "en": "The week of the meeting",
+   "es": "La semana de la reunión"
+  },
+  {
+   "id": "despues",
+   "en": "Afterwards",
+   "es": "Después"
+  }
+ ],
+ "nodos": [
+  {
+   "i": 1,
+   "grupo": "antes",
+   "canal": "fecha",
+   "ancla": "the-rule",
+   "en": {
+    "fecha": "Sat 17 Oct",
+    "titulo": "The silence begins"
+   },
+   "es": {
+    "fecha": "sáb 17 oct",
+    "titulo": "Empieza el silencio"
+   }
+  },
+  {
+   "i": 2,
+   "grupo": "semana",
+   "canal": "short",
+   "src": "1027p",
+   "ancla": "c-2026-10-27-1800-p-short-reel",
+   "en": {
+    "fecha": "Tue 27 Oct",
+    "titulo": "Before the decision",
+    "pieza": "Short and Reel, 6:00 p.m. ET"
+   },
+   "es": {
+    "fecha": "mar 27 oct",
+    "titulo": "Antes de la decisión",
+    "pieza": "Short y Reel, 6:00 p. m. ET"
+   }
+  },
+  {
+   "i": 3,
+   "grupo": "semana",
+   "canal": "short",
+   "src": "1028p",
+   "ancla": "c-2026-10-28-1800-p-short-reel",
+   "en": {
+    "fecha": "Wed 28 Oct, 2:00 p.m. ET",
+    "titulo": "The statement",
+    "pieza": "Short and Reel, 6:00 p.m. ET"
+   },
+   "es": {
+    "fecha": "mié 28 oct, 2:00 p. m. ET",
+    "titulo": "El comunicado",
+    "pieza": "Short y Reel, 6:00 p. m. ET"
+   }
+  },
+  {
+   "i": 4,
+   "grupo": "semana",
+   "canal": "fecha",
+   "ancla": "what-to-expect",
+   "en": {
+    "fecha": "Wed 28 Oct, 2:30 p.m. ET",
+    "titulo": "The press conference"
+   },
+   "es": {
+    "fecha": "mié 28 oct, 2:30 p. m. ET",
+    "titulo": "La conferencia de prensa"
+   }
+  },
+  {
+   "i": 5,
+   "grupo": "semana",
+   "canal": "fecha",
+   "ancla": "the-rule",
+   "en": {
+    "fecha": "Thu 29 Oct, 11:59 p.m. ET",
+    "titulo": "The silence ends"
+   },
+   "es": {
+    "fecha": "jue 29 oct, 11:59 p. m. ET",
+    "titulo": "Termina el silencio"
+   }
+  },
+  {
+   "i": 6,
+   "grupo": "semana",
+   "canal": "short",
+   "src": "1030p",
+   "ancla": "c-2026-10-30-1800-p-short-reel",
+   "en": {
+    "fecha": "Fri 30 Oct",
+    "titulo": "Three words",
+    "pieza": "Short and Reel, 6:00 p.m. ET"
+   },
+   "es": {
+    "fecha": "vie 30 oct",
+    "titulo": "Tres palabras",
+    "pieza": "Short y Reel, 6:00 p. m. ET"
+   }
+  },
+  {
+   "i": 7,
+   "grupo": "despues",
+   "canal": "short",
+   "src": "1101p",
+   "ancla": "c-2026-11-01-1800-p-short-reel",
+   "en": {
+    "fecha": "Sun 1 Nov",
+    "titulo": "Five banks",
+    "pieza": "Short and Reel, 6:00 p.m. ET"
+   },
+   "es": {
+    "fecha": "dom 1 nov",
+    "titulo": "Cinco bancos",
+    "pieza": "Short y Reel, 6:00 p. m. ET"
+   }
+  },
+  {
+   "i": 8,
+   "grupo": "despues",
+   "canal": "fecha",
+   "ancla": "numbers",
+   "en": {
+    "fecha": "Wed 18 Nov, 2:00 p.m. ET",
+    "titulo": "The minutes"
+   },
+   "es": {
+    "fecha": "mié 18 nov, 2:00 p. m. ET",
+    "titulo": "Las actas"
+   }
+  },
+  {
+   "i": 9,
+   "grupo": "despues",
+   "canal": "fecha",
+   "ancla": "one-more-thing",
+   "href": {
+    "en": "/naos/temas/fomc-with-projections/",
+    "es": "/naos/es/temas/fomc-with-projections/"
+   },
+   "en": {
+    "fecha": "Tue 8 and Wed 9 Dec",
+    "titulo": "Next meeting, with projections"
+   },
+   "es": {
+    "fecha": "mar 8 y mié 9 dic",
+    "titulo": "La próxima reunión,|con proyecciones"
+   }
+  }
+ ],
+ "en": {
+  "titulo": "From the silence to the minutes",
+  "alt": "Map of this page: nine stops in date order, from the day the Fed falls silent on 17 October to its next meeting on 8 and 9 December.",
+  "desc": "A vertical line with nine stops in date order. Saturday 17 October, the silence begins. In the week of the meeting: Tuesday 27 October, before the decision; Wednesday 28 October at 2:00 p.m. ET, the statement; at 2:30 p.m. ET, the press conference; Thursday 29 October at 11:59 p.m. ET, the silence ends; Friday 30 October, three words. Afterwards: Sunday 1 November, five banks; Wednesday 18 November at 2:00 p.m. ET, the minutes; Tuesday 8 and Wednesday 9 December, the next meeting, with projections. A heavy line marks the silence, from 17 to 29 October. Filled dots are Shorts and Reels on this page.",
+  "que_es": "What this shows",
+  "que_muestra": "The week of the meeting sits in the middle. The silence comes before it and the minutes come after. The piece you came from lights up.",
+  "leyenda_silencio": "Heavy line: the silence, 17 to 29 Oct",
+  "leyenda_short": "Filled dot: a Short and Reel on this page",
+  "leyenda_fecha": "Open dot: a date on the Fed's calendar",
+  "texto_version": "Text version of the map",
+  "canal_short": "Short and Reel",
+  "canal_fecha": "date, no piece",
+  "de_aqui": "you came from here"
+ },
+ "es": {
+  "titulo": "Del silencio a las actas",
+  "alt": "Mapa de esta página: nueve paradas por fecha, desde el día en que la Fed se calla, el 17 de octubre, hasta su próxima reunión, el 8 y 9 de diciembre.",
+  "desc": "Una línea vertical con nueve paradas en orden de fecha. Sábado 17 de octubre, empieza el silencio. En la semana de la reunión: martes 27 de octubre, antes de la decisión; miércoles 28 de octubre a las 2:00 p. m. ET, el comunicado; a las 2:30 p. m. ET, la conferencia de prensa; jueves 29 de octubre a las 11:59 p. m. ET, termina el silencio; viernes 30 de octubre, tres palabras. Después: domingo 1 de noviembre, cinco bancos; miércoles 18 de noviembre a las 2:00 p. m. ET, las actas; martes 8 y miércoles 9 de diciembre, la próxima reunión, con proyecciones. Una línea gruesa marca el silencio, del 17 al 29 de octubre. Los puntos llenos son Shorts y Reels de esta página.",
+  "que_es": "Qué muestra",
+  "que_muestra": "La semana de la reunión queda en el centro. Antes va el silencio y después, las actas. Se enciende la pieza de la que vienes.",
+  "leyenda_silencio": "Línea gruesa: el silencio, del 17 al 29 oct",
+  "leyenda_short": "Punto lleno: un Short y Reel de esta página",
+  "leyenda_fecha": "Punto vacío: una fecha del calendario de la Fed",
+  "texto_version": "Versión en texto del mapa",
+  "canal_short": "Short y Reel",
+  "canal_fecha": "fecha, sin pieza",
+  "de_aqui": "vienes de aquí"
+ }
+}

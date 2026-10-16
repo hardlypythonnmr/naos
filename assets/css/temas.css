@@ -148,3 +148,176 @@ main { display: block; max-width: 1120px; margin: 0 auto; padding: 0 var(--page-
 /* portada ES: la franja dentro del ancho del hub */
 .t-hub #secuencia .fr { padding-left: 0; padding-right: 0; }
 @media (max-width: 599px) { .t-nav .t-idioma { border-left: 0; padding-left: 0; } }
+
+/* páginas con cuerpo (lote 0+1, acta 2(b)): bloques 0 a 8 del texto sellado. Medida de lectura, la misma escala; los pliegues
+ * son <details> con un rótulo subrayado de 24 px o más; sin cajas. Los visuales traen su propio CSS (assets/temas/<slug>/). */
+.t-con-cuerpo .t-umbral p, .t-cuerpo-b p, .t-cuerpo-b li { max-width: 40rem; }
+.t-con-cuerpo .t-umbral { padding: var(--s-3) 0 var(--s-2); }
+.t-con-cuerpo .t-umbral p { margin: 0 0 10px; font-size: 17px; line-height: 1.45; }
+.t-con-cuerpo .t-umbral h1 + p, .t-con-cuerpo .t-tiempo > h1 + p { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 21px; line-height: 1.3; }
+.t-cuerpo-b { font-size: 16px; line-height: 1.5; }
+.t-cuerpo-b p { margin: 0 0 10px; }
+.t-cuerpo-b ol, .t-cuerpo-b ul { margin: 0 0 16px; padding-left: 1.4em; }
+.t-cuerpo-b li { margin: 0 0 6px; }
+.t-cuerpo-b h3 { font-family: var(--font-serif); font-weight: 400; font-size: 22px; line-height: 1.2; margin: var(--s-3) 0 var(--s-1); }
+.t-cuerpo-b h4 { font-family: var(--font-serif); font-weight: 400; font-size: 19px; margin: var(--s-2) 0 var(--s-1); }
+.t-cuerpo-b { border-top: 1px solid var(--naos-ink); margin-top: var(--s-2); padding-top: var(--s-2); }
+.t-cuerpo-b > h2, .t-cuerpo-b > details > summary > h2 { margin-bottom: 12px; }
+.t-sub-umbral h2 { font-family: var(--font-serif); font-weight: 400; font-size: 22px; margin: var(--s-3) 0 var(--s-1); }
+.t-etq { font-size: 13px !important; line-height: 1.45; color: var(--naos-grey); letter-spacing: .01em; }
+.t-sub { font-style: italic; color: var(--naos-sec); }
+section.t-sub { font-style: normal; color: inherit; }
+.t-cita { font-size: .8em; vertical-align: .15em; text-decoration: none; color: var(--naos-sec); white-space: nowrap; padding: 2px 1px; }
+.t-cita:hover, .t-cita:focus-visible { text-decoration: underline; color: var(--naos-ink); }
+.t-url, .t-fuente a { overflow-wrap: anywhere; }
+.t-flecha { font-weight: 500; }
+.t-llevar { font-family: var(--font-serif); font-size: 22px; line-height: 1.3; }
+.t-llevar-k { display: block; font-family: var(--font-sans); font-size: 13px; color: var(--naos-grey); }
+.t-linea-n-b { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 20px; color: var(--naos-sec); }
+.t-proxima-k { color: var(--naos-grey); }
+.t-vienes-l { margin: 4px 0 0; font-size: 14px; line-height: 1.35; box-shadow: inset 4px 0 0 var(--vino, #5A1834); padding: 2px 0 2px 12px; }
+.t-vienes-k { font-weight: 600; color: var(--vino, #5A1834); }
+.t-prompt { margin: 0 0 8px; padding: 12px 16px; border-left: 2px solid var(--naos-ink); font-family: var(--font-sans); font-size: 15px; line-height: 1.5; max-width: 40rem; background: none; }
+.t-prompt p { margin: 0; }
+.t-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.t-btn { min-height: 44px; padding: 0 18px; font: 500 15px var(--font-sans); color: var(--naos-ink); background: var(--naos-paper); border: 2px solid var(--naos-ink); border-radius: 0; cursor: pointer; }
+.t-btn:hover { background: var(--naos-ink); color: var(--naos-paper); }
+.t-btn:focus-visible, .t-pliegue > summary:focus-visible { outline: 2px solid var(--naos-ink); outline-offset: 3px; }
+.t-estado-btn { font-size: 13px; color: var(--naos-sec); }
+.t-pliegue { margin: 0 0 16px; }
+.t-pliegue > summary { display: list-item; min-height: 24px; padding: 6px 0; cursor: pointer; font-size: 15px; color: var(--naos-sec); text-decoration: underline; text-underline-offset: 3px; }
+.t-pliegue[open] > summary { margin-bottom: 8px; }
+.t-pliegue-h > summary { text-decoration: none; color: var(--naos-ink); }
+.t-pliegue-h > summary > h2, .t-pliegue-h > summary > h3, .t-pliegue-h > summary > h4 { display: inline; margin: 0; }
+.t-pliegue-h > summary > h2 { font-family: var(--font-serif); font-weight: 300; font-size: 30px; line-height: 1.1; }
+.t-sub-s { display: block; font-size: 15px; font-style: italic; color: var(--naos-sec); margin-top: 4px; }
+.t-tabla { overflow-x: auto; margin: 0 0 16px; max-width: 100%; }
+.t-tabla table { border-collapse: collapse; font-size: 15px; line-height: 1.45; min-width: 100%; }
+.t-tabla th, .t-tabla td { text-align: left; vertical-align: top; padding: 8px 12px 8px 0; border-top: 1px solid var(--naos-rule); font-weight: 400; }
+.t-tabla thead th { font-size: 13px; color: var(--naos-grey); border-top: 1px solid var(--naos-ink); }
+.t-tabla tbody th { font-weight: 600; }
+@media (max-width: 639px) { /* una tarjeta por fila: la columna lleva su título */
+  .t-tabla table, .t-tabla tbody, .t-tabla tr, .t-tabla th, .t-tabla td { display: block; }
+  .t-tabla thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .t-tabla tr { border-top: 1px solid var(--naos-ink); padding: 6px 0; }
+  .t-tabla th, .t-tabla td { border: 0; padding: 2px 0; }
+  .t-tabla td::before { content: attr(data-k); display: block; font-size: 13px; color: var(--naos-grey); }
+}
+.t-fuente { font-size: 15px; line-height: 1.55; }
+.t-fn { font-variant-numeric: tabular-nums; color: var(--naos-grey); }
+.t-cuerpo-b .t-cartas { margin-top: 8px; }
+.t-carta .t-desc { font-size: 15px; line-height: 1.5; color: var(--naos-ink); }
+.t-carta .t-etq { margin-top: 2px; }
+.t-carta .t-mas, .t-carta .t-transc { font-size: 15px; line-height: 1.55; }
+.t-carta .t-mas p, .t-carta .t-mas li { margin: 0 0 8px; }
+.t-viz { margin: var(--s-3) 0; max-width: 100%; overflow: hidden; }
+.t-viz figure { margin: 0; }
+.t-viz svg { max-width: 100%; height: auto; }
+@media (min-width: 1100px) {
+  .t-humanity .t-b5 { position: relative; }
+  .t-humanity .t-b5 .t-col-luna { display: block; position: absolute; right: 0; width: 13rem; top: calc(var(--s-4) + 12px); margin: 0; font-size: 13px; color: var(--naos-grey); }
+}
+.t-con-cuerpo .t-umbral .t-vienes-l { font-size: 14px; margin: 4px 0 0; }
+.t-con-cuerpo .t-umbral .t-aviso { font-size: 13px; }
+.t-con-cuerpo .t-umbral .t-otra-ed { font-size: 15px; }
+
+/* ---------- Pase de arte 2 (director de arte, 16-oct): movimiento por la página con las mismas partes ----------
+ * N, sesión 7 (carrusel de referencia): "more movement across the page and different diagrammation". Antes, los 8 bloques eran la
+ * misma caja: filete de tinta, h2 de 30 px, texto a 40rem pegado a la izquierda y 60 % de la pantalla vacía a la derecha.
+ * Ahora cada bloque toma un eje con razón (tres ejes: 0, 1/3 y 2/3 del ancho, --axis-third):
+ *   0 umbral   el h1 a escala de puerta, colgado del margen; el texto baja al tercio (empieza la lectura).
+ *   1 cuento   lectura en el tercio, el título en el margen y viaja con el texto (sticky): se lee como lomo.
+ *   2 práctica vuelve al eje 0 y crece: título a 48 px y los pasos con su número grande (son secuencia real).
+ *   3 mapa     a todo el ancho (es figura).  4 y 8: la biblioteca, glosa (h3 en el margen, texto en el tercio).
+ *   5 piezas   el registro a todo el ancho, abierto por la barra de tinta de 6 px (cambia de objeto: el calendario).
+ *   6 llevar   la puerta: un plano a sangre en el color del universo (Humanity tinta, The Present cobalto, como la portada);
+ *              la línea para llevar a escala de título. Es el único plano de color de la página.
+ *   7 una más  la salida al borde derecho, en el eje de 2/3: lo que sigue está "más allá".
+ * Pliegues cerrados: filete gris (cajón), no de tinta. Solo tokens G3; sin sombras ni degradados; la sangre del plano es un
+ * relleno plano (box-shadow de extensión, sin desenfoque) recortado arriba y abajo: no crea scroll horizontal. A 390 la capa de arriba no crece (decisión 13: tope 4,1). */
+.t-cuerpo-b ol.t-cartas { padding-left: 0; }                 /* el registro ya no queda sangrado 1,4em por la regla de listas */
+.t-cuerpo-b .t-cartas > li { max-width: none; }             /* ni topado a 40rem: la columna de la luna vuelve a su sitio */
+.t-con-cuerpo .t-umbral h1 { margin-left: -.045em; }
+.t-nw { white-space: nowrap; }                              /* "full-moon" no se parte en el guion (cuerpo-temas.mjs) */        /* la letra cuelga del margen, alineada por el ojo y no por la caja */
+.t-cuerpo-b { margin-top: var(--s-1); }
+.t-cuerpo-b:has(> details.t-pliegue-h:first-child) { border-top-color: var(--naos-rule); } /* cajón cerrado: filete gris */
+/* 2: la práctica, con su número */
+.t-b2 > h2, .t-b2 > section > h2 { font-size: 34px; letter-spacing: -.015em; }
+.t-b2 ol:not([class]) { list-style: none; counter-reset: paso; padding-left: 0; }
+.t-b2 ol:not([class]) > li { counter-increment: paso; position: relative; padding-left: 1.4em; }
+.t-b2 ol:not([class]) > li::before { content: counter(paso); position: absolute; left: 0; top: -2px; font-family: var(--font-serif); font-weight: 300;
+  font-size: 26px; line-height: 1; letter-spacing: -.02em; color: var(--naos-ink); font-variant-numeric: lining-nums; }
+/* 5: el registro abre con la barra de tinta */
+.t-b5 { border-top-width: var(--rule-heavy); }
+/* 6: la puerta. Plano a sangre en el color del universo */
+.t-con-cuerpo .t-b6 { position: relative; isolation: isolate; border-top: 0; margin-top: var(--s-4); padding: var(--s-4) 0 var(--s-4);
+  --pl: var(--naos-plate); --pl-t: var(--naos-plate-text); --pl-s: var(--naos-night-sec); color: var(--pl-t); }
+.t-the-present .t-b6 { --pl: var(--lab-accent); --pl-s: var(--naos-paper); }
+.t-con-cuerpo .t-b6 { background: var(--pl); box-shadow: 0 0 0 100vmax var(--pl); clip-path: inset(0 -100vmax); } /* sangre sin desborde: un relleno plano, no una sombra (sin desenfoque), y no cuenta para el scroll */
+.t-b6 > h2 { font-size: 22px; font-weight: 400; color: var(--pl-s); }
+.t-b6 p, .t-b6 .t-etq, .t-b6 .t-estado-btn, .t-b6 .t-llevar-k, .t-b6 .t-pliegue > summary { color: var(--pl-s); }
+.t-b6 a, .t-b6 .t-cita { color: var(--pl-t); }
+.t-b6 .t-llevar { color: var(--pl-t); font-weight: 300; font-size: 28px; line-height: 1.15; letter-spacing: -.015em; margin: var(--s-3) 0 var(--s-1); max-width: 22ch; text-wrap: balance; }
+.t-b6 .t-llevar-k { margin-bottom: 6px; }
+.t-b6 .t-linea-n-b { color: var(--pl-s); }
+.t-b6 .t-btn { background: transparent; color: var(--pl-t); border-color: var(--pl-t); }
+.t-b6 .t-btn:hover { background: var(--pl-t); color: var(--pl); }
+.t-b6 .t-btn:focus-visible, .t-b6 .t-pliegue > summary:focus-visible, .t-b6 a:focus-visible { outline-color: var(--pl-t); }
+.t-b6 .t-sub h2, .t-b6 .t-sub h3 { color: var(--pl-t); }
+.t-con-cuerpo .t-b6 + .t-b7 { border-top: 0; padding-top: var(--s-3); }
+/* pie: la frase de N y la línea fija ya no se montan una sobre otra cuando hay dos (who) */
+.t-pie .t-linea-n:has(+ .t-linea-n) { font-style: italic; }
+
+@media (max-width: 759px) { /* a 390 la capa de arriba no crece: el aire entre bloques paga el plano y la escala */
+  .t-con-cuerpo .t-b6 { margin-top: var(--s-2); padding: 20px 0 var(--s-3); }
+  .t-b6 .t-llevar { font-size: 26px; }
+  .t-b6 > h2 { margin-bottom: 8px; }
+  .t-b6 .t-llevar { margin: var(--s-2) 0 var(--s-1); }
+}
+@media (min-width: 760px) {
+  .t-pie .t-linea-n:has(+ .t-linea-n) { grid-row: 2; margin-bottom: 0; }
+  .t-pie .t-linea-n + .t-linea-n { grid-row: 3 / span 2; }
+  .t-b6 .t-llevar { font-size: clamp(32px, 4.6vw, 60px); }
+}
+@media (min-width: 1100px) {
+  /* 0: umbral. El h1 a escala de puerta; el texto en el tercio */
+  .t-con-cuerpo .t-umbral { padding: var(--s-6) 0 var(--s-5); }
+  .t-con-cuerpo .t-umbral h1 { font-size: clamp(88px, 10.6vw, 148px); line-height: .92; letter-spacing: -.035em; max-width: 13ch; margin-bottom: var(--s-4); }
+  .t-con-cuerpo .t-umbral > p, .t-con-cuerpo .t-umbral > .t-tiempo > p, .t-con-cuerpo .t-umbral > .t-sub-umbral { margin-left: var(--axis-third); }
+  .t-con-cuerpo .t-umbral h1 + p, .t-con-cuerpo .t-tiempo > h1 + p { font-size: 26px; max-width: 30rem; }
+  /* 1: lectura en el tercio, título en el margen */
+  .t-con-cuerpo .t-b1 { display: grid; grid-template-columns: var(--axis-third) minmax(0, 1fr); align-items: start; padding-top: var(--s-6); }
+  .t-con-cuerpo .t-b1 > * { grid-column: 2; }
+  .t-con-cuerpo .t-b1 > h2 { grid-column: 1; grid-row: 1 / span 60; position: sticky; top: var(--s-3); margin: 0; padding-right: var(--s-4); font-size: 44px; line-height: 1; letter-spacing: -.02em; }
+  .t-con-cuerpo .t-b1 p { font-size: 18px; line-height: 1.55; max-width: 36rem; }
+  .t-con-cuerpo .t-b1 .t-etq { margin-bottom: var(--s-2); }
+  .t-con-cuerpo .t-b1 > .t-tabla { max-width: none; }
+  /* 2: práctica en el eje 0, más grande */
+  .t-con-cuerpo .t-b2 { padding-top: var(--s-8); }
+  .t-b2 > h2, .t-b2 > section > h2 { font-size: 52px; line-height: 1; letter-spacing: -.025em; margin-bottom: var(--s-3); }
+  .t-b2 ol:not([class]) { margin: var(--s-3) 0 var(--s-4); }
+  .t-b2 ol:not([class]) > li { padding-left: 88px; min-height: 64px; margin-bottom: var(--s-2); font-size: 17px; max-width: 44rem; }
+  .t-b2 ol:not([class]) > li::before { top: -10px; font-size: 64px; }
+  /* 3: el mapa a lo ancho, con aire */
+  .t-con-cuerpo .t-b3 { padding-top: var(--s-6); }
+  /* 4 y 8: la biblioteca. Glosa: el h3 en el margen, el texto en el tercio */
+  .t-b4 .t-sub, .t-b8 .t-sub { display: grid; grid-template-columns: var(--axis-third) minmax(0, 1fr); align-items: start; margin-top: var(--s-3); }
+  .t-b4 .t-sub > *, .t-b8 .t-sub > * { grid-column: 2; }
+  .t-b4 .t-sub > h3, .t-b8 .t-sub > h3 { grid-column: 1; grid-row: 1 / span 60; margin: 0; padding-right: var(--s-4); position: sticky; top: var(--s-3); }
+  .t-b4 details > p, .t-b8 details > p { margin-left: var(--axis-third); }
+  .t-b4 .t-sub .t-sub { display: block; }
+  /* 5: el registro, con aire arriba */
+  .t-con-cuerpo .t-b5 { margin-top: var(--s-8); padding-top: var(--s-3); }
+  .t-b5 > h2 { font-size: 44px; letter-spacing: -.02em; }
+  /* 6: la puerta */
+  .t-con-cuerpo .t-b6 { margin-top: var(--s-10); padding: var(--s-8) 0 var(--s-10); display: grid; grid-template-columns: var(--axis-third) minmax(0, 1fr); align-items: start; }
+  .t-con-cuerpo .t-b6 > * { grid-column: 2; }
+  .t-con-cuerpo .t-b6 > h2 { grid-column: 1; grid-row: 1 / span 20; margin: 6px 0 0; }
+  .t-b6 .t-llevar { grid-column: 1 / -1; max-width: 20ch; margin: var(--s-6) 0 var(--s-2); }
+  .t-b6 .t-llevar-k { font-size: 15px; }
+  .t-b6 .t-linea-n-b { font-size: 24px; }
+  /* 7: la salida, al eje de 2/3 */
+  .t-con-cuerpo .t-b7 { padding-left: calc(2 * var(--axis-third)); padding-top: var(--s-6); }
+  .t-con-cuerpo .t-b7 p, .t-con-cuerpo .t-b7 li { max-width: none; }
+  .t-con-cuerpo .t-b8 { margin-top: var(--s-6); }
+}

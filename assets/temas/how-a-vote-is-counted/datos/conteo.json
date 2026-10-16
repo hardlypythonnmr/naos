@@ -1,0 +1,275 @@
+{
+ "tiempos": {
+  "reposo": 2.2,
+  "viaje": 0.8,
+  "paso": 3,
+  "total": 12
+ },
+ "orden": [
+  "br",
+  "us",
+  "es"
+ ],
+ "rotulo": {
+  "en": "Official data",
+  "es": "Datos oficiales"
+ },
+ "en": {
+  "etiqueta_figura": "The count in four moves, one country at a time, with a play button",
+  "alt": "Three tracks, one per country, each with four numbered stops and a ballot slip at the last one. Brazil: at the section, off the internet, the first number, check it yourself. United States: mail ballots, the first number (unofficial), the official count, the date. Spain: at the table, the first number (provisional), the official count, the date.",
+  "que_muestra": "The count in four moves, one country at a time. A ballot slip moves from stop to stop. Brazil follows the TSE's own list, from the bulletin on the door to checking it yourself. In the United States, the first number is unofficial and the official count has a date set by each state. In Spain, the first number is provisional and the Provincial Boards count from 4 to 7 December. The slip is a drawing; it shows no real ballot. Press play to watch it once; it never starts by itself.",
+  "botones": {
+   "play": "Play",
+   "pause": "Pause",
+   "again": "Play again",
+   "step": "Step",
+   "ahora": "Step {n} of 4: {t}",
+   "pais": "Country"
+  },
+  "paises": {
+   "br": {
+    "nombre": "Brazil",
+    "fuentes": "Sources [2] [3] [4] [5] [6] [7]",
+    "pasos": [
+     {
+      "corto": "At the section",
+      "h": "At the section.",
+      "p": "Each machine prints its section's bulletin, the boletim de urna. One copy goes up on the door.",
+      "refs": "[2] [3]",
+      "cuando": "When voting ends",
+      "estado": ""
+     },
+     {
+      "corto": "Off the internet",
+      "h": "Off the internet.",
+      "p": "The machine has no network connection. Before a result is added, a digital signature confirms it came from the right machine.",
+      "refs": "[2] [6] [7]",
+      "cuando": "",
+      "estado": ""
+     },
+     {
+      "corto": "The first number",
+      "h": "The first number.",
+      "p": "Results for president start at 17:00 Brasília time on the TSE's Portal Resultados, for the whole country at once.",
+      "refs": "[3] [4] [5]",
+      "cuando": "17:00 Brasília, 16:00 ET",
+      "estado": ""
+     },
+     {
+      "corto": "Check it yourself",
+      "h": "Check it yourself.",
+      "p": "Each bulletin has a QR code. The free Boletim na Mão app compares it with what the TSE published.",
+      "refs": "[3] [5]",
+      "cuando": "",
+      "estado": ""
+     }
+    ]
+   },
+   "us": {
+    "nombre": "United States",
+    "fuentes": "Sources [19] [20] [21] [23] [25] [27]",
+    "pasos": [
+     {
+      "corto": "Mail ballots",
+      "h": "Mail ballots.",
+      "p": "Each state sets when they can be processed. According to NCSL, none releases those results before polls close.",
+      "refs": "[23] [24]",
+      "cuando": "Each state sets its own",
+      "estado": ""
+     },
+     {
+      "corto": "The first number",
+      "h": "The first number.",
+      "p": "Election-night results are unofficial, even at \"100% of precincts\". A media call leaves them unofficial.",
+      "refs": "[19] [20] [21]",
+      "cuando": "Election night",
+      "estado": "Unofficial"
+     },
+     {
+      "corto": "The official count",
+      "h": "The official count.",
+      "p": "The canvass confirms every valid ballot, mail and provisional ones included.",
+      "refs": "[19]",
+      "cuando": "",
+      "estado": "Official"
+     },
+     {
+      "corto": "The date",
+      "h": "The date.",
+      "p": "Each state sets its own. Michigan's county boards meet by Thursday 5 November; Georgia certifies on 20 November.",
+      "refs": "[19] [25] [27]",
+      "cuando": "Michigan Thu 5 Nov, Georgia Fri 20 Nov",
+      "estado": "Official"
+     }
+    ]
+   },
+   "es": {
+    "nombre": "Spain",
+    "fuentes": "Sources [35] [39] [40]",
+    "pasos": [
+     {
+      "corto": "At the table",
+      "h": "At the table.",
+      "p": "The count is public. The table's president reads each envelope aloud, and the result is posted at the entrance.",
+      "refs": "[35] [39] [40]",
+      "cuando": "Polls close 20:00, 14:00 ET",
+      "estado": ""
+     },
+     {
+      "corto": "The first number",
+      "h": "The first number.",
+      "p": "Results on the night are provisional, and the Government gives them.",
+      "refs": "[35] [40]",
+      "cuando": "Sun 29 Nov",
+      "estado": "Provisional"
+     },
+     {
+      "corto": "The official count",
+      "h": "The official count.",
+      "p": "The Provincial Electoral Boards count from Friday 4 to Monday 7 December. They can fix errors and cannot annul a vote.",
+      "refs": "[35] [39]",
+      "cuando": "Fri 4 to Mon 7 Dec",
+      "estado": "Official"
+     },
+     {
+      "corto": "The date",
+      "h": "The date.",
+      "p": "The official results are the ones published in the BOE.",
+      "refs": "[35] [40]",
+      "cuando": "",
+      "estado": "Official"
+     }
+    ]
+   }
+  }
+ },
+ "es": {
+  "etiqueta_figura": "El conteo en cuatro pasos, un país a la vez, con un botón de reproducir",
+  "alt": "Tres pistas, una por país, cada una con cuatro paradas numeradas y una ficha de papeleta en la última. Brasil: en la sección, sin internet, la primera cifra, revísalo tú. Estados Unidos: el voto por correo, la primera cifra (no oficial), el conteo oficial, la fecha. España: en la mesa, la primera cifra (provisional), el conteo oficial, la fecha.",
+  "que_muestra": "El conteo en cuatro pasos, un país a la vez. Una ficha de papeleta va de parada en parada. Brasil sigue la lista del propio TSE, desde el boletín en la puerta hasta revisarlo tú. En Estados Unidos, la primera cifra no es oficial y el conteo oficial tiene una fecha que pone cada estado. En España, la primera cifra es provisional y las Juntas Provinciales cuentan del 4 al 7 de diciembre. La ficha es un dibujo; no muestra ninguna papeleta real. Dale a reproducir para verlo una vez; nunca arranca solo.",
+  "botones": {
+   "play": "Reproducir",
+   "pause": "Pausa",
+   "again": "Verlo otra vez",
+   "step": "Paso",
+   "ahora": "Paso {n} de 4: {t}",
+   "pais": "País"
+  },
+  "paises": {
+   "br": {
+    "nombre": "Brasil",
+    "fuentes": "Fuentes [2] [3] [4] [5] [6] [7]",
+    "pasos": [
+     {
+      "corto": "En la sección",
+      "h": "En la sección.",
+      "p": "Cada urna imprime el boletín de su sección, que el TSE llama boletim de urna. Una copia se pega en la puerta.",
+      "refs": "[2] [3]",
+      "cuando": "Al cerrar la votación",
+      "estado": ""
+     },
+     {
+      "corto": "Sin internet",
+      "h": "Sin internet.",
+      "p": "La urna no tiene conexión a ninguna red. Antes de sumar un resultado, una firma digital confirma que salió de la urna correcta.",
+      "refs": "[2] [6] [7]",
+      "cuando": "",
+      "estado": ""
+     },
+     {
+      "corto": "La primera cifra",
+      "h": "La primera cifra.",
+      "p": "A las 17:00 de Brasilia empiezan a salir los resultados de presidente en el Portal Resultados del TSE, para todo el país a la vez.",
+      "refs": "[3] [4] [5]",
+      "cuando": "17:00 de Brasilia, 16:00 ET",
+      "estado": ""
+     },
+     {
+      "corto": "Revísalo tú",
+      "h": "Revísalo tú.",
+      "p": "Cada boletín trae un código QR. Con la app gratuita Boletim na Mão puedes compararlo con lo que publicó el TSE.",
+      "refs": "[3] [5]",
+      "cuando": "",
+      "estado": ""
+     }
+    ]
+   },
+   "us": {
+    "nombre": "Estados Unidos",
+    "fuentes": "Fuentes [19] [20] [21] [23] [25] [27]",
+    "pasos": [
+     {
+      "corto": "El voto por correo",
+      "h": "El voto por correo.",
+      "p": "Cada estado decide desde cuándo se puede procesar. Según NCSL, ninguno deja publicar esos resultados antes de que cierren las urnas.",
+      "refs": "[23] [24]",
+      "cuando": "Lo decide cada estado",
+      "estado": ""
+     },
+     {
+      "corto": "La primera cifra",
+      "h": "La primera cifra.",
+      "p": "Los resultados de la noche no son oficiales, aunque digan \"100% de recintos\". Que un medio declare un ganador no los vuelve oficiales.",
+      "refs": "[19] [20] [21]",
+      "cuando": "La noche de votar",
+      "estado": "No oficial"
+     },
+     {
+      "corto": "El conteo oficial",
+      "h": "El conteo oficial.",
+      "p": "El escrutinio oficial (canvass) confirma cada voto válido, también los que llegaron por correo y los provisionales.",
+      "refs": "[19]",
+      "cuando": "",
+      "estado": "Oficial"
+     },
+     {
+      "corto": "La fecha",
+      "h": "La fecha.",
+      "p": "Cada estado pone la suya. En Michigan, las juntas de escrutinio de los condados se reúnen a más tardar el jueves 5 de noviembre; Georgia certifica el 20 de noviembre.",
+      "refs": "[19] [25] [27]",
+      "cuando": "Michigan jue 5 nov, Georgia vie 20 nov",
+      "estado": "Oficial"
+     }
+    ]
+   },
+   "es": {
+    "nombre": "España",
+    "fuentes": "Fuentes [35] [39] [40]",
+    "pasos": [
+     {
+      "corto": "En la mesa",
+      "h": "En la mesa.",
+      "p": "El escrutinio es público. El presidente de la mesa lee en voz alta cada papeleta, y el resultado queda en un acta que se pega a la entrada.",
+      "refs": "[35] [39] [40]",
+      "cuando": "Cierran las urnas a las 20:00, 14:00 ET",
+      "estado": ""
+     },
+     {
+      "corto": "La primera cifra",
+      "h": "La primera cifra.",
+      "p": "Los resultados de la noche son provisionales y los da el Gobierno.",
+      "refs": "[35] [40]",
+      "cuando": "dom 29 nov",
+      "estado": "Provisional"
+     },
+     {
+      "corto": "El conteo oficial",
+      "h": "El conteo oficial.",
+      "p": "Las Juntas Electorales Provinciales hacen el escrutinio general del viernes 4 al lunes 7 de diciembre. Pueden corregir errores, pero no anular un voto.",
+      "refs": "[35] [39]",
+      "cuando": "vie 4 a lun 7 dic",
+      "estado": "Oficial"
+     },
+     {
+      "corto": "La fecha",
+      "h": "La fecha.",
+      "p": "Los resultados oficiales son los que publica el BOE.",
+      "refs": "[35] [40]",
+      "cuando": "",
+      "estado": "Oficial"
+     }
+    ]
+   }
+  }
+ }
+}

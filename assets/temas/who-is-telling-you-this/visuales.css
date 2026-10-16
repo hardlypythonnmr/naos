@@ -1,0 +1,17 @@
+/* visuales.css · las figuras en la página de tema (sin el armado de la vista previa). */
+.vv-fig { margin: 0; } .vv-fig figcaption { max-width: 44rem; font-size: 15px; line-height: 1.5; color: var(--naos-sec); margin-top: 12px; }
+.vv-fig figcaption strong { color: var(--naos-ink); }
+.vv-alt { display: block; margin-top: 8px; font-size: 13px; color: var(--naos-grey); }
+.vv-estrecho { display: none; } .vv-ancho svg, .vv-estrecho svg { display: block; width: 100%; height: auto; }
+.vv-ancho { max-width: 960px; }
+/* Mapa y gráfica anchos desde 800 px; la cosa viva quieta ancha desde 1000 px: así el texto del dibujo no baja de 12 px efectivos (cierre 16-oct, B3). */
+@media (max-width: 799px) { .vv-ancho { display: none; } .vv-estrecho { display: block; max-width: 420px; } }
+@media (min-width: 800px) and (max-width: 999px) { .vv-ancho.vv-1000 { display: none; } .vv-estrecho.vv-1000 { display: block; max-width: 420px; } }
+.vm-lista { margin: 0; padding-left: 22px; font-size: 15px; line-height: 1.6; } .vm-lista a { display: inline-block; min-height: 24px; color: var(--naos-sec); }
+.vm-cap, .vv-det .tm-cap { margin: 8px 0 8px; font-size: 15px; line-height: 1.5; color: var(--naos-sec); } .vm-cap strong { color: var(--naos-ink); font-weight: 600; }
+.vv-det { margin-top: 16px; } .vv-det summary { cursor: pointer; font-size: 15px; min-height: 24px; text-decoration: underline; }
+.vg-tabla { border-collapse: collapse; font-size: 15px; margin: 12px 0; width: 100%; max-width: 44rem; }
+.vg-tabla caption { text-align: left; font: 400 18px var(--font-serif); padding-bottom: 8px; }
+.vg-tabla th, .vg-tabla td { text-align: left; padding: 8px 12px 8px 0; border-top: 1px solid var(--naos-rule); font-variant-numeric: tabular-nums; vertical-align: top; font-weight: 400; }
+.vg-tabla thead th { border-top: 1px solid var(--naos-ink); font-size: 13px; color: var(--naos-grey); }
+.vg-nota { font-size: 13px; color: var(--naos-grey); max-width: 44rem; }

@@ -1,0 +1,94 @@
+{
+ "textos": {
+  "en": {
+   "titulo": "From a headline to its source",
+   "alt": "Map of this page: six pieces along one path, from a weekend headline on 19 October to the story you still doubt on 28 December.",
+   "que_muestra": "Six pieces in date order, from the headline toward the original. The piece you came from lights up."
+  },
+  "es": {
+   "titulo": "De un titular a su fuente",
+   "alt": "Mapa de esta página: seis piezas en un solo camino, desde un titular del fin de semana el 19 de octubre hasta la historia de la que todavía dudas el 28 de diciembre.",
+   "que_muestra": "Seis piezas en orden de fecha, del titular hacia el original. La pieza de la que vienes se ilumina."
+  }
+ },
+ "nodos": [
+  {
+   "n": 1,
+   "src": "1019p",
+   "ancla": "c-2026-10-19-1800-p-short-reel",
+   "en": {
+    "fecha": "Mon 19 Oct",
+    "titulo": "A weekend headline"
+   },
+   "es": {
+    "fecha": "Lun 19 oct",
+    "titulo": "Un titular del fin de semana"
+   }
+  },
+  {
+   "n": 2,
+   "src": "1020p",
+   "ancla": "c-2026-10-20-1800-p-short-reel",
+   "en": {
+    "fecha": "Tue 20 Oct",
+    "titulo": "Label every AI image?"
+   },
+   "es": {
+    "fecha": "Mar 20 oct",
+    "titulo": "¿Etiquetar toda imagen de IA?"
+   }
+  },
+  {
+   "n": 3,
+   "src": "1114p",
+   "ancla": "c-2026-11-14-1800-p-short-reel",
+   "en": {
+    "fecha": "Sat 14 Nov",
+    "titulo": "A COP31 headline"
+   },
+   "es": {
+    "fecha": "Sáb 14 nov",
+    "titulo": "Un titular de la COP31"
+   }
+  },
+  {
+   "n": 4,
+   "src": "1116p-story-1200",
+   "ancla": "c-2026-11-16-1200-p-historia",
+   "en": {
+    "fecha": "Mon 16 Nov, noon",
+    "titulo": "Summaries: yes or no?"
+   },
+   "es": {
+    "fecha": "Lun 16 nov, mediodía",
+    "titulo": "Resúmenes: ¿sí o no?"
+   }
+  },
+  {
+   "n": 5,
+   "src": "1116p",
+   "ancla": "c-2026-11-16-1800-p-short-reel",
+   "en": {
+    "fecha": "Mon 16 Nov, evening",
+    "titulo": "AI summaries and clicks"
+   },
+   "es": {
+    "fecha": "Lun 16 nov, tarde",
+    "titulo": "Resúmenes de IA y clics"
+   }
+  },
+  {
+   "n": 6,
+   "src": "1228p",
+   "ancla": "c-2026-12-28-1800-p-short-reel",
+   "en": {
+    "fecha": "Mon 28 Dec",
+    "titulo": "The story you doubt"
+   },
+   "es": {
+    "fecha": "Lun 28 dic",
+    "titulo": "La historia de la que dudas"
+   }
+  }
+ ]
+}

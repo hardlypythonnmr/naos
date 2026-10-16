@@ -1,0 +1,63 @@
+{
+ "id": "grafica",
+ "kit": "K4 (versión sin precio: barras de palabras por comunicado; el dato del día queda vacío)",
+ "leido": "2026-10-16",
+ "eje": {
+  "min": 0,
+  "max": 400,
+  "ticks": [
+   0,
+   100,
+   200,
+   300,
+   400
+  ]
+ },
+ "dia": {
+  "fecha": "2026-10-28",
+  "en": {
+   "fecha": "Wed 28 Oct",
+   "etiqueta": "This meeting",
+   "linea1": "On the day",
+   "linea2": "No number until the statement is out."
+  },
+  "es": {
+   "fecha": "mié 28 oct",
+   "etiqueta": "Esta reunión",
+   "linea1": "Ese día",
+   "linea2": "Sin cifra hasta que salga el comunicado."
+  }
+ },
+ "en": {
+  "titulo": "How long each statement ran",
+  "subtitulo": "Did the statement get shorter? Words in each Fed statement, April to September 2026.",
+  "alt": "Bar chart: the Fed's statement ran 341 words in April, 131 in June, 167 in July and 131 in September. The bar for 28 October is empty until the statement is out.",
+  "desc": "Four horizontal bars, one per meeting, on a scale from 0 to 400 words. Wednesday 29 April: 341 words. Wednesday 17 June: 131 words, the first meeting under Chair Warsh, with forward guidance left out. Wednesday 29 July: 167 words. Wednesday 16 September: 131 words. A fifth row, Wednesday 28 October, has a dotted line and no bar, because the statement is not out yet.",
+  "que_es": "What this shows",
+  "que_muestra": "The Fed's statement ran 341 words in April, 131 in June, 167 in July and 131 in September. June was the first meeting under Chair Warsh, and that statement left out forward guidance. The 28 October row stays empty until the statement is out.",
+  "eje_nota": "Bars start at zero. Words are counted in the text of each statement.",
+  "fuente": "Source: Fed statements of 29 April [13], 17 June [12], 29 July [11] and 16 September [9], federalreserve.gov. Our own count, read on 16 October 2026. Descriptive, not financial advice.",
+  "tabla_resumen": "Table version of the chart",
+  "col_fecha": "Statement",
+  "col_palabras": "Words",
+  "col_fuente": "Source",
+  "dia_celda": "On the day, no number yet",
+  "eje_titulo": "words"
+ },
+ "es": {
+  "titulo": "Cuántas palabras tuvo cada comunicado",
+  "subtitulo": "¿Se hizo más corto el comunicado? Palabras de cada comunicado de la Fed, de abril a septiembre de 2026.",
+  "alt": "Gráfica de barras: el comunicado de la Fed tuvo 341 palabras en abril, 131 en junio, 167 en julio y 131 en septiembre. La barra del 28 de octubre queda vacía hasta que salga el comunicado.",
+  "desc": "Cuatro barras horizontales, una por reunión, en una escala de 0 a 400 palabras. Miércoles 29 de abril: 341 palabras. Miércoles 17 de junio: 131 palabras, la primera reunión con Warsh de presidente, sin guía futura. Miércoles 29 de julio: 167 palabras. Miércoles 16 de septiembre: 131 palabras. Una quinta fila, el miércoles 28 de octubre, tiene una línea punteada y ninguna barra, porque el comunicado todavía no sale.",
+  "que_es": "Qué muestra",
+  "que_muestra": "El comunicado de la Fed tuvo 341 palabras en abril, 131 en junio, 167 en julio y 131 en septiembre. Junio fue la primera reunión con Warsh de presidente, y ese comunicado dejó fuera la guía futura. La fila del 28 de octubre queda vacía hasta que salga el comunicado.",
+  "eje_nota": "Las barras parten de cero. Las palabras se cuentan en el texto de cada comunicado.",
+  "fuente": "Fuente: comunicados de la Fed del 29 de abril [13], 17 de junio [12], 29 de julio [11] y 16 de septiembre [9], en federalreserve.gov. Conteo propio, leído el 16 de octubre de 2026. Descriptivo, sin asesoría financiera.",
+  "tabla_resumen": "Versión en tabla de la gráfica",
+  "col_fecha": "Comunicado",
+  "col_palabras": "Palabras",
+  "col_fuente": "Fuente",
+  "dia_celda": "Ese día, sin cifra todavía",
+  "eje_titulo": "palabras"
+ }
+}

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="vx-e" viewBox="0 0 360 585" width="360" height="585" role="img" aria-labelledby="vm-es-estrecho-t vm-es-estrecho-d" style="max-width:100%;height:auto">
+<title id="vm-es-estrecho-t">Del primer conteo al oficial</title>
+<desc id="vm-es-estrecho-d">Tres elecciones en una sola línea: primero el conteo de la noche, después un paso oficial con su propia fecha. La de Brasil aún no está en nuestras fuentes. Sin escala. 1, sáb 24 oct: La víspera en Brasil. 2, dom 25 oct, 16:00 ET: El primer conteo de Brasil. 3, mar 3 nov: Votan en EE. UU.. 4, jue 5 nov: El escrutinio de un condado. 5, vie 20 nov: El plazo de un estado. 6, dom 29 nov, 14:00 ET: España cuenta. 7, vie 4 a lun 7 dic: El escrutinio general.</desc>
+<style>
+.vm-t{font-family:var(--font-serif,"Newsreader",Georgia,serif);font-size:17px;fill:var(--naos-ink,#0E1116)}
+.vm-f{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:13px;fill:var(--naos-sec,#454C57)}
+.vm-g{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:13px;fill:var(--naos-grey,#59616D)}
+.vm-n{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-weight:600;font-size:14px;fill:var(--naos-ink,#0E1116);font-variant-numeric:tabular-nums}
+.vm-lin{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.vm-pta{fill:var(--naos-ink,#0E1116)}
+.vm-tick{stroke:var(--naos-chart,#737B87);stroke-width:1.5}
+.vm-m{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:2.5}
+.vm-primero .vm-m{fill:var(--naos-ink,#0E1116)}
+.vm-primero .vm-n{fill:var(--naos-paper,#FFFFFF)}
+.vm-aro{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2;opacity:0}
+.vm-origen .vm-aro{opacity:1}
+.vm-origen .vm-t{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.vx-e .vm-f,.vx-e .vm-g,.vx-e .vm-n{font-size:16px}
+</style>
+<path class="vm-lin" d="M28 6 V459"/><path class="vm-pta" d="M28 473 l-7 -14 h14 z"/>
+<g class="vm-seat vm-alrededor" data-n="1" data-src="1024p"><circle class="vm-aro" cx="28" cy="38" r="21"/><rect class="vm-m" x="15" y="25" width="26" height="26"/><text class="vm-n" x="28" y="43" text-anchor="middle">1</text><text class="vm-f" x="64" y="43">sáb 24 oct</text><text class="vm-t" x="64" y="64">La víspera en Brasil</text></g>
+<g class="vm-seat vm-primero" data-n="2" data-src=""><circle class="vm-aro" cx="28" cy="95" r="21"/><circle class="vm-m" cx="28" cy="95" r="13"/><text class="vm-n" x="28" y="100" text-anchor="middle">2</text><text class="vm-f" x="64" y="100">dom 25 oct, 16:00 ET</text><text class="vm-t" x="64" y="121">El primer conteo de Brasil</text></g>
+<g class="vm-seat vm-primero" data-n="3" data-src="1031p 1103p"><circle class="vm-aro" cx="28" cy="152" r="21"/><circle class="vm-m" cx="28" cy="152" r="13"/><text class="vm-n" x="28" y="157" text-anchor="middle">3</text><text class="vm-f" x="64" y="157">mar 3 nov</text><text class="vm-t" x="64" y="178">Votan en EE. UU.</text></g>
+<g class="vm-seat vm-oficial" data-n="4" data-src=""><circle class="vm-aro" cx="28" cy="209" r="21"/><circle class="vm-m" cx="28" cy="209" r="13"/><text class="vm-n" x="28" y="214" text-anchor="middle">4</text><text class="vm-f" x="64" y="214">jue 5 nov</text><text class="vm-t" x="64" y="235">El escrutinio de un condado</text><text class="vm-g" x="64" y="255">EE. UU., ejemplo: Michigan</text></g>
+<g class="vm-seat vm-oficial" data-n="5" data-src=""><circle class="vm-aro" cx="28" cy="286" r="21"/><circle class="vm-m" cx="28" cy="286" r="13"/><text class="vm-n" x="28" y="291" text-anchor="middle">5</text><text class="vm-f" x="64" y="291">vie 20 nov</text><text class="vm-t" x="64" y="312">El plazo de un estado</text><text class="vm-g" x="64" y="332">EE. UU., ejemplo: Georgia</text></g>
+<g class="vm-seat vm-primero" data-n="6" data-src="1128p 1130p"><circle class="vm-aro" cx="28" cy="363" r="21"/><circle class="vm-m" cx="28" cy="363" r="13"/><text class="vm-n" x="28" y="368" text-anchor="middle">6</text><text class="vm-f" x="64" y="368">dom 29 nov, 14:00 ET</text><text class="vm-t" x="64" y="389">España cuenta</text></g>
+<g class="vm-seat vm-oficial" data-n="7" data-src=""><circle class="vm-aro" cx="28" cy="420" r="21"/><circle class="vm-m" cx="28" cy="420" r="13"/><text class="vm-n" x="28" y="425" text-anchor="middle">7</text><text class="vm-f" x="64" y="425">vie 4 a lun 7 dic</text><text class="vm-t" x="64" y="446">El escrutinio general</text></g>
+<g class="vm-primero"><circle class="vm-m" cx="28" cy="503" r="8"/></g><text class="vm-g" x="64" y="509">El primer conteo, esa noche</text>
+<g class="vm-oficial"><circle class="vm-m" cx="28" cy="533" r="8"/></g><text class="vm-g" x="64" y="539">Un paso oficial</text>
+<g class="vm-alrededor"><rect class="vm-m" x="20" y="555" width="16" height="16"/></g><text class="vm-g" x="64" y="569">Una fecha alrededor del conteo</text>
+</svg>

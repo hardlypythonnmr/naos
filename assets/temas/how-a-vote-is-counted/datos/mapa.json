@@ -1,0 +1,144 @@
+{
+ "textos": {
+  "en": {
+   "titulo": "From the first count to the official one",
+   "alt": "Map of this page: seven stops in date order, from the eve of Brazil's runoff on 24 October to Spain's official count, 4 to 7 December.",
+   "que_muestra": "Three elections on one line: first the night's count, then an official step with its own date. Brazil's official date is not in our sources yet, and the line is not to scale.",
+   "leyenda": {
+    "primero": "First count, on the night",
+    "oficial": "An official step",
+    "alrededor": "A date around the count"
+   },
+   "lista_titulo": "Map stops, in date order",
+   "piezas": "pieces"
+  },
+  "es": {
+   "titulo": "Del primer conteo al oficial",
+   "alt": "Mapa de esta página: siete paradas por fecha, desde la víspera de la segunda vuelta en Brasil, el 24 de octubre, hasta el escrutinio general de España, del 4 al 7 de diciembre.",
+   "que_muestra": "Tres elecciones en una sola línea: primero el conteo de la noche, después un paso oficial con su propia fecha. La de Brasil aún no está en nuestras fuentes. Sin escala.",
+   "leyenda": {
+    "primero": "El primer conteo, esa noche",
+    "oficial": "Un paso oficial",
+    "alrededor": "Una fecha alrededor del conteo"
+   },
+   "lista_titulo": "Paradas del mapa, en orden de fecha",
+   "piezas": "piezas"
+  }
+ },
+ "nodos": [
+  {
+   "n": 1,
+   "tipo": "alrededor",
+   "src": [
+    "1024p"
+   ],
+   "anclas": [
+    "c-2026-10-24-1800-p-short-reel"
+   ],
+   "en": {
+    "fecha": "Sat 24 Oct",
+    "titulo": "Before Brazil's runoff"
+   },
+   "es": {
+    "fecha": "sáb 24 oct",
+    "titulo": "La víspera en Brasil"
+   }
+  },
+  {
+   "n": 2,
+   "tipo": "primero",
+   "src": [],
+   "anclas": [],
+   "en": {
+    "fecha": "Sun 25 Oct, 16:00 ET",
+    "titulo": "Brazil's first count"
+   },
+   "es": {
+    "fecha": "dom 25 oct, 16:00 ET",
+    "titulo": "El primer conteo de Brasil"
+   }
+  },
+  {
+   "n": 3,
+   "tipo": "primero",
+   "src": [
+    "1031p",
+    "1103p"
+   ],
+   "anclas": [
+    "c-2026-11-03-1800-p-short-reel",
+    "c-2026-10-31-1800-p-short-reel"
+   ],
+   "en": {
+    "fecha": "Tue 3 Nov",
+    "titulo": "US Election Day"
+   },
+   "es": {
+    "fecha": "mar 3 nov",
+    "titulo": "Votan en EE. UU."
+   }
+  },
+  {
+   "n": 4,
+   "tipo": "oficial",
+   "src": [],
+   "anclas": [],
+   "en": {
+    "fecha": "Thu 5 Nov",
+    "titulo": "A county canvass"
+   },
+   "es": {
+    "fecha": "jue 5 nov",
+    "titulo": "El escrutinio de un condado"
+   }
+  },
+  {
+   "n": 5,
+   "tipo": "oficial",
+   "src": [],
+   "anclas": [],
+   "en": {
+    "fecha": "Fri 20 Nov",
+    "titulo": "A state's deadline"
+   },
+   "es": {
+    "fecha": "vie 20 nov",
+    "titulo": "El plazo de un estado"
+   }
+  },
+  {
+   "n": 6,
+   "tipo": "primero",
+   "src": [
+    "1128p",
+    "1130p"
+   ],
+   "anclas": [
+    "c-2026-11-28-1800-p-short-reel",
+    "c-2026-11-30-1800-p-short-reel"
+   ],
+   "en": {
+    "fecha": "Sun 29 Nov, 14:00 ET",
+    "titulo": "Spain counts"
+   },
+   "es": {
+    "fecha": "dom 29 nov, 14:00 ET",
+    "titulo": "España cuenta"
+   }
+  },
+  {
+   "n": 7,
+   "tipo": "oficial",
+   "src": [],
+   "anclas": [],
+   "en": {
+    "fecha": "Fri 4 to Mon 7 Dec",
+    "titulo": "Spain's official count"
+   },
+   "es": {
+    "fecha": "vie 4 a lun 7 dic",
+    "titulo": "El escrutinio general"
+   }
+  }
+ ]
+}

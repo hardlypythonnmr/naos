@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" lang="es-419" xml:lang="es-419" viewBox="0 0 350 1054" width="350" height="1054" role="img" aria-labelledby="mq-t mq-d" style="max-width:100%;height:auto">
+<title id="mq-t">La noche en tres pasos</title>
+<desc id="mq-d">Tres paneles pequeños: dos platos en una mesa, la puesta del sol y la salida de la luna del 25 de octubre con sus horas, y un plato bajo la luna con un aro de respiración. La noche en tres pasos: pon dos platos, lleva el tuyo a donde se vea el cielo, mira hacia arriba antes del primer bocado. El cielo es un boceto. Solo las horas están medidas, con datos del Observatorio Naval de los Estados Unidos para el domingo 25 de octubre: en Medellín la luna sale a las 17:21 y el sol se pone a las 17:44; en Nueva York, a las 17:26 y a las 18:01. Nuestro experimento: ningún estudio respalda estos tres pasos.</desc>
+<style>
+.mq-t{font-family:var(--font-serif,"Newsreader",Georgia,serif);fill:var(--naos-ink,#0E1116)} .mq-f{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);fill:var(--naos-grey,#59616D);font-size:14px} .mq-s{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);fill:var(--naos-sec,#454C57);font-size:15px} .mq-h{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);fill:var(--naos-ink,#0E1116);font-size:13px;font-variant-numeric:tabular-nums}
+.mq-mesa{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-chart,#737B87);stroke-width:2} .mq-plato{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:2} .mq-aro2{fill:none;stroke:var(--naos-chart,#737B87);stroke-width:1.5}
+.mq-sol{fill:var(--naos-ink,#0E1116)} .mq-luna{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:2.5} .mq-g{stroke:var(--naos-chart,#737B87);stroke-width:1;fill:none} .mq-hor{stroke:var(--naos-ink,#0E1116);stroke-width:2} .mq-resp{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2} .mq-num{font-family:var(--font-serif,"Newsreader",Georgia,serif);font-size:26px;fill:var(--naos-ink,#0E1116)}
+.mq-cursor{fill:var(--naos-ink,#0E1116)} .mq-reloj{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:20px;fill:var(--naos-ink,#0E1116);font-variant-numeric:tabular-nums} .mq-tickc{display:none} .mq-tickc[data-on]{display:inline}
+</style>
+<g transform="translate(25,8)">
+<rect class="mq-mesa" x="14" y="36" width="272" height="148" rx="22"/>
+<g class="mq-a"><circle class="mq-plato" cx="94" cy="106" r="36"/><circle class="mq-aro2" cx="94" cy="106" r="25"/><text class="mq-f" x="94" y="171" text-anchor="middle">El tuyo</text></g>
+<g class="mq-b"><circle class="mq-plato" cx="206" cy="106" r="36"/><circle class="mq-aro2" cx="206" cy="106" r="25"/><text class="mq-f" x="206" y="171" text-anchor="middle">Uno más</text></g>
+</g><text class="mq-num" x="25" y="258">1</text><text class="mq-t" font-size="18" x="53" y="258" text-anchor="start">Pon dos platos.</text><g transform="translate(25,288)">
+<clipPath id="mq-clip-es"><rect x="0" y="0" width="300" height="138"/></clipPath>
+<g clip-path="url(#mq-clip-es)"><circle class="mq-sol" cx="70" cy="160" r="15"/>
+<circle class="mq-luna" cx="215" cy="104" r="15"/></g>
+<line class="mq-hor" x1="0" x2="300" y1="138" y2="138"/>
+<text class="mq-reloj" x="288" y="26" text-anchor="end">18:10</text>
+<line class="mq-g" x1="24" x2="276" y1="178" y2="178"/>
+<g class="mq-tickc" data-on="" data-ciudad="medellin" data-luna="1041" data-sol="1064"><line class="mq-g" x1="99.6" x2="99.6" y1="168" y2="184"/><text class="mq-h" x="99.6" y="163" text-anchor="middle">sale la luna 17:21</text><line class="mq-g" x1="182.4" x2="182.4" y1="176" y2="192"/><text class="mq-h" x="182.4" y="206" text-anchor="middle">se pone el sol 17:44</text></g><g class="mq-tickc" data-ciudad="new-york" data-luna="1046" data-sol="1081"><line class="mq-g" x1="117.6" x2="117.6" y1="168" y2="184"/><text class="mq-h" x="117.6" y="163" text-anchor="middle">sale la luna 17:26</text><line class="mq-g" x1="243.6" x2="243.6" y1="176" y2="192"/><text class="mq-h" x="243.6" y="206" text-anchor="middle">se pone el sol 18:01</text></g>
+<circle class="mq-cursor" cx="276" cy="178" r="4.5"/>
+</g><text class="mq-num" x="25" y="538">2</text><text class="mq-t" font-size="18" x="53" y="538" text-anchor="start">Lleva tu plato a donde se vea</text><text class="mq-t" font-size="18" x="53" y="559" text-anchor="start">el cielo.</text><g transform="translate(25,589)">
+<circle class="mq-luna" cx="150" cy="62" r="18"/>
+<circle class="mq-resp" cx="150" cy="62" r="30"/>
+<text class="mq-s" x="150" y="118" text-anchor="middle" data-final="toma aire, suéltalo">toma aire, suéltalo</text>
+<line class="mq-g" x1="150" x2="150" y1="130" y2="146" stroke-dasharray="2 4"/>
+<circle class="mq-plato" cx="150" cy="182" r="30"/><circle class="mq-aro2" cx="150" cy="182" r="20"/>
+</g><text class="mq-num" x="25" y="839">3</text><text class="mq-t" font-size="18" x="53" y="839" text-anchor="start">Antes del primer bocado, mira</text><text class="mq-t" font-size="18" x="53" y="860" text-anchor="start">arriba.</text><text class="mq-f" x="25" y="890" text-anchor="start">Medellín: sale la luna 17:21, se pone el</text><text class="mq-f" x="25" y="910" text-anchor="start">sol 17:44.</text><text class="mq-f" x="25" y="930" text-anchor="start">Nueva York: sale la luna 17:26, se pone el</text><text class="mq-f" x="25" y="950" text-anchor="start">sol 18:01.</text><text class="mq-f" x="25" y="970" text-anchor="start">Nuestro experimento. Horas de la luna y el</text><text class="mq-f" x="25" y="990" text-anchor="start">sol: Observatorio Naval de los Estados</text><text class="mq-f" x="25" y="1010" text-anchor="start">Unidos (USNO), domingo 25 de octubre de</text><text class="mq-f" x="25" y="1030" text-anchor="start">2026.</text>
+</svg>

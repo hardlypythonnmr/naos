@@ -1,0 +1,87 @@
+{
+ "slug": "how-a-vote-is-counted",
+ "meta": {
+  "en": {
+   "title": "How a vote is counted · NAOS",
+   "h1": "How a vote is counted",
+   "description": "How Brazil (25 October), the United States (3 November) and Spain (29 November) count their votes, from the polling station to the official result, with each electoral authority as the source.",
+   "og_title": "How a vote is counted",
+   "og_description": "Three elections, the same three questions: who counts, what the first number is called, and when the official one comes. No polls, no sides taken. With sources."
+  },
+  "es": {
+   "title": "Cómo se cuenta un voto · NAOS",
+   "h1": "Cómo se cuenta un voto",
+   "description": "Cómo cuentan sus votos Brasil (25 de octubre), Estados Unidos (3 de noviembre) y España (29 de noviembre), desde la mesa hasta el resultado oficial, con la autoridad electoral de cada país como fuente.",
+   "og_title": "Cómo se cuenta un voto",
+   "og_description": "Tres elecciones y las mismas tres preguntas: quién cuenta, cómo se llama la primera cifra y cuándo llega la oficial. Sin encuestas y sin tomar partido. Con fuentes."
+  }
+ },
+ "cortos": {
+  "1024p": {
+   "en": "Brazil votes tomorrow: how a runoff is counted · How do you trust a first count?",
+   "es": "Brazil votes tomorrow: how a runoff is counted · ¿Cómo se le cree a un primer conteo?",
+   "aterriza": {
+    "en": "brazil",
+    "es": "brasil"
+   }
+  },
+  "1031p": {
+   "en": "Tuesday's vote: how long would you wait for certainty? · How long would you wait for certainty?",
+   "es": "Tuesday's vote: how long would you wait for certainty? · ¿Cuánto tiempo esperarías para tener certeza?",
+   "aterriza": {
+    "en": "two-questions",
+    "es": "dos-preguntas"
+   }
+  },
+  "1103p": {
+   "en": "While the count takes time · What do you do with the hours you wait?",
+   "es": "While the count takes time · ¿Qué haces con las horas de espera?",
+   "aterriza": {
+    "en": "calm",
+    "es": "calma"
+   }
+  },
+  "1128p": {
+   "en": "Spain votes tomorrow · What does a snap election change?",
+   "es": "Spain votes tomorrow · ¿Qué cambian unas elecciones anticipadas?",
+   "aterriza": {
+    "en": "spain-after",
+    "es": "espana-despues"
+   }
+  },
+  "1130p": {
+   "en": "Spain after the vote · Which number is official yet?",
+   "es": "Spain after the vote · ¿Qué cifra ya es oficial?",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  }
+ },
+ "enviar": {
+  "en": "Who is counting?\nIs this number official yet?\nWhen does the official one come?",
+  "es": "¿Quién está contando?\n¿Esta cifra ya es oficial?\n¿Cuándo llega la oficial?"
+ },
+ "luna": {},
+ "visuales": [
+  {
+   "id": "mapa",
+   "en": "map",
+   "es": "mapa"
+  },
+  {
+   "id": "grafica",
+   "en": "days",
+   "es": "dias"
+  }
+ ],
+ "modulos": [],
+ "pliegues": {},
+ "css": [
+  "visuales.css"
+ ],
+ "scripts": [
+  "mapa-origen.js"
+ ],
+ "flechas": {}
+}
