@@ -474,8 +474,7 @@ async function leerPM(h0) {
     const r = { ...REGLAS_PM }; for (const k of ["volumen_min_usd", "spread_max"]) if (k in h) r[k] = h[k];
     const base = { id: h.id, titulo: h.titulo, fuente: "Polymarket" };
     if (h.fuente !== "polymarket") return { ...base, omitir: "cited-only source" };
-    // D-252: un mercado electoral no se muestra (sin tomar partido), aunque el mapa privado lo traiga activo
-    if (ELECTORAL_PM.test([h.id, h.titulo, h.evento, ...(h.palabras || [])].filter(Boolean).join(" ").replace(/-/g, " "))) return { ...base, omitir: "electoral market (D-252)" };
+    // D-252: los electorales se reportan como atribución ("Polymarket shows X is n% likely"), sin tickers ni tomar partido
     let slug = h.evento, dia = new Date(AHORA), e;
     try {
       if (!slug && h.buscar) {

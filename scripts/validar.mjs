@@ -220,10 +220,9 @@ if (T) {
   { const h = html("index.html") || ""; if (/Colombia 106 ·/.test(h)) falla("index.html", 'queda la línea vieja "Colombia 106" sola');
     if (!h.includes("have a relationship with the divine")) falla("index.html", 'la frase de los pilares no es la línea fija de N ("the divine", D-252)');
     if (!/rel="canonical"/.test(h) || !/hreflang="es"/.test(h)) falla("index.html", "falta canonical o hreflang hacia es/"); }
-  // mercados de predicción (D-252): atribución sola, sin "On the tape" ni mercados electorales en lo publicado
+  // mercados de predicción (D-252): atribución sola ("Polymarket shows X is n% likely"), sin "On the tape"; los electorales se reportan igual (N)
   { const s = html("data/situacion.json") || "";
-    if (/On the tape|Markets price it/.test(s)) falla("data/situacion.json", 'queda "On the tape" o "Markets price it" (D-252: "Polymarket shows X is n% likely")');
-    if (/"(evento|slug)":"[^"]*(midterm|election)/i.test(s)) falla("data/situacion.json", "queda un mercado electoral en lo publicado"); }
+    if (/On the tape|Markets price it/.test(s)) falla("data/situacion.json", 'queda "On the tape" o "Markets price it" (D-252: "Polymarket shows X is n% likely")'); }
 
   // enlaces cortos: el registro (data/cortos.json, solo de suma) manda; cada código tiene su redirección, los vivos a su tarjeta
   const REG = datos["cortos.json"]?.codigos || null;
