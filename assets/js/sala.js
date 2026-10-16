@@ -398,7 +398,7 @@
       el.querySelector(".gs-dias").innerHTML = dias.map((f) => {
         const xs = piezas.filter((x) => x.fecha === f); if (!xs.length) return "";
         return `<div class="gs-d${f === hoy ? " gs-hoy" : ""}"><h3 class="gs-dt cond">${f === hoy ? "Today, " : ""}${diaTxt(f)}</h3><ul class="gs-l">` + xs.map((x) =>
-          `<li class="gs-i sec-${SEC[x.pilar] || "behavior"}"><a class="sf" href="temas/${encodeURIComponent(x.pagina)}/#${encodeURIComponent(x.id)}"><span class="gs-h num">${esc(x.hora_et)} ET</span><span class="sf-t"${x.lang === "es" ? ' lang="es"' : ""}>${esc(nombre(x))}</span></a><span class="gs-s cond">${esc(x.seccion)}</span></li>`).join("") + `</ul></div>`;
+          `<li class="gs-i sec-${SEC[x.pilar] || "behavior"}"><a class="sf" href="${x.lang === "es" && !(x.idiomas || []).length ? "es/" : ""}temas/${encodeURIComponent(x.pagina)}/#${encodeURIComponent(x.id)}"><span class="gs-h num">${esc(x.hora_et)} ET</span><span class="sf-t"${x.lang === "es" ? ' lang="es"' : ""}>${esc(nombre(x))}</span></a><span class="gs-s cond">${esc(x.seccion)}</span></li>`).join("") + `</ul></div>`;
       }).join("");
       el.querySelector(".sem-sello").textContent = rango(l);
       el.querySelector(".sem-w").textContent = `Week ${w + 1} of ${semanas.length} · ${rango(l)}`;
@@ -407,7 +407,7 @@
     const nav = `<div class="sem-nav" role="group" aria-label="Choose the week"><button type="button" class="sem-b" data-w="-1"><span aria-hidden="true">&larr;</span> Previous week</button>` +
       `<p class="sem-w cond" aria-live="polite"></p><button type="button" class="sem-b" data-w="1">Next week <span aria-hidden="true">&rarr;</span></button></div>`;
     el.querySelector(".sem-in").innerHTML = nav + `<div class="gs-dias"></div>` +
-      `<p class="sello">From the NAOS grid. Times in New York (ET). Everything here is planned until it is out. <a href="temas/">All topics</a> · <a href="agenda.html">The year ahead in Upcoming</a>.</p>`;
+      `<p class="sello">From the NAOS grid. Times in New York (ET). Everything here is planned until it is out. Voice: synthetic on every Short, Reel and video. Markets pieces are descriptive, not financial advice. Spanish pieces link to <a href="es/temas/" hreflang="es" lang="es">NAOS en español</a>. <a href="temas/">All topics</a> · <a href="agenda.html">The year ahead in Upcoming</a>.</p>`;
     el.querySelector(".sem-nav").addEventListener("click", (e) => { const b = e.target.closest("[data-w]"); if (!b || b.disabled) return; w += +b.dataset.w; pintar();
       if (b.disabled) el.querySelector(`[data-w='${-b.dataset.w}']`).focus(); });
     pintar();

@@ -1,5 +1,5 @@
 {
- "nota": "Proyección pública de la grilla para las páginas de tema. La escribe scripts/construir-temas.mjs; no editar a mano. Solo lo que la página muestra.",
+ "nota": "Proyección pública de la grilla para las páginas de tema (ediciones EN y ES). La escribe scripts/construir-temas.mjs; no editar a mano. Solo lo que la página muestra.",
  "grilla": "2026-10-15",
  "secciones": [
   {
@@ -71,6 +71,7 @@
   {
    "slug": "the-cella",
    "titulo": "The empty cella, the full cella",
+   "titulo_es": "La cella vacía, la cella llena",
    "seccion": "Humanity",
    "pilar": "the-divine",
    "desde": "2026-10-19",
@@ -89,6 +90,7 @@
   {
    "slug": "the-full-moon-table",
    "titulo": "The full-moon table",
+   "titulo_es": "La mesa de luna llena",
    "seccion": "Humanity",
    "pilar": "eat",
    "desde": "2026-10-20",
@@ -129,6 +131,7 @@
   {
    "slug": "walks-by-the-moon",
    "titulo": "Walks by the moon",
+   "titulo_es": "Caminatas con la luna",
    "seccion": "Humanity",
    "pilar": "move",
    "desde": "2026-10-22",
@@ -157,6 +160,7 @@
   {
    "slug": "saints-and-souls",
    "titulo": "Saints and Souls",
+   "titulo_es": "Santos y almas",
    "seccion": "Humanity",
    "pilar": "the-divine",
    "desde": "2026-10-27",
@@ -190,6 +194,7 @@
   {
    "slug": "keep-your-hour",
    "titulo": "The clock moved. Keep your hour.",
+   "titulo_es": "Cambió el reloj. Mantén tu hora.",
    "seccion": "Humanity",
    "pilar": "sleep",
    "desde": "2026-11-03",
@@ -211,6 +216,7 @@
   {
    "slug": "a-lamp-on-the-night-without-a-moon",
    "titulo": "A lamp on the night without a moon",
+   "titulo_es": "Una lámpara en la noche sin luna",
    "seccion": "Humanity",
    "pilar": "the-divine",
    "desde": "2026-11-07",
@@ -243,6 +249,7 @@
   {
    "slug": "moon",
    "titulo": "The moon this season",
+   "titulo_es": "La luna esta temporada",
    "seccion": "Humanity",
    "pilar": "the-moon",
    "desde": "2026-10-24",
@@ -277,6 +284,7 @@
   {
    "slug": "walk-to-the-water",
    "titulo": "Walk to the water",
+   "titulo_es": "Camina hasta el agua",
    "seccion": "Humanity",
    "pilar": "move",
    "desde": "2026-11-11",
@@ -298,7 +306,7 @@
    ],
    "fuentes": [
     {
-     "titulo": "Hebcal: hebcal?v=1&cfg=json&year=2026",
+     "titulo": "Hebcal, Jewish calendar",
      "url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026"
     },
     {
@@ -315,6 +323,7 @@
   {
    "slug": "phones-in-the-bread-basket",
    "titulo": "Phones in the bread basket",
+   "titulo_es": "Los teléfonos en la panera",
    "seccion": "Humanity",
    "pilar": "eat",
    "desde": "2026-11-17",
@@ -342,6 +351,7 @@
   {
    "slug": "a-good-party",
    "titulo": "A good party",
+   "titulo_es": "Una buena fiesta",
    "seccion": "Humanity",
    "pilar": "community",
    "desde": "2026-11-19",
@@ -414,6 +424,7 @@
   {
    "slug": "advent-waiting",
    "titulo": "Advent: waiting",
+   "titulo_es": "Adviento: la espera",
    "seccion": "Humanity",
    "pilar": "sleep",
    "desde": "2026-11-29",
@@ -464,6 +475,7 @@
   {
    "slug": "light-in-the-window",
    "titulo": "Light in the window",
+   "titulo_es": "Luz en la ventana",
    "seccion": "Humanity",
    "pilar": "the-divine",
    "desde": "2026-12-05",
@@ -498,7 +510,7 @@
      "url": "https://doi.org/10.1001/jamapsychiatry.2021.0113"
     },
     {
-     "titulo": "Hebcal: hebcal?v=1&cfg=json&year=2026",
+     "titulo": "Hebcal, Jewish calendar",
      "url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026"
     }
    ]
@@ -506,6 +518,7 @@
   {
    "slug": "how-a-month-is-announced",
    "titulo": "How a month is announced",
+   "titulo_es": "Cómo se anuncia un mes",
    "seccion": "Humanity",
    "pilar": "community",
    "desde": "2026-12-12",
@@ -523,7 +536,7 @@
    ],
    "fuentes": [
     {
-     "titulo": "Hebcal: hebcal?v=1&cfg=json&year=2026",
+     "titulo": "Hebcal, Jewish calendar",
      "url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026"
     },
     {
@@ -535,6 +548,7 @@
   {
    "slug": "the-longest-night",
    "titulo": "The longest night",
+   "titulo_es": "La noche más larga",
    "seccion": "Humanity",
    "pilar": "the-divine",
    "desde": "2026-12-19",
@@ -555,7 +569,7 @@
    ],
    "fuentes": [
     {
-     "titulo": "Hebcal: hebcal?v=1&cfg=json&year=2026",
+     "titulo": "Hebcal, Jewish calendar",
      "url": "https://www.hebcal.com/hebcal?v=1&cfg=json&year=2026"
     },
     {
@@ -563,7 +577,7 @@
      "url": "https://www.sefaria.org/Shulchan_Arukh,_Orach_Chayim.550.1"
     },
     {
-     "titulo": "U.S. Naval Observatory: api/seasons?year=2026",
+     "titulo": "U.S. Naval Observatory",
      "url": "https://aa.usno.navy.mil/api/seasons?year=2026"
     },
     {
@@ -579,6 +593,7 @@
   {
    "slug": "back-to-the-hour",
    "titulo": "Back to the hour",
+   "titulo_es": "De vuelta a la hora",
    "seccion": "Humanity",
    "pilar": "sleep",
    "desde": "2026-12-26",
@@ -610,6 +625,7 @@
   {
    "slug": "who-is-telling-you-this",
    "titulo": "Who is telling you this?",
+   "titulo_es": "¿Quién te está contando esto?",
    "seccion": "The Present",
    "pilar": "news",
    "desde": "2026-10-19",
@@ -627,6 +643,7 @@
   {
    "slug": "from-chat-to-code",
    "titulo": "From chat to code",
+   "titulo_es": "Del chat al código",
    "seccion": "The Present",
    "pilar": "ai",
    "desde": "2026-10-20",
@@ -650,6 +667,7 @@
   {
    "slug": "built-here",
    "titulo": "Built here",
+   "titulo_es": "Hecho aquí",
    "seccion": "The Present",
    "pilar": "ai",
    "desde": "2026-10-22",
@@ -682,6 +700,7 @@
   {
    "slug": "how-a-vote-is-counted",
    "titulo": "How a vote is counted",
+   "titulo_es": "Cómo se cuenta un voto",
    "seccion": "The Present",
    "pilar": "news",
    "desde": "2026-10-24",
@@ -695,10 +714,6 @@
    ],
    "fuentes": [
     {
-     "titulo": "cfr.org: articles/brazils-2026-election-what-to-know-and-whats-at-stake",
-     "url": "https://www.cfr.org/articles/brazils-2026-election-what-to-know-and-whats-at-stake"
-    },
-    {
      "titulo": "Cornell Law School LII: uscode/text/2/7",
      "url": "https://www.law.cornell.edu/uscode/text/2/7"
     }
@@ -707,6 +722,7 @@
   {
    "slug": "who-writes-the-rules",
    "titulo": "Who writes the rules?",
+   "titulo_es": "¿Quién escribe las reglas?",
    "seccion": "The Present",
    "pilar": "news",
    "desde": "2026-10-26",
@@ -733,6 +749,7 @@
   {
    "slug": "fomc-before-and-after-the-silence",
    "titulo": "FOMC, before and after the silence",
+   "titulo_es": "El FOMC, antes y después del silencio",
    "seccion": "The Present",
    "pilar": "markets",
    "desde": "2026-10-27",
@@ -807,6 +824,7 @@
   {
    "slug": "look-up-from-the-news",
    "titulo": "Look up from the news",
+   "titulo_es": "Levanta la vista de las noticias",
    "seccion": "The Present",
    "pilar": "news",
    "desde": "2026-11-02",
@@ -832,6 +850,7 @@
   {
    "slug": "payrolls-before-the-number",
    "titulo": "Payrolls, before the number",
+   "titulo_es": "Las nóminas, antes del número",
    "seccion": "The Present",
    "pilar": "markets",
    "desde": "2026-11-03",
@@ -867,7 +886,8 @@
     },
     {
      "titulo": "BBVA Research, Agenda Económica 2026 (Banxico calendar; 13:00 Mexico City)",
-     "url": "https://www.bbvaresearch.com/wp-content/uploads/2026/03/AgendaEconomica_2026.pdf"
+     "url": "https://www.bbvaresearch.com/wp-content/uploads/2026/03/AgendaEconomica_2026.pdf",
+     "lang": "es"
     },
     {
      "titulo": "U.S. Bureau of Labor Statistics: schedule/news_release/empsit.htm",
@@ -882,6 +902,7 @@
   {
    "slug": "one-number-and-its-range",
    "titulo": "One number and its range",
+   "titulo_es": "Un número y su rango",
    "seccion": "The Present",
    "pilar": "markets",
    "desde": "2026-11-10",
@@ -916,6 +937,7 @@
   {
    "slug": "the-radar-that-tells-you-when-it-is-blind",
    "titulo": "The radar that tells you when it is blind",
+   "titulo_es": "El radar que te avisa cuando no ve",
    "seccion": "The Present",
    "pilar": "ai",
    "desde": "2026-11-17",
@@ -945,6 +967,7 @@
   {
    "slug": "money-at-the-table",
    "titulo": "Money at the table",
+   "titulo_es": "El dinero en la mesa",
    "seccion": "The Present",
    "pilar": "news",
    "desde": "2026-11-21",
@@ -960,6 +983,7 @@
   {
    "slug": "how-we-test-an-idea",
    "titulo": "How we test an idea before we believe it",
+   "titulo_es": "Cómo probamos una idea antes de creerla",
    "seccion": "The Present",
    "pilar": "ai",
    "desde": "2026-11-24",
@@ -984,6 +1008,7 @@
   {
    "slug": "two-clocks",
    "titulo": "Two clocks",
+   "titulo_es": "Dos relojes",
    "seccion": "The Present",
    "pilar": "markets",
    "desde": "2026-12-01",
@@ -1005,6 +1030,7 @@
   {
    "slug": "fomc-with-projections",
    "titulo": "FOMC with projections",
+   "titulo_es": "El FOMC con proyecciones",
    "seccion": "The Present",
    "pilar": "markets",
    "desde": "2026-12-08",
@@ -1048,6 +1074,7 @@
   {
    "slug": "four-banks-one-table",
    "titulo": "Four banks, one table",
+   "titulo_es": "Cuatro bancos, una mesa",
    "seccion": "The Present",
    "pilar": "markets",
    "desde": "2026-12-15",
@@ -1073,7 +1100,8 @@
     },
     {
      "titulo": "Banco de México, Calendario 2026 de anuncios de política monetaria (13:00 hours)",
-     "url": "https://www.banxico.org.mx/politica-monetaria/d/%7B3B4BDA5B-E7E8-E414-2066-DA0CB3F7C36F%7D.pdf"
+     "url": "https://www.banxico.org.mx/politica-monetaria/d/%7B3B4BDA5B-E7E8-E414-2066-DA0CB3F7C36F%7D.pdf",
+     "lang": "es"
     },
     {
      "titulo": "Bank of Japan, Monetary Policy Meetings schedule (2026, 2027)",
@@ -1096,6 +1124,7 @@
   {
    "slug": "errata",
    "titulo": "Errata: what we got wrong",
+   "titulo_es": "Fe de erratas: en qué nos equivocamos",
    "seccion": "The Present",
    "pilar": "ai",
    "desde": "2026-12-16",
@@ -1121,6 +1150,7 @@
   {
    "slug": "open-questions",
    "titulo": "Open questions",
+   "titulo_es": "Preguntas abiertas",
    "seccion": "The Present",
    "pilar": "ai",
    "desde": "2026-12-26",
@@ -2824,7 +2854,7 @@
    "luna": {
     "fase": "waning crescent",
     "iluminacion": 3.4,
-    "signo": "Libra"
+    "signo": null
    },
    "codigo": "1107h-story-1200",
    "corto": false
@@ -2872,7 +2902,7 @@
    "luna": {
     "fase": "waning crescent",
     "iluminacion": 3.4,
-    "signo": "Scorpio"
+    "signo": null
    },
    "codigo": "1107h",
    "corto": true
@@ -2898,7 +2928,7 @@
    "luna": {
     "fase": "eve of the new moon",
     "iluminacion": 0.8,
-    "signo": "Scorpio"
+    "signo": null
    },
    "codigo": "1108h-medium",
    "corto": false
@@ -2924,7 +2954,7 @@
    "luna": {
     "fase": "eve of the new moon",
     "iluminacion": 0.8,
-    "signo": "Scorpio"
+    "signo": null
    },
    "codigo": "1108h-story-1200",
    "corto": false
@@ -2972,7 +3002,7 @@
    "luna": {
     "fase": "eve of the new moon",
     "iluminacion": 0.8,
-    "signo": "Scorpio"
+    "signo": null
    },
    "codigo": "1108h",
    "corto": true
@@ -3072,7 +3102,7 @@
    "luna": {
     "fase": "day after the new moon",
     "iluminacion": 1.6,
-    "signo": "Sagittarius"
+    "signo": null
    },
    "codigo": "1110h-story-1200",
    "corto": false
@@ -3120,7 +3150,7 @@
    "luna": {
     "fase": "day after the new moon",
     "iluminacion": 1.6,
-    "signo": "Sagittarius"
+    "signo": null
    },
    "codigo": "1110h",
    "corto": true
@@ -3168,7 +3198,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 4.8,
-    "signo": "Sagittarius"
+    "signo": null
    },
    "codigo": "1111h-story-1200",
    "corto": false
@@ -3216,7 +3246,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 4.8,
-    "signo": "Sagittarius"
+    "signo": null
    },
    "codigo": "1111h",
    "corto": true
@@ -3242,7 +3272,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 9.6,
-    "signo": "Sagittarius"
+    "signo": null
    },
    "codigo": "1112h-story-1200",
    "corto": false
@@ -3290,7 +3320,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 9.6,
-    "signo": "Capricorn"
+    "signo": null
    },
    "codigo": "1112h",
    "corto": true
@@ -3316,7 +3346,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 15.8,
-    "signo": "Capricorn"
+    "signo": null
    },
    "codigo": "1113h-story-1200",
    "corto": false
@@ -3364,7 +3394,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 15.8,
-    "signo": "Capricorn"
+    "signo": null
    },
    "codigo": "1113h",
    "corto": true
@@ -3390,7 +3420,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 23.1,
-    "signo": "Capricorn"
+    "signo": null
    },
    "codigo": "1114h-carousel",
    "corto": false
@@ -3416,7 +3446,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 23.1,
-    "signo": "Capricorn"
+    "signo": null
    },
    "codigo": "1114es",
    "corto": true
@@ -3442,7 +3472,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 23.1,
-    "signo": "Capricorn"
+    "signo": null
    },
    "codigo": "1114h-story-1200",
    "corto": false
@@ -3490,7 +3520,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 23.1,
-    "signo": "Capricorn"
+    "signo": null
    },
    "codigo": "1114h",
    "corto": true
@@ -3516,7 +3546,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 31.5,
-    "signo": "Aquarius"
+    "signo": null
    },
    "codigo": "1115h-story-1200",
    "corto": false
@@ -3564,7 +3594,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 31.5,
-    "signo": "Aquarius"
+    "signo": null
    },
    "codigo": "1115h-medium",
    "corto": false
@@ -3590,7 +3620,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 31.5,
-    "signo": "Aquarius"
+    "signo": null
    },
    "codigo": "1115h",
    "corto": true
@@ -3660,7 +3690,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 40.6,
-    "signo": "Aquarius"
+    "signo": null
    },
    "codigo": "1116h",
    "corto": true
@@ -3782,7 +3812,7 @@
    "luna": {
     "fase": "waxing gibbous",
     "iluminacion": 60,
-    "signo": "Pisces"
+    "signo": null
    },
    "codigo": "1118h-story-1200",
    "corto": false
@@ -3830,7 +3860,7 @@
    "luna": {
     "fase": "waxing gibbous",
     "iluminacion": 60,
-    "signo": "Pisces"
+    "signo": null
    },
    "codigo": "1118h",
    "corto": true
@@ -3930,7 +3960,7 @@
    "luna": {
     "fase": "waxing gibbous",
     "iluminacion": 78.9,
-    "signo": "Aries"
+    "signo": null
    },
    "codigo": "1120h-story-1200",
    "corto": false
@@ -3978,7 +4008,7 @@
    "luna": {
     "fase": "waxing gibbous",
     "iluminacion": 78.9,
-    "signo": "Aries"
+    "signo": null
    },
    "codigo": "1120h",
    "corto": true
@@ -5288,7 +5318,7 @@
    "luna": {
     "fase": "waning crescent",
     "iluminacion": 11.6,
-    "signo": "Scorpio"
+    "signo": null
    },
    "codigo": "1205h-story-1200",
    "corto": false
@@ -5336,7 +5366,7 @@
    "luna": {
     "fase": "waning crescent",
     "iluminacion": 11.6,
-    "signo": "Scorpio"
+    "signo": null
    },
    "codigo": "1205h",
    "corto": true
@@ -5362,7 +5392,7 @@
    "luna": {
     "fase": "waning crescent",
     "iluminacion": 6.1,
-    "signo": "Scorpio"
+    "signo": null
    },
    "codigo": "1206h-medium",
    "corto": false
@@ -5388,7 +5418,7 @@
    "luna": {
     "fase": "waning crescent",
     "iluminacion": 6.1,
-    "signo": "Scorpio"
+    "signo": null
    },
    "codigo": "1206h-story-1200",
    "corto": false
@@ -5436,7 +5466,7 @@
    "luna": {
     "fase": "waning crescent",
     "iluminacion": 6.1,
-    "signo": "Scorpio"
+    "signo": null
    },
    "codigo": "1206h",
    "corto": true
@@ -5558,7 +5588,7 @@
    "luna": {
     "fase": "new moon",
     "iluminacion": 0.4,
-    "signo": "Sagittarius"
+    "signo": null
    },
    "codigo": "1208h-story-1200",
    "corto": false
@@ -5606,7 +5636,7 @@
    "luna": {
     "fase": "new moon",
     "iluminacion": 0.4,
-    "signo": "Sagittarius"
+    "signo": null
    },
    "codigo": "1208h",
    "corto": true
@@ -5676,7 +5706,7 @@
    "luna": {
     "fase": "day after the new moon",
     "iluminacion": 0.3,
-    "signo": "Sagittarius"
+    "signo": null
    },
    "codigo": "1209h",
    "corto": true
@@ -5702,7 +5732,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 2,
-    "signo": "Capricorn"
+    "signo": null
    },
    "codigo": "1210h-story-1200",
    "corto": false
@@ -5750,7 +5780,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 2,
-    "signo": "Capricorn"
+    "signo": null
    },
    "codigo": "1210h",
    "corto": true
@@ -5776,7 +5806,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 5.4,
-    "signo": "Capricorn"
+    "signo": null
    },
    "codigo": "1211h-story-1200",
    "corto": false
@@ -5824,7 +5854,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 5.4,
-    "signo": "Capricorn"
+    "signo": null
    },
    "codigo": "1211h",
    "corto": true
@@ -5850,7 +5880,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 10.4,
-    "signo": "Capricorn"
+    "signo": null
    },
    "codigo": "1212h-carousel",
    "corto": false
@@ -5876,7 +5906,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 10.4,
-    "signo": "Aquarius"
+    "signo": null
    },
    "codigo": "1212es",
    "corto": true
@@ -5902,7 +5932,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 10.4,
-    "signo": "Aquarius"
+    "signo": null
    },
    "codigo": "1212h-story-1200",
    "corto": false
@@ -5950,7 +5980,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 10.4,
-    "signo": "Aquarius"
+    "signo": null
    },
    "codigo": "1212h",
    "corto": true
@@ -5976,7 +6006,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 16.8,
-    "signo": "Aquarius"
+    "signo": null
    },
    "codigo": "1213h-medium",
    "corto": false
@@ -6076,7 +6106,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 24.5,
-    "signo": "Aquarius"
+    "signo": null
    },
    "codigo": "1214h-story-1200",
    "corto": false
@@ -6124,7 +6154,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 24.5,
-    "signo": "Aquarius"
+    "signo": null
    },
    "codigo": "1214h",
    "corto": true
@@ -6246,7 +6276,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 42.7,
-    "signo": "Pisces"
+    "signo": null
    },
    "codigo": "1216h-story-1200",
    "corto": false
@@ -6294,7 +6324,7 @@
    "luna": {
     "fase": "waxing crescent",
     "iluminacion": 42.7,
-    "signo": "Pisces"
+    "signo": null
    },
    "codigo": "1216h",
    "corto": true
@@ -6394,7 +6424,7 @@
    "luna": {
     "fase": "waxing gibbous",
     "iluminacion": 63.1,
-    "signo": "Aries"
+    "signo": null
    },
    "codigo": "1218h-story-1200",
    "corto": false
@@ -6442,7 +6472,7 @@
    "luna": {
     "fase": "waxing gibbous",
     "iluminacion": 63.1,
-    "signo": "Aries"
+    "signo": null
    },
    "codigo": "1218h",
    "corto": true
@@ -6560,7 +6590,7 @@
    "luna": {
     "fase": "waxing gibbous",
     "iluminacion": 73.1,
-    "signo": "Taurus"
+    "signo": null
    },
    "codigo": "1219h",
    "corto": true
@@ -6586,7 +6616,7 @@
    "luna": {
     "fase": "waxing gibbous",
     "iluminacion": 82.4,
-    "signo": "Taurus"
+    "signo": null
    },
    "codigo": "1220h-medium",
    "corto": false
@@ -6612,7 +6642,7 @@
    "luna": {
     "fase": "waxing gibbous",
     "iluminacion": 82.4,
-    "signo": "Taurus"
+    "signo": null
    },
    "codigo": "1220h-story-1200",
    "corto": false
@@ -6660,7 +6690,7 @@
    "luna": {
     "fase": "waxing gibbous",
     "iluminacion": 82.4,
-    "signo": "Taurus"
+    "signo": null
    },
    "codigo": "1220h",
    "corto": true
@@ -6686,7 +6716,7 @@
    "luna": {
     "fase": "waxing gibbous",
     "iluminacion": 90.3,
-    "signo": "Taurus"
+    "signo": null
    },
    "codigo": "1221h-story-1200",
    "corto": false
@@ -6734,7 +6764,7 @@
    "luna": {
     "fase": "waxing gibbous",
     "iluminacion": 90.3,
-    "signo": "Gemini"
+    "signo": null
    },
    "codigo": "1221h",
    "corto": true
@@ -6856,7 +6886,7 @@
    "luna": {
     "fase": "full moon",
     "iluminacion": 99.4,
-    "signo": "Gemini"
+    "signo": null
    },
    "codigo": "1223h-story-1200",
    "corto": false
@@ -6904,7 +6934,7 @@
    "luna": {
     "fase": "full moon",
     "iluminacion": 99.4,
-    "signo": "Cancer"
+    "signo": null
    },
    "codigo": "1223h",
    "corto": true
@@ -6930,7 +6960,7 @@
    "luna": {
     "fase": "day after the full moon",
     "iluminacion": 99.6,
-    "signo": "Cancer"
+    "signo": null
    },
    "codigo": "1224h-story-1200",
    "corto": false
@@ -6978,7 +7008,7 @@
    "luna": {
     "fase": "day after the full moon",
     "iluminacion": 99.6,
-    "signo": "Cancer"
+    "signo": null
    },
    "codigo": "1224h",
    "corto": true
@@ -7004,7 +7034,7 @@
    "luna": {
     "fase": "waning gibbous",
     "iluminacion": 96.8,
-    "signo": "Cancer"
+    "signo": null
    },
    "codigo": "1225h-story-1200",
    "corto": false
@@ -7052,7 +7082,7 @@
    "luna": {
     "fase": "waning gibbous",
     "iluminacion": 96.8,
-    "signo": "Leo"
+    "signo": null
    },
    "codigo": "1225h",
    "corto": true

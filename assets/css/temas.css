@@ -140,3 +140,10 @@ main { display: block; max-width: 1120px; margin: 0 auto; padding: 0 var(--page-
   .t-fuentes > ul, .t-fuentes > p { grid-column: 2; }
   .t-fuentes > ul { margin-top: var(--s-2); }
 }
+/* dos ediciones (D-253): el enlace al otro idioma cierra el menú; la nota de piezas en la otra edición va bajo el rango */
+.t-nav .t-idioma { color: var(--naos-ink); border-left: 1px solid var(--naos-rule); padding-left: 18px; }
+.t-otra-ed { margin: 8px 0 0; font-size: 15px; color: var(--naos-sec); }
+.t-otra-ed a { color: var(--naos-ink); text-underline-offset: 2px; }
+.t-luna-datos { margin-top: 12px; }
+/* portada ES: la franja dentro del ancho del hub */
+.t-hub #secuencia .fr { padding-left: 0; padding-right: 0; }

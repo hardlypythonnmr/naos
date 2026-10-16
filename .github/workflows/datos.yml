@@ -73,12 +73,13 @@ jobs:
                 console.log("semana.json:", nuevo.generado, nuevo.items.length, "items");
               ' || git checkout -- data/semana.json
             else
-              echo "round $ronda: schedule builder failed"; git checkout -- data/semana.json temas s sitemap.xml
+              echo "round $ronda: schedule builder failed"; git checkout -- data/semana.json data/cortos.json temas es s sitemap.xml
             fi
             # construir-semana.mjs también rehace las páginas de tema, los enlaces cortos y el sitemap (construir-temas.mjs, D-252):
-            # cambian solo si cambia data/enlaces.json o data/temas.json (salida determinista)
-            if git diff --quiet -- data/situacion.json data/semana.json assets/ics temas s sitemap.xml && [ -z "$(git ls-files --others --exclude-standard -- temas s)" ]; then echo "round $ronda: no change"; continue; fi
-            git add data/situacion.json data/semana.json assets/ics temas s sitemap.xml
+            # cambian solo si cambia data/enlaces.json o data/temas.json (salida determinista); es/ es la edición en español (D-253) y
+            # data/cortos.json el registro de enlaces cortos, solo de suma
+            if git diff --quiet -- data/situacion.json data/semana.json data/cortos.json assets/ics temas es s sitemap.xml && [ -z "$(git ls-files --others --exclude-standard -- temas es s)" ]; then echo "round $ronda: no change"; continue; fi
+            git add data/situacion.json data/semana.json data/cortos.json assets/ics temas es s sitemap.xml
             git commit -q -m "Refresh page data $(date -u +'%Y-%m-%d %H:%M') UTC"
             for i in 1 2 3; do
               git pull -q --rebase origin main && git push -q origin HEAD:main && break

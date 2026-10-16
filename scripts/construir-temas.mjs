@@ -9,10 +9,13 @@
 //        node scripts/construir-temas.mjs
 // Salida determinista: mismo dato, mismos bytes (sin hora de corrida). Las tarjetas pasan a "Out" solo con enlace en
 // data/enlaces.json (clave "AAAA-MM-DD|<codigo>"). Lo corre construir-semana.mjs al final, como construir-ics.mjs.
-// Reglas (D-252): títulos con estado "Coming", salvo noticias y elecciones (solo fecha y tema); el español va dentro de
-// su página EN con lang="es" (no hay /es/); luna solo en Humanity, lo medido a la vista y el signo tras un toque
-// ("Western tropical zodiac"); "Voice: synthetic" en cada pieza con voz; "Descriptive, not financial advice" en Markets;
-// líneas de ayuda en el mismo lugar de cada página; sin Lenis ni GSAP; bloques vacíos ausentes, nunca de relleno.
+// Reglas (D-252, D-253): títulos con estado "Coming", salvo noticias y elecciones (solo fecha y tema); dos ediciones, EN
+// (temas/) y ES (es/temas/, con su portada es/ y la franja), cada página con hreflang hacia su par; las piezas ES viven en la
+// edición ES, las EN en las dos (en la ES con lang="en"); luna solo en Humanity, lo medido a la vista y el signo tras un toque
+// ("Western tropical zodiac"), salvo en las páginas de una tradición con calendario propio; "Voice: synthetic" en cada pieza
+// con voz; "Descriptive, not financial advice" en Markets; líneas de ayuda en el mismo lugar de cada página; sin Lenis ni
+// GSAP; bloques vacíos ausentes, nunca de relleno. Enlaces cortos: registro solo de suma (data/cortos.json), así un código
+// ya compartido nunca da 404 aunque la grilla mueva su Short.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -27,6 +30,29 @@ const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<
 export const AYUDA_HTML = 'If this is weighing on you, talk to someone now. Colombia: <a href="tel:106">106</a>, national mental health line, 24/7, or <a href="tel:123">123</a> in immediate danger. US: <a href="tel:988">988</a>. Anywhere else: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a>.';
 const LINEA_N = { Humanity: "Eat well, sleep well, get moving, have a relationship with the divine, and build community.", "The Present": "Closer to yourself." };
 const NO_CONSEJO = "Descriptive, not financial advice.";
+// páginas de una tradición con calendario propio: ahí no va el signo occidental (acta 2c, rojo 23) hasta que I3 traiga el dato
+// de esa tradición; quedan la fase y la iluminación, que son medidas
+const SIN_SIGNO = new Set(["a-lamp-on-the-night-without-a-moon", "light-in-the-window", "walk-to-the-water", "the-longest-night", "how-a-month-is-announced"]);
+// títulos de página en español (D-253; latinoamericano general, D-242). Traducción del constructor: N la revisa con el lote
+const TITULO_ES = {
+  "the-cella": "La cella vacía, la cella llena", "the-full-moon-table": "La mesa de luna llena", "walks-by-the-moon": "Caminatas con la luna",
+  "saints-and-souls": "Santos y almas", "keep-your-hour": "Cambió el reloj. Mantén tu hora.", "a-lamp-on-the-night-without-a-moon": "Una lámpara en la noche sin luna",
+  moon: "La luna esta temporada", "walk-to-the-water": "Camina hasta el agua", "phones-in-the-bread-basket": "Los teléfonos en la panera",
+  "a-good-party": "Una buena fiesta", "advent-waiting": "Adviento: la espera", "light-in-the-window": "Luz en la ventana",
+  "how-a-month-is-announced": "Cómo se anuncia un mes", "the-longest-night": "La noche más larga", "back-to-the-hour": "De vuelta a la hora",
+  "who-is-telling-you-this": "¿Quién te está contando esto?", "from-chat-to-code": "Del chat al código", "built-here": "Hecho aquí",
+  "how-a-vote-is-counted": "Cómo se cuenta un voto", "who-writes-the-rules": "¿Quién escribe las reglas?",
+  "fomc-before-and-after-the-silence": "El FOMC, antes y después del silencio", "look-up-from-the-news": "Levanta la vista de las noticias",
+  "payrolls-before-the-number": "Las nóminas, antes del número", "one-number-and-its-range": "Un número y su rango",
+  "the-radar-that-tells-you-when-it-is-blind": "El radar que te avisa cuando no ve", "money-at-the-table": "El dinero en la mesa",
+  "how-we-test-an-idea": "Cómo probamos una idea antes de creerla", "two-clocks": "Dos relojes", "fomc-with-projections": "El FOMC con proyecciones",
+  "four-banks-one-table": "Cuatro bancos, una mesa", errata: "Fe de erratas: en qué nos equivocamos", "open-questions": "Preguntas abiertas",
+};
+// etiqueta de fuente en español dentro de una página en inglés (WCAG 3.1.2): misma regla que agenda-comun.js
+const ES_FUENTE = /[¿¡ñ]|\b(calendario|agenda|anuncios|política|económica|elecciones|año|según)\b/i;
+// fuentes de elecciones: solo la autoridad electoral, el diario oficial o el texto de ley hasta el sello I4 (acta, rojo 6)
+const ELECCION = /\b(elections?|electoral|ballots?|votes?|voting|voters?|runoffs?|midterms?|referendum|presidential|elecci[oó]n|balotaje)\b/i;
+const OFICIAL_ELECCION = /(^|\.)(fec\.gov|eac\.gov|tse\.jus\.br|boe\.es|juntaelectoralcentral\.es|law\.cornell\.edu|ine\.mx|service-public\.gouv\.fr)$/;
 
 // ---------- vocabulario público ----------
 const PILARES = [ // orden de los estantes; frase de N como lomos en Humanity
@@ -64,7 +90,7 @@ function proyectar({ grilla, paginas, afirmaciones, agenda }) {
   const slots = grilla.slots.filter((s) => s.fecha_et <= "2026-12-31");
   const porId = new Map(slots.map((s) => [s.id, s]));
   const pil = (g) => PILARES.find((p) => p.grilla === g);
-  // el español vive dentro de la página EN de la pieza que versiona (D-252: "Inside EN pages"); no hay página /es/
+  // la pieza ES va al tema de la pieza EN que versiona; la página la muestra en la edición ES (D-253), no hay un tema "es"
   const esPagina = (p) => p.slug === "es" || /español/i.test(p.pilar);
   const enPaginas = paginas.filter((p) => !esPagina(p));
   const paginaDe = new Map();
@@ -95,7 +121,7 @@ function proyectar({ grilla, paginas, afirmaciones, agenda }) {
   const filas = new Map((afirmaciones || []).map((r) => [r.id, r]));
   const ANFITRION = { "doi.org": "DOI", "pmc.ncbi.nlm.nih.gov": "PubMed Central", "pubmed.ncbi.nlm.nih.gov": "PubMed", "europepmc.org": "Europe PMC",
     "en.wikipedia.org": "Wikipedia", "aa.usno.navy.mil": "U.S. Naval Observatory", "ssd.jpl.nasa.gov": "NASA JPL Horizons", "www.bls.gov": "U.S. Bureau of Labor Statistics",
-    "www.federalreserve.gov": "Federal Reserve", "www.hebcal.com": "Hebcal", "www.sefaria.org": "Sefaria", "arxiv.org": "arXiv", "www.gutenberg.org": "Project Gutenberg",
+    "www.federalreserve.gov": "Federal Reserve", "www.hebcal.com": "Hebcal, Jewish calendar", "www.sefaria.org": "Sefaria", "arxiv.org": "arXiv", "www.gutenberg.org": "Project Gutenberg",
     "suttacentral.net": "SuttaCentral", "reutersinstitute.politics.ox.ac.uk": "Reuters Institute", "www.chabad.org": "Chabad.org", "sunnah.com": "Sunnah.com",
     "www.who.int": "World Health Organization", "www.nhs.uk": "NHS", "www.britannica.com": "Britannica", "archive.org": "Internet Archive", "www.amsmeteors.org": "American Meteor Society",
     "nssdc.gsfc.nasa.gov": "NASA NSSDCA", "www.ecb.europa.eu": "European Central Bank", "www.bankofengland.co.uk": "Bank of England", "www.boj.or.jp": "Bank of Japan",
@@ -105,6 +131,8 @@ function proyectar({ grilla, paginas, afirmaciones, agenda }) {
   const rotulo = (u) => {
     const x = new URL(u), host = x.hostname, nombre = ANFITRION[host] || host.replace(/^www\./, "");
     const resto = decodeURIComponent(x.pathname + x.search).replace(/\/$/, "").replace(/^\//, "");
+    // extremos de API o con consulta ("hebcal?v=1&cfg=json", "api/seasons?year=2026"): solo el nombre del anfitrión
+    if (/[?=&]|^api\b|\.json$/.test(resto)) return nombre;
     return host === "doi.org" ? `DOI ${resto}` : resto && resto.length <= 70 ? `${nombre}: ${resto}` : nombre;
   };
   const deFila = (id) => {
@@ -170,15 +198,19 @@ function proyectar({ grilla, paginas, afirmaciones, agenda }) {
   for (const s of [...slots].sort((a, b) => a.utc.localeCompare(b.utc) || a.id.localeCompare(b.id))) {
     const slug = paginaDe.get(s.id), pag = enPaginas.find((p) => p.slug === slug), P = pil(pag.pilar), Ps = pil(s.pilar_o_tema);
     const noticia = s.pilar_o_tema === "noticias" || pag.pilar === "noticias";
-    const lang = s.canal === "es" || s.idioma === "ES" ? "es" : "en";
+    // idioma: "EN", "ES" o una pieza de dos voces ("EN+ES", "ES+EN": una voz después de la otra, cada una en su idioma)
+    const idiomas = [...new Set((String(s.idioma || "").toUpperCase().match(/\b(EN|ES)\b/g) || []).map((x) => x.toLowerCase()))];
+    const lang = s.canal === "es" || idiomas[0] === "es" ? "es" : "en";
     const titulo = noticia ? null : lang === "es" ? s.titulo : publico(s.titulo) ? s.titulo : null;
     const linea = !noticia && s.canal === "short+reel" && publico(s.gancho_2s) && s.gancho_2s !== s.titulo ? s.gancho_2s : null;
     const luna = s.seccion === "Humanity" && s.luna ? { fase: FASE[s.luna.fase], iluminacion: s.luna.iluminacion_pct, signo: SIGNO[s.luna.signo] } : null;
     if (luna && (!luna.fase || !luna.signo)) throw new Error(`${s.id}: luna sin traducción (${s.luna.fase}, ${s.luna.signo})`);
+    if (luna && SIN_SIGNO.has(slug)) luna.signo = null;
     const corto = ["short+reel", "es"].includes(s.canal);
     piezas.push({
       id: tarjetaDe(s), ref: s.id, pagina: slug, fecha: s.fecha_et, hora_et: s.hora_et, hora_medellin: s.medellin.slice(11, 16), utc: s.utc,
       canal: s.canal, formato: FORMATO[s.canal], seccion: s.seccion, pilar: (Ps || P).id, lang, titulo, linea,
+      ...(idiomas.length > 1 ? { idiomas } : {}),
       voz: CON_VOZ.has(s.canal), noticia, mercado: s.pilar_o_tema === "mercado", luna, codigo: codigoDe(s), corto,
       _fuentes: fuentesDe(s),
     });
@@ -187,14 +219,20 @@ function proyectar({ grilla, paginas, afirmaciones, agenda }) {
 
   const salidaPag = enPaginas.map((p) => {
     const xs = piezas.filter((x) => x.pagina === p.slug), vistos = new Set(), fuentes = [];
-    for (const x of xs) for (const f of x._fuentes) { const k = f.url || f.titulo; if (!vistos.has(k)) { vistos.add(k); fuentes.push(f); } }
+    for (const x of xs) for (const f of x._fuentes) {
+      const k = f.url || f.titulo; if (vistos.has(k)) continue; vistos.add(k);
+      let host = ""; try { host = new URL(f.url).hostname; } catch { /* obra sin URL */ }
+      if (ELECCION.test(`${f.titulo} ${f.url || ""}`.replace(/-/g, " ")) && !OFICIAL_ELECCION.test(host)) continue;
+      fuentes.push(ES_FUENTE.test(f.titulo) ? { ...f, lang: "es" } : f);
+    }
     const P = pil(p.pilar);
     if (!P) throw new Error(`${p.slug}: pilar sin nombre público (${p.pilar})`);
-    return { slug: p.slug, titulo: p.titulo_en, seccion: p.seccion, pilar: P.id, desde: xs[0].fecha, hasta: xs.at(-1).fecha, piezas: xs.map((x) => x.id), fuentes };
+    if (!TITULO_ES[p.slug]) throw new Error(`${p.slug}: falta el título en español (TITULO_ES)`);
+    return { slug: p.slug, titulo: p.titulo_en, titulo_es: TITULO_ES[p.slug], seccion: p.seccion, pilar: P.id, desde: xs[0].fecha, hasta: xs.at(-1).fecha, piezas: xs.map((x) => x.id), fuentes };
   });
   for (const x of piezas) delete x._fuentes;
   return {
-    nota: "Proyección pública de la grilla para las páginas de tema. La escribe scripts/construir-temas.mjs; no editar a mano. Solo lo que la página muestra.",
+    nota: "Proyección pública de la grilla para las páginas de tema (ediciones EN y ES). La escribe scripts/construir-temas.mjs; no editar a mano. Solo lo que la página muestra.",
     grilla: grilla.meta?.generado || null,
     secciones: SECCIONES,
     pilares: PILARES.map(({ id, titulo, seccion, lomo }) => ({ id, titulo, seccion, lomo })),
@@ -219,18 +257,74 @@ function csv(t) {
 // ---------- 2. páginas ----------
 const write = (rel, contenido) => { const p = path.join(V, rel); fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, contenido); };
 
-function cabeza({ titulo, descripcion, ruta, raiz, jsonld, noindex }) {
-  const url = BASE + ruta;
+// Dos ediciones (D-253). EN: temas/, sus hubs y la portada de siempre. ES: es/ (portada con la franja), es/temas/ y sus hubs.
+// Todo lo que cambia entre una y otra está aquí; la estructura de la página es la misma.
+export const AYUDA_HTML_ES = 'Si esto te pesa, habla con alguien ahora. Colombia: <a href="tel:106">106</a>, línea nacional de salud mental, 24/7, o <a href="tel:123">123</a> si hay peligro inmediato. EE. UU.: <a href="tel:988">988</a>. En cualquier otro lugar: <a href="https://findahelpline.com" rel="noopener" hreflang="en">findahelpline.com</a>.';
+const MES_ES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"], DIA_ES = ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"];
+const FASE_ES = Object.fromEntries(Object.entries(FASE).map(([es, en]) => [en, es]));
+const SIGNO_ES = Object.fromEntries(Object.entries(SIGNO).map(([es, en]) => [en, es]));
+const IDIOMA = { en: { en: "English", es: "Spanish" }, es: { en: "inglés", es: "español" } };
+export const ED = {
+  en: {
+    lang: "en", pref: "", ayuda: AYUDA_HTML, lema: "Closer to yourself.", linea: LINEA_N, noConsejo: NO_CONSEJO,
+    voz: "Voice: synthetic", proximo: "Coming", salio: "Out", seccion: { Humanity: "Humanity", "The Present": "The Present" },
+    pilar: (P) => P.titulo, lomo: (P) => P.lomo, titulo: (p) => p.titulo,
+    fe, feCorta, rango: (a, b) => (a === b ? fe(a) : `${feCorta(a)} to ${feCorta(b)}`) + " " + b.slice(0, 4),
+    formato: FORMATO, enOtro: { es: "In Spanish" }, voces: (xs) => `Voices: ${xs.map((l) => IDIOMA.en[l]).join(", then ")}`,
+    noticia: (t) => "News: " + t, noticiaSola: "News", noticiaNota: "Date and topic only. The title comes after the source check.",
+    luna: (pct, fase) => `<span class="t-luna-k">Moon </span><span class="t-pct num">${pct}%</span> lit, ${esc(fase)}`, pct: (n) => String(n).replace(/\.0$/, ""),
+    fase: (f) => f, signo: (s) => s, zodiaco: "Western tropical zodiac", lunaEn: (s) => `Moon in ${esc(s)}`, lunaDatos: "Moon data: U.S. Naval Observatory.", colLuna: "Moon",
+    corto: "Short link", piezas: (n) => `${n} piece${n === 1 ? "" : "s"}`, lasPiezas: "The pieces", fuentes: "Sources",
+    fuentesNota: "Sources carried over from our research notes. Each page gets its own source check before its full text is written.",
+    saltar: "Skip to the pieces", saltarHub: "Skip to the topics", migas: "Breadcrumb", temas: "Topics", inicio: "Home", agenda: "Upcoming", privacidad: "Privacy", terminos: "Terms",
+    nav: "Sections", otra: { lang: "es", txt: "Español" },
+    sello: "The voices in NAOS pieces are synthetic. Cella's replies to comments are written with AI; a person reads the hard ones. Times are New York (ET) and Medellín.",
+    descTema: (p, n, P, r) => `${p.titulo}: ${n} NAOS pieces in ${p.seccion}, ${P.titulo}, ${r}. Dates, times in ET and Medellín, and sources.`,
+    enEspanol: (n, href) => `<p class="t-otra-ed" lang="es"><a href="${href}" hreflang="es">${n === 1 ? "1 pieza" : n + " piezas"} en español sobre este tema, en la página en español</a></p>`,
+  },
+  es: {
+    lang: "es", pref: "es/", ayuda: AYUDA_HTML_ES, lema: "Más cerca de ti.", noConsejo: "Descriptivo, sin asesoría financiera.",
+    linea: { Humanity: "Come bien, duerme bien, muévete, ten una relación con lo divino y construye comunidad.", "The Present": "Más cerca de ti." },
+    voz: "Voz: sintética", proximo: "Próximamente", salio: "Publicada", seccion: { Humanity: "Humanidad", "The Present": "El presente" },
+    pilar: (P) => ({ eat: "Comer", sleep: "Dormir", move: "Moverse", "the-divine": "Lo divino", community: "Comunidad", "the-moon": "La luna", markets: "Mercados", news: "Noticias", ai: "IA" }[P.id]),
+    lomo: (P) => ({ eat: "Come bien,", sleep: "duerme bien,", move: "muévete,", "the-divine": "ten una relación con lo divino,", community: "y construye comunidad." }[P.id] || null),
+    titulo: (p) => p.titulo_es,
+    fe: (f) => { const t = new Date(f + "T12:00:00Z"); return `${DIA_ES[t.getUTCDay()]} ${t.getUTCDate()} ${MES_ES[t.getUTCMonth()]}`; },
+    feCorta: (f) => { const t = new Date(f + "T12:00:00Z"); return `${t.getUTCDate()} ${MES_ES[t.getUTCMonth()]}`; },
+    rango(a, b) { return (a === b ? this.fe(a) : `${this.feCorta(a)} al ${this.feCorta(b)}`) + " de " + b.slice(0, 4); },
+    formato: { "short+reel": "Short y Reel", medio: "Video mediano en YouTube", carrusel: "Carrusel de Instagram", historia: "Historia de Instagram", es: "Short y Reel en español" },
+    enOtro: { en: "En inglés" }, voces: (xs) => `Voces: ${xs.map((l) => IDIOMA.es[l]).join(", después ")}`,
+    noticia: (t) => "Noticias: " + t, noticiaSola: "Noticias", noticiaNota: "Solo fecha y tema. El título llega después de verificar la fuente.",
+    luna: (pct, fase) => `<span class="t-luna-k">Luna </span><span class="t-pct num">${pct} %</span> iluminada, ${esc(fase)}`, pct: (n) => String(n).replace(/\.0$/, "").replace(".", ","),
+    fase: (f) => FASE_ES[f] || f, signo: (s) => SIGNO_ES[s] || s, zodiaco: "Zodíaco tropical occidental", lunaEn: (s) => `Luna en ${esc(s)}`,
+    lunaDatos: "Datos de la luna: Observatorio Naval de los Estados Unidos (USNO).", colLuna: "Luna",
+    corto: "Enlace corto", piezas: (n) => `${n} pieza${n === 1 ? "" : "s"}`, lasPiezas: "Las piezas", fuentes: "Fuentes",
+    fuentesNota: "Fuentes heredadas de nuestras notas de investigación. Cada página pasa por su propia verificación de fuentes antes de escribir su texto completo.",
+    saltar: "Ir a las piezas", saltarHub: "Ir a los temas", migas: "Ruta", temas: "Temas", inicio: "Inicio", agenda: "Agenda", privacidad: "Privacidad", terminos: "Términos",
+    nav: "Secciones", otra: { lang: "en", txt: "English" },
+    sello: "Las voces de las piezas de NAOS son sintéticas. Las respuestas de Cella a los comentarios se escriben con IA; una persona lee las difíciles. Las horas son de Nueva York (ET) y Medellín.",
+    descTema: (p, n, P, r) => `${p.titulo_es}: ${n} piezas de NAOS en ${ED.es.seccion[p.seccion]}, ${ED.es.pilar(P)}, ${r}. Fechas, horas en ET y Medellín, y fuentes.`,
+    enEspanol: () => "",
+  },
+};
+// qué piezas lleva cada edición: la EN, las de una voz en inglés y las de dos voces; la ES, todas
+const enEdicion = (x, L) => L.lang === "es" || x.lang !== "es" || (x.idiomas || []).length > 1;
+const langAttr = (t, L) => (t && t !== L.lang ? ` lang="${t}"` : "");
+
+function cabeza({ L, titulo, descripcion, ruta, raiz, jsonld, alterna, css = [] }) {
+  const url = BASE + L.pref + ruta;
+  const alt = alterna ? `\n<link rel="alternate" hreflang="en" href="${esc(BASE + ruta)}">\n<link rel="alternate" hreflang="es" href="${esc(BASE + "es/" + ruta)}">\n<link rel="alternate" hreflang="x-default" href="${esc(BASE + ruta)}">` : "";
   return `<!doctype html>
-<html lang="en">
+<html lang="${L.lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(titulo)}</title>
 <meta name="description" content="${esc(descripcion)}">
-${noindex ? '<meta name="robots" content="noindex">\n' : ""}<link rel="canonical" href="${esc(url)}">
+<link rel="canonical" href="${esc(url)}">${alt}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NAOS">
+<meta property="og:locale" content="${L.lang === "es" ? "es_419" : "en_US"}">
 <meta property="og:title" content="${esc(titulo)}">
 <meta property="og:description" content="${esc(descripcion)}">
 <meta property="og:url" content="${esc(url)}">
@@ -242,98 +336,106 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : ""}<link rel="canonical
 <link rel="preload" href="${raiz}assets/fuentes/IBMPlexSans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${raiz}assets/comun/tokens.css">
 <link rel="stylesheet" href="${raiz}assets/comun/base.css">
-<link rel="stylesheet" href="${raiz}assets/css/temas.css">
+<link rel="stylesheet" href="${raiz}assets/css/temas.css">${css.map((c) => `\n<link rel="stylesheet" href="${raiz}${c}">`).join("")}
 <script type="application/ld+json">${JSON.stringify(jsonld).replace(/</g, "\\u003c")}</script>
 <script defer src="${raiz}assets/js/temas.js"></script>
 </head>`;
 }
-function barra(raiz, actual) {
-  const a = (href, t, k) => `<a href="${href}"${actual === k ? ' aria-current="page"' : ""}>${t}</a>`;
+// ruta: la de la página dentro de su edición, sin prefijo (temas/x/); el enlace al otro idioma es la misma ruta en la otra edición
+function barra(L, raiz, actual, ruta) {
+  const a = (href, t, k, extra = "") => `<a href="${href}"${actual === k ? ' aria-current="page"' : ""}${extra}>${t}</a>`;
+  const P = raiz + L.pref, otra = L.otra.lang === "es" ? raiz + "es/" + ruta : raiz + ruta;
   return `<header class="t-barra">
-  <p class="t-marca"><a class="t-naos" href="${raiz}">NAOS</a><span class="t-lema">Closer to yourself.</span></p>
-  <nav class="t-nav" aria-label="Sections">${a(raiz + "temas/humanity/", "Humanity", "humanity")}${a(raiz + "temas/the-present/", "The Present", "the-present")}${a(raiz + "temas/", "Topics", "temas")}${a(raiz + "agenda.html", "Upcoming", "agenda")}</nav>
+  <p class="t-marca"><a class="t-naos" href="${P}">NAOS</a><span class="t-lema">${esc(L.lema)}</span></p>
+  <nav class="t-nav" aria-label="${L.nav}">${a(P + "temas/humanity/", L.seccion.Humanity, "humanity")}${a(P + "temas/the-present/", L.seccion["The Present"], "the-present")}${a(P + "temas/", L.temas, "temas")}${a(raiz + "agenda.html", L.agenda, "agenda", L.lang === "en" ? "" : ' hreflang="en"')}<a class="t-idioma" href="${otra}" hreflang="${L.otra.lang}" lang="${L.otra.lang}">${L.otra.txt}</a></nav>
 </header>`;
 }
-function pie(raiz, seccion, extra = "") {
+function pie(L, raiz, seccion, extra = "") {
+  const P = raiz + L.pref;
   return `<footer class="t-pie">
-  <p class="ayuda-l" id="ayuda">${AYUDA_HTML}</p>
-  <p class="t-linea-n">${esc(LINEA_N[seccion] || LINEA_N["The Present"])}</p>
-  <p class="sello">${extra}The voices in NAOS pieces are synthetic. Cella's replies to comments are written with AI; a person reads the hard ones. Times are New York (ET) and Medellín.</p>
-  <p class="sello"><a href="${raiz}">Home</a> · <a href="${raiz}temas/">Topics</a> · <a href="${raiz}agenda.html">Upcoming</a> · <a href="${raiz}privacidad.html">Privacy</a> · <a href="${raiz}terminos.html">Terms</a></p>
+  <p class="ayuda-l" id="ayuda">${L.ayuda}</p>
+  <p class="t-linea-n">${esc(L.linea[seccion] || L.linea["The Present"])}</p>
+  <p class="sello">${extra}${L.sello}</p>
+  <p class="sello"><a href="${P}">${L.inicio}</a> · <a href="${P}temas/">${L.temas}</a> · <a href="${raiz}agenda.html"${L.lang === "en" ? "" : ' hreflang="en"'}>${L.agenda}</a> · <a href="${raiz}privacidad.html"${L.lang === "es" ? "" : ' hreflang="es"'}>${L.privacidad}</a> · <a href="${raiz}terminos.html"${L.lang === "es" ? "" : ' hreflang="es"'}>${L.terminos}</a></p>
 </footer>`;
 }
 const pilarDe = (D, id) => D.pilares.find((p) => p.id === id);
 const secId = (s) => (s === "Humanity" ? "humanity" : "the-present");
-const rango = (a, b) => (a === b ? fe(a) : `${feCorta(a)} to ${feCorta(b)}`) + " " + b.slice(0, 4);
 
 // Tarjeta = fila de un registro por día (pase de arte, 16-oct): columna de cuándo (día, hora ET, hora Medellín, estado),
 // cuerpo (título, línea, formato) y, solo en Humanity, la columna de la luna (lo medido a la vista, con su barra de luz).
 // El día se escribe una vez: las filas siguientes del mismo día lo llevan solo para lector de pantalla (t-sigue); la luna,
 // igual: si no cambió desde la fila anterior del mismo día, no se repite (t-luna-igual).
-function carta(x, pag, enlace, raiz, sigue = false, lunaIgual = false) {
+function carta(L, x, pag, enlace, raiz, sigue = false, lunaIgual = false) {
   const out = enlace && /^https:\/\/(www\.youtube\.com|youtu\.be)\//.test(enlace.yt || "");
   const estado = out
-    ? `<p class="t-estado t-out"><span class="t-tag">Out</span> <a class="t-ver" href="${esc(enlace.yt)}" rel="noopener">YouTube</a>${/^https:\/\/www\.instagram\.com\//.test(enlace.ig || "") ? ` <a class="t-ver" href="${esc(enlace.ig)}" rel="noopener">Instagram</a>` : ""}</p>`
-    : `<p class="t-estado"><span class="t-tag">Coming</span></p>`;
+    ? `<p class="t-estado t-out"><span class="t-tag">${L.salio}</span> <a class="t-ver" href="${esc(enlace.yt)}" rel="noopener">YouTube</a>${/^https:\/\/www\.instagram\.com\//.test(enlace.ig || "") ? ` <a class="t-ver" href="${esc(enlace.ig)}" rel="noopener">Instagram</a>` : ""}</p>`
+    : `<p class="t-estado"><span class="t-tag">${L.proximo}</span></p>`;
+  const formato = L.formato[x.canal] || x.formato;
   const titulo = x.noticia
-    ? `<h3 class="t-tit">${pag.pilar === "news" ? "News: " + esc(pag.titulo) : "News"}</h3><p class="t-nota">Date and topic only. The title comes after the source check.</p>`
-    : x.titulo ? `<h3 class="t-tit"${x.lang === "es" ? ' lang="es"' : ""}>${esc(x.titulo)}</h3>` : `<h3 class="t-tit">${esc(x.formato)}</h3>`;
-  const fmt = [x.titulo || x.noticia ? x.formato : "", x.lang === "es" ? "In Spanish" : "", x.voz ? "Voice: synthetic" : "", x.mercado ? NO_CONSEJO.slice(0, -1) : ""].filter(Boolean).join(". ") + (x.mercado ? "." : "");
-  const pct = x.luna ? String(x.luna.iluminacion).replace(/\.0$/, "") : "";
+    ? `<h3 class="t-tit">${pag.pilar === "news" ? esc(L.noticia(L.titulo(pag))) : L.noticiaSola}</h3><p class="t-nota">${L.noticiaNota}</p>`
+    : x.titulo ? `<h3 class="t-tit"${langAttr(x.lang, L)}>${esc(x.titulo)}</h3>` : `<h3 class="t-tit">${esc(formato)}</h3>`;
+  const bil = (x.idiomas || []).length > 1;
+  const fmt = [x.titulo || x.noticia ? formato : "", !bil && x.lang !== L.lang && x.canal !== "es" ? L.enOtro[x.lang] : "", bil ? L.voces(x.idiomas) : "",
+    x.voz ? L.voz : "", x.mercado ? L.noConsejo.slice(0, -1) : ""].filter(Boolean).join(". ") + (x.mercado ? "." : "");
   const luna = x.luna ? `
   <div class="t-luna">
-    <p class="t-luz"><span class="t-luna-k">Moon </span><span class="t-pct num">${pct}%</span> lit, ${esc(x.luna.fase)}</p>
-    <span class="t-barra-luz" aria-hidden="true" style="--l:${Number(x.luna.iluminacion)}%"></span>
-    <details class="t-signo"><summary>Western tropical zodiac</summary><p>Moon in ${esc(x.luna.signo)}</p></details>
+    <p class="t-luz">${L.luna(L.pct(x.luna.iluminacion), L.fase(x.luna.fase))}</p>
+    <span class="t-barra-luz" aria-hidden="true" style="--l:${Number(x.luna.iluminacion)}%"></span>${x.luna.signo ? `
+    <details class="t-signo"><summary>${L.zodiaco}</summary><p>${L.lunaEn(L.signo(x.luna.signo))}</p></details>` : ""}
   </div>` : "";
-  const corto = x.corto ? `<p class="t-corto">Short link <a href="${raiz}s/${esc(x.codigo)}/">naos/s/${esc(x.codigo)}</a></p>` : "";
+  const corto = x.corto ? `<p class="t-corto">${L.corto} <a href="${raiz}s/${esc(x.codigo)}/">naos/s/${esc(x.codigo)}</a></p>` : "";
   return `<li><article class="t-carta${x.lang === "es" ? " t-es" : ""}${sigue ? " t-sigue" : ""}${lunaIgual ? " t-luna-igual" : ""}" id="${esc(x.id)}" data-codigo="${esc(x.codigo)}" data-fecha="${x.fecha}" aria-labelledby="${esc(x.id)}-t">
   <div class="t-when">
-    <p class="t-cuando"><time class="t-dia" datetime="${esc(x.utc.replace("Z", ":00Z"))}">${fe(x.fecha)}</time> <span class="t-hora num">${esc(x.hora_et)} ET</span> <span class="t-hora num">${esc(x.hora_medellin)} Medellín</span></p>
+    <p class="t-cuando"><time class="t-dia" datetime="${esc(x.utc.replace("Z", ":00Z"))}">${L.fe(x.fecha)}</time> <span class="t-hora num">${esc(x.hora_et)} ET</span> <span class="t-hora num">${esc(x.hora_medellin)} Medellín</span></p>
     ${estado}
   </div>
   <div class="t-cuerpo">
     ${titulo.replace("<h3 class=\"t-tit\"", `<h3 class="t-tit" id="${esc(x.id)}-t"`)}
-    ${x.linea ? `<p class="t-linea">${esc(x.linea)}</p>` : ""}
+    ${x.linea ? `<p class="t-linea"${langAttr(x.lang, L)}>${esc(x.linea)}</p>` : ""}
     ${fmt ? `<p class="t-fmt">${esc(fmt)}</p>` : ""}
     ${corto}
   </div>${luna}
 </article></li>`.replace(/\n\s*\n/g, "\n");
 }
 
-function paginaTema(D, p, enlaces) {
-  const raiz = "../../", P = pilarDe(D, p.pilar), xs = p.piezas.map((id) => D.piezas.find((x) => x.id === id));
+function paginaTema(L, D, p, enlaces) {
+  const raiz = L.lang === "es" ? "../../../" : "../../", P = pilarDe(D, p.pilar);
+  const todas = p.piezas.map((id) => D.piezas.find((x) => x.id === id)), xs = todas.filter((x) => enEdicion(x, L));
+  const desde = xs[0].fecha, hasta = xs.at(-1).fecha, nES = todas.filter((x) => !enEdicion(x, L)).length;
   const mercado = p.pilar === "markets" || xs.some((x) => x.mercado);
-  const desc = `${p.titulo}: ${xs.length} NAOS pieces in ${p.seccion}, ${P.titulo}, ${rango(p.desde, p.hasta)}. Dates, times in ET and Medellín, and sources.`;
-  const ruta = `temas/${p.slug}/`;
-  const jsonld = { "@context": "https://schema.org", "@type": "CollectionPage", name: p.titulo, description: desc, url: BASE + ruta, inLanguage: "en",
-    isPartOf: { "@type": "WebSite", name: "NAOS", url: BASE }, about: P.titulo,
-    mainEntity: { "@type": "ItemList", numberOfItems: xs.length, itemListElement: xs.map((x, i) => ({ "@type": "ListItem", position: i + 1, url: BASE + ruta + "#" + x.id,
-      name: x.noticia ? `News, ${fe(x.fecha)}` : x.titulo || `${x.formato}, ${fe(x.fecha)}` })) } };
+  const ruta = `temas/${p.slug}/`, r = L.rango(desde, hasta);
+  const desc = L.descTema(p, xs.length, P, r);
+  const nombre = (x) => (x.noticia ? `${L.noticiaSola}, ${L.fe(x.fecha)}` : x.titulo || `${L.formato[x.canal] || x.formato}, ${L.fe(x.fecha)}`);
+  const jsonld = { "@context": "https://schema.org", "@type": "CollectionPage", name: L.titulo(p), description: desc, url: BASE + L.pref + ruta, inLanguage: L.lang,
+    isPartOf: { "@type": "WebSite", name: "NAOS", url: BASE + L.pref }, about: L.pilar(P),
+    mainEntity: { "@type": "ItemList", numberOfItems: xs.length, itemListElement: xs.map((x, i) => ({ "@type": "ListItem", position: i + 1, url: BASE + L.pref + ruta + "#" + x.id,
+      name: nombre(x), ...(x.titulo && x.lang !== L.lang ? { inLanguage: x.lang } : {}) })) } };
   const fuentes = p.fuentes.length ? `
   <section class="t-bloque t-fuentes" id="fuentes" aria-labelledby="fuentes-t">
-    <h2 id="fuentes-t">Sources</h2>
-    <ul>${p.fuentes.map((f) => `<li>${f.url ? `<a href="${esc(f.url)}" rel="noopener">${esc(f.titulo)}</a>` : esc(f.titulo)}</li>`).join("")}</ul>
-    <p class="t-fuentes-n">Sources carried over from our research notes. Each page gets its own source check before its full text is written.</p>
+    <h2 id="fuentes-t">${L.fuentes}</h2>
+    <ul>${p.fuentes.map((f) => { const la = langAttr(f.lang || "en", L); return `<li>${f.url ? `<a href="${esc(f.url)}" rel="noopener"${la}>${esc(f.titulo)}</a>` : `<span${la}>${esc(f.titulo)}</span>`}</li>`; }).join("")}</ul>
+    <p class="t-fuentes-n">${L.fuentesNota}</p>
   </section>` : "";
-  return `${cabeza({ titulo: `${p.titulo} · NAOS`, descripcion: desc, ruta, raiz, jsonld })}
+  const humanity = p.seccion === "Humanity", conLuna = xs.some((x) => x.luna);
+  return `${cabeza({ L, titulo: `${L.titulo(p)} · NAOS`, descripcion: desc, ruta, raiz, jsonld, alterna: true })}
 <body class="t-${secId(p.seccion)}">
-<a class="sr" href="#piezas">Skip to the pieces</a>
-${barra(raiz, "")}
+<a class="sr" href="#piezas">${L.saltar}</a>
+${barra(L, raiz, "", ruta)}
 <main id="main">
   <header class="t-umbral" id="umbral">
-    <nav class="t-migas" aria-label="Breadcrumb"><a href="${raiz}temas/">Topics</a> / <a href="${raiz}temas/${secId(p.seccion)}/">${esc(p.seccion)}</a> / <a href="${raiz}temas/pilar/${P.id}/">${esc(P.titulo)}</a></nav>
-    <h1>${esc(p.titulo)}</h1>
-    <p class="t-rango"><span class="t-n num">${xs.length}</span> pieces, ${rango(p.desde, p.hasta)}</p>${mercado ? `\n    <p class="t-aviso">${NO_CONSEJO}</p>` : ""}
+    <nav class="t-migas" aria-label="${L.migas}"><a href="${raiz}${L.pref}temas/">${L.temas}</a> / <a href="${raiz}${L.pref}temas/${secId(p.seccion)}/">${esc(L.seccion[p.seccion])}</a> / <a href="${raiz}${L.pref}temas/pilar/${P.id}/">${esc(L.pilar(P))}</a></nav>
+    <h1>${esc(L.titulo(p))}</h1>
+    <p class="t-rango"><span class="t-n num">${xs.length}</span> ${L.piezas(xs.length).replace(/^\d+ /, "")}, ${r}</p>${mercado ? `\n    <p class="t-aviso">${L.noConsejo}</p>` : ""}${nES ? "\n    " + L.enEspanol(nES, `${raiz}es/${ruta}`) : ""}
   </header>
   <section class="t-bloque" id="piezas" aria-labelledby="piezas-t">
-    <h2 id="piezas-t">The pieces</h2>${p.seccion === "Humanity" ? `\n    <p class="t-col-luna" aria-hidden="true">Moon</p>` : ""}
+    <h2 id="piezas-t">${L.lasPiezas}</h2>${humanity ? `\n    <p class="t-col-luna" aria-hidden="true">${L.colLuna}</p>` : ""}
     <ol class="t-cartas">
-${xs.map((x, i) => carta(x, p, enlaces[x.fecha + "|" + x.codigo], raiz, i > 0 && xs[i - 1].fecha === x.fecha, i > 0 && xs[i - 1].fecha === x.fecha && !!x.luna && JSON.stringify(xs[i - 1].luna) === JSON.stringify(x.luna))).join("\n")}
-    </ol>
+${xs.map((x, i) => carta(L, x, p, enlaces[x.fecha + "|" + x.codigo], raiz, i > 0 && xs[i - 1].fecha === x.fecha, i > 0 && xs[i - 1].fecha === x.fecha && !!x.luna && JSON.stringify(xs[i - 1].luna) === JSON.stringify(x.luna))).join("\n")}
+    </ol>${conLuna ? `\n    <p class="t-fuentes-n t-luna-datos">${L.lunaDatos}</p>` : ""}
   </section>${fuentes}
 </main>
-${pie(raiz, p.seccion, mercado ? NO_CONSEJO + " " : "")}
+${pie(L, raiz, p.seccion, mercado ? L.noConsejo + " " : "")}
 </body>
 </html>
 `;
@@ -351,92 +453,146 @@ function temporada(D) {
   const pos = (f) => +(((dia(f) - dia(t0)) / (dia(t1) - dia(t0))) * 100).toFixed(2);
   return { t0, t1, meses, pos };
 }
-function eje(T) {
-  return `<div class="t-eje" aria-hidden="true"><span></span><span class="t-eje-m">${T.meses.map((m) => `<span style="--a:${T.pos(m)}%">${MES[+m.slice(5, 7) - 1]}</span>`).join("")}</span></div>`;
+function eje(L, T) {
+  const M = L.lang === "es" ? MES_ES : MES;
+  return `<div class="t-eje" aria-hidden="true"><span></span><span class="t-eje-m">${T.meses.map((m) => `<span style="--a:${T.pos(m)}%">${M[+m.slice(5, 7) - 1]}</span>`).join("")}</span></div>`;
 }
-function fichaTema(D, p, raiz) {
-  const n = p.piezas.length, T = temporada(D), fin = new Date(Date.parse(p.hasta + "T00:00:00Z") + 864e5).toISOString().slice(0, 10);
-  return `<li><a class="t-tema" href="${raiz}temas/${p.slug}/" data-desde="${p.desde}" data-hasta="${p.hasta}"><span class="t-tema-t">${esc(p.titulo)}</span>` +
-    `<span class="t-tema-m num">${n} pieces, ${rango(p.desde, p.hasta)}</span>` +
-    `<span class="t-tl" aria-hidden="true"><span style="--a:${T.pos(p.desde)}%;--b:${T.pos(fin)}%"></span></span></a></li>`;
+// rango de un tema en la edición: en la EN no cuentan las piezas que solo viven en la ES
+function rangoTema(L, D, p) {
+  const xs = p.piezas.map((id) => D.piezas.find((x) => x.id === id)).filter((x) => enEdicion(x, L));
+  return { n: xs.length, desde: xs[0].fecha, hasta: xs.at(-1).fecha };
+}
+function fichaTema(L, D, p, raiz) {
+  const R = rangoTema(L, D, p), T = temporada(D), fin = new Date(Date.parse(R.hasta + "T00:00:00Z") + 864e5).toISOString().slice(0, 10);
+  return `<li><a class="t-tema" href="${raiz}${L.pref}temas/${p.slug}/" data-desde="${R.desde}" data-hasta="${R.hasta}"><span class="t-tema-t">${esc(L.titulo(p))}</span>` +
+    `<span class="t-tema-m num">${L.piezas(R.n)}, ${L.rango(R.desde, R.hasta)}</span>` +
+    `<span class="t-tl" aria-hidden="true"><span style="--a:${T.pos(R.desde)}%;--b:${T.pos(fin)}%"></span></span></a></li>`;
 }
 // Humanity: estantes con el lomo (la frase de N, en orden) en el tercio izquierdo y los temas a la derecha.
 // The Present: ventana de tres columnas (Markets, News, AI) a lo ancho; a 390, una debajo de otra en menos de 3 pantallas.
-function estantes(D, seccion, raiz, nivel = "h2") {
+function estantes(L, D, seccion, raiz, nivel = "h2") {
   const T = temporada(D);
   const xs = D.pilares.filter((P) => P.seccion === seccion).map((P) => {
     const ps = D.paginas.filter((p) => p.pilar === P.id); if (!ps.length) return "";
-    return `<section class="t-estante${P.lomo ? "" : " t-estante-sin"}" aria-labelledby="e-${P.id}"><${nivel} class="t-lomo" id="e-${P.id}"><a href="${raiz}temas/pilar/${P.id}/">${esc(P.lomo || P.titulo)}</a>${P.lomo ? ` <span class="t-lomo-p">${esc(P.titulo)}</span>` : ""}</${nivel}><div class="t-anaquel">${eje(T)}<ul class="t-temas">${ps.map((p) => fichaTema(D, p, raiz)).join("")}</ul></div></section>`;
+    const lomo = L.lomo(P);
+    return `<section class="t-estante${lomo ? "" : " t-estante-sin"}" aria-labelledby="e-${P.id}"><${nivel} class="t-lomo" id="e-${P.id}"><a href="${raiz}${L.pref}temas/pilar/${P.id}/">${esc(lomo || L.pilar(P))}</a>${lomo ? ` <span class="t-lomo-p">${esc(L.pilar(P))}</span>` : ""}</${nivel}><div class="t-anaquel">${eje(L, T)}<ul class="t-temas">${ps.map((p) => fichaTema(L, D, p, raiz)).join("")}</ul></div></section>`;
   }).join("\n");
   return seccion === "The Present" ? `<div class="t-ventana">\n${xs}\n</div>` : `<div class="t-biblioteca">\n${xs}\n</div>`;
 }
-function hub({ D, ruta, raiz, titulo, h1, desc, cuerpo, seccion, actual }) {
-  const jsonld = { "@context": "https://schema.org", "@type": "CollectionPage", name: titulo, description: desc, url: BASE + ruta, inLanguage: "en", isPartOf: { "@type": "WebSite", name: "NAOS", url: BASE } };
+function hub({ L, D, ruta, raiz, titulo, h1, desc, cuerpo, seccion, actual, antes = "", css, scripts = [] }) {
+  const jsonld = { "@context": "https://schema.org", "@type": "CollectionPage", name: titulo, description: desc, url: BASE + L.pref + ruta, inLanguage: L.lang, isPartOf: { "@type": "WebSite", name: "NAOS", url: BASE + L.pref } };
   const T = temporada(D);
-  return `${cabeza({ titulo, descripcion: desc, ruta, raiz, jsonld })}
+  return `${cabeza({ L, titulo, descripcion: desc, ruta, raiz, jsonld, alterna: true, css })}
 <body class="t-hub t-hub-${secId(seccion)}">
-<a class="sr" href="#main">Skip to the topics</a>
-${barra(raiz, actual)}
+<a class="sr" href="#main">${L.saltarHub}</a>
+${barra(L, raiz, actual, ruta)}
 <main id="main" data-t0="${T.t0}" data-t1="${T.t1}">
   <header class="t-umbral"><h1>${esc(h1)}</h1></header>
-${cuerpo}
+${antes}${cuerpo}
 </main>
-${pie(raiz, seccion, seccion === "The Present" ? NO_CONSEJO + " " : "")}
+${pie(L, raiz, seccion, seccion === "The Present" ? L.noConsejo + " " : "")}${scripts.map((s) => `\n<script defer src="${raiz}${s}"></script>`).join("")}
 </body>
 </html>
 `;
+}
+
+function hubs(L, D, urls) {
+  const p0 = L.pref, R1 = L.lang === "es" ? "../../" : "../", R2 = L.lang === "es" ? "../../../" : "../../", R3 = L.lang === "es" ? "../../../../" : "../../../";
+  const S = L.seccion, n = D.paginas.length;
+  const lib = (raiz) => `  <section class="t-bloque" aria-labelledby="h-hum"><h2 id="h-hum"><a href="${raiz}${p0}temas/humanity/">${S.Humanity}</a></h2>\n${estantes(L, D, "Humanity", raiz, "h3")}\n  </section>`;
+  const ven = (raiz) => `  <section class="t-bloque" aria-labelledby="h-pres"><h2 id="h-pres"><a href="${raiz}${p0}temas/the-present/">${S["The Present"]}</a></h2>\n${estantes(L, D, "The Present", raiz, "h3")}\n  </section>`;
+  const es = L.lang === "es";
+  write(`${p0}temas/index.html`, hub({ L, D, ruta: "temas/", raiz: R1, titulo: `${L.temas} · NAOS`, h1: L.temas, seccion: "The Present", actual: "temas",
+    desc: es ? `Todas las páginas de tema de NAOS: ${n} temas en Humanidad y El presente, con la fecha y la hora de cada pieza y sus fuentes.`
+      : `Every NAOS topic page: ${n} topics in Humanity and The Present, with the date and time of each piece and its sources.`, cuerpo: lib(R1) + "\n" + ven(R1) }));
+  write(`${p0}temas/humanity/index.html`, hub({ L, D, ruta: "temas/humanity/", raiz: R2, titulo: `${S.Humanity} · NAOS`, h1: S.Humanity, seccion: "Humanity", actual: "humanity",
+    desc: es ? "La biblioteca de NAOS por pilar: comer, dormir, moverse, lo divino, comunidad y la luna. Cada tema con sus piezas, fechas y fuentes."
+      : "The NAOS library by pillar: eat, sleep, move, the divine, community, and the moon. Each topic with its pieces, dates and sources.",
+    cuerpo: estantes(L, D, "Humanity", R2) }));
+  write(`${p0}temas/the-present/index.html`, hub({ L, D, ruta: "temas/the-present/", raiz: R2, titulo: `${S["The Present"]} · NAOS`, h1: S["The Present"], seccion: "The Present", actual: "the-present",
+    desc: es ? "La ventana de NAOS al presente: mercados, noticias con los dos lados e IA. Cada tema con sus piezas, fechas y fuentes. Descriptivo, sin asesoría financiera."
+      : "The NAOS window on the present: markets, news with both sides, and AI. Each topic with its pieces, dates and sources. Descriptive, not financial advice.",
+    cuerpo: estantes(L, D, "The Present", R2) }));
+  urls.push(`${p0}temas/`, `${p0}temas/humanity/`, `${p0}temas/the-present/`);
+  for (const P of D.pilares) {
+    const ps = D.paginas.filter((p) => p.pilar === P.id); if (!ps.length) continue;
+    const nom = L.pilar(P), sec = S[P.seccion];
+    write(`${p0}temas/pilar/${P.id}/index.html`, hub({ L, D, ruta: `temas/pilar/${P.id}/`, raiz: R3, titulo: `${nom} · NAOS`, h1: nom, seccion: P.seccion, actual: "",
+      desc: es ? `Temas de NAOS en ${sec}, ${nom}: ${ps.length} página${ps.length > 1 ? "s" : ""} de tema con fechas, horas y fuentes.`
+        : `NAOS topics in ${P.seccion}, ${P.titulo}: ${ps.length} topic page${ps.length > 1 ? "s" : ""} with dates, times and sources.`,
+      cuerpo: `  <nav class="t-migas" aria-label="${L.migas}"><a href="${R3}${p0}temas/">${L.temas}</a> / <a href="${R3}${p0}temas/${secId(P.seccion)}/">${esc(sec)}</a></nav>\n  <div class="t-anaquel t-anaquel-solo">${eje(L, temporada(D))}<ul class="t-temas">${ps.map((p) => fichaTema(L, D, p, R3)).join("")}</ul></div>` }));
+    urls.push(`${p0}temas/pilar/${P.id}/`);
+  }
+}
+
+// portada de la edición ES (D-253): la franja de hoy y lo próximo (franja.js en español) y la biblioteca y la ventana.
+// La portada EN es index.html, a mano; esta se genera para que no se desfase del dato.
+function portadaES(D) {
+  const L = ED.es, raiz = "../";
+  const desc = "NAOS en español. Más cerca de ti. Dos secciones: Humanidad (comer, dormir, moverse, lo divino, comunidad) y El presente (mercados, noticias con los dos lados, IA). Descriptivo, sin asesoría financiera.";
+  const antes = `  <p class="t-rango">Las piezas en español salen desde el sábado 24 de octubre. Las demás están en inglés; cada una lleva su hora en Nueva York y en Medellín.</p>
+  <div id="secuencia" data-lang="es" data-raiz="${raiz}" hidden></div>
+`;
+  const cuerpo = `  <section class="t-bloque" aria-labelledby="h-hum"><h2 id="h-hum"><a href="temas/humanity/">${L.seccion.Humanity}</a></h2>\n${estantes(L, D, "Humanity", raiz, "h3")}\n  </section>\n` +
+    `  <section class="t-bloque" aria-labelledby="h-pres"><h2 id="h-pres"><a href="temas/the-present/">${L.seccion["The Present"]}</a></h2>\n${estantes(L, D, "The Present", raiz, "h3")}\n  </section>`;
+  return hub({ L, D, ruta: "", raiz, titulo: "NAOS en español · Más cerca de ti.", h1: "NAOS", desc, cuerpo, seccion: "Humanity", actual: "", antes,
+    css: ["assets/css/franja.css"], scripts: ["assets/js/franja.js"] });
+}
+
+// registro de enlaces cortos (solo de suma): código -> su tarjeta actual; si el Short desapareció de la grilla, su tema o Topics
+function registroCortos(D) {
+  const f = path.join(V, "data/cortos.json"), R = leerJSON(f, null) || { nota: "", codigos: {} };
+  R.nota = "Registro de enlaces cortos, solo de suma. Lo escribe scripts/construir-temas.mjs: un código emitido no se borra nunca, apunta a la tarjeta actual de su Short o, si el Short salió de la grilla, a su página de tema (o a Topics). Así un enlace ya compartido no da 404.";
+  const actual = new Map(D.piezas.filter((x) => x.corto).map((x) => [x.codigo, x]));
+  for (const [c, x] of actual) R.codigos[c] = { pagina: x.pagina, id: x.id, lang: x.lang === "es" && !(x.idiomas || []).length ? "es" : "en" };
+  R.codigos = Object.fromEntries(Object.entries(R.codigos).sort(([a], [b]) => a.localeCompare(b)));
+  fs.writeFileSync(f, JSON.stringify(R, null, 1) + "\n");
+  return { R, actual };
+}
+export function destinoCorto(D, c, e, vivo) {
+  const pref = e.lang === "es" ? "es/" : "";
+  if (vivo) return `../../${pref}temas/${e.pagina}/?src=${encodeURIComponent(c)}#${e.id}`;
+  if (D.paginas.some((p) => p.slug === e.pagina)) return `../../${pref}temas/${e.pagina}/?src=${encodeURIComponent(c)}`;
+  return `../../${pref}temas/`;
 }
 
 export function construirTemas({ silencio = false } = {}) {
   const D = leerJSON(path.join(V, "data/temas.json"));
   if (!D) throw new Error("falta data/temas.json (correr con --grilla y --paginas donde está la grilla)");
   const enlaces = leerJSON(path.join(V, "data/enlaces.json"), { piezas: {} }).piezas || {};
-  // lo generado antes y que ya no existe se borra (solo dentro de temas/ y s/, que son de este script)
-  for (const dir of ["temas", "s"]) fs.rmSync(path.join(V, dir), { recursive: true, force: true });
-  const urls = ["", "agenda.html", "temas/", "temas/humanity/", "temas/the-present/"];
-  for (const p of D.paginas) { write(`temas/${p.slug}/index.html`, paginaTema(D, p, enlaces)); urls.push(`temas/${p.slug}/`); }
-  // hubs
-  const lib = (raiz) => `  <section class="t-bloque" aria-labelledby="h-hum"><h2 id="h-hum"><a href="${raiz}temas/humanity/">Humanity</a></h2>\n${estantes(D, "Humanity", raiz, "h3")}\n  </section>`;
-  const ven = (raiz) => `  <section class="t-bloque" aria-labelledby="h-pres"><h2 id="h-pres"><a href="${raiz}temas/the-present/">The Present</a></h2>\n${estantes(D, "The Present", raiz, "h3")}\n  </section>`;
-  write("temas/index.html", hub({ D, ruta: "temas/", raiz: "../", titulo: "Topics · NAOS", h1: "Topics", seccion: "The Present", actual: "temas",
-    desc: `Every NAOS topic page: ${D.paginas.length} topics in Humanity and The Present, with the date and time of each piece and its sources.`, cuerpo: lib("../") + "\n" + ven("../") }));
-  write("temas/humanity/index.html", hub({ D, ruta: "temas/humanity/", raiz: "../../", titulo: "Humanity · NAOS", h1: "Humanity", seccion: "Humanity", actual: "humanity",
-    desc: "The NAOS library by pillar: eat, sleep, move, the divine, community, and the moon. Each topic with its pieces, dates and sources.",
-    cuerpo: estantes(D, "Humanity", "../../") }));
-  write("temas/the-present/index.html", hub({ D, ruta: "temas/the-present/", raiz: "../../", titulo: "The Present · NAOS", h1: "The Present", seccion: "The Present", actual: "the-present",
-    desc: "The NAOS window on the present: markets, news with both sides, and AI. Each topic with its pieces, dates and sources. Descriptive, not financial advice.",
-    cuerpo: estantes(D, "The Present", "../../") }));
-  for (const P of D.pilares) {
-    const ps = D.paginas.filter((p) => p.pilar === P.id); if (!ps.length) continue;
-    write(`temas/pilar/${P.id}/index.html`, hub({ D, ruta: `temas/pilar/${P.id}/`, raiz: "../../../", titulo: `${P.titulo} · NAOS`, h1: P.titulo, seccion: P.seccion, actual: "",
-      desc: `NAOS topics in ${P.seccion}, ${P.titulo}: ${ps.length} topic page${ps.length > 1 ? "s" : ""} with dates, times and sources.`,
-      cuerpo: `  <nav class="t-migas" aria-label="Breadcrumb"><a href="../../../temas/">Topics</a> / <a href="../../../temas/${secId(P.seccion)}/">${esc(P.seccion)}</a></nav>\n  <div class="t-anaquel t-anaquel-solo">${eje(temporada(D))}<ul class="t-temas">${ps.map((p) => fichaTema(D, p, "../../../")).join("")}</ul></div>` }));
-    urls.push(`temas/pilar/${P.id}/`);
+  // lo generado antes y que ya no existe se borra (solo dentro de temas/, es/ y s/, que son de este script)
+  for (const dir of ["temas", "es", "s"]) fs.rmSync(path.join(V, dir), { recursive: true, force: true });
+  const urls = ["", "agenda.html"];
+  for (const L of [ED.en, ED.es]) {
+    if (L.lang === "es") { write("es/index.html", portadaES(D)); urls.push("es/"); }
+    hubs(L, D, urls);
+    for (const p of D.paginas) { write(`${L.pref}temas/${p.slug}/index.html`, paginaTema(L, D, p, enlaces)); urls.push(`${L.pref}temas/${p.slug}/`); }
   }
-  // enlaces cortos: uno estable por Short, a su tarjeta en su página de tema
-  let cortos = 0;
-  for (const x of D.piezas.filter((x) => x.corto)) {
-    const destino = `../../temas/${x.pagina}/?src=${encodeURIComponent(x.codigo)}#${x.id}`;
-    write(`s/${x.codigo}/index.html`, `<!doctype html>
-<html lang="en">
+  // enlaces cortos: uno estable por Short, a su tarjeta en su página de tema (la ES para las piezas en español)
+  const { R, actual } = registroCortos(D);
+  let cortos = 0, retirados = 0;
+  for (const [c, e] of Object.entries(R.codigos)) {
+    const vivo = actual.has(c), destino = destinoCorto(D, c, e, vivo), es = e.lang === "es";
+    write(`s/${c}/index.html`, `<!doctype html>
+<html lang="${es ? "es" : "en"}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NAOS · ${esc(x.codigo)}</title>
+<title>NAOS · ${esc(c)}</title>
 <meta name="robots" content="noindex">
-<link rel="canonical" href="${BASE}temas/${esc(x.pagina)}/">
+<link rel="canonical" href="${BASE}${es ? "es/" : ""}temas/${esc(D.paginas.some((p) => p.slug === e.pagina) ? e.pagina + "/" : "")}">
 <meta http-equiv="refresh" content="0; url=${esc(destino)}">
 <script>location.replace(${JSON.stringify(destino)});</script>
 <style>body{font:16px/1.5 system-ui,sans-serif;margin:48px 16px;background:#fff;color:#0E1116}a{color:inherit}</style>
 </head>
-<body><p><a href="${esc(destino)}">Go to this piece on its NAOS page</a></p></body>
+<body><p><a href="${esc(destino)}">${es ? "Ir a esta pieza en su página de NAOS" : "Go to this piece on its NAOS page"}</a></p></body>
 </html>
 `);
-    cortos++;
+    if (vivo) cortos++; else retirados++;
   }
   write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${BASE}${u}</loc></url>`).join("\n")}\n</urlset>\n`);
-  const r = { paginas: D.paginas.length, tarjetas: D.piezas.length, cortos, hubs: 3 + D.pilares.filter((P) => D.paginas.some((p) => p.pilar === P.id)).length };
-  if (!silencio) console.log(`construir-temas: ${r.paginas} páginas de tema, ${r.tarjetas} tarjetas, ${r.cortos} enlaces cortos, ${r.hubs} hubs, sitemap con ${urls.length} URL`);
+  const r = { paginas: D.paginas.length, tarjetas: D.piezas.length, cortos, retirados, hubs: 3 + D.pilares.filter((P) => D.paginas.some((p) => p.pilar === P.id)).length };
+  if (!silencio) console.log(`construir-temas: ${r.paginas} páginas de tema por edición (EN y ES), ${r.tarjetas} tarjetas, ${r.cortos} enlaces cortos vivos${r.retirados ? ` y ${r.retirados} retirados que apuntan a su tema` : ""}, ${r.hubs} hubs por edición, sitemap con ${urls.length} URL`);
   return r;
 }
 
@@ -447,7 +603,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     if (!g || !p) { console.error("uso: node scripts/construir-temas.mjs --grilla=<grilla.json> --paginas=<paginas.json> [--afirmaciones=<csv>]"); process.exit(2); }
     const D = proyectar({ grilla: leerJSON(g), paginas: leerJSON(p), afirmaciones: a ? csv(fs.readFileSync(a, "utf8")) : [], agenda: leerJSON(path.join(V, "data/agenda.json")) });
     fs.writeFileSync(path.join(V, "data/temas.json"), JSON.stringify(D, null, 1) + "\n");
-    console.log(`temas.json: ${D.paginas.length} páginas, ${D.piezas.length} piezas (${D.piezas.filter((x) => x.lang === "es").length} en español dentro de su página EN), ${D.piezas.filter((x) => x.corto).length} Shorts con enlace corto`);
+    console.log(`temas.json: ${D.paginas.length} páginas, ${D.piezas.length} piezas (${D.piezas.filter((x) => x.lang === "es").length} en español, en la edición ES), ${D.piezas.filter((x) => x.corto).length} Shorts con enlace corto`);
   }
   construirTemas();
 }

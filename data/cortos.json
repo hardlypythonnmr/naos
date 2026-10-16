@@ -1,0 +1,800 @@
+{
+ "nota": "Registro de enlaces cortos, solo de suma. Lo escribe scripts/construir-temas.mjs: un código emitido no se borra nunca, apunta a la tarjeta actual de su Short o, si el Short salió de la grilla, a su página de tema (o a Topics). Así un enlace ya compartido no da 404.",
+ "codigos": {
+  "1019h": {
+   "pagina": "the-cella",
+   "id": "c-2026-10-19-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1019p": {
+   "pagina": "who-is-telling-you-this",
+   "id": "c-2026-10-19-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1020h": {
+   "pagina": "the-full-moon-table",
+   "id": "c-2026-10-20-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1020p": {
+   "pagina": "who-is-telling-you-this",
+   "id": "c-2026-10-20-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1021h": {
+   "pagina": "the-full-moon-table",
+   "id": "c-2026-10-21-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1021p": {
+   "pagina": "from-chat-to-code",
+   "id": "c-2026-10-21-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1022h": {
+   "pagina": "walks-by-the-moon",
+   "id": "c-2026-10-22-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1022p": {
+   "pagina": "built-here",
+   "id": "c-2026-10-22-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1023h": {
+   "pagina": "the-full-moon-table",
+   "id": "c-2026-10-23-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1023p": {
+   "pagina": "from-chat-to-code",
+   "id": "c-2026-10-23-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1024es": {
+   "pagina": "the-full-moon-table",
+   "id": "c-2026-10-24-1300-h-es",
+   "lang": "es"
+  },
+  "1024h": {
+   "pagina": "moon",
+   "id": "c-2026-10-24-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1024p": {
+   "pagina": "how-a-vote-is-counted",
+   "id": "c-2026-10-24-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1025h": {
+   "pagina": "the-full-moon-table",
+   "id": "c-2026-10-25-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1025p": {
+   "pagina": "from-chat-to-code",
+   "id": "c-2026-10-25-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1026h": {
+   "pagina": "the-full-moon-table",
+   "id": "c-2026-10-26-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1026p": {
+   "pagina": "who-writes-the-rules",
+   "id": "c-2026-10-26-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1027h": {
+   "pagina": "saints-and-souls",
+   "id": "c-2026-10-27-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1027p": {
+   "pagina": "fomc-before-and-after-the-silence",
+   "id": "c-2026-10-27-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1028h": {
+   "pagina": "the-full-moon-table",
+   "id": "c-2026-10-28-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1028p": {
+   "pagina": "fomc-before-and-after-the-silence",
+   "id": "c-2026-10-28-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1029h": {
+   "pagina": "saints-and-souls",
+   "id": "c-2026-10-29-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1029p": {
+   "pagina": "from-chat-to-code",
+   "id": "c-2026-10-29-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1030h": {
+   "pagina": "the-full-moon-table",
+   "id": "c-2026-10-30-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1030p": {
+   "pagina": "fomc-before-and-after-the-silence",
+   "id": "c-2026-10-30-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1031h": {
+   "pagina": "saints-and-souls",
+   "id": "c-2026-10-31-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1031p": {
+   "pagina": "how-a-vote-is-counted",
+   "id": "c-2026-10-31-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1101es": {
+   "pagina": "saints-and-souls",
+   "id": "c-2026-11-01-1200-h-es",
+   "lang": "es"
+  },
+  "1101h": {
+   "pagina": "saints-and-souls",
+   "id": "c-2026-11-01-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1101p": {
+   "pagina": "fomc-before-and-after-the-silence",
+   "id": "c-2026-11-01-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1102h": {
+   "pagina": "saints-and-souls",
+   "id": "c-2026-11-02-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1102p": {
+   "pagina": "look-up-from-the-news",
+   "id": "c-2026-11-02-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1103h": {
+   "pagina": "keep-your-hour",
+   "id": "c-2026-11-03-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1103p": {
+   "pagina": "how-a-vote-is-counted",
+   "id": "c-2026-11-03-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1104h": {
+   "pagina": "saints-and-souls",
+   "id": "c-2026-11-04-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1104p": {
+   "pagina": "payrolls-before-the-number",
+   "id": "c-2026-11-04-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1105h": {
+   "pagina": "keep-your-hour",
+   "id": "c-2026-11-05-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1105p": {
+   "pagina": "payrolls-before-the-number",
+   "id": "c-2026-11-05-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1106h": {
+   "pagina": "saints-and-souls",
+   "id": "c-2026-11-06-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1106p": {
+   "pagina": "payrolls-before-the-number",
+   "id": "c-2026-11-06-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1107es": {
+   "pagina": "keep-your-hour",
+   "id": "c-2026-11-07-1200-h-es",
+   "lang": "es"
+  },
+  "1107h": {
+   "pagina": "a-lamp-on-the-night-without-a-moon",
+   "id": "c-2026-11-07-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1107p": {
+   "pagina": "from-chat-to-code",
+   "id": "c-2026-11-07-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1108h": {
+   "pagina": "a-lamp-on-the-night-without-a-moon",
+   "id": "c-2026-11-08-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1108p": {
+   "pagina": "payrolls-before-the-number",
+   "id": "c-2026-11-08-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1109h": {
+   "pagina": "moon",
+   "id": "c-2026-11-09-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1109p": {
+   "pagina": "who-writes-the-rules",
+   "id": "c-2026-11-09-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1110h": {
+   "pagina": "a-lamp-on-the-night-without-a-moon",
+   "id": "c-2026-11-10-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1110p": {
+   "pagina": "one-number-and-its-range",
+   "id": "c-2026-11-10-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1111h": {
+   "pagina": "walk-to-the-water",
+   "id": "c-2026-11-11-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1111p": {
+   "pagina": "built-here",
+   "id": "c-2026-11-11-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1112h": {
+   "pagina": "a-lamp-on-the-night-without-a-moon",
+   "id": "c-2026-11-12-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1112p": {
+   "pagina": "one-number-and-its-range",
+   "id": "c-2026-11-12-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1113h": {
+   "pagina": "a-lamp-on-the-night-without-a-moon",
+   "id": "c-2026-11-13-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1113p": {
+   "pagina": "one-number-and-its-range",
+   "id": "c-2026-11-13-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1114es": {
+   "pagina": "a-lamp-on-the-night-without-a-moon",
+   "id": "c-2026-11-14-1200-h-es",
+   "lang": "es"
+  },
+  "1114h": {
+   "pagina": "walk-to-the-water",
+   "id": "c-2026-11-14-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1114p": {
+   "pagina": "who-is-telling-you-this",
+   "id": "c-2026-11-14-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1115h": {
+   "pagina": "walk-to-the-water",
+   "id": "c-2026-11-15-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1115p": {
+   "pagina": "one-number-and-its-range",
+   "id": "c-2026-11-15-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1116h": {
+   "pagina": "walk-to-the-water",
+   "id": "c-2026-11-16-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1116p": {
+   "pagina": "who-is-telling-you-this",
+   "id": "c-2026-11-16-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1117h": {
+   "pagina": "phones-in-the-bread-basket",
+   "id": "c-2026-11-17-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1117p": {
+   "pagina": "from-chat-to-code",
+   "id": "c-2026-11-17-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1118h": {
+   "pagina": "walk-to-the-water",
+   "id": "c-2026-11-18-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1118p": {
+   "pagina": "who-writes-the-rules",
+   "id": "c-2026-11-18-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1119h": {
+   "pagina": "a-good-party",
+   "id": "c-2026-11-19-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1119p": {
+   "pagina": "the-radar-that-tells-you-when-it-is-blind",
+   "id": "c-2026-11-19-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1120h": {
+   "pagina": "walk-to-the-water",
+   "id": "c-2026-11-20-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1120p": {
+   "pagina": "the-radar-that-tells-you-when-it-is-blind",
+   "id": "c-2026-11-20-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1121es": {
+   "pagina": "phones-in-the-bread-basket",
+   "id": "c-2026-11-21-1200-h-es",
+   "lang": "es"
+  },
+  "1121h": {
+   "pagina": "a-good-party",
+   "id": "c-2026-11-21-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1121p": {
+   "pagina": "money-at-the-table",
+   "id": "c-2026-11-21-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1122h": {
+   "pagina": "a-good-party",
+   "id": "c-2026-11-22-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1122p": {
+   "pagina": "the-radar-that-tells-you-when-it-is-blind",
+   "id": "c-2026-11-22-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1123h": {
+   "pagina": "moon",
+   "id": "c-2026-11-23-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1123p": {
+   "pagina": "money-at-the-table",
+   "id": "c-2026-11-23-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1124h": {
+   "pagina": "a-good-party",
+   "id": "c-2026-11-24-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1124p": {
+   "pagina": "how-we-test-an-idea",
+   "id": "c-2026-11-24-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1125h": {
+   "pagina": "a-good-party",
+   "id": "c-2026-11-25-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1125p": {
+   "pagina": "one-number-and-its-range",
+   "id": "c-2026-11-25-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1126h": {
+   "pagina": "phones-in-the-bread-basket",
+   "id": "c-2026-11-26-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1126p": {
+   "pagina": "look-up-from-the-news",
+   "id": "c-2026-11-26-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1127h": {
+   "pagina": "a-good-party",
+   "id": "c-2026-11-27-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1127p": {
+   "pagina": "how-we-test-an-idea",
+   "id": "c-2026-11-27-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1128es": {
+   "pagina": "a-good-party",
+   "id": "c-2026-11-28-1200-h-es",
+   "lang": "es"
+  },
+  "1128h": {
+   "pagina": "a-good-party",
+   "id": "c-2026-11-28-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1128p": {
+   "pagina": "how-a-vote-is-counted",
+   "id": "c-2026-11-28-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1129h": {
+   "pagina": "advent-waiting",
+   "id": "c-2026-11-29-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1129p": {
+   "pagina": "how-we-test-an-idea",
+   "id": "c-2026-11-29-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1130h": {
+   "pagina": "advent-waiting",
+   "id": "c-2026-11-30-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1130p": {
+   "pagina": "how-a-vote-is-counted",
+   "id": "c-2026-11-30-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1201h": {
+   "pagina": "advent-waiting",
+   "id": "c-2026-12-01-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1201p": {
+   "pagina": "two-clocks",
+   "id": "c-2026-12-01-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1202h": {
+   "pagina": "advent-waiting",
+   "id": "c-2026-12-02-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1202p": {
+   "pagina": "built-here",
+   "id": "c-2026-12-02-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1203h": {
+   "pagina": "advent-waiting",
+   "id": "c-2026-12-03-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1203p": {
+   "pagina": "two-clocks",
+   "id": "c-2026-12-03-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1204h": {
+   "pagina": "advent-waiting",
+   "id": "c-2026-12-04-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1204p": {
+   "pagina": "two-clocks",
+   "id": "c-2026-12-04-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1205es": {
+   "pagina": "advent-waiting",
+   "id": "c-2026-12-05-1200-h-es",
+   "lang": "es"
+  },
+  "1205h": {
+   "pagina": "light-in-the-window",
+   "id": "c-2026-12-05-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1205p": {
+   "pagina": "money-at-the-table",
+   "id": "c-2026-12-05-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1206h": {
+   "pagina": "light-in-the-window",
+   "id": "c-2026-12-06-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1206p": {
+   "pagina": "two-clocks",
+   "id": "c-2026-12-06-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1207h": {
+   "pagina": "moon",
+   "id": "c-2026-12-07-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1207p": {
+   "pagina": "who-writes-the-rules",
+   "id": "c-2026-12-07-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1208h": {
+   "pagina": "light-in-the-window",
+   "id": "c-2026-12-08-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1208p": {
+   "pagina": "fomc-with-projections",
+   "id": "c-2026-12-08-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1209h": {
+   "pagina": "light-in-the-window",
+   "id": "c-2026-12-09-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1209p": {
+   "pagina": "fomc-with-projections",
+   "id": "c-2026-12-09-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1210h": {
+   "pagina": "light-in-the-window",
+   "id": "c-2026-12-10-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1210p": {
+   "pagina": "fomc-with-projections",
+   "id": "c-2026-12-10-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1211h": {
+   "pagina": "light-in-the-window",
+   "id": "c-2026-12-11-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1211p": {
+   "pagina": "fomc-with-projections",
+   "id": "c-2026-12-11-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1212es": {
+   "pagina": "light-in-the-window",
+   "id": "c-2026-12-12-1200-h-es",
+   "lang": "es"
+  },
+  "1212h": {
+   "pagina": "how-a-month-is-announced",
+   "id": "c-2026-12-12-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1212p": {
+   "pagina": "built-here",
+   "id": "c-2026-12-12-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1213h": {
+   "pagina": "walks-by-the-moon",
+   "id": "c-2026-12-13-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1213p": {
+   "pagina": "fomc-with-projections",
+   "id": "c-2026-12-13-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1214h": {
+   "pagina": "how-a-month-is-announced",
+   "id": "c-2026-12-14-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1214p": {
+   "pagina": "who-writes-the-rules",
+   "id": "c-2026-12-14-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1215h": {
+   "pagina": "walks-by-the-moon",
+   "id": "c-2026-12-15-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1215p": {
+   "pagina": "four-banks-one-table",
+   "id": "c-2026-12-15-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1216h": {
+   "pagina": "how-a-month-is-announced",
+   "id": "c-2026-12-16-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1216p": {
+   "pagina": "errata",
+   "id": "c-2026-12-16-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1217h": {
+   "pagina": "walks-by-the-moon",
+   "id": "c-2026-12-17-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1217p": {
+   "pagina": "four-banks-one-table",
+   "id": "c-2026-12-17-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1218h": {
+   "pagina": "how-a-month-is-announced",
+   "id": "c-2026-12-18-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1218p": {
+   "pagina": "four-banks-one-table",
+   "id": "c-2026-12-18-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1219es": {
+   "pagina": "walks-by-the-moon",
+   "id": "c-2026-12-19-1200-h-es",
+   "lang": "es"
+  },
+  "1219h": {
+   "pagina": "the-longest-night",
+   "id": "c-2026-12-19-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1219p": {
+   "pagina": "look-up-from-the-news",
+   "id": "c-2026-12-19-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1220h": {
+   "pagina": "the-longest-night",
+   "id": "c-2026-12-20-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1220p": {
+   "pagina": "four-banks-one-table",
+   "id": "c-2026-12-20-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1221h": {
+   "pagina": "the-longest-night",
+   "id": "c-2026-12-21-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1221p": {
+   "pagina": "money-at-the-table",
+   "id": "c-2026-12-21-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1222h": {
+   "pagina": "moon",
+   "id": "c-2026-12-22-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1222p": {
+   "pagina": "errata",
+   "id": "c-2026-12-22-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1223h": {
+   "pagina": "the-longest-night",
+   "id": "c-2026-12-23-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1223p": {
+   "pagina": "four-banks-one-table",
+   "id": "c-2026-12-23-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1224h": {
+   "pagina": "the-longest-night",
+   "id": "c-2026-12-24-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1224p": {
+   "pagina": "errata",
+   "id": "c-2026-12-24-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1225h": {
+   "pagina": "the-longest-night",
+   "id": "c-2026-12-25-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1225p": {
+   "pagina": "look-up-from-the-news",
+   "id": "c-2026-12-25-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1226es": {
+   "pagina": "moon",
+   "id": "c-2026-12-26-1200-h-es",
+   "lang": "es"
+  },
+  "1226h": {
+   "pagina": "back-to-the-hour",
+   "id": "c-2026-12-26-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1226p": {
+   "pagina": "open-questions",
+   "id": "c-2026-12-26-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1227h": {
+   "pagina": "back-to-the-hour",
+   "id": "c-2026-12-27-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1227p": {
+   "pagina": "errata",
+   "id": "c-2026-12-27-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1228h": {
+   "pagina": "back-to-the-hour",
+   "id": "c-2026-12-28-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1228p": {
+   "pagina": "who-is-telling-you-this",
+   "id": "c-2026-12-28-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1229h": {
+   "pagina": "the-cella",
+   "id": "c-2026-12-29-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1229p": {
+   "pagina": "open-questions",
+   "id": "c-2026-12-29-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1230h": {
+   "pagina": "back-to-the-hour",
+   "id": "c-2026-12-30-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1230p": {
+   "pagina": "four-banks-one-table",
+   "id": "c-2026-12-30-1800-p-short-reel",
+   "lang": "en"
+  },
+  "1231es": {
+   "pagina": "back-to-the-hour",
+   "id": "c-2026-12-31-1200-h-es",
+   "lang": "es"
+  },
+  "1231h": {
+   "pagina": "the-cella",
+   "id": "c-2026-12-31-2000-h-short-reel",
+   "lang": "en"
+  },
+  "1231p": {
+   "pagina": "open-questions",
+   "id": "c-2026-12-31-1800-p-short-reel",
+   "lang": "en"
+  }
+ }
+}
