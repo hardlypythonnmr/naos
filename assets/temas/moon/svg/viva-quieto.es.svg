@@ -1,0 +1,44 @@
+<svg class="mv" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 394" width="360" height="394" role="img" aria-labelledby="mv-t-es mv-d-es" lang="es">
+<title id="mv-t-es">Animación: la luna recorre dos ciclos de fases, de la luna llena del 25 de octubre a la del 23 de diciembre, y una barra de abajo sigue las fechas.</title>
+<desc id="mv-d-es">Un dibujo visto desde arriba, con la luz del Sol llegando por la izquierda. La Tierra está en el centro y la luna en un círculo a su alrededor. En la luna llena, a la derecha, nos mira toda la mitad iluminada. En la luna nueva, a la izquierda, no nos mira nada de ella. Abajo, una barra va del 25 de octubre al 23 de diciembre con las cinco fases marcadas: llena el 25 de octubre, nueva el 9 de noviembre, llena el 24 de noviembre, nueva el 8 de diciembre y llena el 23 de diciembre. Esta imagen muestra la luna llena del 23 de diciembre.</desc>
+<style>svg.mv{--ink:var(--naos-ink,#0E1116);--sec:var(--naos-sec,#454C57);--grey:var(--naos-grey,#59616D);--chart:var(--naos-chart,#737B87);--rule:var(--naos-rule,#D7DBE0);--paper:var(--naos-paper,#FFFFFF);font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif)}svg.mv[data-tono=noche]{--ink:var(--naos-night-text,#F4F6F8);--sec:var(--naos-night-sec,#C3C9D2);--grey:var(--naos-night-grey,#9AA3B0);--chart:var(--naos-night-grey,#9AA3B0);--rule:var(--naos-night-rule,#2A303A);--paper:var(--naos-night,#0E1116)}svg.mv text{fill:var(--ink)}svg.mv .mv-g{fill:var(--grey);font-size:13px}svg.mv .mv-n{font-size:13px;font-weight:600}svg.mv .mv-fec{font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}svg.mv .mv-or{fill:none;stroke:var(--chart);stroke-width:1.8;stroke-linecap:round;stroke-dasharray:.1 6.5}svg.mv .mv-ray{stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}svg.mv .mv-tie{fill:var(--sec)}svg.mv .mv-lit{fill:var(--paper);stroke:none}svg.mv .mv-osc{fill:var(--ink);stroke:none}svg.mv .mv-bd{fill:none;stroke:var(--ink);stroke-width:1.8}svg.mv .mv-tr{fill:var(--rule)}svg.mv .mv-lleno{fill:var(--ink)}svg.mv .mv-bar{stroke:var(--ink);stroke-width:1.5}svg.mv .mv-full{fill:var(--paper);stroke:var(--ink);stroke-width:2.2}svg.mv .mv-new{fill:var(--ink);stroke:var(--ink);stroke-width:2.2}svg.mv .mv-tk{stroke:var(--chart);stroke-width:1.8;stroke-linecap:round}svg.mv .mv-tk.mv-pas{stroke:var(--ink)}svg.mv .mv-cab polygon{fill:var(--ink)}</style>
+<circle class="mv-or" cx="180" cy="112" r="76"/>
+<path class="mv-ray" d="M8 84H38M31 79L38 84L31 89"/>
+<path class="mv-ray" d="M8 112H38M31 107L38 112L31 117"/>
+<path class="mv-ray" d="M8 140H38M31 135L38 140L31 145"/>
+<text class="mv-g" x="8" y="70">Luz del Sol</text>
+<circle class="mv-tie" cx="180" cy="112" r="11"/>
+<text class="mv-g" x="180" y="143" text-anchor="middle">Tierra</text>
+<text class="mv-n" x="84" y="117" text-anchor="end">Nueva</text>
+<text class="mv-n" x="276" y="117">Llena</text>
+<g class="mv-luna" transform="translate(256 112)"><path class="mv-lit" d="M0 -10A10 10 0 0 0 0 10Z"/><path class="mv-osc" d="M0 -10A10 10 0 0 1 0 10Z"/><circle class="mv-bd" r="10"/></g>
+<text class="mv-g" x="24" y="224">Iluminada, vista desde la Tierra</text>
+<rect class="mv-tr" x="24" y="232" width="312" height="6"/><rect class="mv-lleno" x="24" y="232" width="312" height="6"/>
+<text class="mv-g" x="24" y="256">oscura</text><text class="mv-g" x="336" y="256" text-anchor="end">llena</text>
+<line class="mv-bar" x1="24" y1="326" x2="336" y2="326"/>
+<path class="mv-tk mv-pas" d="M24.43 340V348"/>
+<path class="mv-tk mv-pas" d="M105.83 340V348"/>
+<path class="mv-tk mv-pas" d="M107.56 340V348"/>
+<path class="mv-tk mv-pas" d="M178.38 340V348"/>
+<path class="mv-tk mv-pas" d="M180.11 340V348"/>
+<path class="mv-tk mv-pas" d="M250.93 340V348"/>
+<path class="mv-tk mv-pas" d="M252.66 340V348"/>
+<path class="mv-tk mv-pas" d="M328.66 340V348"/>
+<path class="mv-tk mv-pas" d="M330.39 340V348"/>
+<circle class="mv-full" cx="30.52" cy="326" r="8"/>
+<text class="mv-g" x="30.52" y="368" text-anchor="middle">25 oct</text>
+<text class="mv-g" x="30.52" y="384" text-anchor="middle">Llena</text>
+<circle class="mv-new" cx="103.68" cy="326" r="8"/>
+<text class="mv-g" x="103.68" y="368" text-anchor="middle">9 nov</text>
+<text class="mv-g" x="103.68" y="384" text-anchor="middle">Nueva</text>
+<circle class="mv-full" cx="183.11" cy="326" r="8"/>
+<text class="mv-g" x="183.11" y="368" text-anchor="middle">24 nov</text>
+<text class="mv-g" x="183.11" y="384" text-anchor="middle">Llena</text>
+<circle class="mv-new" cx="257.81" cy="326" r="8"/>
+<text class="mv-g" x="257.81" y="368" text-anchor="middle">8 dic</text>
+<text class="mv-g" x="257.81" y="384" text-anchor="middle">Nueva</text>
+<circle class="mv-full" cx="335.67" cy="326" r="8"/>
+<text class="mv-g" x="335.67" y="368" text-anchor="middle">23 dic</text>
+<text class="mv-g" x="335.67" y="384" text-anchor="middle">Llena</text>
+<g class="mv-cab" transform="translate(335.67 0)"><polygon points="-6,298 6,298 0,309"/><text class="mv-fec" x="-3.67" y="290" text-anchor="middle">23 dic</text></g>
+</svg>

@@ -164,7 +164,7 @@ if (T) {
       voz: "Voz: sintética", noConsejo: "Descriptivo, sin asesoría financiera.", estado: /<span class="t-tag">(Próximamente|Publicada)<\/span>/, noticia: "Solo fecha y tema", zodiaco: "Zodíaco tropical occidental",
       sello: "Las voces de las piezas de NAOS son sintéticas.", tiene: () => true },
   };
-  const PRIVADO = /\/home\/|n-system|revisa_N|por_que|\bcola\/|\bmotor\/|\b(conductas|tradiciones|evidencia|demanda|astrologia|cielo|calendario|cella|fmt|quien|voto|fomc|chat|santos)-(br-|us-|es-)?\d{2}\b|agenda\.json|\bD-\d{3}\b|\btrig_|L[áa]mina|Se lee en|Se escribe con|\blote \d|\bN:\d|linea-es\.md|\.py\b/;
+  const PRIVADO = /\/home\/|n-system|revisa_N|por_que|\bcola\/|\bmotor\/|\b(conductas|tradiciones|evidencia|demanda|astrologia|cielo|calendario|cella|fmt|quien|voto|fomc|chat|santos|sas)-(br-|us-|es-)?\d{2}\b|agenda\.json|\bD-\d{3}\b|\btrig_|L[áa]mina|Se lee en|Se escribe con|\blote \d|\bN:\d|linea-es\.md|\.py\b/;
   const html = (r) => { const f = join(RAIZ, r); return existsSync(f) ? readFileSync(f, "utf8") : null; };
   // página sellada con cuerpo (decisión 4 de N: con el sello I4, las tarjetas de noticias llevan su título)
   const conCuerpo = (slug, lang) => existsSync(join(RAIZ, `data/temas/${slug}.${lang}.md`));
@@ -281,7 +281,7 @@ if (T) {
 // ---------- 7. cuerpo de las páginas selladas ----------
 let resumenCuerpo = "";
 if (existsSync(join(RAIZ, "data/temas"))) {
-  const PRIV = /\/home\/|n-system|revisa_N|\bcola\/|\bmotor\/|\b(conductas|tradiciones|evidencia|demanda|astrologia|cielo|calendario|cella|fmt|quien|voto|fomc|chat|luna|santos)-\d{2}\b|\bD-\d{3}\b|\blote \d|\.py\b|<!--/;
+  const PRIV = /\/home\/|n-system|revisa_N|\bcola\/|\bmotor\/|\b(conductas|tradiciones|evidencia|demanda|astrologia|cielo|calendario|cella|fmt|quien|voto|fomc|chat|luna|moon|santos|sas)-\d{2}\b|\bD-\d{3}\b|\blote \d|\.py\b|<!--/;
   const fs7 = readdirSync(join(RAIZ, "data/temas")).sort();
   for (const n of fs7) {
     const r = "data/temas/" + n, t = leer(r);
@@ -291,7 +291,7 @@ if (existsSync(join(RAIZ, "data/temas"))) {
     if (n.endsWith(".en.md") && /\bexercises?\b/i.test(t)) falla(r, '"exercises": la casa dice "behaviors"');
     if (n.endsWith(".md")) { const slug = n.replace(/\.(en|es)\.md$/, ""); if (!existsSync(join(RAIZ, "data/temas", slug + ".json"))) falla(r, "cuerpo sin su .json"); if (!existsSync(join(RAIZ, "assets/temas", slug))) falla(r, "cuerpo sin assets/temas/" + slug); }
   }
-  for (const p of todos.filter((f) => /^assets\/temas\//.test(rel(f)))) { const t = readFileSync(p, "utf8"); if (t.includes("—")) falla(rel(p), "raya larga"); if (/\/home\/|n-system/.test(t)) falla(rel(p), "ruta privada"); const m = /<!--|\b(cella|fmt|quien|voto|fomc|chat|moon|santos)-(br-|us-|es-)?\d{2}\b/.exec(t); if (m) falla(rel(p), `interno en un asset público: ${m[0]}`); }
+  for (const p of todos.filter((f) => /^assets\/temas\//.test(rel(f)))) { const t = readFileSync(p, "utf8"); if (t.includes("—")) falla(rel(p), "raya larga"); if (/\/home\/|n-system/.test(t)) falla(rel(p), "ruta privada"); const m = /<!--|\b(cella|fmt|quien|voto|fomc|chat|moon|santos|sas)-(br-|us-|es-)?\d{2}\b/.exec(t); if (m) falla(rel(p), `interno en un asset público: ${m[0]}`); }
   resumenCuerpo = ` · cuerpo: ${fs7.filter((n) => n.endsWith(".md")).length / 2} páginas selladas`;
 }
 

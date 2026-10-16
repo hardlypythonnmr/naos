@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="960" height="360" role="img" lang="en" xml:lang="en" aria-labelledby="q-en-ancho-t" aria-describedby="q-en-ancho-d" style="max-width:100%;height:auto">
+<title id="q-en-ancho-t">One evening</title>
+<desc id="q-en-ancho-d">A thread with four stops: sound rings coming from one person, an extra place set across from the first, a line joining two people with a pulse running along it, and the same line drawn dashed for next week.</desc>
+<style>
+.svq-t{font-family:var(--font-serif,"Newsreader",Georgia,serif);fill:var(--naos-ink,#0E1116)} .svq-f{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);fill:var(--naos-grey,#59616D);font-size:14px} .svq-s{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);fill:var(--naos-sec,#454C57);font-size:14px}
+.svq-num{font-family:var(--font-serif,"Newsreader",Georgia,serif);font-size:28px;font-weight:300;fill:var(--naos-ink,#0E1116)}
+.svq-hilo{stroke:var(--naos-ink,#0E1116);stroke-width:2;fill:none}
+.svq-tallo{stroke:var(--naos-chart,#737B87);stroke-width:1.5} .svq-nodo{fill:var(--naos-ink,#0E1116)}
+.svq-yo{fill:var(--naos-ink,#0E1116)} .svq-otro{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.svq-arc{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2;stroke-linecap:round} .svq-a2{opacity:.75} .svq-a3{opacity:.5}
+.svq-plato{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:2} .svq-taza{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-chart,#737B87);stroke-width:2} .svq-silla{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-chart,#737B87);stroke-width:2}
+.svq-lin{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2} .svq-lin2{stroke-dasharray:6 6}
+.svq-pul{fill:var(--naos-ink,#0E1116);opacity:0}
+.svq-s4 .svq-otro{stroke:var(--naos-chart,#737B87)}
+</style>
+<path class="svq-hilo" d="M20,150 H940" pathLength="100"/><g class="svq-est" data-k="1"><line class="svq-tallo" x1="120" y1="112" x2="120" y2="150"/><circle class="svq-nodo" cx="120" cy="150" r="5"/><g transform="translate(120 66)"><g class="svq-s1"><circle class="svq-yo" cx="-24" cy="0" r="7"/><path class="svq-arc svq-a1" d="M-9.1,-13.4 A20,20 0 0 1 -9.1,13.4"/><path class="svq-arc svq-a2" d="M1.3,-22.8 A34,34 0 0 1 1.3,22.8"/><path class="svq-arc svq-a3" d="M11.7,-32.1 A48,48 0 0 1 11.7,32.1"/></g></g></g><g class="svq-est" data-k="2"><line class="svq-tallo" x1="360" y1="112" x2="360" y2="150"/><circle class="svq-nodo" cx="360" cy="150" r="5"/><g transform="translate(360 66)"><g class="svq-s2"><g class="svq-pA"><circle class="svq-plato" cx="-44" cy="0" r="18"/><circle class="svq-taza" cx="-18" cy="-8" r="6"/><rect class="svq-silla" x="-60" y="27" width="32" height="8" rx="4"/></g><g class="svq-pB"><circle class="svq-plato" cx="44" cy="0" r="18"/><circle class="svq-taza" cx="18" cy="-8" r="6"/><rect class="svq-silla" x="28" y="27" width="32" height="8" rx="4"/></g></g></g></g><g class="svq-est" data-k="3"><line class="svq-tallo" x1="600" y1="112" x2="600" y2="150"/><circle class="svq-nodo" cx="600" cy="150" r="5"/><g transform="translate(600 66)"><g class="svq-s3"><path class="svq-lin" d="M-41,0 H41" pathLength="100"/><circle class="svq-yo" cx="-50" cy="0" r="7"/><circle class="svq-otro" cx="50" cy="0" r="8"/><circle class="svq-pul svq-p1" cx="-41" cy="0" r="3.5"/><circle class="svq-pul svq-p2" cx="41" cy="0" r="3.5"/></g></g></g><g class="svq-est" data-k="4"><line class="svq-tallo" x1="840" y1="112" x2="840" y2="150"/><circle class="svq-nodo" cx="840" cy="150" r="5"/><g transform="translate(840 66)"><g class="svq-s4"><path class="svq-lin svq-lin2" d="M-41,0 H41" pathLength="100"/><circle class="svq-otro" cx="-50" cy="0" r="8"/><circle class="svq-otro" cx="50" cy="0" r="8"/></g></g></g>
+<text class="svq-num" x="20" y="214">1</text>
+<text class="svq-t" x="48" y="212" text-anchor="start" font-size="18">Say one name out</text><text class="svq-t" x="48" y="232" text-anchor="start" font-size="18">loud.</text>
+<text class="svq-s" x="48" y="256" text-anchor="start">Tradition: naming the</text><text class="svq-s" x="48" y="273" text-anchor="start">dead, in Jewish prayer and</text><text class="svq-s" x="48" y="290" text-anchor="start">in some churches. [15] [8]</text><text class="svq-s" x="48" y="307" text-anchor="start">[4]</text>
+<text class="svq-num" x="260" y="214">2</text>
+<text class="svq-t" x="288" y="212" text-anchor="start" font-size="18">Set one more place.</text>
+<text class="svq-s" x="288" y="236" text-anchor="start">Our experiment: we found</text><text class="svq-s" x="288" y="253" text-anchor="start">no sourced custom.</text>
+<text class="svq-num" x="500" y="214">3</text>
+<text class="svq-t" x="528" y="212" text-anchor="start" font-size="18">Call someone older</text><text class="svq-t" x="528" y="232" text-anchor="start" font-size="18">who&#x27;s still here.</text>
+<text class="svq-s" x="528" y="256" text-anchor="start">Study: a program of</text><text class="svq-s" x="528" y="273" text-anchor="start">friendly calls, not a</text><text class="svq-s" x="528" y="290" text-anchor="start">family call. [23] [24]</text>
+<text class="svq-num" x="740" y="214">4</text>
+<text class="svq-t" x="768" y="212" text-anchor="start" font-size="18">Next week, call the</text><text class="svq-t" x="768" y="232" text-anchor="start" font-size="18">same person again.</text>
+<text class="svq-s" x="768" y="256" text-anchor="start">Our experiment.</text>
+<text class="svq-f" x="16" y="348">Sunday 1 or Monday 2 November, or any night. Ten minutes.</text>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 780" width="960" height="780" role="img" lang="es" xml:lang="es" aria-labelledby="sg-es-ancho-t" aria-describedby="sg-es-ancho-d" style="max-width:100%;height:auto">
+<title id="sg-es-ancho-t">Solo las iglesias de Occidente guardan a sus muertos el 1 y el 2 de noviembre</title>
+<desc id="sg-es-ancho-d">Gráfica con una fila por calendario, de agosto a noviembre de 2026: las iglesias de Occidente, Colombia y Filipinas el 1 y el 2 de noviembre; el sábado ortodoxo de San Demetrio el 24 de octubre o el 7 de noviembre; el Pitru Paksha terminando el 10 de octubre; el Yu Lan, días de los antepasados del calendario chino, del 13 de agosto al 10 de septiembre en la comunidad Chiu Chow de Hong Kong; y el calendario judío, con un día para cada persona. Cada fila es un calendario y sus días para los muertos o los antepasados en 2026, de agosto a noviembre. Las iglesias de Occidente, Colombia y Filipinas se juntan el 1 y el 2 de noviembre. Los ortodoxos de tradición rusa guardan el sábado de San Demetrio el 24 de octubre o el 7 de noviembre, según el calendario. La quincena hindú de Pitru Paksha terminó el 10 de octubre; empezó el 26 o el 27 de septiembre, según se cuente o no el día de luna llena. El calendario chino, como lo guarda Hong Kong, tiene días de los antepasados: en la comunidad Chiu Chow de Hong Kong, el Yu Lan dura todo el séptimo mes lunar, del 13 de agosto al 10 de septiembre. El calendario judío no lleva marca: cada persona tiene su propio día. La franja son los días de esta página, del 27 de octubre al 6 de noviembre. Dos fechas anteriores quedan fuera, a la izquierda: el Ching Ming, el 5 de abril, y Todos los Santos de los ortodoxos, el 7 de junio.</desc>
+<style>
+.sg-t{font-family:var(--font-serif,"Newsreader",Georgia,serif);fill:var(--naos-ink,#0E1116)}
+.sg-f{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);fill:var(--naos-grey,#59616D);font-size:14px}
+.sg-s{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);fill:var(--naos-sec,#454C57);font-size:14px}
+.sg-h{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);fill:var(--naos-ink,#0E1116);font-size:14px;font-variant-numeric:tabular-nums}
+.sg-nom{font-family:var(--font-serif,"Newsreader",Georgia,serif);font-size:18px;fill:var(--naos-ink,#0E1116)}
+.sg-mes{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:14px;fill:var(--naos-grey,#59616D)}
+.sg-base{stroke:var(--naos-rule,#D7DBE0);stroke-width:1}
+.sg-grid{stroke:var(--naos-chart,#737B87);stroke-width:1}
+.sg-mesl{stroke:var(--naos-rule,#D7DBE0);stroke-width:1}
+.sg-banda{fill:var(--naos-rule,#D7DBE0);opacity:.55}
+.sg-dia{fill:var(--naos-ink,#0E1116)} .sg-rango{fill:var(--naos-ink,#0E1116)}
+.sg-inc{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:1.6}
+.sg-fuera{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:1.6}
+.sg-sf{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:14px;fill:var(--naos-sec,#454C57)}
+</style>
+<rect class="sg-banda" x="619.3" y="66" width="46.7" height="586"/>
+<line class="sg-mesl" x1="250.0" y1="62" x2="250.0" y2="652"/><line class="sg-grid" x1="250.0" y1="56" x2="250.0" y2="66"/><text class="sg-mes" x="256.0" y="52">ago</text>
+<line class="sg-mesl" x1="381.6" y1="62" x2="381.6" y2="652"/><line class="sg-grid" x1="381.6" y1="56" x2="381.6" y2="66"/><text class="sg-mes" x="387.6" y="52">sep</text>
+<line class="sg-mesl" x1="509.0" y1="62" x2="509.0" y2="652"/><line class="sg-grid" x1="509.0" y1="56" x2="509.0" y2="66"/><text class="sg-mes" x="515.0" y="52">oct</text>
+<line class="sg-mesl" x1="640.6" y1="62" x2="640.6" y2="652"/><line class="sg-grid" x1="640.6" y1="56" x2="640.6" y2="66"/><text class="sg-mes" x="646.6" y="52">nov</text>
+<line class="sg-base" x1="250" y1="96" x2="700" y2="96"/>
+<text class="sg-nom" x="16" y="76">Iglesias de Occidente</text>
+<text class="sg-f" x="16" y="94" text-anchor="start">católicas, anglicanas,</text><text class="sg-f" x="16" y="111" text-anchor="start">muchas luteranas</text>
+<rect class="sg-rango" x="640.6" y="90" width="10.0" height="12" rx="3"/>
+<text class="sg-h" x="660.6" y="92" text-anchor="start">1 nov Todos los Santos · 2</text><text class="sg-h" x="660.6" y="108" text-anchor="start">nov Fieles Difuntos</text>
+<line class="sg-base" x1="250" y1="182" x2="700" y2="182"/>
+<text class="sg-nom" x="16" y="162">Colombia</text>
+<text class="sg-f" x="16" y="180" text-anchor="start">festivo</text>
+<circle class="sg-dia" cx="646.9" cy="182" r="5.5"/>
+<text class="sg-h" x="659.1" y="178" text-anchor="start">lun 2 nov, Todos los Santos</text><text class="sg-h" x="659.1" y="194" text-anchor="start">pasa al lunes</text>
+<line class="sg-base" x1="250" y1="268" x2="700" y2="268"/>
+<text class="sg-nom" x="16" y="248">Filipinas</text>
+<text class="sg-f" x="16" y="266" text-anchor="start">Undas, días especiales no</text><text class="sg-f" x="16" y="283" text-anchor="start">laborables</text>
+<rect class="sg-rango" x="640.6" y="262" width="10.0" height="12" rx="3"/>
+<text class="sg-h" x="660.6" y="272" text-anchor="start">1 y 2 nov</text>
+<line class="sg-base" x1="250" y1="354" x2="700" y2="354"/>
+<text class="sg-nom" x="16" y="334">Iglesias ortodoxas</text>
+<text class="sg-f" x="16" y="352" text-anchor="start">sábado de San Demetrio,</text><text class="sg-f" x="16" y="369" text-anchor="start">tradición rusa</text>
+<text class="sg-s" x="16" y="386">Antes: 7 jun, Todos los Santos</text>
+<path class="sg-fuera" d="M259,348 L251,354 L259,360 Z"/>
+<circle class="sg-dia" cx="608.7" cy="354" r="5.5"/>
+<text class="sg-h" x="596.6" y="358" text-anchor="end">24 oct, calendario nuevo</text>
+<circle class="sg-dia" cx="668.2" cy="354" r="5.5"/>
+<text class="sg-h" x="680.3" y="358" text-anchor="start">7 nov, calendario antiguo</text>
+<line class="sg-base" x1="250" y1="440" x2="700" y2="440"/>
+<text class="sg-nom" x="16" y="420">Calendario judío</text>
+<text class="sg-f" x="16" y="438" text-anchor="start">el yahrzeit</text>
+<text class="sg-sf" x="258" y="432">Sin fecha aquí: cada persona tiene su propio día</text>
+<line class="sg-base" x1="250" y1="526" x2="700" y2="526"/>
+<text class="sg-nom" x="16" y="506">Calendario hindú</text>
+<text class="sg-f" x="16" y="524" text-anchor="start">Pitru Paksha, en India</text>
+<rect class="sg-inc" x="480.5" y="520.8" width="10.0" height="10.4" rx="2"/><rect class="sg-rango" x="492.0" y="520" width="59.4" height="12" rx="3"/>
+<text class="sg-h" x="561.4" y="530" text-anchor="start">26 o 27 sep al 10 oct</text>
+<line class="sg-base" x1="250" y1="612" x2="700" y2="612"/>
+<text class="sg-nom" x="16" y="592">Calendario chino</text>
+<text class="sg-f" x="16" y="610" text-anchor="start">como lo guarda Hong Kong:</text><text class="sg-f" x="16" y="627" text-anchor="start">días de los antepasados</text>
+<text class="sg-s" x="16" y="644">Antes: 5 abr, Ching Ming</text>
+<path class="sg-fuera" d="M259,606 L251,612 L259,618 Z"/>
+<rect class="sg-rango" x="300.9" y="606" width="123.1" height="12" rx="3"/>
+<text class="sg-h" x="434.1" y="616" text-anchor="start">13 ago al 10 sep, Yu Lan</text>
+<text class="sg-f" x="642.7" y="670" text-anchor="middle">Esta página: 27 oct al 6 nov</text>
+<circle class="sg-dia" cx="23" cy="700" r="5.5"/><text class="sg-s" x="36" y="704">un día</text><rect class="sg-rango" x="206" y="694" width="22" height="12" rx="3"/><text class="sg-s" x="236" y="704">varios días</text><rect class="sg-inc" x="400" y="694.8" width="12" height="10.4" rx="2"/><text class="sg-s" x="420" y="704">inicio incierto</text>
+<text class="sg-f" x="16" y="738" text-anchor="start">Fuentes [1] [2] [5] [12] [13] [14] [15] [16] [18] [19] [20] [21] [22], leídas el 16 de octubre de 2026. Cada fila guiada por un</text><text class="sg-f" x="16" y="756" text-anchor="start">calendario oficial o por la guía de su propia tradición.</text>
+</svg>

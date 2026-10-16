@@ -126,7 +126,7 @@ Nuestras guías son la documentación de Claude Code, el Centro de ayuda de Clau
 
 ## 5 · Las piezas {#pieces}
 
-Las horas son de Nueva York (ET), con Medellín entre paréntesis. Los videos, los Shorts y los Reels están en inglés.
+Las horas son de Nueva York (ET), con Medellín entre paréntesis. Los videos, los Shorts y los Reels están en inglés. En YouTube, los Shorts llevan subtítulos en español; en Instagram, no.
 
 **Mar 20 oct · 09:00 ET (08:00) · Video · Próximamente** {#c-2026-10-20-0900-p-medio}
 Del chat al código

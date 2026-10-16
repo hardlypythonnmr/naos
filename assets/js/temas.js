@@ -46,6 +46,17 @@
       const ol = document.createElement("ol"); ol.className = "t-cartas t-cartas-prox"; d.before(ol); ol.append(li);
     });
   }
+  // la próxima luna llena o nueva (moon): la primera de la columna que no ha pasado
+  document.querySelectorAll("[data-proxima-luna]").forEach((s) => {
+    let ls = []; try { ls = JSON.parse(s.dataset.proximaLuna || "[]"); } catch (e) { /* sin dato */ }
+    const l = ls.find((u) => Date.parse(u.t) > ahora); if (l) s.textContent = l.x;
+  });
+  // "___. [toca para ver]": con JS, el hueco es un botón y la palabra aparece al tocarlo
+  document.querySelectorAll(".t-revela").forEach((r) => {
+    const b = r.querySelector(".t-revela-b"), w = r.querySelector(".t-revela-t"); if (!b || !w) return;
+    b.hidden = false; w.hidden = true; b.setAttribute("aria-label", (ES ? "Toca para ver: " : "Tap to see: ") + "___");
+    b.addEventListener("click", () => { w.hidden = false; b.remove(); });
+  });
   // abrir los pliegues que contienen el destino de un ancla (al llegar y al seguir un enlace de la misma página)
   const abrir = (id) => { let el = id && document.getElementById(id); if (!el) return null; for (let p = el; p; p = p.parentElement) if (p.tagName === "DETAILS") p.open = true; return el; };
   const alAncla = () => { const id = decodeURIComponent(location.hash.slice(1)); const el = abrir(id); if (el) el.scrollIntoView({ block: "start" }); };
@@ -76,6 +87,8 @@
 
   const src = new URLSearchParams(location.search).get("src");
   if (!src || !/^[\w-]{3,40}$/.test(src)) return;
+  // un renglón que solo se ve al llegar desde cierto Short (moon: la vela, con ?src=1207h)
+  document.querySelectorAll("[data-solo-src]").forEach((p) => { if (p.dataset.soloSrc.split(" ").includes(src)) p.hidden = false; });
   // "You came from: <título del Short>" en el umbral, y el bloque donde aterriza ese Short (acta, cambio 19)
   const v = document.querySelector("[data-vienes]");
   let destino = null;

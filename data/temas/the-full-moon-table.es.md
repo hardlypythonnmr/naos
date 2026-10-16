@@ -135,7 +135,7 @@ Poner el segundo plato antes de que alguien diga que sí, dejar el celular bocab
 
 ## 5 · Las piezas {#piezas}
 
-Las piezas están en inglés, salvo el Short y Reel del sábado 24. Horas de Nueva York (ET), con la de Medellín entre paréntesis.
+Las piezas están en inglés, salvo el Short y Reel del sábado 24. En YouTube, los Shorts en inglés llevan subtítulos en español; en Instagram, no. Horas de Nueva York (ET), con la de Medellín entre paréntesis.
 
 **mar 20 oct · 12:00 ET (11:00) · Historia de Instagram · Próximamente** {#c-2026-10-20-1200-h-historia}
 Set two plates

@@ -32,7 +32,8 @@ const leerJSON = (f, d = null) => { try { return JSON.parse(fs.readFileSync(f, "
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 // ---------- textos fijos de la página (D-252); los mismos en la portada (index.html) ----------
-export const AYUDA_HTML = 'If this is weighing on you, talk to someone now. Colombia: <a href="tel:106">106</a>, national mental health line, 24/7, or <a href="tel:123">123</a> in immediate danger. US: <a href="tel:988">988</a>. Anywhere else: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a>.';
+// el 123 lleva su fuente (decisión 18 de N): la página de Colombia de findahelpline.com da el 123 como "Emergency Services"
+export const AYUDA_HTML = 'If this is weighing on you, talk to someone now. Colombia: <a href="tel:106">106</a>, national mental health line, 24/7, or <a href="tel:123">123</a> in immediate danger (<a href="https://findahelpline.com/countries/co" rel="noopener">source</a>). US: <a href="tel:988">988</a>. Anywhere else: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a>.';
 const LINEA_N = { Humanity: "Eat well, sleep well, get moving, have a relationship with the divine, and build community.", "The Present": "Closer to yourself." };
 const NO_CONSEJO = "Descriptive, not financial advice.";
 // páginas de una tradición con calendario propio: ahí no va el signo occidental (acta 2c, rojo 23) hasta que I3 traiga el dato
@@ -267,7 +268,7 @@ const write = (rel, contenido) => { const p = path.join(V, rel); fs.mkdirSync(pa
 
 // Dos ediciones (D-253). EN: temas/, sus hubs y la portada de siempre. ES: es/ (portada con la franja), es/temas/ y sus hubs.
 // Todo lo que cambia entre una y otra está aquí; la estructura de la página es la misma.
-export const AYUDA_HTML_ES = 'Si esto te pesa, habla con alguien ahora. Colombia: <a href="tel:106">106</a>, línea nacional de salud mental, 24/7, o <a href="tel:123">123</a> si hay peligro inmediato. EE. UU.: <a href="tel:988">988</a>. En cualquier otro lugar: <a href="https://findahelpline.com" rel="noopener" hreflang="en">findahelpline.com</a>.';
+export const AYUDA_HTML_ES = 'Si esto te pesa, habla con alguien ahora. Colombia: <a href="tel:106">106</a>, línea nacional de salud mental, 24/7, o <a href="tel:123">123</a> si hay peligro inmediato (<a href="https://findahelpline.com/countries/co" rel="noopener" hreflang="en">fuente</a>). EE. UU.: <a href="tel:988">988</a>. En cualquier otro lugar: <a href="https://findahelpline.com" rel="noopener" hreflang="en">findahelpline.com</a>.';
 const MES_ES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"], DIA_ES = ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"];
 const FASE_ES = Object.fromEntries(Object.entries(FASE).map(([es, en]) => [en, es]));
 const SIGNO_ES = Object.fromEntries(Object.entries(SIGNO).map(([es, en]) => [en, es]));
@@ -365,7 +366,7 @@ function pie(L, raiz, seccion, extra = "", texto = null) {
   const P = raiz + L.pref;
   const N = ["Closer to yourself.", "Eat well, sleep well, get moving, have a relationship with the divine, and build community.", "Más cerca de ti.", "Come bien, duerme bien, muévete, ten una relación con lo divino y construye comunidad."];
   const lineas = texto && texto.lineas.length
-    ? texto.lineas.map((t) => N.includes(t) ? `  <p class="t-linea-n"${L.lang === "es" && /^Closer/.test(t) ? ' lang="en"' : ""}>${esc(t)}</p>` : `  <p class="sello">${esc(t)}</p>`).join("\n")
+    ? texto.lineas.map((t) => typeof t === "object" ? `  ${t.html}` : N.includes(t) ? `  <p class="t-linea-n"${L.lang === "es" && /^Closer/.test(t) ? ' lang="en"' : ""}>${esc(t)}</p>` : `  <p class="sello">${esc(t)}</p>`).join("\n")
     : `  <p class="t-linea-n">${esc(L.linea[seccion] || L.linea["The Present"])}</p>\n  <p class="sello">${extra}${L.sello}</p>`;
   return `<footer class="t-pie">
   <p class="ayuda-l" id="ayuda">${L.ayuda}${texto ? texto.cita : ""}</p>

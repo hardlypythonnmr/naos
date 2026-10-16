@@ -158,7 +158,7 @@ Las tres preguntas de arriba y los tres pasos de "Pruébalo" son nuestros. Sigue
 
 ## 5 · Las piezas {#piezas}
 
-Horas de Nueva York (ET), con Medellín entre paréntesis. Todas las piezas son videos cortos en inglés; el título y la pregunta van como salen, y debajo, la pregunta en español.
+Horas de Nueva York (ET), con Medellín entre paréntesis. Todas las piezas son videos cortos en inglés; el título y la pregunta van como salen, y debajo, la pregunta en español. En YouTube, los Shorts llevan subtítulos en español; en Instagram, no.
 
 **Sáb 24 oct · 18:00 ET (17:00) · Short y Reel · Próximamente** {#c-2026-10-24-1800-p-short-reel}
 Brazil votes tomorrow: how a runoff is counted
@@ -340,7 +340,7 @@ Leídas el 16 de octubre de 2026. Las copias de Wayback van marcadas "archivo". 
 
 ### Líneas de ayuda
 
-[44] Colombia: Ministerio de Salud, línea 106, gratuita, confidencial, 24/7: https://minsalud.gov.co/salud/publica/salud-mental/Paginas/linea-106.aspx (archivo https://web.archive.org/web/20261016081701/https://www.minsalud.gov.co/salud/publica/salud-mental/Paginas/linea-106.aspx) · EE. UU.: línea 988: https://988lifeline.org/get-help/ (archivo https://web.archive.org/web/20261012042614/https://988lifeline.org/get-help/) · España: 024, Ministerio de Sanidad, 24/7: https://www.sanidad.gob.es/linea024/home.htm (archivo https://web.archive.org/web/20261002035903/https://www.sanidad.gob.es/linea024/home.htm) · En cualquier otro lugar: https://findahelpline.com (archivo https://web.archive.org/web/20261012042256/https://findahelpline.com)
+[44] Colombia: Ministerio de Salud, línea 106, gratuita, confidencial, 24/7: https://minsalud.gov.co/salud/publica/salud-mental/Paginas/linea-106.aspx (archivo https://web.archive.org/web/20261016081701/https://www.minsalud.gov.co/salud/publica/salud-mental/Paginas/linea-106.aspx) · EE. UU.: línea 988: https://988lifeline.org/get-help/ (archivo https://web.archive.org/web/20261012042614/https://988lifeline.org/get-help/) · España: 024, Ministerio de Sanidad, 24/7: https://www.sanidad.gob.es/linea024/home.htm (archivo https://web.archive.org/web/20261002035903/https://www.sanidad.gob.es/linea024/home.htm) · En cualquier otro lugar: https://findahelpline.com (archivo https://web.archive.org/web/20261012042256/https://findahelpline.com) · Colombia, 123 si hay peligro inmediato: Find A Helpline, Colombia helplines and hotlines, https://findahelpline.com/countries/co (archivo https://web.archive.org/web/20260629114759/https://findahelpline.com/countries/co)
 
 ### Cómo revisamos esta página
 
@@ -366,7 +366,7 @@ Si contamos algo mal, dínoslo. Correcciones bienvenidas.
 
 Si esto te pesa, habla con alguien ahora. Colombia: 106, línea nacional de salud mental, 24/7, o 123 si hay peligro inmediato. EE. UU.: 988. En cualquier otro lugar: findahelpline.com. [44]
 
-Closer to yourself.
+Más cerca de ti.
 
 Come bien, duerme bien, muévete, ten una relación con lo divino y construye comunidad.
 

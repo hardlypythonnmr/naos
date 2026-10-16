@@ -1,0 +1,45 @@
+/* noche.css · "Una noche" (cosa viva de saints-and-souls; es el bloque 2 entero, rev-pedagogia P1). Solo tokens G3; sin sombras, sin degradados.
+ * Nada se mueve por CSS: lo mueve noche.js, solo tras pulsar Reproducir. Sin JS se ve el estado final. */
+.sv { margin: 0; }
+.sv-intro, .sv-despues { margin: 0 0 12px; font: 17px/1.5 var(--font-sans, system-ui, sans-serif); color: var(--naos-ink, #0E1116); max-width: 40rem; }
+.sv-pasos + .sv-despues { margin-top: 20px; }
+.sv-etq { margin: 6px 0 0; font: 14px/1.45 var(--font-sans, system-ui, sans-serif); color: var(--naos-grey, #59616D); max-width: 30rem; }
+.sv-origen { margin: 6px 0 0; font: 14px/1.4 var(--font-sans, system-ui, sans-serif); color: var(--naos-ink, #0E1116); }
+.sv-paso.is-origen .sv-txt { border-left: 4px solid var(--naos-ink, #0E1116); padding-left: 10px; }
+.sv-svg { display: block; width: 100%; height: auto; }
+.sv-pasos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+.sv-escena { max-width: 200px; }
+.sv-txt { display: grid; grid-template-columns: 2rem minmax(0, 1fr); column-gap: 8px; padding-top: 10px; margin-top: 4px; border-top: 1px solid var(--naos-rule, #D7DBE0); }
+.sv-paso.is-act .sv-txt { border-top: 4px solid var(--naos-ink, #0E1116); padding-top: 7px; }
+.sv-num { margin: 0; font: 300 28px/1 var(--font-serif, Georgia, serif); color: var(--naos-ink, #0E1116); }
+.sv-h3 { margin: 0 0 4px; font: 400 20px/1.2 var(--font-serif, Georgia, serif); color: var(--naos-ink, #0E1116); text-wrap: balance; }
+.sv-p { margin: 0; font: 15px/1.5 var(--font-sans, system-ui, sans-serif); color: var(--naos-sec, #454C57); max-width: 30rem; }
+.sv-ctl { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 16px; }
+.sv-ctl[hidden] { display: none; }
+.sv-btn { min-height: 44px; padding: 8px 18px; border: 1px solid var(--naos-ink, #0E1116); border-radius: 0; background: var(--naos-paper, #fff); color: var(--naos-ink, #0E1116); font: 500 15px var(--font-sans, system-ui, sans-serif); cursor: pointer; }
+.sv-btn:hover, .sv-btn[aria-current="step"] { background: var(--naos-plate, #0E1116); color: var(--naos-plate-text, #fff); }
+.sv-btn:focus-visible { outline: 3px solid var(--naos-ink, #0E1116); outline-offset: 3px; }
+.sv-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.sv-cap { margin: 16px 0 0; max-width: 44rem; font: 15px/1.5 var(--font-sans, system-ui, sans-serif); color: var(--naos-sec, #454C57); }
+.sv-cap strong { color: var(--naos-ink, #0E1116); font-weight: 600; }
+.sv-cap { font-size: 14px; color: var(--naos-grey, #59616D); }
+/* partes del dibujo (estado final por defecto) */
+.sv-hilo { stroke: var(--naos-ink, #0E1116); stroke-width: 2; fill: none; }
+.sv-tallo { stroke: var(--naos-chart, #737B87); stroke-width: 1.5; }
+.sv-nodo, .sv-yo { fill: var(--naos-ink, #0E1116); }
+.sv-otro { fill: var(--naos-paper, #fff); stroke: var(--naos-ink, #0E1116); stroke-width: 2; }
+.sv-arc { fill: none; stroke: var(--naos-ink, #0E1116); stroke-width: 2; stroke-linecap: round; }
+.sv-a2 { opacity: .75; } .sv-a3 { opacity: .5; }
+.sv-plato { fill: var(--naos-paper, #fff); stroke: var(--naos-ink, #0E1116); stroke-width: 2; }
+.sv-taza, .sv-silla { fill: var(--naos-paper, #fff); stroke: var(--naos-chart, #737B87); stroke-width: 2; }
+.sv-lin { fill: none; stroke: var(--naos-ink, #0E1116); stroke-width: 2; }
+.sv-lin2 { stroke-dasharray: 6 6; }
+.sv-s4 .sv-otro { stroke: var(--naos-chart, #737B87); }
+.sv-pul { fill: var(--naos-ink, #0E1116); opacity: 0; }
+/* Cuatro columnas solo desde 1100 px (cada dibujo de 260 px o mas). Por debajo, una columna y, con JS, un solo dibujo a la vez:
+   el del paso elegido o el que corre (rev-pedagogia P1, como en the-full-moon-table). Sin JS se ven los cuatro. */
+@media (min-width: 1100px) { .sv-pasos { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; } .sv-escena { max-width: none; } .sv-txt { grid-template-columns: 1fr; margin-right: 24px; } .sv-num { margin-bottom: 6px; } }
+@media (max-width: 1099px) { .sv.is-js .sv-paso:not(.is-ver) .sv-escena { display: none; } }
+/* vuelta 2 (P1, 4 pantallas): en teléfono los controles caben en un renglón en EN (siguen en 44 px de alto, 2.5.8) */
+@media (max-width: 480px) { .sv-ctl { gap: 4px; } .sv-btn { padding: 8px 9px; font-size: 14px; } }
+@media (forced-colors: active) { .sv-yo, .sv-nodo, .sv-pul { fill: CanvasText; } .sv-hilo, .sv-lin, .sv-arc { stroke: CanvasText; } }

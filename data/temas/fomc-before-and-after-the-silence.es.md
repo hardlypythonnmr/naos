@@ -187,7 +187,7 @@ Las palabras que vas a encontrar en el comunicado, que está en inglés: raise (
 
 ## 5 · Las piezas {#pieces}
 
-Las horas son de Nueva York (ET); entre paréntesis, la de Colombia. Todas las piezas están en inglés. Descriptivo, sin asesoría financiera.
+Las horas son de Nueva York (ET); entre paréntesis, la de Colombia. Todas las piezas están en inglés. En YouTube, los Shorts llevan subtítulos en español; en Instagram, no. Descriptivo, sin asesoría financiera.
 
 **Mar 27 oct · 9:00 a. m. ET (8:00 a. m.) · Video de formato medio en YouTube · Próximamente** {#c-2026-10-27-0900-p-medio}
 FOMC, before and after the silence (en inglés)

@@ -1,0 +1,149 @@
+{
+ "slug": "moon",
+ "meta": {
+  "en": {
+   "title": "The moon this season · NAOS",
+   "h1": "The moon this season",
+   "description": "Five short moon reports from October to Christmas, in the shape of the Shipping Forecast: the phase, the hour in Medellín and New York, and one minute outside that asks for nothing.",
+   "og_title": "The moon this season",
+   "og_description": "Full, dark, full, dark, full: five moon reports to Christmas, the hour of each full and new moon, and a minute outside with someone. With sources."
+  },
+  "es": {
+   "title": "La luna de aquí a Navidad · NAOS",
+   "h1": "La luna de aquí a Navidad",
+   "description": "Cinco partes cortos de la luna, de octubre a Navidad, con la forma del parte marítimo de la radio británica: la fase, la hora en Medellín y en Nueva York, y un minuto afuera sin pedir nada.",
+   "og_title": "La luna de aquí a Navidad",
+   "og_description": "Llena, oscura, llena, oscura, llena: cinco partes de la luna hasta Navidad, la hora de cada luna llena y cada luna nueva, y un minuto afuera con alguien. Con fuentes."
+  }
+ },
+ "cortos": {
+  "1024h": {
+   "en": "Moon report: full tomorrow night",
+   "es": "Moon report: full tomorrow night (en inglés)",
+   "aterriza": {
+    "en": "the-tale",
+    "es": "el-cuento"
+   }
+  },
+  "1109h": {
+   "en": "Moon report: the moon goes dark",
+   "es": "Moon report: the moon goes dark (en inglés)",
+   "aterriza": {
+    "en": "night-nov-9",
+    "es": "noche-9-nov"
+   }
+  },
+  "1123h": {
+   "en": "Moon report: full tomorrow, closer than October's",
+   "es": "Moon report: full tomorrow, closer than October's (en inglés)",
+   "aterriza": {
+    "en": "tonight",
+    "es": "esta-noche"
+   }
+  },
+  "1207h": {
+   "en": "Moon report: candles before the dark moon",
+   "es": "Moon report: candles before the dark moon (en inglés)",
+   "aterriza": {
+    "en": "night-dec-7",
+    "es": "noche-7-dic"
+   }
+  },
+  "1222h": {
+   "en": "Moon report: tomorrow's full moon is the closest of the year",
+   "es": "Moon report: tomorrow's full moon is the closest of the year (en inglés)",
+   "aterriza": {
+    "en": "night-dec-22",
+    "es": "noche-22-dic"
+   }
+  },
+  "1226es": {
+   "en": "El parte de la luna: la llena más cercana del año fue el miércoles",
+   "es": "El parte de la luna: la llena más cercana del año fue el miércoles",
+   "aterriza": {
+    "en": "noche-22-dic",
+    "es": "noche-22-dic"
+   }
+  }
+ },
+ "enviar": {
+  "en": null,
+  "es": null
+ },
+ "luna": {},
+ "visuales": [
+  {
+   "id": "mapa",
+   "en": "map",
+   "es": "mapa"
+  },
+  {
+   "id": "distancia",
+   "en": "h:The moon itself",
+   "es": "h:La luna"
+  },
+  {
+   "id": "viva",
+   "en": "h:The moon itself",
+   "es": "h:La luna"
+  }
+ ],
+ "modulos": [
+  {
+   "src": "viva/luna-viva.js",
+   "sel": "[data-viva]",
+   "quieto": true
+  },
+  {
+   "src": "svg/mapa.js",
+   "sel": "svg.mp"
+  }
+ ],
+ "pliegues": {},
+ "css": [
+  "viz.css"
+ ],
+ "scripts": [],
+ "flechas": {},
+ "soloSrc": {
+  "#candle": [
+   "1207h",
+   "1207"
+  ],
+  "#la-vela": [
+   "1207h",
+   "1207"
+  ]
+ },
+ "lunas": [
+  {
+   "t": "2026-10-26T04:12:00Z",
+   "en": "full moon on Sunday 25 October, 23:12 in Medellín, 00:12 ET on Monday 26",
+   "es": "luna llena el domingo 25 de octubre, a las 23:12 en Medellín (00:12 del lunes 26 en Nueva York)"
+  },
+  {
+   "t": "2026-11-09T07:02:00Z",
+   "en": "new moon on Monday 9 November, 02:02 in Medellín and New York",
+   "es": "luna nueva el lunes 9 de noviembre, a las 02:02 en Medellín y Nueva York"
+  },
+  {
+   "t": "2026-11-24T14:53:00Z",
+   "en": "full moon on Tuesday 24 November, 09:53 in Medellín and New York",
+   "es": "luna llena el martes 24 de noviembre, a las 09:53 en Medellín y Nueva York"
+  },
+  {
+   "t": "2026-12-09T00:52:00Z",
+   "en": "new moon on Tuesday 8 December, 19:52 in Medellín and New York",
+   "es": "luna nueva el martes 8 de diciembre, a las 19:52 en Medellín y Nueva York"
+  },
+  {
+   "t": "2026-12-24T01:28:00Z",
+   "en": "full moon on Wednesday 23 December, 20:28 in Medellín and New York",
+   "es": "luna llena el miércoles 23 de diciembre, a las 20:28 en Medellín y Nueva York"
+  }
+ ],
+ "lunaDatos": {
+  "en": "Moon data: NASA JPL Horizons, at the hour of each piece. [4]",
+  "es": "Datos de la luna: NASA JPL Horizons, a la hora de cada pieza. [4]"
+ }
+}

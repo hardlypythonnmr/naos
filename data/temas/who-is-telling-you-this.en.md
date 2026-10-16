@@ -369,7 +369,7 @@ Each source with what it gives this page. For the trade, the guides come first, 
 
 ### Help lines
 
-[50] Colombia: Ministry of Health, line 106, free, confidential, 24/7: https://minsalud.gov.co/salud/publica/salud-mental/Paginas/linea-106.aspx · US: 988 Lifeline: https://988lifeline.org/get-help/ · Anywhere else: https://findahelpline.com
+[50] Colombia: Ministry of Health, line 106, free, confidential, 24/7: https://minsalud.gov.co/salud/publica/salud-mental/Paginas/linea-106.aspx · US: 988 Lifeline: https://988lifeline.org/get-help/ · Anywhere else: https://findahelpline.com · Colombia, 123 in immediate danger: Find A Helpline, Colombia helplines and hotlines, https://findahelpline.com/countries/co
 
 ### How we checked this page
 

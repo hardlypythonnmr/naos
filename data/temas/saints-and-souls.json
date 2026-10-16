@@ -1,0 +1,127 @@
+{
+ "slug": "saints-and-souls",
+ "meta": {
+  "en": {
+   "title": "Saints and Souls · NAOS",
+   "h1": "Saints and Souls",
+   "description": "How All Saints and All Souls came to sit side by side on 1 and 2 November, who keeps the dead on other days, and one evening to try: a name, a place, a call.",
+   "og_title": "Saints and Souls",
+   "og_description": "One day for the saints. The next, for the faithful departed. Where the two days come from, other calendars of the dead, and one evening to try. With sources."
+  },
+  "es": {
+   "title": "Santos y Difuntos · NAOS",
+   "h1": "Santos y Difuntos",
+   "description": "Cómo terminaron juntos el Día de Todos los Santos y el de los Fieles Difuntos, quién recuerda a sus muertos en otras fechas y una noche para probar: un nombre, un lugar más en la mesa, una llamada.",
+   "og_title": "Santos y Difuntos",
+   "og_description": "Un día para los santos. Al otro, para los fieles difuntos. De dónde vienen los dos días, otros calendarios de los muertos y una noche para probar. Con fuentes."
+  }
+ },
+ "cortos": {
+  "1027h": {
+   "en": "Call someone older tonight",
+   "es": "Call someone older tonight (en inglés)",
+   "aterriza": {
+    "en": "one-evening",
+    "es": "una-noche"
+   }
+  },
+  "1029h": {
+   "en": "Call again next week",
+   "es": "Call again next week (en inglés)",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1031h": {
+   "en": "The dead in three calendars",
+   "es": "The dead in three calendars (en inglés)",
+   "aterriza": {
+    "en": "where-they-disagree",
+    "es": "no-coinciden"
+   }
+  },
+  "1101es": {
+   "en": "Los muertos en tres calendarios",
+   "es": "Los muertos en tres calendarios",
+   "aterriza": {
+    "en": "el-cuento",
+    "es": "el-cuento"
+   }
+  },
+  "1101h": {
+   "en": "Say one name out loud",
+   "es": "Say one name out loud (en inglés)",
+   "aterriza": {
+    "en": "one-evening",
+    "es": "una-noche"
+   }
+  },
+  "1102h": {
+   "en": "The day after the saints",
+   "es": "The day after the saints (en inglés)",
+   "aterriza": {
+    "en": "the-tale",
+    "es": "el-cuento"
+   }
+  },
+  "1104h": {
+   "en": "Set a place for the one you miss",
+   "es": "Set a place for the one you miss (en inglés)",
+   "aterriza": {
+    "en": "one-evening",
+    "es": "una-noche"
+   }
+  },
+  "1106h": {
+   "en": "Three Masses in one day",
+   "es": "Three Masses in one day (en inglés)",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  }
+ },
+ "enviar": {
+  "en": "On 1 or 2 November I'm trying this: one name, one more place, one call.",
+  "es": "El 1 o el 2 de noviembre voy a probar esto: un nombre, un lugar más en la mesa, una llamada."
+ },
+ "luna": {},
+ "visuales": [
+  {
+   "id": "viva",
+   "en": "one-evening",
+   "es": "una-noche",
+   "reemplaza": {
+    "en": "^That's it\\.",
+    "es": "^Eso es todo\\."
+   }
+  },
+  {
+   "id": "mapa",
+   "en": "map",
+   "es": "mapa"
+  },
+  {
+   "id": "grafica",
+   "en": "where-they-disagree",
+   "es": "no-coinciden"
+  }
+ ],
+ "modulos": [
+  {
+   "src": "anim/noche.js",
+   "sel": "[data-sv]",
+   "quieto": true
+  }
+ ],
+ "pliegues": {},
+ "css": [
+  "visuales.css",
+  "anim/noche.css"
+ ],
+ "scripts": [
+  "mapa-origen.js"
+ ],
+ "flechas": {}
+}
