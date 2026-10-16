@@ -18,7 +18,7 @@
     `<p class="fr-sub" role="status">${txt} See <a href="temas/">Topics</a> or <a href="agenda.html">Upcoming</a>.</p></div></section>`; };
 
   // esqueleto con la misma estructura que la franja final, para que nada salte
-  const esq = '<li class="fr-f fr-esq"><span class="fr-h num">&nbsp;</span><span class="fr-n">&nbsp;<br>&nbsp;</span><span class="fr-e"><span class="ag-chip ficha fr-a">&nbsp;</span></span></li>';
+  const esq = '<li class="fr-f fr-esq"><span class="fr-h num">&nbsp;</span><span class="fr-n">&nbsp;</span><span class="fr-m sello">&nbsp;</span></li>';
   el.innerHTML = '<div class="fr fr-carga" aria-hidden="true"><div class="fr-in"><h2 class="fr-t">&nbsp;</h2><p class="fr-sub">&nbsp;</p><ol class="fr-l">' + esq + esq + esq + '</ol><p class="sello fr-s">&nbsp;</p></div></div>'; el.hidden = false;
 
   Promise.all([
@@ -35,16 +35,18 @@
     const nombre = (x) => (x.noticia ? (pag[x.pagina] && pag[x.pagina].pilar === "news" ? "News: " + pag[x.pagina].titulo : "News") : x.titulo || x.formato);
     const lista = fichas.map((f, i) => {
       const x = f.x, e = enlace(x), href = `temas/${encodeURIComponent(x.pagina)}/#${encodeURIComponent(x.id)}`, t = esc(nombre(x));
-      const marca = `<span class="fr-tag">${f.hoy ? "Today" : "Next"}</span>`;
-      const cuando = `${f.hoy ? "" : esc(fe(x.fecha)) + " · "}${esc(x.hora_et)} ET · ${esc(x.hora_medellin)} Medellín · ${e ? "Out" : "Coming"}`;
-      const botones = (e ? `<a class="ag-chip ficha fr-a" href="${esc(e.yt)}" target="_blank" rel="noopener" aria-label="${t}, YouTube, opens in a new tab">YouTube</a>` +
-        (IG_OK.test(e.ig || "") ? `<a class="ag-chip ficha fr-a" href="${esc(e.ig)}" target="_blank" rel="noopener" aria-label="${t}, Instagram, opens in a new tab">Instagram</a>` : "") : "") +
-        `<a class="ag-chip ficha fr-a" href="${href}" aria-label="${t}, on its topic page">Its page</a>`;
-      return `<li class="fr-f${f.hoy ? " fr-hoy" : ""}">` +
+      // fila de horario (pase de arte 16-oct): el día se nombra una vez ("Today" en la primera de hoy, "Next" con su fecha),
+      // la hora en ET y Medellín en su columna, el título es el enlace a su tarjeta; YouTube e Instagram solo si ya salió
+      const primera = !f.hoy || i === 0;
+      const marca = `<span class="fr-tag${primera ? "" : " sr"}">${f.hoy ? "Today" : "Next"}</span>${f.hoy ? "" : `<span class="fr-w">${esc(fe(x.fecha))}</span>`}`;
+      const cuando = `<span class="fr-w">${esc(x.hora_et)} ET</span><span class="fr-w">${esc(x.hora_medellin)} Medellín</span>`;
+      const botones = e ? `<span class="fr-e"><a class="ag-chip ficha fr-a" href="${esc(e.yt)}" target="_blank" rel="noopener" aria-label="${t}, YouTube, opens in a new tab">YouTube</a>` +
+        (IG_OK.test(e.ig || "") ? `<a class="ag-chip ficha fr-a" href="${esc(e.ig)}" target="_blank" rel="noopener" aria-label="${t}, Instagram, opens in a new tab">Instagram</a>` : "") + `</span>` : "";
+      const meta = [x.formato, x.voz ? "Voice: synthetic" : "", x.mercado ? "Descriptive, not financial advice" : "", e ? "Out" : "Coming"].filter(Boolean).join(". ");
+      return `<li class="fr-f${f.hoy ? " fr-hoy" : ""}${primera ? "" : " fr-sigue"}">` +
         `<span class="fr-h num">${marca}${cuando}</span>` +
-        `<span class="fr-n"${x.lang === "es" ? ' lang="es"' : ""}><span class="sr">${i + 1} of ${fichas.length}, </span>${t}</span>` +
-        `<span class="fr-m sello">${esc(x.formato)}${x.voz ? " · Voice: synthetic" : ""}${x.mercado ? " · Descriptive, not financial advice" : ""}</span>` +
-        `<span class="fr-e">${botones}</span></li>`;
+        `<span class="fr-c"><a class="fr-n" href="${href}"${x.lang === "es" ? ' lang="es"' : ""}><span class="sr">${i + 1} of ${fichas.length}, </span>${t}</a>` +
+        `<span class="fr-m sello">${esc(meta)}</span></span>${botones}</li>`;
     }).join("");
     let sub = q.get("src") === "ig" ? "Seen on Instagram? Here is today in the order we post it." : "Times in New York (ET) and Medellín. Each piece links to its topic page.";
     if (!deHoy.length) sub = `Nothing out today. Next: ${esc(fe(proxima.fecha))}, ${esc(proxima.hora_et)} ET.`;

@@ -1,86 +1,142 @@
-/* temas.css · páginas de tema, hubs y enlaces cortos (lote E, D-252). Solo tokens de G2/G3; sin Lenis, sin GSAP, sin
- * animación propia (nada que pausar). Teléfono primero (390 px, margen de 16 px), escritorio a 1440. Objetivos de 24 px o más. */
+/* temas.css · páginas de tema, hubs y enlaces cortos (lote E, D-252). Pase de arte del 16-oct: registro por día en lugar de
+ * sopa de tarjetas, estantes con lomo en el tercio (--axis-third) y línea de tiempo, ventana de tres columnas en The Present.
+ * Solo tokens de G2/G3 y las fuentes que ya están; sin Lenis, sin GSAP, sin animación propia (nada que pausar), sin cajas,
+ * sin degradados ni sombras. Cada filete dice algo: tinta = cambia el día o el estante; gris = otra pieza del mismo día.
+ * Escala (6 niveles): 13 dato / 15 texto / 18 línea / 22 pieza / 30 lomo y h2 / 44 a 104 h1. Objetivos de 24 px o más. */
 [hidden] { display: none !important; }
 html { scroll-padding-top: 16px; }
 body { background: var(--naos-paper); color: var(--naos-ink); }
-main { display: block; max-width: 1120px; margin: 0 auto; padding: 0 var(--page-gutter-390, 16px) var(--s-6); }
+main { display: block; max-width: 1120px; margin: 0 auto; padding: 0 var(--page-gutter-390, 16px) var(--s-8); }
+.t-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-/* barra */
-.t-barra { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; padding: 14px 16px; border-bottom: 2px solid var(--naos-ink); }
+/* barra: mobiliario mínimo, una línea de pelo */
+.t-barra { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; padding: 14px var(--page-gutter-390, 16px); border-bottom: 1px solid var(--naos-rule); }
 .t-marca { margin: 0; display: flex; align-items: baseline; gap: 12px; }
-.t-naos { font-family: var(--font-serif); font-weight: 400; font-size: 28px; line-height: 1; letter-spacing: -.01em; text-decoration: none; }
-.t-lema { font-size: 13px; color: var(--naos-sec); }
-.t-nav { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 15px; }
+.t-naos { font-family: var(--font-serif); font-weight: 400; font-size: 26px; line-height: 1; letter-spacing: -.01em; text-decoration: none; }
+.t-lema { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 15px; color: var(--naos-sec); }
+.t-nav { display: flex; flex-wrap: wrap; gap: 0 18px; font-size: 15px; }
 .t-nav a { display: inline-block; min-height: 24px; padding: 4px 0; color: var(--naos-sec); text-decoration: none; }
 .t-nav a:hover, .t-nav a:focus-visible, .t-nav a[aria-current="page"] { color: var(--naos-ink); text-decoration: underline; }
 
-/* bloque 0: umbral */
-.t-umbral { padding: var(--s-4) 0 var(--s-3); border-bottom: 1px solid var(--naos-rule); }
+/* bloque 0: umbral. Un solo salto de escala grande por página: el h1 */
+.t-umbral { padding: var(--s-6) 0 var(--s-5); }
 .t-migas { font-size: 14px; color: var(--naos-grey); margin: 0 0 var(--s-2); }
 .t-migas a { display: inline-block; min-height: 24px; padding: 2px 0; color: var(--naos-sec); }
-.t-umbral h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-height: 1.08; letter-spacing: -.02em; margin: 0 0 var(--s-1); overflow-wrap: anywhere; }
+.t-umbral h1 { font-family: var(--font-serif); font-weight: 300; font-size: clamp(44px, 8.2vw, 104px); line-height: .98; letter-spacing: -.03em; margin: 0 0 var(--s-2); max-width: 14ch; overflow-wrap: anywhere; text-wrap: balance; }
 .t-rango { margin: 0; font-size: 15px; color: var(--naos-sec); }
-.t-aviso { margin: 6px 0 0; }
+.t-n { font-family: var(--font-serif); font-size: 22px; color: var(--naos-ink); }
+.t-aviso { margin: 8px 0 0; font-size: 13px; color: var(--naos-sec); }
 
 /* bloques */
 .t-bloque { padding: var(--s-4) 0 0; }
-.t-bloque > h2 { font-family: var(--font-serif); font-weight: 300; font-size: 28px; line-height: 1.15; margin: 0 0 var(--s-2); }
+.t-bloque > h2 { font-family: var(--font-serif); font-weight: 300; font-size: 30px; line-height: 1.1; letter-spacing: -.01em; margin: 0 0 var(--s-2); }
 .t-bloque > h2 a { text-decoration: none; } .t-bloque > h2 a:hover, .t-bloque > h2 a:focus-visible { text-decoration: underline; }
+.t-col-luna { display: none; }
 
-/* bloque 5: tarjetas */
-.t-cartas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
-.t-carta { display: flex; flex-direction: column; gap: 6px; height: 100%; padding: 14px 16px; border: 1px solid var(--naos-grey); background: var(--naos-paper); scroll-margin-top: 16px; }
-.t-carta > * { margin: 0; }
-.t-cuando { font-size: 14px; color: var(--naos-sec); font-variant-numeric: tabular-nums; }
-.t-estado { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-.t-tag { font-family: var(--font-cond); font-weight: 600; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--naos-ink); border: 1px solid var(--naos-ink); padding: 1px 6px; }
-.t-out .t-tag { background: var(--naos-ink); color: var(--naos-paper); }
-.t-ver { display: inline-flex; align-items: center; min-height: 24px; padding: 2px 4px; font-size: 14px; }
-.t-tit { font-family: var(--font-serif); font-weight: 400; font-size: 21px; line-height: 1.22; letter-spacing: -.005em; overflow-wrap: anywhere; }
-.t-linea { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 17px; line-height: 1.35; color: var(--naos-sec); }
-.t-fmt { font-size: 13px; color: var(--naos-grey); }
-.t-luna { font-size: 13px; color: var(--naos-sec); }
+/* bloque 5: registro por día. Columna de cuándo, cuerpo, y la luna solo en Humanity */
+.t-cartas { list-style: none; margin: 0; padding: 0; }
+.t-carta { display: grid; grid-template-columns: 6.75rem minmax(0, 1fr); grid-template-areas: "when cuerpo" "when luna"; align-content: start; gap: 4px 16px; padding: 18px 0 20px; border-top: 1px solid var(--naos-ink); scroll-margin-top: 16px; }
+.t-carta.t-sigue { border-top-color: var(--naos-rule); }
+.t-carta p { margin: 0; }
+.t-when { grid-area: when; display: flex; flex-direction: column; gap: 6px; }
+.t-cuando { display: flex; flex-direction: column; font-size: 14px; line-height: 1.35; color: var(--naos-sec); }
+.t-dia { font-family: var(--font-serif); font-size: 18px; line-height: 1.2; color: var(--naos-ink); margin-bottom: 2px; }
+.t-sigue .t-dia { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } /* el día ya está arriba; sigue para el lector */
+.t-estado { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: 13px; }
+.t-tag { color: var(--naos-grey); }
+.t-out .t-tag { color: var(--naos-ink); font-weight: 600; }
+.t-ver { display: inline-flex; align-items: center; min-height: 24px; font-size: 14px; }
+.t-cuerpo { grid-area: cuerpo; display: flex; flex-direction: column; gap: 6px; max-width: 40rem; }
+.t-tit { font-family: var(--font-serif); font-weight: 400; font-size: 22px; line-height: 1.2; letter-spacing: -.005em; margin: 0; overflow-wrap: anywhere; text-wrap: balance; }
+.t-linea { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 18px; line-height: 1.35; color: var(--naos-sec); }
+.t-fmt, .t-nota, .t-corto { font-size: 13px; line-height: 1.45; color: var(--naos-grey); }
+.t-corto a { display: inline-block; min-height: 24px; padding: 2px 0; color: var(--naos-sec); }
+/* luna: lo medido a la vista; la barra es la iluminación (largo = %), el signo tras el toque */
+.t-luna { grid-area: luna; display: flex; flex-direction: column; gap: 4px; margin-top: 6px; max-width: 16rem; }
+.t-luz { font-size: 13px; color: var(--naos-sec); }
+.t-pct { font-family: var(--font-serif); font-size: 18px; color: var(--naos-ink); }
+.t-barra-luz { display: block; height: 2px; background: var(--naos-rule); position: relative; }
+.t-barra-luz::before { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--l, 0%); background: var(--naos-ink); }
+.t-luna-igual .t-luna { display: none; } /* la luna del día ya está en la fila de arriba; si cambia en el día, se vuelve a mostrar */
 .t-signo summary { display: inline-flex; align-items: center; min-height: 24px; cursor: pointer; font-size: 13px; color: var(--naos-grey); text-decoration: underline; text-underline-offset: 2px; }
-.t-signo p { margin: 4px 0 0; font-size: 13px; color: var(--naos-sec); }
-.t-corto { margin-top: auto !important; padding-top: 4px; }
-.t-corto a { display: inline-block; min-height: 24px; padding: 2px 0; }
-.t-nota { margin-top: -2px !important; }
-/* hoy y "You came from" (assets/js/temas.js): el borde de 2 px en vino, como la franja de la portada */
-.t-hoy, .t-vienes { border: 2px solid var(--vino, #5A1834); padding: 13px 15px; }
-.t-marca-js { font-family: var(--font-cond); font-weight: 600; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--naos-ink); }
+.t-signo p { margin: 2px 0 0; font-size: 13px; color: var(--naos-sec); }
+/* hoy y "You came from" (assets/js/temas.js): una barra de 4 px a la izquierda, en vino como en la portada; nada de caja */
+.t-hoy, .t-vienes { box-shadow: inset 4px 0 0 var(--vino, #5A1834); padding-left: 14px; margin-left: -18px; }
+.t-marca-js { margin: 0; font-size: 13px; font-weight: 600; color: var(--vino, #5A1834); }
 
 /* bloque 8: fuentes */
-.t-fuentes ul { margin: 0 0 var(--s-1); padding-left: 20px; font-size: 14px; line-height: 1.5; }
+.t-fuentes { margin-top: var(--s-6); border-top: 1px solid var(--naos-ink); }
+.t-fuentes ul { margin: 0 0 var(--s-2); padding-left: 18px; font-size: 15px; line-height: 1.5; max-width: 44rem; }
 .t-fuentes li { margin: 0 0 6px; overflow-wrap: anywhere; }
-.t-fuentes a { display: inline-block; min-height: 24px; }
+.t-fuentes a { line-height: 1.6; }
+.t-fuentes-n { margin: 0; font-size: 13px; color: var(--naos-grey); max-width: 44rem; }
 
-/* hubs: estantes y temas */
-.t-lomos { margin: var(--s-3) 0 0; font-family: var(--font-serif); font-weight: 300; font-size: 24px; line-height: 1.3; }
-.t-lomos span { white-space: normal; }
-.t-estante { padding: var(--s-3) 0 0; }
-.t-lomo { font-family: var(--font-serif); font-weight: 300; font-size: 24px; line-height: 1.2; margin: 0 0 var(--s-1); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; border-top: 1px solid var(--naos-ink); padding-top: var(--s-1); }
+/* hubs: estantes. El lomo es la frase de N, leída de arriba abajo; los temas a la derecha con su línea de tiempo */
+.t-hub .t-umbral { padding-bottom: var(--s-3); }
+.t-estante { padding: var(--s-2) 0 var(--s-4); border-top: 1px solid var(--naos-ink); }
+.t-lomo { font-family: var(--font-serif); font-weight: 300; font-size: 30px; line-height: 1.1; letter-spacing: -.01em; margin: 0 0 var(--s-1); }
 .t-lomo a { text-decoration: none; } .t-lomo a:hover, .t-lomo a:focus-visible { text-decoration: underline; }
-.t-temas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
-.t-tema { display: flex; flex-direction: column; gap: 2px; min-height: 48px; padding: 10px 14px; border: 1px solid var(--naos-rule); text-decoration: none; }
-.t-tema:hover, .t-tema:focus-visible { border-color: var(--naos-ink); }
-.t-tema-t { font-family: var(--font-serif); font-size: 19px; line-height: 1.25; }
-.t-hub main > .t-temas { padding-top: var(--s-3); }
+.t-lomo-p { display: block; margin-top: 6px; font-family: var(--font-sans); font-size: 13px; letter-spacing: 0; color: var(--naos-grey); }
+.t-estante-sin { margin-top: var(--s-4); } /* la luna: estante aparte, fuera de la frase */
+.t-temas { list-style: none; margin: 0; padding: 0; }
+.t-tema { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; padding: 12px 0 14px; text-decoration: none; } /* la pista de tiempo hace de filete entre temas */
+.t-tema-t { font-family: var(--font-serif); font-size: 21px; line-height: 1.22; text-wrap: balance; }
+.t-tema:hover .t-tema-t, .t-tema:focus-visible .t-tema-t { text-decoration: underline; text-underline-offset: 3px; }
+.t-tema-m { font-size: 13px; color: var(--naos-grey); }
+.t-ahora { margin-right: 6px; font-weight: 600; color: var(--vino, #5A1834); }
+.t-pasado .t-tema-t { color: var(--naos-sec); }
+/* línea de tiempo: la pista es la temporada, la barra es el tema; la marca de hoy la pone temas.js (--hoy) */
+.t-tl { position: relative; display: block; height: 9px; margin-top: 8px; border-bottom: 1px solid var(--naos-rule); }
+.t-tl > span { position: absolute; bottom: -1px; left: var(--a); width: calc(var(--b) - var(--a)); height: 3px; background: var(--naos-ink); }
+.t-con-hoy .t-tl::after, .t-con-hoy .t-eje-m::after { content: ""; position: absolute; top: 0; bottom: -1px; left: var(--hoy); width: 1px; background: var(--vino, #5A1834); }
+.t-eje { display: grid; grid-template-columns: minmax(0, 1fr); font-size: 12px; color: var(--naos-grey); }
+.t-eje > span:first-child { display: none; }
+.t-eje-m { position: relative; display: block; height: 18px; }
+.t-eje-m > span { position: absolute; left: var(--a); padding-left: 4px; border-left: 1px solid var(--naos-rule); line-height: 18px; }
+.t-anaquel-solo { padding-top: var(--s-3); }
 
 /* pie común: líneas de ayuda en el mismo lugar en cada página (WCAG 3.2.6), la línea de N */
-.t-pie { max-width: 1120px; margin: var(--s-6) auto 0; padding: var(--s-3) 16px var(--s-6); border-top: var(--rule-heavy) solid var(--naos-ink); }
-.t-pie > p { margin: 0 0 10px; max-width: 76ch; }
-.t-linea-n { font-family: var(--font-serif); font-weight: 300; font-size: 20px; line-height: 1.3; }
+.t-pie { max-width: 1120px; margin: var(--s-8) auto 0; padding: var(--s-3) var(--page-gutter-390, 16px) var(--s-6); border-top: var(--rule-heavy) solid var(--naos-ink); }
+.t-pie > p { margin: 0 0 12px; max-width: 72ch; }
+.t-pie .ayuda-l { font-size: 16px; }
+.t-pie .t-linea-n { font-family: var(--font-serif); font-weight: 300; font-size: 24px; line-height: 1.25; max-width: 30ch; margin: var(--s-3) 0; text-wrap: balance; }
+.t-pie .sello { font-size: 13px; }
 .t-pie .sello a { display: inline-block; min-height: 24px; }
 
-@media (min-width: 700px) {
-  .t-cartas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .t-temas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .t-umbral h1 { font-size: 52px; }
+@media (min-width: 760px) {
+  .t-carta { grid-template-columns: 11rem minmax(0, 1fr); }
+  .t-pie { display: grid; grid-template-columns: var(--axis-third) minmax(0, 1fr); column-gap: var(--s-4); }
+  .t-pie .ayuda-l { grid-column: 1 / -1; }
+  .t-pie .t-linea-n { grid-column: 1; grid-row: 2 / span 2; margin-top: 0; }
+  .t-pie .sello { grid-column: 2; }
+  /* estante: lomo en el tercio, temas en los dos tercios; la barra de tiempo a la derecha de cada tema */
+  .t-biblioteca .t-estante { display: grid; grid-template-columns: var(--axis-third) minmax(0, 1fr); column-gap: var(--s-4); }
+  .t-biblioteca .t-lomo { margin: 0; padding-right: var(--s-2); }
+  .t-biblioteca .t-tema, .t-anaquel-solo .t-tema, .t-biblioteca .t-eje, .t-anaquel-solo .t-eje { grid-template-columns: minmax(0, 1fr) 36%; column-gap: var(--s-3); }
+  .t-biblioteca .t-tema, .t-anaquel-solo .t-tema { border-top: 1px solid var(--naos-rule); }
+  .t-biblioteca li:first-child .t-tema, .t-anaquel-solo li:first-child .t-tema { border-top: 0; }
+  .t-biblioteca .t-tema-m, .t-anaquel-solo .t-tema-m { grid-column: 1; }
+  .t-biblioteca .t-tl, .t-anaquel-solo .t-tl { grid-column: 2; grid-row: 1 / span 2; align-self: center; margin: 0; }
+  .t-biblioteca .t-eje > span:first-child, .t-anaquel-solo .t-eje > span:first-child { display: block; }
+  .t-biblioteca .t-estante:not(:first-child) .t-eje { display: none; } /* a lo ancho los meses se leen una vez, arriba de la biblioteca */
+  /* The Present: la ventana, tres columnas a lo ancho */
+  .t-ventana { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--s-4); }
+  .t-ventana .t-estante { padding-bottom: 0; }
 }
 @media (min-width: 1100px) {
   main { padding: 0 0 var(--s-8); }
   .t-barra { padding: 14px var(--page-gutter); }
-  .t-cartas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .t-temas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .t-pie { padding-left: 0; padding-right: 0; }
+  /* registro: cuándo en una columna ancha, cuerpo a medida de lectura, luna a la derecha */
+  .t-carta { grid-template-columns: 13rem minmax(0, 1fr); }
+  .t-humanity .t-carta { grid-template-columns: 13rem minmax(0, 1fr) 13rem; grid-template-areas: "when cuerpo luna"; }
+  .t-humanity .t-luna { margin-top: 2px; }
+  .t-humanity .t-luna-k { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .t-humanity #piezas { position: relative; }
+  .t-humanity .t-col-luna { display: block; position: absolute; right: 0; width: 13rem; top: calc(var(--s-4) + 12px); margin: 0; font-size: 13px; color: var(--naos-grey); }
+  .t-dia { font-size: 22px; }
+  .t-fuentes { display: grid; grid-template-columns: 13rem minmax(0, 1fr); column-gap: 16px; }
+  .t-fuentes > h2 { grid-row: 1 / span 2; margin-top: var(--s-2); }
+  .t-fuentes > ul, .t-fuentes > p { grid-column: 2; }
+  .t-fuentes > ul { margin-top: var(--s-2); }
 }

@@ -250,7 +250,7 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : ""}<link rel="canonical
 function barra(raiz, actual) {
   const a = (href, t, k) => `<a href="${href}"${actual === k ? ' aria-current="page"' : ""}>${t}</a>`;
   return `<header class="t-barra">
-  <p class="t-marca"><a class="t-naos" href="${raiz}">NAOS</a><span class="cond t-lema">Closer to yourself.</span></p>
+  <p class="t-marca"><a class="t-naos" href="${raiz}">NAOS</a><span class="t-lema">Closer to yourself.</span></p>
   <nav class="t-nav" aria-label="Sections">${a(raiz + "temas/humanity/", "Humanity", "humanity")}${a(raiz + "temas/the-present/", "The Present", "the-present")}${a(raiz + "temas/", "Topics", "temas")}${a(raiz + "agenda.html", "Upcoming", "agenda")}</nav>
 </header>`;
 }
@@ -266,25 +266,38 @@ const pilarDe = (D, id) => D.pilares.find((p) => p.id === id);
 const secId = (s) => (s === "Humanity" ? "humanity" : "the-present");
 const rango = (a, b) => (a === b ? fe(a) : `${feCorta(a)} to ${feCorta(b)}`) + " " + b.slice(0, 4);
 
-function carta(x, pag, enlace, raiz) {
+// Tarjeta = fila de un registro por día (pase de arte, 16-oct): columna de cuándo (día, hora ET, hora Medellín, estado),
+// cuerpo (título, línea, formato) y, solo en Humanity, la columna de la luna (lo medido a la vista, con su barra de luz).
+// El día se escribe una vez: las filas siguientes del mismo día lo llevan solo para lector de pantalla (t-sigue); la luna,
+// igual: si no cambió desde la fila anterior del mismo día, no se repite (t-luna-igual).
+function carta(x, pag, enlace, raiz, sigue = false, lunaIgual = false) {
   const out = enlace && /^https:\/\/(www\.youtube\.com|youtu\.be)\//.test(enlace.yt || "");
   const estado = out
     ? `<p class="t-estado t-out"><span class="t-tag">Out</span> <a class="t-ver" href="${esc(enlace.yt)}" rel="noopener">YouTube</a>${/^https:\/\/www\.instagram\.com\//.test(enlace.ig || "") ? ` <a class="t-ver" href="${esc(enlace.ig)}" rel="noopener">Instagram</a>` : ""}</p>`
     : `<p class="t-estado"><span class="t-tag">Coming</span></p>`;
   const titulo = x.noticia
-    ? `<h3 class="t-tit">${pag.pilar === "news" ? "News: " + esc(pag.titulo) : "News"}</h3><p class="sello t-nota">Date and topic only. The title comes after the source check.</p>`
+    ? `<h3 class="t-tit">${pag.pilar === "news" ? "News: " + esc(pag.titulo) : "News"}</h3><p class="t-nota">Date and topic only. The title comes after the source check.</p>`
     : x.titulo ? `<h3 class="t-tit"${x.lang === "es" ? ' lang="es"' : ""}>${esc(x.titulo)}</h3>` : `<h3 class="t-tit">${esc(x.formato)}</h3>`;
-  const fmt = (x.titulo || x.noticia ? x.formato : "") + (x.lang === "es" ? " · In Spanish" : "") + (x.voz ? " · Voice: synthetic" : "");
-  const luna = x.luna ? `<p class="t-luna">Moon: ${esc(x.luna.fase)}, ${String(x.luna.iluminacion).replace(/\.0$/, "")}% lit</p>` +
-    `<details class="t-signo"><summary>Western tropical zodiac</summary><p>Moon in ${esc(x.luna.signo)}</p></details>` : "";
-  const corto = x.corto ? `<p class="sello t-corto">Short link: <a href="${raiz}s/${esc(x.codigo)}/">naos/s/${esc(x.codigo)}</a></p>` : "";
-  return `<li><article class="t-carta${x.lang === "es" ? " t-es" : ""}" id="${esc(x.id)}" data-codigo="${esc(x.codigo)}" data-fecha="${x.fecha}" aria-labelledby="${esc(x.id)}-t">
-  <p class="t-cuando"><time datetime="${esc(x.utc.replace("Z", ":00Z"))}">${fe(x.fecha)}</time> · ${esc(x.hora_et)} ET · ${esc(x.hora_medellin)} Medellín</p>
-  ${estado}
-  ${titulo.replace("<h3 class=\"t-tit\"", `<h3 class="t-tit" id="${esc(x.id)}-t"`)}
-  ${x.linea ? `<p class="t-linea">${esc(x.linea)}</p>` : ""}
-  ${fmt ? `<p class="t-fmt">${esc(fmt.replace(/^ · /, ""))}</p>` : ""}
-  ${luna}${x.mercado ? `<p class="sello t-aviso">${NO_CONSEJO}</p>` : ""}${corto}
+  const fmt = [x.titulo || x.noticia ? x.formato : "", x.lang === "es" ? "In Spanish" : "", x.voz ? "Voice: synthetic" : "", x.mercado ? NO_CONSEJO.slice(0, -1) : ""].filter(Boolean).join(". ") + (x.mercado ? "." : "");
+  const pct = x.luna ? String(x.luna.iluminacion).replace(/\.0$/, "") : "";
+  const luna = x.luna ? `
+  <div class="t-luna">
+    <p class="t-luz"><span class="t-luna-k">Moon </span><span class="t-pct num">${pct}%</span> lit, ${esc(x.luna.fase)}</p>
+    <span class="t-barra-luz" aria-hidden="true" style="--l:${Number(x.luna.iluminacion)}%"></span>
+    <details class="t-signo"><summary>Western tropical zodiac</summary><p>Moon in ${esc(x.luna.signo)}</p></details>
+  </div>` : "";
+  const corto = x.corto ? `<p class="t-corto">Short link <a href="${raiz}s/${esc(x.codigo)}/">naos/s/${esc(x.codigo)}</a></p>` : "";
+  return `<li><article class="t-carta${x.lang === "es" ? " t-es" : ""}${sigue ? " t-sigue" : ""}${lunaIgual ? " t-luna-igual" : ""}" id="${esc(x.id)}" data-codigo="${esc(x.codigo)}" data-fecha="${x.fecha}" aria-labelledby="${esc(x.id)}-t">
+  <div class="t-when">
+    <p class="t-cuando"><time class="t-dia" datetime="${esc(x.utc.replace("Z", ":00Z"))}">${fe(x.fecha)}</time> <span class="t-hora num">${esc(x.hora_et)} ET</span> <span class="t-hora num">${esc(x.hora_medellin)} Medellín</span></p>
+    ${estado}
+  </div>
+  <div class="t-cuerpo">
+    ${titulo.replace("<h3 class=\"t-tit\"", `<h3 class="t-tit" id="${esc(x.id)}-t"`)}
+    ${x.linea ? `<p class="t-linea">${esc(x.linea)}</p>` : ""}
+    ${fmt ? `<p class="t-fmt">${esc(fmt)}</p>` : ""}
+    ${corto}
+  </div>${luna}
 </article></li>`.replace(/\n\s*\n/g, "\n");
 }
 
@@ -301,7 +314,7 @@ function paginaTema(D, p, enlaces) {
   <section class="t-bloque t-fuentes" id="fuentes" aria-labelledby="fuentes-t">
     <h2 id="fuentes-t">Sources</h2>
     <ul>${p.fuentes.map((f) => `<li>${f.url ? `<a href="${esc(f.url)}" rel="noopener">${esc(f.titulo)}</a>` : esc(f.titulo)}</li>`).join("")}</ul>
-    <p class="sello">Sources carried over from our research notes. Each page gets its own source check before its full text is written.</p>
+    <p class="t-fuentes-n">Sources carried over from our research notes. Each page gets its own source check before its full text is written.</p>
   </section>` : "";
   return `${cabeza({ titulo: `${p.titulo} · NAOS`, descripcion: desc, ruta, raiz, jsonld })}
 <body class="t-${secId(p.seccion)}">
@@ -311,12 +324,12 @@ ${barra(raiz, "")}
   <header class="t-umbral" id="umbral">
     <nav class="t-migas" aria-label="Breadcrumb"><a href="${raiz}temas/">Topics</a> / <a href="${raiz}temas/${secId(p.seccion)}/">${esc(p.seccion)}</a> / <a href="${raiz}temas/pilar/${P.id}/">${esc(P.titulo)}</a></nav>
     <h1>${esc(p.titulo)}</h1>
-    <p class="t-rango">${xs.length} pieces · ${rango(p.desde, p.hasta)}</p>${mercado ? `\n    <p class="sello t-aviso">${NO_CONSEJO}</p>` : ""}
+    <p class="t-rango"><span class="t-n num">${xs.length}</span> pieces, ${rango(p.desde, p.hasta)}</p>${mercado ? `\n    <p class="t-aviso">${NO_CONSEJO}</p>` : ""}
   </header>
   <section class="t-bloque" id="piezas" aria-labelledby="piezas-t">
-    <h2 id="piezas-t">The pieces</h2>
+    <h2 id="piezas-t">The pieces</h2>${p.seccion === "Humanity" ? `\n    <p class="t-col-luna" aria-hidden="true">Moon</p>` : ""}
     <ol class="t-cartas">
-${xs.map((x) => carta(x, p, enlaces[x.fecha + "|" + x.codigo], raiz)).join("\n")}
+${xs.map((x, i) => carta(x, p, enlaces[x.fecha + "|" + x.codigo], raiz, i > 0 && xs[i - 1].fecha === x.fecha, i > 0 && xs[i - 1].fecha === x.fecha && !!x.luna && JSON.stringify(xs[i - 1].luna) === JSON.stringify(x.luna))).join("\n")}
     </ol>
   </section>${fuentes}
 </main>
@@ -326,23 +339,45 @@ ${pie(raiz, p.seccion, mercado ? NO_CONSEJO + " " : "")}
 `;
 }
 
-function fichaTema(D, p, raiz) {
-  const n = p.piezas.length;
-  return `<li><a class="t-tema" href="${raiz}temas/${p.slug}/"><span class="t-tema-t">${esc(p.titulo)}</span><span class="sello">${n} pieces · ${rango(p.desde, p.hasta)}</span></a></li>`;
+// Línea de tiempo de los estantes (acta 2(c): "estantes con línea de tiempo"): cada tema lleva una barra de su primera a su
+// última pieza sobre la temporada entera, de mes completo a mes completo. Las posiciones salen del dato (salida determinista);
+// la marca de hoy la pone temas.js.
+const dia = (f) => Date.parse(f + "T00:00:00Z") / 864e5;
+function temporada(D) {
+  const a = D.paginas.reduce((m, p) => (p.desde < m ? p.desde : m), "9999"), b = D.paginas.reduce((m, p) => (p.hasta > m ? p.hasta : m), "0000");
+  const t0 = a.slice(0, 8) + "01", fin = new Date(Date.parse(b.slice(0, 8) + "01T00:00:00Z")); fin.setUTCMonth(fin.getUTCMonth() + 1);
+  const t1 = fin.toISOString().slice(0, 10), meses = [];
+  for (const m = new Date(t0 + "T00:00:00Z"); m.toISOString().slice(0, 10) < t1; m.setUTCMonth(m.getUTCMonth() + 1)) meses.push(m.toISOString().slice(0, 10));
+  const pos = (f) => +(((dia(f) - dia(t0)) / (dia(t1) - dia(t0))) * 100).toFixed(2);
+  return { t0, t1, meses, pos };
 }
+function eje(T) {
+  return `<div class="t-eje" aria-hidden="true"><span></span><span class="t-eje-m">${T.meses.map((m) => `<span style="--a:${T.pos(m)}%">${MES[+m.slice(5, 7) - 1]}</span>`).join("")}</span></div>`;
+}
+function fichaTema(D, p, raiz) {
+  const n = p.piezas.length, T = temporada(D), fin = new Date(Date.parse(p.hasta + "T00:00:00Z") + 864e5).toISOString().slice(0, 10);
+  return `<li><a class="t-tema" href="${raiz}temas/${p.slug}/" data-desde="${p.desde}" data-hasta="${p.hasta}"><span class="t-tema-t">${esc(p.titulo)}</span>` +
+    `<span class="t-tema-m num">${n} pieces, ${rango(p.desde, p.hasta)}</span>` +
+    `<span class="t-tl" aria-hidden="true"><span style="--a:${T.pos(p.desde)}%;--b:${T.pos(fin)}%"></span></span></a></li>`;
+}
+// Humanity: estantes con el lomo (la frase de N, en orden) en el tercio izquierdo y los temas a la derecha.
+// The Present: ventana de tres columnas (Markets, News, AI) a lo ancho; a 390, una debajo de otra en menos de 3 pantallas.
 function estantes(D, seccion, raiz, nivel = "h2") {
-  return D.pilares.filter((P) => P.seccion === seccion).map((P) => {
+  const T = temporada(D);
+  const xs = D.pilares.filter((P) => P.seccion === seccion).map((P) => {
     const ps = D.paginas.filter((p) => p.pilar === P.id); if (!ps.length) return "";
-    return `<section class="t-estante" aria-labelledby="e-${P.id}"><${nivel} class="t-lomo" id="e-${P.id}"><a href="${raiz}temas/pilar/${P.id}/">${esc(P.lomo || P.titulo)}</a>${P.lomo ? ` <span class="sello">${esc(P.titulo)}</span>` : ""}</${nivel}><ul class="t-temas">${ps.map((p) => fichaTema(D, p, raiz)).join("")}</ul></section>`;
+    return `<section class="t-estante${P.lomo ? "" : " t-estante-sin"}" aria-labelledby="e-${P.id}"><${nivel} class="t-lomo" id="e-${P.id}"><a href="${raiz}temas/pilar/${P.id}/">${esc(P.lomo || P.titulo)}</a>${P.lomo ? ` <span class="t-lomo-p">${esc(P.titulo)}</span>` : ""}</${nivel}><div class="t-anaquel">${eje(T)}<ul class="t-temas">${ps.map((p) => fichaTema(D, p, raiz)).join("")}</ul></div></section>`;
   }).join("\n");
+  return seccion === "The Present" ? `<div class="t-ventana">\n${xs}\n</div>` : `<div class="t-biblioteca">\n${xs}\n</div>`;
 }
 function hub({ D, ruta, raiz, titulo, h1, desc, cuerpo, seccion, actual }) {
   const jsonld = { "@context": "https://schema.org", "@type": "CollectionPage", name: titulo, description: desc, url: BASE + ruta, inLanguage: "en", isPartOf: { "@type": "WebSite", name: "NAOS", url: BASE } };
+  const T = temporada(D);
   return `${cabeza({ titulo, descripcion: desc, ruta, raiz, jsonld })}
-<body class="t-hub">
+<body class="t-hub t-hub-${secId(seccion)}">
 <a class="sr" href="#main">Skip to the topics</a>
 ${barra(raiz, actual)}
-<main id="main">
+<main id="main" data-t0="${T.t0}" data-t1="${T.t1}">
   <header class="t-umbral"><h1>${esc(h1)}</h1></header>
 ${cuerpo}
 </main>
@@ -367,7 +402,7 @@ export function construirTemas({ silencio = false } = {}) {
     desc: `Every NAOS topic page: ${D.paginas.length} topics in Humanity and The Present, with the date and time of each piece and its sources.`, cuerpo: lib("../") + "\n" + ven("../") }));
   write("temas/humanity/index.html", hub({ D, ruta: "temas/humanity/", raiz: "../../", titulo: "Humanity · NAOS", h1: "Humanity", seccion: "Humanity", actual: "humanity",
     desc: "The NAOS library by pillar: eat, sleep, move, the divine, community, and the moon. Each topic with its pieces, dates and sources.",
-    cuerpo: `  <p class="t-lomos" aria-hidden="true">${D.pilares.filter((P) => P.lomo).map((P) => `<span>${esc(P.lomo)}</span>`).join(" ")}</p>\n${estantes(D, "Humanity", "../../")}` }));
+    cuerpo: estantes(D, "Humanity", "../../") }));
   write("temas/the-present/index.html", hub({ D, ruta: "temas/the-present/", raiz: "../../", titulo: "The Present · NAOS", h1: "The Present", seccion: "The Present", actual: "the-present",
     desc: "The NAOS window on the present: markets, news with both sides, and AI. Each topic with its pieces, dates and sources. Descriptive, not financial advice.",
     cuerpo: estantes(D, "The Present", "../../") }));
@@ -375,7 +410,7 @@ export function construirTemas({ silencio = false } = {}) {
     const ps = D.paginas.filter((p) => p.pilar === P.id); if (!ps.length) continue;
     write(`temas/pilar/${P.id}/index.html`, hub({ D, ruta: `temas/pilar/${P.id}/`, raiz: "../../../", titulo: `${P.titulo} · NAOS`, h1: P.titulo, seccion: P.seccion, actual: "",
       desc: `NAOS topics in ${P.seccion}, ${P.titulo}: ${ps.length} topic page${ps.length > 1 ? "s" : ""} with dates, times and sources.`,
-      cuerpo: `  <nav class="t-migas" aria-label="Breadcrumb"><a href="../../../temas/">Topics</a> / <a href="../../../temas/${secId(P.seccion)}/">${esc(P.seccion)}</a></nav>\n  <ul class="t-temas">${ps.map((p) => fichaTema(D, p, "../../../")).join("")}</ul>` }));
+      cuerpo: `  <nav class="t-migas" aria-label="Breadcrumb"><a href="../../../temas/">Topics</a> / <a href="../../../temas/${secId(P.seccion)}/">${esc(P.seccion)}</a></nav>\n  <div class="t-anaquel t-anaquel-solo">${eje(temporada(D))}<ul class="t-temas">${ps.map((p) => fichaTema(D, p, "../../../")).join("")}</ul></div>` }));
     urls.push(`temas/pilar/${P.id}/`);
   }
   // enlaces cortos: uno estable por Short, a su tarjeta en su página de tema
