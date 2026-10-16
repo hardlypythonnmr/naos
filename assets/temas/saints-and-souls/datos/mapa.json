@@ -1,0 +1,257 @@
+{
+ "id": "mapa-de-los-vivos-a-los-muertos",
+ "foco_leyenda": {
+  "vivos": "la marca vacia habla de los vivos",
+  "muertos": "la marca llena habla de los muertos",
+  "ambos": "la marca con un punto adentro habla de los dos (lectura del bloque 3: 'las ultimas los sientan a la misma mesa')"
+ },
+ "luna": {
+  "dias_usno_medellin_pct": {
+   "2026-10-27": 97,
+   "2026-10-29": 83,
+   "2026-10-31": 63,
+   "2026-11-01": 52,
+   "2026-11-02": 41,
+   "2026-11-04": 21,
+   "2026-11-06": 7
+  },
+  "fuente": "https://aa.usno.navy.mil/api/rstt/oneday?date=<dia>&coords=6.2442,-75.5812&tz=-5 (campo fracillum)",
+  "leido": "2026-10-16",
+  "cuarto_menguante": {
+   "hora_medellin": "2026-11-01T15:28",
+   "hora_nueva_york": "2026-11-01T15:28",
+   "utc": "2026-11-01T20:28",
+   "fuente": "https://aa.usno.navy.mil/api/moon/phases/date?date=2026-10-20&nump=4",
+   "nivel": "A",
+   "leido": "2026-10-16"
+  }
+ },
+ "nodos": {
+  "en": [
+   {
+    "n": 1,
+    "dia": "2026-10-27",
+    "hora_et": "20:00",
+    "foco": "vivos",
+    "ancla": "c-2026-10-27-2000-h-short-reel",
+    "src": "1027h",
+    "fecha": "Tue 27",
+    "titulo": "Call someone older tonight"
+   },
+   {
+    "n": 2,
+    "dia": "2026-10-29",
+    "hora_et": "20:00",
+    "foco": "vivos",
+    "ancla": "c-2026-10-29-2000-h-short-reel",
+    "src": "1029h",
+    "fecha": "Thu 29",
+    "titulo": "Call again next week"
+   },
+   {
+    "n": 3,
+    "dia": "2026-10-31",
+    "hora_et": "11:00",
+    "foco": "muertos",
+    "ancla": "c-2026-10-31-1100-h-carrusel",
+    "src": null,
+    "fecha": "Sat 31, morning",
+    "titulo": "Three calendars of remembering"
+   },
+   {
+    "n": 4,
+    "dia": "2026-10-31",
+    "hora_et": "20:00",
+    "foco": "muertos",
+    "ancla": "c-2026-10-31-2000-h-short-reel",
+    "src": "1031h",
+    "fecha": "Sat 31, night",
+    "titulo": "The dead in three calendars"
+   },
+   {
+    "n": 5,
+    "dia": "2026-11-01",
+    "hora_et": "19:00",
+    "foco": "muertos",
+    "ancla": "c-2026-11-01-1900-h-medio",
+    "src": null,
+    "fecha": "Sun 1, evening",
+    "titulo": "Saints and Souls"
+   },
+   {
+    "n": 6,
+    "dia": "2026-11-01",
+    "hora_et": "20:00",
+    "foco": "muertos",
+    "ancla": "c-2026-11-01-2000-h-short-reel",
+    "src": "1101h",
+    "fecha": "Sun 1, night",
+    "titulo": "Say one name out loud"
+   },
+   {
+    "n": 7,
+    "dia": "2026-11-02",
+    "hora_et": "20:00",
+    "foco": "muertos",
+    "ancla": "c-2026-11-02-2000-h-short-reel",
+    "src": "1102h",
+    "fecha": "Mon 2",
+    "titulo": "The day after the saints"
+   },
+   {
+    "n": 8,
+    "dia": "2026-11-04",
+    "hora_et": "20:00",
+    "foco": "ambos",
+    "ancla": "c-2026-11-04-2000-h-short-reel",
+    "src": "1104h",
+    "fecha": "Wed 4",
+    "titulo": "Set a place for the one you miss"
+   },
+   {
+    "n": 9,
+    "dia": "2026-11-06",
+    "hora_et": "20:00",
+    "foco": "muertos",
+    "ancla": "c-2026-11-06-2000-h-short-reel",
+    "src": "1106h",
+    "fecha": "Fri 6",
+    "titulo": "Three Masses in one day"
+   }
+  ],
+  "es": [
+   {
+    "n": 1,
+    "dia": "2026-10-27",
+    "hora_et": "20:00",
+    "foco": "vivos",
+    "ancla": "c-2026-10-27-2000-h-short-reel",
+    "src": "1027h",
+    "fecha": "mar 27 · en inglés",
+    "titulo": "Call someone older tonight"
+   },
+   {
+    "n": 2,
+    "dia": "2026-10-29",
+    "hora_et": "20:00",
+    "foco": "vivos",
+    "ancla": "c-2026-10-29-2000-h-short-reel",
+    "src": "1029h",
+    "fecha": "jue 29 · en inglés",
+    "titulo": "Call again next week"
+   },
+   {
+    "n": 3,
+    "dia": "2026-10-31",
+    "hora_et": "20:00",
+    "foco": "muertos",
+    "ancla": "c-2026-10-31-2000-h-short-reel",
+    "src": "1031h",
+    "fecha": "sáb 31, noche · en inglés",
+    "titulo": "The dead in three calendars"
+   },
+   {
+    "n": 4,
+    "dia": "2026-11-01",
+    "hora_et": "12:00",
+    "foco": "muertos",
+    "ancla": "c-2026-11-01-1200-h-es",
+    "src": "1101es",
+    "fecha": "dom 1, mediodía · en español",
+    "titulo": "Los muertos en tres calendarios"
+   },
+   {
+    "n": 5,
+    "dia": "2026-11-01",
+    "hora_et": "19:00",
+    "foco": "muertos",
+    "ancla": "c-2026-11-01-1900-h-medio",
+    "src": null,
+    "fecha": "dom 1, 19:00 · en inglés",
+    "titulo": "Saints and Souls"
+   },
+   {
+    "n": 6,
+    "dia": "2026-11-01",
+    "hora_et": "20:00",
+    "foco": "muertos",
+    "ancla": "c-2026-11-01-2000-h-short-reel",
+    "src": "1101h",
+    "fecha": "dom 1, 20:00 · en inglés",
+    "titulo": "Say one name out loud"
+   },
+   {
+    "n": 7,
+    "dia": "2026-11-02",
+    "hora_et": "20:00",
+    "foco": "muertos",
+    "ancla": "c-2026-11-02-2000-h-short-reel",
+    "src": "1102h",
+    "fecha": "lun 2 · en inglés",
+    "titulo": "The day after the saints"
+   },
+   {
+    "n": 8,
+    "dia": "2026-11-04",
+    "hora_et": "20:00",
+    "foco": "ambos",
+    "ancla": "c-2026-11-04-2000-h-short-reel",
+    "src": "1104h",
+    "fecha": "mié 4 · en inglés",
+    "titulo": "Set a place for the one you miss"
+   },
+   {
+    "n": 9,
+    "dia": "2026-11-06",
+    "hora_et": "20:00",
+    "foco": "muertos",
+    "ancla": "c-2026-11-06-2000-h-short-reel",
+    "src": "1106h",
+    "fecha": "vie 6 · en inglés",
+    "titulo": "Three Masses in one day"
+   }
+  ]
+ },
+ "textos": {
+  "en": {
+   "titulo": "Nine pieces, 27 Oct to 6 Nov",
+   "alt": "Map of this page: nine of the 17 pieces on this topic, by date, along a moon that wanes from almost full to a thin sliver, 27 October to 6 November.",
+   "que_muestra": "The first two pieces are about the living, the next five about the dead, then one about both, and the last about the dead again. Last quarter falls on Sunday 1 November. The piece you came from has a ring.",
+   "version_texto": "Details: what this shows, and the list with links",
+   "cuarto": "Last quarter",
+   "cuarto_cuando": "Sun 1, 15:28",
+   "luna_fuente": "Moon: U.S. Naval Observatory, daily values for Medellín, read 16 October 2026.",
+   "ley": [
+    "about the living",
+    "about both",
+    "about the dead"
+   ],
+   "ley_titulo": "Marks",
+   "cuarto_lista": "Last quarter: Sunday 1 November, 15:28 in Medellín and New York.",
+   "luna_desc": "The moon wanes from nearly full on 27 October to a thin crescent on 6 November.",
+   "ley_luna": "Under each, the moon of that day.",
+   "ley_luna_corta": "moon of that day",
+   "pliegue": "See the map: nine pieces, 27 Oct to 6 Nov"
+  },
+  "es": {
+   "titulo": "Nueve piezas, del 27 oct al 6 nov",
+   "alt": "Mapa de esta página: nueve de las 17 piezas de este tema, por fecha, a lo largo de una luna que mengua, de casi llena a un hilo, del 27 de octubre al 6 de noviembre.",
+   "que_muestra": "Las dos primeras piezas son sobre los vivos, las cinco siguientes sobre los muertos, después una sobre los dos y la última otra vez sobre los muertos. El cuarto menguante cae el domingo 1 de noviembre. La pieza de la que vienes lleva un aro.",
+   "version_texto": "Detalles: qué muestra, y la lista con enlaces",
+   "cuarto": "Cuarto menguante",
+   "cuarto_cuando": "dom 1, 15:28",
+   "luna_fuente": "Luna: Observatorio Naval de los Estados Unidos (USNO), valores diarios para Medellín, leídos el 16 de octubre de 2026.",
+   "ley": [
+    "sobre los vivos",
+    "sobre los dos",
+    "sobre los muertos"
+   ],
+   "ley_titulo": "Marcas",
+   "cuarto_lista": "Cuarto menguante: domingo 1 de noviembre, 15:28 en Medellín y en Nueva York.",
+   "luna_desc": "La luna mengua, de casi llena el 27 de octubre a un hilo el 6 de noviembre.",
+   "ley_luna": "Debajo, la luna de cada día.",
+   "ley_luna_corta": "luna de ese día",
+   "pliegue": "Ver el mapa: nueve piezas, del 27 oct al 6 nov"
+  }
+ }
+}

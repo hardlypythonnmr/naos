@@ -1,0 +1,44 @@
+<svg class="mv" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 394" width="360" height="394" role="img" aria-labelledby="mv-t-en mv-d-en" lang="en">
+<title id="mv-t-en">Animation: the moon goes through two cycles of phases, from the full moon of 25 October to the full moon of 23 December, and a bar below follows the dates.</title>
+<desc id="mv-d-en">A drawing seen from above, with the Sun&#x27;s light coming from the left. The Earth is in the middle and the moon on a circle around it. At the full moon, on the right, the whole lit half faces us. At the new moon, on the left, none of it does. Below, a bar runs from 25 October to 23 December with the five phases on it: full 25 October, new 9 November, full 24 November, new 8 December, full 23 December. This picture shows the full moon of 23 December.</desc>
+<style>svg.mv{--ink:var(--naos-ink,#0E1116);--sec:var(--naos-sec,#454C57);--grey:var(--naos-grey,#59616D);--chart:var(--naos-chart,#737B87);--rule:var(--naos-rule,#D7DBE0);--paper:var(--naos-paper,#FFFFFF);font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif)}svg.mv[data-tono=noche]{--ink:var(--naos-night-text,#F4F6F8);--sec:var(--naos-night-sec,#C3C9D2);--grey:var(--naos-night-grey,#9AA3B0);--chart:var(--naos-night-grey,#9AA3B0);--rule:var(--naos-night-rule,#2A303A);--paper:var(--naos-night,#0E1116)}svg.mv text{fill:var(--ink)}svg.mv .mv-g{fill:var(--grey);font-size:13px}svg.mv .mv-n{font-size:13px;font-weight:600}svg.mv .mv-fec{font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}svg.mv .mv-or{fill:none;stroke:var(--chart);stroke-width:1.8;stroke-linecap:round;stroke-dasharray:.1 6.5}svg.mv .mv-ray{stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}svg.mv .mv-tie{fill:var(--sec)}svg.mv .mv-lit{fill:var(--paper);stroke:none}svg.mv .mv-osc{fill:var(--ink);stroke:none}svg.mv .mv-bd{fill:none;stroke:var(--ink);stroke-width:1.8}svg.mv .mv-tr{fill:var(--rule)}svg.mv .mv-lleno{fill:var(--ink)}svg.mv .mv-bar{stroke:var(--ink);stroke-width:1.5}svg.mv .mv-full{fill:var(--paper);stroke:var(--ink);stroke-width:2.2}svg.mv .mv-new{fill:var(--ink);stroke:var(--ink);stroke-width:2.2}svg.mv .mv-tk{stroke:var(--chart);stroke-width:1.8;stroke-linecap:round}svg.mv .mv-tk.mv-pas{stroke:var(--ink)}svg.mv .mv-cab polygon{fill:var(--ink)}</style>
+<circle class="mv-or" cx="180" cy="112" r="76"/>
+<path class="mv-ray" d="M8 84H38M31 79L38 84L31 89"/>
+<path class="mv-ray" d="M8 112H38M31 107L38 112L31 117"/>
+<path class="mv-ray" d="M8 140H38M31 135L38 140L31 145"/>
+<text class="mv-g" x="8" y="70">Sunlight</text>
+<circle class="mv-tie" cx="180" cy="112" r="11"/>
+<text class="mv-g" x="180" y="143" text-anchor="middle">Earth</text>
+<text class="mv-n" x="84" y="117" text-anchor="end">New</text>
+<text class="mv-n" x="276" y="117">Full</text>
+<g class="mv-luna" transform="translate(256 112)"><path class="mv-lit" d="M0 -10A10 10 0 0 0 0 10Z"/><path class="mv-osc" d="M0 -10A10 10 0 0 1 0 10Z"/><circle class="mv-bd" r="10"/></g>
+<text class="mv-g" x="24" y="224">Lit, as seen from Earth</text>
+<rect class="mv-tr" x="24" y="232" width="312" height="6"/><rect class="mv-lleno" x="24" y="232" width="312" height="6"/>
+<text class="mv-g" x="24" y="256">dark</text><text class="mv-g" x="336" y="256" text-anchor="end">full</text>
+<line class="mv-bar" x1="24" y1="326" x2="336" y2="326"/>
+<path class="mv-tk mv-pas" d="M24.43 340V348"/>
+<path class="mv-tk mv-pas" d="M105.83 340V348"/>
+<path class="mv-tk mv-pas" d="M107.56 340V348"/>
+<path class="mv-tk mv-pas" d="M178.38 340V348"/>
+<path class="mv-tk mv-pas" d="M180.11 340V348"/>
+<path class="mv-tk mv-pas" d="M250.93 340V348"/>
+<path class="mv-tk mv-pas" d="M252.66 340V348"/>
+<path class="mv-tk mv-pas" d="M328.66 340V348"/>
+<path class="mv-tk mv-pas" d="M330.39 340V348"/>
+<circle class="mv-full" cx="30.52" cy="326" r="8"/>
+<text class="mv-g" x="30.52" y="368" text-anchor="middle">25 Oct</text>
+<text class="mv-g" x="30.52" y="384" text-anchor="middle">Full</text>
+<circle class="mv-new" cx="103.68" cy="326" r="8"/>
+<text class="mv-g" x="103.68" y="368" text-anchor="middle">9 Nov</text>
+<text class="mv-g" x="103.68" y="384" text-anchor="middle">New</text>
+<circle class="mv-full" cx="183.11" cy="326" r="8"/>
+<text class="mv-g" x="183.11" y="368" text-anchor="middle">24 Nov</text>
+<text class="mv-g" x="183.11" y="384" text-anchor="middle">Full</text>
+<circle class="mv-new" cx="257.81" cy="326" r="8"/>
+<text class="mv-g" x="257.81" y="368" text-anchor="middle">8 Dec</text>
+<text class="mv-g" x="257.81" y="384" text-anchor="middle">New</text>
+<circle class="mv-full" cx="335.67" cy="326" r="8"/>
+<text class="mv-g" x="335.67" y="368" text-anchor="middle">23 Dec</text>
+<text class="mv-g" x="335.67" y="384" text-anchor="middle">Full</text>
+<g class="mv-cab" transform="translate(335.67 0)"><polygon points="-6,298 6,298 0,309"/><text class="mv-fec" x="-3.67" y="290" text-anchor="middle">23 Dec</text></g>
+</svg>

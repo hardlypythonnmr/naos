@@ -1,0 +1,17 @@
+/* visuales.css · las figuras en la página de tema (sin el armado de la vista previa). */
+.vv-mt { font: 400 22px/1.2 var(--font-serif); margin: 0 0 12px; }
+.vv-fig { margin: 0; } .vv-fig figcaption { max-width: 44rem; font-size: 15px; line-height: 1.5; color: var(--naos-sec); margin-top: 12px; }
+.vv-fig figcaption strong { color: var(--naos-ink); }
+.vv-estrecho { display: none; } .vv-ancho svg, .vv-estrecho svg { display: block; width: 100%; height: auto; }
+/* Ancho solo desde 1100 px de pantalla, donde la figura mide su viewBox (mapa 1040, gráfica 960) y el texto chico queda en 14 px.
+   Por debajo, el estrecho (viewBox 350, texto chico 14 u) con tope de 480 px: a 390 px mide ~14,3 px y nunca baja de 14 hasta 1099 (rev-medidor B1). */
+@media (max-width: 1099px) { .vv-ancho { display: none; } .vv-estrecho { display: block; max-width: 480px; } }
+.vv-vt { font-size: 14px; color: var(--naos-grey); margin: 16px 0 4px; }
+.sm-lista { margin: 0; padding-left: 22px; font-size: 15px; line-height: 1.6; } .sm-lista a { display: inline-block; min-height: 24px; color: var(--naos-sec); } .sm-lista a[aria-current] { color: var(--naos-ink); text-decoration-thickness: 3px; }
+.sm-foco { color: var(--naos-grey); font-size: 14px; } .sm-qm { font-size: 15px; line-height: 1.5; color: var(--naos-sec); max-width: 44rem; } .sm-lq-txt { font-size: 15px; color: var(--naos-sec); margin: 8px 0 0; }
+.vv-det { margin-top: 16px; } .vv-det summary { cursor: pointer; font-size: 15px; min-height: 24px; text-decoration: underline; }
+.sg-tabla { border-collapse: collapse; font-size: 15px; margin: 12px 0; width: 100%; max-width: 52rem; }
+.sg-tabla caption { text-align: left; font: 400 18px var(--font-serif); padding-bottom: 8px; }
+.sg-tabla th, .sg-tabla td { text-align: left; padding: 8px 12px 8px 0; border-top: 1px solid var(--naos-rule); vertical-align: top; }
+.sg-tabla thead th { border-top: 1px solid var(--naos-ink); font-size: 13px; color: var(--naos-grey); font-weight: 400; }
+.sg-sub { color: var(--naos-grey); font-weight: 400; font-size: 13px; } .sg-nota { font-size: 13px; color: var(--naos-grey); max-width: 44rem; }

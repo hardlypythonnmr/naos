@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 520" width="350" height="520" role="img" lang="en" xml:lang="en" aria-labelledby="sm-en-estrecho-t" aria-describedby="sm-en-estrecho-d" style="max-width:100%;height:auto">
+<title id="sm-en-estrecho-t">Nine pieces, 27 Oct to 6 Nov</title>
+<desc id="sm-en-estrecho-d">The first two pieces are about the living, the next five about the dead, then one about both, and the last about the dead again. Last quarter falls on Sunday 1 November. The piece you came from has a ring. The moon wanes from nearly full on 27 October to a thin crescent on 6 November. 1, Tue 27: Call someone older tonight (about the living). 2, Thu 29: Call again next week (about the living). 3, Sat 31, morning: Three calendars of remembering (about the dead). 4, Sat 31, night: The dead in three calendars (about the dead). 5, Sun 1, evening: Saints and Souls (about the dead). 6, Sun 1, night: Say one name out loud (about the dead). 7, Mon 2: The day after the saints (about the dead). 8, Wed 4: Set a place for the one you miss (about both). 9, Fri 6: Three Masses in one day (about the dead). Last quarter: Sunday 1 November, 15:28 in Medellín and New York.</desc>
+<style>
+.sm-t{font-family:var(--font-serif,"Newsreader",Georgia,serif);fill:var(--naos-ink,#0E1116)}
+.sm-f{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);fill:var(--naos-grey,#59616D);font-size:14px}
+.sm-s{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);fill:var(--naos-sec,#454C57);font-size:14px}
+.sm-h{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);fill:var(--naos-ink,#0E1116);font-size:14px;font-variant-numeric:tabular-nums}
+.sm-n{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:14px;fill:var(--naos-grey,#59616D)}
+.sm-hilo{stroke:var(--naos-chart,#737B87);stroke-width:2;fill:none}
+.sm-vacio{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:2.2}
+.sm-lleno{fill:var(--naos-ink,#0E1116);stroke:var(--naos-ink,#0E1116);stroke-width:2.2}
+.sm-mitad{fill:var(--naos-ink,#0E1116)}
+.sm-aro{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2;opacity:0}
+.sm-lunad{fill:var(--naos-chart,#737B87)} .sm-lunal{fill:var(--naos-paper,#FFFFFF)} .sm-lunac{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:1.5}
+.sm-lq{fill:var(--naos-ink,#0E1116);font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:14px}
+.sm-tick{stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.sm-origen .sm-aro{opacity:1;stroke-width:3}
+</style>
+<circle class="sm-vacio" cx="20" cy="17" r="8"/><text class="sm-s" x="36" y="22">about the living</text><circle class="sm-vacio" cx="20" cy="41" r="8"/><circle class="sm-mitad" cx="20" cy="41" r="3.4"/><text class="sm-s" x="36" y="46">about both</text><circle class="sm-lleno" cx="188" cy="17" r="8"/><text class="sm-s" x="204" y="22">about the dead</text><circle class="sm-lunad" cx="188" cy="41" r="8"/><path class="sm-lunal" d="M188,33 A8,8 0 0 0 188,49 A1.60,8 0 0 0 188,33 Z"/><circle class="sm-lunac" cx="188" cy="41" r="8"/><text class="sm-s" x="204" y="46">moon of that day</text>
+<line class="sm-hilo" x1="26" y1="66" x2="26" y2="500"/>
+<g class="sm-nodo" data-n="1" data-src="1027h"><text class="sm-f" x="52" y="76">Tue 27</text><text class="sm-t" x="52" y="94" text-anchor="start" font-size="16">Call someone older tonight</text><circle class="sm-aro" cx="26" cy="88" r="16"/><circle class="sm-vacio" cx="26" cy="88" r="11"/></g>
+<circle class="sm-lunad" cx="326" cy="88" r="11"/><path class="sm-lunal" d="M326,77 A11,11 0 0 0 326,99 A10.34,11 0 0 0 326,77 Z"/><circle class="sm-lunac" cx="326" cy="88" r="11"/>
+<g class="sm-nodo" data-n="2" data-src="1029h"><text class="sm-f" x="52" y="120">Thu 29</text><text class="sm-t" x="52" y="138" text-anchor="start" font-size="16">Call again next week</text><circle class="sm-aro" cx="26" cy="132" r="16"/><circle class="sm-vacio" cx="26" cy="132" r="11"/></g>
+<circle class="sm-lunad" cx="326" cy="132" r="11"/><path class="sm-lunal" d="M326,121 A11,11 0 0 0 326,143 A7.26,11 0 0 0 326,121 Z"/><circle class="sm-lunac" cx="326" cy="132" r="11"/>
+<g class="sm-nodo" data-n="3" data-src=""><text class="sm-f" x="52" y="164">Sat 31, morning</text><text class="sm-t" x="52" y="182" text-anchor="start" font-size="16">Three calendars of remembering</text><circle class="sm-aro" cx="26" cy="176" r="16"/><circle class="sm-lleno" cx="26" cy="176" r="11"/></g>
+<circle class="sm-lunad" cx="326" cy="176" r="11"/><path class="sm-lunal" d="M326,165 A11,11 0 0 0 326,187 A2.86,11 0 0 0 326,165 Z"/><circle class="sm-lunac" cx="326" cy="176" r="11"/>
+<g class="sm-nodo" data-n="4" data-src="1031h"><text class="sm-f" x="52" y="208">Sat 31, night</text><text class="sm-t" x="52" y="226" text-anchor="start" font-size="16">The dead in three calendars</text><circle class="sm-aro" cx="26" cy="220" r="16"/><circle class="sm-lleno" cx="26" cy="220" r="11"/></g>
+<circle class="sm-lunad" cx="326" cy="220" r="11"/><path class="sm-lunal" d="M326,209 A11,11 0 0 0 326,231 A2.86,11 0 0 0 326,209 Z"/><circle class="sm-lunac" cx="326" cy="220" r="11"/>
+<g class="sm-nodo" data-n="5" data-src=""><text class="sm-f" x="52" y="294">Sun 1, evening</text><text class="sm-t" x="52" y="312" text-anchor="start" font-size="16">Saints and Souls</text><circle class="sm-aro" cx="26" cy="306" r="16"/><circle class="sm-lleno" cx="26" cy="306" r="11"/></g>
+<circle class="sm-lunad" cx="326" cy="306" r="11"/><path class="sm-lunal" d="M326,295 A11,11 0 0 0 326,317 A0.44,11 0 0 0 326,295 Z"/><circle class="sm-lunac" cx="326" cy="306" r="11"/>
+<g class="sm-nodo" data-n="6" data-src="1101h"><text class="sm-f" x="52" y="338">Sun 1, night</text><text class="sm-t" x="52" y="356" text-anchor="start" font-size="16">Say one name out loud</text><circle class="sm-aro" cx="26" cy="350" r="16"/><circle class="sm-lleno" cx="26" cy="350" r="11"/></g>
+<circle class="sm-lunad" cx="326" cy="350" r="11"/><path class="sm-lunal" d="M326,339 A11,11 0 0 0 326,361 A0.44,11 0 0 0 326,339 Z"/><circle class="sm-lunac" cx="326" cy="350" r="11"/>
+<g class="sm-nodo" data-n="7" data-src="1102h"><text class="sm-f" x="52" y="382">Mon 2</text><text class="sm-t" x="52" y="400" text-anchor="start" font-size="16">The day after the saints</text><circle class="sm-aro" cx="26" cy="394" r="16"/><circle class="sm-lleno" cx="26" cy="394" r="11"/></g>
+<circle class="sm-lunad" cx="326" cy="394" r="11"/><path class="sm-lunal" d="M326,383 A11,11 0 0 0 326,405 A1.98,11 0 0 1 326,383 Z"/><circle class="sm-lunac" cx="326" cy="394" r="11"/>
+<g class="sm-nodo" data-n="8" data-src="1104h"><text class="sm-f" x="52" y="426">Wed 4</text><text class="sm-t" x="52" y="444" text-anchor="start" font-size="16">Set a place for the one you miss</text><circle class="sm-aro" cx="26" cy="438" r="16"/><circle class="sm-vacio" cx="26" cy="438" r="11"/><circle class="sm-mitad" cx="26" cy="438" r="4.6"/></g>
+<circle class="sm-lunad" cx="326" cy="438" r="11"/><path class="sm-lunal" d="M326,427 A11,11 0 0 0 326,449 A6.38,11 0 0 1 326,427 Z"/><circle class="sm-lunac" cx="326" cy="438" r="11"/>
+<g class="sm-nodo" data-n="9" data-src="1106h"><text class="sm-f" x="52" y="470">Fri 6</text><text class="sm-t" x="52" y="488" text-anchor="start" font-size="16">Three Masses in one day</text><circle class="sm-aro" cx="26" cy="482" r="16"/><circle class="sm-lleno" cx="26" cy="482" r="11"/></g>
+<circle class="sm-lunad" cx="326" cy="482" r="11"/><path class="sm-lunal" d="M326,471 A11,11 0 0 0 326,493 A9.46,11 0 0 1 326,471 Z"/><circle class="sm-lunac" cx="326" cy="482" r="11"/>
+<line class="sm-tick" x1="17" y1="254" x2="35" y2="254"/>
+<text class="sm-lq" x="52" y="252">Last quarter</text><text class="sm-f" x="52" y="270">Sun 1, 15:28</text>
+<circle class="sm-lunad" cx="326" cy="254" r="11"/><path class="sm-lunal" d="M326,243 A11,11 0 0 0 326,265 L326,243 Z"/><circle class="sm-lunac" cx="326" cy="254" r="11"/>
+</svg>

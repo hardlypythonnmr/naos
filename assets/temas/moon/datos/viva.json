@@ -1,0 +1,214 @@
+{
+ "id": "viva",
+ "kit": "K5 (ciclo lunar) como proceso en pasos",
+ "consultado": "2026-10-16",
+ "tz_medellin_horas": -5,
+ "dominio_barra": {
+  "inicio": "2026-10-24T22:00Z",
+  "fin": "2026-12-24T03:00Z"
+ },
+ "turnos": [
+  {
+   "tipo": "full",
+   "utc": "2026-10-26T04:12Z",
+   "corto": {
+    "en": "25 Oct",
+    "es": "25 oct"
+   },
+   "en": {
+    "nombre": "Full moon",
+    "cuando": "Sun 25 Oct, 23:12 in Medellín",
+    "sig": "full moon of 25 October"
+   },
+   "es": {
+    "nombre": "Luna llena",
+    "cuando": "dom 25 oct, 23:12 en Medellín",
+    "sig": "luna llena del 25 de octubre"
+   }
+  },
+  {
+   "tipo": "new",
+   "utc": "2026-11-09T07:02Z",
+   "corto": {
+    "en": "9 Nov",
+    "es": "9 nov"
+   },
+   "en": {
+    "nombre": "New moon",
+    "cuando": "Mon 9 Nov, 02:02 in Medellín",
+    "sig": "new moon of 9 November"
+   },
+   "es": {
+    "nombre": "Luna nueva",
+    "cuando": "lun 9 nov, 02:02 en Medellín",
+    "sig": "luna nueva del 9 de noviembre"
+   }
+  },
+  {
+   "tipo": "full",
+   "utc": "2026-11-24T14:53Z",
+   "corto": {
+    "en": "24 Nov",
+    "es": "24 nov"
+   },
+   "en": {
+    "nombre": "Full moon",
+    "cuando": "Tue 24 Nov, 09:53 in Medellín",
+    "sig": "full moon of 24 November"
+   },
+   "es": {
+    "nombre": "Luna llena",
+    "cuando": "mar 24 nov, 09:53 en Medellín",
+    "sig": "luna llena del 24 de noviembre"
+   }
+  },
+  {
+   "tipo": "new",
+   "utc": "2026-12-09T00:52Z",
+   "corto": {
+    "en": "8 Dec",
+    "es": "8 dic"
+   },
+   "en": {
+    "nombre": "New moon",
+    "cuando": "Tue 8 Dec, 19:52 in Medellín",
+    "sig": "new moon of 8 December"
+   },
+   "es": {
+    "nombre": "Luna nueva",
+    "cuando": "mar 8 dic, 19:52 en Medellín",
+    "sig": "luna nueva del 8 de diciembre"
+   }
+  },
+  {
+   "tipo": "full",
+   "utc": "2026-12-24T01:28Z",
+   "corto": {
+    "en": "23 Dec",
+    "es": "23 dic"
+   },
+   "en": {
+    "nombre": "Full moon",
+    "cuando": "Wed 23 Dec, 20:28 in Medellín",
+    "sig": "full moon of 23 December"
+   },
+   "es": {
+    "nombre": "Luna llena",
+    "cuando": "mié 23 dic, 20:28 en Medellín",
+    "sig": "luna llena del 23 de diciembre"
+   }
+  }
+ ],
+ "piezas": [
+  {
+   "utc": "2026-10-25T00:00Z",
+   "etiqueta": "Sat 24 Oct, 20:00 ET",
+   "luz_pct": 98.1,
+   "canal": "short"
+  },
+  {
+   "utc": "2026-11-09T17:00Z",
+   "etiqueta": "Mon 9 Nov, 12:00 ET",
+   "luz_pct": 0.4,
+   "canal": "story"
+  },
+  {
+   "utc": "2026-11-10T01:00Z",
+   "etiqueta": "Mon 9 Nov, 20:00 ET",
+   "luz_pct": 0.7,
+   "canal": "short"
+  },
+  {
+   "utc": "2026-11-23T17:00Z",
+   "etiqueta": "Mon 23 Nov, 12:00 ET",
+   "luz_pct": 98.6,
+   "canal": "story"
+  },
+  {
+   "utc": "2026-11-24T01:00Z",
+   "etiqueta": "Mon 23 Nov, 20:00 ET",
+   "luz_pct": 99.3,
+   "canal": "short"
+  },
+  {
+   "utc": "2026-12-07T17:00Z",
+   "etiqueta": "Mon 7 Dec, 12:00 ET",
+   "luz_pct": 1.8,
+   "canal": "story"
+  },
+  {
+   "utc": "2026-12-08T01:00Z",
+   "etiqueta": "Mon 7 Dec, 20:00 ET",
+   "luz_pct": 1.1,
+   "canal": "short"
+  },
+  {
+   "utc": "2026-12-22T17:00Z",
+   "etiqueta": "Tue 22 Dec, 12:00 ET",
+   "luz_pct": 97,
+   "canal": "story"
+  },
+  {
+   "utc": "2026-12-23T01:00Z",
+   "etiqueta": "Tue 22 Dec, 20:00 ET",
+   "luz_pct": 98.2,
+   "canal": "short"
+  }
+ ],
+ "tiempos": {
+  "mueve_ms_por_dia": 270,
+  "pausa_en_vuelta_ms": 1500
+ },
+ "en": {
+  "titulo": "Two cycles of the moon",
+  "alt": "Animation: the moon goes through two cycles of phases, from the full moon of 25 October to the full moon of 23 December, and a bar below follows the dates.",
+  "desc": "A drawing seen from above, with the Sun's light coming from the left. The Earth is in the middle and the moon on a circle around it. At the full moon, on the right, the whole lit half faces us. At the new moon, on the left, none of it does. Below, a bar runs from 25 October to 23 December with the five phases on it: full 25 October, new 9 November, full 24 November, new 8 December, full 23 December. The line under the drawing says which full or new moon it shows.",
+  "desc_quieto_fin": "This picture shows the full moon of 23 December.",
+  "desc_vivo_fin": "The line under the drawing says which full or new moon it shows.",
+  "que_es": "What this shows",
+  "que_muestra": "From the full moon of 25 October to the full moon of 23 December, the moon goes through two cycles of phases. The Sun's light comes from the left and always lights the half of the moon that faces it. From Earth we see that half whole at the full moon and not at all at the new moon. Play it, or go one phase at a time.",
+  "ayuda_luz": "Lit, as seen from Earth",
+  "luz_oscura": "dark",
+  "luz_llena": "full",
+  "sol": "Sunlight",
+  "tierra": "Earth",
+  "n_new": "New",
+  "n_full": "Full",
+  "play": "Play",
+  "pause": "Pause",
+  "next": "Next phase",
+  "again": "Play again",
+  "restart": "Back to the start",
+  "mueve": "On the way to the {sig}.",
+  "pasos_titulo": "The five full and new moons, in Medellín time",
+  "pasos_pie": "Between one and the next: ",
+  "dias": "d",
+  "horas": "h"
+ },
+ "es": {
+  "titulo": "Dos ciclos de la luna",
+  "alt": "Animación: la luna recorre dos ciclos de fases, de la luna llena del 25 de octubre a la del 23 de diciembre, y una barra de abajo sigue las fechas.",
+  "desc": "Un dibujo visto desde arriba, con la luz del Sol llegando por la izquierda. La Tierra está en el centro y la luna en un círculo a su alrededor. En la luna llena, a la derecha, nos mira toda la mitad iluminada. En la luna nueva, a la izquierda, no nos mira nada de ella. Abajo, una barra va del 25 de octubre al 23 de diciembre con las cinco fases marcadas: llena el 25 de octubre, nueva el 9 de noviembre, llena el 24 de noviembre, nueva el 8 de diciembre y llena el 23 de diciembre. La línea bajo el dibujo dice qué luna llena o nueva muestra.",
+  "desc_quieto_fin": "Esta imagen muestra la luna llena del 23 de diciembre.",
+  "desc_vivo_fin": "La línea bajo el dibujo dice qué luna llena o nueva muestra.",
+  "que_es": "Qué muestra",
+  "que_muestra": "De la luna llena del 25 de octubre a la del 23 de diciembre, la luna recorre dos ciclos de fases. La luz del Sol llega por la izquierda y ilumina siempre la mitad de la luna que lo mira. Desde la Tierra vemos esa mitad completa en la luna llena y nada de ella en la luna nueva. Reprodúcela o ve de una fase a la siguiente.",
+  "ayuda_luz": "Iluminada, vista desde la Tierra",
+  "luz_oscura": "oscura",
+  "luz_llena": "llena",
+  "sol": "Luz del Sol",
+  "tierra": "Tierra",
+  "n_new": "Nueva",
+  "n_full": "Llena",
+  "play": "Reproducir",
+  "pause": "Pausa",
+  "next": "Siguiente fase",
+  "again": "Otra vez",
+  "restart": "Volver al inicio",
+  "mueve": "Va hacia la {sig}.",
+  "pasos_titulo": "Las cinco lunas llenas y nuevas, en hora de Medellín",
+  "pasos_pie": "Entre una y la siguiente: ",
+  "dias": "d",
+  "horas": "h"
+ }
+}

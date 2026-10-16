@@ -1,0 +1,32 @@
+<svg class="ds" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 432" width="360" height="432" role="img" aria-labelledby="ds-t-en ds-d-en" lang="en">
+<title id="ds-t-en">Dot chart: the moon is 368,872 km away at the full moon of 25 October, 360,766 km at the one of 24 November and 356,738 km at the one of 23 December.</title>
+<desc id="ds-d-en">Three dots on one scale from 355,000 to 370,000 kilometers, one row for each full moon. Each is closer than the one before: 8,106 km closer in November than in October, and 4,028 km closer in December than in November. December&#x27;s is the closest full moon of 2026.</desc>
+<style>svg.ds{--ink:var(--naos-ink,#0E1116);--sec:var(--naos-sec,#454C57);--grey:var(--naos-grey,#59616D);--chart:var(--naos-chart,#737B87);--rule:var(--naos-rule,#D7DBE0);--paper:var(--naos-paper,#FFFFFF);font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif)}svg.ds[data-tono=noche]{--ink:var(--naos-night-text,#F4F6F8);--sec:var(--naos-night-sec,#C3C9D2);--grey:var(--naos-night-grey,#9AA3B0);--chart:var(--naos-night-grey,#9AA3B0);--rule:var(--naos-night-rule,#2A303A);--paper:var(--naos-night,#0E1116)}svg.ds text{fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:4px;stroke-linejoin:round}svg.ds .ds-g{fill:var(--grey);font-size:13px}svg.ds .ds-h{font-size:15px;font-weight:600}svg.ds .ds-h tspan{font-weight:400}svg.ds .ds-v{font-size:18px;font-weight:500;font-variant-numeric:tabular-nums}svg.ds .ds-grid{stroke:var(--rule);stroke-width:1}svg.ds .ds-ax{stroke:var(--chart);stroke-width:1}svg.ds .ds-tr{stroke:var(--chart);stroke-width:1}svg.ds .ds-a{fill:var(--ink)}svg.ds .ds-ab{fill:var(--paper);stroke:var(--ink);stroke-width:2.5}</style>
+<line class="ds-grid" x1="44.8" y1="22" x2="44.8" y2="376"/>
+<text class="ds-g" x="44.8" y="394" text-anchor="middle">356,000</text>
+<line class="ds-grid" x1="128" y1="22" x2="128" y2="376"/>
+<text class="ds-g" x="128" y="394" text-anchor="middle">360,000</text>
+<line class="ds-grid" x1="211.2" y1="22" x2="211.2" y2="376"/>
+<text class="ds-g" x="211.2" y="394" text-anchor="middle">364,000</text>
+<line class="ds-grid" x1="294.4" y1="22" x2="294.4" y2="376"/>
+<text class="ds-g" x="294.4" y="394" text-anchor="middle">368,000</text>
+<line class="ds-ax" x1="24" y1="376" x2="336" y2="376"/>
+<text class="ds-g" x="24" y="418">← closer to Earth</text>
+<text class="ds-g" x="336" y="418" text-anchor="end">farther →</text>
+<text class="ds-h" x="24" y="36">Full moon · <tspan>Sun 25 Oct, 23:12</tspan></text>
+<line class="ds-tr" x1="24" y1="80" x2="336" y2="80"/>
+<circle class="ds-a" cx="312.54" cy="80" r="8"/>
+<text class="ds-v" x="296.54" y="66" text-anchor="end">368,872 km</text>
+<text class="ds-g" x="24" y="108">The farthest of the three.</text>
+<text class="ds-h" x="24" y="148">Full moon · <tspan>Tue 24 Nov, 09:53</tspan></text>
+<line class="ds-tr" x1="24" y1="192" x2="336" y2="192"/>
+<circle class="ds-a" cx="143.93" cy="192" r="8"/>
+<text class="ds-v" x="159.93" y="178">360,766 km</text>
+<text class="ds-g" x="24" y="220">8,106 km closer than October&#x27;s.</text>
+<text class="ds-h" x="24" y="260">Full moon · <tspan>Wed 23 Dec, 20:28</tspan></text>
+<line class="ds-tr" x1="24" y1="304" x2="336" y2="304"/>
+<circle class="ds-a" cx="60.15" cy="304" r="8"/>
+<text class="ds-v" x="76.15" y="290">356,738 km</text>
+<text class="ds-g" x="24" y="332">4,028 km closer than November&#x27;s.</text>
+<text class="ds-g" x="24" y="349">The closest full moon of 2026.</text>
+</svg>

@@ -138,6 +138,8 @@ Las dos preguntas y los tres movimientos son nuestros. Recogen lo que hacen los 
 
 ## 5 · Las piezas {#pieces}
 
+En YouTube, los Shorts llevan subtítulos en español; en Instagram, no.
+
 *Las seis piezas, por fecha (plegado; la próxima queda abierta)*
 
 **Lun 19 oct · 18:00 ET (17:00) · Short y Reel · El mismo día** {#c-2026-10-19-1800-p-short-reel}
@@ -373,7 +375,7 @@ Cada fuente con lo que le aporta a esta página. Para el oficio van primero las 
 
 ### Líneas de ayuda
 
-[50] Colombia: Ministerio de Salud, línea 106, gratuita, confidencial, las 24 horas: https://minsalud.gov.co/salud/publica/salud-mental/Paginas/linea-106.aspx · EE. UU.: 988 Lifeline (en español, marca 2): https://988lifeline.org/get-help/ · En cualquier otro lugar: https://findahelpline.com
+[50] Colombia: Ministerio de Salud, línea 106, gratuita, confidencial, las 24 horas: https://minsalud.gov.co/salud/publica/salud-mental/Paginas/linea-106.aspx · EE. UU.: 988 Lifeline (en español, marca 2): https://988lifeline.org/get-help/ · En cualquier otro lugar: https://findahelpline.com · Colombia, 123 si hay peligro inmediato: Find A Helpline, Colombia helplines and hotlines, https://findahelpline.com/countries/co
 
 ### Cómo revisamos esta página
 

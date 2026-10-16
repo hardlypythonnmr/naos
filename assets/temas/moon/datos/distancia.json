@@ -1,0 +1,64 @@
+{
+ "id": "distancia",
+ "kit": "K4 (puntos sobre una escala, sin serie larga)",
+ "consultado": "2026-10-16",
+ "eje": {
+  "min": 355000,
+  "max": 370000,
+  "ticks": [
+   356000,
+   360000,
+   364000,
+   368000
+  ],
+  "unidad": "km",
+  "empieza_en_cero": false
+ },
+ "calculo": "Las diferencias salen de las distancias de arriba: 368872-360766 = 8106; 360766-356738 = 4028. Nada más se calcula.",
+ "fuentes": {
+  "horas": "U.S. Naval Observatory (USNO), pagina [2]",
+  "distancia": "NASA JPL Horizons, de centro a centro, pagina [4]"
+ },
+ "en": {
+  "titulo": "How far the moon is at each full moon",
+  "subtitulo": "From the center of the Earth to the center of the Moon, in kilometers.",
+  "alt": "Dot chart: the moon is 368,872 km away at the full moon of 25 October, 360,766 km at the one of 24 November and 356,738 km at the one of 23 December.",
+  "desc": "Three dots on one scale from 355,000 to 370,000 kilometers, one row for each full moon. Each is closer than the one before: 8,106 km closer in November than in October, and 4,028 km closer in December than in November. December's is the closest full moon of 2026.",
+  "que_es": "What this shows",
+  "que_muestra": "The full moons get closer as the season goes on: 368,872 km on 25 October, 360,766 km on 24 November and 356,738 km on 23 December. December's is the closest full moon of 2026.",
+  "fila_pre": "Full moon · ",
+  "eje_cerca": "closer to Earth",
+  "eje_lejos": "farther",
+  "eje_nota": "The scale starts at 355,000 km, not at zero, so the three dots can be told apart.",
+  "fuente": "Distances: NASA JPL Horizons, center to center. Times: U.S. Naval Observatory. Both checked on 16 October 2026. Times are Medellín. Sources [2] [4].",
+  "tabla_resumen": "Table of the three full moons",
+  "col_llena": "Full moon",
+  "col_med": "Medellín",
+  "col_ny": "New York (ET)",
+  "col_dist": "Distance",
+  "col_dif": "Against the one before",
+  "primera": "first of the three",
+  "dif_pre": "closer by "
+ },
+ "es": {
+  "titulo": "A qué distancia está la luna en cada luna llena",
+  "subtitulo": "Del centro de la Tierra al centro de la Luna, en kilómetros.",
+  "alt": "Gráfica de puntos: la luna está a 368.872 km en la llena del 25 de octubre, a 360.766 km en la del 24 de noviembre y a 356.738 km en la del 23 de diciembre.",
+  "desc": "Tres puntos sobre una misma escala de 355.000 a 370.000 kilómetros, una fila por cada luna llena. Cada una está más cerca que la anterior: 8.106 km más cerca en noviembre que en octubre, y 4.028 km más cerca en diciembre que en noviembre. La de diciembre es la llena más cercana de 2026.",
+  "que_es": "Qué muestra",
+  "que_muestra": "Las lunas llenas se van acercando a medida que avanza la temporada: 368.872 km el 25 de octubre, 360.766 km el 24 de noviembre y 356.738 km el 23 de diciembre. La de diciembre es la llena más cercana de 2026.",
+  "fila_pre": "Llena · ",
+  "eje_cerca": "más cerca de la Tierra",
+  "eje_lejos": "más lejos",
+  "eje_nota": "La escala empieza en 355.000 km, no en cero, para que se distingan los tres puntos.",
+  "fuente": "Distancias: NASA JPL Horizons, de centro a centro. Horas: Observatorio Naval de los Estados Unidos. Las dos se revisaron el 16 de octubre de 2026. Las horas son de Medellín. Fuentes [2] [4].",
+  "tabla_resumen": "Tabla de las tres lunas llenas",
+  "col_llena": "Luna llena",
+  "col_med": "Medellín",
+  "col_ny": "Nueva York (ET)",
+  "col_dist": "Distancia",
+  "col_dif": "Frente a la anterior",
+  "primera": "la primera de las tres",
+  "dif_pre": "más cerca por "
+ }
+}

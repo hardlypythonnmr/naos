@@ -1,0 +1,209 @@
+{
+ "id": "mapa",
+ "kit": "K1",
+ "vueltas": [
+  {
+   "id": "f1",
+   "tipo": "full",
+   "utc": "2026-10-26T04:12Z",
+   "en": "Full moon · Sun 25 Oct, 23:12",
+   "es": "Luna llena · dom 25 oct, 23:12"
+  },
+  {
+   "id": "n1",
+   "tipo": "new",
+   "utc": "2026-11-09T07:02Z",
+   "en": "New moon · Mon 9 Nov, 02:02",
+   "es": "Luna nueva · lun 9 nov, 02:02"
+  },
+  {
+   "id": "f2",
+   "tipo": "full",
+   "utc": "2026-11-24T14:53Z",
+   "en": "Full moon · Tue 24 Nov, 09:53",
+   "es": "Luna llena · mar 24 nov, 09:53"
+  },
+  {
+   "id": "n2",
+   "tipo": "new",
+   "utc": "2026-12-09T00:52Z",
+   "en": "New moon · Tue 8 Dec, 19:52",
+   "es": "Luna nueva · mar 8 dic, 19:52"
+  },
+  {
+   "id": "f3",
+   "tipo": "full",
+   "utc": "2026-12-24T01:28Z",
+   "en": "Full moon · Wed 23 Dec, 20:28",
+   "es": "Luna llena · mié 23 dic, 20:28"
+  }
+ ],
+ "nodos": [
+  {
+   "i": 1,
+   "vuelta": "f1",
+   "lado": "antes",
+   "canal": "short",
+   "src": "1024h",
+   "ancla": "c-2026-10-24-2000-h-short-reel",
+   "en": {
+    "fecha": "Sat 24 Oct",
+    "titulo": "Almost full"
+   },
+   "es": {
+    "fecha": "sáb 24 oct",
+    "titulo": "Casi llena"
+   }
+  },
+  {
+   "i": 2,
+   "vuelta": "n1",
+   "lado": "despues",
+   "canal": "story",
+   "ancla": "c-2026-11-09-1200-h-historia",
+   "en": {
+    "fecha": "Mon 9 Nov, noon",
+    "titulo": "A dark card"
+   },
+   "es": {
+    "fecha": "lun 9 nov, mediodía",
+    "titulo": "Una tarjeta oscura"
+   }
+  },
+  {
+   "i": 3,
+   "vuelta": "n1",
+   "lado": "despues",
+   "canal": "short",
+   "src": "1109h",
+   "ancla": "c-2026-11-09-2000-h-short-reel",
+   "en": {
+    "fecha": "Mon 9 Nov, night",
+    "titulo": "The moon goes dark"
+   },
+   "es": {
+    "fecha": "lun 9 nov, noche",
+    "titulo": "La luna se apaga"
+   }
+  },
+  {
+   "i": 4,
+   "vuelta": "f2",
+   "lado": "antes",
+   "canal": "story",
+   "ancla": "c-2026-11-23-1200-h-historia",
+   "en": {
+    "fecha": "Mon 23 Nov, noon",
+    "titulo": "Full tomorrow"
+   },
+   "es": {
+    "fecha": "lun 23 nov, mediodía",
+    "titulo": "Llena mañana"
+   }
+  },
+  {
+   "i": 5,
+   "vuelta": "f2",
+   "lado": "antes",
+   "canal": "short",
+   "src": "1123h",
+   "ancla": "c-2026-11-23-2000-h-short-reel",
+   "en": {
+    "fecha": "Mon 23 Nov, night",
+    "titulo": "Full, and closer"
+   },
+   "es": {
+    "fecha": "lun 23 nov, noche",
+    "titulo": "Llena, y más cerca"
+   }
+  },
+  {
+   "i": 6,
+   "vuelta": "n2",
+   "lado": "antes",
+   "canal": "story",
+   "ancla": "c-2026-12-07-1200-h-historia",
+   "en": {
+    "fecha": "Mon 7 Dec, noon",
+    "titulo": "One candle, one window"
+   },
+   "es": {
+    "fecha": "lun 7 dic, mediodía",
+    "titulo": "Una vela, una ventana"
+   }
+  },
+  {
+   "i": 7,
+   "vuelta": "n2",
+   "lado": "antes",
+   "canal": "short",
+   "src": "1207h",
+   "ancla": "c-2026-12-07-2000-h-short-reel",
+   "en": {
+    "fecha": "Mon 7 Dec, night",
+    "titulo": "Candles before the dark"
+   },
+   "es": {
+    "fecha": "lun 7 dic, noche",
+    "titulo": "Velitas antes de la oscura"
+   }
+  },
+  {
+   "i": 8,
+   "vuelta": "f3",
+   "lado": "antes",
+   "canal": "story",
+   "ancla": "c-2026-12-22-1200-h-historia",
+   "en": {
+    "fecha": "Tue 22 Dec, noon",
+    "titulo": "The extra plate"
+   },
+   "es": {
+    "fecha": "mar 22 dic, mediodía",
+    "titulo": "Un puesto más"
+   }
+  },
+  {
+   "i": 9,
+   "vuelta": "f3",
+   "lado": "antes",
+   "canal": "short",
+   "src": "1222h",
+   "ancla": "c-2026-12-22-2000-h-short-reel",
+   "en": {
+    "fecha": "Tue 22 Dec, night",
+    "titulo": "Closest full moon"
+   },
+   "es": {
+    "fecha": "mar 22 dic, noche",
+    "titulo": "La llena más cercana"
+   }
+  }
+ ],
+ "en": {
+  "titulo": "One season of moon",
+  "alt": "Map of this page: the moon drawn five times along one curve, full, dark, full, dark, full, with nine pieces from 24 October to 22 December.",
+  "desc": "Five moons run down the page along a dotted curve: full on 25 October, new on 9 November, full on 24 November, new on 8 December and full on 23 December. Nine pieces sit beside them, in date order. Filled dots are Shorts and Reels at night, open dots are Instagram stories at noon.",
+  "que_es": "What this shows",
+  "que_muestra": "Each moon is one full or new moon of the season, with its pieces beside it. The piece you came from lights up.",
+  "leyenda_short": "Short and Reel, night",
+  "leyenda_story": "Instagram story, noon",
+  "texto_version": "Text version of the map",
+  "canal_short": "Short and Reel",
+  "canal_story": "Instagram story",
+  "de_aqui": "you came from here"
+ },
+ "es": {
+  "titulo": "Una temporada de luna",
+  "alt": "Mapa de esta página: la luna dibujada cinco veces sobre una curva, llena, oscura, llena, oscura, llena, con nueve piezas del 24 de octubre al 22 de diciembre.",
+  "desc": "Cinco lunas bajan por la página sobre una curva de puntos: llena el 25 de octubre, nueva el 9 de noviembre, llena el 24 de noviembre, nueva el 8 de diciembre y llena el 23 de diciembre. Al lado van las nueve piezas, en orden de fecha. Los puntos llenos son Shorts y Reels de la noche; los puntos vacíos, historias de Instagram del mediodía.",
+  "que_es": "Qué muestra",
+  "que_muestra": "Cada dibujo es una luna llena o una luna nueva de la temporada, con sus piezas al lado. Se ilumina la pieza de la que vienes.",
+  "leyenda_short": "Short y Reel, de noche",
+  "leyenda_story": "Historia de Instagram, de mediodía",
+  "texto_version": "Versión en texto del mapa",
+  "canal_short": "Short y Reel",
+  "canal_story": "Historia de Instagram",
+  "de_aqui": "vienes de aquí"
+ }
+}

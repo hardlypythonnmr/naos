@@ -140,7 +140,7 @@ Los estudiosos fechan Ion, la obra de Eurípides, más o menos entre el 418 y el
 
 ## 5 · Las piezas {#piezas}
 
-Las piezas son en inglés. Cada una lleva aquí su título en español y el original. El cuento de arriba cuenta lo mismo que el Short del 19 de octubre. Horas de Medellín, y entre paréntesis las de Nueva York (ET, la hora del este de Estados Unidos).
+Las piezas son en inglés. Cada una lleva aquí su título en español y el original. El cuento de arriba cuenta lo mismo que el Short del 19 de octubre. Horas de Medellín, y entre paréntesis las de Nueva York (ET, la hora del este de Estados Unidos). En YouTube, los Shorts llevan subtítulos en español; en Instagram, no.
 
 **lun 19 oct · 11:00 (12:00 ET) · Historia de Instagram · Publicada** {#c-2026-10-19-1200-h-historia}
 Adentro, adentro, afuera · en inglés: In. In. Out.
@@ -186,7 +186,7 @@ Cuéntale a alguien por qué la mujer barría un cuarto vacío. Después mándal
 
 La frase que te llevas: Abre la puerta temprano. La luz sigue entrando.
 
-Closer to yourself.
+Más cerca de ti.
 
 ## 7 · Una cosa más {#una-cosa-mas}
 
@@ -260,7 +260,7 @@ Cada fuente dice qué respalda. En la tradición va primero la guía, después l
 
 ### Líneas de ayuda
 
-[23] Minsalud, Línea 106 (Colombia, en español); 988 Suicide and Crisis Lifeline (EE. UU., con atención en español); findahelpline.com. https://minsalud.gov.co/salud/publica/salud-mental/Paginas/linea-106.aspx · https://988lifeline.org/get-help/ · https://findahelpline.com
+[23] Minsalud, Línea 106 (Colombia, en español); 988 Suicide and Crisis Lifeline (EE. UU., con atención en español); findahelpline.com. https://minsalud.gov.co/salud/publica/salud-mental/Paginas/linea-106.aspx · https://988lifeline.org/get-help/ · https://findahelpline.com · Colombia, 123 si hay peligro inmediato: Find A Helpline, Colombia helplines and hotlines, https://findahelpline.com/countries/co
 
 ### Cómo revisamos esta página
 

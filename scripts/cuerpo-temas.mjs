@@ -59,6 +59,27 @@ export const CONFIG = {
   "how-a-vote-is-counted": { familia: "vista", css: ["visuales.css"], scripts: ["mapa-origen.js"],
     vista: { mapa: "map", grafica: "official-dates" },
     visuales: [{ id: "mapa", en: "map", es: "mapa" }, { id: "grafica", en: "days", es: "dias" }], modulos: [] },
+  // lote 1b: el mapa es el índice de las piezas (bloque 5); la distancia y la cosa viva van en "The moon itself" (bloque 4 plegado).
+  // "Next moon" sale de la columna (USNO, la misma de la página); el renglón de la vela solo con ?src=1207h o 1207.
+  moon: { familia: "fig", css: ["viz.css"],
+    visuales: [{ id: "mapa", en: "map", es: "mapa" }, { id: "distancia", en: "h:The moon itself", es: "h:La luna" }, { id: "viva", en: "h:The moon itself", es: "h:La luna" }],
+    modulos: [{ src: "viva/luna-viva.js", sel: "[data-viva]", quieto: true }, { src: "svg/mapa.js", sel: "svg.mp" }],
+    soloSrc: { "#candle": ["1207h", "1207"], "#la-vela": ["1207h", "1207"] },
+    // la luz de cada tarjeta es la de Horizons a la hora de la pieza (fuente [4] del texto), no la de USNO
+    lunaDatos: { en: "Moon data: NASA JPL Horizons, at the hour of each piece. [4]", es: "Datos de la luna: NASA JPL Horizons, a la hora de cada pieza. [4]" },
+    lunas: [
+      { t: "2026-10-26T04:12:00Z", en: "full moon on Sunday 25 October, 23:12 in Medellín, 00:12 ET on Monday 26", es: "luna llena el domingo 25 de octubre, a las 23:12 en Medellín (00:12 del lunes 26 en Nueva York)" },
+      { t: "2026-11-09T07:02:00Z", en: "new moon on Monday 9 November, 02:02 in Medellín and New York", es: "luna nueva el lunes 9 de noviembre, a las 02:02 en Medellín y Nueva York" },
+      { t: "2026-11-24T14:53:00Z", en: "full moon on Tuesday 24 November, 09:53 in Medellín and New York", es: "luna llena el martes 24 de noviembre, a las 09:53 en Medellín y Nueva York" },
+      { t: "2026-12-09T00:52:00Z", en: "new moon on Tuesday 8 December, 19:52 in Medellín and New York", es: "luna nueva el martes 8 de diciembre, a las 19:52 en Medellín y Nueva York" },
+      { t: "2026-12-24T01:28:00Z", en: "full moon on Wednesday 23 December, 20:28 in Medellín and New York", es: "luna llena el miércoles 23 de diciembre, a las 20:28 en Medellín y Nueva York" }] },
+  // lote 1b: la cosa viva es el bloque 2 entero (la figura trae su texto palabra por palabra); el mapa trae su propio pliegue
+  "saints-and-souls": { familia: "vista", css: ["visuales.css", "anim/noche.css"], scripts: ["mapa-origen.js"],
+    vista: { mapa: "map", grafica: "chart", viva: "evening" },
+    visuales: [{ id: "viva", en: "one-evening", es: "una-noche", reemplaza: { en: "^That's it\\.", es: "^Eso es todo\\." } },
+      { id: "mapa", en: "map", es: "mapa" },
+      { id: "grafica", en: "where-they-disagree", es: "no-coinciden" }],
+    modulos: [{ src: "anim/noche.js", sel: "[data-sv]", quieto: true }] },
 };
 
 // meta.json viene en dos formas (lote 0 y lote 1); se normaliza a lo que la página publica
@@ -78,6 +99,7 @@ function metaPublica(m, slug) {
   for (const e of [...(m.short_links || []), ...(Array.isArray(m.story_links) ? m.story_links : [])]) cortos[e.code] = { en: e.you_came_from_en, es: e.you_came_from_es, aterriza: { en: null, es: null } };
   const env = m.enviar || m.boton_enviar || {};
   const enviar = { en: (env.manda && env.manda.en) || (typeof env.en === "string" && !m.boton_enviar ? env.en : null), es: (env.manda && env.manda.es) || (typeof env.es === "string" && !m.boton_enviar ? env.es : null) };
+  for (const l of ["en", "es"]) if (enviar[l]) enviar[l] = enviar[l].replace(/\s*\{(link|enlace)\}\s*$/, ""); // la URL la pone el botón
   for (const c of Object.values(cortos)) for (const l of ["en", "es"]) if (c.aterriza[l] && /^c-/.test(c.aterriza[l])) c.aterriza[l] = null; // la tarjeta ya es el destino
   const luna = {};
   for (const [id, v] of Object.entries(m.luna_por_pieza || {})) if (/^c-/.test(id)) luna[id] = { iluminacion: v.pct, fase: { en: v.fase_en, es: v.fase_es } };
@@ -104,7 +126,7 @@ export function importar({ V, lote, slugs, log = console.log }) {
       fs.writeFileSync(path.join(V, `data/temas/${slug}.${l}.md`), t);
     }
     const datos = { ...metaPublica(JSON.parse(fs.readFileSync(path.join(dir, "meta.json"), "utf8")), slug),
-      visuales: C.visuales, modulos: C.modulos || [], pliegues: C.pliegues || {}, css: C.css || [], scripts: C.scripts || [], flechas: C.flechas || {}, ...(C.cambio ? { cambio: C.cambio } : {}) };
+      visuales: C.visuales, modulos: C.modulos || [], pliegues: C.pliegues || {}, css: C.css || [], scripts: C.scripts || [], flechas: C.flechas || {}, ...(C.cambio ? { cambio: C.cambio } : {}), ...(C.soloSrc ? { soloSrc: C.soloSrc } : {}), ...(C.lunas ? { lunas: C.lunas } : {}), ...(C.lunaDatos ? { lunaDatos: C.lunaDatos } : {}) };
     fs.writeFileSync(path.join(V, `data/temas/${slug}.json`), JSON.stringify(datos, null, 1) + "\n");
     // assets: solo lo que la página usa (sin generadores .py, sin LEEME, sin la vista previa)
     fs.rmSync(dest, { recursive: true, force: true });
@@ -113,11 +135,11 @@ export function importar({ V, lote, slugs, log = console.log }) {
     const recorrer = (d, rel = "") => { for (const n of fs.readdirSync(d).sort()) { const p = path.join(d, n), r = rel ? `${rel}/${n}` : n; if (fs.statSync(p).isDirectory()) { if (n !== "src") recorrer(p, r); } else if (PUBLICO.test(n) || (C.familia === "fig" && r.startsWith("fig/") && n.endsWith(".html"))) copiar(p, path.join(dest, r)); } };
     recorrer(vis);
     // los datos de cada figura se publican sin lo interno: ni ids de afirmaciones, ni notas de trabajo, ni rutas de archivos
-    const ID = /^(cella|fmt|quien|voto|fomc|chat|moon|santos)-[\w-]*\d{2}\b/;
+    const ID = /^(cella|fmt|quien|voto|fomc|chat|moon|santos|sas)-[\w-]*\d{2}\b/;
     const limpio = (o) => {
       if (Array.isArray(o)) { const xs = o.map(limpio).filter((x) => x !== undefined); return xs.length || !o.length ? xs : undefined; }
       if (o && typeof o === "object") return Object.fromEntries(Object.entries(o).filter(([k]) => !/^(_?nota.*|afirmaci.*|af|ids|fila|filas)$/.test(k)).map(([k, v]) => [k, limpio(v)]).filter(([, v]) => v !== undefined));
-      if (typeof o === "string" && (ID.test(o) || /texto-(en|es)\.md|revision-fuentes|\bI[34]\b/.test(o))) return undefined;
+      if (typeof o === "string" && (ID.test(o) || /\b(sas|moon)-\d{2}\b|\bLEEME\b|texto-(en|es)\.md|revision-fuentes|\bI[34]\b/.test(o))) return undefined;
       return o;
     };
     const dd = path.join(dest, "datos");
@@ -142,7 +164,7 @@ export function importar({ V, lote, slugs, log = console.log }) {
 // nombres propios en español o portugués que se quedan dentro de una frase en inglés sin cambiarle el idioma (WCAG 3.1.2 pide
 // marcar las partes, no los nombres); los usa también qa.mjs para no contarlos como texto en otro idioma
 export const NOMBRES_PROPIOS = ["Banco de la República", "Bloomberg Línea", "Congresso em Foco", "Jornal Opção", "O Povo", "Boletim na Mão", "Portal Resultados",
-  "Junta Electoral Central", "Ministerio del Interior", "La Moncloa", "Escola Judiciária Eleitoral", "Minsalud, Línea 106", "Línea 106", "Medellín", "Bogotá", "Brasília", "Constitución Española"];
+  "Junta Electoral Central", "Ministerio del Interior", "La Moncloa", "Escola Judiciária Eleitoral", "Minsalud, Línea 106", "Línea 106", "Línea de la Vida", "Centro de Asistencia al Suicida", "Medellín", "Bogotá", "Brasília", "Constitución Española"];
 const SIN_PROPIOS = (t) => NOMBRES_PROPIOS.reduce((a, n) => a.split(n).join(" "), t);
 // marcas de otro idioma en un texto en inglés (la misma idea que qa.mjs: ñ ¿ ¡, una tilde seguida de otra palabra, o tres palabras vacías)
 const OTRO = /[ñ¿¡ãõç]|[áéíóúâêô]\w*\s+\w+|\b(de|del|la|las|los|el|para|con|una|y|em|não|dos|das)\b(?:.*\b(de|del|la|las|los|el|para|con|una|y|em|não|dos|das)\b){2}/i;
@@ -154,11 +176,17 @@ const PLIEGUE = /^\*(.+)\s+\((folded|plegad[ao])([^)]*)\)\*$/i; // *Rótulo (fol
 const PLIEGUE_SECCION = /^\((Folded|Plegad[oa]|The drawing is folded|El dibujo va plegado)\b/; // (Folded. Opens on tap.)
 const FIN_PLIEGUE = /\s*\*\((end of fold|fin del plegado)\)\*\s*$/i;
 const HUECO_VISUAL = /^\[(Figure|Figura|Visual)\b|^(Chart|Gráfica):/;
-const CONSTRUCCION = /^(Map title|Título del mapa|Nodes|Nodos|Alt|What this shows|Qué muestra|Text version|Versión en texto)\b|^\[(What this shows|Qué muestra)/;
-const BOTON_ENVIAR = /^\[(Send this|Send this page|Send the three questions|Enviar|Enviar esto|Enviar esta página|Enviar las tres preguntas)\]$/;
+const CONSTRUCCION = /^(Map title|Título del mapa|Nodes|Nodos|Alt|Texto alternativo|Legend|Leyenda|Details|Detalles|What this shows|Qué muestra|Text version|Versión en texto)\b|^\[(What this shows|Qué muestra)/;
+const BOTON_ENVIAR = /^\[(Send this|Send this page|Send the three questions|Enviar|Enviar esto|Enviar esta página|Enviar las tres preguntas|Mándasela)\]$/;
 const BOTON_COPIAR = /^\[(Copy the prompt|Copiar el prompt)\]$/;
 const VIENES = /^\[(You came from|Vienes de):/;
-const PROXIMA = /^(Next here|Next piece|Next|Lo que sigue|Lo próximo|Lo siguiente aquí):\s*\{[^}]*\}\.?\s*(?:(Default|Por defecto):\s*(.*))?$/;
+// "{…}" lo llena el navegador; sin llaves, la línea es el valor por defecto (saints-and-souls). "Next moon" sale de la columna (X.lunas)
+const PROXIMA = /^(Next here|Next piece|Next moon|Next|Lo que sigue en esta página|Lo que sigue|Lo próximo|Lo siguiente aquí|La próxima pieza|La próxima luna):\s*(?:\{[^}]*\}\.?\s*(?:(Default|Por defecto):\s*(.*))?|([^{\s].*))$/;
+const PROX_LUNA = /^(Next moon|La próxima luna)$/;
+// "[fold] La noche {#id}" (moon) es un pliegue con rótulo; "Moon: … [tap] …" en la cabeza de una tarjeta lo pone el registro (la luna del dato)
+const FOLD_CORTO = /^\[(fold|pliegue)\]\s+(.+?)\s*\{#([\w-]+)\}\s*$/gm;
+const LUNA_TARJETA = /^(Moon|Luna):\s.*\[(tap|toque)\]/;
+const SOLO_ENLACE = /^\[([^\]]+)\]\((#[\w-]+)\)$/;
 const ETIQUETA = /^(Our |Nuestr|Tradition|Tradición|Official data|Datos oficiales|Study|Estudio|Text\b|Texto\b|Dates|Fechas|Moon data|Datos de la luna|Sources of this page|Fuentes de esta página)/;
 
 function idFin(s) { const m = /\s*\{#([\w-]+)\}\s*$/.exec(s); return m ? [s.slice(0, m.index), m[1]] : [s, null]; }
@@ -191,7 +219,7 @@ function fichas(lineas) {
       out.push({ t: ord ? "ol" : "ul", items }); continue;
     }
     // una línea de control (pliegue, hueco de un visual, botón, línea de construcción) es su propio párrafo
-    const sola = (x) => PLIEGUE.test(idFin(x)[0].trim()) || HUECO_VISUAL.test(x) || CONSTRUCCION.test(x) || BOTON_ENVIAR.test(x.trim()) || BOTON_COPIAR.test(x.trim()) || VIENES.test(x) || PLIEGUE_SECCION.test(x);
+    const sola = (x) => PLIEGUE.test(idFin(x)[0].trim()) || HUECO_VISUAL.test(x) || CONSTRUCCION.test(x) || BOTON_ENVIAR.test(x.trim()) || BOTON_COPIAR.test(x.trim()) || VIENES.test(x) || PLIEGUE_SECCION.test(x) || (PROXIMA.test(x) && /\{/.test(x));
     const xs = [s]; i++;
     if (!sola(s)) while (i < lineas.length && !corta(lineas[i]) && !sola(lineas[i])) xs.push(lineas[i++]);
     const [ult, id] = idFin(xs[xs.length - 1]); xs[xs.length - 1] = ult;
@@ -202,6 +230,7 @@ function fichas(lineas) {
 
 // árbol: bloque 0, bloques (## n · …) con su introducción y sus subsecciones (### y ####), el pie
 function arbol(md) {
+  md = md.replace(FOLD_CORTO, (m, k, t, id) => `\n*${t} (${k === "fold" ? "folded" : "plegado"})* {#${id}}\n`);
   const fs_ = fichas(md.split("\n")), bloques = []; let b = null, sub = null;
   for (const f of fs_) {
     if (f.t === "h" && f.n === 2) {
@@ -225,7 +254,7 @@ function contexto({ L, D, p, X, raiz, md, cartasTxt }) {
   for (const [id, c] of cartasTxt) if (c.titulo) propios.set(c.titulo.replace(/\s*·\s*en inglés:.*$/, "").toLowerCase(), "#" + id);
   for (const [k, v] of Object.entries(X.flechas || {})) propios.set(k.toLowerCase(), v);
   const sinResolver = [];
-  const destinoDe = (t) => { const k = t.trim().replace(/[.,;:]$/, "").toLowerCase(); return propios.get(k) || titulos.get(k) || null; };
+  const destinoDe = (t) => { const k = t.trim().replace(/[.,;:]$/, "").toLowerCase(); return propios.get(k) || titulos.get(k) || (/^(errata|fe de erratas)\b/.test(k) ? titulos.get("errata") : null); };
   const href = (u) => (/^\/naos\//.test(u) ? raiz + u.slice(6) : u);
   const ext = (u) => /^https?:/.test(u);
   function inl(s) {
@@ -278,13 +307,16 @@ function contexto({ L, D, p, X, raiz, md, cartasTxt }) {
 
 // tarjeta del texto: título, líneas, etiqueta y lo plegado (transcripción y "More on this piece")
 function cartaDeTexto(f) {
-  const cab = [...f.cab]; let transcripcion = null;
+  const cab = f.cab.filter((x) => !LUNA_TARJETA.test(x)); let transcripcion = null;
   const it = cab.findIndex((x) => /^(Transcript|Transcripción)\b/.test(x));
   if (it >= 0) { const m = /^((?:Transcript|Transcripción)[^:]*):\s*(.*)$/.exec(cab[it]); transcripcion = { rotulo: m[1].replace(/\s*\((folded|plegad[ao])(,?\s*)/i, " (").replace(/\(\s*\)/, "").replace(/\s+\(\)$/, ""), texto: m[2] }; cab.splice(it, 1); }
   let ie = -1; for (let k = cab.length - 1; k > 0; k--) if (/(Voice: synthetic|Voz:? sintética|naos\/s\/|\[\d+\])/.test(cab[k]) || ETIQUETA.test(cab[k])) { ie = k; break; }
   const etiqueta = ie > 0 ? cab[ie] : null, medio = cab.slice(1, ie > 0 ? ie : cab.length);
   return { titulo: cab[0] || null, medio, etiqueta, transcripcion, resto: f.resto };
 }
+
+// "Ask for ___. [tap to see: nothing]": el hueco es un botón que muestra la palabra; sin JS la palabra ya se ve
+const revela = (h) => h.replace(/___(\.?)\s*\[(?:tap to see|toca para ver):\s*([^\]]+)\]/g, (m, p, w) => `<span class="t-revela"><button type="button" class="t-revela-b" hidden>___</button><span class="t-revela-t">${w.trim()}</span></span>${p}`);
 
 // ---------- render ----------
 export function cuerpoTema({ L, D, p, X, md, raiz, xs, carta, enlaces }) {
@@ -378,17 +410,20 @@ export function cuerpoTema({ L, D, p, X, md, raiz, xs, carta, enlaces }) {
     }
     const mp = PROXIMA.exec(s);
     if (mp) {
-      const x0 = xs[0], def = mp[3] ? inl(mp[3].trim()) : x0 ? `${esc(L.fe(x0.fecha))}, ${esc(x0.hora_et)} ET (${esc(x0.hora_medellin)} Medellín)` : "";
+      const x0 = xs[0], dt = mp[3] || mp[4], def = dt ? inl(dt.trim()) : x0 ? `${esc(L.fe(x0.fecha))}, ${esc(x0.hora_et)} ET (${esc(x0.hora_medellin)} Medellín)` : "";
+      if (PROX_LUNA.test(mp[1]) && X.lunas) return `<p class="t-proxima"${id}><span class="t-proxima-k">${esc(mp[1])}:</span> <span data-proxima-luna="${esc(JSON.stringify(X.lunas.map((u) => ({ t: u.t, x: u[L.lang] }))))}">${def}</span></p>`;
       return `<p class="t-proxima"${id}><span class="t-proxima-k">${esc(mp[1])}:</span> <span data-proxima>${def}</span></p>`;
     }
+    const se = ls.length === 1 && SOLO_ENLACE.exec(s);
+    if (se && X.soloSrc && X.soloSrc[se[2]]) return `<p class="t-solo-src" data-solo-src="${esc(X.soloSrc[se[2]].join(" "))}" hidden><a href="${esc(se[2])}">${inl(se[1])}</a></p>`;
     if (/^\{[^}]*\}(\s*\[\d+\])*\.?$/.test(s)) return ""; // hueco del día del evento: no se muestra hasta que el dato exista
     if (ls.length === 1 && N_LINEAS.includes(s)) return `<p class="t-linea-n-b"${id}>${esc(s)}</p>`;
     if (ls.length === 1 && /^\*[^*].*\*$/.test(s)) return `<p class="t-sub"${id}>${inl(s.slice(1, -1))}</p>`;
     if (ls.length === 1 && ETIQUETA.test(s) && s.length < 140 && !/\.$/.test(s.replace(/\s*\[\d+\]/g, ""))) return `<p class="t-etq"${id}>${inl(s)}</p>`;
     const mf = /^\[(\d+)\]\s+([\s\S]*)$/.exec(s);
     if (mf) return `<p class="t-fuente" id="f-${mf[1]}"><span class="t-fn">[${mf[1]}]</span> ${C.partesEN(mf[2])}</p>`;
-    const ml = /^(The line to carry|Line to take|La frase que te llevas|Frase para llevar|Llévate esta frase)([^:]*):\s*(.+)$/.exec(s);
-    if (ml) return `<p class="t-llevar"${id}><span class="t-llevar-k">${inl(ml[1] + ml[2])}:</span> ${inl(ml[3])}</p>`;
+    const ml = /^(The line to carry|Line to take|La frase que te llevas|Frase para llevar|La frase para llevarse|Llévate esta frase)([^:]*):\s*(.+)$/.exec(s);
+    if (ml) return `<p class="t-llevar"${id}><span class="t-llevar-k">${inl(ml[1] + ml[2])}:</span> ${revela(inl(ml[3]))}</p>`;
     if (!enCarta && ls.length === 1) { const t = C.conTituloFinal(s); if (t) return `<p${id}>${t}</p>`; }
     // el canal de correcciones (lo añade el constructor): la frase enlaza al contacto de la página de términos
     if (/(Corrections welcome|Correcciones bienvenidas)\.?/.test(s) && !/\]\(/.test(s)) return `<p${id}>${ls.map(inl).join("<br>").replace(/(Corrections welcome|Correcciones bienvenidas)/, `<a href="${raiz}terminos.html"${L.lang === "es" ? "" : ' hreflang="es"'}>$1</a>`)}</p>`;
@@ -403,7 +438,7 @@ export function cuerpoTema({ L, D, p, X, md, raiz, xs, carta, enlaces }) {
       const luna = o && x.luna ? { ...x.luna, iluminacion: o.iluminacion, fase: o.fase[L.lang] || x.luna.fase } : x.luna;
       return carta(L, { ...x, luna }, p, enlaces[x.fecha + "|" + x.codigo], raiz, i > 0 && xs[i - 1].fecha === x.fecha, i > 0 && xs[i - 1].fecha === x.fecha && !!x.luna && JSON.stringify(xs[i - 1].luna) === JSON.stringify(x.luna), t ? cartaExtra(t) : null);
     });
-    return `${humanity ? `<p class="t-col-luna" aria-hidden="true">${L.colLuna}</p>\n` : ""}<ol class="t-cartas">\n${li.join("\n")}\n</ol>${xs.some((x) => x.luna) ? `\n<p class="t-fuentes-n t-luna-datos">${L.lunaDatos}</p>` : ""}`;
+    return `${humanity ? `<p class="t-col-luna" aria-hidden="true">${L.colLuna}</p>\n` : ""}<ol class="t-cartas">\n${li.join("\n")}\n</ol>${xs.some((x) => x.luna) ? `\n<p class="t-fuentes-n t-luna-datos">${X.lunaDatos ? inl(X.lunaDatos[L.lang]) : L.lunaDatos}</p>` : ""}`;
   }
   function cartaExtra(t) {
     const fuera = /^(Voice: synthetic|Voz:? sintética|Descriptive, not financial advice\.?|Descriptivo, sin asesoría financiera\.?)$/;
@@ -460,9 +495,9 @@ export function cuerpoTema({ L, D, p, X, md, raiz, xs, carta, enlaces }) {
   // pie: las líneas del texto después de la de ayuda (la de ayuda es la verificada del constructor, con la cita del texto)
   let piePs = { cita: "", lineas: [] };
   if (pie) {
-    const ps = pie.intro.filter((f) => f.t === "p");
+    const ps = pie.intro.filter((f) => f.t === "p" || f.t === "ul");
     piePs = { cita: ps[0] ? [...ps[0].lineas.join(" ").matchAll(/\[(\d+)\]/g)].map((m) => ` <a class="t-cita" href="#f-${m[1]}">[${m[1]}]</a>`).join("") : "",
-      lineas: ps.slice(1).map((f) => f.lineas.join(" ")) };
+      lineas: ps.slice(1).map((f) => (f.t === "ul" ? { html: `<ul class="t-pie-lista">${f.items.map((x) => `<li>${inl(x)}</li>`).join("")}</ul>` } : f.lineas.join(" "))) };
   }
   const salida = { umbral, bloques: html.join("\n"), pie: piePs, nombres: Object.fromEntries([...cartasTxt].map(([id, c]) => [id, c.titulo])) };
   const texto = (umbral + salida.bloques).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<svg[\s\S]*?<\/svg>/g, "").replace(/<[^>]+>/g, " ");

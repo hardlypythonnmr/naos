@@ -260,7 +260,7 @@ Each source with what it holds. For the tradition, the guide comes first, then t
 
 ### Help lines
 
-[23] Minsalud, Línea 106 (Colombia); 988 Suicide and Crisis Lifeline (US); findahelpline.com. https://minsalud.gov.co/salud/publica/salud-mental/Paginas/linea-106.aspx · https://988lifeline.org/get-help/ · https://findahelpline.com
+[23] Minsalud, Línea 106 (Colombia); 988 Suicide and Crisis Lifeline (US); findahelpline.com. https://minsalud.gov.co/salud/publica/salud-mental/Paginas/linea-106.aspx · https://988lifeline.org/get-help/ · https://findahelpline.com · Colombia, 123 in immediate danger: Find A Helpline, Colombia helplines and hotlines, https://findahelpline.com/countries/co
 
 ### How we checked this page
 

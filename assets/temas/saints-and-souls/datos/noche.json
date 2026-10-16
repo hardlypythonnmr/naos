@@ -1,0 +1,112 @@
+{
+ "id": "diez-minutos-una-noche",
+ "familia": "K8 conducta en 3 pasos (mas el eco de la semana siguiente), un solo hilo",
+ "datos_medidos": "ninguno: el dibujo no lleva cifras; 'diez minutos' es la duracion que dice el bloque 2",
+ "textos": {
+  "en": {
+   "titulo": "One evening",
+   "pasos": [
+    [
+     "Say one name out loud.",
+     "Someone you miss. Once, at the table or by your window. If out loud is too much, say it softly, or skip this step.",
+     "Tradition: naming the dead, in Jewish prayer and in some churches. [15] [8] [4]",
+     [
+      "1101h"
+     ]
+    ],
+    [
+     "Set one more place.",
+     "A plate, a cup, a chair. Leave it there through the meal.",
+     "Our experiment: we found no sourced custom.",
+     [
+      "1104h"
+     ]
+    ],
+    [
+     "Call someone older who's still here.",
+     "Tell them whose name you said, or ask how they are.",
+     "Study: a program of friendly calls, not a family call. [23] [24]",
+     [
+      "1027h"
+     ]
+    ],
+    [
+     "Next week, call the same person again.",
+     "",
+     "Our experiment.",
+     [
+      "1029h"
+     ]
+    ]
+   ],
+   "botones": {
+    "play": "Play",
+    "pausa": "Pause",
+    "otra": "Play again",
+    "paso": "Step",
+    "semana": "Next week"
+   },
+   "aria_fig": "One evening in four steps, with a drawing for each",
+   "alt": "A thread with four stops: sound rings coming from one person, an extra place set across from the first, a line joining two people with a pulse running along it, and the same line drawn dashed for next week.",
+   "intro": "Sunday 1 or Monday 2 November, or any night. Ten minutes.",
+   "despues": [
+    "That's it. In one line: say one name, then call someone who's still here."
+   ],
+   "cap": "Press play to watch the evening once. No numbers.",
+   "origen": "From the piece you came from"
+  },
+  "es": {
+   "titulo": "Una noche",
+   "pasos": [
+    [
+     "Di un nombre en voz alta.",
+     "El de alguien que extrañas, una vez, en la mesa o junto a una ventana. Si en voz alta es demasiado, dilo bajito o sáltate este paso.",
+     "Tradición: nombrar a los muertos, en la oración judía y en algunas iglesias. [15] [8] [4]",
+     [
+      "1101h"
+     ]
+    ],
+    [
+     "Pon un lugar más en la mesa.",
+     "Un plato, una taza, una silla. Déjalo ahí mientras comes.",
+     "Nuestro experimento: sin costumbre con fuente.",
+     [
+      "1104h"
+     ]
+    ],
+    [
+     "Llama a alguien mayor que siga aquí.",
+     "Dile qué nombre dijiste, o pregúntale cómo está.",
+     "Estudio: llamadas de un programa, no de familia. [23] [24]",
+     [
+      "1027h"
+     ]
+    ],
+    [
+     "La semana que viene, llama otra vez a esa persona.",
+     "",
+     "Nuestro experimento.",
+     [
+      "1029h"
+     ]
+    ]
+   ],
+   "botones": {
+    "play": "Ver",
+    "pausa": "Pausa",
+    "otra": "Otra vez",
+    "paso": "Paso",
+    "semana": "Otra semana"
+   },
+   "aria_fig": "Una noche en cuatro pasos, con un dibujo para cada uno",
+   "alt": "Un hilo con cuatro paradas: ondas de voz que salen de una persona, un lugar de más frente al primero, una línea que une a dos personas con un pulso que la recorre, y la misma línea en trazos para la semana que viene.",
+   "intro": "El domingo 1 o el lunes 2 de noviembre, o cualquier noche. Diez minutos.",
+   "despues": [
+    "Eso es todo. En una línea: di un nombre y después llama a alguien que siga aquí."
+   ],
+   "cap": "Dale a reproducir para ver la noche una vez. Sin cifras.",
+   "origen": "De la pieza de la que vienes"
+  }
+ },
+ "vuelta_2": "2026-10-16: 'That's it' y 'In one line' en un solo párrafo; la frase de la comida baja al bloque 4 (Our experiment); pie del dibujo más corto (P1, 4 pantallas)."
+}
