@@ -99,7 +99,7 @@ if (args.includes("--temas")) {
   }
   // 3. la guía: abre solo al entrar a The Present desde la portada limpia
   const abierta = async () => page.evaluate(() => !!document.querySelector(".gu-hoja.gu-abierta"));
-  for (const [k, q, entrar] of [["portada limpia, al entrar a The Present", "", true], ["portada con ?src=", "?src=1019h", true], ["portada con ancla", "#mercados", false]]) {
+  for (const [k, q, entrar] of [["portada limpia, al entrar a The Present", "", true], ["portada con ?src=", "?src=1019h", true], ["portada con ?utm_source=", "?utm_source=ig", true], ["portada con ancla", "#mercados", false]]) {
     await page.goto(base + q, { waitUntil: "load" });
     await page.waitForTimeout(900);
     if (entrar && await page.locator(".puerta-pres .puerta-a").count()) { await page.locator(".puerta-pres .puerta-a").click(); await page.waitForTimeout(2200); }

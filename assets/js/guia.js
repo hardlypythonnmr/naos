@@ -1,5 +1,5 @@
 /* guia.js · #guia: la hoja de la guía (3 fichas-enlace a Market, AI y News) y la ficha "Guide" (PAG-09.3, lunes 19-oct).
- * La hoja abre sola solo en la portada (D-252, corrige el "en todas partes" de D-236): llegada limpia, sin ancla ni ?src= ni ?sala=,
+ * La hoja abre sola solo en la portada (D-252, corrige el "en todas partes" de D-236): llegada limpia, sin ancla ni consulta (?src=, ?sala=, ?utm_*),
  * y al entrar a The Present, donde vive. Nunca en páginas de tema. Un velo de tinta opaca lo demás
  * mientras está arriba ("deberia aparecer opacando lo demas para que pueda ser utilizada") y el foco va al título; tocar el velo la cierra.
  * "Not now", la X y Esc la bajan y dejan la ficha. Mientras está arriba, scroll-padding-bottom iguala su alto (WCAG 2.4.11: nada enfocado queda tapado).
@@ -45,7 +45,8 @@
   // D-252: la hoja abre sola solo si se llegó a la portada limpia (sin ancla, sin ?src= de un Short, sin ?sala=); nunca en las
   // páginas de tema (no cargan este archivo). Con las dos puertas (puertas.js) la guía vive en The Present: abre al entrar ahí,
   // nunca encima de las puertas. La ficha "Guide" queda en The Present para abrirla a mano en cualquier llegada.
-  const llegadaLimpia = !location.hash && !/[?&](src|sala)=/.test(location.search) && /(^|\/)(index\.html)?$/.test(location.pathname);
+  // cualquier cadena de consulta (?src=, ?sala=, ?utm_*, ...) cuenta como llegada con destino; solo las de prueba (quieto, captura, hoy) no
+  const llegadaLimpia = !location.hash && [...new URLSearchParams(location.search).keys()].every((k) => ["quieto", "captura", "hoy"].includes(k)) && /(^|\/)(index\.html)?$/.test(location.pathname);
   const enPresent = () => !document.getElementById("doors") || html.getAttribute("data-u") === "present";
   const sube = () => { if (descartada || arriba || fin || !llegadaLimpia || !enPresent()) return; fin = true; poner(true, true); };
 

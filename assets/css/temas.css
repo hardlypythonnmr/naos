@@ -147,3 +147,4 @@ main { display: block; max-width: 1120px; margin: 0 auto; padding: 0 var(--page-
 .t-luna-datos { margin-top: 12px; }
 /* portada ES: la franja dentro del ancho del hub */
 .t-hub #secuencia .fr { padding-left: 0; padding-right: 0; }
+@media (max-width: 599px) { .t-nav .t-idioma { border-left: 0; padding-left: 0; } }
