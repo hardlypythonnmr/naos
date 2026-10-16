@@ -148,3 +148,75 @@ main { display: block; max-width: 1120px; margin: 0 auto; padding: 0 var(--page-
 /* portada ES: la franja dentro del ancho del hub */
 .t-hub #secuencia .fr { padding-left: 0; padding-right: 0; }
 @media (max-width: 599px) { .t-nav .t-idioma { border-left: 0; padding-left: 0; } }
+
+/* páginas con cuerpo (lote 0+1, acta 2(b)): bloques 0 a 8 del texto sellado. Medida de lectura, la misma escala; los pliegues
+ * son <details> con un rótulo subrayado de 24 px o más; sin cajas. Los visuales traen su propio CSS (assets/temas/<slug>/). */
+.t-con-cuerpo .t-umbral p, .t-cuerpo-b p, .t-cuerpo-b li { max-width: 40rem; }
+.t-con-cuerpo .t-umbral { padding: var(--s-3) 0 var(--s-2); }
+.t-con-cuerpo .t-umbral p { margin: 0 0 10px; font-size: 17px; line-height: 1.45; }
+.t-con-cuerpo .t-umbral h1 + p, .t-con-cuerpo .t-tiempo > h1 + p { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 21px; line-height: 1.3; }
+.t-cuerpo-b { font-size: 16px; line-height: 1.5; }
+.t-cuerpo-b p { margin: 0 0 10px; }
+.t-cuerpo-b ol, .t-cuerpo-b ul { margin: 0 0 16px; padding-left: 1.4em; }
+.t-cuerpo-b li { margin: 0 0 6px; }
+.t-cuerpo-b h3 { font-family: var(--font-serif); font-weight: 400; font-size: 22px; line-height: 1.2; margin: var(--s-3) 0 var(--s-1); }
+.t-cuerpo-b h4 { font-family: var(--font-serif); font-weight: 400; font-size: 19px; margin: var(--s-2) 0 var(--s-1); }
+.t-cuerpo-b { border-top: 1px solid var(--naos-ink); margin-top: var(--s-2); padding-top: var(--s-2); }
+.t-cuerpo-b > h2, .t-cuerpo-b > details > summary > h2 { margin-bottom: 12px; }
+.t-sub-umbral h2 { font-family: var(--font-serif); font-weight: 400; font-size: 22px; margin: var(--s-3) 0 var(--s-1); }
+.t-etq { font-size: 13px !important; line-height: 1.45; color: var(--naos-grey); letter-spacing: .01em; }
+.t-sub { font-style: italic; color: var(--naos-sec); }
+section.t-sub { font-style: normal; color: inherit; }
+.t-cita { font-size: .8em; vertical-align: .15em; text-decoration: none; color: var(--naos-sec); white-space: nowrap; padding: 2px 1px; }
+.t-cita:hover, .t-cita:focus-visible { text-decoration: underline; color: var(--naos-ink); }
+.t-url, .t-fuente a { overflow-wrap: anywhere; }
+.t-flecha { font-weight: 500; }
+.t-llevar { font-family: var(--font-serif); font-size: 22px; line-height: 1.3; }
+.t-llevar-k { display: block; font-family: var(--font-sans); font-size: 13px; color: var(--naos-grey); }
+.t-linea-n-b { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 20px; color: var(--naos-sec); }
+.t-proxima-k { color: var(--naos-grey); }
+.t-vienes-l { margin: 4px 0 0; font-size: 14px; line-height: 1.35; box-shadow: inset 4px 0 0 var(--vino, #5A1834); padding: 2px 0 2px 12px; }
+.t-vienes-k { font-weight: 600; color: var(--vino, #5A1834); }
+.t-prompt { margin: 0 0 8px; padding: 12px 16px; border-left: 2px solid var(--naos-ink); font-family: var(--font-sans); font-size: 15px; line-height: 1.5; max-width: 40rem; background: none; }
+.t-prompt p { margin: 0; }
+.t-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.t-btn { min-height: 44px; padding: 0 18px; font: 500 15px var(--font-sans); color: var(--naos-ink); background: var(--naos-paper); border: 2px solid var(--naos-ink); border-radius: 0; cursor: pointer; }
+.t-btn:hover { background: var(--naos-ink); color: var(--naos-paper); }
+.t-btn:focus-visible, .t-pliegue > summary:focus-visible { outline: 2px solid var(--naos-ink); outline-offset: 3px; }
+.t-estado-btn { font-size: 13px; color: var(--naos-sec); }
+.t-pliegue { margin: 0 0 16px; }
+.t-pliegue > summary { display: list-item; min-height: 24px; padding: 6px 0; cursor: pointer; font-size: 15px; color: var(--naos-sec); text-decoration: underline; text-underline-offset: 3px; }
+.t-pliegue[open] > summary { margin-bottom: 8px; }
+.t-pliegue-h > summary { text-decoration: none; color: var(--naos-ink); }
+.t-pliegue-h > summary > h2, .t-pliegue-h > summary > h3, .t-pliegue-h > summary > h4 { display: inline; margin: 0; }
+.t-pliegue-h > summary > h2 { font-family: var(--font-serif); font-weight: 300; font-size: 30px; line-height: 1.1; }
+.t-sub-s { display: block; font-size: 15px; font-style: italic; color: var(--naos-sec); margin-top: 4px; }
+.t-tabla { overflow-x: auto; margin: 0 0 16px; max-width: 100%; }
+.t-tabla table { border-collapse: collapse; font-size: 15px; line-height: 1.45; min-width: 100%; }
+.t-tabla th, .t-tabla td { text-align: left; vertical-align: top; padding: 8px 12px 8px 0; border-top: 1px solid var(--naos-rule); font-weight: 400; }
+.t-tabla thead th { font-size: 13px; color: var(--naos-grey); border-top: 1px solid var(--naos-ink); }
+.t-tabla tbody th { font-weight: 600; }
+@media (max-width: 639px) { /* una tarjeta por fila: la columna lleva su título */
+  .t-tabla table, .t-tabla tbody, .t-tabla tr, .t-tabla th, .t-tabla td { display: block; }
+  .t-tabla thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .t-tabla tr { border-top: 1px solid var(--naos-ink); padding: 6px 0; }
+  .t-tabla th, .t-tabla td { border: 0; padding: 2px 0; }
+  .t-tabla td::before { content: attr(data-k); display: block; font-size: 13px; color: var(--naos-grey); }
+}
+.t-fuente { font-size: 15px; line-height: 1.55; }
+.t-fn { font-variant-numeric: tabular-nums; color: var(--naos-grey); }
+.t-cuerpo-b .t-cartas { margin-top: 8px; }
+.t-carta .t-desc { font-size: 15px; line-height: 1.5; color: var(--naos-ink); }
+.t-carta .t-etq { margin-top: 2px; }
+.t-carta .t-mas, .t-carta .t-transc { font-size: 15px; line-height: 1.55; }
+.t-carta .t-mas p, .t-carta .t-mas li { margin: 0 0 8px; }
+.t-viz { margin: var(--s-3) 0; max-width: 100%; overflow: hidden; }
+.t-viz figure { margin: 0; }
+.t-viz svg { max-width: 100%; height: auto; }
+@media (min-width: 1100px) {
+  .t-humanity .t-b5 { position: relative; }
+  .t-humanity .t-b5 .t-col-luna { display: block; position: absolute; right: 0; width: 13rem; top: calc(var(--s-4) + 12px); margin: 0; font-size: 13px; color: var(--naos-grey); }
+}
+.t-con-cuerpo .t-umbral .t-vienes-l { font-size: 14px; margin: 4px 0 0; }
+.t-con-cuerpo .t-umbral .t-aviso { font-size: 13px; }
+.t-con-cuerpo .t-umbral .t-otra-ed { font-size: 15px; }

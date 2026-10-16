@@ -1,0 +1,29 @@
+{
+ "id": "la-noche-en-tres-pasos",
+ "familia": "K8 conducta en 3 pasos, con un dato (salida de la luna y puesta del sol)",
+ "leido": "2026-10-16",
+ "fecha_dato": "2026-10-25",
+ "fuente": "U.S. Naval Observatory, salida y puesta del 25 de octubre de 2026",
+ "ciudades": [
+  {
+   "id": "medellin",
+   "nombre": {
+    "en": "Medellín",
+    "es": "Medellín"
+   },
+   "luna_sale": "17:21",
+   "sol_se_pone": "17:44",
+   "url": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-10-25&coords=6.25,-75.56&tz=-5"
+  },
+  {
+   "id": "new-york",
+   "nombre": {
+    "en": "New York",
+    "es": "Nueva York"
+   },
+   "luna_sale": "17:26",
+   "sol_se_pone": "18:01",
+   "url": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-10-25&coords=40.71,-74.01&tz=-4"
+  }
+ ]
+}

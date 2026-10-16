@@ -1,0 +1,75 @@
+<svg class="cv" xmlns="http://www.w3.org/2000/svg" viewBox="0 14 360 406" width="360" height="406" role="img" data-paso="3" aria-labelledby="cv-t-en cv-d-en" lang="en">
+<title id="cv-t-en">Animation of a temple floor plan in dots: a door opens at the east end, light crosses the floor, a small thing is swept at the doorstep, and a dot stands in the light and breathes. Steps 1 to 3 are numbered.</title>
+<desc id="cv-d-en">Three numbered steps. 1: the east door opens and the light starts across the floor. 2: grains at the doorstep are swept aside. 3: the light reaches the back wall and a dot stands in it; a ring around the dot grows twice and shrinks once, three times.</desc>
+<style>svg.cv{--ink:var(--naos-ink,#0E1116);--sec:var(--naos-sec,#454C57);--grey:var(--naos-grey,#59616D);--chart:var(--naos-chart,#737B87);--rule:var(--naos-rule,#D7DBE0);--paper:var(--naos-paper,#FFFFFF);font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif)}svg.cv[data-tono=noche]{--ink:var(--naos-night-text,#F4F6F8);--sec:var(--naos-night-sec,#C3C9D2);--grey:var(--naos-night-grey,#9AA3B0);--chart:var(--naos-night-grey,#9AA3B0);--rule:var(--naos-night-rule,#2A303A);--paper:var(--naos-night,#0E1116)}svg.cv text{fill:var(--ink)}svg.cv .cv-l{font-size:15px}svg.cv .cv-w{stroke:var(--ink);stroke-width:4.4;stroke-linecap:round;fill:none}svg.cv .cv-f{stroke:var(--rule);stroke-width:3.2;stroke-linecap:round;fill:none}svg.cv .cv-lit{stroke:var(--rule);stroke-width:3.6;stroke-linecap:round;fill:none;transition:stroke .5s linear}svg.cv .cv-luz{fill:var(--ink);opacity:.1;transform-origin:0 0;transform:scaleY(var(--p,1));transition:transform 2.4s linear 0.8s}svg.cv .cv-hoja{stroke:var(--ink);stroke-width:3;stroke-linecap:round;transform-origin:0 0;transform:rotate(var(--r,-90deg));transition:transform 1.2s var(--ease-enter,cubic-bezier(.2,0,0,1))}svg.cv .cv-gr{fill:var(--grey);transition:opacity .6s linear,transform .6s linear}svg.cv .cv-esc{stroke:var(--ink);stroke-width:3;stroke-linecap:round;opacity:0;transform:translateX(var(--bx,0));transition:transform 2.4s linear,opacity .4s linear}svg.cv .cv-per{fill:var(--ink);opacity:0;transition:opacity .8s linear 2.2s}svg.cv .cv-ring{fill:none;stroke:var(--ink);stroke-width:2;transform-origin:0 0;transform:scale(.8);opacity:0;transition:opacity .8s linear 2.2s}svg.cv .cv-cue{font-size:15px;opacity:0;paint-order:stroke;stroke:var(--paper);stroke-width:4px;stroke-linejoin:round}svg.cv .cv-nu{fill:var(--paper);stroke:var(--ink);stroke-width:2}svg.cv .cv-nt{font-size:14px;font-weight:600;text-anchor:middle}svg.cv .cv-lead{stroke:var(--chart);stroke-width:1;stroke-dasharray:1 4;stroke-linecap:round;fill:none}svg.cv[data-paso="0"]{--p:0;--r:0deg}svg.cv[data-paso="1"]{--p:.34;--r:-90deg}svg.cv[data-paso="2"]{--p:.68;--r:-90deg}svg.cv[data-paso="3"]{--p:1;--r:-90deg}svg.cv[data-paso="0"] .cv-gr,svg.cv[data-paso="1"] .cv-gr{opacity:1;transform:none}svg.cv[data-paso="2"] .cv-gr,svg.cv[data-paso="3"] .cv-gr{opacity:0;transform:translateX(14px)}svg.cv[data-paso="2"] .cv-esc{--bx:124px;opacity:1}svg.cv[data-paso="3"] .cv-esc{--bx:124px;opacity:.55;transition:opacity .6s linear}svg.cv[data-paso="3"] .cv-per,svg.cv[data-paso="3"] .cv-ring{opacity:1}svg.cv[data-paso="1"] .cv-lit[data-s="1"],svg.cv[data-paso="2"] .cv-lit[data-s="1"],svg.cv[data-paso="2"] .cv-lit[data-s="2"],svg.cv[data-paso="3"] .cv-lit{stroke:var(--ink)}svg.cv[data-paso="0"] .cv-lit{transition-delay:0s!important}@keyframes cv-resp{0%{transform:scale(.55)}20%{transform:scale(.78)}40%{transform:scale(1)}100%{transform:scale(.55)}}@keyframes cv-ca{0%{opacity:0}3%{opacity:1}17%{opacity:1}20%,100%{opacity:0}}@keyframes cv-cb{0%,20%{opacity:0}23%{opacity:1}37%{opacity:1}40%,100%{opacity:0}}@keyframes cv-cc{0%,40%{opacity:0}43%{opacity:1}97%{opacity:1}100%{opacity:0}}svg.cv[data-resp] .cv-ring{animation:cv-resp 5s linear 2.6s 3 both}svg.cv[data-resp] .cv-ca{animation:cv-ca 5s linear 2.6s 3 both}svg.cv[data-resp] .cv-cb{animation:cv-cb 5s linear 2.6s 3 both}svg.cv[data-resp] .cv-cc{animation:cv-cc 5s linear 2.6s 3 both}svg.cv[data-pausa] .cv-ring,svg.cv[data-pausa] .cv-cue{animation-play-state:paused}svg.cv.cv-sin *,svg.cv[data-quieto] *{transition:none!important;animation:none!important}@media (prefers-reduced-motion:reduce){svg.cv *{transition:none!important;animation:none!important}}</style>
+<path class="cv-w"  d="M20 60h.01M20 380h.01M30 60h.01M30 380h.01M40 60h.01M40 380h.01M50 60h.01M50 380h.01M60 60h.01M60 380h.01M70 60h.01M70 380h.01M80 380h.01M90 380h.01M100 380h.01M110 60h.01M110 380h.01M120 60h.01M120 380h.01M130 60h.01M130 380h.01M140 60h.01M140 380h.01M150 60h.01M150 380h.01M160 60h.01M160 380h.01M20 70h.01M160 70h.01M20 80h.01M160 80h.01M20 90h.01M160 90h.01M20 100h.01M160 100h.01M20 110h.01M160 110h.01M20 120h.01M160 120h.01M20 130h.01M160 130h.01M20 140h.01M160 140h.01M20 150h.01M160 150h.01M20 160h.01M160 160h.01M20 170h.01M160 170h.01M20 180h.01M160 180h.01M20 190h.01M160 190h.01M20 200h.01M160 200h.01M20 210h.01M160 210h.01M20 220h.01M160 220h.01M20 230h.01M160 230h.01M20 240h.01M160 240h.01M20 250h.01M160 250h.01M20 260h.01M160 260h.01M20 270h.01M160 270h.01M20 280h.01M160 280h.01M20 290h.01M160 290h.01M20 300h.01M160 300h.01M20 310h.01M160 310h.01M20 320h.01M160 320h.01M20 330h.01M160 330h.01M20 340h.01M160 340h.01M20 350h.01M160 350h.01M20 360h.01M160 360h.01M20 370h.01M160 370h.01"/>
+<path class="cv-f"  d="M30 84h.01M30 104h.01M30 124h.01M30 144h.01M30 164h.01M30 184h.01M30 204h.01M30 224h.01M30 244h.01M30 264h.01M30 284h.01M30 304h.01M30 324h.01M30 344h.01M30 364h.01M50 84h.01M50 104h.01M50 124h.01M50 144h.01M50 164h.01M50 184h.01M50 204h.01M50 224h.01M50 244h.01M50 264h.01M50 284h.01M50 304h.01M50 324h.01M50 344h.01M50 364h.01M130 84h.01M130 104h.01M130 124h.01M130 144h.01M130 164h.01M130 184h.01M130 204h.01M130 224h.01M130 244h.01M130 264h.01M130 284h.01M130 304h.01M130 324h.01M130 344h.01M130 364h.01M150 84h.01M150 104h.01M150 124h.01M150 144h.01M150 164h.01M150 184h.01M150 204h.01M150 224h.01M150 244h.01M150 264h.01M150 284h.01M150 304h.01M150 324h.01M150 344h.01M150 364h.01"/>
+<g transform="translate(70 62)"><rect class="cv-luz" width="40" height="316"/></g>
+<path class="cv-lit" data-s="1" style="transition-delay:1.29s" d="M70 84h.01"/>
+<path class="cv-lit" data-s="1" style="transition-delay:1.74s" d="M70 104h.01"/>
+<path class="cv-lit" data-s="1" style="transition-delay:2.18s" d="M70 124h.01"/>
+<path class="cv-lit" data-s="1" style="transition-delay:2.63s" d="M70 144h.01"/>
+<path class="cv-lit" data-s="1" style="transition-delay:3.08s" d="M70 164h.01"/>
+<path class="cv-lit" data-s="1" style="transition-delay:1.29s" d="M90 84h.01"/>
+<path class="cv-lit" data-s="1" style="transition-delay:1.74s" d="M90 104h.01"/>
+<path class="cv-lit" data-s="1" style="transition-delay:2.18s" d="M90 124h.01"/>
+<path class="cv-lit" data-s="1" style="transition-delay:2.63s" d="M90 144h.01"/>
+<path class="cv-lit" data-s="1" style="transition-delay:3.08s" d="M90 164h.01"/>
+<path class="cv-lit" data-s="1" style="transition-delay:1.29s" d="M110 84h.01"/>
+<path class="cv-lit" data-s="1" style="transition-delay:1.74s" d="M110 104h.01"/>
+<path class="cv-lit" data-s="1" style="transition-delay:2.18s" d="M110 124h.01"/>
+<path class="cv-lit" data-s="1" style="transition-delay:2.63s" d="M110 144h.01"/>
+<path class="cv-lit" data-s="1" style="transition-delay:3.08s" d="M110 164h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:0.33s" d="M70 184h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:0.77s" d="M70 204h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:1.22s" d="M70 224h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:1.67s" d="M70 244h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:2.11s" d="M70 264h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:0.33s" d="M90 184h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:0.77s" d="M90 204h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:1.22s" d="M90 224h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:1.67s" d="M90 244h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:2.11s" d="M90 264h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:0.33s" d="M110 184h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:0.77s" d="M110 204h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:1.22s" d="M110 224h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:1.67s" d="M110 244h.01"/>
+<path class="cv-lit" data-s="2" style="transition-delay:2.11s" d="M110 264h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:0.17s" d="M70 284h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:0.64s" d="M70 304h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:1.12s" d="M70 324h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:1.59s" d="M70 344h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:2.07s" d="M70 364h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:0.17s" d="M90 284h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:0.64s" d="M90 304h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:1.12s" d="M90 324h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:1.59s" d="M90 344h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:2.07s" d="M90 364h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:0.17s" d="M110 284h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:0.64s" d="M110 304h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:1.12s" d="M110 324h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:1.59s" d="M110 344h.01"/>
+<path class="cv-lit" data-s="3" style="transition-delay:2.07s" d="M110 364h.01"/>
+<g transform="translate(70 60)"><line class="cv-hoja" x1="0" y1="0" x2="40" y2="0"/></g>
+<circle class="cv-gr" cx="34" cy="73" r="2.2" style="transition-delay:0.15s"/>
+<circle class="cv-gr" cx="47" cy="70" r="2.2" style="transition-delay:0.41s"/>
+<circle class="cv-gr" cx="62" cy="74" r="2.2" style="transition-delay:0.70s"/>
+<circle class="cv-gr" cx="76" cy="71" r="2.2" style="transition-delay:0.97s"/>
+<circle class="cv-gr" cx="88" cy="75" r="2.2" style="transition-delay:1.20s"/>
+<circle class="cv-gr" cx="103" cy="70" r="2.2" style="transition-delay:1.49s"/>
+<circle class="cv-gr" cx="117" cy="74" r="2.2" style="transition-delay:1.76s"/>
+<circle class="cv-gr" cx="131" cy="71" r="2.2" style="transition-delay:2.03s"/>
+<circle class="cv-gr" cx="146" cy="73" r="2.2" style="transition-delay:2.32s"/>
+<g transform="translate(26 0)"><line class="cv-esc" x1="0" y1="64" x2="0" y2="82"/></g>
+<g transform="translate(90 340)"><circle class="cv-ring" r="20"/></g><circle class="cv-per" cx="90" cy="340" r="7"/>
+<text class="cv-cue cv-ca" x="90" y="302" text-anchor="middle">In</text><text class="cv-cue cv-cb" x="90" y="302" text-anchor="middle">In</text><text class="cv-cue cv-cc" x="90" y="302" text-anchor="middle">Out</text>
+<path class="cv-lead" d="M164 60L190 52"/>
+<circle class="cv-nu" cx="204" cy="52" r="12"/><text class="cv-nt" x="204" y="57">1</text>
+<text class="cv-l" x="226" y="57">Open a door</text>
+<path class="cv-lead" d="M164 72L190 84"/>
+<circle class="cv-nu" cx="204" cy="84" r="12"/><text class="cv-nt" x="204" y="89">2</text>
+<text class="cv-l" x="226" y="89">Sweep one thing</text>
+<path class="cv-lead" d="M164 340L190 340"/>
+<circle class="cv-nu" cx="204" cy="340" r="12"/><text class="cv-nt" x="204" y="345">3</text>
+<text class="cv-l" x="226" y="345">Stand in the light</text>
+</svg>

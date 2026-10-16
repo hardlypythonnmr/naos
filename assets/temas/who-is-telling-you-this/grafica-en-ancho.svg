@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 535" width="800" height="535" role="img" aria-labelledby="vg-en-ancho-t vg-en-ancho-d" style="max-width:100%;height:auto">
+<title id="vg-en-ancho-t">Clicks on Google, with and without an AI summary</title>
+<desc id="vg-en-ancho-d">When an AI summary appeared on a Google results page, people clicked a regular result in 8% of visits. Without one, in 15%. In about 1% of visits to pages with a summary, someone clicked a link inside it. This is Pew&#x27;s count of what 900 US adults did in March 2025. Google disputes the method and gives no figures of its own. It shows what people did in one period, in the US, on Google; it does not show why. Pew Research Center, 22 July 2025. Google, 6 August 2025. MediaPost, 24 July 2025. Read 16 October 2026.</desc>
+<style>
+.vg-t{font-family:var(--font-serif,"Newsreader",Georgia,serif);fill:var(--naos-ink,#0E1116)}
+.vg-f{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:13px;fill:var(--naos-grey,#59616D)}
+.vg-s{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:14px;fill:var(--naos-sec,#454C57)}
+.vg-v{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-weight:600;font-size:16px;fill:var(--naos-ink,#0E1116);font-variant-numeric:tabular-nums}
+.vg-barra{fill:var(--naos-ink,#0E1116)}
+.vg-grid{stroke:var(--naos-rule,#D7DBE0);stroke-width:1}
+.vg-base{stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.vg-sep{stroke:var(--naos-ink,#0E1116);stroke-width:1}
+</style>
+<line class="vg-grid" x1="272" x2="272" y1="110" y2="308"/>
+<text class="vg-f" x="272" y="326" text-anchor="middle">0%</text>
+<line class="vg-grid" x1="392" x2="392" y1="110" y2="308"/>
+<text class="vg-f" x="392" y="326" text-anchor="middle">5%</text>
+<line class="vg-grid" x1="512" x2="512" y1="110" y2="308"/>
+<text class="vg-f" x="512" y="326" text-anchor="middle">10%</text>
+<line class="vg-grid" x1="632" x2="632" y1="110" y2="308"/>
+<text class="vg-f" x="632" y="326" text-anchor="middle">15%</text>
+<line class="vg-grid" x1="752" x2="752" y1="110" y2="308"/>
+<text class="vg-f" x="752" y="326" text-anchor="middle">20%</text>
+<text class="vg-t" font-size="22" x="32" y="34" text-anchor="start">Clicks on Google, with and without an AI summary</text>
+<text class="vg-f" x="32" y="58" text-anchor="start">Share of visits in which people clicked. Pew Research Center, 22 July 2025: 900 US adults, 68,879</text><text class="vg-f" x="32" y="76" text-anchor="start">searches, March 2025.</text>
+<text class="vg-t" x="32" y="126" font-size="17">Pages without an AI summary</text>
+<text class="vg-s" x="48" y="162">A regular result</text>
+<text class="vg-t" x="32" y="206" font-size="17">Pages with an AI summary</text>
+<text class="vg-s" x="48" y="242">A regular result</text>
+<text class="vg-s" x="48" y="280">A link inside the summary</text>
+<rect class="vg-barra" x="272" y="144" width="360" height="26"/>
+<text class="vg-v" x="640" y="164">15%</text>
+<rect class="vg-barra" x="272" y="224" width="192" height="26"/>
+<text class="vg-v" x="472" y="244">8%</text>
+<rect class="vg-barra" x="272" y="262" width="24" height="26"/>
+<text class="vg-v" x="304" y="282">about 1%</text>
+<line class="vg-base" x1="272" x2="272" y1="110" y2="308"/>
+<text class="vg-f" x="512.0" y="346" text-anchor="middle">Share of visits</text>
+<line class="vg-sep" x1="32" x2="768" y1="370" y2="370"/>
+<text class="vg-t" x="32" y="396" font-size="17">Google disagrees</text>
+<text class="vg-s" x="32" y="418" text-anchor="start">A Google spokesperson called Pew&#x27;s method a &quot;flawed methodology&quot;. Google&#x27;s own post says total</text><text class="vg-s" x="32" y="437" text-anchor="start">organic clicks from Google Search to websites have been &quot;relatively stable year-over-year&quot;. It gives</text><text class="vg-s" x="32" y="456" text-anchor="start">no figures, so there is nothing of Google&#x27;s to plot.</text>
+<text class="vg-f" x="32" y="495" text-anchor="start">Pew Research Center, 22 July 2025. Google, 6 August 2025. MediaPost, 24 July 2025. Read 16 October</text><text class="vg-f" x="32" y="512" text-anchor="start">2026.</text>
+</svg>

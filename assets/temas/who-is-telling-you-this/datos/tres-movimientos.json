@@ -1,0 +1,125 @@
+{
+ "rotulo": {
+  "en": "Our method · Example: Press [37] [38]",
+  "es": "Nuestro método · Ejemplo: Prensa [37] [38]"
+ },
+ "tiempos": {
+  "paso1": [
+   0,
+   4.5
+  ],
+  "paso2": [
+   4.5,
+   11.5
+  ],
+  "paso3": [
+   11.5,
+   17.5
+  ],
+  "total": 17.5
+ },
+ "en": {
+  "alt": "Three small panels: a headline with its outlet underlined and a line to write who; a new tab with three questions; what you read joined by lines to the original and to another side, with the question who gains.",
+  "etiqueta_figura": "The three moves, done once on a closed case",
+  "que_muestra": "The three moves, drawn as a sketch that shows no real outlet. Each step is written beside its drawing, with the Jarre case done once. Our method: we have not timed these moves or measured whether they help you.",
+  "botones": {
+   "play": "Watch it once",
+   "pause": "Pause",
+   "again": "Watch again",
+   "step": "Step",
+   "ahora": "Step {n} of 3"
+  },
+  "pasos": [
+   {
+    "h": "Name them.",
+    "p": "Write one line: who is telling you this? An outlet, a person, a company, or a forward with no name.",
+    "ej": "several obituaries, all with the same quote."
+   },
+   {
+    "h": "Leave the page.",
+    "p": "Open a new tab and search that name or that sentence. Who runs it? Who pays for it? Who else reports the same thing?",
+    "ej": "trace the quote back and you reach Jarre's Wikipedia page, where a 22-year-old student had added it just after Jarre died."
+   },
+   {
+    "h": "Find the original, then look again from another side.",
+    "p": "The document, the data, the full quote. Then someone who says otherwise, in their own words. Ask who gains if you believe it as it stands.",
+    "ej": "there was no original. The student made the quote up, and the Guardian ran a correction."
+   }
+  ],
+  "dibujo": {
+   "medio": "The outlet",
+   "quien": "Who?",
+   "campo1": "Who is telling you this?",
+   "campo2": "An outlet, a person, a company.",
+   "pestana_a": "The page",
+   "pestana_b": "New tab",
+   "busca": "the name",
+   "q1": [
+    "Who runs it?"
+   ],
+   "q2": [
+    "Who pays for it?"
+   ],
+   "q3": [
+    "Who else reports it?"
+   ],
+   "leiste": "What you read",
+   "original": "The original",
+   "otro": "Another side",
+   "voz": "Who gains?"
+  },
+  "ej_t": "Jarre:"
+ },
+ "es": {
+  "alt": "Tres paneles pequeños: un titular con su medio subrayado y una línea para escribir quién; una pestaña nueva con tres preguntas; lo que leíste unido con líneas al original y a otro lado, con la pregunta de quién gana.",
+  "etiqueta_figura": "Los tres movimientos, hechos una vez con un caso cerrado",
+  "que_muestra": "Los tres movimientos, en un boceto que no muestra ningún medio real. Cada paso está escrito al lado de su dibujo, con el caso Jarre hecho una vez. Nuestro método: no hemos cronometrado estos movimientos ni medido si te ayudan.",
+  "botones": {
+   "play": "Verlo una vez",
+   "pause": "Pausa",
+   "again": "Verlo otra vez",
+   "step": "Paso",
+   "ahora": "Paso {n} de 3"
+  },
+  "pasos": [
+   {
+    "h": "Ponle nombre.",
+    "p": "Escribe en una línea quién te lo cuenta: un medio, una persona, una empresa o un mensaje reenviado sin firma.",
+    "ej": "varios obituarios, y en todos la misma cita."
+   },
+   {
+    "h": "Sal de la página.",
+    "p": "Abre una pestaña nueva y busca ese nombre o esa frase. ¿Quién lo dirige? ¿Quién lo paga? ¿Quién más cuenta lo mismo?",
+    "ej": "sigue la cita hacia atrás y llegas a la Wikipedia de Jarre: un estudiante de 22 años la puso ahí justo después de su muerte."
+   },
+   {
+    "h": "Busca el original y míralo otra vez, desde otro lado.",
+    "p": "El documento, los datos, la cita completa. Luego, alguien que diga otra cosa con sus propias palabras. Pregúntate quién gana si te lo crees tal cual.",
+    "ej": "no había original. El estudiante se inventó la cita, y el Guardian publicó una corrección."
+   }
+  ],
+  "dibujo": {
+   "medio": "El medio",
+   "quien": "¿Quién?",
+   "campo1": "¿Quién te está contando esto?",
+   "campo2": "Un medio, una persona, una empresa.",
+   "pestana_a": "La página",
+   "pestana_b": "Pestaña nueva",
+   "busca": "el nombre",
+   "q1": [
+    "¿Quién lo dirige?"
+   ],
+   "q2": [
+    "¿Quién lo paga?"
+   ],
+   "q3": [
+    "¿Quién más cuenta lo mismo?"
+   ],
+   "leiste": "Lo que leíste",
+   "original": "El original",
+   "otro": "Otro lado",
+   "voz": "¿Quién gana?"
+  },
+  "ej_t": "Jarre:"
+ }
+}

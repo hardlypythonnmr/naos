@@ -1,0 +1,47 @@
+/* tres-movimientos.css · los tres movimientos (cosa viva de who-is-telling-you-this). Solo tokens G3; sin sombras, sin degradados.
+ * Nada se mueve por CSS: lo mueve tres-movimientos.js, solo tras pulsar Reproducir. Generado por construir-visuales.py. */
+.tm { margin: 0; }
+.tm-etq { margin: 0 0 12px; font: 13px/1.4 var(--font-sans, system-ui, sans-serif); color: var(--naos-grey, #59616D); }
+.tm-pasos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+.tm-paso { position: relative; border-top: 1px solid var(--naos-ink, #0E1116); padding-top: 12px; }
+.tm-paso::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 4px; background: var(--naos-ink, #0E1116); opacity: 0; }
+.tm-paso.is-act::before { opacity: 1; }
+.tm-escena { max-width: 360px; margin-bottom: 4px; }
+.tm-ej { margin: 0 0 4px; padding-left: 12px; border-left: 2px solid var(--naos-rule, #D7DBE0); font: 15px/1.5 var(--font-sans, system-ui, sans-serif); color: var(--naos-sec, #454C57); max-width: 36rem; }
+.tm-ej strong { color: var(--naos-ink, #0E1116); font-weight: 600; }
+/* Bajo 1000 px los dibujos quedan plegados: los pasos se leen como texto y "Verlo una vez" los abre (P1: capa de arriba a 390). */
+@media (max-width: 999px) { .tm:not(.is-visto) .tm-escena { display: none; } }
+.tm-svg { display: block; width: 100%; height: auto; }
+.tm-num { margin: 4px 0 0; font: 300 26px/1.1 var(--font-serif, Georgia, serif); color: var(--naos-ink, #0E1116); font-variant-numeric: tabular-nums; }
+.tm-h4 { margin: 2px 0 6px; font: 400 22px/1.2 var(--font-serif, Georgia, serif); color: var(--naos-ink, #0E1116); text-wrap: balance; }
+.tm-p { margin: 0 0 8px; font: 15px/1.5 var(--font-sans, system-ui, sans-serif); color: var(--naos-sec, #454C57); max-width: 36rem; }
+.tm-ctl { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 8px; }
+.tm-ctl[hidden] { display: none; }
+.tm-btn { min-height: 44px; padding: 8px 18px; border: 1px solid var(--naos-ink, #0E1116); border-radius: 0; background: var(--naos-paper, #fff); color: var(--naos-ink, #0E1116); font: 500 15px var(--font-sans, system-ui, sans-serif); cursor: pointer; }
+.tm-btn:hover { background: var(--naos-plate, #0E1116); color: var(--naos-plate-text, #fff); }
+.tm-btn:focus-visible { outline: 3px solid var(--naos-ink, #0E1116); outline-offset: 3px; }
+/* Vuelta 2 (capa de arriba a 4 pantallas a 390): bajo 1000 px el número va en la misma línea que el título del paso, y los botones de paso muestran solo el número (nombre accesible "Step n" / "Paso n"), para que los controles quepan en una fila. */
+@media (max-width: 999px) { .tm-num { float: left; margin: 2px 10px 0 0; font-size: 22px; line-height: 1.2; } .tm-p, .tm-ej { clear: left; } .tm-btn-n { min-width: 44px; padding: 8px 0; } .tm-pasos { gap: 14px; } .tm-h4 { font-size: 20px; } .tm-paso { padding-top: 10px; } .tm-ctl { margin: 12px 0 4px; } }
+.tm-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.tm-cap { margin: 16px 0 0; max-width: 44rem; font: 15px/1.5 var(--font-sans, system-ui, sans-serif); color: var(--naos-sec, #454C57); }
+.tm-cap strong { color: var(--naos-ink, #0E1116); font-weight: 600; }
+/* Tres columnas solo cuando cada escena llega a unos 300 px: el texto del dibujo no baja de 12 px efectivos (B3). */
+@media (min-width: 1000px) { .tm-pasos { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; } }
+@media (forced-colors: active) { .tm-bar, .tm-pt { fill: CanvasText; } .tm-ln { fill: GrayText; } }
+/* partes del dibujo */
+.tm-card{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-chart,#737B87);stroke-width:2}
+.tm-doc{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.tm-bar{fill:var(--naos-ink,#0E1116)}
+.tm-ln{fill:var(--naos-chart,#737B87)}
+.tm-s{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:13px;fill:var(--naos-sec,#454C57)}
+.tm-f{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:13px;fill:var(--naos-grey,#59616D)}
+.tm-q{font-family:var(--font-serif,"Newsreader",Georgia,serif);font-size:19px;fill:var(--naos-ink,#0E1116)}
+.tm-sub{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.tm-campo{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:1.5}
+.tm-tab{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-ink,#0E1116);stroke-width:1.5}
+.tm-tab-on{fill:var(--naos-ink,#0E1116);stroke:var(--naos-ink,#0E1116);stroke-width:1.5}
+.tm-tab-ont{font-family:var(--font-sans,"IBM Plex Sans",system-ui,sans-serif);font-size:13px;fill:var(--naos-paper,#FFFFFF)}
+.tm-busca{fill:var(--naos-paper,#FFFFFF);stroke:var(--naos-chart,#737B87);stroke-width:1.5}
+.tm-pt{fill:var(--naos-ink,#0E1116)}
+.tm-con{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2}
+.tm-onda{fill:none;stroke:var(--naos-ink,#0E1116);stroke-width:2;stroke-linecap:round}

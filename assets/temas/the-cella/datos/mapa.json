@@ -1,0 +1,133 @@
+{
+ "id": "mapa",
+ "kit": "K1",
+ "slug": "the-cella",
+ "nodos": [
+  {
+   "i": 1,
+   "ancla": "c-2026-10-19-1200-h-historia",
+   "estado": "out",
+   "src": null,
+   "en": {
+    "fecha": "Mon 19 Oct, noon",
+    "titulo": "In. In. Out."
+   },
+   "es": {
+    "fecha": "lun 19 oct, mediodía",
+    "titulo": "Adentro, adentro, afuera"
+   }
+  },
+  {
+   "i": 2,
+   "ancla": "c-2026-10-19-2000-h-short-reel",
+   "estado": "out",
+   "src": "1019h",
+   "en": {
+    "fecha": "Mon 19 Oct, night",
+    "titulo": "The empty cella"
+   },
+   "es": {
+    "fecha": "lun 19 oct, noche",
+    "titulo": "La sala vacía"
+   }
+  },
+  {
+   "i": 3,
+   "ancla": "c-2026-12-29-1200-h-historia",
+   "estado": "prox",
+   "src": null,
+   "en": {
+    "fecha": "Tue 29 Dec, noon",
+    "titulo": "One thing to keep"
+   },
+   "es": {
+    "fecha": "mar 29 dic, mediodía",
+    "titulo": "Una cosa para guardar"
+   }
+  },
+  {
+   "i": 4,
+   "ancla": "c-2026-12-29-2000-h-short-reel",
+   "estado": "prox",
+   "src": "1229h",
+   "en": {
+    "fecha": "Tue 29 Dec, night",
+    "titulo": "The keeper of the year"
+   },
+   "es": {
+    "fecha": "mar 29 dic, noche",
+    "titulo": "Quien cuida el año"
+   }
+  },
+  {
+   "i": 5,
+   "ancla": "c-2026-12-30-1100-h-carrusel",
+   "estado": "prox",
+   "src": null,
+   "en": {
+    "fecha": "Wed 30 Dec",
+    "titulo": "Seven slides, one thing"
+   },
+   "es": {
+    "fecha": "mié 30 dic",
+    "titulo": "Siete imágenes, una cosa"
+   }
+  },
+  {
+   "i": 6,
+   "ancla": "c-2026-12-31-1200-h-historia",
+   "estado": "prox",
+   "src": null,
+   "en": {
+    "fecha": "Thu 31 Dec, noon",
+    "titulo": "The full cella, still"
+   },
+   "es": {
+    "fecha": "jue 31 dic, mediodía",
+    "titulo": "La sala llena, quieta"
+   }
+  },
+  {
+   "i": 7,
+   "ancla": "c-2026-12-31-2000-h-short-reel",
+   "estado": "prox",
+   "src": "1231h",
+   "en": {
+    "fecha": "Thu 31 Dec, night",
+    "titulo": "The full cella"
+   },
+   "es": {
+    "fecha": "jue 31 dic, noche",
+    "titulo": "La sala llena"
+   }
+  }
+ ],
+ "en": {
+  "titulo": "One room, from empty to full",
+  "alt": "Map of this page: a temple floor plan in dots, its one door at the east end, with seven pieces set along the path of the morning light, from 19 October to 31 December.",
+  "desc": "Seven pieces along the path of the morning light, from the east door to the back wall. The room is empty at the door on 19 October and full at the back wall on 31 December: it fills as the year does. Filled dots are out, rings are coming. The spacing is even and does not follow the calendar scale. The piece you came from is circled and the path lights up to it.",
+  "puerta": "East door",
+  "fondo": "Back wall",
+  "leyenda_out": "Out",
+  "leyenda_prox": "Coming",
+  "estado_out": "Out",
+  "estado_prox": "Coming",
+  "que_es": "What this shows.",
+  "que_muestra": "The pieces sit along the path of the morning light: the room is empty at the door on 19 October and full at the back wall on 31 December. It fills as the year does. The piece you came from is circled, and the path lights up to it.",
+  "texto_version": "Text version"
+ },
+ "es": {
+  "titulo": "Un cuarto, de vacío a lleno",
+  "alt": "Mapa de esta página: la planta de un templo en puntos, con su única puerta al oriente, y siete piezas a lo largo del camino de la luz de la mañana, del 19 de octubre al 31 de diciembre.",
+  "desc": "Siete piezas a lo largo del camino de la luz de la mañana, desde la puerta del oriente hasta la pared del fondo. El cuarto está vacío en la puerta el 19 de octubre y lleno en la pared del fondo el 31 de diciembre: se llena a medida que pasa el año. Los puntos llenos ya salieron y los anillos están por salir. La separación es pareja y no sigue la escala del calendario. La pieza de la que vienes lleva un círculo y el camino se ilumina hasta ella.",
+  "puerta": "Puerta al oriente",
+  "fondo": "Pared del fondo",
+  "leyenda_out": "Publicada",
+  "leyenda_prox": "Próximamente",
+  "estado_out": "Publicada",
+  "estado_prox": "Próximamente",
+  "que_es": "Qué muestra.",
+  "que_muestra": "Las piezas van por el camino de la luz de la mañana: el cuarto está vacío en la puerta el 19 de octubre y lleno en la pared del fondo el 31 de diciembre. Se llena a medida que pasa el año. La pieza de la que vienes lleva un círculo, y el camino se ilumina hasta ella.",
+  "texto_version": "Versión en texto"
+ }
+}

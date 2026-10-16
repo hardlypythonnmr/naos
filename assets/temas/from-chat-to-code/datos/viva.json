@@ -1,0 +1,69 @@
+{
+ "id": "viva",
+ "kit": "K8",
+ "tiempos": {
+  "paso_ms": 3000
+ },
+ "en": {
+  "titulo": "A handover, step by step",
+  "alt": "Animation in six steps: an empty chat fills up, the oldest lines blur, a handover note is written, saved outside the chat, and a new chat starts from it.",
+  "desc": "Two panels side by side, a chat on the left and your notes outside the chat on the right. One: the chat is empty. Two: the thread grows, six lines. Three: the three oldest lines turn to dots, because in a long thread details can slip. Four: a note appears in the chat with three rows: Goal, Decisions and Open questions. Five: a copy of the note moves to your notes. Six: below, a new chat opens with the same note in it. This picture is the end of the animation, step six.",
+  "chat": "Chat",
+  "nuevo": "New chat",
+  "fuera": "outside the chat",
+  "meta": "Goal",
+  "decisiones": "Decisions",
+  "preguntas": "Open questions",
+  "leyenda_claro": "Solid: still clear",
+  "leyenda_difuso": "Dotted: starts to blur",
+  "pasos": [
+   "A new chat starts almost empty.",
+   "You work for a while, and the thread grows.",
+   "In a long thread details can slip, and some chats drop the oldest part.",
+   "You ask for a handover: the goal, the decisions and the open questions.",
+   "You save it outside the chat: a phone note, or a document you own.",
+   "A new chat can start from your notes instead of from nothing."
+  ],
+  "paso_de": "Step {n} of {m}.",
+  "play": "Play",
+  "pause": "Pause",
+  "again": "Play again",
+  "next": "Next step",
+  "back": "Back",
+  "restart": "Start over",
+  "que_es": "What this shows",
+  "que_muestra": "A chat starts almost empty and grows, and in a long thread details can slip. A handover (the goal, the decisions and the open questions) saved outside the chat gives the next chat something to start from. Play it, or go one step at a time.",
+  "pasos_titulo": "The six steps in words"
+ },
+ "es": {
+  "titulo": "Un resumen para retomar, paso a paso",
+  "alt": "Animación en seis pasos: un chat vacío se llena, las líneas más viejas se desdibujan, se escribe un resumen para retomar, se guarda fuera del chat y un chat nuevo parte de él.",
+  "desc": "Dos paneles lado a lado, un chat a la izquierda y tus notas, fuera del chat, a la derecha. Uno: el chat está vacío. Dos: el hilo crece, seis líneas. Tres: las tres líneas más viejas se vuelven puntos, porque en un hilo largo se pueden perder detalles. Cuatro: aparece en el chat una nota con tres filas: Meta, Decisiones y Preguntas abiertas. Cinco: una copia de la nota pasa a tus notas. Seis: abajo se abre un chat nuevo con la misma nota adentro. Esta imagen es el final de la animación, el paso seis.",
+  "chat": "Chat",
+  "nuevo": "Chat nuevo",
+  "fuera": "fuera del chat",
+  "meta": "Meta",
+  "decisiones": "Decisiones",
+  "preguntas": "Preguntas abiertas",
+  "leyenda_claro": "Línea llena: aún clara",
+  "leyenda_difuso": "Puntos: empieza a borrarse",
+  "pasos": [
+   "Un chat nuevo arranca casi vacío.",
+   "Trabajas un buen rato y el hilo va creciendo.",
+   "En un hilo largo se pueden perder detalles, y algunos chats descartan lo más viejo.",
+   "Pides un resumen para retomar: la meta, las decisiones y las preguntas abiertas.",
+   "Lo guardas fuera del chat: una nota en el celular o un documento tuyo.",
+   "Un chat nuevo puede partir de tus notas y no de cero."
+  ],
+  "paso_de": "Paso {n} de {m}.",
+  "play": "Reproducir",
+  "pause": "Pausa",
+  "again": "Verlo otra vez",
+  "next": "Paso siguiente",
+  "back": "Atrás",
+  "restart": "Volver al inicio",
+  "que_es": "Qué muestra",
+  "que_muestra": "Un chat arranca casi vacío y crece, y en un hilo largo se pueden perder detalles. Un resumen para retomar (la meta, las decisiones y las preguntas abiertas), guardado fuera del chat, le da al chat siguiente de dónde partir. Reprodúcelo o ve un paso a la vez.",
+  "pasos_titulo": "Los seis pasos en palabras"
+ }
+}

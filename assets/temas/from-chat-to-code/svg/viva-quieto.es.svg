@@ -1,0 +1,25 @@
+<svg class="hc" data-step="6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 396" width="360" height="396" role="img" aria-labelledby="hc-es-t" aria-describedby="hc-es-d" lang="es">
+<title id="hc-es-t">Animación en seis pasos: un chat vacío se llena, las líneas más viejas se desdibujan, se escribe un resumen para retomar, se guarda fuera del chat y un chat nuevo parte de él.</title>
+<desc id="hc-es-d">Dos paneles lado a lado, un chat a la izquierda y tus notas, fuera del chat, a la derecha. Uno: el chat está vacío. Dos: el hilo crece, seis líneas. Tres: las tres líneas más viejas se vuelven puntos, porque en un hilo largo se pueden perder detalles. Cuatro: aparece en el chat una nota con tres filas: Meta, Decisiones y Preguntas abiertas. Cinco: una copia de la nota pasa a tus notas. Seis: abajo se abre un chat nuevo con la misma nota adentro. Esta imagen es el final de la animación, el paso seis.</desc>
+<style>svg.hc{--ink:var(--naos-ink,#0E1116);--sec:var(--naos-sec,#454C57);--grey:var(--naos-grey,#59616D);--chart:var(--naos-chart,#737B87);--rule:var(--naos-rule,#D7DBE0);--paper:var(--naos-paper,#FFFFFF);--idx:var(--lab-accent,#2438C7);font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif)}svg.hc[data-tono=noche]{--ink:var(--naos-night-text,#F4F6F8);--sec:var(--naos-night-sec,#C3C9D2);--grey:var(--naos-night-grey,#9AA3B0);--chart:var(--naos-night-grey,#9AA3B0);--rule:var(--naos-night-rule,#2A303A);--paper:var(--naos-night,#0E1116);--idx:var(--lab-night-accent,#8C9BFF)}svg.hc text{fill:var(--ink)}svg.hc .hc-l{font-size:15px;font-weight:600}svg.hc .hc-g{fill:var(--grey);font-size:15px}svg.hc .hc-p{fill:none;stroke:var(--ink);stroke-width:1.5}svg.hc .hc-bar{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round}svg.hc .hc-dot{fill:none;stroke:var(--chart);stroke-width:5;stroke-linecap:round;stroke-dasharray:.1 7.5}svg.hc .hc-card{fill:var(--paper);stroke:var(--ink);stroke-width:1.5}svg.hc .hc-r{font-size:15px}svg.hc .hc-arr{fill:none;stroke:var(--ink);stroke-width:2;stroke-linejoin:miter}svg.hc .hc-head{fill:var(--ink)}svg.hc .hc-v{opacity:0;transition:opacity var(--t-enter,600ms) var(--ease-enter,cubic-bezier(.2,0,0,1)) var(--d,0ms)}svg.hc[data-step="1"] .k1{opacity:1}svg.hc[data-step="2"] .k2{opacity:1}svg.hc[data-step="3"] .k3{opacity:1}svg.hc[data-step="4"] .k4{opacity:1}svg.hc[data-step="5"] .k5{opacity:1}svg.hc[data-step="6"] .k6{opacity:1}svg.hc .hc-nb{transform:translate(0,0);transition:opacity var(--t-slide,600ms) var(--ease-enter,cubic-bezier(.2,0,0,1)),transform var(--t-slide,600ms) var(--ease-enter,cubic-bezier(.2,0,0,1))}svg.hc[data-step="5"] .hc-nb,svg.hc[data-step="6"] .hc-nb{transform:translate(176px,0)}@media (prefers-reduced-motion:reduce){svg.hc .hc-v{transition:none}svg.hc .hc-nb{transition:none}}</style>
+<text class="hc-l" x="12" y="20" data-r="172">Chat</text>
+<text class="hc-l" x="188" y="20" data-r="348">Tus notas</text>
+<rect class="hc-p" x="12" y="30" width="160" height="156"/><rect class="hc-p" x="188" y="30" width="160" height="156"/>
+<text class="hc-g" x="188" y="206" data-r="348">fuera del chat</text>
+<path class="hc-v hc-bar k2" d="M24 48H114" style="--d:0ms"/>
+<path class="hc-v hc-dot k3 k4 k5 k6" d="M24 48H114"/>
+<path class="hc-v hc-bar k2" d="M62 60H160" style="--d:90ms"/>
+<path class="hc-v hc-dot k3 k4 k5 k6" d="M62 60H160"/>
+<path class="hc-v hc-bar k2" d="M24 72H96" style="--d:180ms"/>
+<path class="hc-v hc-dot k3 k4 k5 k6" d="M24 72H96"/>
+<path class="hc-v hc-bar k2 k3 k4 k5 k6" d="M66 84H160" style="--d:270ms"/>
+<path class="hc-v hc-bar k2 k3 k4 k5 k6" d="M24 96H122" style="--d:360ms"/>
+<path class="hc-v hc-bar k2 k3 k4 k5 k6" d="M74 108H160" style="--d:450ms"/>
+<g class="hc-v hc-na k4 k5 k6"><rect class="hc-card" x="18" y="120" width="148" height="60"/><text class="hc-r" x="26" y="140" data-r="166">Meta</text><text class="hc-r" x="26" y="156" data-r="166">Decisiones</text><text class="hc-r" x="26" y="172" data-r="166">Preguntas abiertas</text></g>
+<g class="hc-v hc-nb k5 k6"><rect class="hc-card" x="18" y="120" width="148" height="60"/><text class="hc-r" x="26" y="140" data-r="166">Meta</text><text class="hc-r" x="26" y="156" data-r="166">Decisiones</text><text class="hc-r" x="26" y="172" data-r="166">Preguntas abiertas</text></g>
+<g class="hc-v k6"><text class="hc-l" x="12" y="240" data-r="172">Chat nuevo</text><rect class="hc-p" x="12" y="250" width="160" height="84"/></g>
+<g class="hc-v hc-nc k6"><rect class="hc-card" x="18" y="262" width="148" height="60"/><text class="hc-r" x="26" y="282" data-r="166">Meta</text><text class="hc-r" x="26" y="298" data-r="166">Decisiones</text><text class="hc-r" x="26" y="314" data-r="166">Preguntas abiertas</text></g>
+<g class="hc-v k6"><path class="hc-arr" d="M332 186V292H186"/><polygon class="hc-head" points="176,292 188,285 188,299"/></g>
+<path class="hc-bar" d="M16 358H44"/><text class="hc-g" x="56" y="363" data-r="348">Línea llena: aún clara</text>
+<path class="hc-dot" d="M16 382H44"/><text class="hc-g" x="56" y="387" data-r="348">Puntos: empieza a borrarse</text>
+</svg>

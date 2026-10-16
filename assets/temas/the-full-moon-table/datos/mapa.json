@@ -1,0 +1,156 @@
+{
+ "id": "mapa-la-mesa",
+ "nodos": [
+  {
+   "n": 1,
+   "ancla": "c-2026-10-20-2000-h-short-reel",
+   "src": "1020h",
+   "en": {
+    "fecha": "Tue 20",
+    "titulo": "Two plates"
+   },
+   "es": {
+    "fecha": "mar 20",
+    "titulo": "Dos platos"
+   }
+  },
+  {
+   "n": 2,
+   "ancla": "c-2026-10-21-2000-h-short-reel",
+   "src": "1021h",
+   "en": {
+    "fecha": "Wed 21",
+    "titulo": "Who taught you thanks"
+   },
+   "es": {
+    "fecha": "mié 21",
+    "titulo": "Quién te enseñó a agradecer"
+   }
+  },
+  {
+   "n": 3,
+   "ancla": "c-2026-10-23-2000-h-short-reel",
+   "src": "1023h",
+   "en": {
+    "fecha": "Fri 23",
+    "titulo": "Who you eat with"
+   },
+   "es": {
+    "fecha": "vie 23",
+    "titulo": "Con quién comes"
+   }
+  },
+  {
+   "n": 4,
+   "ancla": {
+    "en": "c-2026-10-24-1100-h-carrusel",
+    "es": "c-2026-10-24-1300-h-es"
+   },
+   "src": {
+    "en": null,
+    "es": "1024es"
+   },
+   "en": {
+    "fecha": "Sat 24",
+    "titulo": "Seven slides"
+   },
+   "es": {
+    "fecha": "sáb 24",
+    "titulo": "En español: comer con alguien"
+   }
+  },
+  {
+   "n": 5,
+   "ancla": "c-2026-10-25-1000-h-medio",
+   "src": null,
+   "en": {
+    "fecha": "Sun 25, morning",
+    "titulo": "A table under the moon"
+   },
+   "es": {
+    "fecha": "dom 25, mañana",
+    "titulo": "Una mesa bajo la luna"
+   }
+  },
+  {
+   "n": 6,
+   "ancla": "c-2026-10-25-2000-h-short-reel",
+   "src": "1025h",
+   "en": {
+    "fecha": "Sun 25, night",
+    "titulo": "One plate outside"
+   },
+   "es": {
+    "fecha": "dom 25, noche",
+    "titulo": "Un plato afuera"
+   }
+  },
+  {
+   "n": 7,
+   "ancla": "c-2026-10-26-2000-h-short-reel",
+   "src": "1026h",
+   "en": {
+    "fecha": "Mon 26",
+    "titulo": "The bowl left out"
+   },
+   "es": {
+    "fecha": "lun 26",
+    "titulo": "Tazón bajo la luna"
+   }
+  },
+  {
+   "n": 8,
+   "ancla": "c-2026-10-28-2000-h-short-reel",
+   "src": "1028h",
+   "en": {
+    "fecha": "Wed 28",
+    "titulo": "Look up first"
+   },
+   "es": {
+    "fecha": "mié 28",
+    "titulo": "Antes de comer, mirar arriba"
+   }
+  },
+  {
+   "n": 9,
+   "ancla": "c-2026-10-30-2000-h-short-reel",
+   "src": "1030h",
+   "en": {
+    "fecha": "Fri 30",
+    "titulo": "The empty chair"
+   },
+   "es": {
+    "fecha": "vie 30",
+    "titulo": "La silla vacía"
+   }
+  }
+ ],
+ "centro": {
+  "en": {
+   "titulo": "Full moon",
+   "dato": "Sun 25, 23:12 in Medellín"
+  },
+  "es": {
+   "titulo": "Luna llena",
+   "dato": "dom 25, 23:12 en Medellín"
+  },
+  "fuente": "https://aa.usno.navy.mil/api/moon/phases/date?date=2026-10-01&nump=6",
+  "leido": "2026-10-16"
+ },
+ "textos": {
+  "en": {
+   "titulo": "The table: nine pieces, 20 to 30 October",
+   "alt": "Map of this page: nine pieces seated around one table, from 20 to 30 October.",
+   "que_muestra": "Each seat is one piece, in date order. The full moon falls in the middle, on Sunday 25. The seat you came from lights up.",
+   "version_texto": "Text version: the nine pieces as a list",
+   "ver_mapa": "See the map of the nine pieces"
+  },
+  "es": {
+   "titulo": "La mesa: nueve piezas, del 20 al 30 de octubre",
+   "alt": "Mapa de esta página: nueve piezas sentadas alrededor de una mesa, del 20 al 30 de octubre.",
+   "que_muestra": "Cada puesto es una pieza, en orden de fecha. La luna llena cae en la mitad, el domingo 25. Se ilumina el puesto del que vienes.",
+   "version_texto": "Versión en texto: las nueve piezas en lista",
+   "ver_mapa": "Ver el mapa de las nueve piezas"
+  }
+ }
+}

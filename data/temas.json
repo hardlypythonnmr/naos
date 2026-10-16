@@ -71,7 +71,7 @@
   {
    "slug": "the-cella",
    "titulo": "The empty cella, the full cella",
-   "titulo_es": "La cella vacía, la cella llena",
+   "titulo_es": "La sala vacía, la sala llena",
    "seccion": "Humanity",
    "pilar": "the-divine",
    "desde": "2026-10-19",
@@ -160,7 +160,7 @@
   {
    "slug": "saints-and-souls",
    "titulo": "Saints and Souls",
-   "titulo_es": "Santos y almas",
+   "titulo_es": "Santos y Difuntos",
    "seccion": "Humanity",
    "pilar": "the-divine",
    "desde": "2026-10-27",
@@ -274,10 +274,6 @@
     {
      "titulo": "U.S. Naval Observatory, moon phases",
      "url": "https://aa.usno.navy.mil/data/MoonPhases"
-    },
-    {
-     "titulo": "Wikipedia: wiki/Supermoon",
-     "url": "https://en.wikipedia.org/wiki/Supermoon"
     }
    ]
   },
@@ -1596,7 +1592,7 @@
    "seccion": "Humanity",
    "pilar": "eat",
    "lang": "en",
-   "titulo": null,
+   "titulo": "Oct 25 and 26, the full moon",
    "linea": null,
    "voz": false,
    "noticia": false,
@@ -1677,7 +1673,7 @@
    "mercado": false,
    "luna": {
     "fase": "eve of the full moon",
-    "iluminacion": 96.3,
+    "iluminacion": 98.1,
     "signo": "Aries"
    },
    "codigo": "1024h",
@@ -2724,7 +2720,7 @@
    "seccion": "Humanity",
    "pilar": "the-divine",
    "lang": "en",
-   "titulo": "Three bells, one word",
+   "titulo": "Three Masses in one day",
    "linea": null,
    "voz": false,
    "noticia": false,
@@ -2772,8 +2768,8 @@
    "seccion": "Humanity",
    "pilar": "the-divine",
    "lang": "en",
-   "titulo": "Three bells, one word",
-   "linea": "Three bells rang. The word was the same.",
+   "titulo": "Three Masses in one day",
+   "linea": "Three Masses in one day.",
    "voz": true,
    "noticia": false,
    "mercado": false,
@@ -3027,7 +3023,7 @@
    "mercado": false,
    "luna": {
     "fase": "new moon",
-    "iluminacion": 0.2,
+    "iluminacion": 0.4,
     "signo": "Scorpio"
    },
    "codigo": "1109h-story-1200",
@@ -3075,7 +3071,7 @@
    "mercado": false,
    "luna": {
     "fase": "new moon",
-    "iluminacion": 0.2,
+    "iluminacion": 0.7,
     "signo": "Scorpio"
    },
    "codigo": "1109h",
@@ -4252,14 +4248,14 @@
    "seccion": "Humanity",
    "pilar": "community",
    "lang": "en",
-   "titulo": "Full moon tomorrow, closest of the season",
+   "titulo": "Full moon tomorrow, closer than October's",
    "linea": null,
    "voz": false,
    "noticia": false,
    "mercado": false,
    "luna": {
     "fase": "eve of the full moon",
-    "iluminacion": 98,
+    "iluminacion": 98.6,
     "signo": "Taurus"
    },
    "codigo": "1123h-story-1200",
@@ -4300,14 +4296,14 @@
    "seccion": "Humanity",
    "pilar": "community",
    "lang": "en",
-   "titulo": "Moon report: full tomorrow, closest of the season",
-   "linea": "Tomorrow the moon is closest.",
+   "titulo": "Moon report: full tomorrow, closer than October's",
+   "linea": "Full tomorrow, and closer than October's.",
    "voz": true,
    "noticia": false,
    "mercado": false,
    "luna": {
     "fase": "eve of the full moon",
-    "iluminacion": 98,
+    "iluminacion": 99.3,
     "signo": "Taurus"
    },
    "codigo": "1123h",
@@ -5491,7 +5487,7 @@
    "mercado": false,
    "luna": {
     "fase": "eve of the new moon",
-    "iluminacion": 2.4,
+    "iluminacion": 1.8,
     "signo": "Sagittarius"
    },
    "codigo": "1207h-story-1200",
@@ -5539,7 +5535,7 @@
    "mercado": false,
    "luna": {
     "fase": "eve of the new moon",
-    "iluminacion": 2.4,
+    "iluminacion": 1.1,
     "signo": "Sagittarius"
    },
    "codigo": "1207h",
@@ -6811,7 +6807,7 @@
    "mercado": false,
    "luna": {
     "fase": "eve of the full moon",
-    "iluminacion": 96.1,
+    "iluminacion": 97,
     "signo": "Gemini"
    },
    "codigo": "1222h-story-1200",
@@ -6852,14 +6848,14 @@
    "seccion": "Humanity",
    "pilar": "eat",
    "lang": "en",
-   "titulo": "Moon report: the closest moon of the year, tomorrow",
-   "linea": "Tomorrow the moon is closest.",
+   "titulo": "Moon report: tomorrow's full moon is the closest of the year",
+   "linea": "Tomorrow's full moon is the closest of the year.",
    "voz": true,
    "noticia": false,
    "mercado": false,
    "luna": {
     "fase": "eve of the full moon",
-    "iluminacion": 96.1,
+    "iluminacion": 98.2,
     "signo": "Gemini"
    },
    "codigo": "1222h",
@@ -7126,14 +7122,14 @@
    "seccion": "Humanity",
    "pilar": "the-moon",
    "lang": "es",
-   "titulo": "Reporte lunar: la luna más cercana del año",
+   "titulo": "El parte de la luna: la llena más cercana del año fue el miércoles",
    "linea": null,
    "voz": true,
    "noticia": false,
    "mercado": false,
    "luna": {
     "fase": "waning gibbous",
-    "iluminacion": 91.2,
+    "iluminacion": 89.8,
     "signo": "Leo"
    },
    "codigo": "1226es",

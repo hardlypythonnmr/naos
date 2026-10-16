@@ -1,0 +1,36 @@
+/* viz.css · figuras de from-chat-to-code (mapa, flujo, cosa viva). Tokens G3 con respaldo; sin cajas, sin sombras.
+ * Escala de temas.css: 13 dato / 15 texto / 18 línea / 22 pieza / 30 título. Dentro del SVG el mínimo es 15 (14,9 efectivos a 390; 13,7 a 360). */
+.viz { margin: var(--s-6, 48px) 0; max-width: 560px; }
+.viz svg { display: block; width: 100%; height: auto; max-width: 440px; }
+.viz-t { font-family: var(--font-serif, Georgia, serif); font-weight: 300; font-size: 30px; line-height: 1.1; letter-spacing: -.01em; margin: 0 0 var(--s-2, 16px); text-wrap: balance; }
+.viz-sub { margin: -8px 0 var(--s-2, 16px); font-size: 15px; color: var(--naos-sec, #454C57); }
+.viz figcaption { margin-top: var(--s-2, 16px); }
+.viz-que { margin: 0 0 8px; font-size: 15px; line-height: 1.5; color: var(--naos-ink, #0E1116); }
+.viz-nota { margin: 0 0 8px; font-size: 13px; line-height: 1.45; color: var(--naos-grey, #59616D); }
+.viz-h4 { margin: 16px 0 4px; font-size: 15px; font-weight: 600; }
+.viz-alt { margin-top: 8px; font-size: 14px; }
+.viz-alt summary { min-height: 24px; padding: 4px 0; cursor: pointer; color: var(--naos-sec, #454C57); }
+.viz-alt ol, .viz-alt ul { margin: 8px 0; padding-left: 1.4em; line-height: 1.6; }
+.viz-alt a { display: inline-block; min-height: 24px; padding: 2px 0; }
+.viz-alt table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+.viz-alt th, .viz-alt td { overflow-wrap: anywhere; } /* A2 M6: la tabla de cifras no empuja la página a 320 */
+.viz-alt th, .viz-alt td { text-align: left; padding: 6px 12px 6px 0; border-top: 1px solid var(--naos-rule, #D7DBE0); font-weight: 400; vertical-align: top; }
+.viz-alt thead th { font-weight: 600; border-top: 0; }
+.viz a:focus-visible, .viz summary:focus-visible, .viz button:focus-visible { outline: 2px solid var(--naos-ink, #0E1116); outline-offset: 3px; }
+
+/* flujo K2: vertical a 390, horizontal cuando la figura mide 960 o más (container query; sin soporte queda vertical) */
+.viz-flujo { container-type: inline-size; container-name: flujo; max-width: 1040px; }
+.viz-flujo svg.fl-vert { max-width: 440px; }
+.viz-flujo svg.fl-hor { display: none; max-width: none; }
+@container flujo (min-width: 960px) {
+  .viz-flujo svg.fl-vert { display: none; }
+  .viz-flujo svg.fl-hor { display: block; }
+}
+
+/* cosa viva: estado en una línea aria-live y tres botones nativos de 44 px */
+.hc-estado { margin: 12px 0 0; min-height: 4.5em; max-width: 440px; font-size: 15px; line-height: 1.5; color: var(--naos-ink, #0E1116); }
+.hc-ctl { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 0; }
+.hc-ctl button { min-height: 44px; min-width: 96px; padding: 0 18px; font-family: var(--font-sans, system-ui, sans-serif); font-size: 15px; font-weight: 500; color: var(--naos-ink, #0E1116); background: var(--naos-paper, #fff); border: 2px solid var(--naos-ink, #0E1116); border-radius: 0; cursor: pointer; }
+.hc-ctl button:hover { background: var(--naos-ink, #0E1116); color: var(--naos-paper, #fff); }
+.noche .viz-que, .noche .hc-estado { color: var(--naos-night-text, #F4F6F8); }
+@media (prefers-reduced-motion: reduce) { .viz * { transition: none !important; animation: none !important; } }

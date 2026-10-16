@@ -1,0 +1,28 @@
+<svg class="gr" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 344 428" width="344" height="428" role="img" aria-labelledby="gr-t-es gr-d-es" lang="es">
+<title id="gr-t-es">Gráfica de barras: el comunicado de la Fed tuvo 341 palabras en abril, 131 en junio, 167 en julio y 131 en septiembre. La barra del 28 de octubre queda vacía hasta que salga el comunicado.</title>
+<desc id="gr-d-es">Cuatro barras horizontales, una por reunión, en una escala de 0 a 400 palabras. Miércoles 29 de abril: 341 palabras. Miércoles 17 de junio: 131 palabras, la primera reunión con Warsh de presidente, sin guía futura. Miércoles 29 de julio: 167 palabras. Miércoles 16 de septiembre: 131 palabras. Una quinta fila, el miércoles 28 de octubre, tiene una línea punteada y ninguna barra, porque el comunicado todavía no sale.</desc>
+<style>svg.gr{--ink:var(--naos-ink,#0E1116);--sec:var(--naos-sec,#454C57);--grey:var(--naos-grey,#59616D);--chart:var(--naos-chart,#737B87);--rule:var(--naos-rule,#D7DBE0);--paper:var(--naos-paper,#FFFFFF);font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif)}svg.gr[data-tono=noche]{--ink:var(--naos-night-text,#F4F6F8);--sec:var(--naos-night-sec,#C3C9D2);--grey:var(--naos-night-grey,#9AA3B0);--chart:var(--naos-night-grey,#9AA3B0);--rule:var(--naos-night-rule,#2A303A);--paper:var(--naos-night,#0E1116)}svg.gr text{fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:4px;stroke-linejoin:round}svg.gr .gr-g{fill:var(--grey);font-size:13px}svg.gr .gr-h{font-size:15px;font-weight:500}svg.gr .gr-hb{font-size:15px;font-weight:600}svg.gr .gr-v{font-size:18px;font-weight:500;font-variant-numeric:tabular-nums}svg.gr .gr-grid{stroke:var(--rule);stroke-width:1}svg.gr .gr-ax{stroke:var(--chart);stroke-width:1.5}svg.gr .gr-bar{fill:var(--ink)}svg.gr .gr-dia{stroke:var(--chart);stroke-width:2;stroke-dasharray:2 4;stroke-linecap:round}</style>
+<line class="gr-grid" x1="24" y1="8" x2="24" y2="378"/>
+<text class="gr-g" x="24" y="396" text-anchor="middle">0</text>
+<line class="gr-grid" x1="92" y1="8" x2="92" y2="378"/>
+<text class="gr-g" x="92" y="396" text-anchor="middle">100</text>
+<line class="gr-grid" x1="160" y1="8" x2="160" y2="378"/>
+<text class="gr-g" x="160" y="396" text-anchor="middle">200</text>
+<line class="gr-grid" x1="228" y1="8" x2="228" y2="378"/>
+<text class="gr-g" x="228" y="396" text-anchor="middle">300</text>
+<line class="gr-grid" x1="296" y1="8" x2="296" y2="378"/>
+<text class="gr-g" x="296" y="396" text-anchor="middle">400</text>
+<text class="gr-g" x="24" y="416">palabras</text>
+<line class="gr-ax" x1="24" y1="8" x2="24" y2="378"/>
+<g class="gr-f" data-id="abr"><text class="gr-h" x="32" y="30">mié 29 abr</text><rect class="gr-bar" x="24" y="40" width="231.88" height="22"/><text class="gr-v" x="265.88" y="58">341</text>
+</g>
+<g class="gr-f" data-id="jun"><text class="gr-hb" x="32" y="88">mié 17 jun</text><rect class="gr-bar" x="24" y="98" width="89.08" height="22"/><text class="gr-v" x="123.08" y="116">131</text>
+<text class="gr-g" x="32" y="138">Primera reunión con Warsh de presidente.</text>
+<text class="gr-g" x="32" y="156">Sin guía futura.</text>
+</g>
+<g class="gr-f" data-id="jul"><text class="gr-h" x="32" y="182">mié 29 jul</text><rect class="gr-bar" x="24" y="192" width="113.56" height="22"/><text class="gr-v" x="147.56" y="210">167</text>
+</g>
+<g class="gr-f" data-id="sep"><text class="gr-h" x="32" y="240">mié 16 sep</text><rect class="gr-bar" x="24" y="250" width="89.08" height="22"/><text class="gr-v" x="123.08" y="268">131</text>
+</g>
+<g class="gr-f" data-id="dia"><text class="gr-h" x="32" y="298">mié 28 oct<tspan class="gr-g" dx="4"> Esta reunión</tspan></text><line class="gr-dia" x1="27" y1="319" x2="87" y2="319"/><text class="gr-h" x="100" y="325">Ese día</text><text class="gr-g" x="32" y="352">Sin cifra hasta que salga el comunicado.</text></g>
+</svg>

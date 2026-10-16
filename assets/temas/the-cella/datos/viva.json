@@ -1,0 +1,91 @@
+{
+ "id": "viva",
+ "kit": "K8 conducta en 3 pasos + K2 proceso",
+ "slug": "the-cella",
+ "datos": {
+  "pasos": 3,
+  "respiracion": {
+   "adentro": 2,
+   "afuera": 1,
+   "repeticiones": 3,
+   "fase_s": [
+    1,
+    1,
+    3
+   ],
+   "ciclo_s": 5
+  },
+  "duraciones_s": {
+   "paso1": 3.4,
+   "paso2": 3,
+   "paso3": 17.6
+  }
+ },
+ "nada_sagrado": "No se dibuja estatua ni imagen del dios; el punto es nadie en particular; la planta es un plano de puntos.",
+ "en": {
+  "titulo": "The light crosses the floor",
+  "alt": "Animation of a temple floor plan in dots: a door opens at the east end, light crosses the floor, a small thing is swept at the doorstep, and a dot stands in the light and breathes. Steps 1 to 3 are numbered.",
+  "desc": "Three numbered steps. 1: the east door opens and the light starts across the floor. 2: grains at the doorstep are swept aside. 3: the light reaches the back wall and a dot stands in it; a ring around the dot grows twice and shrinks once, three times.",
+  "etiquetas": [
+   "Open a door",
+   "Sweep one thing",
+   "Stand in the light"
+  ],
+  "cue": [
+   "In",
+   "In",
+   "Out"
+  ],
+  "estado": [
+   "The room is dark and the door is closed. Press Play, or Next step.",
+   "1 of 3. Open a door. The light starts to come in.",
+   "2 of 3. Sweep one small thing. A minute, no more.",
+   "3 of 3. Stand in the light and breathe: in, in a little more, then out, long and slow. Three times."
+  ],
+  "play": "Play",
+  "pause": "Pause",
+  "next": "Next step",
+  "again": "Play again",
+  "restart": "Start over",
+  "pasos": [
+   "Open a door. Or the window where the morning comes in. If it's still dark, wait for it.",
+   "Sweep one small thing. The doorstep, the table, the corner by your bed. A minute, no more.",
+   "Stand in the light and breathe. Breathe in, then in a little more, then out, long and slow. That's one breath. Take three. If you get dizzy, go back to normal breathing."
+  ],
+  "que_es": "What this shows.",
+  "que_muestra": "A morning in three steps, run by the light: a door opens, one small thing is swept, and a dot stands where the light reaches and breathes in, in a little more, and out long, three times. It plays once, and you can pause it or go step by step."
+ },
+ "es": {
+  "titulo": "La luz cruza el piso",
+  "alt": "Animación de la planta de un templo en puntos: se abre una puerta al oriente, la luz cruza el piso, se barre una cosa pequeña en el escalón de la entrada y un punto se para en la luz y respira. Los pasos 1 a 3 están numerados.",
+  "desc": "Tres pasos numerados. 1: la puerta del oriente se abre y la luz empieza a cruzar el piso. 2: unos granos en el escalón de la entrada se barren a un lado. 3: la luz llega a la pared del fondo y un punto se para en ella; un anillo alrededor del punto crece dos veces y se achica una, tres veces.",
+  "etiquetas": [
+   "Abre una puerta",
+   "Barre una cosa",
+   "Párate en la luz"
+  ],
+  "cue": [
+   "Adentro",
+   "Adentro",
+   "Afuera"
+  ],
+  "estado": [
+   "El cuarto está a oscuras y la puerta cerrada. Toca Reproducir, o Siguiente paso.",
+   "1 de 3. Abre una puerta. La luz empieza a entrar.",
+   "2 de 3. Barre o limpia una sola cosa. Un minuto, nada más.",
+   "3 de 3. Párate en la luz y respira: toma aire, un poco más, y suéltalo largo y despacio. Tres veces."
+  ],
+  "play": "Reproducir",
+  "pause": "Pausar",
+  "next": "Siguiente paso",
+  "again": "Reproducir de nuevo",
+  "restart": "Empezar de nuevo",
+  "pasos": [
+   "Abre una puerta. O la ventana por donde entra la mañana. Si todavía está oscuro, espera a que aclare.",
+   "Barre o limpia una sola cosa. El escalón de la entrada, la mesa, el rincón junto a la cama. Un minuto, nada más.",
+   "Párate en la luz y respira. Toma aire, luego un poco más, y suéltalo largo y despacio. Esa es una respiración. Haz tres. Si te mareas, vuelve a respirar normal."
+  ],
+  "que_es": "Qué muestra.",
+  "que_muestra": "Una mañana en tres pasos, contada por la luz: se abre una puerta, se barre una cosa pequeña y un punto se para donde llega la luz y respira: toma aire, un poco más, y lo suelta largo, tres veces. Corre una sola vez, y puedes pausarla o ir paso a paso."
+ }
+}

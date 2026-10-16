@@ -1,0 +1,45 @@
+{
+ "id": "una-luna-cuatro-relojes",
+ "familia": "K4 variante: ventana de evento por lugar, sobre el reloj local de cada uno",
+ "leido": "2026-10-16",
+ "fuente": "Drik Panchang (purnima y Kojagara Puja 2026 por ciudad)",
+ "unidad_eje": "hora local de cada lugar; el eje va del sábado 24 a las 00:00 al martes 27 a las 00:00",
+ "luna_llena_usno_utc": "2026-10-26T04:12Z",
+ "comprobacion": "Las cuatro filas dan el mismo instante en UTC: inicio 06:25 del 25, fin 04:11 del 26 (el script lo verifica). Drik cuenta el día lunar (purnima); USNO da el instante exacto de la luna llena, 04:12 UTC: difieren en un minuto y no se mezclan.",
+ "textos": {
+  "en": {
+   "titulo": "One full moon, four local clocks",
+   "alt": "Chart: the full-moon day on four local clocks, from Saturday night in Mountain View to Monday morning in Delhi.",
+   "kojagara": "Kojagara Puja",
+   "dias": [
+    "Sat 24",
+    "Sun 25",
+    "Mon 26"
+   ],
+   "dia_corto": {
+    "2026-10-24": "Sat 24",
+    "2026-10-25": "Sun 25",
+    "2026-10-26": "Mon 26"
+   },
+   "fuente": "Source: Drik Panchang, read 16 Oct 2026.",
+   "que_muestra": "One full moon, four clocks. Each bar is the full-moon day (purnima) as Drik Panchang lists it, drawn on each place's own clock. It starts and ends at the same moment everywhere, so on the wall it begins on Saturday night in Mountain View and ends on Monday morning in Delhi. Drik's date for Kojagara Puja is Sunday 25 in Delhi, New York and Medellín, and Saturday 24 in Mountain View. The date depends on where you are and which rule your family keeps."
+  },
+  "es": {
+   "titulo": "Una luna llena, cuatro relojes",
+   "alt": "Gráfica: el día de luna llena en cuatro relojes locales, del sábado en la noche en Mountain View al lunes en la mañana en Delhi.",
+   "kojagara": "Kojagara Puja",
+   "dias": [
+    "sáb 24",
+    "dom 25",
+    "lun 26"
+   ],
+   "dia_corto": {
+    "2026-10-24": "sáb 24",
+    "2026-10-25": "dom 25",
+    "2026-10-26": "lun 26"
+   },
+   "fuente": "Fuente: Drik Panchang, leído el 16 de octubre de 2026.",
+   "que_muestra": "Una sola luna llena, cuatro relojes. Cada barra es el día de luna llena (purnima) tal como lo lista Drik Panchang, dibujado en la hora de cada lugar. Empieza y termina en el mismo instante en todas partes, así que en el reloj de pared arranca el sábado en la noche en Mountain View y termina el lunes en la mañana en Delhi. La fecha que da Drik para la Kojagara Puja es el domingo 25 en Delhi, Nueva York y Medellín, y el sábado 24 en Mountain View. La fecha depende de dónde estés y de qué regla guarde tu familia."
+  }
+ }
+}

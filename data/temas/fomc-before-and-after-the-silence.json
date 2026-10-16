@@ -1,0 +1,93 @@
+{
+ "slug": "fomc-before-and-after-the-silence",
+ "meta": {
+  "en": {
+   "title": "FOMC, before and after the silence · NAOS",
+   "h1": "FOMC, before and after the silence",
+   "description": "The Fed goes quiet on 17 October and speaks once, on the 28th. Dates and times in ET and Medellín, how to read the statement, and every source.",
+   "og_title": "FOMC, before and after the silence",
+   "og_description": "From 17 October Fed officials stop giving their own views. On the 28th the Committee speaks. A way to read it yourself, and every source. Descriptive, not financial advice."
+  },
+  "es": {
+   "title": "El FOMC, antes y después del silencio · NAOS",
+   "h1": "El FOMC, antes y después del silencio",
+   "description": "La Fed se calla el 17 de octubre y habla una sola vez, el 28. Fechas y horas en ET y Colombia, cómo leer el comunicado y cada fuente.",
+   "og_title": "El FOMC, antes y después del silencio",
+   "og_description": "Desde el 17 de octubre los miembros de la Fed dejan de dar su opinión. El 28 habla el Comité. Una forma de leerlo tú mismo y cada fuente. Descriptivo, sin asesoría financiera."
+  }
+ },
+ "cortos": {
+  "1027p": {
+   "en": "Before the decision",
+   "es": "Before the decision (en inglés)",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1028p": {
+   "en": "FOMC: what was said, against the three outcomes",
+   "es": "FOMC: what was said, against the three outcomes (en inglés)",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1030p": {
+   "en": "Three words in a central-bank statement",
+   "es": "Three words in a central-bank statement (en inglés)",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1101p": {
+   "en": "Five banks, one week",
+   "es": "Five banks, one week (en inglés)",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  }
+ },
+ "enviar": {
+  "en": null,
+  "es": null
+ },
+ "luna": {},
+ "visuales": [
+  {
+   "id": "mapa",
+   "en": "map",
+   "es": "map"
+  },
+  {
+   "id": "viva",
+   "en": "what-comes-out",
+   "es": "what-comes-out"
+  },
+  {
+   "id": "grafica",
+   "en": "shorter",
+   "es": "shorter"
+  }
+ ],
+ "modulos": [
+  {
+   "src": "viva/que-sale.js",
+   "sel": "[data-viva]",
+   "quieto": true
+  },
+  {
+   "src": "svg/mapa.js",
+   "sel": "svg.mp"
+  }
+ ],
+ "pliegues": {},
+ "css": [
+  "viz.css"
+ ],
+ "scripts": [],
+ "flechas": {},
+ "cambio": "2026-10-28T18:00:00Z"
+}

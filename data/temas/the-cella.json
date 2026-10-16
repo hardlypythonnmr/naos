@@ -1,0 +1,144 @@
+{
+ "slug": "the-cella",
+ "meta": {
+  "en": {
+   "title": "The empty cella, the full cella · NAOS",
+   "h1": "The empty cella, the full cella",
+   "description": "A tale we made up about a real room, the inner room of a Greek temple, and a two-minute morning behavior: open a door, sweep one small thing, stand in the light.",
+   "og_title": "The empty cella, the full cella",
+   "og_description": "Why sweep an empty room? A tale of ours about a real Greek temple room, and one thing to try at first light. With sources."
+  },
+  "es": {
+   "title": "La sala vacía, la sala llena · NAOS",
+   "h1": "La sala vacía, la sala llena",
+   "description": "Un cuento que inventamos sobre un cuarto que sí existe, la sala del fondo de un templo griego, y algo de dos minutos para la mañana: abrir una puerta, barrer una sola cosa, pararte en la luz.",
+   "og_title": "La sala vacía, la sala llena",
+   "og_description": "¿Para qué barrer un cuarto vacío? Un cuento nuestro sobre una sala de verdad de un templo griego, y algo para probar con la primera luz. Con fuentes."
+  }
+ },
+ "cortos": {
+  "1019h": {
+   "en": "The empty cella",
+   "es": "La sala vacía (en inglés: The empty cella)",
+   "aterriza": {
+    "en": "the-tale",
+    "es": "el-cuento"
+   }
+  },
+  "1229h": {
+   "en": "The keeper of the year",
+   "es": "Quien cuida el año (en inglés: The keeper of the year)",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1231h": {
+   "en": "The full cella",
+   "es": "La sala llena (en inglés: The full cella)",
+   "aterriza": {
+    "en": "on-your-own",
+    "es": "a-solas"
+   }
+  }
+ },
+ "enviar": {
+  "en": "Why sweep an empty room? A short tale, and one thing to try at first light.",
+  "es": "¿Para qué barrer un cuarto vacío? Un cuento corto, y algo para probar con la primera luz."
+ },
+ "luna": {
+  "c-2026-10-19-1200-h-historia": {
+   "iluminacion": 59.6,
+   "fase": {
+    "en": "waxing gibbous",
+    "es": "gibosa creciente"
+   }
+  },
+  "c-2026-10-19-2000-h-short-reel": {
+   "iluminacion": 62.7,
+   "fase": {
+    "en": "waxing gibbous",
+    "es": "gibosa creciente"
+   }
+  },
+  "c-2026-12-29-1200-h-historia": {
+   "iluminacion": 61.6,
+   "fase": {
+    "en": "waning gibbous",
+    "es": "gibosa menguante"
+   }
+  },
+  "c-2026-12-29-2000-h-short-reel": {
+   "iluminacion": 58,
+   "fase": {
+    "en": "waning gibbous",
+    "es": "gibosa menguante"
+   }
+  },
+  "c-2026-12-30-1100-h-carrusel": {
+   "iluminacion": 51.4,
+   "fase": {
+    "en": "waning gibbous, last quarter at 13:59",
+    "es": "gibosa menguante; cuarto menguante a las 13:59"
+   }
+  },
+  "c-2026-12-31-1200-h-historia": {
+   "iluminacion": 40.7,
+   "fase": {
+    "en": "waning crescent",
+    "es": "menguante"
+   }
+  },
+  "c-2026-12-31-2000-h-short-reel": {
+   "iluminacion": 37.4,
+   "fase": {
+    "en": "waning crescent",
+    "es": "menguante"
+   }
+  }
+ },
+ "visuales": [
+  {
+   "id": "mapa",
+   "en": "map",
+   "es": "mapa"
+  },
+  {
+   "id": "sol",
+   "en": "when-the-light",
+   "es": "cuando-entra-la-luz"
+  },
+  {
+   "id": "viva",
+   "en": "our-experiment",
+   "es": "nuestro-experimento"
+  }
+ ],
+ "modulos": [
+  {
+   "src": "viva/sala-viva.js",
+   "sel": "[data-viva]",
+   "quieto": true
+  },
+  {
+   "src": "svg/mapa.js",
+   "sel": "svg.cm"
+  }
+ ],
+ "pliegues": {
+  "on-your-own": {
+   "desde": "2026-12-29"
+  },
+  "a-solas": {
+   "desde": "2026-12-29"
+  }
+ },
+ "css": [
+  "viz.css"
+ ],
+ "scripts": [],
+ "flechas": {
+  "The light crosses the floor": "#our-experiment",
+  "La luz cruza el piso": "#nuestro-experimento"
+ }
+}
