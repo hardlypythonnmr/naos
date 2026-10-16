@@ -1,0 +1,86 @@
+/* temas.css · páginas de tema, hubs y enlaces cortos (lote E, D-252). Solo tokens de G2/G3; sin Lenis, sin GSAP, sin
+ * animación propia (nada que pausar). Teléfono primero (390 px, margen de 16 px), escritorio a 1440. Objetivos de 24 px o más. */
+[hidden] { display: none !important; }
+html { scroll-padding-top: 16px; }
+body { background: var(--naos-paper); color: var(--naos-ink); }
+main { display: block; max-width: 1120px; margin: 0 auto; padding: 0 var(--page-gutter-390, 16px) var(--s-6); }
+
+/* barra */
+.t-barra { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; padding: 14px 16px; border-bottom: 2px solid var(--naos-ink); }
+.t-marca { margin: 0; display: flex; align-items: baseline; gap: 12px; }
+.t-naos { font-family: var(--font-serif); font-weight: 400; font-size: 28px; line-height: 1; letter-spacing: -.01em; text-decoration: none; }
+.t-lema { font-size: 13px; color: var(--naos-sec); }
+.t-nav { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 15px; }
+.t-nav a { display: inline-block; min-height: 24px; padding: 4px 0; color: var(--naos-sec); text-decoration: none; }
+.t-nav a:hover, .t-nav a:focus-visible, .t-nav a[aria-current="page"] { color: var(--naos-ink); text-decoration: underline; }
+
+/* bloque 0: umbral */
+.t-umbral { padding: var(--s-4) 0 var(--s-3); border-bottom: 1px solid var(--naos-rule); }
+.t-migas { font-size: 14px; color: var(--naos-grey); margin: 0 0 var(--s-2); }
+.t-migas a { display: inline-block; min-height: 24px; padding: 2px 0; color: var(--naos-sec); }
+.t-umbral h1 { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-height: 1.08; letter-spacing: -.02em; margin: 0 0 var(--s-1); overflow-wrap: anywhere; }
+.t-rango { margin: 0; font-size: 15px; color: var(--naos-sec); }
+.t-aviso { margin: 6px 0 0; }
+
+/* bloques */
+.t-bloque { padding: var(--s-4) 0 0; }
+.t-bloque > h2 { font-family: var(--font-serif); font-weight: 300; font-size: 28px; line-height: 1.15; margin: 0 0 var(--s-2); }
+.t-bloque > h2 a { text-decoration: none; } .t-bloque > h2 a:hover, .t-bloque > h2 a:focus-visible { text-decoration: underline; }
+
+/* bloque 5: tarjetas */
+.t-cartas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.t-carta { display: flex; flex-direction: column; gap: 6px; height: 100%; padding: 14px 16px; border: 1px solid var(--naos-grey); background: var(--naos-paper); scroll-margin-top: 16px; }
+.t-carta > * { margin: 0; }
+.t-cuando { font-size: 14px; color: var(--naos-sec); font-variant-numeric: tabular-nums; }
+.t-estado { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.t-tag { font-family: var(--font-cond); font-weight: 600; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--naos-ink); border: 1px solid var(--naos-ink); padding: 1px 6px; }
+.t-out .t-tag { background: var(--naos-ink); color: var(--naos-paper); }
+.t-ver { display: inline-flex; align-items: center; min-height: 24px; padding: 2px 4px; font-size: 14px; }
+.t-tit { font-family: var(--font-serif); font-weight: 400; font-size: 21px; line-height: 1.22; letter-spacing: -.005em; overflow-wrap: anywhere; }
+.t-linea { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 17px; line-height: 1.35; color: var(--naos-sec); }
+.t-fmt { font-size: 13px; color: var(--naos-grey); }
+.t-luna { font-size: 13px; color: var(--naos-sec); }
+.t-signo summary { display: inline-flex; align-items: center; min-height: 24px; cursor: pointer; font-size: 13px; color: var(--naos-grey); text-decoration: underline; text-underline-offset: 2px; }
+.t-signo p { margin: 4px 0 0; font-size: 13px; color: var(--naos-sec); }
+.t-corto { margin-top: auto !important; padding-top: 4px; }
+.t-corto a { display: inline-block; min-height: 24px; padding: 2px 0; }
+.t-nota { margin-top: -2px !important; }
+/* hoy y "You came from" (assets/js/temas.js): el borde de 2 px en vino, como la franja de la portada */
+.t-hoy, .t-vienes { border: 2px solid var(--vino, #5A1834); padding: 13px 15px; }
+.t-marca-js { font-family: var(--font-cond); font-weight: 600; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--naos-ink); }
+
+/* bloque 8: fuentes */
+.t-fuentes ul { margin: 0 0 var(--s-1); padding-left: 20px; font-size: 14px; line-height: 1.5; }
+.t-fuentes li { margin: 0 0 6px; overflow-wrap: anywhere; }
+.t-fuentes a { display: inline-block; min-height: 24px; }
+
+/* hubs: estantes y temas */
+.t-lomos { margin: var(--s-3) 0 0; font-family: var(--font-serif); font-weight: 300; font-size: 24px; line-height: 1.3; }
+.t-lomos span { white-space: normal; }
+.t-estante { padding: var(--s-3) 0 0; }
+.t-lomo { font-family: var(--font-serif); font-weight: 300; font-size: 24px; line-height: 1.2; margin: 0 0 var(--s-1); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; border-top: 1px solid var(--naos-ink); padding-top: var(--s-1); }
+.t-lomo a { text-decoration: none; } .t-lomo a:hover, .t-lomo a:focus-visible { text-decoration: underline; }
+.t-temas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.t-tema { display: flex; flex-direction: column; gap: 2px; min-height: 48px; padding: 10px 14px; border: 1px solid var(--naos-rule); text-decoration: none; }
+.t-tema:hover, .t-tema:focus-visible { border-color: var(--naos-ink); }
+.t-tema-t { font-family: var(--font-serif); font-size: 19px; line-height: 1.25; }
+.t-hub main > .t-temas { padding-top: var(--s-3); }
+
+/* pie común: líneas de ayuda en el mismo lugar en cada página (WCAG 3.2.6), la línea de N */
+.t-pie { max-width: 1120px; margin: var(--s-6) auto 0; padding: var(--s-3) 16px var(--s-6); border-top: var(--rule-heavy) solid var(--naos-ink); }
+.t-pie > p { margin: 0 0 10px; max-width: 76ch; }
+.t-linea-n { font-family: var(--font-serif); font-weight: 300; font-size: 20px; line-height: 1.3; }
+.t-pie .sello a { display: inline-block; min-height: 24px; }
+
+@media (min-width: 700px) {
+  .t-cartas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .t-temas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .t-umbral h1 { font-size: 52px; }
+}
+@media (min-width: 1100px) {
+  main { padding: 0 0 var(--s-8); }
+  .t-barra { padding: 14px var(--page-gutter); }
+  .t-cartas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .t-temas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .t-pie { padding-left: 0; padding-right: 0; }
+}
