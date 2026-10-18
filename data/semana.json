@@ -1,6 +1,6 @@
 {
  "nota": "Briefs, lo ya publicado y la biblioteca sin fecha (D-224). Las piezas fechadas viven en data/temas.json desde el lote E (D-252); esquema en el README. Sin fecha: dia null y nota.",
- "generado": "2026-10-18T02:02Z",
+ "generado": "2026-10-18T05:09Z",
  "semana": {
   "desde": "2026-10-19",
   "hasta": "2026-10-25"
@@ -80,7 +80,7 @@
    "local": "16:22 ET"
   }
  ],
- "eventos_nota": "Forex Factory publishes each week's calendar over the weekend; the briefs list its red-folder events once it covers that week.",
+ "eventos_nota": null,
  "items": [
   {
    "seccion": "behavior",
@@ -103,8 +103,25 @@
    "format": "brief",
    "title": "London open brief",
    "status": "planned",
-   "video": false,
-   "eventos": []
+   "video": true,
+   "video_nota": "Video: red event ahead",
+   "eventos": [
+    {
+     "titulo": "CAD CPI m/m",
+     "hora": "2026-10-19T12:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "CAD Median CPI y/y",
+     "hora": "2026-10-19T12:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "CAD Trimmed CPI y/y",
+     "hora": "2026-10-19T12:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    }
+   ]
   },
   {
    "seccion": "market",
@@ -187,7 +204,13 @@
    "status": "planned",
    "video": true,
    "video_nota": "Short (EN)",
-   "eventos": []
+   "eventos": [
+    {
+     "titulo": "GBP CPI y/y",
+     "hora": "2026-10-21T06:00Z",
+     "fuente": "Forex Factory weekly calendar"
+    }
+   ]
   },
   {
    "seccion": "market",
@@ -230,6 +253,11 @@
      "hora": "2026-10-21T20:30Z",
      "fuente": "Meta via PR Newswire (on Finviz), 12 Oct 2026",
      "url": "https://finviz.com/news/401445/meta-to-announce-third-quarter-2026-results"
+    },
+    {
+     "titulo": "NZD CPI q/q",
+     "hora": "2026-10-21T21:45Z",
+     "fuente": "Forex Factory weekly calendar"
     }
    ]
   },
