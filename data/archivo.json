@@ -1,0 +1,29 @@
+{
+ "nota": "Páginas archivadas el 19-oct-2026: no hay segundo lado, NAOS es Humanity. Cada URL vieja queda como redirección (noindex) a la portada o a la página de Humanity más cercana; lo mismo los enlaces cortos que apuntaban a ellas. Destino desde la raíz del sitio (\"\" es la portada); la edición ES antepone es/. El contenido archivado está en archivo/the-present/ y en la historia de git. Lo lee scripts/construir-temas.mjs.",
+ "fecha": "2026-10-19",
+ "paginas": {
+  "who-is-telling-you-this": "temas/pilar/community/",
+  "how-a-vote-is-counted": "temas/pilar/community/",
+  "who-writes-the-rules": "temas/pilar/community/",
+  "money-at-the-table": "temas/pilar/community/",
+  "look-up-from-the-news": "temas/phones-in-the-bread-basket/",
+  "fomc-before-and-after-the-silence": "",
+  "payrolls-before-the-number": "",
+  "one-number-and-its-range": "",
+  "two-clocks": "",
+  "fomc-with-projections": "",
+  "four-banks-one-table": "",
+  "from-chat-to-code": "",
+  "built-here": "",
+  "the-radar-that-tells-you-when-it-is-blind": "",
+  "how-we-test-an-idea": "",
+  "errata": "",
+  "open-questions": ""
+ },
+ "hubs": {
+  "temas/the-present/": "temas/humanity/",
+  "temas/pilar/markets/": "",
+  "temas/pilar/news/": "temas/pilar/community/",
+  "temas/pilar/ai/": ""
+ }
+}

@@ -8,7 +8,9 @@
 //    una sola tarjeta por edición (las ES solo en la ES); hreflang hacia su par; cada código de data/cortos.json (solo de suma) tiene su
 //    redirección y los vivos aterrizan en su tarjeta; reglas fijas de cada tarjeta y del pie; idioma de las partes en las fuentes;
 //    fuentes electorales solo oficiales; mercados de predicción como atribución; nada privado; sitemap completo.
-//    Con --grilla=<grilla.json> (donde está la grilla privada) además: cada slot de la grilla hasta el 31-dic tiene exactamente una tarjeta.
+//    Con --grilla=<grilla.json> (donde está la grilla privada) además: cada slot de la grilla hasta el 31-dic tiene exactamente una tarjeta
+//    (salvo The Present y los slots archivados). Archivo (19-oct, data/archivo.json): cada página y hub archivado, en las dos ediciones,
+//    es una redirección noindex a un destino que existe, y ninguno queda en el sitemap.
 // 7. cuerpo de las páginas selladas (data/temas/<slug>.<lang>.md, .json; assets/temas/<slug>/): parsea, sin comentarios ni texto
 //    privado, sin rayas largas, sin "exercises"; los fragmentos de figura (assets/temas/*/fig/) se revisan dentro de la página que
 //    los lleva, no sueltos.
@@ -214,7 +216,7 @@ if (T) {
       if (!cuerpo) for (const f of p.fuentes || []) { const fl = f.lang || "en"; if (fl !== lang && !h.includes(`lang="${fl}">${f.titulo.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;")}<`)) falla(r, `fuente en ${fl} sin lang: ${f.titulo}`); }
     }
     const nPag = (T.paginas || []).length;
-    for (const r of [`${E.pref}temas/index.html`, `${E.pref}temas/humanity/index.html`, `${E.pref}temas/the-present/index.html`, ...(T.pilares || []).filter((P) => (T.paginas || []).some((p) => p.pilar === P.id)).map((P) => `${E.pref}temas/pilar/${P.id}/index.html`), ...(lang === "es" ? ["es/index.html"] : [])]) {
+    for (const r of [`${E.pref}temas/index.html`, `${E.pref}temas/humanity/index.html`, ...(T.pilares || []).filter((P) => (T.paginas || []).some((p) => p.pilar === P.id)).map((P) => `${E.pref}temas/pilar/${P.id}/index.html`), ...(lang === "es" ? ["es/index.html"] : [])]) {
       const h = html(r); if (!h) falla(r, "no existe"); else { pieOk(h, r, r.replace(/^es\//, "").replace(/index\.html$/, "")); if (/class="t-carta/.test(h)) falla(r, "un hub no lleva tarjetas de pieza (cada pieza, una sola tarjeta)"); }
     }
     if (!nPag) falla(d, "sin páginas");
@@ -259,8 +261,30 @@ if (T) {
   }
   if (existsSync(join(RAIZ, "s"))) for (const c of readdirSync(join(RAIZ, "s"))) if (!REG?.[c]) falla(`s/${c}`, "enlace corto huérfano (fuera del registro)");
 
-  // sitemap
+  // archivo (19-oct): las URL viejas de The Present redirigen, con noindex, a un destino que existe; fuera del sitemap
   const sm = html("sitemap.xml") || "";
+  const ARCH = datos["archivo.json"];
+  let redir = 0;
+  if (ARCH) {
+    const rutas = [...Object.keys(ARCH.paginas || {}).map((s) => `temas/${s}/`), ...Object.keys(ARCH.hubs || {})];
+    for (const ruta of rutas) for (const pre of ["", "es/"]) {
+      const r = `${pre}${ruta}index.html`, h = html(r);
+      if (!h) { falla(r, "falta la redirección de archivo (una URL ya compartida no da 404)"); continue; }
+      if (!h.includes('<meta name="robots" content="noindex">')) falla(r, "redirección de archivo sin noindex");
+      if (!/rel="canonical"/.test(h)) falla(r, "redirección de archivo sin canonical");
+      const m = /http-equiv="refresh" content="0; url=([^"]+)"/.exec(h);
+      if (!m) { falla(r, "redirección de archivo sin meta refresh"); continue; }
+      const dest = resolve(dirname(join(RAIZ, r)), m[1]), f = m[1].endsWith("/") ? join(dest, "index.html") : dest;
+      if (!existsSync(f)) falla(r, `destino inexistente: ${m[1]}`);
+      else if (/http-equiv="refresh"/.test(readFileSync(f, "utf8"))) falla(r, `el destino es otra redirección: ${m[1]}`);
+      if (/class="t-carta/.test(h)) falla(r, "una página archivada no lleva tarjetas");
+      if (sm.includes(`/naos/${pre}${ruta}</loc>`)) falla("sitemap.xml", `URL archivada en el sitemap: ${pre}${ruta}`);
+      redir++;
+    }
+    for (const p of T.paginas || []) if (ARCH.paginas?.[p.slug] != null) falla(d, `${p.slug}: está archivada y sigue en temas.json`);
+  }
+
+  // sitemap
   for (const p of T.paginas || []) for (const pre of ["", "es/"]) if (!sm.includes(`/naos/${pre}temas/${p.slug}/</loc>`)) falla("sitemap.xml", `falta ${pre}temas/${p.slug}/`);
   if (!sm.includes("/naos/es/</loc>")) falla("sitemap.xml", "falta es/");
   for (const m of sm.matchAll(/<loc>https:\/\/hardlypythonnmr\.github\.io\/naos\/([^<]*)<\/loc>/g)) { const f = join(RAIZ, m[1] || "index.html"); if (!existsSync(m[1].endsWith("/") || !m[1] ? join(f, m[1] ? "index.html" : "") : f)) falla("sitemap.xml", `URL sin archivo: ${m[1]}`); }
@@ -270,12 +294,12 @@ if (T) {
   if (g) {
     const G = JSON.parse(readFileSync(g, "utf8")), refs = new Map();
     for (const x of piezas.values()) refs.set(x.ref, (refs.get(x.ref) || 0) + 1);
-    const slots = G.slots.filter((s) => s.fecha_et <= "2026-12-31");
+    const slots = G.slots.filter((s) => s.fecha_et <= "2026-12-31" && s.seccion !== "The Present" && !/^archivado/.test(s.estado || ""));
     for (const s of slots) if (refs.get(s.id) !== 1) falla("temas.json", `slot ${s.id}: ${refs.get(s.id) || 0} tarjetas`);
     for (const r of refs.keys()) if (!slots.some((s) => s.id === r)) falla("temas.json", `tarjeta sin slot en la grilla: ${r}`);
     resumenTemas = `, grilla: ${slots.length} slots, cada uno con una pieza`;
   }
-  resumenTemas = ` · temas: ${(T.paginas || []).length} páginas por edición, ${tarjetas} tarjetas (${enEN} EN y ${piezas.size} ES), ${cortos} enlaces cortos vivos${retirados ? ` y ${retirados} retirados` : ""}` + resumenTemas;
+  resumenTemas = ` · temas: ${(T.paginas || []).length} páginas por edición, ${tarjetas} tarjetas (${enEN} EN y ${piezas.size} ES), ${cortos} enlaces cortos vivos${retirados ? ` y ${retirados} retirados` : ""}${redir ? `, ${redir} redirecciones de archivo` : ""}` + resumenTemas;
 }
 
 // ---------- 7. cuerpo de las páginas selladas ----------
