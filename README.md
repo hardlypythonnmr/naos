@@ -1,5 +1,7 @@
 # NAOS
 
+**19 Oct 2026: there is no second side.** NAOS is Humanity only. The Present (news, markets, AI, the radar, the monitor room, the guide) left the page: its topic URLs, hubs and short links redirect (noindex) to the home or the closest Humanity page, as listed in `data/archivo.json`; the archived sources live in `archivo/the-present/` and in git history. The text below still describes the older two-door page in places.
+
 **Closer to yourself.** The NAOS home page: two doors, two sections (D-238). **Humanity** leads: eat, sleep, move, the
 divine, community, with small behaviors, the library (Assets) and the week. **The Present** is the short window: the news
 with doubt and both sides, AI, and markets around the big events (headlines, rates and the dollar, fear and greed, the
