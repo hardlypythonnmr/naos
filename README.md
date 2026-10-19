@@ -1,99 +1,47 @@
 # NAOS
 
-**19 Oct 2026: there is no second side.** NAOS is Humanity only. The Present (news, markets, AI, the radar, the monitor room, the guide) left the page: its topic URLs, hubs and short links redirect (noindex) to the home or the closest Humanity page, as listed in `data/archivo.json`; the archived sources live in `archivo/the-present/` and in git history. The text below still describes the older two-door page in places.
+**Closer to yourself.** NAOS is Humanity only (D-263): eat well, sleep well, get moving, have a relationship with the
+divine, and build community, with small behaviors and old tales. The home page carries the pillars, Breathe, the library
+(Assets), "This week" and a mantra; Topics and Upcoming are their own pages.
 
-**Closer to yourself.** The NAOS home page: two doors, two sections (D-238). **Humanity** leads: eat, sleep, move, the
-divine, community, with small behaviors, the library (Assets) and the week. **The Present** is the short window: the news
-with doubt and both sides, AI, and markets around the big events (headlines, rates and the dollar, fear and greed, the
-economic calendar, the wire, stories of the day with their monitor rooms, prediction market odds).
+Since 19 Oct 2026 there is no second side. The Present (news, markets, AI, the radar, the monitor room, the guide, the two
+doors) left the site: its topic URLs, hubs and short links redirect (noindex) to the home or the closest Humanity page, as
+listed in `data/archivo.json`; the archived sources live in `archivo/the-present/` and in git history.
 
 Live at <https://hardlypythonnmr.github.io/naos/>. Static site, no build step, served by GitHub Pages from `main`, root.
-
-**Descriptive, not financial advice.** Nothing here is a recommendation to buy or sell anything. Prediction market
-prices are market prices, not NAOS forecasts. Stale readings and sample placeholders are kept off the page (D-216); the
-builder lists them, with the reason and the plan to get real data, in `escondido` inside `data/situacion.json`.
 
 ## Layout
 
 | path | what |
 |---|---|
 | `index.html` | the page |
-| `assets/css/`, `assets/js/` | page styles and script (`v1plus.css`, `v1plus.js`); `sala.js` and `sala.css`: the monitor room per story, the story map and "How NAOS reads the day" (D-221) |
+| `assets/css/`, `assets/js/` | page styles and scripts: `humanity.js` (the home), `semana.js` ("This week"), `cella.js` + `figura.js` (Cella), `behavior.js` (the Pause button), `franja.js` (the Spanish home's "Hoy y lo próximo"); `v1plus.css`, `sala.css` and `puertas.css` keep only what the Humanity home and Upcoming use (the names are historical) |
 | `assets/comun/` | shared design tokens, base styles and the page engine (`naos.js`) |
 | `assets/fuentes/` | self-hosted fonts (woff2) with their licenses |
 | `assets/vendor/` | GSAP + ScrollTrigger, Lenis, with their licenses |
-| `data/situacion.json` | every value the page shows, rebuilt every 30 minutes |
-| `data/mapa.json` | the map (Natural Earth via world-atlas) |
-| `data/mapa-predicciones.json` | NAOS's curated map: storyline, keywords, Polymarket market, related tickers, global rules (copy of the radar's map) |
-| `data/mundo.json` | world land for the story map and the monitor room (Natural Earth 110m, public domain, from G3 `geo.json`) |
 | `data/rasgos.json` | the Behavior tape: traits from the NAOS videos, one line each; edit here, not in HTML |
 | `data/semana.json` | briefs, what is already published and the undated library (D-224); the dated month plan of D-227 left with lot E (D-252), the dated pieces live in `data/temas.json`. Built by `node scripts/construir-semana.mjs [--desde=YYYY-MM-DD]`; schema below |
 | `data/agenda.json` | scheduled events outside the Forex Factory calendar, one year ahead (central banks, US data, elections, summits, tech, market holidays, religious and cultural dates), each with the source URL that states its date: `{ eventos: [{ titulo, fecha: "YYYY-MM-DD", fecha_fin?, hora: "YYYY-MM-DDTHH:MMZ" \| null, hora_local, hora_estado: "official" \| "expected" \| "time not set", fecha_estado?: "expected", categoria, pais, angulo, fuente, url, nota?, tendencias?: true }], sin_fecha: [...] }`; `categoria` is `central_bank`, `us_data`, `election`, `summit`, `tech_ai`, `energy`, `state_visit`, `market_holiday` or `religioso/cultural`; `fecha_estado: "expected"` marks a date that is itself provisional (moon sighting, official calendar not out yet); `tendencias: true` flags events the trends radar watches; `angulo` is the market or attention angle in one neutral line; an event with `hora: null` goes to the London brief of its day (the week's last brief if it falls on a weekend) |
 | `data/assets.json` | the Assets library: categories and pieces with their status (all "planned" for now); add pieces here, not in HTML. While planned, a piece carries `texto` (60 to 120 words), `mapa` (`{ raiz, ramas: [{ t, hojas }] }`, 3 to 6 branches), `fuentes` (`[{ titulo, autor, anio, url }]`, each opened before citing; date in `fuentes_consultadas`) and `pdf` |
 | `data/temas.json` | the public projection of the content grid for the topic pages (D-252): `paginas` (32 topics: slug, title, section, pillar, date range, piece ids, inherited sources) and `piezas` (265 pieces: date, hour ET and Medellín, UTC, format, title or null, one line or null, voice, news and markets flags, moon for Humanity, `codigo`). Written by `scripts/construir-temas.mjs --grilla=<grilla.json> --paginas=<paginas.json> [--afirmaciones=<csv>] [--solo=slug,slug]` where the private grid lives (`--solo`: only those topics and their pieces come from the grid, the rest stays as it is); never edited by hand. Page `es` (lot 2, N's decision 2): the Spanish pieces land on `/es/temas/es/` (`pilar: null`, no shelf; linked from the Spanish home); each Spanish piece has `pagina: "es"` and `tema`, the topic page of the English piece it versions, which still lists it with a link to its card on `es` |
-| `data/temas/` | the body of each sealed topic page (lot 0+1 on): `<slug>.en.md` and `<slug>.es.md` (blocks 0 to 8 of the sealed text, HTML comments stripped, so no claim ids or internal notes), `<slug>.json` (title, description, OG, short-link landing and "You came from" titles, share text, where each visual goes, its modules). Written by `node scripts/construir-temas.mjs --cuerpo=<private lot folder> --sellados=slug,slug`; edit the text there and re-import, never the HTML. An unsealed page has no file here and keeps its lot-E skeleton. A `desde` in `<slug>.json` is a date gate: before it the page stays a skeleton; "now" is `generado` of `data/situacion.json` (so the output is still a function of the data; `NAOS_AHORA=<ISO>` only for previews) |
+| `data/temas/` | the body of each sealed topic page (lot 0+1 on): `<slug>.en.md` and `<slug>.es.md` (blocks 0 to 8 of the sealed text, HTML comments stripped, so no claim ids or internal notes), `<slug>.json` (title, description, OG, short-link landing and "You came from" titles, share text, where each visual goes, its modules). Written by `node scripts/construir-temas.mjs --cuerpo=<private lot folder> --sellados=slug,slug`; edit the text there and re-import, never the HTML. An unsealed page has no file here and keeps its lot-E skeleton. A `desde` in `<slug>.json` is a date gate: before it the page stays a skeleton; "now" is `generado` of `data/semana.json` (so the output is still a function of the data; `NAOS_AHORA=<ISO>` only for previews) |
 | `assets/temas/<slug>/` | the visuals of a sealed page: concept map, chart and living thing as SVG (wide and narrow, still versions), their data JSON (cleaned of internal ids), their modules (`montar(el, {quieto})`, reduced motion respected) and CSS; `fig/` holds the figure fragments the builder inlines |
 | `scripts/cuerpo-temas.mjs` | the body importer and renderer used by `construir-temas.mjs` (grammar of the sealed texts, folds, before/after versions of an event page, cards with their text, sources with links, lang marks for parts) |
-| `temas/` | generated topic pages: `temas/<slug>/index.html` (one per topic: threshold, the pieces as cards, sources, the common footer with helplines), hubs `temas/`, `temas/humanity/` (library by pillar), `temas/the-present/` and `temas/pilar/<id>/`. Built by `node scripts/construir-temas.mjs` from `data/temas.json` and `data/enlaces.json`; deterministic; no Lenis, no GSAP, no guide |
+| `temas/` | generated topic pages: `temas/<slug>/index.html` (one per topic: threshold, the pieces as cards, sources, the common footer with helplines), hubs `temas/`, `temas/humanity/` (library by pillar) and `temas/pilar/<id>/` (`temas/the-present/` and the Markets, News and AI hubs are archive redirects). Built by `node scripts/construir-temas.mjs` from `data/temas.json` and `data/enlaces.json`; deterministic; no Lenis, no GSAP, no guide |
 | `s/<codigo>/` | one stable short link per Short (`/naos/s/1019h/`), a static redirect to its card on its topic page with `?src=<codigo>` ("You came from this Short") |
 | `sitemap.xml` | home, Upcoming, hubs and topic pages (built with `temas/`) |
-| `agenda.html` | "Upcoming" (D-226): the year of `data/agenda.json` month by month, next event with countdown, filters by category, period bars for multi-day dates, "Add to calendar" per event and "Subscribe" per category; the home bento shows the next five (`assets/js/proximos.js`). Shared ids and categories in `assets/js/agenda-comun.js` |
-| `assets/ics/` | calendar files (RFC 5545) built by `node scripts/construir-ics.mjs` (also run by both builders): `<id>.ics` per event, `<category>.ics` per category for subscribing, `naos-agenda.ics` with everything. Timed events in UTC with a 30 min reminder; date-only and multi-day periods all-day (`VALUE=DATE`, exclusive `DTEND`) with a reminder at 09:00 the day before; expected dates or times say so in `SUMMARY`. `DTSTAMP` is the agenda's `revisado`, so files only change when the agenda does |
+| `agenda.html` | "Upcoming" (D-226): the year of `data/agenda.json` month by month, next event with countdown, filters by category, period bars for multi-day dates, "Add to calendar" per event and "Subscribe" per category. Shared ids and categories in `assets/js/agenda-comun.js` |
+| `assets/ics/` | calendar files (RFC 5545) built by `node scripts/construir-ics.mjs` (also run by `construir-semana.mjs`): `<id>.ics` per event, `<category>.ics` per category for subscribing, `naos-agenda.ics` with everything. Timed events in UTC with a 30 min reminder; date-only and multi-day periods all-day (`VALUE=DATE`, exclusive `DTEND`) with a reminder at 09:00 the day before; expected dates or times say so in `SUMMARY`. `DTSTAMP` is the agenda's `revisado`, so files only change when the agenda does |
 | `pieza.html` | the page of one Assets piece (`?id=`): video, transcript, prompts, sources (D-212); noindex while planned |
 | `assets/pdf/<id>.pdf` | one-page PDF per planned piece (what you will learn, the map, the sources), printed from `pieza.html` by `NODE_PATH=$(npm root -g) node scripts/pdf-piezas.mjs [id ...]` (Playwright + Chromium; checks one page and under 300 KB) |
-| `scripts/construir-datos.mjs` | the data builder (Node 18+, no dependencies, no keys required) |
-| `scripts/animo.py` | the "Credit and dollar" reading of NAOS Fear & Greed (Python 3, standard library only) |
-| `data/enlaces.json` | links of what is published (D-234), the single source for the Short and Reel URLs: `{ generado, piezas: { "YYYY-MM-DD\|slot", "YYYY-MM-DD\|asset_id" or, for a grid piece, "YYYY-MM-DD\|codigo" (its `codigo` in `data/temas.json`): { yt, ig, publicado_utc, teaser_de } } }`; a grid piece turns "Out" on its topic page and in the home strip once its key has a `yt`; `yt` is a YouTube Shorts, watch or youtu.be URL, `ig` an Instagram Reel URL and only with `yt`; no builder rewrites it; checked by `scripts/validar.mjs` |
+| `data/enlaces.json` | links of what is published (D-234), the single source for the Short and Reel URLs: `{ generado, piezas: { "YYYY-MM-DD\|slot", "YYYY-MM-DD\|asset_id" or, for a grid piece, "YYYY-MM-DD\|codigo" (its `codigo` in `data/temas.json`): { yt, ig, publicado_utc, teaser_de } } }`; a grid piece turns "Out" on its topic page and in the Spanish home's strip once its key has a `yt`; `yt` is a YouTube Shorts, watch or youtu.be URL, `ig` an Instagram Reel URL and only with `yt`; no builder rewrites it; checked by `scripts/validar.mjs` |
 | `scripts/validar.mjs` | `node scripts/validar.mjs [--grilla=<grilla.json>]`: JSON parses, `enlaces.json` prefixes and keys, local link targets and anchors exist, no OKX, no em dashes in our own data; topic pages: only public fields in `temas.json`, one card per piece on one page (with `--grilla`, one card per grid slot), every short link lands on its card, fixed card and footer rules, nothing private, sitemap complete (Node 18+, no dependencies) |
 | `scripts/construir-temas.mjs` | the topic-page generator (lot E, D-252); also run at the end of `construir-semana.mjs`, so the data Action rebuilds it |
-| `scripts/qa.mjs` | `NODE_PATH=$(npm root -g) node scripts/qa.mjs <url> [--out DIR] [--nombre x]`: screenshots at 320, 390, 1440 and 200 % zoom, console errors, horizontal scroll, Tab reach and reduced motion (Playwright + Chromium). `... qa.mjs <base-url> --temas`: every internal link of hubs and topic pages answers 200 with its anchor, every short link lands on its card, the guide opens only on a clean home arrival, Cella's pause stops every Cella, the home strip reads the grid |
-| `.github/workflows/datos.yml` | the data refresh Action |
+| `scripts/qa.mjs` | `NODE_PATH=$(npm root -g) node scripts/qa.mjs <url> [--out DIR] [--nombre x]`: screenshots at 320, 390, 1440 and 200 % zoom, console errors, horizontal scroll, Tab reach and reduced motion (Playwright + Chromium). `... qa.mjs <base-url> --temas`: every internal link of hubs and topic pages answers 200 with its anchor, every short link lands on its card, the guide opens only on a clean home arrival, Cella's pause stops every Cella, the English home has no strip and the Spanish home's strip reads the grid |
+| `.github/workflows/datos.yml` | the refresh Action: rebuilds the week grid, topic pages, short links, calendar files and sitemap |
 | `privacidad.html`, `terminos.html` | privacy policy and terms (linked from the Google OAuth consent screen; keep) |
 | `googlec0e927a7df959aad.html` | Google Search Console verification (keep) |
 | `archivo/index-anterior.html` | the previous home page, kept for reference |
-
-## Data sources and attribution
-
-| on the page | source | attribution shown |
-|---|---|---|
-| US 2, 10 and 30-year yields, 2s10s | U.S. Treasury, daily par yield curve (public domain) | "Source: U.S. Treasury" |
-| EUR/USD, USD/JPY, NAOS dollar index | ECB euro reference rates | "Source: ECB"; "NAOS dollar index, computed from ECB reference rates. Not ICE's DXY." |
-| Bitcoin, Ethereum, Solana | CoinGecko API | "Data provided by CoinGecko", linked |
-| Gold, silver, copper (HG, a COMEX contract; published by N's decision D-241) | gold-api.com | "Metals: gold-api.com" |
-| WTI, Brent, Henry Hub (dated trend, never on the tape) | U.S. Energy Information Administration (public domain) | "Source: U.S. Energy Information Administration" |
-| Crypto Fear & Greed | alternative.me | "Crypto Fear & Greed Index by alternative.me", linked |
-| Credit and dollar (NAOS Fear & Greed) | Office of Financial Research Financial Stress Index and ECB rates (public domain), NAOS calculation in `scripts/animo.py` | "Credit and dollar: Office of Financial Research, ECB (NAOS calculation)" |
-| Next red US event, the week's red US rows with forecast and previous | Forex Factory weekly calendar (`ff_calendar_thisweek.json`) | "Forex Factory weekly calendar", linked; each release linked to its official publisher (BLS, Federal Reserve, BEA, Census) |
-| AI on the front page | Hacker News API, until 19 Oct 2026 00:00 UTC (D-235, D-236; `SALEN_D1` in the builder) | titles verbatim, linked |
-| Wire and stories of the day | Federal Reserve, SEC, CoinDesk, MarketWatch (BBC News and Hacker News until 19 Oct 2026; the builder drops them after that, whatever the radar sends) | source and time on every headline, linked |
-| Indices, commodities, AI stocks, Nasdaq 100 heatmap, economic calendar | TradingView widgets, embedded as provided | TradingView's own attribution, intact |
-| Prediction markets | Polymarket Gamma API (public), read only for markets in `data/mapa-predicciones.json`: one number per story, with time, only if the market passes the map's rules and only on one story; Kalshi is a link only | "Polymarket" with the reading time; the map's stamp once on the page. Kalshi's data terms allow personal, non-commercial use only. No odds history, tables or charts |
-| Map | Natural Earth via world-atlas (public domain) | "Map: Natural Earth via world-atlas" |
-
-Rules the builder follows:
-
-- `data/situacion.json` holds only the values the page displays. Raw API responses are never committed: they land in
-  `data/crudo/`, which is in `.gitignore`. CoinGecko responses are not even written there (CoinGecko's terms forbid
-  storing them); only BTC and ETH carry a 30-day series, because the page charts it.
-- If a public source fails in a run, the value already published stays, with its own date. The freshness rule then takes
-  it off the tape and the readings board once it is older than its window (crypto and metals the same day, Treasury and
-  ECB four calendar days, EIA never on the tape).
-- No OKX data or headlines anywhere.
-- Stale and sample (D-216): stale means older than the source's rhythm plus a margin (daily sources: 3 business days;
-  EIA, weekly: 10 days). Stale readings, headlines and the calendar get `viejo: true`; anything sample stays off the page.
-  Each hidden item goes to `escondido: [{ id, que, motivo, desde, plan }]`. It is a list for NAOS, not shown on the page.
-- Plain-English text is built from templates over real data only: `portada` (3 to 5 headlines: what happened, what moved
-  and how much, one connected reading, the prediction market link), `explica` (what the BTC move and the 2s10s curve
-  mean, and over what timeframe) and `graficos` (one headline per TradingView chart: what moved and why, or nothing).
-
-### Monitor rooms (D-221)
-
-The builder writes `salas` in `data/situacion.json`: one room per front-page story, plus, for each story-map entry the front
-page does not use, the newest wire headline that names it. Each room carries the place (from the headline's words, else from
-the story-map entry), its own linked assets, the one prediction-market price (same rules, one market per story), related
-headlines with source and time, Hacker News points and comments when the link is there, and how the tie was made. A room
-opens from a headline, a story card, the wire or the story map, and links as `#sala/<id>` (or `?sala=<id>`). Without data a
-tile is left out. `lectura` holds the run's counts for "How NAOS reads the day".
 
 ### The week grid (`data/semana.json`, D-224)
 
@@ -140,43 +88,19 @@ The home page shows the grid in "This week"; each piece page shows its "Upcoming
 Never invent a date: if no source states it, it goes to `sin_fecha`. Islamic dates depend on moon sighting and stay
 `expected` until announced.
 
-## How the data refresh works
+## How the refresh works
 
-`.github/workflows/datos.yml` runs at minute 7 and 37 of every hour (and on demand from the Actions tab):
+`.github/workflows/datos.yml` runs at minute 7 and 37 of every hour (and on demand from the Actions tab). Each run loops for
+up to ~5.5 h; every 30 minutes it:
 
-1. checks out `main`, sets up Node 22 and Python 3.12;
-2. runs `node scripts/construir-datos.mjs`, which fetches the public sources, runs `python3 scripts/animo.py --historia 30`
-   and writes `data/situacion.json` (about 2 minutes, mostly Hacker News and a courtesy pause for CoinGecko);
-3. checks the output (enough readings, no OKX, `data/crudo/` not tracked);
-4. commits `data/situacion.json` only if it changed, pushes to `main` with the workflow's `GITHUB_TOKEN`
+1. pulls `main` and runs `node scripts/construir-semana.mjs`, which writes `data/semana.json` and then runs
+   `construir-ics.mjs` and `construir-temas.mjs` (topic pages, short links, sitemap);
+2. keeps `data/semana.json` only when the grid changed or the committed one is over 12 hours old;
+3. commits only if something changed ("Refresh page data"), pushes to `main` with the workflow's `GITHUB_TOKEN`
    (`contents: write`), and asks GitHub Pages for a build.
 
-Optional repository secrets (Settings > Secrets and variables > Actions); the refresh works without them:
-
-- `COINGECKO_DEMO_KEY`: CoinGecko Demo plan key, recommended for steadier rate limits.
-- `EIA_KEY`: EIA API key; without it the builder uses EIA's shared `DEMO_KEY`.
-
-Run it locally: `node scripts/construir-datos.mjs` (or `--sin-red` to rebuild from the last copies in `data/crudo/`).
-Behind a proxy, add `NODE_USE_ENV_PROXY=1`.
-
-### Sections from the private radar
-
-The wire, the stories of the day, the cited index closes and the London and New York briefs come from the NAOS radar,
-which lives in a private repository. A public Action cannot read it, so for now the builder keeps the last values already
-in `data/situacion.json` for those sections and never wipes them. The page shows their date ("as of ..."), taken from
-`radar.fecha` in `situacion.json`. Cited closes stay marked `SAMPLE` until the New York routine writes real ones.
-
-Later step (not set up yet): N creates a fine-grained personal access token limited to this repository with
-"Contents: read and write", and stores it as a secret in the private radar repository. After each London and New York
-run, the radar pushes `data/radar.json` here with its sections:
-
-```json
-{ "fecha": "2026-10-14T12:30Z", "wire": [], "historias": [], "cierres_csv": "fecha,indice,cierre,cambio_pct,fuente,url\n...", "temas": {}, "titulares": [] }
-```
-
-The builder already reads that file when it exists and uses it instead of the kept values. Only displayed values go in
-it, with the same rules as above. (`node scripts/construir-datos.mjs --wire-rss` can also rebuild the wire and stories
-from the public RSS feeds the radar uses; the Action does not do this.)
+The market data builder (`construir-datos.mjs`, `animo.py`, `data/situacion.json`, `data/radar.json`, the maps) left with
+D-263; it is in git history.
 
 ## Licenses
 
@@ -186,7 +110,6 @@ from the public RSS feeds the radar uses; the Action does not do this.)
 - **Lenis 1.3.26**: MIT, darkroom.engineering (`assets/vendor/lenis/LICENSE`).
 - **Fonts**: IBM Plex Sans and IBM Plex Sans Condensed (IBM) and Newsreader (Production Type), SIL Open Font License 1.1
   (`assets/fuentes/OFL-*.txt`).
-- **Third-party widgets** (TradingView) load from their own servers under their own terms.
 - **Data** stays under its sources' terms (see the table above).
 
 Contact: n1.selfdetermination@gmail.com

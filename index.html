@@ -32,9 +32,8 @@
 <script defer src="assets/comun/naos.js"></script>
 <script defer src="assets/js/figura.js"></script>
 <script defer src="assets/js/cella.js"></script>
-<script defer src="assets/js/sala.js"></script>
+<script defer src="assets/js/semana.js"></script>
 <script defer src="assets/js/humanity.js"></script>
-<script defer src="assets/js/franja.js"></script>
 <script defer src="assets/js/behavior.js"></script>
 <noscript><style>[data-espera]{visibility:visible!important}</style></noscript>
 </head>
@@ -50,7 +49,7 @@
 
 <main id="muro" data-espera>
   <!-- Desde el 19-oct NAOS es Humanity: las dos puertas, The Present (titulares, mercados, noticias, IA), la guía y la sala de
-       monitoreo salieron de la portada; están en archivo/the-present/ y en la historia de git. #secuencia: el Short y el Reel de hoy (franja.js). -->
+       monitoreo salieron de la portada; están en archivo/the-present/ y en la historia de git. La franja "Today and next" (franja.js) también salió; sigue en la portada ES. -->
   <section class="universo" id="humanity" aria-labelledby="u-hum-t">
   <header class="placa placa-hum">
     <div class="placa-in">
@@ -65,7 +64,6 @@
     <p class="pil-glosa">The five pillars, said in one sentence because they hold each other up. The behaviors and the stories behind each one come to the library as they are made.</p>
     <p class="pil-frase"><span>Eat well,</span> <span>sleep well,</span> <span>get moving,</span> <span>have a relationship with the divine,</span> <span>and build community.</span></p>
   </section>
-  <div id="secuencia" hidden></div>
   <div id="cinta-conducta" class="cinta" hidden></div>
 
   <!-- BEHAVIOR: respiración y mantra -->
@@ -87,7 +85,7 @@
     <div class="bib" id="bib"></div>
   </section>
 
-  <!-- ESTA SEMANA (lote E, D-252): la semana de la grilla por día, se llena desde data/temas.json (sala.js, N.semana); el plan del mes de D-227 salió -->
+  <!-- ESTA SEMANA (lote E, D-252): la semana de la grilla por día, se llena desde data/temas.json (semana.js, N.semana); el plan del mes de D-227 salió -->
   <section class="muro semana" id="semana" aria-labelledby="t-sem">
     <header class="sec-cab"><h2 class="sec-t" id="t-sem">This week</h2><div class="cab-n"><span class="sello sem-sello"></span></div><p class="sec-d">What NAOS plans to publish, day by day, from the grid through 31 December. Each piece links to its topic page.</p></header>
     <div class="sem-in"></div>

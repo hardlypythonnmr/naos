@@ -3,7 +3,7 @@
 // 2. data/enlaces.json: prefijos de YouTube e Instagram, "ig" solo con "yt", la clave existe en semana.json, forma de las fechas
 // 3. los destinos locales de los .html existen (href y src de archivos; las anclas #id de la misma página, si el id está en el HTML estático)
 // 4. sin OKX en HTML, CSS, JS propio ni datos (sus términos prohíben publicar sus datos)
-// 5. sin rayas largas (em dash) en los datos escritos por nosotros; situacion.json y radar.json traen titulares textuales de sus fuentes y quedan fuera
+// 5. sin rayas largas (em dash) en los datos escritos por nosotros
 // 6. páginas de tema (lote E, D-252, D-253): data/temas.json solo con campos públicos; dos ediciones (temas/ y es/temas/), cada pieza
 //    una sola tarjeta por edición (las ES solo en la ES), salvo la pieza ES que aterriza en la página "es" (decisión 2 de N, lote 2)
 //    y que su tema sigue listando con un enlace a su tarjeta; hreflang hacia su par; cada código de data/cortos.json (solo de suma) tiene su
@@ -97,14 +97,12 @@ const RE_OKX = /\bOKX\b/i;
 const EXT_PROPIOS = new Set([".html", ".css", ".json", ".js", ".mjs", ".csv", ".ics"]);
 for (const p of todos) {
   const r = rel(p);
-  if (!EXT_PROPIOS.has(extname(p)) || r.startsWith("assets/vendor/") || r === "scripts/validar.mjs" || r === "scripts/construir-datos.mjs") continue;
+  if (!EXT_PROPIOS.has(extname(p)) || r.startsWith("assets/vendor/") || r === "scripts/validar.mjs") continue;
   if (RE_OKX.test(readFileSync(p, "utf8"))) falla(r, "menciona OKX");
 }
 
 // ---------- 5. rayas largas en datos nuestros ----------
-const TEXTUAL = new Set(["situacion.json", "radar.json"]); // titulares verbatim de sus fuentes
 for (const f of Object.keys(datos)) {
-  if (TEXTUAL.has(f)) continue;
   const t = leer("data/" + f);
   const i = t.indexOf("—");
   if (i >= 0) falla("data/" + f, `raya larga: ...${t.slice(Math.max(0, i - 30), i + 30).replace(/\n/g, " ")}...`);
@@ -240,9 +238,6 @@ if (T) {
   { const h = html("index.html") || ""; if (/Colombia 106 ·/.test(h)) falla("index.html", 'queda la línea vieja "Colombia 106" sola');
     if (!h.includes("have a relationship with the divine")) falla("index.html", 'la frase de los pilares no es la línea fija de N ("the divine", D-252)');
     if (!/rel="canonical"/.test(h) || !/hreflang="es"/.test(h)) falla("index.html", "falta canonical o hreflang hacia es/"); }
-  // mercados de predicción (D-252): atribución sola ("Polymarket shows X is n% likely"), sin "On the tape"; los electorales se reportan igual (N)
-  { const s = html("data/situacion.json") || "";
-    if (/On the tape|Markets price it/.test(s)) falla("data/situacion.json", 'queda "On the tape" o "Markets price it" (D-252: "Polymarket shows X is n% likely")'); }
 
   // enlaces cortos: el registro (data/cortos.json, solo de suma) manda; cada código tiene su redirección, los vivos a su tarjeta
   const REG = datos["cortos.json"]?.codigos || null;

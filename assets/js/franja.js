@@ -1,4 +1,4 @@
-/* franja.js · #secuencia, el primer bloque de The Present en la portada: la franja urgente (lote E, D-252).
+/* franja.js · #secuencia, la franja "Hoy y lo próximo" de la portada en español (es/; lote E, D-252). La portada EN ya no la lleva (D-263).
  * Hoy y lo que sigue, desde la grilla (data/temas.json, su proyección pública): cada pieza de hoy con su hora en Nueva York (ET)
  * y en Medellín, su estado ("Out" con enlace en data/enlaces.json, si no "Coming") y el enlace a su tarjeta en su página de tema;
  * después la próxima pieza. Reemplaza al plan del mes de D-227 (data/semana.json ya no manda aquí).

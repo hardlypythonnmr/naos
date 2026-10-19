@@ -5,7 +5,7 @@
 //        node scripts/construir-temas.mjs --grilla=<grilla.json> --paginas=<paginas.json> [--afirmaciones=<afirmaciones.csv>] [--solo=slug,slug]
 //      (--solo: solo esos temas y sus piezas salen de la grilla; lo demás queda como está en data/temas.json)
 //   2. Páginas (siempre; es lo que corre la Action): desde data/temas.json, data/enlaces.json y data/agenda.json escribe
-//      temas/<slug>/index.html (una por tema), los hubs (temas/, temas/humanity/, temas/the-present/, temas/pilar/<id>/),
+//      temas/<slug>/index.html (una por tema), los hubs (temas/, temas/humanity/, temas/pilar/<id>/),
 //      un enlace corto estático por Short (s/<codigo>/index.html, redirige a su tarjeta con ?src=<codigo>) y sitemap.xml.
 //        node scripts/construir-temas.mjs
 //   3. Cuerpo (lote 0+1 en adelante; solo donde está el lote privado): copia el texto, la meta y los visuales de las páginas
@@ -37,7 +37,7 @@ const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<
 // ---------- textos fijos de la página (D-252); los mismos en la portada (index.html) ----------
 // el 123 lleva su fuente (decisión 18 de N): la página de Colombia de findahelpline.com da el 123 como "Emergency Services"
 export const AYUDA_HTML = 'If this is weighing on you, talk to someone now. Colombia: <a href="tel:106">106</a>, national mental health line, 24/7, or <a href="tel:123">123</a> in immediate danger (<a href="https://findahelpline.com/countries/co" rel="noopener">source</a>). US: <a href="tel:988">988</a>. Anywhere else: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a>.';
-const LINEA_N = { Humanity: "Eat well, sleep well, get moving, have a relationship with the divine, and build community.", "The Present": "Closer to yourself." };
+const LINEA_N = { Humanity: "Eat well, sleep well, get moving, have a relationship with the divine, and build community." };
 const NO_CONSEJO = "Descriptive, not financial advice.";
 // páginas de una tradición con calendario propio: ahí no va el signo occidental (acta 2c, rojo 23) hasta que I3 traiga el dato
 // de esa tradición; quedan la fase y la iluminación, que son medidas
@@ -77,11 +77,8 @@ const PILARES = [ // orden de los estantes; frase de N como lomos en Humanity
   { id: "the-divine", grilla: "lo divino", titulo: "The divine", seccion: "Humanity", lomo: "have a relationship with the divine," },
   { id: "community", grilla: "comunidad", titulo: "Community", seccion: "Humanity", lomo: "and build community." },
   { id: "the-moon", grilla: "luna", titulo: "The moon", seccion: "Humanity", lomo: null },
-  { id: "markets", grilla: "mercado", titulo: "Markets", seccion: "The Present", lomo: null },
-  { id: "news", grilla: "noticias", titulo: "News", seccion: "The Present", lomo: null },
-  { id: "ai", grilla: "IA", titulo: "AI", seccion: "The Present", lomo: null },
 ];
-const SECCIONES = [{ id: "humanity", titulo: "Humanity" }, { id: "the-present", titulo: "The Present" }];
+const SECCIONES = [{ id: "humanity", titulo: "Humanity" }]; // NAOS es solo Humanity (D-263)
 const FORMATO = { "short+reel": "Short and Reel", medio: "Medium video on YouTube", carrusel: "Instagram carousel", historia: "Instagram story", es: "Short and Reel in Spanish" };
 const CON_VOZ = new Set(["short+reel", "medio", "es"]);
 const FASE = { "gibosa menguante": "waning gibbous", "gibosa creciente": "waxing gibbous", creciente: "waxing crescent", menguante: "waning crescent",
@@ -262,7 +259,7 @@ function proyectar({ grilla, paginas, afirmaciones, agenda, tolerante = false })
   return {
     nota: "Proyección pública de la grilla para las páginas de tema (ediciones EN y ES). La escribe scripts/construir-temas.mjs; no editar a mano. Solo lo que la página muestra.",
     grilla: grilla.meta?.generado || null,
-    secciones: SECCIONES.filter((s) => s.id === "humanity"),
+    secciones: SECCIONES,
     pilares: PILARES.filter((P) => P.seccion === "Humanity").map(({ id, titulo, seccion, lomo }) => ({ id, titulo, seccion, lomo })),
     paginas: salidaPag,
     piezas,
@@ -310,7 +307,7 @@ const IDIOMA = { en: { en: "English", es: "Spanish" }, es: { en: "inglés", es: 
 export const ED = {
   en: {
     lang: "en", pref: "", ayuda: AYUDA_HTML, lema: "Closer to yourself.", linea: LINEA_N, noConsejo: NO_CONSEJO,
-    voz: "Voice: synthetic", proximo: "Coming", salio: "Out", seccion: { Humanity: "Humanity", "The Present": "The Present" },
+    voz: "Voice: synthetic", proximo: "Coming", salio: "Out", seccion: { Humanity: "Humanity" },
     pilar: (P) => P.titulo, lomo: (P) => P.lomo, titulo: (p) => p.titulo,
     fe, feCorta, rango: (a, b) => (a === b ? fe(a) : `${feCorta(a)} to ${feCorta(b)}`) + " " + b.slice(0, 4),
     formato: FORMATO, enOtro: { es: "In Spanish" }, voces: (xs) => `Voices: ${xs.map((l) => IDIOMA.en[l]).join(", then ")}`,
@@ -328,9 +325,9 @@ export const ED = {
   },
   es: {
     lang: "es", pref: "es/", ayuda: AYUDA_HTML_ES, lema: "Más cerca de ti.", noConsejo: "Descriptivo, sin asesoría financiera.",
-    linea: { Humanity: "Come bien, duerme bien, muévete, ten una relación con lo divino y construye comunidad.", "The Present": "Más cerca de ti." },
-    voz: "Voz: sintética", proximo: "Próximamente", salio: "Publicada", seccion: { Humanity: "Humanidad", "The Present": "El presente" },
-    pilar: (P) => ({ eat: "Comer", sleep: "Dormir", move: "Moverse", "the-divine": "Lo divino", community: "Comunidad", "the-moon": "La luna", markets: "Mercados", news: "Noticias", ai: "IA" }[P.id]),
+    linea: { Humanity: "Come bien, duerme bien, muévete, ten una relación con lo divino y construye comunidad." },
+    voz: "Voz: sintética", proximo: "Próximamente", salio: "Publicada", seccion: { Humanity: "Humanidad" },
+    pilar: (P) => ({ eat: "Comer", sleep: "Dormir", move: "Moverse", "the-divine": "Lo divino", community: "Comunidad", "the-moon": "La luna" }[P.id]),
     lomo: (P) => ({ eat: "Come bien,", sleep: "duerme bien,", move: "muévete,", "the-divine": "ten una relación con lo divino,", community: "y construye comunidad." }[P.id] || null),
     titulo: (p) => p.titulo_es,
     fe: (f) => { const t = new Date(f + "T12:00:00Z"); return `${DIA_ES[t.getUTCDay()]} ${t.getUTCDate()} ${MES_ES[t.getUTCMonth()]}`; },
@@ -363,9 +360,10 @@ function conTema(L, D, p, x) {
   return { ...x, _tema: p.slug === "es" ? { k: L.temaDe, href: `../${q.slug}/`, t: L.titulo(q) } : { k: L.aterrizaEn, href: `../${q.slug}/#${x.id}`, t: L.titulo(q) } };
 }
 // compuerta de fecha del cuerpo (data/temas/<slug>.json, "desde"; keep-your-hour: el cuerpo se monta desde el 1-nov 02:00 ET):
-// "ahora" es la hora de data/situacion.json (la escribe construir-datos.mjs justo antes), así el HTML sigue siendo función del dato
-// (mismo dato, mismos bytes) y la Action lo cambia sola en la primera ronda después de la hora. NAOS_AHORA=<ISO> solo para vistas previas.
-const ahoraDato = () => Date.parse(process.env.NAOS_AHORA || leerJSON(path.join(V, "data/situacion.json"), {})?.generado || "") || 0;
+// "ahora" es el campo "generado" de data/semana.json (lo escribe construir-semana.mjs justo antes de llamar aquí), así el HTML sigue
+// siendo función del dato (mismo dato, mismos bytes) y la Action lo cambia sola en la primera ronda después de la hora.
+// NAOS_AHORA=<ISO> solo para vistas previas. (Antes leía data/situacion.json, que salió con D-263.)
+const ahoraDato = () => Date.parse(process.env.NAOS_AHORA || leerJSON(path.join(V, "data/semana.json"), {})?.generado || "") || 0;
 const langAttr = (t, L) => (t && t !== L.lang ? ` lang="${t}"` : "");
 
 function cabeza({ L, titulo, descripcion, ruta, raiz, jsonld, alterna, css = [], og = null }) {
@@ -415,7 +413,7 @@ function pie(L, raiz, seccion, extra = "", texto = null) {
   const N = ["Closer to yourself.", "Eat well, sleep well, get moving, have a relationship with the divine, and build community.", "Más cerca de ti.", "Come bien, duerme bien, muévete, ten una relación con lo divino y construye comunidad."];
   const lineas = texto && texto.lineas.length
     ? texto.lineas.map((t) => typeof t === "object" ? `  ${t.html}` : N.includes(t) ? `  <p class="t-linea-n"${L.lang === "es" && /^Closer/.test(t) ? ' lang="en"' : ""}>${esc(t)}</p>` : `  <p class="sello">${esc(t)}</p>`).join("\n")
-    : `  <p class="t-linea-n">${esc(L.linea[seccion] || L.linea["The Present"])}</p>\n  <p class="sello">${extra}${L.sello}</p>`;
+    : `  <p class="t-linea-n">${esc(L.linea[seccion] || L.linea.Humanity)}</p>\n  <p class="sello">${extra}${L.sello}</p>`;
   return `<footer class="t-pie">
   <p class="ayuda-l" id="ayuda">${L.ayuda}${texto ? texto.cita : ""}</p>
 ${lineas}
@@ -423,7 +421,7 @@ ${lineas}
 </footer>`;
 }
 const pilarDe = (D, id) => D.pilares.find((p) => p.id === id);
-const secId = (s) => (s === "Humanity" ? "humanity" : "the-present");
+const secId = () => "humanity"; // una sola sección (D-263)
 
 // Tarjeta = fila de un registro por día (pase de arte, 16-oct): columna de cuándo (día, hora ET, hora Medellín, estado),
 // cuerpo (título, línea, formato) y, solo en Humanity, la columna de la luna (lo medido a la vista, con su barra de luz).
@@ -576,7 +574,6 @@ function fichaTema(L, D, p, raiz) {
     `<span class="t-tl" aria-hidden="true"><span style="--a:${T.pos(R.desde)}%;--b:${T.pos(fin)}%"></span></span></a></li>`;
 }
 // Humanity: estantes con el lomo (la frase de N, en orden) en el tercio izquierdo y los temas a la derecha.
-// The Present: ventana de tres columnas (Markets, News, AI) a lo ancho; a 390, una debajo de otra en menos de 3 pantallas.
 function estantes(L, D, seccion, raiz, nivel = "h2") {
   const T = temporada(D);
   const xs = D.pilares.filter((P) => P.seccion === seccion).map((P) => {
@@ -584,7 +581,7 @@ function estantes(L, D, seccion, raiz, nivel = "h2") {
     const lomo = L.lomo(P);
     return `<section class="t-estante${lomo ? "" : " t-estante-sin"}" aria-labelledby="e-${P.id}"><${nivel} class="t-lomo" id="e-${P.id}"><a href="${raiz}${L.pref}temas/pilar/${P.id}/">${esc(lomo || L.pilar(P))}</a>${lomo ? ` <span class="t-lomo-p">${esc(L.pilar(P))}</span>` : ""}</${nivel}><div class="t-anaquel">${eje(L, T)}<ul class="t-temas">${ps.map((p) => fichaTema(L, D, p, raiz)).join("")}</ul></div></section>`;
   }).join("\n");
-  return seccion === "The Present" ? `<div class="t-ventana">\n${xs}\n</div>` : `<div class="t-biblioteca">\n${xs}\n</div>`;
+  return `<div class="t-biblioteca">\n${xs}\n</div>`;
 }
 function hub({ L, D, ruta, raiz, titulo, h1, desc, cuerpo, seccion, actual, antes = "", css, scripts = [] }) {
   const jsonld = { "@context": "https://schema.org", "@type": "CollectionPage", name: titulo, description: desc, url: BASE + L.pref + ruta, inLanguage: L.lang, isPartOf: { "@type": "WebSite", name: "NAOS", url: BASE + L.pref } };
@@ -597,7 +594,7 @@ ${barra(L, raiz, actual, ruta)}
   <header class="t-umbral"><h1>${esc(h1)}</h1></header>
 ${antes}${cuerpo}
 </main>
-${pie(L, raiz, seccion, seccion === "The Present" ? L.noConsejo + " " : "")}${scripts.map((s) => `\n<script defer src="${raiz}${s}"></script>`).join("")}
+${pie(L, raiz, seccion)}${scripts.map((s) => `\n<script defer src="${raiz}${s}"></script>`).join("")}
 </body>
 </html>
 `;
@@ -627,7 +624,7 @@ function hubs(L, D, urls) {
   }
 }
 
-// portada de la edición ES (D-253): la franja de hoy y lo próximo (franja.js en español) y la biblioteca y la ventana.
+// portada de la edición ES (D-253): la franja de hoy y lo próximo (franja.js en español) y la biblioteca.
 // La portada EN es index.html, a mano; esta se genera para que no se desfase del dato.
 function portadaES(D) {
   const L = ED.es, raiz = "../";
