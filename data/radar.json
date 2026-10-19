@@ -1,21 +1,116 @@
 {
- "fecha": "2026-10-19T15:53Z",
+ "fecha": "2026-10-19T20:34Z",
  "wire": [
   {
-   "titulo": "‘I’m naturally skeptical’: I receive 10 calls a day offering me $15,000 loans at 8% interest. Is this a scam?",
+   "titulo": "Retiring abroad? Don’t cut these financial ties to the U.S.",
    "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/im-naturally-skeptical-i-receive-10-calls-a-day-offering-me-15-000-loans-at-8-interest-is-this-a-scam-825c3431?mod=mw_rss_topstories",
-   "hora": "2026-10-19T15:30Z",
+   "url": "https://www.marketwatch.com/story/retiring-abroad-dont-cut-these-financial-ties-to-the-u-s-5e7e4fc2?mod=mw_rss_topstories",
+   "hora": "2026-10-19T20:33Z",
    "area": "Economy",
    "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Tether: Senator's investigation misses positive work that's led to lower Iran volumes",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/policy/2026/10/19/tether-senator-s-investigation-misses-positive-work-that-s-led-to-lower-iran-volumes",
+   "hora": "2026-10-19T20:21Z",
+   "area": "Crypto",
+   "sample": false,
+   "odds": {
+    "nombre": "US-Iran ceasefire",
+    "url": "https://polymarket.com/event/us-iran-ceasefire-continues-throughptptpt"
+   },
    "viejo": false
   },
   {
    "titulo": "Colleges raced to build massive computer-science departments. Now the boom is turning to bust.",
    "fuente": "MarketWatch",
    "url": "https://www.marketwatch.com/story/colleges-raced-to-build-massive-computer-science-departments-now-the-boom-is-turning-to-bust-692cfe37?mod=mw_rss_topstories",
-   "hora": "2026-10-19T15:26Z",
+   "hora": "2026-10-19T19:56Z",
    "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "SpaceX earnings will be all about AI — for better or for worse",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/spacex-earnings-will-be-all-about-ai-for-better-or-for-worse-89bbc772?mod=mw_rss_topstories",
+   "hora": "2026-10-19T19:47Z",
+   "area": "AI",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Why the Treasury’s financing plans are sparking anxiety on Wall Street",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/why-the-treasurys-financing-plans-are-sparking-anxiety-on-wall-street-b49b5e17?mod=mw_rss_topstories",
+   "hora": "2026-10-19T19:45Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Why Elon Musk, Anthropic and other AI titans are giving away shares",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/why-elon-musk-anthropic-and-other-ai-titans-are-giving-away-shares-a6709d24?mod=mw_rss_topstories",
+   "hora": "2026-10-19T19:30Z",
+   "area": "AI",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "CoreWeave’s selloff is a lesson in ‘Finance 101’ — and Wall Street says the stock can recover",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/coreweaves-selloff-is-a-lesson-in-finance-101-and-wall-street-says-the-stock-can-recover-23ca5377?mod=mw_rss_topstories",
+   "hora": "2026-10-19T19:17Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "One of this year’s most important relationships in global financial markets is falling apart",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/one-of-this-years-most-important-relationships-in-global-financial-markets-is-falling-apart-2cf58121?mod=mw_rss_topstories",
+   "hora": "2026-10-19T17:43Z",
+   "area": "Economy",
+   "movio": "markets",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "When should you dump your target-date funds?",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/when-should-you-dump-your-target-date-funds-18082148?mod=mw_rss_topstories",
+   "hora": "2026-10-19T17:31Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "SEC Announces Roundtable on Machine-Understandable Data in the Age of Super Intelligence",
+   "fuente": "SEC",
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-106-sec-announces-roundtable-machine-understandable-data-age-super-intelligence",
+   "hora": "2026-10-19T17:19Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Micron and other chip stocks spring back to life after bruising selloff",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/micron-and-other-chip-stocks-spring-back-to-life-after-bruising-selloff-16486541?mod=mw_rss_topstories",
+   "hora": "2026-10-19T16:59Z",
+   "area": "AI",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "U.S. CFTC rebuffs CME legal stance in consequential fight over perpetual futures",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/policy/2026/10/19/u-s-cftc-rebuffs-cme-legal-stance-in-consequential-fight-over-perpetual-futures",
+   "hora": "2026-10-19T16:47Z",
+   "area": "Crypto",
    "sample": false,
    "viejo": false
   },
@@ -25,42 +120,6 @@
    "url": "https://www.coindesk.com/business/2026/10/19/zerohash-rolls-out-a-new-tool-to-move-crypto-without-copying-wallet-addresses",
    "hora": "2026-10-19T14:58Z",
    "area": "Crypto",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "‘My husband suffered a massive stroke at 53’: I’m 64 and will rent for the rest of my life — but I’m still hopeful",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
-   "hora": "2026-10-19T14:30Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Builders slash prices on new homes as buyer traffic drops to 14-year low",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/builders-slash-prices-on-new-homes-as-buyer-traffic-drops-to-14-year-low-3dd8caea?mod=mw_rss_topstories",
-   "hora": "2026-10-19T14:00Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Meet the home buyers totally unfazed by 7% mortgage rates",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/meet-the-home-buyers-totally-unfazed-by-7-mortgage-rates-7a9b1cc7?mod=mw_rss_topstories",
-   "hora": "2026-10-19T13:33Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Micron and other chip stocks spring back to life after bruising selloff",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/micron-and-other-chip-stocks-spring-back-to-life-after-bruising-selloff-16486541?mod=mw_rss_topstories",
-   "hora": "2026-10-19T13:22Z",
-   "area": "AI",
    "sample": false,
    "viejo": false
   },
@@ -79,26 +138,6 @@
    "url": "https://www.coindesk.com/daybook-us/2026/10/19/strategy-on-verge-of-golden-cross-just-weeks-after-bitcoin-flashed-same-bullish-signal",
    "hora": "2026-10-19T11:15Z",
    "area": "Crypto",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Live updates: Bitcoin holds near $82,000 as Nasdaq rebounds more than 1%",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/19/live-updates-bitcoin-tags-usd83-000-and-slips-back-as-chip-stocks-lead-a-rebound",
-   "hora": "2026-10-19T11:05Z",
-   "area": "Crypto",
-   "movio": "Bitcoin",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Bitcoin extends bounce above $82,000 as stocks rebound, DeFi tokens lead altcoin gains",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/19/bitcoin-extends-bounce-above-usd82-000-as-stocks-rebound-defi-tokens-lead-altcoin-gains",
-   "hora": "2026-10-19T10:26Z",
-   "area": "Crypto",
-   "movio": "Bitcoin",
    "sample": false,
    "viejo": false
   },
@@ -123,15 +162,6 @@
    "area": "Economy",
    "sample": false,
    "viejo": false
-  },
-  {
-   "titulo": "Minutes of the Board's discount rate meetings on August 17, September 9, and September 16, 2026",
-   "fuente": "Federal Reserve",
-   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261013a.htm",
-   "hora": "2026-10-13T18:00Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": true
   }
  ],
  "historias": [
@@ -140,7 +170,7 @@
    "titulo": "Micron and other chip stocks spring back to life after bruising selloff",
    "fuente": "MarketWatch",
    "url": "https://www.marketwatch.com/story/micron-and-other-chip-stocks-spring-back-to-life-after-bruising-selloff-16486541?mod=mw_rss_topstories",
-   "hora": "2026-10-19T13:22Z",
+   "hora": "2026-10-19T16:59Z",
    "grafico": {
     "tipo": "tradingview",
     "simbolo": "NASDAQ:SMH",
@@ -160,10 +190,10 @@
   },
   {
    "area": "Crypto",
-   "titulo": "Live updates: Bitcoin holds near $82,000 as Nasdaq rebounds more than 1%",
+   "titulo": "Strategy's price chart is about to flash a major bullish signal weeks after bitcoin did",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/19/live-updates-bitcoin-tags-usd83-000-and-slips-back-as-chip-stocks-lead-a-rebound",
-   "hora": "2026-10-19T11:05Z",
+   "url": "https://www.coindesk.com/daybook-us/2026/10/19/strategy-on-verge-of-golden-cross-just-weeks-after-bitcoin-flashed-same-bullish-signal",
+   "hora": "2026-10-19T11:15Z",
    "grafico": {
     "tipo": "propio",
     "activo": "BTC"
@@ -176,11 +206,11 @@
     "prediccion": null,
     "mercado": "BTC",
     "odds": {
-     "texto": "Polymarket shows Bitcoin above $82,000 on Oct 20 is 52% likely (19 Oct 15:53 UTC)",
+     "texto": "Polymarket shows Bitcoin above $82,000 on Oct 20 is 51% likely (19 Oct 20:34 UTC)",
      "resultado": "Bitcoin above $82,000 on Oct 20",
      "url": "https://polymarket.com/event/bitcoin-above-on-october-20-2026",
-     "p": 52,
-     "leido_utc": "2026-10-19T15:53Z",
+     "p": 51,
+     "leido_utc": "2026-10-19T20:34Z",
      "historia": "bitcoin-umbral"
     },
     "conectado": null
