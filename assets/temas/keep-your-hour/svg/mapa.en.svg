@@ -1,0 +1,55 @@
+<svg class="cm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 556" width="400" height="556" role="img" aria-labelledby="cm-t-en cm-d-en" lang="en">
+<title id="cm-t-en">Map of this page: a clock face in dots with its hand turned back one hour, from 2:00 to 1:00, and five pieces fanned out from it, from 3 to 7 November.</title>
+<desc id="cm-d-en">A clock face in dots at the left. Its hand points to 1:00, with a dotted trail back to where it stood at 2:00. Five dotted lines run from the clock to five pieces in a column, by date: Tue 3 Nov noon, Seven-night log; Tue 3 Nov night, Same bedtime; Thu 5 Nov noon, Letting the day go, lock screen; Thu 5 Nov night, Letting the day go; Sat 7 Nov noon, Same hour, in Spanish. A filled dot is out, a ring is coming. The spacing is even and does not follow the calendar. The piece you came from is circled and the hand turns to it.</desc>
+<style>svg.cm{--ink:var(--naos-ink,#0E1116);--sec:var(--naos-sec,#454C57);--grey:var(--naos-grey,#59616D);--chart:var(--naos-chart,#737B87);--rule:var(--naos-rule,#D7DBE0);--paper:var(--naos-paper,#FFFFFF);font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif)}svg.cm[data-tono=noche]{--ink:var(--naos-night-text,#F4F6F8);--sec:var(--naos-night-sec,#C3C9D2);--grey:var(--naos-night-grey,#9AA3B0);--chart:var(--naos-night-grey,#9AA3B0);--rule:var(--naos-night-rule,#2A303A);--paper:var(--naos-night,#0E1116)}svg.cm text{fill:var(--ink)}svg.cm .cm-d{fill:var(--grey);font-size:17px;font-variant-numeric:tabular-nums}svg.cm .cm-t{font-family:var(--font-serif,'Newsreader',Georgia,serif);font-size:22px;font-weight:400}svg.cm .cm-k{fill:var(--grey);font-size:17px}svg.cm .cm-hh{stroke:var(--ink);stroke-width:5.6;stroke-linecap:round;fill:none}svg.cm .cm-mm{stroke:var(--chart);stroke-width:2.8;stroke-linecap:round;fill:none}svg.cm .cm-mano{stroke:var(--ink);stroke-width:4;stroke-linecap:round;fill:none}svg.cm .cm-mano-p{fill:var(--ink)}svg.cm .cm-rastro{stroke:var(--chart);stroke-width:3;stroke-linecap:round;fill:none}svg.cm .cm-hand{transform:rotate(var(--a,30deg));transition:transform .9s cubic-bezier(.2,0,0,1)}svg.cm .cm-halo{fill:var(--paper)}svg.cm .cm-out{fill:var(--ink)}svg.cm .cm-in{fill:var(--paper);stroke:var(--ink);stroke-width:2.5}svg.cm .cm-lead{stroke:var(--chart);stroke-width:1.2;stroke-dasharray:1 4.5;stroke-linecap:round}svg.cm .cm-sel{display:none;fill:none;stroke:var(--ink);stroke-width:2}svg.cm .is-from .cm-sel{display:inline}svg.cm .is-from .cm-t{font-weight:600}svg.cm .is-from .cm-lead{stroke:var(--ink);stroke-width:1.8}@media (prefers-reduced-motion:reduce){svg.cm .cm-hand{transition:none}}</style>
+<path class="cm-hh"  d="M66 216h.01M91 222.7h.01M109.3 241h.01M116 266h.01M109.3 291h.01M91 309.3h.01M66 316h.01M41 309.3h.01M22.7 291h.01M16 266h.01M22.7 241h.01M41 222.7h.01"/>
+<path class="cm-mm"  d="M71.23 216.27h.01M76.4 217.09h.01M81.45 218.45h.01M86.34 220.32h.01M95.39 225.55h.01M99.46 228.84h.01M103.16 232.54h.01M106.45 236.61h.01M111.68 245.66h.01M113.55 250.55h.01M114.91 255.6h.01M115.73 260.77h.01M115.73 271.23h.01M114.91 276.4h.01M113.55 281.45h.01M111.68 286.34h.01M106.45 295.39h.01M103.16 299.46h.01M99.46 303.16h.01M95.39 306.45h.01M86.34 311.68h.01M81.45 313.55h.01M76.4 314.91h.01M71.23 315.73h.01M60.77 315.73h.01M55.6 314.91h.01M50.55 313.55h.01M45.66 311.68h.01M36.61 306.45h.01M32.54 303.16h.01M28.84 299.46h.01M25.55 295.39h.01M20.32 286.34h.01M18.45 281.45h.01M17.09 276.4h.01M16.27 271.23h.01M16.27 260.77h.01M17.09 255.6h.01M18.45 250.55h.01M20.32 245.66h.01M25.55 236.61h.01M28.84 232.54h.01M32.54 228.84h.01M36.61 225.55h.01M45.66 220.32h.01M50.55 218.45h.01M55.6 217.09h.01M60.77 216.27h.01"/>
+<path class="cm-rastro"  d="M95.12 244.84h.01M92.33 241.45h.01M89.14 238.42h.01M86.13 236.15h.01"/>
+<path class="cm-rastro"  d="M85.05 255h.01M90.25 252h.01M95.44 249h.01M100.64 246h.01"/>
+<line class="cm-lead cm-ray" data-i="1" x1="88.52" y1="208.24" x2="143" y2="66"/>
+<line class="cm-lead cm-ray" data-i="2" x1="104.17" y1="217.14" x2="143" y2="166"/>
+<line class="cm-lead cm-ray" data-i="3" x1="128" y1="266" x2="143" y2="266"/>
+<line class="cm-lead cm-ray" data-i="4" x1="104.17" y1="314.86" x2="143" y2="366"/>
+<line class="cm-lead cm-ray" data-i="5" x1="88.52" y1="323.76" x2="143" y2="466"/>
+<g transform="translate(66 266)"><g class="cm-hand"><path class="cm-mano" d="M0 -14V-37"/><circle class="cm-mano-p" cx="0" cy="-41" r="4.5"/></g></g>
+<circle class="cm-mano-p" cx="66" cy="266" r="3.5"/>
+<text class="cm-k" x="0" y="350">2:00 to 1:00</text>
+<g class="cm-n" data-i="1" data-ang="21.3" data-src="1103h-story-1200">
+<circle class="cm-halo" cx="160" cy="66" r="13"/>
+<circle class="cm-in" cx="160" cy="66" r="7"/>
+<circle class="cm-sel" cx="160" cy="66" r="15.5"/>
+<text class="cm-d" x="186" y="57">Tue 3 Nov, noon</text>
+<text class="cm-t" x="186" y="81">Seven-night log</text>
+</g>
+<g class="cm-n" data-i="2" data-ang="38.0" data-src="1103h">
+<circle class="cm-halo" cx="160" cy="166" r="13"/>
+<circle class="cm-in" cx="160" cy="166" r="7"/>
+<circle class="cm-sel" cx="160" cy="166" r="15.5"/>
+<text class="cm-d" x="186" y="157">Tue 3 Nov, night</text>
+<text class="cm-t" x="186" y="181">Same bedtime</text>
+</g>
+<g class="cm-n" data-i="3" data-ang="90.0" data-src="1105h-story-1200">
+<circle class="cm-halo" cx="160" cy="266" r="13"/>
+<circle class="cm-in" cx="160" cy="266" r="7"/>
+<circle class="cm-sel" cx="160" cy="266" r="15.5"/>
+<text class="cm-d" x="186" y="244">Thu 5 Nov, noon</text>
+<text class="cm-t" x="186" y="268">Letting the day go ·</text>
+<text class="cm-t" x="186" y="294">lock screen</text>
+</g>
+<g class="cm-n" data-i="4" data-ang="142.0" data-src="1105h">
+<circle class="cm-halo" cx="160" cy="366" r="13"/>
+<circle class="cm-in" cx="160" cy="366" r="7"/>
+<circle class="cm-sel" cx="160" cy="366" r="15.5"/>
+<text class="cm-d" x="186" y="357">Thu 5 Nov, night</text>
+<text class="cm-t" x="186" y="381">Letting the day go</text>
+</g>
+<g class="cm-n" data-i="5" data-ang="158.7" data-src="1107es">
+<circle class="cm-halo" cx="160" cy="466" r="13"/>
+<circle class="cm-in" cx="160" cy="466" r="7"/>
+<circle class="cm-sel" cx="160" cy="466" r="15.5"/>
+<text class="cm-d" x="186" y="457">Sat 7 Nov, noon</text>
+<text class="cm-t" x="186" y="481">Same hour, in Spanish</text>
+</g>
+<circle class="cm-out" cx="22" cy="532" r="8"/><text class="cm-k" x="38" y="538">Out</text>
+<circle class="cm-in" cx="99.66" cy="532" r="7"/><text class="cm-k" x="115.66" y="538">Coming</text>
+</svg>

@@ -5,7 +5,8 @@
 // 4. sin OKX en HTML, CSS, JS propio ni datos (sus términos prohíben publicar sus datos)
 // 5. sin rayas largas (em dash) en los datos escritos por nosotros; situacion.json y radar.json traen titulares textuales de sus fuentes y quedan fuera
 // 6. páginas de tema (lote E, D-252, D-253): data/temas.json solo con campos públicos; dos ediciones (temas/ y es/temas/), cada pieza
-//    una sola tarjeta por edición (las ES solo en la ES); hreflang hacia su par; cada código de data/cortos.json (solo de suma) tiene su
+//    una sola tarjeta por edición (las ES solo en la ES), salvo la pieza ES que aterriza en la página "es" (decisión 2 de N, lote 2)
+//    y que su tema sigue listando con un enlace a su tarjeta; hreflang hacia su par; cada código de data/cortos.json (solo de suma) tiene su
 //    redirección y los vivos aterrizan en su tarjeta; reglas fijas de cada tarjeta y del pie; idioma de las partes en las fuentes;
 //    fuentes electorales solo oficiales; mercados de predicción como atribución; nada privado; sitemap completo.
 //    Con --grilla=<grilla.json> (donde está la grilla privada) además: cada slot de la grilla hasta el 31-dic tiene exactamente una tarjeta.
@@ -113,7 +114,7 @@ let resumenTemas = "";
 if (T) {
   const d = "temas.json";
   const CAMPOS = { raiz: ["nota", "grilla", "secciones", "pilares", "paginas", "piezas"], pagina: ["slug", "titulo", "titulo_es", "seccion", "pilar", "desde", "hasta", "piezas", "fuentes"],
-    pieza: ["id", "ref", "pagina", "fecha", "hora_et", "hora_medellin", "utc", "canal", "formato", "seccion", "pilar", "lang", "idiomas", "titulo", "linea", "voz", "noticia", "mercado", "luna", "codigo", "corto"],
+    pieza: ["id", "ref", "pagina", "fecha", "hora_et", "hora_medellin", "utc", "canal", "formato", "seccion", "pilar", "lang", "idiomas", "tema", "titulo", "linea", "voz", "noticia", "mercado", "luna", "codigo", "corto"],
     fuente: ["titulo", "url", "lang"], luna: ["fase", "iluminacion", "signo"], pilar: ["id", "titulo", "seccion", "lomo"], seccion: ["id", "titulo"] };
   const solo = (o, k, donde) => { for (const c of Object.keys(o || {})) if (!CAMPOS[k].includes(c)) falla(d, `${donde}: campo no público: ${c}`); };
   solo(T, "raiz", "raíz");
@@ -146,29 +147,34 @@ if (T) {
     });
     if (!p.titulo_es) falla(d, `${p.slug}: falta el título en español (D-253)`);
     if (slugs.has(p.slug)) falla(d, `página repetida: ${p.slug}`); slugs.add(p.slug);
-    if (p.slug === "es") falla(d, "no hay un tema \"es\": el español es una edición (es/temas/), no un tema");
+    // la página "es" (decisión 2 de N, lote 2): las piezas en español, sin pilar (no va en un estante); las demás llevan su pilar
+    if (p.slug === "es" ? p.pilar !== null : !(T.pilares || []).some((P) => P.id === p.pilar)) falla(d, `${p.slug}: pilar inválido ${p.pilar}`);
     for (const id of p.piezas) {
-      if (!piezas.has(id)) falla(d, `${p.slug}: pieza inexistente ${id}`);
-      else if (piezas.get(id).pagina !== p.slug) falla(d, `${id}: dice ser de ${piezas.get(id).pagina} pero está en ${p.slug}`);
-      if (enPagina.has(id)) falla(d, `${id} está en ${enPagina.get(id)} y en ${p.slug}`); enPagina.set(id, p.slug);
+      const x = piezas.get(id);
+      if (!x) { falla(d, `${p.slug}: pieza inexistente ${id}`); continue; }
+      if (x.pagina === p.slug) { if (enPagina.has(id)) falla(d, `${id} está en ${enPagina.get(id)} y en ${p.slug}`); enPagina.set(id, p.slug); }
+      else if (x.tema !== p.slug) falla(d, `${id}: dice ser de ${x.pagina} pero está en ${p.slug}`);
     }
   }
-  for (const id of piezas.keys()) if (!enPagina.has(id)) falla(d, `${id}: sin página`);
+  for (const [id, x] of piezas) {
+    if (!enPagina.has(id)) falla(d, `${id}: sin página`);
+    if (x.tema && (x.pagina !== "es" || x.lang !== "es" || !(T.paginas || []).some((p) => p.slug === x.tema && p.piezas.includes(id)))) falla(d, `${id}: una pieza con tema es una pieza ES que aterriza en "es" y que su tema lista`);
+  }
 
   // HTML de cada página, por edición: exactamente sus tarjetas, una vez cada una, con las reglas fijas
   const ED = {
     en: { pref: "", ayuda: AYUDA_HTML, lineas: ["Closer to yourself.", "Eat well, sleep well, get moving, have a relationship with the divine, and build community."],
       voz: "Voice: synthetic", noConsejo: "Descriptive, not financial advice.", estado: /<span class="t-tag">(Coming|Out)<\/span>/, noticia: "Date and topic only", zodiaco: "Western tropical zodiac",
-      sello: "The voices in NAOS pieces are synthetic.", tiene: (x) => x.lang !== "es" || (x.idiomas || []).length > 1 },
+      sello: "The voices in NAOS pieces are synthetic.", tiene: (x, p) => x.lang !== "es" || (x.idiomas || []).length > 1 || (!!p && p.slug === "es") },
     es: { pref: "es/", ayuda: AYUDA_HTML_ES, lineas: ["Más cerca de ti.", "Come bien, duerme bien, muévete, ten una relación con lo divino y construye comunidad."],
       voz: "Voz: sintética", noConsejo: "Descriptivo, sin asesoría financiera.", estado: /<span class="t-tag">(Próximamente|Publicada)<\/span>/, noticia: "Solo fecha y tema", zodiaco: "Zodíaco tropical occidental",
       sello: "Las voces de las piezas de NAOS son sintéticas.", tiene: () => true },
   };
-  const PRIVADO = /\/home\/|n-system|revisa_N|por_que|\bcola\/|\bmotor\/|\b(conductas|tradiciones|evidencia|demanda|astrologia|cielo|calendario|cella|fmt|quien|voto|fomc|chat|santos|sas)-(br-|us-|es-)?\d{2}\b|agenda\.json|\bD-\d{3}\b|\btrig_|L[áa]mina|Se lee en|Se escribe con|\blote \d|\bN:\d|linea-es\.md|\.py\b/;
+  const PRIVADO = /\/home\/|n-system|revisa_N|por_que|\bcola\/|\bmotor\/|\b(conductas|tradiciones|evidencia|demanda|astrologia|cielo|calendario|cella|fmt|quien|voto|fomc|chat|santos|sas|walks|kyh|lamp)-(br-|us-|es-)?\d{2}\b|agenda\.json|\bD-\d{3}\b|\btrig_|L[áa]mina|Se lee en|Se escribe con|\blote \d|\bN:\d|linea-es\.md|\.py\b/;
   const html = (r) => { const f = join(RAIZ, r); return existsSync(f) ? readFileSync(f, "utf8") : null; };
   // página sellada con cuerpo (decisión 4 de N: con el sello I4, las tarjetas de noticias llevan su título)
   const conCuerpo = (slug, lang) => existsSync(join(RAIZ, `data/temas/${slug}.${lang}.md`));
-  let tarjetas = 0;
+  let tarjetas = 0, esperadas = 0;
   for (const [lang, E] of Object.entries(ED)) {
     const vistos = new Map();
     const pieOk = (h, r, ruta) => {
@@ -189,23 +195,27 @@ if (T) {
       const r = `${E.pref}temas/${p.slug}/index.html`, h = html(r);
       if (!h) { falla(r, "no existe"); continue; }
       pieOk(h, r, `temas/${p.slug}/`);
-      const deEd = p.piezas.filter((id) => piezas.has(id) && E.tiene(piezas.get(id)));
+      const deEd = p.piezas.filter((id) => piezas.has(id) && E.tiene(piezas.get(id), p)); esperadas += deEd.length;
       const cuerpo = conCuerpo(p.slug, lang);
       const cartas = [...h.matchAll(/<article class="t-carta[^"]*" id="([^"]+)"[\s\S]*?<\/article>/g)];
       const ids = cartas.map((m) => m[1]);
       if (ids.length !== deEd.length || deEd.some((id) => !ids.includes(id))) falla(r, `tarjetas ${ids.length}, piezas de la edición ${deEd.length}: no coinciden`);
       for (const [bloque, id] of cartas) {
         tarjetas++;
-        if (vistos.has(id)) falla(r, `tarjeta repetida ${id} (también en ${vistos.get(id)})`); vistos.set(id, r);
         const x = piezas.get(id); if (!x) { falla(r, `tarjeta sin pieza: ${id}`); continue; }
-        if (!E.tiene(x)) falla(r, `${id}: la pieza no va en la edición ${lang}`);
+        // la pieza ES con tema vive en dos páginas: aterriza en "es" y su tema la lista con un enlace a esa tarjeta
+        const k = x.tema && p.slug === x.tema ? id + "|lista" : id;
+        if (vistos.has(k)) falla(r, `tarjeta repetida ${id} (también en ${vistos.get(k)})`); vistos.set(k, r);
+        if (x.tema && p.slug === x.tema && !bloque.includes(`href="../es/#${id}"`)) falla(r, `${id}: la tarjeta del tema no enlaza a su tarjeta en la página "es"`);
+        if (!E.tiene(x, p)) falla(r, `${id}: la pieza no va en la edición ${lang}`);
         if (x.voz && !bloque.includes(E.voz)) falla(r, `${id}: falta "${E.voz}"`);
         if (x.mercado && !bloque.includes(E.noConsejo)) falla(r, `${id}: falta "${E.noConsejo}"`);
         if (!E.estado.test(bloque)) falla(r, `${id}: sin estado`);
         if (!bloque.includes(`${x.hora_et} ET`) || !bloque.includes(`${x.hora_medellin} Medellín`)) falla(r, `${id}: falta la hora ET o Medellín`);
         // con cuerpo, el título es el del texto sellado (en la edición ES, en español, con el inglés marcado con su lang)
         if (!cuerpo && x.titulo && !x.noticia && x.lang !== lang && !new RegExp(`<h3 class="t-tit"[^>]*lang="${x.lang}"|<h3 class="t-tit"[^>]*>[^<]*<span lang="${x.lang}">`).test(bloque)) falla(r, `${id}: título en ${x.lang} sin lang="${x.lang}"`);
-        if (x.luna?.signo && !bloque.includes(`<summary>${E.zodiaco}</summary>`)) falla(r, `${id}: el signo va tras el toque "${E.zodiaco}"`);
+        // con cuerpo, una tarjeta puede ir sin luna (walks: la pieza ES del 19-dic, candidata); si la lleva, el signo va tras el toque
+        if (x.luna?.signo && (!cuerpo || /class="t-luna"/.test(bloque)) && !bloque.includes(`<summary>${E.zodiaco}</summary>`)) falla(r, `${id}: el signo va tras el toque "${E.zodiaco}"`);
         if (x.luna && !x.luna.signo && /<details class="t-signo"/.test(bloque)) falla(r, `${id}: signo en una página de tradición con calendario propio`);
         if (x.noticia && !cuerpo && !bloque.includes(E.noticia)) falla(r, `${id}: noticia con título`);
       }
@@ -219,8 +229,8 @@ if (T) {
     }
     if (!nPag) falla(d, "sin páginas");
   }
-  const enEN = [...piezas.values()].filter(ED.en.tiene).length;
-  if (tarjetas !== enEN + piezas.size) falla("temas/", `tarjetas ${tarjetas} para ${enEN} piezas EN y ${piezas.size} ES`);
+  const enEN = [...piezas.values()].filter((x) => ED.en.tiene(x)).length;
+  if (tarjetas !== esperadas) falla("temas/", `tarjetas ${tarjetas} para ${esperadas} esperadas (${enEN} piezas EN, ${piezas.size} en la edición ES)`);
   for (const r of ["index.html", "agenda.html", "pieza.html"]) { const h = html(r); if (h && !(h.match(/<footer[\s\S]*?<\/footer>/) || [""])[0].includes(AYUDA_HTML)) falla(r, "el pie no trae las líneas de ayuda verificadas"); }
   for (const r of ["privacidad.html", "terminos.html"]) { const h = html(r); if (h && !(h.match(/<footer[\s\S]*?<\/footer>/) || [""])[0].includes(AYUDA_HTML_ES)) falla(r, "el pie no trae las líneas de ayuda verificadas"); }
   for (const r of ["pieza.html", "agenda.html"]) { const h = html(r) || ""; if (!/The voices in NAOS pieces are synthetic/.test((h.match(/<footer[\s\S]*?<\/footer>/) || [""])[0])) falla(r, "el pie no declara las voces sintéticas (D-243)"); }
@@ -281,17 +291,18 @@ if (T) {
 // ---------- 7. cuerpo de las páginas selladas ----------
 let resumenCuerpo = "";
 if (existsSync(join(RAIZ, "data/temas"))) {
-  const PRIV = /\/home\/|n-system|revisa_N|\bcola\/|\bmotor\/|\b(conductas|tradiciones|evidencia|demanda|astrologia|cielo|calendario|cella|fmt|quien|voto|fomc|chat|luna|moon|santos|sas)-\d{2}\b|\bD-\d{3}\b|\blote \d|\.py\b|<!--/;
+  const PRIV = /\/home\/|n-system|revisa_N|\bcola\/|\bmotor\/|\b(conductas|tradiciones|evidencia|demanda|astrologia|cielo|calendario|cella|fmt|quien|voto|fomc|chat|luna|moon|santos|sas|walks|kyh|lamp)-\d{2}\b|\bes-m\d{2}\b|\bD-\d{3}\b|\blote \d|\.py\b|<!--/;
   const fs7 = readdirSync(join(RAIZ, "data/temas")).sort();
   for (const n of fs7) {
     const r = "data/temas/" + n, t = leer(r);
     if (n.endsWith(".json")) { try { JSON.parse(t); } catch (e) { falla(r, "no parsea: " + e.message); } }
     if (t.includes("—")) falla(r, "raya larga");
     const m = PRIV.exec(t); if (m) falla(r, `texto privado o interno: ${m[0]}`);
-    if (n.endsWith(".en.md") && /\bexercises?\b/i.test(t)) falla(r, '"exercises": la casa dice "behaviors"');
+    // la casa dice "behaviors" para lo que proponemos; "exercise" como actividad física en un estudio citado ("Exercise for depression") sí va
+    if (n.endsWith(".en.md") && /\bexercises\b|\b(an|this|our|one|each|a short|a small|a simple|the next)\s+exercise\b/i.test(t)) falla(r, '"exercises": la casa dice "behaviors"');
     if (n.endsWith(".md")) { const slug = n.replace(/\.(en|es)\.md$/, ""); if (!existsSync(join(RAIZ, "data/temas", slug + ".json"))) falla(r, "cuerpo sin su .json"); if (!existsSync(join(RAIZ, "assets/temas", slug))) falla(r, "cuerpo sin assets/temas/" + slug); }
   }
-  for (const p of todos.filter((f) => /^assets\/temas\//.test(rel(f)))) { const t = readFileSync(p, "utf8"); if (t.includes("—")) falla(rel(p), "raya larga"); if (/\/home\/|n-system/.test(t)) falla(rel(p), "ruta privada"); const m = /<!--|\b(cella|fmt|quien|voto|fomc|chat|moon|santos|sas)-(br-|us-|es-)?\d{2}\b/.exec(t); if (m) falla(rel(p), `interno en un asset público: ${m[0]}`); }
+  for (const p of todos.filter((f) => /^assets\/temas\//.test(rel(f)))) { const t = readFileSync(p, "utf8"); if (t.includes("—")) falla(rel(p), "raya larga"); if (/\/home\/|n-system/.test(t)) falla(rel(p), "ruta privada"); const m = /<!--|\b(cella|fmt|quien|voto|fomc|chat|moon|santos|sas|walks|kyh|lamp)-(br-|us-|es-)?\d{2}\b|\bes-m\d{2}\b/.exec(t); if (m) falla(rel(p), `interno en un asset público: ${m[0]}`); }
   resumenCuerpo = ` · cuerpo: ${fs7.filter((n) => n.endsWith(".md")).length / 2} páginas selladas`;
 }
 

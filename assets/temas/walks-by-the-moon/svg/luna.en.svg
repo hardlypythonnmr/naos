@@ -1,0 +1,60 @@
+<svg class="cl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 466" width="420" height="466" role="img" aria-labelledby="cl-t-en cl-d-en" lang="en">
+<title id="cl-t-en">Dot chart of four walking nights. Thursday 22 October, about 88% lit: the moon rises at 16:13 in New York and 15:08 in Medellín. Sunday 13 December, about 21% lit: it sets at 20:43 and 21:42. Tuesday 15 December, about 38% lit: it sets at 22:47 and 23:11. Thursday 17 December, about 58% lit: it rises at 11:59 and 12:16.</title>
+<desc id="cl-d-en">Four rows, one per night, each with a small moon drawn at its lit share and two points on a clock axis from 11:00 to 24:00: a filled dot for New York and a ring for Medellín, each labeled with the hour the moon rises or sets. A dotted line marks 10 pm. On 13 December both points sit left of the line: the moon has set before ten in both cities.</desc>
+<style>svg.cl{--ink:var(--naos-ink,#0E1116);--sec:var(--naos-sec,#454C57);--grey:var(--naos-grey,#59616D);--chart:var(--naos-chart,#737B87);--rule:var(--naos-rule,#D7DBE0);--paper:var(--naos-paper,#FFFFFF);font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif)}svg.cl[data-tono=noche]{--ink:var(--naos-night-text,#F4F6F8);--sec:var(--naos-night-sec,#C3C9D2);--grey:var(--naos-night-grey,#9AA3B0);--chart:var(--naos-night-grey,#9AA3B0);--rule:var(--naos-night-rule,#2A303A);--paper:var(--naos-night,#0E1116)}svg.cl text{fill:var(--ink)}svg.cl .cl-g{fill:var(--grey)}svg.cl .cl-s{font-size:16px}svg.cl .cl-b{font-weight:600}svg.cl .cl-v{font-variant-numeric:tabular-nums}svg.cl .cl-ln{stroke:var(--rule);stroke-width:1;fill:none}svg.cl .cl-tk{stroke:var(--chart);stroke-width:1.2;fill:none}svg.cl .cl-ref{stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-dasharray:.01 6;fill:none}svg.cl .cl-ny{fill:var(--ink)}svg.cl .cl-me{fill:var(--paper);stroke:var(--ink);stroke-width:2.5}svg.cl .cl-sh{fill:var(--paper);stroke:var(--chart);stroke-width:1.6}svg.cl .cl-lit{fill:var(--ink)}svg.cl .cl-h{paint-order:stroke;stroke:var(--paper);stroke-width:4px;stroke-linejoin:round}</style>
+<circle class="cl-ny" cx="7" cy="14" r="6"/><text class="cl-s" x="20" y="19.5">New York</text>
+<circle class="cl-me" cx="7" cy="38" r="5.5"/><text class="cl-s" x="20" y="43.5">Medellín</text>
+<text class="cl-s cl-g cl-v" x="137.54" y="19.5" text-anchor="middle">12:00</text><path class="cl-tk" d="M137.54 28V54"/>
+<text class="cl-s cl-g cl-v" x="191.69" y="19.5" text-anchor="middle">16:00</text><path class="cl-tk" d="M191.69 28V54"/>
+<text class="cl-s cl-g cl-v" x="245.85" y="19.5" text-anchor="middle">20:00</text><path class="cl-tk" d="M245.85 28V54"/>
+<text class="cl-s cl-g cl-v" x="300" y="19.5" text-anchor="middle">24:00</text><path class="cl-tk" d="M300 28V54"/>
+<path class="cl-ref" d="M272.92 54V426"/>
+<text class="cl-s cl-b" x="272.92" y="452" text-anchor="middle">10 pm</text>
+<g class="cl-r" data-id="22oct">
+<text class="cl-s cl-b" x="1" y="82">Thu 22 Oct</text>
+<circle class="cl-sh" cx="17" cy="112" r="14"/><path class="cl-lit" d="M17 98A14 14 0 0 1 17 126A10.64 14 0 0 1 17 98Z"/>
+<text class="cl-s cl-b cl-v" x="40" y="108">88%</text><text class="cl-s cl-g" x="40" y="128">lit</text>
+<path class="cl-ln" d="M124 86H300"/>
+<circle class="cl-ny" cx="194.63" cy="86" r="6.5"/>
+<text class="cl-s cl-v cl-h" x="207.63" y="91.5">rises 16:13</text>
+<path class="cl-ln" d="M124 118H300"/>
+<circle class="cl-me" cx="179.96" cy="118" r="5.5"/>
+<text class="cl-s cl-v cl-h" x="192.96" y="123.5">rises 15:08</text>
+</g>
+<g class="cl-r" data-id="13dic">
+<path class="cl-ln" d="M0 146H420"/>
+<text class="cl-s cl-b" x="1" y="174">Sun 13 Dec</text>
+<circle class="cl-sh" cx="17" cy="204" r="14"/><path class="cl-lit" d="M17 190A14 14 0 0 1 17 218A8.12 14 0 0 0 17 190Z"/>
+<text class="cl-s cl-b cl-v" x="40" y="200">21%</text><text class="cl-s cl-g" x="40" y="220">lit</text>
+<path class="cl-ln" d="M124 178H300"/>
+<circle class="cl-ny" cx="255.55" cy="178" r="6.5"/>
+<text class="cl-s cl-v cl-h" x="268.55" y="183.5">sets 20:43</text>
+<path class="cl-ln" d="M124 210H300"/>
+<circle class="cl-me" cx="268.86" cy="210" r="5.5"/>
+<text class="cl-s cl-v cl-h" x="281.86" y="215.5">sets 21:42</text>
+</g>
+<g class="cl-r" data-id="15dic">
+<path class="cl-ln" d="M0 238H420"/>
+<text class="cl-s cl-b" x="1" y="266">Tue 15 Dec</text>
+<circle class="cl-sh" cx="17" cy="296" r="14"/><path class="cl-lit" d="M17 282A14 14 0 0 1 17 310A3.36 14 0 0 0 17 282Z"/>
+<text class="cl-s cl-b cl-v" x="40" y="292">38%</text><text class="cl-s cl-g" x="40" y="312">lit</text>
+<path class="cl-ln" d="M124 270H300"/>
+<circle class="cl-ny" cx="283.53" cy="270" r="6.5"/>
+<text class="cl-s cl-v cl-h" x="296.53" y="275.5">sets 22:47</text>
+<path class="cl-ln" d="M124 302H300"/>
+<circle class="cl-me" cx="288.94" cy="302" r="5.5"/>
+<text class="cl-s cl-v cl-h" x="301.94" y="307.5">sets 23:11</text>
+</g>
+<g class="cl-r" data-id="17dic">
+<path class="cl-ln" d="M0 330H420"/>
+<text class="cl-s cl-b" x="1" y="358">Thu 17 Dec</text>
+<circle class="cl-sh" cx="17" cy="388" r="14"/><path class="cl-lit" d="M17 374A14 14 0 0 1 17 402A2.24 14 0 0 1 17 374Z"/>
+<text class="cl-s cl-b cl-v" x="40" y="384">58%</text><text class="cl-s cl-g" x="40" y="404">lit</text>
+<path class="cl-ln" d="M124 362H300"/>
+<circle class="cl-ny" cx="137.31" cy="362" r="6.5"/>
+<text class="cl-s cl-v cl-h" x="150.31" y="367.5">rises 11:59</text>
+<path class="cl-ln" d="M124 394H300"/>
+<circle class="cl-me" cx="141.15" cy="394" r="5.5"/>
+<text class="cl-s cl-v cl-h" x="154.15" y="399.5">rises 12:16</text>
+</g>
+</svg>

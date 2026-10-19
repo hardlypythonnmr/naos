@@ -1,0 +1,66 @@
+{
+ "id": "cielo",
+ "kit": "K4 simplificado: dos puntos por fila sobre un eje de reloj local",
+ "slug": "a-lamp-on-the-night-without-a-moon",
+ "fuente": {
+  "nombre": "U.S. Naval Observatory, API rstt/oneday, fecha 2026-11-08",
+  "urls": [
+   "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-11-08&coords=40.71,-74.01&tz=-5",
+   "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-11-08&coords=28.61,77.21&tz=5.5",
+   "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-11-08&coords=6.25,-75.56&tz=-5"
+  ],
+  "pagina": "fuente [20] de la pagina"
+ },
+ "fecha": "2026-11-08",
+ "eje": {
+  "desde": "15:45",
+  "hasta": "18:00",
+  "marcas": [
+   "16:00",
+   "16:30",
+   "17:00",
+   "17:30",
+   "18:00"
+  ]
+ },
+ "calculo": "dif_min = sol_set - luna_set, en minutos, de las dos horas de USNO de la misma fila (16:01 a 16:44 = 43; 16:39 a 17:31 = 52; 17:13 a 17:42 = 29). No viene de la fuente: se calcula.",
+ "en": {
+  "titulo": "The moon sets before the sun",
+  "subtitulo": "Sunday 8 November 2026, each city's own clock",
+  "alt": "Chart of the evening of 8 November 2026 in three cities. In each one the moon sets before the sun: in New York at 16:01 and 16:44, in Delhi at 16:39 and 17:31, in Medellín at 17:13 and 17:42.",
+  "desc": "One row per city on a clock axis from 15:45 to 18:00. A ring marks the moonset and a filled dot marks the sunset. The ring comes first in every row. The gap is 43 minutes in New York, 52 in Delhi and 29 in Medellín.",
+  "ring": "Moonset",
+  "dot": "Sunset",
+  "min": "{n} min",
+  "que_es": "What this shows.",
+  "que_muestra": "On the evening of Diwali, 8 November, the moon goes down before the sun does in all three cities: 43 minutes before in New York, 52 in Delhi, 29 in Medellín. From sunset on, there is no moon in the sky that night.",
+  "fuente_txt": "Source: U.S. Naval Observatory, rise and set tables for 8 November 2026, read on 16 October 2026. The gaps are our subtraction of the two times in each row. Times are each city's local clock.",
+  "tabla_resumen": "Data table",
+  "col_ciudad": "City",
+  "col_luna": "Moonset",
+  "col_sol": "Sunset",
+  "col_dif": "Moon first by"
+ },
+ "es": {
+  "titulo": "La luna se pone antes que el sol",
+  "subtitulo": "Domingo 8 de noviembre de 2026, con el reloj de cada ciudad",
+  "alt": "Gráfica de la tarde del 8 de noviembre de 2026 en tres ciudades. En todas la luna se pone antes que el sol: en Nueva York a las 16:01 y 16:44, en Delhi a las 16:39 y 17:31, en Medellín a las 17:13 y 17:42.",
+  "desc": "Una fila por ciudad sobre un eje de reloj de 15:45 a 18:00. Un anillo marca la puesta de la luna y un punto lleno la puesta del sol. En todas las filas el anillo va primero. La diferencia es de 43 minutos en Nueva York, 52 en Delhi y 29 en Medellín.",
+  "ring": "Se pone la luna",
+  "dot": "Se pone el sol",
+  "min": "{n} min",
+  "que_es": "Qué muestra.",
+  "que_muestra": "La tarde de Diwali, el 8 de noviembre, la luna se pone antes que el sol en las tres ciudades: 43 minutos antes en Nueva York, 52 en Delhi y 29 en Medellín. Desde que se va el sol, esa noche no hay luna en el cielo.",
+  "fuente_txt": "Fuente: U.S. Naval Observatory, tablas de salida y puesta del 8 de noviembre de 2026, consultadas el 16 de octubre de 2026. Las diferencias son nuestra resta de las dos horas de cada fila. Las horas son las del reloj de cada ciudad.",
+  "tabla_resumen": "Tabla de datos",
+  "col_ciudad": "Ciudad",
+  "col_luna": "Se pone la luna",
+  "col_sol": "Se pone el sol",
+  "col_dif": "La luna antes por"
+ },
+ "ciudades_es": {
+  "New York": "Nueva York",
+  "Delhi": "Delhi",
+  "Medellín": "Medellín"
+ }
+}

@@ -1,0 +1,36 @@
+<svg class="cs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 388" width="400" height="388" role="img" aria-labelledby="cs-t-es cs-d-es" lang="es">
+<title id="cs-t-es">Gráfica de la tarde del 8 de noviembre de 2026 en tres ciudades. En todas la luna se pone antes que el sol: en Nueva York a las 16:01 y 16:44, en Delhi a las 16:39 y 17:31, en Medellín a las 17:13 y 17:42.</title>
+<desc id="cs-d-es">Una fila por ciudad sobre un eje de reloj de 15:45 a 18:00. Un anillo marca la puesta de la luna y un punto lleno la puesta del sol. En todas las filas el anillo va primero. La diferencia es de 43 minutos en Nueva York, 52 en Delhi y 29 en Medellín.</desc>
+<style>svg.cs{--ink:var(--naos-ink,#0E1116);--sec:var(--naos-sec,#454C57);--grey:var(--naos-grey,#59616D);--chart:var(--naos-chart,#737B87);--rule:var(--naos-rule,#D7DBE0);--paper:var(--naos-paper,#FFFFFF);--night:var(--naos-night,#0E1116);--nt:var(--naos-night-text,#F4F6F8);--ns:var(--naos-night-sec,#C3C9D2);--ng:var(--naos-night-grey,#9AA3B0);font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif)}svg.cs text{fill:var(--ink)}svg.cs .cs-g{fill:var(--grey);font-size:16px;paint-order:stroke;stroke:var(--paper);stroke-width:4px;stroke-linejoin:round;font-variant-numeric:tabular-nums}svg.cs .cs-h{font-size:17px;font-weight:600;paint-order:stroke;stroke:var(--paper);stroke-width:4px;stroke-linejoin:round}svg.cs .cs-h tspan{font-weight:400;fill:var(--grey);font-size:16px}svg.cs .cs-v{font-size:18px;font-weight:500;font-variant-numeric:tabular-nums}svg.cs .cs-grid{stroke:var(--rule);stroke-width:1}svg.cs .cs-ax{stroke:var(--chart);stroke-width:1}svg.cs .cs-con{stroke:var(--chart);stroke-width:2}svg.cs .cs-a{fill:var(--ink)}svg.cs .cs-b{fill:var(--paper);stroke:var(--ink);stroke-width:2.5}</style>
+<line class="cs-grid" x1="101.11" y1="24" x2="101.11" y2="300"/>
+<text class="cs-g" x="101.11" y="322" text-anchor="middle">16:00</text>
+<line class="cs-grid" x1="163.33" y1="24" x2="163.33" y2="300"/>
+<text class="cs-g" x="163.33" y="322" text-anchor="middle">16:30</text>
+<line class="cs-grid" x1="225.56" y1="24" x2="225.56" y2="300"/>
+<text class="cs-g" x="225.56" y="322" text-anchor="middle">17:00</text>
+<line class="cs-grid" x1="287.78" y1="24" x2="287.78" y2="300"/>
+<text class="cs-g" x="287.78" y="322" text-anchor="middle">17:30</text>
+<line class="cs-grid" x1="350" y1="24" x2="350" y2="300"/>
+<text class="cs-g" x="350" y="322" text-anchor="middle">18:00</text>
+<line class="cs-ax" x1="66" y1="300" x2="354" y2="300"/>
+<text class="cs-h" x="24" y="50">Nueva York<tspan dx="8">UTC−5</tspan></text>
+<line class="cs-con" x1="103.19" y1="90" x2="192.37" y2="90"/>
+<text class="cs-g" x="147.78" y="74" text-anchor="middle">43 min</text>
+<circle class="cs-b" cx="103.19" cy="90" r="6.5"/><circle class="cs-a" cx="192.37" cy="90" r="7.5"/>
+<text class="cs-v" x="90.19" y="96" text-anchor="end">16:01</text>
+<text class="cs-v" x="205.37" y="96">16:44</text>
+<text class="cs-h" x="24" y="136">Delhi<tspan dx="8">UTC+5:30</tspan></text>
+<line class="cs-con" x1="182" y1="176" x2="289.85" y2="176"/>
+<text class="cs-g" x="235.93" y="160" text-anchor="middle">52 min</text>
+<circle class="cs-b" cx="182" cy="176" r="6.5"/><circle class="cs-a" cx="289.85" cy="176" r="7.5"/>
+<text class="cs-v" x="169" y="182" text-anchor="end">16:39</text>
+<text class="cs-v" x="302.85" y="182">17:31</text>
+<text class="cs-h" x="24" y="222">Medellín<tspan dx="8">UTC−5</tspan></text>
+<line class="cs-con" x1="252.52" y1="262" x2="312.67" y2="262"/>
+<text class="cs-g" x="282.59" y="246" text-anchor="middle">29 min</text>
+<circle class="cs-b" cx="252.52" cy="262" r="6.5"/><circle class="cs-a" cx="312.67" cy="262" r="7.5"/>
+<text class="cs-v" x="239.52" y="268" text-anchor="end">17:13</text>
+<text class="cs-v" x="325.67" y="268">17:42</text>
+<circle class="cs-b" cx="30" cy="364" r="7"/><text class="cs-g" x="46" y="369">Se pone la luna</text>
+<circle class="cs-a" cx="190" cy="364" r="8"/><text class="cs-g" x="206" y="369">Se pone el sol</text>
+</svg>

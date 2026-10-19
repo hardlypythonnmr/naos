@@ -1,0 +1,23 @@
+/* viz.css · figuras de a-lamp-on-the-night-without-a-moon (mapa, gráfica, cosa viva). Tokens G3 con respaldo; sin cajas, sin sombras. */
+.viz { margin: var(--s-6, 48px) 0; max-width: 560px; }
+.viz svg { display: block; width: 100%; height: auto; max-width: 440px; }
+.viz-t { font-family: var(--font-serif, Georgia, serif); font-weight: 300; font-size: 30px; line-height: 1.1; letter-spacing: -.01em; margin: 0 0 var(--s-2, 16px); }
+.viz-sub { margin: -8px 0 var(--s-2, 16px); font-size: 15px; color: var(--naos-sec, #454C57); }
+.viz figcaption { margin-top: var(--s-2, 16px); }
+.viz-que { margin: 0 0 8px; font-size: 15px; line-height: 1.5; color: var(--naos-ink, #0E1116); }
+.viz-nota { margin: 0 0 8px; font-size: 14px; line-height: 1.45; color: var(--naos-grey, #59616D); }
+.viz-lista { margin: 8px 0; padding-left: 1.4em; font-size: 15px; line-height: 1.5; color: var(--naos-sec, #454C57); }
+.viz-alt { margin-top: 8px; font-size: 14px; }
+.viz-alt summary { min-height: 24px; padding: 4px 0; cursor: pointer; color: var(--naos-sec, #454C57); }
+.viz-alt ol { margin: 8px 0; padding-left: 1.4em; line-height: 1.6; }
+.viz-alt a { display: inline-block; min-height: 24px; padding: 2px 0; }
+.viz-alt table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+.viz-alt th, .viz-alt td { text-align: left; padding: 6px 12px 6px 0; border-top: 1px solid var(--naos-rule, #D7DBE0); font-weight: 400; vertical-align: top; }
+.viz-alt thead th { font-weight: 600; border-top: 0; }
+.viz-alt th span { color: var(--naos-grey, #59616D); font-size: 14px; }
+.viz a:focus-visible, .viz summary:focus-visible, .viz button:focus-visible { outline: 2px solid var(--naos-ink, #0E1116); outline-offset: 3px; }
+.lv-estado { margin: 12px 0 0; min-height: 4.5em; font-size: 15px; line-height: 1.5; color: var(--naos-ink, #0E1116); }
+.lv-ctl { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 0; }
+.lv-ctl button { min-height: 44px; min-width: 96px; padding: 0 18px; font-family: var(--font-sans, system-ui, sans-serif); font-size: 15px; font-weight: 500; color: var(--naos-ink, #0E1116); background: var(--naos-paper, #fff); border: 2px solid var(--naos-ink, #0E1116); border-radius: 0; cursor: pointer; }
+.lv-ctl button:hover { background: var(--naos-ink, #0E1116); color: var(--naos-paper, #fff); }
+.noche .viz-que, .noche .lv-estado { color: var(--naos-night-text, #F4F6F8); }

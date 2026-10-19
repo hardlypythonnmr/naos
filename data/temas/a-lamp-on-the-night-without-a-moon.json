@@ -1,0 +1,218 @@
+{
+ "slug": "a-lamp-on-the-night-without-a-moon",
+ "meta": {
+  "en": {
+   "title": "A lamp on the night without a moon · NAOS",
+   "h1": "A lamp on the night without a moon",
+   "description": "A tale we made up for Diwali night, Sunday 8 November 2026, when there is no moon in the sky, and a two-minute bedtime behavior: one minute of dark, then one small light. With sources.",
+   "og_title": "A lamp on the night without a moon",
+   "og_description": "Why light a lamp on the darkest night? A short tale of ours for Diwali, and one thing to try before you sleep. With sources."
+  },
+  "es": {
+   "title": "Una lámpara en la noche sin luna · NAOS",
+   "h1": "Una lámpara en la noche sin luna",
+   "description": "Un cuento que inventamos para la noche de Diwali, el domingo 8 de noviembre de 2026, cuando no hay luna en el cielo, y algo de dos minutos para antes de dormir: un minuto a oscuras y después una sola luz pequeña. Con fuentes.",
+   "og_title": "Una lámpara en la noche sin luna",
+   "og_description": "¿Para qué prender una lámpara en la noche más oscura? Un cuento nuestro para Diwali, y algo para probar antes de dormir. Con fuentes."
+  }
+ },
+ "cortos": {
+  "1107h": {
+   "en": "Lamps for a night without a moon",
+   "es": "Lamps for a night without a moon",
+   "aterriza": {
+    "en": "the-tale",
+    "es": "el-cuento"
+   }
+  },
+  "1108h": {
+   "en": "One minute of dark",
+   "es": "One minute of dark",
+   "aterriza": {
+    "en": "before-you-sleep",
+    "es": "antes-de-dormir"
+   }
+  },
+  "1110h": {
+   "en": "One lamp is enough",
+   "es": "One lamp is enough",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1112h": {
+   "en": "Open the door to someone",
+   "es": "Open the door to someone",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1113h": {
+   "en": "A new ledger",
+   "es": "A new ledger",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  },
+  "1114es": {
+   "en": "Una lámpara alcanza (in Spanish)",
+   "es": "Una lámpara alcanza (in Spanish)",
+   "aterriza": {
+    "en": null,
+    "es": null
+   }
+  }
+ },
+ "enviar": {
+  "en": "Why light a lamp on the darkest night? A short tale for Diwali, and one thing to try before you sleep.",
+  "es": "¿Para qué prender una lámpara en la noche más oscura? Un cuento corto para Diwali, y algo para probar antes de dormir."
+ },
+ "luna": {
+  "c-2026-11-07-1200-h-historia": {
+   "iluminacion": 2.7,
+   "fase": {
+    "en": "waning crescent",
+    "es": "menguante"
+   }
+  },
+  "c-2026-11-07-2000-h-short-reel": {
+   "iluminacion": 1.7,
+   "fase": {
+    "en": "waning crescent",
+    "es": "menguante"
+   }
+  },
+  "c-2026-11-08-1000-h-medio": {
+   "iluminacion": 0.6,
+   "fase": {
+    "en": "eve of the new moon",
+    "es": "víspera de luna nueva"
+   }
+  },
+  "c-2026-11-08-1200-h-historia": {
+   "iluminacion": 0.5,
+   "fase": {
+    "en": "eve of the new moon",
+    "es": "víspera de luna nueva"
+   }
+  },
+  "c-2026-11-08-2000-h-short-reel": {
+   "iluminacion": 0.2,
+   "fase": {
+    "en": "eve of the new moon",
+    "es": "víspera de luna nueva"
+   }
+  },
+  "c-2026-11-10-1200-h-historia": {
+   "iluminacion": 2.1,
+   "fase": {
+    "en": "waxing crescent",
+    "es": "creciente"
+   }
+  },
+  "c-2026-11-10-2000-h-short-reel": {
+   "iluminacion": 3.1,
+   "fase": {
+    "en": "waxing crescent",
+    "es": "creciente"
+   }
+  },
+  "c-2026-11-12-1200-h-historia": {
+   "iluminacion": 10.7,
+   "fase": {
+    "en": "waxing crescent",
+    "es": "creciente"
+   }
+  },
+  "c-2026-11-12-2000-h-short-reel": {
+   "iluminacion": 12.8,
+   "fase": {
+    "en": "waxing crescent",
+    "es": "creciente"
+   }
+  },
+  "c-2026-11-13-1200-h-historia": {
+   "iluminacion": 17.2,
+   "fase": {
+    "en": "waxing crescent",
+    "es": "creciente"
+   }
+  },
+  "c-2026-11-13-2000-h-short-reel": {
+   "iluminacion": 19.6,
+   "fase": {
+    "en": "waxing crescent",
+    "es": "creciente"
+   }
+  }
+ },
+ "visuales": [
+  {
+   "id": "mapa",
+   "en": "map",
+   "es": "mapa"
+  },
+  {
+   "id": "cielo",
+   "en": "the-night",
+   "es": "la-noche",
+   "despues": {
+    "en": "^On 8 November the moon sets before the sun",
+    "es": "^El 8 de noviembre la luna se pone antes"
+   }
+  },
+  {
+   "id": "viva",
+   "en": "our-experiment",
+   "es": "nuestro-experimento"
+  }
+ ],
+ "modulos": [
+  {
+   "src": "viva/luz-viva.js",
+   "sel": "[data-viva]",
+   "quieto": true
+  },
+  {
+   "src": "svg/mapa.js",
+   "sel": "svg.cm"
+  }
+ ],
+ "pliegues": {
+  "on-your-own": {},
+  "a-solas": {}
+ },
+ "css": [
+  "viz.css"
+ ],
+ "scripts": [],
+ "flechas": {
+  "Study": "#study",
+  "Estudio": "#estudio",
+  "The three steps, in motion": "#our-experiment",
+  "Los tres pasos, en movimiento": "#nuestro-experimento",
+  "Help lines": "#ayuda",
+  "Líneas de ayuda": "#ayuda",
+  "on the Spanish page": "../../es/temas/es/#c-2026-11-14-1200-h-es",
+  "If you're on your own that night": "#on-your-own",
+  "Si estás a solas esa noche": "#a-solas",
+  "The moon this season": "../moon/",
+  "La luna esta temporada": "../moon/",
+  "The tale": "#the-tale",
+  "El cuento": "#el-cuento",
+  "The pieces": "#pieces",
+  "Las piezas": "#piezas"
+ },
+ "marcas": {
+  "en": {
+   "Una lámpara alcanza": "es"
+  }
+ },
+ "lunaDatos": {
+  "en": "Moon data: U.S. Naval Observatory and NASA JPL Horizons. [20] [21]",
+  "es": "Datos de la luna: Observatorio Naval de Estados Unidos (USNO) y NASA JPL Horizons. [20] [21]"
+ }
+}

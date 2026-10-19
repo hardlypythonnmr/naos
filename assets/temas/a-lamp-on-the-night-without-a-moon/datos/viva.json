@@ -1,0 +1,95 @@
+{
+ "id": "viva",
+ "kit": "K8 conducta en 3 pasos + K2 proceso (tres cuartos vistos desde arriba)",
+ "slug": "a-lamp-on-the-night-without-a-moon",
+ "datos": {
+  "pasos": 3,
+  "minuto_s": 60,
+  "puntos_anillo": 60,
+  "anillo_en_pantalla_s": 6,
+  "paso1_s": 9,
+  "paso2_s": 6.5,
+  "paso3_s": 2.2
+ },
+ "nada_sagrado": "No hay deidad, texto ni lámpara ritual: es un cuarto visto desde arriba con una cama, una mesita y una luz pequeña sin forma de llama. La ventana no muestra luna.",
+ "en": {
+  "titulo": "One minute, one light",
+  "alt": "Three rooms seen from above, one for each step. 1: every light goes off and a ring of sixty dots fills, one for each second of the minute. 2: one small light comes on beside the bed. 3: the light goes out and the room stays dark.",
+  "desc": "Three numbered steps, each a small room in dots with a bed, a bedside table and a window. Step 1: the floor goes dark and a ring of sixty dots, one per second, fills clockwise. Step 2: a small light glows on the bedside table. Step 3: the light is out and the room is dark.",
+  "pasos_corto": [
+   [
+    "Sit on the bed, lights off",
+    "One minute in the dark"
+   ],
+   [
+    "Light one small light",
+    "Watch it for a few",
+    "breaths"
+   ],
+   [
+    "Put it out",
+    "If it's a flame, make",
+    "sure it's out. Then sleep."
+   ]
+  ],
+  "min_rotulo": "1 min",
+  "estado": [
+   "Every light is on. Press Play, or Next step.",
+   "1 of 3. Sit on the bed and turn off the last light. One minute in the dark.",
+   "2 of 3. Light one small light, warm and dim. A diya or a candle goes in a holder, on something steady, away from the bed. Watch it for a few breaths.",
+   "3 of 3. Put it out, and sleep in the dark. Make sure a flame is out before you sleep or leave the room."
+  ],
+  "play": "Play",
+  "pause": "Pause",
+  "next": "Next step",
+  "again": "Play again",
+  "restart": "Start over",
+  "pasos": [
+   "Sit on the bed and turn off the last light. One minute in the dark.",
+   "Light one small light, warm and dim. A diya or a candle goes in a holder, on something steady, away from the bed. Watch it for a few breaths.",
+   "Put it out, and sleep in the dark. Make sure a flame is out before you sleep or leave the room."
+  ],
+  "que_es": "What this shows.",
+  "que_muestra": "The three steps of the behavior in one room seen from above: every light goes off and a ring of sixty dots fills, one for each second of the minute; one small light comes on beside the bed; then it goes out and the room stays dark. It plays once, faster than real life, and you can pause it or go step by step."
+ },
+ "es": {
+  "titulo": "Un minuto, una luz",
+  "alt": "Tres cuartos vistos desde arriba, uno por cada paso. 1: se apagan todas las luces y se llena un anillo de sesenta puntos, uno por cada segundo del minuto. 2: se prende una luz pequeña junto a la cama. 3: la luz se apaga y el cuarto queda a oscuras.",
+  "desc": "Tres pasos numerados, cada uno un cuarto pequeño en puntos con una cama, una mesita de noche y una ventana. Paso 1: el piso se oscurece y un anillo de sesenta puntos, uno por segundo, se llena en el sentido del reloj. Paso 2: una luz pequeña brilla en la mesita. Paso 3: la luz está apagada y el cuarto a oscuras.",
+  "pasos_corto": [
+   [
+    "En la cama, luz apagada",
+    "Un minuto a oscuras"
+   ],
+   [
+    "Prende una luz pequeña",
+    "Mírala mientras",
+    "respiras unas veces"
+   ],
+   [
+    "Apágala y duérmete",
+    "Si es una llama,",
+    "apágala bien."
+   ]
+  ],
+  "min_rotulo": "1 min",
+  "estado": [
+   "Todas las luces están prendidas. Toca Reproducir, o Siguiente paso.",
+   "1 de 3. Siéntate en la cama y apaga la última luz. Un minuto a oscuras.",
+   "2 de 3. Prende una sola luz pequeña, cálida y tenue. Si es una diya o una vela, en su base, sobre algo firme y lejos de la cama. Mírala mientras respiras unas cuantas veces.",
+   "3 de 3. Apágala y duérmete a oscuras. Si es una llama, apágala bien antes de dormirte o de salir del cuarto."
+  ],
+  "play": "Reproducir",
+  "pause": "Pausa",
+  "next": "Siguiente paso",
+  "again": "Ver otra vez",
+  "restart": "Volver al inicio",
+  "pasos": [
+   "Siéntate en la cama y apaga la última luz. Un minuto a oscuras.",
+   "Prende una sola luz pequeña, cálida y tenue. Si es una diya o una vela, en su base, sobre algo firme y lejos de la cama. Mírala mientras respiras unas cuantas veces.",
+   "Apágala y duérmete a oscuras. Si es una llama, apágala bien antes de dormirte o de salir del cuarto."
+  ],
+  "que_es": "Qué muestra.",
+  "que_muestra": "Los tres pasos de la conducta en un solo cuarto visto desde arriba: se apagan todas las luces y se llena un anillo de sesenta puntos, uno por cada segundo del minuto; se prende una luz pequeña junto a la cama; después se apaga y el cuarto queda a oscuras. Corre una sola vez, más rápido que en la vida real, y puedes pausarla o ir paso a paso."
+ }
+}
