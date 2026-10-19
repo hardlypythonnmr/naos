@@ -1,86 +1,95 @@
 {
- "fecha": "2026-10-19T08:53Z",
+ "fecha": "2026-10-19T14:53Z",
  "wire": [
   {
-   "titulo": "Bitcoin whale moves $34 million in BTC it got in 2013 when coins traded at $131",
+   "titulo": "‘My husband suffered a massive stroke at 53’: I’m 64 and will rent for the rest of my life — but I’m still hopeful",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
+   "hora": "2026-10-19T14:30Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Builders slash prices on new homes as buyer traffic drops to 14-year low",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/builders-slash-prices-on-new-homes-as-buyer-traffic-drops-to-14-year-low-3dd8caea?mod=mw_rss_topstories",
+   "hora": "2026-10-19T14:00Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Meet the home buyers totally unfazed by 7% mortgage rates",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/meet-the-home-buyers-totally-unfazed-by-7-mortgage-rates-7a9b1cc7?mod=mw_rss_topstories",
+   "hora": "2026-10-19T13:33Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Micron and other chip stocks spring back to life after bruising selloff",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/micron-and-other-chip-stocks-spring-back-to-life-after-bruising-selloff-16486541?mod=mw_rss_topstories",
+   "hora": "2026-10-19T13:22Z",
+   "area": "AI",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "France and the U.S. share the same debt trap. Why the U.S. has an escape valve.",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/france-and-the-u-s-share-the-same-debt-trap-only-one-has-a-global-lifeline-3ae61b42?mod=mw_rss_topstories",
+   "hora": "2026-10-19T13:19Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Cardano founder Charles Hoskinson is building a new programming language for the network",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/19/bitcoin-whale-moves-usd34-million-in-btc-it-got-in-2013-when-coins-traded-at-usd131",
-   "hora": "2026-10-19T06:23Z",
+   "url": "https://www.coindesk.com/tech/2026/10/19/cardano-founder-charles-hoskinson-is-building-a-new-programming-language-for-the-network",
+   "hora": "2026-10-19T12:16Z",
    "area": "Crypto",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "Zcash developers plan a fix to keep ZEC swaps private from future quantum computers",
+   "titulo": "Strategy's price chart is about to flash a major bullish signal weeks after bitcoin did",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/tech/2026/10/19/zcash-developers-plan-a-fix-to-keep-zec-swaps-private-from-future-quantum-computers",
-   "hora": "2026-10-19T05:23Z",
+   "url": "https://www.coindesk.com/daybook-us/2026/10/19/strategy-on-verge-of-golden-cross-just-weeks-after-bitcoin-flashed-same-bullish-signal",
+   "hora": "2026-10-19T11:15Z",
    "area": "Crypto",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "XRP Ledger is set to fix its lending code before anyone can use it",
+   "titulo": "Live updates: Bitcoin edges higher as U.S. stocks rebound early Monday",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/tech/2026/10/19/xrp-ledger-is-set-to-fix-its-lending-code-before-anyone-can-use-it",
-   "hora": "2026-10-19T04:54Z",
-   "area": "Crypto",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Bitcoin, Korea’s Kospi and Nasdaq futures rally as China GDP beats estimates",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/19/bitcoin-korea-s-kospi-and-nasdaq-futures-rally-as-china-gdp-beats-estimates",
-   "hora": "2026-10-19T03:36Z",
+   "url": "https://www.coindesk.com/markets/2026/10/19/live-updates-bitcoin-tags-usd83-000-and-slips-back-as-chip-stocks-lead-a-rebound",
+   "hora": "2026-10-19T11:05Z",
    "area": "Crypto",
    "movio": "Bitcoin",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "Deutsche Bank targets Asia crypto custody expansion in 2027 as German launch nears",
+   "titulo": "Bitcoin extends bounce above $82,000 as stocks rebound, DeFi tokens lead altcoin gains",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/business/2026/10/18/deutsche-bank-targets-asia-crypto-custody-expansion-in-2027-as-german-launch-nears",
-   "hora": "2026-10-19T02:00Z",
+   "url": "https://www.coindesk.com/markets/2026/10/19/bitcoin-extends-bounce-above-usd82-000-as-stocks-rebound-defi-tokens-lead-altcoin-gains",
+   "hora": "2026-10-19T10:26Z",
    "area": "Crypto",
+   "movio": "Bitcoin",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "‘Some people did everything right’: I lost my home in the Great Recession. I rent in my 50s. Why is that judged as failure?",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/i-earn-110-000-a-year-i-lost-my-home-in-the-great-recession-im-renting-in-my-50s-why-is-that-judged-as-failure-d1371d67?mod=mw_rss_topstories",
-   "hora": "2026-10-18T16:15Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "I’m 64 with two sons, but only one works in the family business. Is it ethical to leave him 70% of the company?",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/im-64-years-old-with-two-sons-but-only-one-works-in-the-family-firm-should-i-leave-him-70-of-the-business-2fe6c382?mod=mw_rss_topstories",
-   "hora": "2026-10-18T15:15Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "These surprising stocks could be some of the biggest drivers of S&P 500 earnings growth",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/these-surprising-stocks-could-be-some-of-the-biggest-drivers-of-s-p-500-earnings-growth-ea073a07?mod=mw_rss_topstories",
-   "hora": "2026-10-18T14:00Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Stocks are heading for a high-stakes showdown, as strong earnings collide with rising borrowing costs",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/stocks-are-heading-for-a-high-stakes-showdown-as-strong-earnings-collide-with-rising-borrowing-costs-6f8ea5b8?mod=mw_rss_topstories",
-   "hora": "2026-10-18T13:00Z",
-   "area": "Economy",
-   "movio": "Stocks",
+   "titulo": "JPMorgan brings JPM Coin, representing dollar deposits, to Ethereum",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/markets/2026/10/19/jpmorgan-s-jpm-coin-representing-dollar-deposits-is-coming-to-ethereum-bloomberg",
+   "hora": "2026-10-19T10:03Z",
+   "area": "Crypto",
    "sample": false,
    "viejo": false
   },
@@ -118,11 +127,34 @@
  ],
  "historias": [
   {
+   "area": "AI",
+   "titulo": "Micron and other chip stocks spring back to life after bruising selloff",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/micron-and-other-chip-stocks-spring-back-to-life-after-bruising-selloff-16486541?mod=mw_rss_topstories",
+   "hora": "2026-10-19T13:22Z",
+   "grafico": {
+    "tipo": "tradingview",
+    "simbolo": "NASDAQ:SMH",
+    "etiqueta": "VanEck Semiconductor ETF (SMH), delayed, via TradingView"
+   },
+   "contexto": "Two lines of context will come from the London and New York radar briefs. Until they run, this card shows the format only.",
+   "contexto_sample": true,
+   "lados": {
+    "quien": "MarketWatch: headline verbatim",
+    "historia_mapa": null,
+    "prediccion": null,
+    "mercado": "VanEck Semiconductor ETF (SMH), delayed, via TradingView",
+    "odds": null,
+    "conectado": null
+   },
+   "viejo": false
+  },
+  {
    "area": "Crypto",
-   "titulo": "Bitcoin, Korea’s Kospi and Nasdaq futures rally as China GDP beats estimates",
+   "titulo": "Live updates: Bitcoin edges higher as U.S. stocks rebound early Monday",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/19/bitcoin-korea-s-kospi-and-nasdaq-futures-rally-as-china-gdp-beats-estimates",
-   "hora": "2026-10-19T03:36Z",
+   "url": "https://www.coindesk.com/markets/2026/10/19/live-updates-bitcoin-tags-usd83-000-and-slips-back-as-chip-stocks-lead-a-rebound",
+   "hora": "2026-10-19T11:05Z",
    "grafico": {
     "tipo": "propio",
     "activo": "BTC"
@@ -135,11 +167,11 @@
     "prediccion": null,
     "mercado": "BTC",
     "odds": {
-     "texto": "Polymarket shows Bitcoin above $82,000 on Oct 20 is 72% likely (19 Oct 08:53 UTC)",
+     "texto": "Polymarket shows Bitcoin above $82,000 on Oct 20 is 59% likely (19 Oct 14:53 UTC)",
      "resultado": "Bitcoin above $82,000 on Oct 20",
      "url": "https://polymarket.com/event/bitcoin-above-on-october-20-2026",
-     "p": 72,
-     "leido_utc": "2026-10-19T08:53Z",
+     "p": 59,
+     "leido_utc": "2026-10-19T14:53Z",
      "historia": "bitcoin-umbral"
     },
     "conectado": null
@@ -149,17 +181,23 @@
  ],
  "temas": {
   "fuente": "NAOS radar 2026-10-19",
-  "total": 333,
+  "total": 335,
   "conteos": {
-   "AI": 37,
-   "Fed y tasas": 1,
-   "Política": 44,
-   "Energía": 17,
+   "AI": 61,
+   "Fed y tasas": 2,
+   "Política": 47,
+   "Energía": 13,
    "Trabajo": 5,
-   "Geopolítica": 98
+   "Geopolítica": 69
   }
  },
  "titulares": [
+  {
+   "titulo": "Meet the home buyers totally unfazed by 7% mortgage rates",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/meet-the-home-buyers-totally-unfazed-by-7-mortgage-rates-7a9b1cc7?mod=mw_rss_topstories",
+   "tema": "US 10Y yield"
+  },
   {
    "titulo": "Bitcoin’s $100,000 year-end hope divides analysts as inflation clouds outlook",
    "fuente": "CoinDesk",
@@ -173,15 +211,9 @@
    "tema": "US 10Y yield"
   },
   {
-   "titulo": "IPO fraud, China’s export boom, US inflation: 5 figures investors are watching",
-   "fuente": "SCMP Business",
-   "url": "https://www.scmp.com/business/markets/article/3371124/ipo-fraud-chinas-export-boom-us-inflation-5-figures-investors-are-watching?utm_source=rss_feed",
-   "tema": "US 10Y yield"
-  },
-  {
-   "titulo": "These surprising stocks could be some of the biggest drivers of S&P 500 earnings growth",
+   "titulo": "Micron and other chip stocks spring back to life after bruising selloff",
    "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/these-surprising-stocks-could-be-some-of-the-biggest-drivers-of-s-p-500-earnings-growth-ea073a07?mod=mw_rss_topstories",
+   "url": "https://www.marketwatch.com/story/micron-and-other-chip-stocks-spring-back-to-life-after-bruising-selloff-16486541?mod=mw_rss_topstories",
    "tema": "S&P 500"
   },
   {
@@ -191,10 +223,16 @@
    "tema": "S&P 500"
   },
   {
-   "titulo": "There is a silent market rotation inside the S&P 500 that’s warning of more weakness ahead",
+   "titulo": "Tech stocks stumbled. Now comes a crucial week for Wall Street.",
    "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/there-is-a-silent-market-rotation-inside-the-s-p-500-thats-warning-of-more-weakness-ahead-549e7650?mod=mw_rss_topstories",
+   "url": "https://www.marketwatch.com/story/tech-stocks-stumbled-now-comes-a-crucial-week-for-wall-street-2a093abe?mod=mw_rss_topstories",
    "tema": "S&P 500"
+  },
+  {
+   "titulo": "JPMorgan's JPM Coin, representing dollar deposits, is coming to Ethereum",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/markets/2026/10/19/jpmorgan-s-jpm-coin-representing-dollar-deposits-is-coming-to-ethereum-bloomberg",
+   "tema": "NAOS dollar index (ECB rates)"
   },
   {
    "titulo": "Results of the September 2026 survey on credit terms and conditions in euro-denominated securities financing and OTC derivatives markets (SESFOD)",
@@ -209,16 +247,10 @@
    "tema": "NAOS dollar index (ECB rates)"
   },
   {
-   "titulo": "Bitcoin whale moves $34 million in BTC it got in 2013 when coins traded at $131",
+   "titulo": "Wall Street freaked out Friday, but VIX and bitcoin trades say the fear may fade Monday.",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/19/bitcoin-whale-moves-usd34-million-in-btc-it-got-in-2013-when-coins-traded-at-usd131",
-   "tema": "Bitcoin"
-  },
-  {
-   "titulo": "Bitcoin, Korea’s Kospi and Nasdaq futures rally as China GDP beats estimates",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/19/bitcoin-korea-s-kospi-and-nasdaq-futures-rally-as-china-gdp-beats-estimates",
-   "tema": "Bitcoin"
+   "url": "https://www.coindesk.com/markets/2026/10/18/wall-street-freaked-out-friday-vix-and-bitcoin-say-it-may-not-last",
+   "tema": "VIX"
   }
  ],
  "cierres_csv": "fecha,indice,cierre,cambio_pct,fuente,url\n2026-10-14,S&P 500,7718.94,-1.11,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n2026-10-14,Nasdaq Composite,26692.87,-1.88,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n2026-10-14,Dow Jones,51621.48,-0.09,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n2026-10-15,Dow Jones,52177.69,1.08,CNN 4:00 PM ET market page (value as quoted via search),https://www.cnn.com/markets\n2026-10-15,S&P 500,7744.06,0.33,CNN 4:00 PM ET market page (value as quoted via search),https://www.cnn.com/markets\n2026-10-15,Nasdaq Composite,26713.03,0.08,CNN 4:00 PM ET market page (value as quoted via search),https://www.cnn.com/markets\n2026-10-16,Dow Jones,52002.41,-0.34,TheStreet live blog (value as quoted via search; page blocks fetch),https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026\n2026-10-16,S&P 500,7659.44,-1.09,TheStreet live blog (value as quoted via search; BNN Bloomberg showed -1.1% at 2:01 PM ET),https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026\n2026-10-16,Nasdaq Composite,26140.03,-2.14,TheStreet live blog (value as quoted via search; BNN Bloomberg showed -2.1% at 2:01 PM ET),https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026\n"
