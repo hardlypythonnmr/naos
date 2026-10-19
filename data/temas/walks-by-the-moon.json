@@ -1,0 +1,207 @@
+{
+ "slug": "walks-by-the-moon",
+ "meta": {
+  "en": {
+   "title": "Walks by the moon · NAOS",
+   "h1": "Walks by the moon",
+   "description": "A tale we made up and four small walks to try by the moon: the same road until it is full, the Geminids, side by side, the long way home. With sources.",
+   "og_title": "Walks by the moon",
+   "og_description": "Why walk the same road every evening? A tale of ours, and four walks to try on four nights of the moon. With sources."
+  },
+  "es": {
+   "title": "Caminatas con la luna · NAOS",
+   "h1": "Caminatas con la luna",
+   "description": "Un cuento que inventamos y cuatro caminatas para probar con la luna: la misma calle hasta que esté llena, las Gemínidas, lado a lado y el camino largo a casa. Con fuentes.",
+   "og_title": "Caminatas con la luna",
+   "og_description": "¿Para qué recorrer el mismo camino todas las tardes? Un cuento nuestro y cuatro caminatas para probar en cuatro noches de la luna. Con fuentes."
+  }
+ },
+ "cortos": {
+  "1022h": {
+   "en": "Walk the same road until the moon is full",
+   "es": "Camina la misma calle hasta que la luna esté llena (en inglés: Walk the same road until the moon is full)",
+   "aterriza": {
+    "en": "the-same-road",
+    "es": "la-misma-calle"
+   }
+  },
+  "1213h": {
+   "en": "Go see the Geminids tonight",
+   "es": "Sal a ver las Gemínidas esta noche (en inglés: Go see the Geminids tonight)",
+   "aterriza": {
+    "en": "geminids",
+    "es": "geminidas"
+   }
+  },
+  "1215h": {
+   "en": "Walk side by side",
+   "es": "Camina al lado de alguien (en inglés: Walk side by side)",
+   "aterriza": {
+    "en": "side-by-side",
+    "es": "lado-a-lado"
+   }
+  },
+  "1217h": {
+   "en": "Walk home the long way",
+   "es": "Vuelve a casa por el camino largo (en inglés: Walk home the long way)",
+   "aterriza": {
+    "en": "the-long-way",
+    "es": "el-camino-largo"
+   }
+  },
+  "1219es": {
+   "en": "Caminar lado a lado",
+   "es": "Caminar lado a lado",
+   "aterriza": {
+    "en": "lado-a-lado",
+    "es": "lado-a-lado"
+   }
+  }
+ },
+ "enviar": {
+  "en": "Walk the same road until the moon is full. A small thing to try, with the sources.",
+  "es": "Camina la misma calle hasta que la luna esté llena. Algo pequeño para probar, con sus fuentes."
+ },
+ "luna": {
+  "c-2026-10-22-1200-h-historia": {
+   "iluminacion": 86,
+   "fase": {
+    "en": "waxing gibbous",
+    "es": "gibosa creciente"
+   }
+  },
+  "c-2026-10-22-2000-h-short-reel": {
+   "iluminacion": 88,
+   "fase": {
+    "en": "waxing gibbous",
+    "es": "gibosa creciente"
+   }
+  },
+  "c-2026-12-13-1200-h-historia": {
+   "iluminacion": 18,
+   "fase": {
+    "en": "waxing crescent",
+    "es": "creciente"
+   }
+  },
+  "c-2026-12-13-2000-h-short-reel": {
+   "iluminacion": 21,
+   "fase": {
+    "en": "waxing crescent",
+    "es": "creciente"
+   }
+  },
+  "c-2026-12-15-1200-h-historia": {
+   "iluminacion": 35,
+   "fase": {
+    "en": "waxing crescent",
+    "es": "creciente"
+   }
+  },
+  "c-2026-12-15-2000-h-short-reel": {
+   "iluminacion": 38,
+   "fase": {
+    "en": "waxing crescent",
+    "es": "creciente"
+   }
+  },
+  "c-2026-12-17-1200-h-historia": {
+   "iluminacion": 55,
+   "fase": {
+    "en": "just past first quarter (00:42)",
+    "es": "poco después del cuarto creciente (00:42)"
+   }
+  },
+  "c-2026-12-17-2000-h-short-reel": {
+   "iluminacion": 58,
+   "fase": {
+    "en": "just past first quarter, high at dusk",
+    "es": "poco después del cuarto creciente, alta al atardecer"
+   }
+  },
+  "c-2026-12-19-1200-h-es": {
+   "iluminacion": null,
+   "fase": {}
+  }
+ },
+ "visuales": [
+  {
+   "id": "mapa",
+   "en": "map",
+   "es": "mapa"
+  },
+  {
+   "id": "luna",
+   "en": "the-sky",
+   "es": "el-cielo"
+  },
+  {
+   "id": "viva",
+   "en": "our-experiment",
+   "es": "nuestro-experimento"
+  }
+ ],
+ "modulos": [
+  {
+   "src": "viva/ocho-tardes.js",
+   "sel": "[data-viva]",
+   "quieto": true
+  },
+  {
+   "src": "svg/mapa.js",
+   "sel": "svg.cm"
+  }
+ ],
+ "pliegues": {
+  "the-same-road": {
+   "grupo": "caminatas",
+   "hasta": "2026-12-12"
+  },
+  "la-misma-calle": {
+   "grupo": "caminatas",
+   "hasta": "2026-12-12"
+  },
+  "geminids": {
+   "grupo": "caminatas",
+   "desde": "2026-12-13",
+   "hasta": "2026-12-14"
+  },
+  "geminidas": {
+   "grupo": "caminatas",
+   "desde": "2026-12-13",
+   "hasta": "2026-12-14"
+  },
+  "side-by-side": {
+   "grupo": "caminatas",
+   "desde": "2026-12-15",
+   "hasta": "2026-12-16"
+  },
+  "lado-a-lado": {
+   "grupo": "caminatas",
+   "desde": "2026-12-15",
+   "hasta": "2026-12-16"
+  },
+  "the-long-way": {
+   "grupo": "caminatas",
+   "desde": "2026-12-17"
+  },
+  "el-camino-largo": {
+   "grupo": "caminatas",
+   "desde": "2026-12-17"
+  },
+  "on-your-own": {},
+  "a-solas": {}
+ },
+ "css": [
+  "viz.css"
+ ],
+ "scripts": [],
+ "flechas": {
+  "Eight evenings, one road": "#our-experiment",
+  "Ocho tardes, un camino": "#nuestro-experimento"
+ },
+ "lunaDatos": {
+  "en": "Moon data: NASA JPL Horizons, at the hour of each piece. [5]",
+  "es": "Datos de la luna: NASA JPL Horizons, a la hora de cada pieza. [5]"
+ }
+}

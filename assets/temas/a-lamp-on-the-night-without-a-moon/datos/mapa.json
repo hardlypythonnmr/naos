@@ -1,0 +1,186 @@
+{
+ "id": "mapa",
+ "kit": "K1 mapa conceptual, 7 nodos",
+ "slug": "a-lamp-on-the-night-without-a-moon",
+ "fuente_luna": "NASA JPL Horizons, cuerpo 301, cantidad 10 (iluminacion), consultado 2026-10-16; USNO para la luna nueva. Credito en pantalla: U.S. Naval Observatory and NASA JPL Horizons.",
+ "convencion": "La parte iluminada se dibuja a escala (fraccion k del disco). Menguante (antes del 9-nov) iluminada a la izquierda y creciente a la derecha, como se ve desde el hemisferio norte. Los nodos del 8-nov llevan la fase 'vispera' (víspera de luna nueva, como las tarjetas); se dibujan como menguante.",
+ "nodos": [
+  {
+   "i": 1,
+   "src": "1107h",
+   "ancla": "c-2026-11-07-2000-h-short-reel",
+   "estado": "next",
+   "luna": {
+    "pct": 1.7,
+    "hora_et": "20:00",
+    "fase": "menguante",
+    "pieza": "Short"
+   },
+   "en": {
+    "fecha": "Sat 7 Nov",
+    "titulo": "Lamps for a night without a moon"
+   },
+   "es": {
+    "fecha": "sáb 7 nov",
+    "titulo": "Lámparas para una noche sin luna"
+   }
+  },
+  {
+   "i": 2,
+   "src": null,
+   "ancla": "c-2026-11-08-1000-h-medio",
+   "estado": "next",
+   "luna": {
+    "pct": 0.6,
+    "hora_et": "10:00",
+    "fase": "vispera",
+    "pieza": "video"
+   },
+   "en": {
+    "fecha": "Sun 8 Nov, morning",
+    "titulo": "The night, in three chapters"
+   },
+   "es": {
+    "fecha": "dom 8 nov, mañana",
+    "titulo": "La noche, en tres capítulos"
+   }
+  },
+  {
+   "i": 3,
+   "src": "1108h",
+   "ancla": "c-2026-11-08-2000-h-short-reel",
+   "estado": "next",
+   "luna": {
+    "pct": 0.2,
+    "hora_et": "20:00",
+    "fase": "vispera",
+    "pieza": "Short"
+   },
+   "en": {
+    "fecha": "Sun 8 Nov, night",
+    "titulo": "One minute of dark"
+   },
+   "es": {
+    "fecha": "dom 8 nov, noche",
+    "titulo": "Un minuto a oscuras"
+   }
+  },
+  {
+   "i": 4,
+   "src": "1110h",
+   "ancla": "c-2026-11-10-2000-h-short-reel",
+   "estado": "next",
+   "luna": {
+    "pct": 3.1,
+    "hora_et": "20:00",
+    "fase": "creciente",
+    "pieza": "Short"
+   },
+   "en": {
+    "fecha": "Tue 10 Nov",
+    "titulo": "One lamp is enough"
+   },
+   "es": {
+    "fecha": "mar 10 nov",
+    "titulo": "Una lámpara alcanza"
+   }
+  },
+  {
+   "i": 5,
+   "src": "1112h",
+   "ancla": "c-2026-11-12-2000-h-short-reel",
+   "estado": "next",
+   "luna": {
+    "pct": 12.8,
+    "hora_et": "20:00",
+    "fase": "creciente",
+    "pieza": "Short"
+   },
+   "en": {
+    "fecha": "Thu 12 Nov",
+    "titulo": "Open the door to someone"
+   },
+   "es": {
+    "fecha": "jue 12 nov",
+    "titulo": "Ábrele la puerta a alguien"
+   }
+  },
+  {
+   "i": 6,
+   "src": "1113h",
+   "ancla": "c-2026-11-13-2000-h-short-reel",
+   "estado": "next",
+   "luna": {
+    "pct": 19.6,
+    "hora_et": "20:00",
+    "fase": "creciente",
+    "pieza": "Short"
+   },
+   "en": {
+    "fecha": "Fri 13 Nov",
+    "titulo": "A new ledger"
+   },
+   "es": {
+    "fecha": "vie 13 nov",
+    "titulo": "Libro de cuentas nuevo"
+   }
+  },
+  {
+   "i": 7,
+   "src": "1114es",
+   "ancla": "c-2026-11-14-1200-h-es",
+   "estado": "next",
+   "luna": null,
+   "en": {
+    "fecha": "Sat 14 Nov",
+    "titulo": "Una lámpara alcanza, in Spanish"
+   },
+   "es": {
+    "fecha": "sáb 14 nov",
+    "titulo": "Una lámpara alcanza, en español"
+   }
+  }
+ ],
+ "en": {
+  "titulo": "A row of lamps, 7 to 14 November",
+  "alt": "Map of this page: a row of seven small clay lamps in dots, one for each title from 7 to 14 November, each with the moon beside it as it is that day. The moon is almost dark on 7 November, has no light to speak of on Diwali night, 8 November, and is a thin crescent by the 13th.",
+  "desc": "Seven stops from top to bottom, in date order. 7 November: the moon is 1.7% lit. 8 November, morning: 0.6%. 8 November, night: 0.2%. 10 November: 3.1%. 12 November: 12.8%. 13 November: 19.6%. 14 November: a piece in Spanish, no moon figure. Moon figures are for the hour of each piece. An outlined lamp is a piece still coming, a filled lamp is a piece already out, and a lamp with a flame is the piece you came from.",
+  "leyenda_prox": "Coming",
+  "leyenda_out": "Out",
+  "leyenda_desde": "You came from this one",
+  "leyenda_luna": "Moon at the hour of the piece",
+  "estado_next": "Coming",
+  "estado_out": "Out",
+  "que_es": "What this shows.",
+  "que_muestra": "Each lamp is a title, in date order: a story and its Short share one, and 8 November has two. Beside it, the moon at the hour of that piece: 1.7% lit on 7 November, 0.6% and 0.2% on 8 November, Diwali, when the moon is down before the sun and there is none in the sky that night, then 3.1% on 10 November and 19.6% by the 13th. The piece you came from is lit.",
+  "texto_version": "Text version of the map",
+  "luna_txt": "moon {pct} lit at {hora} ET, {fase}",
+  "luna_no": "the moon for this piece is on the Spanish page",
+  "fases": {
+   "menguante": "waning crescent",
+   "creciente": "waxing crescent",
+   "vispera": "eve of the new moon"
+  }
+ },
+ "es": {
+  "titulo": "Una hilera de lámparas, del 7 al 14 de noviembre",
+  "alt": "Mapa de esta página: una hilera de siete lamparitas de barro en puntos, una por cada título del 7 al 14 de noviembre, cada una con la luna de ese día a su lado. La luna casi no tiene luz el 7 de noviembre, apenas se nota la noche de Diwali, el 8, y es una luna creciente muy delgada el 13.",
+  "desc": "Siete paradas de arriba abajo, por fecha. 7 de noviembre: la luna está iluminada al 1,7 %. 8 de noviembre, mañana: 0,6 %. 8 de noviembre, noche: 0,2 %. 10 de noviembre: 3,1 %. 12 de noviembre: 12,8 %. 13 de noviembre: 19,6 %. 14 de noviembre: una pieza en español, sin cifra de luna. Las cifras de la luna son de la hora de cada pieza. Una lámpara con contorno es una pieza que aún no sale, una lámpara llena es una pieza que ya salió, y una lámpara con llama es la pieza de la que vienes.",
+  "leyenda_prox": "Próximamente",
+  "leyenda_out": "Ya salió",
+  "leyenda_desde": "Vienes de esta",
+  "leyenda_luna": "La luna a la hora de la pieza",
+  "estado_next": "Próximamente",
+  "estado_out": "Ya salió",
+  "que_es": "Qué muestra.",
+  "que_muestra": "Cada lámpara es un título, por fecha: la historia y su Short comparten una, y el 8 de noviembre hay dos. Al lado, la luna a la hora de esa pieza: 1,7 % iluminada el 7, 0,6 % y 0,2 % el 8, el día de Diwali, cuando la luna se pone antes que el sol y esa noche no hay ninguna en el cielo, y luego 3,1 % el 10 y 19,6 % el 13. La pieza de la que vienes aparece encendida.",
+  "texto_version": "Versión en texto del mapa",
+  "luna_txt": "luna {pct} iluminada a las {hora} ET, {fase}",
+  "luna_no": "la luna de esta pieza está en la página en español",
+  "fases": {
+   "menguante": "menguante",
+   "creciente": "creciente",
+   "vispera": "víspera de luna nueva"
+  }
+ }
+}

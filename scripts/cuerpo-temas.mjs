@@ -80,6 +80,37 @@ export const CONFIG = {
       { id: "mapa", en: "map", es: "mapa" },
       { id: "grafica", en: "where-they-disagree", es: "no-coinciden" }],
     modulos: [{ src: "anim/noche.js", sel: "[data-sv]", quieto: true }] },
+  // lote 2 (sello I4 del 16 al 19-oct). Las tres entradas son las del sello de cada página (sello.md), con lo que el montaje suma.
+  // walks: una sola caminata abierta (meta.json, caminata_abierta_por_defecto): la del Short de ?src= o, sin él, la que toca por
+  // fecha (ET); las otras tres plegadas bajo su título. "If you're on your own" plegada siempre; se abre solo al llegar por su ancla.
+  "walks-by-the-moon": { familia: "fig", css: ["viz.css"],
+    visuales: [{ id: "mapa", en: "map", es: "mapa" }, { id: "luna", en: "the-sky", es: "el-cielo" }, { id: "viva", en: "our-experiment", es: "nuestro-experimento" }],
+    modulos: [{ src: "viva/ocho-tardes.js", sel: "[data-viva]", quieto: true }, { src: "svg/mapa.js", sel: "svg.cm" }],
+    pliegues: {
+      "the-same-road": { grupo: "caminatas", hasta: "2026-12-12" }, "la-misma-calle": { grupo: "caminatas", hasta: "2026-12-12" },
+      geminids: { grupo: "caminatas", desde: "2026-12-13", hasta: "2026-12-14" }, geminidas: { grupo: "caminatas", desde: "2026-12-13", hasta: "2026-12-14" },
+      "side-by-side": { grupo: "caminatas", desde: "2026-12-15", hasta: "2026-12-16" }, "lado-a-lado": { grupo: "caminatas", desde: "2026-12-15", hasta: "2026-12-16" },
+      "the-long-way": { grupo: "caminatas", desde: "2026-12-17" }, "el-camino-largo": { grupo: "caminatas", desde: "2026-12-17" },
+      "on-your-own": {}, "a-solas": {} },
+    flechas: { "Eight evenings, one road": "#our-experiment", "Ocho tardes, un camino": "#nuestro-experimento" },
+    lunaDatos: { en: "Moon data: NASA JPL Horizons, at the hour of each piece. [5]", es: "Datos de la luna: NASA JPL Horizons, a la hora de cada pieza. [5]" } },
+  // keep-your-hour: el cuerpo se monta desde el domingo 1-nov, 02:00 ET (07:00 UTC, ya en hora estándar): el título y el gancho van
+  // en pasado ("The clock moved"). Hasta entonces queda el esqueleto (construir-temas.mjs, compuerta "desde").
+  "keep-your-hour": { familia: "fig", css: ["viz.css"], desde: "2026-11-01T07:00:00Z",
+    visuales: [{ id: "mapa", en: "map", es: "mapa" }, { id: "reloj", en: "the-clock-change", es: "el-cambio-de-hora", despues: { en: "^In the United States the clocks go back", es: "^En Estados Unidos los relojes se atrasan" } }, { id: "viva", en: "our-experiment", es: "nuestro-experimento" }],
+    modulos: [{ src: "viva/tres-pasos.js", sel: "[data-viva]", quieto: true }, { src: "svg/mapa.js", sel: "svg.cm" }],
+    flechas: { "Three steps, one evening": "#three-steps", "Tres pasos, una noche": "#tres-pasos", "on the Spanish page": "../../es/temas/es/#c-2026-11-07-1200-h-es" },
+    pliegues: { "your-clock-didnt-move": {}, "si-no-cambia-la-hora": {} },
+    lunaDatos: { en: "Moon data: NASA JPL Horizons, at the hour of each piece. [26]", es: "Datos de la luna: NASA JPL Horizons, a la hora de cada pieza. [26]" } },
+  // a-lamp: "on the Spanish page" va a la tarjeta del 14-nov en la página "es", donde aterriza 1114es (decisión 2 de N, lote 2)
+  "a-lamp-on-the-night-without-a-moon": { familia: "fig", css: ["viz.css"],
+    visuales: [{ id: "mapa", en: "map", es: "mapa" }, { id: "cielo", en: "the-night", es: "la-noche", despues: { en: "^On 8 November the moon sets before the sun", es: "^El 8 de noviembre la luna se pone antes" } }, { id: "viva", en: "our-experiment", es: "nuestro-experimento" }],
+    modulos: [{ src: "viva/luz-viva.js", sel: "[data-viva]", quieto: true }, { src: "svg/mapa.js", sel: "svg.cm" }],
+    flechas: { "Study": "#study", "Estudio": "#estudio", "The three steps, in motion": "#our-experiment", "Los tres pasos, en movimiento": "#nuestro-experimento", "Help lines": "#ayuda", "Líneas de ayuda": "#ayuda", "on the Spanish page": "../../es/temas/es/#c-2026-11-14-1200-h-es", "If you're on your own that night": "#on-your-own", "Si estás a solas esa noche": "#a-solas", "The moon this season": "../moon/", "La luna esta temporada": "../moon/", "The tale": "#the-tale", "El cuento": "#el-cuento", "The pieces": "#pieces", "Las piezas": "#piezas" },
+    pliegues: { "on-your-own": {}, "a-solas": {} },
+    // el título ES de la pieza del 14-nov en la versión en texto del mapa EN lleva su lang (WCAG 3.1.2)
+    marcas: { en: { "Una lámpara alcanza": "es" } },
+    lunaDatos: { en: "Moon data: U.S. Naval Observatory and NASA JPL Horizons. [20] [21]", es: "Datos de la luna: Observatorio Naval de Estados Unidos (USNO) y NASA JPL Horizons. [20] [21]" } },
 };
 
 // meta.json viene en dos formas (lote 0 y lote 1); se normaliza a lo que la página publica
@@ -126,20 +157,20 @@ export function importar({ V, lote, slugs, log = console.log }) {
       fs.writeFileSync(path.join(V, `data/temas/${slug}.${l}.md`), t);
     }
     const datos = { ...metaPublica(JSON.parse(fs.readFileSync(path.join(dir, "meta.json"), "utf8")), slug),
-      visuales: C.visuales, modulos: C.modulos || [], pliegues: C.pliegues || {}, css: C.css || [], scripts: C.scripts || [], flechas: C.flechas || {}, ...(C.cambio ? { cambio: C.cambio } : {}), ...(C.soloSrc ? { soloSrc: C.soloSrc } : {}), ...(C.lunas ? { lunas: C.lunas } : {}), ...(C.lunaDatos ? { lunaDatos: C.lunaDatos } : {}) };
+      visuales: C.visuales, modulos: C.modulos || [], pliegues: C.pliegues || {}, css: C.css || [], scripts: C.scripts || [], flechas: C.flechas || {}, ...(C.cambio ? { cambio: C.cambio } : {}), ...(C.desde ? { desde: C.desde } : {}), ...(C.marcas ? { marcas: C.marcas } : {}), ...(C.soloSrc ? { soloSrc: C.soloSrc } : {}), ...(C.lunas ? { lunas: C.lunas } : {}), ...(C.lunaDatos ? { lunaDatos: C.lunaDatos } : {}) };
     fs.writeFileSync(path.join(V, `data/temas/${slug}.json`), JSON.stringify(datos, null, 1) + "\n");
     // assets: solo lo que la página usa (sin generadores .py, sin LEEME, sin la vista previa)
     fs.rmSync(dest, { recursive: true, force: true });
     const copiar = (de, a) => { fs.mkdirSync(path.dirname(a), { recursive: true }); fs.copyFileSync(de, a); };
     const PUBLICO = /\.(svg|js|css|json)$/;
-    const recorrer = (d, rel = "") => { for (const n of fs.readdirSync(d).sort()) { const p = path.join(d, n), r = rel ? `${rel}/${n}` : n; if (fs.statSync(p).isDirectory()) { if (n !== "src") recorrer(p, r); } else if (PUBLICO.test(n) || (C.familia === "fig" && r.startsWith("fig/") && n.endsWith(".html"))) copiar(p, path.join(dest, r)); } };
+    const recorrer = (d, rel = "") => { for (const n of fs.readdirSync(d).sort()) { const p = path.join(d, n), r = rel ? `${rel}/${n}` : n; if (fs.statSync(p).isDirectory()) { if (n !== "src" && !/^historia-/.test(n)) recorrer(p, r); } else if (PUBLICO.test(n) || (C.familia === "fig" && r.startsWith("fig/") && n.endsWith(".html"))) copiar(p, path.join(dest, r)); } };
     recorrer(vis);
     // los datos de cada figura se publican sin lo interno: ni ids de afirmaciones, ni notas de trabajo, ni rutas de archivos
-    const ID = /^(cella|fmt|quien|voto|fomc|chat|moon|santos|sas)-[\w-]*\d{2}\b/;
+    const ID = /^(cella|fmt|quien|voto|fomc|chat|moon|santos|sas|walks|kyh|lamp)-[\w-]*\d{2}\b/;
     const limpio = (o) => {
       if (Array.isArray(o)) { const xs = o.map(limpio).filter((x) => x !== undefined); return xs.length || !o.length ? xs : undefined; }
       if (o && typeof o === "object") return Object.fromEntries(Object.entries(o).filter(([k]) => !/^(_?nota.*|afirmaci.*|af|ids|fila|filas)$/.test(k)).map(([k, v]) => [k, limpio(v)]).filter(([, v]) => v !== undefined));
-      if (typeof o === "string" && (ID.test(o) || /\b(sas|moon)-\d{2}\b|\bLEEME\b|texto-(en|es)\.md|revision-fuentes|\bI[34]\b/.test(o))) return undefined;
+      if (typeof o === "string" && (ID.test(o) || /\b(sas|moon|walks|kyh|lamp|cella)-\d{2}\b|\bes-m?\d{2}\b|\bLEEME\b|texto-(en|es)\.md|revision-fuentes|\bI[34]\b/.test(o))) return undefined;
       return o;
     };
     const dd = path.join(dest, "datos");
@@ -176,12 +207,14 @@ const PLIEGUE = /^\*(.+)\s+\((folded|plegad[ao])([^)]*)\)\*$/i; // *Rótulo (fol
 const PLIEGUE_SECCION = /^\((Folded|Plegad[oa]|The drawing is folded|El dibujo va plegado)\b/; // (Folded. Opens on tap.)
 const FIN_PLIEGUE = /\s*\*\((end of fold|fin del plegado)\)\*\s*$/i;
 const HUECO_VISUAL = /^\[(Figure|Figura|Visual)\b|^(Chart|Gráfica):/;
-const CONSTRUCCION = /^(Map title|Título del mapa|Nodes|Nodos|Alt|Texto alternativo|Legend|Leyenda|Details|Detalles|What this shows|Qué muestra|Text version|Versión en texto)\b|^\[(What this shows|Qué muestra)/;
+const CONSTRUCCION = /^(Map title|Título del mapa|Figure title|Título de la figura|Nodes|Nodos|Alt|Texto alternativo|Legend|Leyenda|Details|Detalles|What this shows|Qué muestra|Text version|Versión en texto)\b|^\[(What this shows|Qué muestra)/;
 const BOTON_ENVIAR = /^\[(Send this|Send this page|Send the three questions|Enviar|Enviar esto|Enviar esta página|Enviar las tres preguntas|Mándasela)\]$/;
 const BOTON_COPIAR = /^\[(Copy the prompt|Copiar el prompt)\]$/;
 const VIENES = /^\[(You came from|Vienes de):/;
+// nota para el constructor dentro del texto ("(One walk open: … )"): la cumple el constructor y no se pinta
+const NOTA_CONSTRUCTOR = /^\((One walk open|Una caminata abierta)\b/;
 // "{…}" lo llena el navegador; sin llaves, la línea es el valor por defecto (saints-and-souls). "Next moon" sale de la columna (X.lunas)
-const PROXIMA = /^(Next here|Next piece|Next moon|Next|Lo que sigue en esta página|Lo que sigue|Lo próximo|Lo siguiente aquí|La próxima pieza|La próxima luna):\s*(?:\{[^}]*\}\.?\s*(?:(Default|Por defecto):\s*(.*))?|([^{\s].*))$/;
+const PROXIMA = /^(Next here|Next piece|Next moon|Next|Lo que sigue en esta página|Lo que sigue|Lo próximo aquí|Lo próximo|Lo siguiente aquí|La próxima pieza|La próxima luna):\s*(?:\{[^}]*\}\.?\s*(?:(Default|Por defecto):\s*(.*))?|([^{\s].*))$/;
 const PROX_LUNA = /^(Next moon|La próxima luna)$/;
 // "[fold] La noche {#id}" (moon) es un pliegue con rótulo; "Moon: … [tap] …" en la cabeza de una tarjeta lo pone el registro (la luna del dato)
 const FOLD_CORTO = /^\[(fold|pliegue)\]\s+(.+?)\s*\{#([\w-]+)\}\s*$/gm;
@@ -330,8 +363,13 @@ export function cuerpoTema({ L, D, p, X, md, raiz, xs, carta, enlaces }) {
   const figura = (id) => {
     const f = path.join(X._V, "assets/temas", p.slug, "fig", `${id}.${L.lang}.html`);
     if (!fs.existsSync(f)) throw new Error(`${p.slug}: falta la figura ${id}.${L.lang}.html (correr con --cuerpo)`);
-    // los enlaces absolutos del sitio (/naos/…) pasan a relativos, como en el resto de la página
-    return fs.readFileSync(f, "utf8").trim().replace(/(href|src)="\/naos\//g, `$1="${raiz}`);
+    // los enlaces absolutos del sitio (/naos/…) pasan a relativos, como en el resto de la página; el ancla de una tarjeta que no está
+    // en esta edición (la pieza ES en la edición EN) va a la página donde aterriza (la página "es", decisión 2 de N del lote 2)
+    return fs.readFileSync(f, "utf8").trim().replace(/(href|src)="\/naos\//g, `$1="${raiz}`).replace(/href="#(c-[\w-]+)"/g, (m, id) => {
+      if (xs.some((x) => x.id === id)) return m;
+      const y = D.piezas.find((z) => z.id === id);
+      return y && y.pagina !== p.slug ? `href="${raiz}${L.pref}temas/${y.pagina}/#${id}"` : m;
+    }).split(/(<svg[\s\S]*?<\/svg>)/).map((s) => (/^<svg/.test(s) ? s : Object.entries((X.marcas || {})[L.lang] || {}).reduce((a, [w, l]) => a.split(w).join(`<span lang="${l}">${w}</span>`), s))).join("");
   };
   const visualesDe = (b, sub) => (X.visuales || []).filter((v) => { const k = v[L.lang]; return sub ? (k === sub.id || k === "h:" + sub.titulo) : (k === b.id || k === "h:" + b.titulo); });
   const usados = new Set();
@@ -351,6 +389,7 @@ export function cuerpoTema({ L, D, p, X, md, raiz, xs, carta, enlaces }) {
       if (saltar) { const re = new RegExp(saltar); if (f.t === "p" && f.lineas.some((x) => re.test(x))) saltar = null; continue; }
       if (f.t === "tiempo") { if (pliegue && tiempo) cerrarPliegue(); cerrarTiempo(); if (f.v !== "ambos") { tiempo = f.v; out.push(`<div class="t-tiempo" data-tiempo="${f.v}"${f.v === "despues" ? " hidden" : ""}>`); } continue; }
       if (f.t === "p" && f.lineas.length === 1 && PLIEGUE_SECCION.test(linea1)) continue; // lo resuelve la sección
+      if (f.t === "p" && NOTA_CONSTRUCTOR.test(linea1)) continue;
       if (f.t === "carta") { if (!registroPuesto) { out.push(tarjetas()); registroPuesto = true; } continue; }
       // el visual en su hueco
       if (f.t === "p" && HUECO_VISUAL.test(linea1)) {
@@ -360,10 +399,11 @@ export function cuerpoTema({ L, D, p, X, md, raiz, xs, carta, enlaces }) {
       }
       // el bloque de construcción del mapa se va; en su lugar, la figura (si no estaba ya en su hueco)
       if (f.t === "p" && CONSTRUCCION.test(linea1)) {
-        if (!enConstruccion) { enConstruccion = true; const v = pendientes.find((x) => x.id === "mapa"); if (v) ponVisual(v); }
+        // "Figure title: …" (walks, "The sky"): el armado de una figura que no es el mapa; la figura va en su lugar
+        if (!enConstruccion) { enConstruccion = true; const v = pendientes.find((x) => x.id === "mapa") || (/^(Figure title|Título de la figura)\b/.test(linea1) ? pendientes[0] : null); if (v) ponVisual(v); }
         continue;
       }
-      if (enConstruccion && (f.t === "ul" || f.t === "ol")) continue;
+      if (enConstruccion && (f.t === "ul" || f.t === "ol" || f.t === "tabla")) continue;
       enConstruccion = false;
       // la figura es el contenido del contenedor: va al inicio y se quita el texto que ella ya trae
       const vr = !hayHueco && pendientes.find((x) => x.reemplaza);
@@ -424,6 +464,9 @@ export function cuerpoTema({ L, D, p, X, md, raiz, xs, carta, enlaces }) {
     if (mf) return `<p class="t-fuente" id="f-${mf[1]}"><span class="t-fn">[${mf[1]}]</span> ${C.partesEN(mf[2])}</p>`;
     const ml = /^(The line to carry|Line to take|La frase que te llevas|Frase para llevar|La frase para llevarse|Llévate esta frase)([^:]*):\s*(.+)$/.exec(s);
     if (ml) return `<p class="t-llevar"${id}><span class="t-llevar-k">${inl(ml[1] + ml[2])}:</span> ${revela(inl(ml[3]))}</p>`;
+    // la conducta en una frase (la intención "cuando X, hago Y"): es lo que la práctica deja; pesa como frase, no como nota (pase de arte 3)
+    const mu = !enCarta && /^(In one line|If you want it in one line|En una frase|Si quieres tenerlo en una frase):\s*(.+)$/.exec(s);
+    if (mu) return `<p class="t-una-linea"${id}><span class="t-una-linea-k">${esc(mu[1])}:</span> ${C.partesEN(mu[2])}</p>`;
     if (!enCarta && ls.length === 1) { const t = C.conTituloFinal(s); if (t) return `<p${id}>${t}</p>`; }
     // el canal de correcciones (lo añade el constructor): la frase enlaza al contacto de la página de términos
     if (/(Corrections welcome|Correcciones bienvenidas)\.?/.test(s) && !/\]\(/.test(s)) return `<p${id}>${ls.map(inl).join("<br>").replace(/(Corrections welcome|Correcciones bienvenidas)/, `<a href="${raiz}terminos.html"${L.lang === "es" ? "" : ' hreflang="es"'}>$1</a>`)}</p>`;
@@ -435,8 +478,9 @@ export function cuerpoTema({ L, D, p, X, md, raiz, xs, carta, enlaces }) {
     const humanity = p.seccion === "Humanity";
     const li = xs.map((x, i) => {
       const t = cartasTxt.get(x.id), o = X.luna && X.luna[x.id];
-      const luna = o && x.luna ? { ...x.luna, iluminacion: o.iluminacion, fase: o.fase[L.lang] || x.luna.fase } : x.luna;
-      return carta(L, { ...x, luna }, p, enlaces[x.fecha + "|" + x.codigo], raiz, i > 0 && xs[i - 1].fecha === x.fecha, i > 0 && xs[i - 1].fecha === x.fecha && !!x.luna && JSON.stringify(xs[i - 1].luna) === JSON.stringify(x.luna), t ? cartaExtra(t) : null);
+      // pct null en luna_por_pieza (walks, la pieza ES del 19-dic): esa tarjeta va sin línea de luna (sello de walks, condición 2)
+      const luna = o && o.iluminacion == null ? null : o && x.luna ? { ...x.luna, iluminacion: o.iluminacion, fase: o.fase[L.lang] || x.luna.fase } : x.luna;
+      return carta(L, { ...x, luna }, p, enlaces[x.fecha + "|" + x.codigo], raiz, i > 0 && xs[i - 1].fecha === x.fecha, i > 0 && xs[i - 1].fecha === x.fecha && !!x.luna && !!luna && JSON.stringify(xs[i - 1].luna) === JSON.stringify(x.luna), t ? cartaExtra(t) : null);
     });
     return `${humanity ? `<p class="t-col-luna" aria-hidden="true">${L.colLuna}</p>\n` : ""}<ol class="t-cartas">\n${li.join("\n")}\n</ol>${xs.some((x) => x.luna) ? `\n<p class="t-fuentes-n t-luna-datos">${X.lunaDatos ? inl(X.lunaDatos[L.lang]) : L.lunaDatos}</p>` : ""}`;
   }
@@ -480,7 +524,14 @@ export function cuerpoTema({ L, D, p, X, md, raiz, xs, carta, enlaces }) {
     const pl = cfg || s.fichas.find((f) => f.t === "p" && f.lineas.length === 1 && PLIEGUE_SECCION.test(f.lineas[0]));
     const r = serie(s.fichas, { vis: visualesDe(b, s) });
     let c = [...r.html, ...r.cerrar()].join("\n");
-    const h = `<h${s.n}>${inl(s.titulo)}</h${s.n}>`, attr = (s.id ? ` id="${s.id}"` : "") + (cfg && cfg.desde ? ` data-visible-desde="${cfg.desde}"` : "");
+    const grupo = cfg && cfg.grupo;
+    const h = `<h${s.n}>${inl(s.titulo)}</h${s.n}>`, attr = (s.id ? ` id="${s.id}"` : "") + (cfg && cfg.desde && !grupo ? ` data-visible-desde="${cfg.desde}"` : "");
+    if (grupo) {
+      // un grupo de pliegues con una sola parte abierta (walks): sin JS, la primera del grupo (la de antes de toda fecha); con JS,
+      // temas.js abre la del Short de ?src= o la que toca por fecha (ET, data-desde / data-hasta) y pliega las demás
+      const abierta = !cfg.desde;
+      return `<section class="t-sub"${attr}><details class="t-pliegue t-pliegue-h" data-grupo="${grupo}"${cfg.desde ? ` data-desde="${cfg.desde}"` : ""}${cfg.hasta ? ` data-hasta="${cfg.hasta}"` : ""}${abierta ? " open" : ""}><summary>${h}</summary>\n${c}\n</details></section>`;
+    }
     if (pl || (partes && s.n === 3)) {
       // en "cada parte se abre por separado", la línea en cursiva bajo el título va con el rótulo
       let sub = ""; const m = /^<p class="t-sub">([\s\S]*?)<\/p>\n?/.exec(c);

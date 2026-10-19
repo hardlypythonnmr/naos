@@ -1,0 +1,119 @@
+{
+ "id": "reloj",
+ "kit": "K5 (anillo de 24 h) en su forma de lista alineada: 25 filas, tres relojes",
+ "slug": "keep-your-hour",
+ "fuentes_en_pagina": [
+  "[1] 15 U.S.C. 260a",
+  "[2] NIST",
+  "[4] IANA tz",
+  "[6] Decreto 2707/1982 e INM"
+ ],
+ "calculo": {
+  "fecha": "2026-10-16",
+  "herramienta": "Python 3 zoneinfo (IANA tzdata)",
+  "zonas": [
+   "America/New_York",
+   "America/Bogota"
+  ],
+  "rango_utc": "2026-11-01 04:00 a 2026-11-02 05:00 (25 h)",
+  "dia_ny_horas": 25,
+  "dia_med_horas": 24,
+  "segunda_1am_utc": "06:00"
+ },
+ "en": {
+  "titulo": "Sunday 1 November, hour by hour",
+  "subtitulo": "Each row is one real hour, read on three clocks",
+  "alt": "Chart of Sunday 1 November in hours: 25 rows, one for each real hour, read on three clocks: UTC, Medellín and New York. New York shows 01:00 twice, first on summer time (EDT) and then on standard time (EST), so its day has 25 hours. Medellín shows 01:00 once and its day has 24. From the second 01:00 on, both cities show the same hour.",
+  "desc": "Rows from 04:00 UTC on 1 November to 04:00 UTC on 2 November, one per real hour. Medellín keeps UTC-5 all year: its column runs from 23:00 on 31 October to 23:00 on 1 November. New York is on UTC-4 in the first two rows (00:00 and 01:00 EDT), one hour ahead of Medellín. At 06:00 UTC its clock goes back from 02:00 to 01:00 EST, so 01:00 appears twice, and from there both columns match. New York has 25 hours on 1 November, Medellín 24.",
+  "col_utc": "UTC",
+  "col_med": "Medellín",
+  "col_ny": "New York",
+  "sub_utc": [
+   "1 to 2 Nov"
+  ],
+  "sub_med": [
+   "UTC-5,",
+   "all year"
+  ],
+  "sub_ny": [
+   "UTC-4,",
+   "then UTC-5"
+  ],
+  "mas1": "+1 h",
+  "igual": "same",
+  "dos_veces": [
+   "1:00 a.m.",
+   "happens",
+   "twice"
+  ],
+  "pie_med": [
+   "24 hours",
+   "on 1 Nov"
+  ],
+  "pie_ny": [
+   "25 hours",
+   "on 1 Nov"
+  ],
+  "clave": [
+   "EDT: summer time. EST: standard time.",
+   "Dashed outline: 23:00 on 31 Oct."
+  ],
+  "que_es": "What this shows.",
+  "que_muestra": "On Sunday 1 November the clocks in New York go back from 2:00 to 1:00, so 1:00 a.m. happens twice and that day has 25 hours. Medellín does not change: its day has 24. From the second 1:00 on, both cities show the same hour.",
+  "fuente": "Rule: 15 U.S. Code § 260a [1], NIST [2], IANA tz database [4]; Colombia, Decree 2707 of 1982 [6]. Hours calculated for this page from the IANA rules (Python zoneinfo) on 16 October 2026.",
+  "tabla_resumen": "Data table",
+  "tabla_cab": [
+   "UTC",
+   "Medellín (UTC-5)",
+   "New York"
+  ]
+ },
+ "es": {
+  "titulo": "El domingo 1 de noviembre, hora por hora",
+  "subtitulo": "Cada fila es una hora real, leída en tres relojes",
+  "alt": "Gráfica del domingo 1 de noviembre por horas: 25 filas, una por cada hora real, leídas en tres relojes: UTC, Medellín y Nueva York. En Nueva York la 01:00 aparece dos veces, primero con el horario de verano (EDT) y después con el horario estándar (EST), así que ese día tiene 25 horas. En Medellín la 01:00 aparece una vez y el día tiene 24. Desde la segunda 01:00, las dos ciudades marcan la misma hora.",
+  "desc": "Filas desde las 04:00 UTC del 1 de noviembre hasta las 04:00 UTC del 2 de noviembre, una por cada hora real. Medellín conserva UTC-5 todo el año: su columna va de las 23:00 del 31 de octubre a las 23:00 del 1 de noviembre. Nueva York está en UTC-4 en las dos primeras filas (00:00 y 01:00 EDT), una hora adelante de Medellín. A las 06:00 UTC su reloj se atrasa de las 02:00 a la 01:00 EST, así que la 01:00 aparece dos veces, y desde ahí las dos columnas coinciden. El 1 de noviembre Nueva York tiene 25 horas y Medellín 24.",
+  "col_utc": "UTC",
+  "col_med": "Medellín",
+  "col_ny": "Nueva York",
+  "sub_utc": [
+   "1 a 2 nov"
+  ],
+  "sub_med": [
+   "UTC-5,",
+   "todo el año"
+  ],
+  "sub_ny": [
+   "UTC-4 y luego",
+   "UTC-5"
+  ],
+  "mas1": "+1 h",
+  "igual": "igual",
+  "dos_veces": [
+   "La 1:00",
+   "pasa dos",
+   "veces"
+  ],
+  "pie_med": [
+   "24 horas",
+   "el 1 nov"
+  ],
+  "pie_ny": [
+   "25 horas",
+   "el 1 nov"
+  ],
+  "clave": [
+   "EDT: horario de verano. EST: horario estándar.",
+   "Borde discontinuo: 23:00 del 31 oct."
+  ],
+  "que_es": "Qué muestra.",
+  "que_muestra": "El domingo 1 de noviembre los relojes de Nueva York se atrasan de las 2:00 a la 1:00: la 1:00 a. m. ocurre dos veces y ese día tiene 25 horas. En Medellín no cambia nada y el día tiene 24. Desde la segunda 1:00, las dos ciudades marcan la misma hora.",
+  "fuente": "Regla: 15 U.S. Code § 260a [1], NIST [2], base de datos de zonas horarias IANA [4]; Colombia, Decreto 2707 de 1982 [6]. Horas calculadas para esta página con las reglas de IANA (zoneinfo de Python) el 16 de octubre de 2026.",
+  "tabla_resumen": "Tabla de datos",
+  "tabla_cab": [
+   "UTC",
+   "Medellín (UTC-5)",
+   "Nueva York"
+  ]
+ }
+}

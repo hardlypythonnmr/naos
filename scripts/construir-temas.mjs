@@ -2,7 +2,8 @@
 // Node 18+, sin dependencias. Dos pasos:
 //   1. Proyección (solo donde está la grilla privada): lee paginas.json + grilla.json (+ afirmaciones.csv) y escribe
 //      data/temas.json con lo que la página pública necesita y nada más (sin notas internas, sin revisa_N, sin rutas).
-//        node scripts/construir-temas.mjs --grilla=<grilla.json> --paginas=<paginas.json> [--afirmaciones=<afirmaciones.csv>]
+//        node scripts/construir-temas.mjs --grilla=<grilla.json> --paginas=<paginas.json> [--afirmaciones=<afirmaciones.csv>] [--solo=slug,slug]
+//      (--solo: solo esos temas y sus piezas salen de la grilla; lo demás queda como está en data/temas.json)
 //   2. Páginas (siempre; es lo que corre la Action): desde data/temas.json, data/enlaces.json y data/agenda.json escribe
 //      temas/<slug>/index.html (una por tema), los hubs (temas/, temas/humanity/, temas/the-present/, temas/pilar/<id>/),
 //      un enlace corto estático por Short (s/<codigo>/index.html, redirige a su tarjeta con ?src=<codigo>) y sitemap.xml.
@@ -44,7 +45,7 @@ const SIN_SIGNO = new Set(["a-lamp-on-the-night-without-a-moon", "light-in-the-w
 // títulos de página en español (D-253; latinoamericano general, D-242). Traducción del constructor: N la revisa con el lote
 const TITULO_ES = {
   "the-cella": "La sala vacía, la sala llena", "the-full-moon-table": "La mesa de luna llena", "walks-by-the-moon": "Caminatas con la luna",
-  "saints-and-souls": "Santos y Difuntos", "keep-your-hour": "Cambió el reloj. Mantén tu hora.", "a-lamp-on-the-night-without-a-moon": "Una lámpara en la noche sin luna",
+  "saints-and-souls": "Santos y Difuntos", "keep-your-hour": "Cambie o no el reloj, mantén tu hora.", "a-lamp-on-the-night-without-a-moon": "Una lámpara en la noche sin luna",
   moon: "La luna esta temporada", "walk-to-the-water": "Camina hasta el agua", "phones-in-the-bread-basket": "Los teléfonos en la panera",
   "a-good-party": "Una buena fiesta", "advent-waiting": "Adviento: la espera", "light-in-the-window": "Luz en la ventana",
   "how-a-month-is-announced": "Cómo se anuncia un mes", "the-longest-night": "La noche más larga", "back-to-the-hour": "De vuelta a la hora",
@@ -55,13 +56,17 @@ const TITULO_ES = {
   "the-radar-that-tells-you-when-it-is-blind": "El radar que te avisa cuando no ve", "money-at-the-table": "El dinero en la mesa",
   "how-we-test-an-idea": "Cómo probamos una idea antes de creerla", "two-clocks": "Dos relojes", "fomc-with-projections": "El FOMC con proyecciones",
   "four-banks-one-table": "Cuatro bancos, una mesa", errata: "Fe de erratas: en qué nos equivocamos", "open-questions": "Preguntas abiertas",
+  es: "Más cerca de ti, en español",
 };
+// la página de las piezas en español (decisión 2 de N, lote 2): su título en inglés no está en la grilla (allí va en español)
+const TITULO_EN = { es: "Closer to yourself, in Spanish" };
 // etiqueta de fuente en español dentro de una página en inglés (WCAG 3.1.2): misma regla que agenda-comun.js
 const ES_FUENTE = /[¿¡ñ]|\b(calendario|agenda|anuncios|política|económica|elecciones|año|según)\b/i;
 // fuentes de elecciones: solo la autoridad electoral, el diario oficial o el texto de ley hasta el sello I4 (acta, rojo 6)
 const ELECCION = /\b(elections?|electoral|ballots?|votes?|voting|voters?|runoffs?|midterms?|referendum|presidential|elecci[oó]n|balotaje)\b/i;
 // fuentes heredadas que una página no lleva, por su revisión de fuentes (moon-40: Wikipedia fuera de la página de la luna)
-const FUERA_DE_PAGINA = { moon: /(^|\.)wikipedia\.org$/ };
+// hindutone (R-05 del lote 2, decidido por evidencia el 19-oct): fuera de la página de la lámpara
+const FUERA_DE_PAGINA = { moon: /(^|\.)wikipedia\.org$/, "a-lamp-on-the-night-without-a-moon": /(^|\.)hindutone\.com$/ };
 const OFICIAL_ELECCION = /(^|\.)(fec\.gov|eac\.gov|tse\.jus\.br|boe\.es|juntaelectoralcentral\.es|law\.cornell\.edu|ine\.mx|service-public\.gouv\.fr)$/;
 
 // ---------- vocabulario público ----------
@@ -96,18 +101,24 @@ const ZODIACO = /\b(Aries|Taurus|Gemini|Cancer|Leo|Virgo|Libra|Scorpio|Sagittari
 const publico = (t) => enIngles(t) && !ZODIACO.test(t);
 
 // ---------- 1. proyección ----------
-function proyectar({ grilla, paginas, afirmaciones, agenda }) {
+function proyectar({ grilla, paginas, afirmaciones, agenda, tolerante = false }) {
   // archivado: The Present y todo slot "archivado" quedan fuera de la página pública (data/archivo.json)
   const fuera = (s) => s.seccion === "The Present" || /^archivado/.test(s.estado || "");
   const ARCH = leerJSON(path.join(V, "data/archivo.json"), { paginas: {} });
-  const slots = grilla.slots.filter((s) => s.fecha_et <= "2026-12-31" && !fuera(s));
-  const porId = new Map(slots.map((s) => [s.id, s]));
+  const slots0 = grilla.slots.filter((s) => s.fecha_et <= "2026-12-31" && !fuera(s));
+  const porId = new Map(slots0.map((s) => [s.id, s]));
+  // tolerante (solo con --solo): la grilla puede ir por delante de paginas.json en temas que no se tocan; esos slots se saltan aquí
+  // y mezclar() deja esos temas como estaban en data/temas.json
+  if (tolerante) paginas = paginas.map((p) => ({ ...p, slots: p.slots.filter((id) => porId.has(id)), historias: p.historias.filter((id) => porId.has(id)) })).filter((p) => p.slots.length + p.historias.length);
+  const enAlguna = new Set(paginas.flatMap((p) => [...p.slots, ...p.historias]));
+  const slots = tolerante ? slots0.filter((s) => enAlguna.has(s.id)) : slots0;
   const pil = (g) => PILARES.find((p) => p.grilla === g);
-  // la pieza ES va al tema de la pieza EN que versiona; la página la muestra en la edición ES (D-253), no hay un tema "es"
+  // la pieza ES aterriza en la página "es" (decisión 2 de N, lote 2: /naos/es/temas/es/) y lleva como "tema" la página de la pieza
+  // EN que versiona; esa página la sigue listando en su edición ES (los textos sellados la traen como lista de la pieza)
   const esPagina = (p) => p.slug === "es" || /español/i.test(p.pilar);
   paginas = paginas.filter((p) => ARCH.paginas[p.slug] == null && p.seccion !== "The Present");
   const enPaginas = paginas.filter((p) => !esPagina(p));
-  const paginaDe = new Map();
+  const paginaDe = new Map(), temaDe = new Map();
   for (const p of enPaginas) for (const id of [...p.slots, ...p.historias]) {
     if (!porId.has(id)) throw new Error(`${p.slug}: el slot ${id} no está en la grilla`);
     if (paginaDe.has(id)) throw new Error(`${id} está en dos páginas: ${paginaDe.get(id)} y ${p.slug}`);
@@ -119,7 +130,7 @@ function proyectar({ grilla, paginas, afirmaciones, agenda }) {
     const [, tit, dd] = m;
     const en = slots.find((x) => x.canal === "short+reel" && x.seccion === s.seccion && Number(x.fecha_et.slice(8)) === Number(dd) && x.fecha_et <= s.fecha_et && (x.titulo === tit || x.titulo.startsWith(tit)));
     if (!en || !paginaDe.has(en.id)) throw new Error(`${id}: no encuentro la pieza EN "${tit}" del día ${dd}`);
-    paginaDe.set(id, paginaDe.get(en.id));
+    paginaDe.set(id, p.slug); temaDe.set(id, paginaDe.get(en.id));
   }
   const falta = slots.filter((s) => !paginaDe.has(s.id)).map((s) => s.id);
   if (falta.length) throw new Error("slots de la grilla sin página: " + falta.join(", "));
@@ -210,7 +221,7 @@ function proyectar({ grilla, paginas, afirmaciones, agenda }) {
 
   const piezas = [];
   for (const s of [...slots].sort((a, b) => a.utc.localeCompare(b.utc) || a.id.localeCompare(b.id))) {
-    const slug = paginaDe.get(s.id), pag = enPaginas.find((p) => p.slug === slug), P = pil(pag.pilar), Ps = pil(s.pilar_o_tema);
+    const slug = paginaDe.get(s.id), tema = temaDe.get(s.id) || null, pag = enPaginas.find((p) => p.slug === (tema || slug)), P = pil(pag.pilar), Ps = pil(s.pilar_o_tema);
     const noticia = s.pilar_o_tema === "noticias" || pag.pilar === "noticias";
     // idioma: "EN", "ES" o una pieza de dos voces ("EN+ES", "ES+EN": una voz después de la otra, cada una en su idioma)
     const idiomas = [...new Set((String(s.idioma || "").toUpperCase().match(/\b(EN|ES)\b/g) || []).map((x) => x.toLowerCase()))];
@@ -219,10 +230,10 @@ function proyectar({ grilla, paginas, afirmaciones, agenda }) {
     const linea = !noticia && s.canal === "short+reel" && publico(s.gancho_2s) && s.gancho_2s !== s.titulo ? s.gancho_2s : null;
     const luna = s.seccion === "Humanity" && s.luna ? { fase: FASE[s.luna.fase], iluminacion: s.luna.iluminacion_pct, signo: SIGNO[s.luna.signo] } : null;
     if (luna && (!luna.fase || !luna.signo)) throw new Error(`${s.id}: luna sin traducción (${s.luna.fase}, ${s.luna.signo})`);
-    if (luna && SIN_SIGNO.has(slug)) luna.signo = null;
+    if (luna && SIN_SIGNO.has(tema || slug)) luna.signo = null;
     const corto = ["short+reel", "es"].includes(s.canal);
     piezas.push({
-      id: tarjetaDe(s), ref: s.id, pagina: slug, fecha: s.fecha_et, hora_et: s.hora_et, hora_medellin: s.medellin.slice(11, 16), utc: s.utc,
+      id: tarjetaDe(s), ref: s.id, pagina: slug, ...(tema ? { tema } : {}), fecha: s.fecha_et, hora_et: s.hora_et, hora_medellin: s.medellin.slice(11, 16), utc: s.utc,
       canal: s.canal, formato: FORMATO[s.canal], seccion: s.seccion, pilar: (Ps || P).id, lang, titulo, linea,
       ...(idiomas.length > 1 ? { idiomas } : {}),
       voz: CON_VOZ.has(s.canal), noticia, mercado: s.pilar_o_tema === "mercado", luna, codigo: codigoDe(s), corto,
@@ -231,8 +242,9 @@ function proyectar({ grilla, paginas, afirmaciones, agenda }) {
   }
   const codigos = new Set(); for (const x of piezas) { if (codigos.has(x.codigo)) throw new Error("código repetido: " + x.codigo); codigos.add(x.codigo); }
 
-  const salidaPag = enPaginas.map((p) => {
-    const xs = piezas.filter((x) => x.pagina === p.slug), vistos = new Set(), fuentes = [];
+  const salidaPag = [...enPaginas, ...paginas.filter(esPagina)].map((p) => {
+    // un tema lista también la pieza ES que versiona una de las suyas (su tarjeta aterriza en la página "es")
+    const xs = piezas.filter((x) => x.pagina === p.slug || x.tema === p.slug), vistos = new Set(), fuentes = [];
     for (const x of xs) for (const f of x._fuentes) {
       const k = f.url || f.titulo; if (vistos.has(k)) continue; vistos.add(k);
       let host = ""; try { host = new URL(f.url).hostname; } catch { /* obra sin URL */ }
@@ -240,10 +252,11 @@ function proyectar({ grilla, paginas, afirmaciones, agenda }) {
       if (FUERA_DE_PAGINA[p.slug] && FUERA_DE_PAGINA[p.slug].test(host)) continue;
       fuentes.push(ES_FUENTE.test(f.titulo) ? { ...f, lang: "es" } : f);
     }
-    const P = pil(p.pilar);
-    if (!P) throw new Error(`${p.slug}: pilar sin nombre público (${p.pilar})`);
+    const P = esPagina(p) ? null : pil(p.pilar);
+    if (!P && !esPagina(p)) throw new Error(`${p.slug}: pilar sin nombre público (${p.pilar})`);
     if (!TITULO_ES[p.slug]) throw new Error(`${p.slug}: falta el título en español (TITULO_ES)`);
-    return { slug: p.slug, titulo: p.titulo_en, titulo_es: TITULO_ES[p.slug], seccion: p.seccion, pilar: P.id, desde: xs[0].fecha, hasta: xs.at(-1).fecha, piezas: xs.map((x) => x.id), fuentes };
+    // la página "es" no va en un estante (sus piezas son de varios pilares): pilar null; la enlazan la portada ES y cada tarjeta
+    return { slug: p.slug, titulo: TITULO_EN[p.slug] || p.titulo_en, titulo_es: TITULO_ES[p.slug], seccion: p.seccion, pilar: P ? P.id : null, desde: xs[0].fecha, hasta: xs.at(-1).fecha, piezas: xs.map((x) => x.id), fuentes };
   });
   for (const x of piezas) delete x._fuentes;
   return {
@@ -254,6 +267,21 @@ function proyectar({ grilla, paginas, afirmaciones, agenda }) {
     paginas: salidaPag,
     piezas,
   };
+}
+
+// --solo=slug,slug: de la proyección nueva entran solo esos temas y sus piezas (y las piezas ES que aterrizan en uno de ellos o que
+// uno de ellos lista); lo demás queda como estaba en data/temas.json. Así un lote monta sus páginas sin arrastrar cambios de la grilla
+// a temas que no toca (lote 2: The Present congelado el 19-oct).
+function mezclar(viejo, nuevo, solo) {
+  const entra = (x) => solo.has(x.pagina) || (x.tema && solo.has(x.tema));
+  const nuevas = new Map(nuevo.piezas.filter(entra).map((x) => [x.id, x]));
+  const piezas = viejo.piezas.map((x) => nuevas.get(x.id) || x);
+  for (const [id, x] of nuevas) if (!viejo.piezas.some((y) => y.id === id)) piezas.push(x);
+  piezas.sort((a, b) => a.utc.localeCompare(b.utc) || a.ref.localeCompare(b.ref));
+  for (const s of solo) if (!nuevo.paginas.some((p) => p.slug === s)) throw new Error(`--solo: ${s} no está en la proyección`);
+  const paginas = viejo.paginas.map((p) => (solo.has(p.slug) ? nuevo.paginas.find((q) => q.slug === p.slug) : p));
+  for (const p of nuevo.paginas) if (solo.has(p.slug) && !viejo.paginas.some((q) => q.slug === p.slug)) paginas.push(p);
+  return { ...viejo, grilla: nuevo.grilla, paginas, piezas };
 }
 
 // CSV con comillas (afirmaciones.csv)
@@ -294,7 +322,8 @@ export const ED = {
     saltar: "Skip to the pieces", saltarHub: "Skip to the topics", migas: "Breadcrumb", temas: "Topics", inicio: "Home", agenda: "Upcoming", privacidad: "Privacy", terminos: "Terms",
     nav: "Sections", otra: { lang: "es", txt: "Español" },
     sello: "The voices in NAOS pieces are synthetic. Cella's replies to comments are written with AI; a person reads the hard ones. Times are New York (ET) and Medellín.",
-    descTema: (p, n, P, r) => `${p.titulo}: ${n} NAOS pieces in ${p.seccion}, ${P.titulo}, ${r}. Dates, times in ET and Medellín, and sources.`,
+    descTema: (p, n, P, r) => `${p.titulo}: ${n} NAOS pieces in ${p.seccion}${P ? ", " + P.titulo : ""}, ${r}. Dates, times in ET and Medellín, and sources.`,
+    temaDe: "Topic page:", aterrizaEn: "Its page:",
     enEspanol: (n, href) => `<p class="t-otra-ed" lang="es"><a href="${href}" hreflang="es">${n === 1 ? "1 pieza" : n + " piezas"} en español sobre este tema, en la página en español</a></p>`,
   },
   es: {
@@ -318,12 +347,25 @@ export const ED = {
     saltar: "Ir a las piezas", saltarHub: "Ir a los temas", migas: "Ruta", temas: "Temas", inicio: "Inicio", agenda: "Agenda", privacidad: "Privacidad", terminos: "Términos",
     nav: "Secciones", otra: { lang: "en", txt: "English" },
     sello: "Las voces de las piezas de NAOS son sintéticas. Las respuestas de Cella a los comentarios se escriben con IA; una persona lee las difíciles. Las horas son de Nueva York (ET) y Medellín.",
-    descTema: (p, n, P, r) => `${p.titulo_es}: ${n} piezas de NAOS en ${ED.es.seccion[p.seccion]}, ${ED.es.pilar(P)}, ${r}. Fechas, horas en ET y Medellín, y fuentes.`,
+    descTema: (p, n, P, r) => `${p.titulo_es}: ${n} piezas de NAOS en ${ED.es.seccion[p.seccion]}${P ? ", " + ED.es.pilar(P) : ""}, ${r}. Fechas, horas en ET y Medellín, y fuentes.`,
+    temaDe: "Página del tema:", aterrizaEn: "Su página:",
     enEspanol: () => "",
   },
 };
-// qué piezas lleva cada edición: la EN, las de una voz en inglés y las de dos voces; la ES, todas
-const enEdicion = (x, L) => L.lang === "es" || x.lang !== "es" || (x.idiomas || []).length > 1;
+// qué piezas lleva cada edición: la EN, las de una voz en inglés y las de dos voces; la ES, todas. La página "es" (las piezas en
+// español, decisión 2 de N del lote 2) las lleva todas en las dos ediciones: la EN es su lectura en inglés, con cada título en español
+const enEdicion = (x, L, p = null) => L.lang === "es" || x.lang !== "es" || (x.idiomas || []).length > 1 || (!!p && p.slug === "es");
+// una pieza ES con tema: en la página "es" enlaza a la página de su tema; en su tema, a la tarjeta donde aterriza (la página "es")
+function conTema(L, D, p, x) {
+  if (!x.tema) return x;
+  const q = p.slug === "es" ? D.paginas.find((y) => y.slug === x.tema) : D.paginas.find((y) => y.slug === x.pagina);
+  if (!q) return x;
+  return { ...x, _tema: p.slug === "es" ? { k: L.temaDe, href: `../${q.slug}/`, t: L.titulo(q) } : { k: L.aterrizaEn, href: `../${q.slug}/#${x.id}`, t: L.titulo(q) } };
+}
+// compuerta de fecha del cuerpo (data/temas/<slug>.json, "desde"; keep-your-hour: el cuerpo se monta desde el 1-nov 02:00 ET):
+// "ahora" es la hora de data/situacion.json (la escribe construir-datos.mjs justo antes), así el HTML sigue siendo función del dato
+// (mismo dato, mismos bytes) y la Action lo cambia sola en la primera ronda después de la hora. NAOS_AHORA=<ISO> solo para vistas previas.
+const ahoraDato = () => Date.parse(process.env.NAOS_AHORA || leerJSON(path.join(V, "data/situacion.json"), {})?.generado || "") || 0;
 const langAttr = (t, L) => (t && t !== L.lang ? ` lang="${t}"` : "");
 
 function cabeza({ L, titulo, descripcion, ruta, raiz, jsonld, alterna, css = [], og = null }) {
@@ -408,6 +450,7 @@ function carta(L, x, pag, enlace, raiz, sigue = false, lunaIgual = false, extra 
     <details class="t-signo"><summary>${L.zodiaco}</summary><p>${L.lunaEn(L.signo(x.luna.signo))}</p></details>` : ""}
   </div>` : "";
   const corto = x.corto ? `<p class="t-corto">${L.corto} <a href="${raiz}s/${esc(x.codigo)}/">naos/s/${esc(x.codigo)}</a></p>` : "";
+  const tema = x._tema ? `<p class="t-tema-l">${esc(x._tema.k)} <a href="${esc(x._tema.href)}">${esc(x._tema.t)}</a></p>` : "";
   return `<li><article class="t-carta${x.lang === "es" ? " t-es" : ""}${sigue ? " t-sigue" : ""}${lunaIgual ? " t-luna-igual" : ""}" id="${esc(x.id)}" data-codigo="${esc(x.codigo)}" data-fecha="${x.fecha}" aria-labelledby="${esc(x.id)}-t">
   <div class="t-when">
     <p class="t-cuando"><time class="t-dia" datetime="${esc(x.utc.replace("Z", ":00Z"))}">${L.fe(x.fecha)}</time> <span class="t-hora num">${esc(x.hora_et)} ET</span> <span class="t-hora num">${esc(x.hora_medellin)} Medellín</span></p>
@@ -418,22 +461,23 @@ function carta(L, x, pag, enlace, raiz, sigue = false, lunaIgual = false, extra 
     ${extra ? extra.cuerpo : x.linea ? `<p class="t-linea"${langAttr(x.lang, L)}>${esc(x.linea)}</p>` : ""}
     ${fmt ? `<p class="t-fmt">${esc(fmt)}</p>` : ""}
     ${corto}
+    ${tema}
   </div>${luna}
 </article></li>`.replace(/\n\s*\n/g, "\n");
 }
 
 function paginaTema(L, D, p, enlaces) {
   const md = path.join(V, `data/temas/${p.slug}.${L.lang}.md`), X = leerJSON(path.join(V, `data/temas/${p.slug}.json`));
-  if (fs.existsSync(md) && X) return paginaCuerpo(L, D, p, enlaces, { ...X, _V: V }, fs.readFileSync(md, "utf8"));
+  if (fs.existsSync(md) && X && (!X.desde || ahoraDato() >= Date.parse(X.desde))) return paginaCuerpo(L, D, p, enlaces, { ...X, _V: V }, fs.readFileSync(md, "utf8"));
   const raiz = L.lang === "es" ? "../../../" : "../../", P = pilarDe(D, p.pilar);
-  const todas = p.piezas.map((id) => D.piezas.find((x) => x.id === id)), xs = todas.filter((x) => enEdicion(x, L));
-  const desde = xs[0].fecha, hasta = xs.at(-1).fecha, nES = todas.filter((x) => !enEdicion(x, L)).length;
+  const todas = p.piezas.map((id) => D.piezas.find((x) => x.id === id)), xs = todas.filter((x) => enEdicion(x, L, p)).map((x) => conTema(L, D, p, x));
+  const desde = xs[0].fecha, hasta = xs.at(-1).fecha, nES = todas.filter((x) => !enEdicion(x, L, p)).length;
   const mercado = p.pilar === "markets" || xs.some((x) => x.mercado);
   const ruta = `temas/${p.slug}/`, r = L.rango(desde, hasta);
   const desc = L.descTema(p, xs.length, P, r);
   const nombre = (x) => (x.noticia ? `${L.noticiaSola}, ${L.fe(x.fecha)}` : x.titulo || `${L.formato[x.canal] || x.formato}, ${L.fe(x.fecha)}`);
   const jsonld = { "@context": "https://schema.org", "@type": "CollectionPage", name: L.titulo(p), description: desc, url: BASE + L.pref + ruta, inLanguage: L.lang,
-    isPartOf: { "@type": "WebSite", name: "NAOS", url: BASE + L.pref }, about: L.pilar(P),
+    isPartOf: { "@type": "WebSite", name: "NAOS", url: BASE + L.pref }, about: P ? L.pilar(P) : L.seccion[p.seccion],
     mainEntity: { "@type": "ItemList", numberOfItems: xs.length, itemListElement: xs.map((x, i) => ({ "@type": "ListItem", position: i + 1, url: BASE + L.pref + ruta + "#" + x.id,
       name: nombre(x), ...(x.titulo && x.lang !== L.lang ? { inLanguage: x.lang } : {}) })) } };
   const fuentes = p.fuentes.length ? `
@@ -449,7 +493,7 @@ function paginaTema(L, D, p, enlaces) {
 ${barra(L, raiz, "", ruta)}
 <main id="main">
   <header class="t-umbral" id="umbral">
-    <nav class="t-migas" aria-label="${L.migas}"><a href="${raiz}${L.pref}temas/">${L.temas}</a> / <a href="${raiz}${L.pref}temas/${secId(p.seccion)}/">${esc(L.seccion[p.seccion])}</a> / <a href="${raiz}${L.pref}temas/pilar/${P.id}/">${esc(L.pilar(P))}</a></nav>
+    <nav class="t-migas" aria-label="${L.migas}"><a href="${raiz}${L.pref}temas/">${L.temas}</a> / <a href="${raiz}${L.pref}temas/${secId(p.seccion)}/">${esc(L.seccion[p.seccion])}</a>${P ? ` / <a href="${raiz}${L.pref}temas/pilar/${P.id}/">${esc(L.pilar(P))}</a>` : ""}</nav>
     <h1>${esc(L.titulo(p))}</h1>
     <p class="t-rango"><span class="t-n num">${xs.length}</span> ${L.piezas(xs.length).replace(/^\d+ /, "")}, ${r}</p>${mercado ? `\n    <p class="t-aviso">${L.noConsejo}</p>` : ""}${nES ? "\n    " + L.enEspanol(nES, `${raiz}es/${ruta}`) : ""}
   </header>
@@ -471,14 +515,14 @@ ${pie(L, raiz, p.seccion, mercado ? L.noConsejo + " " : "")}
 // pie, mismas reglas fijas de tarjeta que el esqueleto.
 function paginaCuerpo(L, D, p, enlaces, X, md) {
   const raiz = L.lang === "es" ? "../../../" : "../../", P = pilarDe(D, p.pilar);
-  const xs = p.piezas.map((id) => D.piezas.find((x) => x.id === id)).filter((x) => enEdicion(x, L));
-  const nES = p.piezas.map((id) => D.piezas.find((x) => x.id === id)).filter((x) => !enEdicion(x, L)).length;
+  const xs = p.piezas.map((id) => D.piezas.find((x) => x.id === id)).filter((x) => enEdicion(x, L, p)).map((x) => conTema(L, D, p, x));
+  const nES = p.piezas.map((id) => D.piezas.find((x) => x.id === id)).filter((x) => !enEdicion(x, L, p)).length;
   const mercado = p.pilar === "markets" || xs.some((x) => x.mercado);
   const ruta = `temas/${p.slug}/`, M = X.meta[L.lang];
   const c = cuerpoTema({ L, D, p, X, md, raiz, xs, carta, enlaces });
   const nombre = (x) => (c.nombres[x.id] || "").replace(/\s*·\s*en inglés:.*$/, "") || (x.noticia ? `${L.noticiaSola}, ${L.fe(x.fecha)}` : x.titulo || `${L.formato[x.canal] || x.formato}, ${L.fe(x.fecha)}`);
   const jsonld = { "@context": "https://schema.org", "@type": "CollectionPage", name: M.h1, headline: M.og_title, description: M.description, url: BASE + L.pref + ruta, inLanguage: L.lang,
-    isPartOf: { "@type": "WebSite", name: "NAOS", url: BASE + L.pref }, about: L.pilar(P),
+    isPartOf: { "@type": "WebSite", name: "NAOS", url: BASE + L.pref }, about: P ? L.pilar(P) : L.seccion[p.seccion],
     mainEntity: { "@type": "ItemList", numberOfItems: xs.length, itemListElement: xs.map((x, i) => ({ "@type": "ListItem", position: i + 1, url: BASE + L.pref + ruta + "#" + x.id, name: nombre(x) })) } };
   const pref = (r) => r.replace(/^(?!https?:)/, `${raiz}assets/temas/${p.slug}/`);
   const css = (X.css || []).map((f) => `assets/temas/${p.slug}/${f}`);
@@ -493,7 +537,7 @@ function paginaCuerpo(L, D, p, enlaces, X, md) {
 ${barra(L, raiz, "", ruta)}
 <main id="main"${X.cambio ? ` data-cambio="${esc(X.cambio)}"` : ""}>
   <header class="t-umbral" id="${(md.match(/^## 0 · .*\{#([\w-]+)\}/m) || [])[1] || "arriba"}">
-    <nav class="t-migas" aria-label="${L.migas}"><a href="${raiz}${L.pref}temas/">${L.temas}</a> / <a href="${raiz}${L.pref}temas/${secId(p.seccion)}/">${esc(L.seccion[p.seccion])}</a> / <a href="${raiz}${L.pref}temas/pilar/${P.id}/">${esc(L.pilar(P))}</a></nav>
+    <nav class="t-migas" aria-label="${L.migas}"><a href="${raiz}${L.pref}temas/">${L.temas}</a> / <a href="${raiz}${L.pref}temas/${secId(p.seccion)}/">${esc(L.seccion[p.seccion])}</a>${P ? ` / <a href="${raiz}${L.pref}temas/pilar/${P.id}/">${esc(L.pilar(P))}</a>` : ""}</nav>
 ${c.umbral}${umbralAviso}${nES ? "\n    " + L.enEspanol(nES, `${raiz}es/${ruta}`) : ""}
   </header>
 ${c.bloques}
@@ -522,7 +566,7 @@ function eje(L, T) {
 }
 // rango de un tema en la edición: en la EN no cuentan las piezas que solo viven en la ES
 function rangoTema(L, D, p) {
-  const xs = p.piezas.map((id) => D.piezas.find((x) => x.id === id)).filter((x) => enEdicion(x, L));
+  const xs = p.piezas.map((id) => D.piezas.find((x) => x.id === id)).filter((x) => enEdicion(x, L, p));
   return { n: xs.length, desde: xs[0].fecha, hasta: xs.at(-1).fecha };
 }
 function fichaTema(L, D, p, raiz) {
@@ -561,7 +605,7 @@ ${pie(L, raiz, seccion, seccion === "The Present" ? L.noConsejo + " " : "")}${sc
 
 function hubs(L, D, urls) {
   const p0 = L.pref, R1 = L.lang === "es" ? "../../" : "../", R2 = L.lang === "es" ? "../../../" : "../../", R3 = L.lang === "es" ? "../../../../" : "../../../";
-  const S = L.seccion, n = D.paginas.length;
+  const S = L.seccion, n = D.paginas.filter((p) => p.pilar).length;
   const lib = (raiz) => `  <section class="t-bloque" aria-labelledby="h-hum"><h2 id="h-hum"><a href="${raiz}${p0}temas/humanity/">${S.Humanity}</a></h2>\n${estantes(L, D, "Humanity", raiz, "h3")}\n  </section>`;
   const es = L.lang === "es";
   write(`${p0}temas/index.html`, hub({ L, D, ruta: "temas/", raiz: R1, titulo: `${L.temas} · NAOS`, h1: L.temas, seccion: "Humanity", actual: "temas",
@@ -588,7 +632,7 @@ function hubs(L, D, urls) {
 function portadaES(D) {
   const L = ED.es, raiz = "../";
   const desc = "NAOS en español. Más cerca de ti. Humanidad: comer bien, dormir bien, moverse, tener una relación con lo divino y construir comunidad.";
-  const antes = `  <p class="t-rango">Las piezas en español salen desde el sábado 24 de octubre. Las demás están en inglés; cada una lleva su hora en Nueva York y en Medellín.</p>
+  const antes = `  <p class="t-rango"><a href="temas/es/">Las piezas en español</a> salen desde el sábado 24 de octubre. Las demás están en inglés; cada una lleva su hora en Nueva York y en Medellín.</p>
   <div id="secuencia" data-lang="es" data-raiz="${raiz}" hidden></div>
 `;
   const cuerpo = `  <section class="t-bloque" aria-labelledby="h-hum"><h2 id="h-hum"><a href="temas/humanity/">${L.seccion.Humanity}</a></h2>\n${estantes(L, D, "Humanity", raiz, "h3")}\n  </section>`;
@@ -700,7 +744,9 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   if (cu) { if (!se) { console.error("uso: node scripts/construir-temas.mjs --cuerpo=<carpeta del lote> --sellados=slug,slug"); process.exit(2); } importar({ V, lote: cu, slugs: se.split(",").filter(Boolean) }); }
   if (g || p) {
     if (!g || !p) { console.error("uso: node scripts/construir-temas.mjs --grilla=<grilla.json> --paginas=<paginas.json> [--afirmaciones=<csv>]"); process.exit(2); }
-    const D = proyectar({ grilla: leerJSON(g), paginas: leerJSON(p), afirmaciones: a ? csv(fs.readFileSync(a, "utf8")) : [], agenda: leerJSON(path.join(V, "data/agenda.json")) });
+    const so = arg("solo"), solo = so ? new Set(so.split(",").filter(Boolean)) : null;
+    let D = proyectar({ grilla: leerJSON(g), paginas: leerJSON(p), afirmaciones: a ? csv(fs.readFileSync(a, "utf8")) : [], agenda: leerJSON(path.join(V, "data/agenda.json")), tolerante: !!solo });
+    if (solo) D = mezclar(leerJSON(path.join(V, "data/temas.json")), D, solo);
     fs.writeFileSync(path.join(V, "data/temas.json"), JSON.stringify(D, null, 1) + "\n");
     console.log(`temas.json: ${D.paginas.length} páginas, ${D.piezas.length} piezas (${D.piezas.filter((x) => x.lang === "es").length} en español, en la edición ES), ${D.piezas.filter((x) => x.corto).length} Shorts con enlace corto`);
   }

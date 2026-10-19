@@ -1,0 +1,152 @@
+{
+ "slug": "keep-your-hour",
+ "meta": {
+  "en": {
+   "title": "The clock moved. Keep your hour. · NAOS",
+   "h1": "The clock moved. Keep your hour.",
+   "description": "A tale we made up about the night the clocks go back, and a two-minute evening behavior for seven nights: pick your hour, take three breaths, go to bed at it.",
+   "og_title": "The clock moved. Keep your hour.",
+   "og_description": "What do you do with an hour that happens twice? A tale of ours, and one thing to try for seven nights. With sources."
+  },
+  "es": {
+   "title": "Cambie o no el reloj, mantén tu hora. · NAOS",
+   "h1": "Cambie o no el reloj, mantén tu hora.",
+   "description": "Un cuento que inventamos sobre la noche en que atrasan los relojes, y algo de dos minutos para la noche, siete noches: escoge tu hora, respira tres veces y acuéstate a tu hora.",
+   "og_title": "Cambie o no el reloj, mantén tu hora.",
+   "og_description": "¿Qué haces con una hora que pasa dos veces? Un cuento nuestro, y algo para probar siete noches. Con fuentes."
+  }
+ },
+ "cortos": {
+  "1103h": {
+   "en": "Same bedtime after the clock change",
+   "es": "La misma hora al acostarte (en inglés: Same bedtime after the clock change)",
+   "aterriza": {
+    "en": "in-the-evening",
+    "es": "en-la-noche"
+   }
+  },
+  "1105h": {
+   "en": "Letting the day go",
+   "es": "Soltar el día (en inglés: Letting the day go)",
+   "aterriza": {
+    "en": "in-the-evening",
+    "es": "en-la-noche"
+   }
+  },
+  "1107es": {
+   "en": "Misma hora de dormir tras el cambio de hora",
+   "es": "Misma hora de dormir tras el cambio de hora",
+   "aterriza": {
+    "en": "/naos/es/temas/es/#c-2026-11-07-1200-h-es",
+    "es": "/naos/es/temas/es/#c-2026-11-07-1200-h-es"
+   }
+  },
+  "1103h-story-1200": {
+   "en": "Seven-night log",
+   "es": "Registro de siete noches (en inglés: Seven-night log)",
+   "aterriza": {
+    "en": "in-the-evening",
+    "es": "in-the-evening"
+   }
+  },
+  "1105h-story-1200": {
+   "en": "Letting the day go · lock screen",
+   "es": "Soltar el día, en tu pantalla (en inglés: Letting the day go)",
+   "aterriza": {
+    "en": "in-the-evening",
+    "es": "in-the-evening"
+   }
+  }
+ },
+ "enviar": {
+  "en": "The clock moved. Your bedtime didn't. A short tale, and one thing to try for seven nights.",
+  "es": "Cambie o no el reloj, mantén tu hora. Un cuento corto, y algo para probar siete noches."
+ },
+ "luna": {
+  "c-2026-11-03-1200-h-historia": {
+   "iluminacion": 30.2,
+   "fase": {
+    "en": "waning crescent",
+    "es": "menguante"
+   }
+  },
+  "c-2026-11-03-2000-h-short-reel": {
+   "iluminacion": 26.9,
+   "fase": {
+    "en": "waning crescent",
+    "es": "menguante"
+   }
+  },
+  "c-2026-11-05-1200-h-historia": {
+   "iluminacion": 12.9,
+   "fase": {
+    "en": "waning crescent",
+    "es": "menguante"
+   }
+  },
+  "c-2026-11-05-2000-h-short-reel": {
+   "iluminacion": 10.7,
+   "fase": {
+    "en": "waning crescent",
+    "es": "menguante"
+   }
+  },
+  "c-2026-11-07-1200-h-es": {
+   "iluminacion": 2.7,
+   "fase": {
+    "en": "waning crescent",
+    "es": "menguante"
+   }
+  }
+ },
+ "visuales": [
+  {
+   "id": "mapa",
+   "en": "map",
+   "es": "mapa"
+  },
+  {
+   "id": "reloj",
+   "en": "the-clock-change",
+   "es": "el-cambio-de-hora",
+   "despues": {
+    "en": "^In the United States the clocks go back",
+    "es": "^En Estados Unidos los relojes se atrasan"
+   }
+  },
+  {
+   "id": "viva",
+   "en": "our-experiment",
+   "es": "nuestro-experimento"
+  }
+ ],
+ "modulos": [
+  {
+   "src": "viva/tres-pasos.js",
+   "sel": "[data-viva]",
+   "quieto": true
+  },
+  {
+   "src": "svg/mapa.js",
+   "sel": "svg.cm"
+  }
+ ],
+ "pliegues": {
+  "your-clock-didnt-move": {},
+  "si-no-cambia-la-hora": {}
+ },
+ "css": [
+  "viz.css"
+ ],
+ "scripts": [],
+ "flechas": {
+  "Three steps, one evening": "#three-steps",
+  "Tres pasos, una noche": "#tres-pasos",
+  "on the Spanish page": "../../es/temas/es/#c-2026-11-07-1200-h-es"
+ },
+ "desde": "2026-11-01T07:00:00Z",
+ "lunaDatos": {
+  "en": "Moon data: NASA JPL Horizons, at the hour of each piece. [26]",
+  "es": "Datos de la luna: NASA JPL Horizons, a la hora de cada pieza. [26]"
+ }
+}

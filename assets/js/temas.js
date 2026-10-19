@@ -58,10 +58,21 @@
     b.addEventListener("click", () => { w.hidden = false; b.remove(); });
   });
   // abrir los pliegues que contienen el destino de un ancla (al llegar y al seguir un enlace de la misma página)
-  const abrir = (id) => { let el = id && document.getElementById(id); if (!el) return null; for (let p = el; p; p = p.parentElement) if (p.tagName === "DETAILS") p.open = true; return el; };
+  // un grupo de pliegues con una sola parte abierta (walks: las caminatas): abrir una pliega las otras del grupo
+  const solo = (d) => { if (d.dataset.grupo) document.querySelectorAll(`details[data-grupo="${d.dataset.grupo}"]`).forEach((o) => { if (o !== d) o.open = false; }); };
+  // el destino puede ser la sección que lleva su pliegue adentro (id en la <section>, el <details> primero): también se abre
+  const abrir = (id) => {
+    const el = id && document.getElementById(id); if (!el) return null;
+    for (let p = el; p; p = p.parentElement) if (p.tagName === "DETAILS") { p.open = true; solo(p); }
+    const d = el.tagName !== "DETAILS" && el.firstElementChild && el.firstElementChild.tagName === "DETAILS" ? el.firstElementChild : null;
+    if (d) { d.open = true; solo(d); }
+    return el;
+  };
   const alAncla = () => { const id = decodeURIComponent(location.hash.slice(1)); const el = abrir(id); if (el) el.scrollIntoView({ block: "start" }); };
   // una parte que se ve desde una fecha (the-cella, "a solas" desde el 29-dic), salvo que se llegue a ella
   const hoyET = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" }).format(new Date());
+  // sin ancla ni Short: la parte del grupo que toca por fecha (ET); lo demás del grupo, plegado
+  document.querySelectorAll("details[data-grupo]").forEach((d) => { if ((!d.dataset.desde || hoyET >= d.dataset.desde) && (!d.dataset.hasta || hoyET <= d.dataset.hasta)) { d.open = true; solo(d); } });
   document.querySelectorAll("[data-visible-desde]").forEach((e) => { if (hoyET < e.dataset.visibleDesde && location.hash.slice(1) !== e.id) e.hidden = true; });
   if (location.hash) alAncla();
   addEventListener("hashchange", alAncla);

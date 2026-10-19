@@ -1,0 +1,140 @@
+{
+ "id": "viva",
+ "kit": "K8 conducta (la misma calle) + K2 proceso, una tarde por paso, nunca en bucle",
+ "slug": "walks-by-the-moon",
+ "luna": {
+  "fuente": "NASA/JPL Horizons, cuerpo 301, centro 500@399, QUANTITIES 10 (parte iluminada), consultada el 2026-10-16; cruzada con PyEphem (coinciden a 0,01 %). Solo dibujan la forma de cada luna; la página no muestra ningún porcentaje en esta figura.",
+  "hora": "20:00 ET = 00:00 UT del día siguiente (EDT, UTC-4)",
+  "lit": [
+   53.22,
+   62.71,
+   71.9,
+   80.46,
+   87.97,
+   94,
+   98.09,
+   99.81
+  ]
+ },
+ "fechas": [
+  "2026-10-18",
+  "2026-10-19",
+  "2026-10-20",
+  "2026-10-21",
+  "2026-10-22",
+  "2026-10-23",
+  "2026-10-24",
+  "2026-10-25"
+ ],
+ "duraciones_s": {
+  "tarde": 2.6,
+  "ida": 1,
+  "pausa_en_la_curva": 0.8,
+  "vuelta": 0.8,
+  "raya": "0,5 s, se dibuja al empezar la vuelta",
+  "total_8": 20.8
+ },
+ "nada_sagrado": "Un punto que camina, una curva y una raya de lápiz. El punto no es nadie. Nada de lo que se anima es una figura o un símbolo de una tradición; la luna es solo la luna.",
+ "en": {
+  "titulo": "Eight evenings, one road",
+  "alt": "The first round of the first walk: a row of eight moons, from just past half to almost round, with the dates 18 to 25 October, and under it one dotted road that goes out to a bend and back. Tap a moon to mark it with a pencil.",
+  "desc": "Eight evenings in a row, Sunday 18 to Sunday 25 October. A dot walks out to the bend of the road, stops, looks up once at the moon of that evening, walks back, and a pencil mark is drawn under that evening's date. The moons are drawn from the moon's phase at 8 pm in New York; they grow from just past half to almost round.",
+  "dias": [
+   "Sun",
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "dias_largos": [
+   "Sun 18 Oct",
+   "Mon 19 Oct",
+   "Tue 20 Oct",
+   "Wed 21 Oct",
+   "Thu 22 Oct",
+   "Fri 23 Oct",
+   "Sat 24 Oct",
+   "Sun 25 Oct"
+  ],
+  "mes": "The first round, 18 to 25 October",
+  "grupo": "The first round, 18 to 25 October. Press an evening to mark it with a pencil.",
+  "marca_de": "{d}, pencil mark",
+  "estado_ini": "Eight evenings, no marks yet. Press Play, or Next evening, or tap a moon to mark it yourself.",
+  "estado_ini_quieto": "Eight evenings, no marks yet. Press Next evening, or tap a moon to mark it yourself.",
+  "marcada": "Marked {d}.",
+  "desmarcada": "Unmarked {d}.",
+  "en_marcha": "{d}. Out to the bend, stop, look up once, back. Evening {k}.",
+  "pausa": "Paused.",
+  "fin": "Eight evenings, one road. The moon was full at 23:12 on Sunday 25 October in Medellín, and at 00:12 on Monday 26 in New York.",
+  "play": "Play",
+  "pause": "Pause",
+  "again": "Play again",
+  "next": "Next evening",
+  "restart": "Start over",
+  "que_es": "What this shows.",
+  "que_muestra": "The pencil marks of the first walk, one per evening. A dot walks the same road out to the bend and back, looks up once at the moon, and that evening gets its mark. It plays once, and you can pause it, go evening by evening, or tap a moon to mark it yourself.",
+  "inicio_label": "Start of the road",
+  "curva_label": "The bend",
+  "pasos": [
+   "Pick one road.",
+   "Stop at the same spot and look up.",
+   "Mark it. Stop when the moon is full."
+  ],
+  "lista_titulo": "The steps of the first walk",
+  "estado_sin_js": "The first round: eight evenings, from 18 to 25 October, with no marks yet."
+ },
+ "es": {
+  "titulo": "Ocho tardes, un camino",
+  "alt": "La primera ronda de la primera caminata: una fila de ocho lunas, de un poco más de la mitad a casi llena, con las fechas del 18 al 25 de octubre, y debajo un solo camino de puntos que va hasta una curva y vuelve. Toca una luna para marcarla con lápiz.",
+  "desc": "Ocho tardes seguidas, del domingo 18 al domingo 25 de octubre. Un punto camina hasta la curva del camino, se detiene, mira una vez la luna de esa tarde y vuelve, y se dibuja una raya de lápiz bajo la fecha de esa tarde. Las lunas se dibujan con la fase de la luna a las 8 de la noche en Nueva York; van de un poco más de la mitad a casi llena.",
+  "dias": [
+   "dom",
+   "lun",
+   "mar",
+   "mié",
+   "jue",
+   "vie",
+   "sáb",
+   "dom"
+  ],
+  "dias_largos": [
+   "dom 18 oct",
+   "lun 19 oct",
+   "mar 20 oct",
+   "mié 21 oct",
+   "jue 22 oct",
+   "vie 23 oct",
+   "sáb 24 oct",
+   "dom 25 oct"
+  ],
+  "mes": "La primera ronda, del 18 al 25 de octubre",
+  "grupo": "La primera ronda, del 18 al 25 de octubre. Toca una tarde para marcarla con lápiz.",
+  "marca_de": "{d}, raya de lápiz",
+  "estado_ini": "Ocho tardes, todavía sin marcas. Toca Reproducir, o Siguiente tarde, o toca una luna para marcarla tú.",
+  "estado_ini_quieto": "Ocho tardes, todavía sin marcas. Toca Siguiente tarde, o toca una luna para marcarla tú.",
+  "marcada": "Marcada la tarde del {d}.",
+  "desmarcada": "Sin marca la tarde del {d}.",
+  "en_marcha": "{d}. Hasta la curva, se detiene, mira una vez hacia arriba y vuelve. Tarde {k}.",
+  "pausa": "En pausa.",
+  "fin": "Ocho tardes, un camino. La luna llena llegó el domingo 25 de octubre a las 23:12 en Medellín, y el lunes 26 a las 00:12 en Nueva York.",
+  "play": "Reproducir",
+  "pause": "Pausar",
+  "again": "Reproducir de nuevo",
+  "next": "Siguiente tarde",
+  "restart": "Empezar de nuevo",
+  "que_es": "Qué muestra.",
+  "que_muestra": "Las rayas de lápiz de la primera caminata, una por tarde. Un punto recorre el mismo camino hasta la curva y de vuelta, mira la luna una vez, y esa tarde queda con su raya. Corre una sola vez, y puedes pausarla, ir tarde por tarde o tocar una luna para marcarla tú.",
+  "inicio_label": "Comienzo del camino",
+  "curva_label": "La curva",
+  "pasos": [
+   "Escoge una sola calle.",
+   "Detente en el mismo lugar y mira hacia arriba.",
+   "Marca cada tarde. Cuando la luna esté llena, terminas."
+  ],
+  "lista_titulo": "Los pasos de la primera caminata",
+  "estado_sin_js": "La primera ronda: ocho tardes, del 18 al 25 de octubre, todavía sin marcas."
+ }
+}

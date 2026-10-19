@@ -1,0 +1,154 @@
+<svg class="cr" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 770" width="420" height="770" role="img" aria-labelledby="cr-t-es cr-d-es" lang="es">
+<title id="cr-t-es">Gráfica del domingo 1 de noviembre por horas: 25 filas, una por cada hora real, leídas en tres relojes: UTC, Medellín y Nueva York. En Nueva York la 01:00 aparece dos veces, primero con el horario de verano (EDT) y después con el horario estándar (EST), así que ese día tiene 25 horas. En Medellín la 01:00 aparece una vez y el día tiene 24. Desde la segunda 01:00, las dos ciudades marcan la misma hora.</title>
+<desc id="cr-d-es">Filas desde las 04:00 UTC del 1 de noviembre hasta las 04:00 UTC del 2 de noviembre, una por cada hora real. Medellín conserva UTC-5 todo el año: su columna va de las 23:00 del 31 de octubre a las 23:00 del 1 de noviembre. Nueva York está en UTC-4 en las dos primeras filas (00:00 y 01:00 EDT), una hora adelante de Medellín. A las 06:00 UTC su reloj se atrasa de las 02:00 a la 01:00 EST, así que la 01:00 aparece dos veces, y desde ahí las dos columnas coinciden. El 1 de noviembre Nueva York tiene 25 horas y Medellín 24.</desc>
+<style>svg.cr{--ink:var(--naos-ink,#0E1116);--sec:var(--naos-sec,#454C57);--grey:var(--naos-grey,#59616D);--chart:var(--naos-chart,#737B87);--rule:var(--naos-rule,#D7DBE0);--paper:var(--naos-paper,#FFFFFF);font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif)}svg.cr[data-tono=noche]{--ink:var(--naos-night-text,#F4F6F8);--sec:var(--naos-night-sec,#C3C9D2);--grey:var(--naos-night-grey,#9AA3B0);--chart:var(--naos-night-grey,#9AA3B0);--rule:var(--naos-night-rule,#2A303A);--paper:var(--naos-night,#0E1116)}svg.cr text{fill:var(--ink)}svg.cr .cr-g{fill:var(--grey)}svg.cr .cr-s{font-size:16px}svg.cr .cr-t{font-size:17px;font-weight:600}svg.cr .cr-v{font-size:16px;font-variant-numeric:tabular-nums}svg.cr .cr-b{font-weight:600}svg.cr .cr-c{fill:var(--paper);stroke:var(--chart);stroke-width:1}svg.cr .cr-x{fill:var(--rule);stroke:var(--ink);stroke-width:2.2}svg.cr .cr-p{fill:none;stroke:var(--chart);stroke-width:1.2;stroke-dasharray:4 3}svg.cr .cr-l{stroke:var(--chart);stroke-width:1.5;fill:none}svg.cr .cr-i{stroke:var(--ink);stroke-width:1.5;fill:none}svg.cr .cr-h{fill:var(--paper);paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round}</style>
+<text class="cr-t" x="86" y="18" text-anchor="end">UTC</text>
+<text class="cr-s cr-g" x="86" y="36" text-anchor="end">1 a 2 nov</text>
+<text class="cr-t" x="140" y="18" text-anchor="middle">Medellín</text>
+<text class="cr-s cr-g" x="140" y="36" text-anchor="middle">UTC-5,</text>
+<text class="cr-s cr-g" x="140" y="53" text-anchor="middle">todo el año</text>
+<text class="cr-t" x="276" y="18" text-anchor="middle">Nueva York</text>
+<text class="cr-s cr-g" x="276" y="36" text-anchor="middle">UTC-4 y luego</text>
+<text class="cr-s cr-g" x="276" y="53" text-anchor="middle">UTC-5</text>
+<text class="cr-s cr-g cr-v" x="86" y="86" text-anchor="end">04:00</text>
+<rect class="cr-p" x="96" y="70" width="88" height="21"/>
+<text class="cr-s cr-g cr-v" x="104" y="86">23:00</text>
+<rect class="cr-c" x="232" y="70" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="86">00:00 EDT</text>
+<text class="cr-s cr-g cr-v" x="86" y="110" text-anchor="end">05:00</text>
+<rect class="cr-c" x="96" y="94" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="110">00:00</text>
+<rect class="cr-x" x="232" y="94" width="88" height="21"/>
+<text class="cr-s cr-v cr-b" x="240" y="110">01:00 EDT</text>
+<text class="cr-s cr-g cr-v" x="86" y="134" text-anchor="end">06:00</text>
+<rect class="cr-c" x="96" y="118" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="134">01:00</text>
+<rect class="cr-x" x="232" y="118" width="88" height="21"/>
+<text class="cr-s cr-v cr-b" x="240" y="134">01:00 EST</text>
+<text class="cr-s cr-g cr-v" x="86" y="158" text-anchor="end">07:00</text>
+<rect class="cr-c" x="96" y="142" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="158">02:00</text>
+<rect class="cr-c" x="232" y="142" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="158">02:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="182" text-anchor="end">08:00</text>
+<rect class="cr-c" x="96" y="166" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="182">03:00</text>
+<rect class="cr-c" x="232" y="166" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="182">03:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="206" text-anchor="end">09:00</text>
+<rect class="cr-c" x="96" y="190" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="206">04:00</text>
+<rect class="cr-c" x="232" y="190" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="206">04:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="230" text-anchor="end">10:00</text>
+<rect class="cr-c" x="96" y="214" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="230">05:00</text>
+<rect class="cr-c" x="232" y="214" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="230">05:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="254" text-anchor="end">11:00</text>
+<rect class="cr-c" x="96" y="238" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="254">06:00</text>
+<rect class="cr-c" x="232" y="238" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="254">06:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="278" text-anchor="end">12:00</text>
+<rect class="cr-c" x="96" y="262" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="278">07:00</text>
+<rect class="cr-c" x="232" y="262" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="278">07:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="302" text-anchor="end">13:00</text>
+<rect class="cr-c" x="96" y="286" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="302">08:00</text>
+<rect class="cr-c" x="232" y="286" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="302">08:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="326" text-anchor="end">14:00</text>
+<rect class="cr-c" x="96" y="310" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="326">09:00</text>
+<rect class="cr-c" x="232" y="310" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="326">09:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="350" text-anchor="end">15:00</text>
+<rect class="cr-c" x="96" y="334" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="350">10:00</text>
+<rect class="cr-c" x="232" y="334" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="350">10:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="374" text-anchor="end">16:00</text>
+<rect class="cr-c" x="96" y="358" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="374">11:00</text>
+<rect class="cr-c" x="232" y="358" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="374">11:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="398" text-anchor="end">17:00</text>
+<rect class="cr-c" x="96" y="382" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="398">12:00</text>
+<rect class="cr-c" x="232" y="382" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="398">12:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="422" text-anchor="end">18:00</text>
+<rect class="cr-c" x="96" y="406" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="422">13:00</text>
+<rect class="cr-c" x="232" y="406" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="422">13:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="446" text-anchor="end">19:00</text>
+<rect class="cr-c" x="96" y="430" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="446">14:00</text>
+<rect class="cr-c" x="232" y="430" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="446">14:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="470" text-anchor="end">20:00</text>
+<rect class="cr-c" x="96" y="454" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="470">15:00</text>
+<rect class="cr-c" x="232" y="454" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="470">15:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="494" text-anchor="end">21:00</text>
+<rect class="cr-c" x="96" y="478" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="494">16:00</text>
+<rect class="cr-c" x="232" y="478" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="494">16:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="518" text-anchor="end">22:00</text>
+<rect class="cr-c" x="96" y="502" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="518">17:00</text>
+<rect class="cr-c" x="232" y="502" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="518">17:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="542" text-anchor="end">23:00</text>
+<rect class="cr-c" x="96" y="526" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="542">18:00</text>
+<rect class="cr-c" x="232" y="526" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="542">18:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="566" text-anchor="end">00:00</text>
+<rect class="cr-c" x="96" y="550" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="566">19:00</text>
+<rect class="cr-c" x="232" y="550" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="566">19:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="590" text-anchor="end">01:00</text>
+<rect class="cr-c" x="96" y="574" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="590">20:00</text>
+<rect class="cr-c" x="232" y="574" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="590">20:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="614" text-anchor="end">02:00</text>
+<rect class="cr-c" x="96" y="598" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="614">21:00</text>
+<rect class="cr-c" x="232" y="598" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="614">21:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="638" text-anchor="end">03:00</text>
+<rect class="cr-c" x="96" y="622" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="638">22:00</text>
+<rect class="cr-c" x="232" y="622" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="638">22:00</text>
+<text class="cr-s cr-g cr-v" x="86" y="662" text-anchor="end">04:00</text>
+<rect class="cr-c" x="96" y="646" width="88" height="21"/>
+<text class="cr-s cr-v" x="104" y="662">23:00</text>
+<rect class="cr-c" x="232" y="646" width="88" height="21"/>
+<text class="cr-s cr-v" x="240" y="662">23:00</text>
+<path class="cr-l" d="M208 71V114"/>
+<text class="cr-s cr-h cr-b" x="208" y="97.5" text-anchor="middle">+1 h</text>
+<text class="cr-s cr-b" x="208" y="97.5" text-anchor="middle" style="stroke:none">+1 h</text>
+<path class="cr-i" d="M208 119V666"/>
+<text class="cr-s cr-h cr-b" x="208" y="397.5" text-anchor="middle">igual</text>
+<text class="cr-s cr-b" x="208" y="397.5" text-anchor="middle" style="stroke:none">igual</text>
+<path class="cr-i" d="M330 94h4V139h-4"/>
+<text class="cr-s cr-b" x="342" y="104.5">La 1:00</text>
+<text class="cr-s cr-b" x="342" y="121.5">pasa dos</text>
+<text class="cr-s cr-b" x="342" y="138.5">veces</text>
+<text class="cr-t" x="140" y="694" text-anchor="middle">24 horas</text>
+<text class="cr-s cr-g" x="140" y="712" text-anchor="middle">el 1 nov</text>
+<text class="cr-t" x="276" y="694" text-anchor="middle">25 horas</text>
+<text class="cr-s cr-g" x="276" y="712" text-anchor="middle">el 1 nov</text>
+<text class="cr-s cr-g" x="4" y="742">EDT: horario de verano. EST: horario estándar.</text>
+<text class="cr-s cr-g" x="4" y="760">Borde discontinuo: 23:00 del 31 oct.</text>
+</svg>

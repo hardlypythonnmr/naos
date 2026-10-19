@@ -1,0 +1,98 @@
+{
+ "id": "viva",
+ "kit": "K8 conducta en 3 pasos + K2 proceso",
+ "slug": "keep-your-hour",
+ "datos": {
+  "pasos": 3,
+  "hora_ejemplo": "22:00 (la del cuento: 'Ten.' / 'A las diez.')",
+  "respiracion": {
+   "adentro": 2,
+   "afuera": 1,
+   "repeticiones": 3,
+   "fase_s": [
+    1,
+    1,
+    3
+   ],
+   "ciclo_s": 5
+  },
+  "duraciones_s": {
+   "paso1": 3.6,
+   "paso2": 15,
+   "paso3": 2.6
+  }
+ },
+ "nada_sagrado": "Un reloj de puntos, un anillo y siete puntos: no hay figura, texto ni símbolo religioso, y la hora de ejemplo no es de nadie.",
+ "en": {
+  "titulo": "Three steps, one evening",
+  "alt": "Animation of a clock face in dots. Its hand points to 10 p.m., an example of your hour, and a mark appears there. A ring in the middle grows twice and shrinks once, three times, with the words In, In, Out. Then the mark fills in and the first night of a seven-night log is marked. Steps 1 to 3 are numbered.",
+  "desc": "Three numbered steps. 1: a ring marks 10 p.m. on the clock, an example of your hour, where the hand points. 2: a ring in the middle of the clock grows twice and shrinks once, three times, while the words In, In, Out appear. 3: the mark on your hour fills in, for going to bed at that hour, and a log of seven dots appears with the first one marked.",
+  "etiquetas": [
+   "Pick your hour",
+   "Close the day on purpose",
+   "Go to bed at your hour, and mark it"
+  ],
+  "hora": "10 p.m.",
+  "noche": "Night 1 of 7",
+  "cue": [
+   "In",
+   "In",
+   "Out"
+  ],
+  "estado": [
+   "Press Play, or Next step.",
+   "1 of 3. Pick your hour: the time on the clock when you went to bed before it moved. Here it is 10 p.m. Write it where you'll see it.",
+   "2 of 3. Close the day on purpose: breathe in, then in a little more, then out, long and slow. Three times. If you get dizzy, go back to normal breathing.",
+   "3 of 3. Go to bed at your hour, and mark it. Night 1 of 7. If a night goes differently, mark that hour too."
+  ],
+  "play": "Play",
+  "pause": "Pause",
+  "next": "Next step",
+  "again": "Play again",
+  "restart": "Start over",
+  "pasos": [
+   "Pick your hour. The time on the clock when you went to bed before it moved. If it changed from night to night, pick one you can keep. Write it where you'll see it.",
+   "Close the day on purpose. Breathe in, then in a little more, then out, long and slow. That's one breath. Take three. If you get dizzy, go back to normal breathing.",
+   "Go to bed at your hour, and mark it. Write down when you got into bed. Get up at a similar time each day. Seven nights."
+  ],
+  "que_es": "What this shows.",
+  "que_muestra": "An evening in three steps: a clock marks your hour, a ring breathes in, in a little more, and out long, three times, and the first of seven nights is marked. You can go step by step; with motion on, it plays once and you can pause it.",
+  "texto_version": "The three steps in text"
+ },
+ "es": {
+  "titulo": "Tres pasos, una noche",
+  "alt": "Animación de la carátula de un reloj en puntos. Su manecilla marca las 10 de la noche, un ejemplo de tu hora, y ahí aparece una marca. Un anillo en el centro crece dos veces y se achica una, tres veces, con las palabras Adentro, Adentro, Afuera. Después la marca se llena y se marca la primera noche de un registro de siete. Los pasos 1 a 3 están numerados.",
+  "desc": "Tres pasos numerados. 1: un anillo marca las 10 de la noche en el reloj, un ejemplo de tu hora, donde apunta la manecilla. 2: un anillo en el centro del reloj crece dos veces y se achica una, tres veces, mientras aparecen las palabras Adentro, Adentro, Afuera. 3: la marca de tu hora se llena, por acostarte a esa hora, y aparece un registro de siete puntos con el primero marcado.",
+  "etiquetas": [
+   "Escoge tu hora",
+   "Cierra el día con calma",
+   "Acuéstate a tu hora y anótalo"
+  ],
+  "hora": "10 p. m.",
+  "noche": "Noche 1 de 7",
+  "cue": [
+   "Adentro",
+   "Adentro",
+   "Afuera"
+  ],
+  "estado": [
+   "Toca Reproducir, o Siguiente paso.",
+   "1 de 3. Escoge tu hora: la hora en que te acostabas antes del cambio de hora, o la de siempre si donde vives no cambia. Aquí son las 10 de la noche. Anótala donde la veas.",
+   "2 de 3. Cierra el día con calma: toma aire, luego un poco más, y suéltalo largo y despacio. Tres veces. Si te mareas, vuelve a respirar normal.",
+   "3 de 3. Acuéstate a tu hora y anótalo. Noche 1 de 7. Si una noche sale distinta, anota esa hora también."
+  ],
+  "play": "Reproducir",
+  "pause": "Pausar",
+  "next": "Siguiente paso",
+  "again": "Reproducir de nuevo",
+  "restart": "Empezar de nuevo",
+  "pasos": [
+   "Escoge tu hora. La hora en que te acostabas antes del cambio de hora, o la de siempre si donde vives no cambia. Si variaba de una noche a otra, escoge una que puedas mantener. Anótala donde la veas.",
+   "Cierra el día con calma. Toma aire, luego un poco más, y suéltalo largo y despacio. Esa es una respiración. Haz tres. Si te mareas, vuelve a respirar normal.",
+   "Acuéstate a tu hora y anótalo. Escribe a qué hora te metiste a la cama. Levántate a horas parecidas cada día. Siete noches."
+  ],
+  "que_es": "Qué muestra.",
+  "que_muestra": "Una noche en tres pasos: un reloj marca tu hora, un anillo respira (toma aire, un poco más, y suelta largo) tres veces, y se marca la primera de siete noches. Puedes ir paso a paso; con el movimiento activado, corre una sola vez y puedes pausarla.",
+  "texto_version": "Los tres pasos en texto"
+ }
+}

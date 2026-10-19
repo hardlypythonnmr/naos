@@ -1,0 +1,122 @@
+{
+ "id": "mapa",
+ "kit": "K1",
+ "slug": "keep-your-hour",
+ "nodos": [
+  {
+   "i": 1,
+   "ancla": "c-2026-11-03-1200-h-historia",
+   "href_en": "#c-2026-11-03-1200-h-historia",
+   "href_es": "#c-2026-11-03-1200-h-historia",
+   "estado": "prox",
+   "src": "1103h-story-1200",
+   "en": {
+    "fecha": "Tue 3 Nov, noon",
+    "titulo": "Seven-night log"
+   },
+   "es": {
+    "fecha": "mar 3 nov, mediodía",
+    "titulo": "Registro de siete noches"
+   }
+  },
+  {
+   "i": 2,
+   "ancla": "c-2026-11-03-2000-h-short-reel",
+   "href_en": "#c-2026-11-03-2000-h-short-reel",
+   "href_es": "#c-2026-11-03-2000-h-short-reel",
+   "estado": "prox",
+   "src": "1103h",
+   "en": {
+    "fecha": "Tue 3 Nov, night",
+    "titulo": "Same bedtime"
+   },
+   "es": {
+    "fecha": "mar 3 nov, noche",
+    "titulo": "La misma hora al acostarte"
+   }
+  },
+  {
+   "i": 3,
+   "ancla": "c-2026-11-05-1200-h-historia",
+   "href_en": "#c-2026-11-05-1200-h-historia",
+   "href_es": "#c-2026-11-05-1200-h-historia",
+   "estado": "prox",
+   "src": "1105h-story-1200",
+   "en": {
+    "fecha": "Thu 5 Nov, noon",
+    "titulo": "Letting the day go · lock screen",
+    "lineas": [
+     "Letting the day go ·",
+     "lock screen"
+    ]
+   },
+   "es": {
+    "fecha": "jue 5 nov, mediodía",
+    "titulo": "Soltar el día, en tu pantalla"
+   }
+  },
+  {
+   "i": 4,
+   "ancla": "c-2026-11-05-2000-h-short-reel",
+   "href_en": "#c-2026-11-05-2000-h-short-reel",
+   "href_es": "#c-2026-11-05-2000-h-short-reel",
+   "estado": "prox",
+   "src": "1105h",
+   "en": {
+    "fecha": "Thu 5 Nov, night",
+    "titulo": "Letting the day go"
+   },
+   "es": {
+    "fecha": "jue 5 nov, noche",
+    "titulo": "Soltar el día"
+   }
+  },
+  {
+   "i": 5,
+   "ancla": "c-2026-11-07-1200-h-es",
+   "href_en": "../../es/temas/es/#c-2026-11-07-1200-h-es",
+   "href_es": "#c-2026-11-07-1200-h-es",
+   "estado": "prox",
+   "src": "1107es",
+   "en": {
+    "fecha": "Sat 7 Nov, noon",
+    "titulo": "Same hour, in Spanish"
+   },
+   "es": {
+    "fecha": "sáb 7 nov, mediodía",
+    "titulo": "Misma hora de dormir"
+   }
+  }
+ ],
+ "en": {
+  "titulo": "Five days around one hour",
+  "alt": "Map of this page: a clock face in dots with its hand turned back one hour, from 2:00 to 1:00, and five pieces fanned out from it, from 3 to 7 November.",
+  "desc": "A clock face in dots at the left. Its hand points to 1:00, with a dotted trail back to where it stood at 2:00. Five dotted lines run from the clock to five pieces in a column, by date: Tue 3 Nov noon, Seven-night log; Tue 3 Nov night, Same bedtime; Thu 5 Nov noon, Letting the day go, lock screen; Thu 5 Nov night, Letting the day go; Sat 7 Nov noon, Same hour, in Spanish. A filled dot is out, a ring is coming. The spacing is even and does not follow the calendar. The piece you came from is circled and the hand turns to it.",
+  "reloj": [
+   "2:00 to 1:00"
+  ],
+  "leyenda_out": "Out",
+  "leyenda_prox": "Coming",
+  "estado_out": "Out",
+  "estado_prox": "Coming",
+  "que_es": "What this shows.",
+  "que_muestra": "Five pieces over five days, one for each time the hour comes up: the log that starts the week, the bedtime, the breaths that close the day, and the same behavior in Spanish. The piece you came from is circled, and the hand turns to it.",
+  "texto_version": "Text version"
+ },
+ "es": {
+  "titulo": "Cinco días alrededor de una hora",
+  "alt": "Mapa de esta página: la carátula de un reloj en puntos, con la manecilla devuelta una hora, de las 2:00 a la 1:00, y cinco piezas que salen de ella, entre el 3 y el 7 de noviembre.",
+  "desc": "La carátula de un reloj en puntos, a la izquierda. Su manecilla marca la 1:00, con un rastro de puntos hasta donde estaba a las 2:00. Cinco líneas de puntos van del reloj a cinco piezas en una columna, por fecha: mar 3 nov mediodía, Registro de siete noches; mar 3 nov noche, La misma hora al acostarte; jue 5 nov mediodía, Soltar el día, en tu pantalla; jue 5 nov noche, Soltar el día; sáb 7 nov mediodía, Misma hora de dormir. Un punto lleno ya salió y un anillo está por salir. La separación es pareja y no sigue el calendario. La pieza de la que vienes lleva un círculo y la manecilla gira hacia ella.",
+  "reloj": [
+   "de las 2:00",
+   "a la 1:00"
+  ],
+  "leyenda_out": "Publicada",
+  "leyenda_prox": "Próximamente",
+  "estado_out": "Publicada",
+  "estado_prox": "Próximamente",
+  "que_es": "Qué muestra.",
+  "que_muestra": "Cinco piezas en cinco días, una por cada vez que aparece la hora: el registro con que empieza la semana, la hora de acostarte, las respiraciones que cierran el día y la misma conducta en español. La pieza de la que vienes lleva un círculo, y la manecilla gira hacia ella.",
+  "texto_version": "Versión en texto"
+ }
+}

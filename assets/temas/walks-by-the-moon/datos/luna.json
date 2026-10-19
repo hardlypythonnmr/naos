@@ -1,0 +1,73 @@
+{
+ "id": "luna",
+ "kit": "K4 simplificado (puntos sobre un eje de reloj, una fila por noche, dos puntos por fila)",
+ "slug": "walks-by-the-moon",
+ "fuente": {
+  "nombre": "U.S. Naval Observatory, Astronomical Applications API, rstt/oneday (hora de salida y de puesta); NASA/JPL Horizons, cuerpo 301, QUANTITIES 10 (parte iluminada)",
+  "consultada": "2026-10-16",
+  "licencia": "dominio público (gobierno de EE. UU.)",
+  "fuente_en_pagina": "[4] [5]",
+  "urls_usno": [
+   "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-10-22&coords=40.71,-74.01&tz=-4",
+   "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-10-22&coords=6.25,-75.56&tz=-5",
+   "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-12-13&coords=40.71,-74.01&tz=-5",
+   "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-12-13&coords=6.25,-75.56&tz=-5",
+   "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-12-15&coords=40.71,-74.01&tz=-5",
+   "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-12-15&coords=6.25,-75.56&tz=-5",
+   "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-12-17&coords=40.71,-74.01&tz=-5",
+   "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-12-17&coords=6.25,-75.56&tz=-5"
+  ]
+ },
+ "unidad": "hora de reloj local, hh:mm (24 h)",
+ "eje": [
+  "11:00",
+  "24:00"
+ ],
+ "referencia": {
+  "hora": "22:00",
+  "en": "10 pm",
+  "es": "10 p. m."
+ },
+ "en": {
+  "titulo": "The moon on the four walking nights",
+  "subtitulo": "How much of the moon is lit at 8 pm in New York, and when it rises or sets, by each city's own clock",
+  "alt": "Dot chart of four walking nights. Thursday 22 October, about 88% lit: the moon rises at 16:13 in New York and 15:08 in Medellín. Sunday 13 December, about 21% lit: it sets at 20:43 and 21:42. Tuesday 15 December, about 38% lit: it sets at 22:47 and 23:11. Thursday 17 December, about 58% lit: it rises at 11:59 and 12:16.",
+  "desc": "Four rows, one per night, each with a small moon drawn at its lit share and two points on a clock axis from 11:00 to 24:00: a filled dot for New York and a ring for Medellín, each labeled with the hour the moon rises or sets. A dotted line marks 10 pm. On 13 December both points sit left of the line: the moon has set before ten in both cities.",
+  "lit": "about {n}% lit at 8 pm ET",
+  "rise": "rises",
+  "set": "sets",
+  "ny": "New York",
+  "med": "Medellín",
+  "ref": "10 pm",
+  "que_es": "What this shows.",
+  "que_muestra": "How much moon there is on each walking night, and when it rises or sets by each city's clock. For the Geminids on 13 December we ask you to be out at ten, and by then the moon has set in both cities.",
+  "fuente": "Measured. Rise and set times: U.S. Naval Observatory [4]. Share lit: NASA/JPL Horizons [5]. Both checked on 16 October 2026. Each city shows its own clock: New York is on daylight time on 22 October (EDT) and on standard time in December (EST).",
+  "tabla_resumen": "Data table",
+  "col_noche": "Night",
+  "col_lit": "Lit at 8 pm ET",
+  "col_ny": "New York",
+  "col_med": "Medellín",
+  "lit_corto": "lit"
+ },
+ "es": {
+  "titulo": "La luna en las cuatro noches de caminata",
+  "subtitulo": "Cuánta luna está iluminada a las 8 de la noche en Nueva York, y a qué hora sale o se pone, con el reloj de cada ciudad",
+  "alt": "Gráfica de puntos de cuatro noches de caminata. Jueves 22 de octubre, unos 88 % iluminada: la luna sale a las 16:13 en Nueva York y a las 15:08 en Medellín. Domingo 13 de diciembre, unos 21 %: se pone a las 20:43 y a las 21:42. Martes 15 de diciembre, unos 38 %: se pone a las 22:47 y a las 23:11. Jueves 17 de diciembre, unos 58 %: sale a las 11:59 y a las 12:16.",
+  "desc": "Cuatro filas, una por noche, cada una con una luna pequeña dibujada con su parte iluminada y dos puntos sobre un eje de reloj de 11:00 a 24:00: un punto lleno para Nueva York y un anillo para Medellín, cada uno con la hora a la que la luna sale o se pone. Una línea de puntos marca las 10 p. m. El 13 de diciembre los dos puntos quedan a la izquierda de la línea: antes de las diez la luna ya se puso en las dos ciudades.",
+  "lit": "unos {n} % iluminada a las 20:00 ET",
+  "rise": "sale",
+  "set": "se pone",
+  "ny": "Nueva York",
+  "med": "Medellín",
+  "ref": "10 p. m.",
+  "que_es": "Qué muestra.",
+  "que_muestra": "Cuánta luna hay en cada noche de caminata, y a qué hora sale o se pone con el reloj de cada ciudad. Para las Gemínidas del 13 de diciembre te pedimos estar afuera a las diez, y a esa hora la luna ya se puso en las dos ciudades.",
+  "fuente": "Medido. Horas de salida y de puesta: Observatorio Naval de EE. UU. [4]. Parte iluminada: NASA/JPL Horizons [5]. Las dos, consultadas el 16 de octubre de 2026. Cada ciudad usa su propio reloj: Nueva York está en horario de verano el 22 de octubre (EDT) y en horario estándar en diciembre (EST).",
+  "tabla_resumen": "Tabla de datos",
+  "col_noche": "Noche",
+  "col_lit": "Iluminada a las 20:00 ET",
+  "col_ny": "Nueva York",
+  "col_med": "Medellín",
+  "lit_corto": "iluminada"
+ }
+}

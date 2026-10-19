@@ -1,0 +1,219 @@
+{
+ "id": "mapa",
+ "kit": "K1",
+ "slug": "walks-by-the-moon",
+ "lunas": [
+  {
+   "grupo": 1,
+   "lit": 87.97,
+   "hora": "20:00 ET = 00:00 UT del 23-oct"
+  },
+  {
+   "grupo": 2,
+   "lit": 20.84,
+   "hora": "20:00 ET = 01:00 UT del 14-dic"
+  },
+  {
+   "grupo": 3,
+   "lit": 38.28,
+   "hora": "20:00 ET = 01:00 UT del 16-dic"
+  },
+  {
+   "grupo": 4,
+   "lit": 58.37,
+   "hora": "20:00 ET = 01:00 UT del 18-dic"
+  }
+ ],
+ "nodos": [
+  {
+   "i": 1,
+   "grupo": 1,
+   "ancla": "c-2026-10-22-1200-h-historia",
+   "estado": "out",
+   "src": null,
+   "en": {
+    "fecha": "Thu 22 Oct, noon",
+    "titulo": "Walk the same road…"
+   },
+   "es": {
+    "fecha": "jue 22 oct, mediodía",
+    "titulo": "Camina la misma calle…"
+   },
+   "href_en": "#c-2026-10-22-1200-h-historia",
+   "href_es": "#c-2026-10-22-1200-h-historia"
+  },
+  {
+   "i": 2,
+   "grupo": 1,
+   "ancla": "c-2026-10-22-2000-h-short-reel",
+   "estado": "out",
+   "src": "1022h",
+   "en": {
+    "fecha": "Thu 22 Oct, night",
+    "titulo": "Walk the same road…"
+   },
+   "es": {
+    "fecha": "jue 22 oct, noche",
+    "titulo": "Camina la misma calle…"
+   },
+   "href_en": "#c-2026-10-22-2000-h-short-reel",
+   "href_es": "#c-2026-10-22-2000-h-short-reel"
+  },
+  {
+   "i": 3,
+   "grupo": 2,
+   "ancla": "c-2026-12-13-1200-h-historia",
+   "estado": "prox",
+   "src": null,
+   "en": {
+    "fecha": "Sun 13 Dec, noon",
+    "titulo": "Geminids tonight"
+   },
+   "es": {
+    "fecha": "dom 13 dic, mediodía",
+    "titulo": "Gemínidas esta noche"
+   },
+   "href_en": "#c-2026-12-13-1200-h-historia",
+   "href_es": "#c-2026-12-13-1200-h-historia"
+  },
+  {
+   "i": 4,
+   "grupo": 2,
+   "ancla": "c-2026-12-13-2000-h-short-reel",
+   "estado": "prox",
+   "src": "1213h",
+   "en": {
+    "fecha": "Sun 13 Dec, night",
+    "titulo": "Go see the Geminids tonight"
+   },
+   "es": {
+    "fecha": "dom 13 dic, noche",
+    "titulo": "Sal a ver las Gemínidas esta noche"
+   },
+   "href_en": "#c-2026-12-13-2000-h-short-reel",
+   "href_es": "#c-2026-12-13-2000-h-short-reel"
+  },
+  {
+   "i": 5,
+   "grupo": 3,
+   "ancla": "c-2026-12-15-1200-h-historia",
+   "estado": "prox",
+   "src": null,
+   "en": {
+    "fecha": "Tue 15 Dec, noon",
+    "titulo": "Walk side by side"
+   },
+   "es": {
+    "fecha": "mar 15 dic, mediodía",
+    "titulo": "Camina al lado de alguien"
+   },
+   "href_en": "#c-2026-12-15-1200-h-historia",
+   "href_es": "#c-2026-12-15-1200-h-historia"
+  },
+  {
+   "i": 6,
+   "grupo": 3,
+   "ancla": "c-2026-12-15-2000-h-short-reel",
+   "estado": "prox",
+   "src": "1215h",
+   "en": {
+    "fecha": "Tue 15 Dec, night",
+    "titulo": "Walk side by side"
+   },
+   "es": {
+    "fecha": "mar 15 dic, noche",
+    "titulo": "Camina al lado de alguien"
+   },
+   "href_en": "#c-2026-12-15-2000-h-short-reel",
+   "href_es": "#c-2026-12-15-2000-h-short-reel"
+  },
+  {
+   "i": 7,
+   "grupo": 4,
+   "ancla": "c-2026-12-17-1200-h-historia",
+   "estado": "prox",
+   "src": null,
+   "en": {
+    "fecha": "Thu 17 Dec, noon",
+    "titulo": "Walk home the long way"
+   },
+   "es": {
+    "fecha": "jue 17 dic, mediodía",
+    "titulo": "Vuelve a casa por el camino largo"
+   },
+   "href_en": "#c-2026-12-17-1200-h-historia",
+   "href_es": "#c-2026-12-17-1200-h-historia"
+  },
+  {
+   "i": 8,
+   "grupo": 4,
+   "ancla": "c-2026-12-17-2000-h-short-reel",
+   "estado": "prox",
+   "src": "1217h",
+   "en": {
+    "fecha": "Thu 17 Dec, night",
+    "titulo": "Walk home the long way"
+   },
+   "es": {
+    "fecha": "jue 17 dic, noche",
+    "titulo": "Vuelve a casa por el camino largo"
+   },
+   "href_en": "#c-2026-12-17-2000-h-short-reel",
+   "href_es": "#c-2026-12-17-2000-h-short-reel"
+  },
+  {
+   "i": 9,
+   "grupo": 0,
+   "ancla": "c-2026-12-19-1200-h-es",
+   "estado": "prox",
+   "src": "1219es",
+   "en": {
+    "fecha": "Sat 19 Dec",
+    "titulo": "Caminar lado a lado",
+    "lang_titulo": "es"
+   },
+   "es": {
+    "fecha": "sáb 19 dic",
+    "titulo": "Caminar lado a lado"
+   },
+   "href_en": "../../es/temas/walks-by-the-moon/#c-2026-12-19-1200-h-es",
+   "href_es": "#c-2026-12-19-1200-h-es"
+  }
+ ],
+ "en": {
+  "titulo": "One road, four moons",
+  "alt": "Map of this page: one road drawn in dots that winds down the page, with the moon drawn beside it four times, mostly lit on 22 October, a thin crescent on 13 December, a fuller crescent on 15 December and just past half on 17 December, and nine pieces set along the road.",
+  "desc": "Nine pieces in date order along one dotted road. Thursday 22 October: Walk the same road until the moon is full, a story at noon and a Short at night, beside a moon that is mostly lit. Sunday 13 December: Geminids tonight, and Go see the Geminids tonight, beside a thin crescent. Tuesday 15 December: Walk side by side, at noon and at night, beside a fuller crescent. Thursday 17 December: Walk home the long way, at noon and at night, beside a moon just past half. Saturday 19 December: the Spanish version of the 15 December Short, with no moon. A filled dot is a piece that is out; a ring is a piece that is coming.",
+  "que_es": "What this shows.",
+  "que_muestra": "The pieces sit along one road, in date order, and the moon beside each stretch is the moon of that night. The piece you came from is circled, and the road lights up to it.",
+  "texto_version": "Text version of the map",
+  "estado_out": "Out",
+  "estado_prox": "Coming",
+  "leyenda_out": "Out",
+  "leyenda_prox": "Coming",
+  "luna_pie": [
+   "Thu 22 Oct",
+   "Sun 13 Dec",
+   "Tue 15 Dec",
+   "Thu 17 Dec"
+  ]
+ },
+ "es": {
+  "titulo": "Un camino, cuatro lunas",
+  "alt": "Mapa de esta página: un camino dibujado con puntos que serpentea hacia abajo por la página, con la luna dibujada a su lado cuatro veces, muy iluminada el 22 de octubre, una creciente delgada el 13 de diciembre, una creciente más gruesa el 15 y un poco más que media luna el 17, y nueve piezas puestas a lo largo del camino.",
+  "desc": "Nueve piezas en orden de fecha a lo largo de un solo camino de puntos. Jueves 22 de octubre: Camina la misma calle hasta que la luna esté llena, una historia al mediodía y un Short de noche, junto a una luna muy iluminada. Domingo 13 de diciembre: Gemínidas esta noche y Sal a ver las Gemínidas esta noche, junto a una creciente delgada. Martes 15 de diciembre: Camina al lado de alguien, al mediodía y de noche, junto a una creciente más gruesa. Jueves 17 de diciembre: Vuelve a casa por el camino largo, al mediodía y de noche, junto a una luna que pasó un poco la mitad. Sábado 19 de diciembre: la versión en español del Short del 15 de diciembre, sin luna. Un punto lleno es una pieza ya publicada; un anillo es una pieza que viene.",
+  "que_es": "Qué muestra.",
+  "que_muestra": "Las piezas van por un solo camino, en orden de fecha, y la luna que está junto a cada tramo es la luna de esa noche. La pieza de la que vienes lleva un círculo, y el camino se ilumina hasta ella.",
+  "texto_version": "Versión en texto del mapa",
+  "estado_out": "Publicada",
+  "estado_prox": "Próximamente",
+  "leyenda_out": "Publicada",
+  "leyenda_prox": "Próximamente",
+  "luna_pie": [
+   "jue 22 oct",
+   "dom 13 dic",
+   "mar 15 dic",
+   "jue 17 dic"
+  ]
+ }
+}

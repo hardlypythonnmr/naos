@@ -1,0 +1,84 @@
+<svg class="cm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 883" width="400" height="883" role="img" aria-labelledby="cm-t-es cm-d-es" lang="es">
+<title id="cm-t-es">Mapa de esta página: un camino dibujado con puntos que serpentea hacia abajo por la página, con la luna dibujada a su lado cuatro veces, muy iluminada el 22 de octubre, una creciente delgada el 13 de diciembre, una creciente más gruesa el 15 y un poco más que media luna el 17, y nueve piezas puestas a lo largo del camino.</title>
+<desc id="cm-d-es">Nueve piezas en orden de fecha a lo largo de un solo camino de puntos. Jueves 22 de octubre: Camina la misma calle hasta que la luna esté llena, una historia al mediodía y un Short de noche, junto a una luna muy iluminada. Domingo 13 de diciembre: Gemínidas esta noche y Sal a ver las Gemínidas esta noche, junto a una creciente delgada. Martes 15 de diciembre: Camina al lado de alguien, al mediodía y de noche, junto a una creciente más gruesa. Jueves 17 de diciembre: Vuelve a casa por el camino largo, al mediodía y de noche, junto a una luna que pasó un poco la mitad. Sábado 19 de diciembre: la versión en español del Short del 15 de diciembre, sin luna. Un punto lleno es una pieza ya publicada; un anillo es una pieza que viene.</desc>
+<style>svg.cm{--ink:var(--naos-ink,#0E1116);--sec:var(--naos-sec,#454C57);--grey:var(--naos-grey,#59616D);--chart:var(--naos-chart,#737B87);--rule:var(--naos-rule,#D7DBE0);--paper:var(--naos-paper,#FFFFFF);font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif)}svg.cm[data-tono=noche]{--ink:var(--naos-night-text,#F4F6F8);--sec:var(--naos-night-sec,#C3C9D2);--grey:var(--naos-night-grey,#9AA3B0);--chart:var(--naos-night-grey,#9AA3B0);--rule:var(--naos-night-rule,#2A303A);--paper:var(--naos-night,#0E1116)}svg.cm text{fill:var(--ink)}svg.cm .cm-d{fill:var(--grey);font-size:16px;font-variant-numeric:tabular-nums}svg.cm .cm-t{font-family:var(--font-serif,'Newsreader',Georgia,serif);font-size:21px;font-weight:400}svg.cm .cm-k{fill:var(--grey);font-size:16px}svg.cm .cm-p{fill:var(--grey);font-size:15px;text-anchor:middle}svg.cm .cm-road{fill:none;stroke:var(--chart);stroke-width:3.2;stroke-linecap:round;stroke-dasharray:.01 8.5}svg.cm .cm-lit{fill:none;stroke:var(--ink);stroke-width:3.6;stroke-linecap:round;stroke-dasharray:.01 8.5}svg.cm .cm-mk{transition:stroke-dashoffset 1s cubic-bezier(.2,0,0,1)}svg.cm .cm-sh{fill:var(--paper);stroke:var(--chart);stroke-width:1.6}svg.cm .cm-lit-m{fill:var(--ink)}svg.cm .cm-halo{fill:var(--paper)}svg.cm .cm-out{fill:var(--ink)}svg.cm .cm-in{fill:var(--paper);stroke:var(--ink);stroke-width:2.5}svg.cm .cm-sel{display:none;fill:none;stroke:var(--ink);stroke-width:2}svg.cm .is-from .cm-sel{display:inline}svg.cm .is-from .cm-t{font-weight:600}@media (prefers-reduced-motion:reduce){svg.cm .cm-mk{transition:none}}</style>
+<defs><mask id="cm-m-es" maskUnits="userSpaceOnUse" x="0" y="0" width="400" height="883"><path class="cm-mk" pathLength="1" d="M116 30L116 64C116 98 96 98 96 132C96 188 116 188 116 244C116 280.75 96 280.75 96 317.5C96 373.5 116 373.5 116 429.5C116 463.5 96 463.5 96 497.5C96 553.5 116 553.5 116 609.5C116 652.5 96 652.5 96 695.5C96 751.5 116 751.5 116 807.5" fill="none" stroke="#fff" stroke-width="14" style="stroke-dasharray:1 1;stroke-dashoffset:1.02"/></mask></defs>
+<path class="cm-road" d="M116 30L116 64C116 98 96 98 96 132C96 188 116 188 116 244C116 280.75 96 280.75 96 317.5C96 373.5 116 373.5 116 429.5C116 463.5 96 463.5 96 497.5C96 553.5 116 553.5 116 609.5C116 652.5 96 652.5 96 695.5C96 751.5 116 751.5 116 807.5"/>
+<path class="cm-lit" d="M116 30L116 64C116 98 96 98 96 132C96 188 116 188 116 244C116 280.75 96 280.75 96 317.5C96 373.5 116 373.5 116 429.5C116 463.5 96 463.5 96 497.5C96 553.5 116 553.5 116 609.5C116 652.5 96 652.5 96 695.5C96 751.5 116 751.5 116 807.5" mask="url(#cm-m-es)"/>
+<g class="cm-moon" data-g="1"><circle class="cm-sh" cx="36" cy="98" r="21"/><path class="cm-lit-m" d="M36 77A21 21 0 0 1 36 119A15.95 21 0 0 1 36 77Z"/></g>
+<text class="cm-p" x="36" y="139">jue</text><text class="cm-p" x="36" y="156">22 oct</text>
+<g class="cm-moon" data-g="2"><circle class="cm-sh" cx="36" cy="280.75" r="21"/><path class="cm-lit-m" d="M36 259.75A21 21 0 0 1 36 301.75A12.25 21 0 0 0 36 259.75Z"/></g>
+<text class="cm-p" x="36" y="321.75">dom</text><text class="cm-p" x="36" y="338.75">13 dic</text>
+<g class="cm-moon" data-g="3"><circle class="cm-sh" cx="36" cy="463.5" r="21"/><path class="cm-lit-m" d="M36 442.5A21 21 0 0 1 36 484.5A4.92 21 0 0 0 36 442.5Z"/></g>
+<text class="cm-p" x="36" y="504.5">mar</text><text class="cm-p" x="36" y="521.5">15 dic</text>
+<g class="cm-moon" data-g="4"><circle class="cm-sh" cx="36" cy="652.5" r="21"/><path class="cm-lit-m" d="M36 631.5A21 21 0 0 1 36 673.5A3.52 21 0 0 1 36 631.5Z"/></g>
+<text class="cm-p" x="36" y="693.5">jue</text><text class="cm-p" x="36" y="710.5">17 dic</text>
+<g class="cm-n" data-i="1" data-f="0.0424">
+<circle class="cm-halo" cx="116" cy="64" r="13"/>
+<circle class="cm-out" cx="116" cy="64" r="8"/>
+<circle class="cm-sel" cx="116" cy="64" r="15.5"/>
+<text class="cm-d" x="138" y="55.5">jue 22 oct, mediodía</text>
+<text class="cm-t" x="138" y="78.5">Camina la misma calle…</text>
+</g>
+<g class="cm-n" data-i="2" data-f="0.1321" data-src="1022h">
+<circle class="cm-halo" cx="96" cy="132" r="13"/>
+<circle class="cm-out" cx="96" cy="132" r="8"/>
+<circle class="cm-sel" cx="96" cy="132" r="15.5"/>
+<text class="cm-d" x="138" y="123.5">jue 22 oct, noche</text>
+<text class="cm-t" x="138" y="146.5">Camina la misma calle…</text>
+</g>
+<g class="cm-n" data-i="3" data-f="0.2748">
+<circle class="cm-halo" cx="116" cy="244" r="13"/>
+<circle class="cm-in" cx="116" cy="244" r="7"/>
+<circle class="cm-sel" cx="116" cy="244" r="15.5"/>
+<text class="cm-d" x="138" y="235.5">dom 13 dic, mediodía</text>
+<text class="cm-t" x="138" y="258.5">Gemínidas esta noche</text>
+</g>
+<g class="cm-n" data-i="4" data-f="0.3710" data-src="1213h">
+<circle class="cm-halo" cx="96" cy="317.5" r="13"/>
+<circle class="cm-in" cx="96" cy="317.5" r="7"/>
+<circle class="cm-sel" cx="96" cy="317.5" r="15.5"/>
+<text class="cm-d" x="138" y="296.5">dom 13 dic, noche</text>
+<text class="cm-t" x="138" y="319.5">Sal a ver las</text>
+<text class="cm-t" x="138" y="344.5">Gemínidas esta noche</text>
+</g>
+<g class="cm-n" data-i="5" data-f="0.5137">
+<circle class="cm-halo" cx="116" cy="429.5" r="13"/>
+<circle class="cm-in" cx="116" cy="429.5" r="7"/>
+<circle class="cm-sel" cx="116" cy="429.5" r="15.5"/>
+<text class="cm-d" x="138" y="421">mar 15 dic, mediodía</text>
+<text class="cm-t" x="138" y="444">Camina al lado de alguien</text>
+</g>
+<g class="cm-n" data-i="6" data-f="0.6034" data-src="1215h">
+<circle class="cm-halo" cx="96" cy="497.5" r="13"/>
+<circle class="cm-in" cx="96" cy="497.5" r="7"/>
+<circle class="cm-sel" cx="96" cy="497.5" r="15.5"/>
+<text class="cm-d" x="138" y="489">mar 15 dic, noche</text>
+<text class="cm-t" x="138" y="512">Camina al lado de alguien</text>
+</g>
+<g class="cm-n" data-i="7" data-f="0.7461">
+<circle class="cm-halo" cx="116" cy="609.5" r="13"/>
+<circle class="cm-in" cx="116" cy="609.5" r="7"/>
+<circle class="cm-sel" cx="116" cy="609.5" r="15.5"/>
+<text class="cm-d" x="138" y="588.5">jue 17 dic, mediodía</text>
+<text class="cm-t" x="138" y="611.5">Vuelve a casa por</text>
+<text class="cm-t" x="138" y="636.5">el camino largo</text>
+</g>
+<g class="cm-n" data-i="8" data-f="0.8573" data-src="1217h">
+<circle class="cm-halo" cx="96" cy="695.5" r="13"/>
+<circle class="cm-in" cx="96" cy="695.5" r="7"/>
+<circle class="cm-sel" cx="96" cy="695.5" r="15.5"/>
+<text class="cm-d" x="138" y="674.5">jue 17 dic, noche</text>
+<text class="cm-t" x="138" y="697.5">Vuelve a casa por</text>
+<text class="cm-t" x="138" y="722.5">el camino largo</text>
+</g>
+<g class="cm-n" data-i="9" data-f="1.0000" data-src="1219es">
+<circle class="cm-halo" cx="116" cy="807.5" r="13"/>
+<circle class="cm-in" cx="116" cy="807.5" r="7"/>
+<circle class="cm-sel" cx="116" cy="807.5" r="15.5"/>
+<text class="cm-d" x="138" y="799">sáb 19 dic</text>
+<text class="cm-t" x="138" y="822">Caminar lado a lado</text>
+</g>
+<circle class="cm-out" cx="14" cy="861" r="8"/><text class="cm-k" x="30" y="866">Publicada</text>
+<circle class="cm-in" cx="130.86" cy="861" r="7"/><text class="cm-k" x="146.86" y="866">Próximamente</text>
+</svg>

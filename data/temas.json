@@ -172,7 +172,7 @@
   {
    "slug": "keep-your-hour",
    "titulo": "The clock moved. Keep your hour.",
-   "titulo_es": "Cambió el reloj. Mantén tu hora.",
+   "titulo_es": "Cambie o no el reloj, mantén tu hora.",
    "seccion": "Humanity",
    "pilar": "sleep",
    "desde": "2026-11-03",
@@ -214,10 +214,6 @@
     "c-2026-11-14-1200-h-es"
    ],
    "fuentes": [
-    {
-     "titulo": "hindutone.com: festivals/lakshmi-puja-muhurat-2026-india-city-wise",
-     "url": "https://hindutone.com/festivals/lakshmi-puja-muhurat-2026-india-city-wise/"
-    },
     {
      "titulo": "DOI 10.7554/elife.88359",
      "url": "https://doi.org/10.7554/elife.88359"
@@ -595,6 +591,29 @@
      "url": "https://aa.usno.navy.mil/data/MoonPhases"
     }
    ]
+  },
+  {
+   "slug": "es",
+   "titulo": "Closer to yourself, in Spanish",
+   "titulo_es": "Más cerca de ti, en español",
+   "seccion": "Humanity",
+   "pilar": null,
+   "desde": "2026-10-24",
+   "hasta": "2026-12-31",
+   "piezas": [
+    "c-2026-10-24-1300-h-es",
+    "c-2026-11-01-1200-h-es",
+    "c-2026-11-07-1200-h-es",
+    "c-2026-11-14-1200-h-es",
+    "c-2026-11-21-1200-h-es",
+    "c-2026-11-28-1200-h-es",
+    "c-2026-12-05-1200-h-es",
+    "c-2026-12-12-1200-h-es",
+    "c-2026-12-19-1200-h-es",
+    "c-2026-12-26-1200-h-es",
+    "c-2026-12-31-1200-h-es"
+   ],
+   "fuentes": []
   }
  ],
  "piezas": [
@@ -774,7 +793,7 @@
    "mercado": false,
    "luna": {
     "fase": "waxing gibbous",
-    "iluminacion": 84.4,
+    "iluminacion": 86,
     "signo": "Pisces"
    },
    "codigo": "1022h-story-1200",
@@ -800,7 +819,7 @@
    "mercado": false,
    "luna": {
     "fase": "waxing gibbous",
-    "iluminacion": 84.4,
+    "iluminacion": 88,
     "signo": "Pisces"
    },
    "codigo": "1022h",
@@ -913,7 +932,8 @@
   {
    "id": "c-2026-10-24-1300-h-es",
    "ref": "2026-10-24-1300-H-es",
-   "pagina": "the-full-moon-table",
+   "pagina": "es",
+   "tema": "the-full-moon-table",
    "fecha": "2026-10-24",
    "hora_et": "13:00",
    "hora_medellin": "12:00",
@@ -930,7 +950,7 @@
    "mercado": false,
    "luna": {
     "fase": "eve of the full moon",
-    "iluminacion": 96.3,
+    "iluminacion": 97.1,
     "signo": "Aries"
    },
    "codigo": "1024es",
@@ -1329,7 +1349,8 @@
   {
    "id": "c-2026-11-01-1200-h-es",
    "ref": "2026-11-01-1200-H-es",
-   "pagina": "saints-and-souls",
+   "pagina": "es",
+   "tema": "saints-and-souls",
    "fecha": "2026-11-01",
    "hora_et": "12:00",
    "hora_medellin": "12:00",
@@ -1346,7 +1367,7 @@
    "mercado": false,
    "luna": {
     "fase": "last quarter",
-    "iluminacion": 54.1,
+    "iluminacion": 51.8,
     "signo": "Leo"
    },
    "codigo": "1101es",
@@ -1502,7 +1523,7 @@
    "mercado": false,
    "luna": {
     "fase": "waning crescent",
-    "iluminacion": 32.3,
+    "iluminacion": 30.2,
     "signo": "Virgo"
    },
    "codigo": "1103h-story-1200",
@@ -1528,7 +1549,7 @@
    "mercado": false,
    "luna": {
     "fase": "waning crescent",
-    "iluminacion": 32.3,
+    "iluminacion": 26.9,
     "signo": "Virgo"
    },
    "codigo": "1103h",
@@ -1606,7 +1627,7 @@
    "mercado": false,
    "luna": {
     "fase": "waning crescent",
-    "iluminacion": 14.4,
+    "iluminacion": 12.9,
     "signo": "Libra"
    },
    "codigo": "1105h-story-1200",
@@ -1632,7 +1653,7 @@
    "mercado": false,
    "luna": {
     "fase": "waning crescent",
-    "iluminacion": 14.4,
+    "iluminacion": 10.7,
     "signo": "Libra"
    },
    "codigo": "1105h",
@@ -1693,7 +1714,8 @@
   {
    "id": "c-2026-11-07-1200-h-es",
    "ref": "2026-11-07-1200-H-es",
-   "pagina": "keep-your-hour",
+   "pagina": "es",
+   "tema": "keep-your-hour",
    "fecha": "2026-11-07",
    "hora_et": "12:00",
    "hora_medellin": "12:00",
@@ -1703,14 +1725,14 @@
    "seccion": "Humanity",
    "pilar": "sleep",
    "lang": "es",
-   "titulo": "Misma hora de dormir tras el cambio de reloj",
+   "titulo": "Misma hora de dormir tras el cambio de hora",
    "linea": null,
    "voz": true,
    "noticia": false,
    "mercado": false,
    "luna": {
     "fase": "waning crescent",
-    "iluminacion": 3.4,
+    "iluminacion": 2.7,
     "signo": "Libra"
    },
    "codigo": "1107es",
@@ -1736,7 +1758,7 @@
    "mercado": false,
    "luna": {
     "fase": "waning crescent",
-    "iluminacion": 3.4,
+    "iluminacion": 2.7,
     "signo": null
    },
    "codigo": "1107h-story-1200",
@@ -1762,7 +1784,7 @@
    "mercado": false,
    "luna": {
     "fase": "waning crescent",
-    "iluminacion": 3.4,
+    "iluminacion": 1.7,
     "signo": null
    },
    "codigo": "1107h",
@@ -1788,7 +1810,7 @@
    "mercado": false,
    "luna": {
     "fase": "eve of the new moon",
-    "iluminacion": 0.8,
+    "iluminacion": 0.6,
     "signo": null
    },
    "codigo": "1108h-medium",
@@ -1814,7 +1836,7 @@
    "mercado": false,
    "luna": {
     "fase": "eve of the new moon",
-    "iluminacion": 0.8,
+    "iluminacion": 0.5,
     "signo": null
    },
    "codigo": "1108h-story-1200",
@@ -1840,7 +1862,7 @@
    "mercado": false,
    "luna": {
     "fase": "eve of the new moon",
-    "iluminacion": 0.8,
+    "iluminacion": 0.2,
     "signo": null
    },
    "codigo": "1108h",
@@ -1918,7 +1940,7 @@
    "mercado": false,
    "luna": {
     "fase": "day after the new moon",
-    "iluminacion": 1.6,
+    "iluminacion": 2.1,
     "signo": null
    },
    "codigo": "1110h-story-1200",
@@ -1944,7 +1966,7 @@
    "mercado": false,
    "luna": {
     "fase": "day after the new moon",
-    "iluminacion": 1.6,
+    "iluminacion": 3.1,
     "signo": null
    },
    "codigo": "1110h",
@@ -2015,14 +2037,14 @@
    "seccion": "Humanity",
    "pilar": "community",
    "lang": "en",
-   "titulo": "Open the door when it's dark",
+   "titulo": "Open the door to someone",
    "linea": null,
    "voz": false,
    "noticia": false,
    "mercado": false,
    "luna": {
     "fase": "waxing crescent",
-    "iluminacion": 9.6,
+    "iluminacion": 10.7,
     "signo": null
    },
    "codigo": "1112h-story-1200",
@@ -2041,14 +2063,14 @@
    "seccion": "Humanity",
    "pilar": "community",
    "lang": "en",
-   "titulo": "Open the door when it's dark",
-   "linea": "Leave the door open tonight.",
+   "titulo": "Open the door to someone",
+   "linea": "Open the door to someone tonight.",
    "voz": true,
    "noticia": false,
    "mercado": false,
    "luna": {
     "fase": "waxing crescent",
-    "iluminacion": 9.6,
+    "iluminacion": 12.8,
     "signo": null
    },
    "codigo": "1112h",
@@ -2074,7 +2096,7 @@
    "mercado": false,
    "luna": {
     "fase": "waxing crescent",
-    "iluminacion": 15.8,
+    "iluminacion": 17.2,
     "signo": null
    },
    "codigo": "1113h-story-1200",
@@ -2100,7 +2122,7 @@
    "mercado": false,
    "luna": {
     "fase": "waxing crescent",
-    "iluminacion": 15.8,
+    "iluminacion": 19.6,
     "signo": null
    },
    "codigo": "1113h",
@@ -2135,7 +2157,8 @@
   {
    "id": "c-2026-11-14-1200-h-es",
    "ref": "2026-11-14-1200-H-es",
-   "pagina": "a-lamp-on-the-night-without-a-moon",
+   "pagina": "es",
+   "tema": "a-lamp-on-the-night-without-a-moon",
    "fecha": "2026-11-14",
    "hora_et": "12:00",
    "hora_medellin": "12:00",
@@ -2152,7 +2175,7 @@
    "mercado": false,
    "luna": {
     "fase": "waxing crescent",
-    "iluminacion": 23.1,
+    "iluminacion": 24.8,
     "signo": null
    },
    "codigo": "1114es",
@@ -2551,7 +2574,8 @@
   {
    "id": "c-2026-11-21-1200-h-es",
    "ref": "2026-11-21-1200-H-es",
-   "pagina": "phones-in-the-bread-basket",
+   "pagina": "es",
+   "tema": "phones-in-the-bread-basket",
    "fecha": "2026-11-21",
    "hora_et": "12:00",
    "hora_medellin": "12:00",
@@ -2568,7 +2592,7 @@
    "mercado": false,
    "luna": {
     "fase": "waxing gibbous",
-    "iluminacion": 87,
+    "iluminacion": 88.5,
     "signo": "Aries"
    },
    "codigo": "1121es",
@@ -2967,7 +2991,8 @@
   {
    "id": "c-2026-11-28-1200-h-es",
    "ref": "2026-11-28-1200-H-es",
-   "pagina": "a-good-party",
+   "pagina": "es",
+   "tema": "a-good-party",
    "fecha": "2026-11-28",
    "hora_et": "12:00",
    "hora_medellin": "12:00",
@@ -2984,7 +3009,7 @@
    "mercado": false,
    "luna": {
     "fase": "waning gibbous",
-    "iluminacion": 79.4,
+    "iluminacion": 77.3,
     "signo": "Leo"
    },
    "codigo": "1128es",
@@ -3409,7 +3434,8 @@
   {
    "id": "c-2026-12-05-1200-h-es",
    "ref": "2026-12-05-1200-H-es",
-   "pagina": "advent-waiting",
+   "pagina": "es",
+   "tema": "advent-waiting",
    "fecha": "2026-12-05",
    "hora_et": "12:00",
    "hora_medellin": "12:00",
@@ -3426,7 +3452,7 @@
    "mercado": false,
    "luna": {
     "fase": "waning crescent",
-    "iluminacion": 11.6,
+    "iluminacion": 10.3,
     "signo": "Scorpio"
    },
    "codigo": "1205es",
@@ -3825,7 +3851,8 @@
   {
    "id": "c-2026-12-12-1200-h-es",
    "ref": "2026-12-12-1200-H-es",
-   "pagina": "light-in-the-window",
+   "pagina": "es",
+   "tema": "light-in-the-window",
    "fecha": "2026-12-12",
    "hora_et": "12:00",
    "hora_medellin": "12:00",
@@ -3842,7 +3869,7 @@
    "mercado": false,
    "luna": {
     "fase": "waxing crescent",
-    "iluminacion": 10.4,
+    "iluminacion": 11.6,
     "signo": null
    },
    "codigo": "1212es",
@@ -3939,14 +3966,14 @@
    "seccion": "Humanity",
    "pilar": "move",
    "lang": "en",
-   "titulo": null,
+   "titulo": "Geminids tonight",
    "linea": null,
    "voz": false,
    "noticia": false,
    "mercado": false,
    "luna": {
     "fase": "waxing crescent",
-    "iluminacion": 16.8,
+    "iluminacion": 18,
     "signo": "Aquarius"
    },
    "codigo": "1213h-story-1200",
@@ -3972,7 +3999,7 @@
    "mercado": false,
    "luna": {
     "fase": "waxing crescent",
-    "iluminacion": 16.8,
+    "iluminacion": 21,
     "signo": "Aquarius"
    },
    "codigo": "1213h",
@@ -4050,7 +4077,7 @@
    "mercado": false,
    "luna": {
     "fase": "waxing crescent",
-    "iluminacion": 33.2,
+    "iluminacion": 35,
     "signo": "Pisces"
    },
    "codigo": "1215h-story-1200",
@@ -4076,7 +4103,7 @@
    "mercado": false,
    "luna": {
     "fase": "waxing crescent",
-    "iluminacion": 33.2,
+    "iluminacion": 38,
     "signo": "Pisces"
    },
    "codigo": "1215h",
@@ -4154,7 +4181,7 @@
    "mercado": false,
    "luna": {
     "fase": "first quarter",
-    "iluminacion": 52.8,
+    "iluminacion": 55,
     "signo": "Aries"
    },
    "codigo": "1217h-story-1200",
@@ -4180,7 +4207,7 @@
    "mercado": false,
    "luna": {
     "fase": "first quarter",
-    "iluminacion": 52.8,
+    "iluminacion": 58,
     "signo": "Aries"
    },
    "codigo": "1217h",
@@ -4241,7 +4268,8 @@
   {
    "id": "c-2026-12-19-1200-h-es",
    "ref": "2026-12-19-1200-H-es",
-   "pagina": "walks-by-the-moon",
+   "pagina": "es",
+   "tema": "walks-by-the-moon",
    "fecha": "2026-12-19",
    "hora_et": "12:00",
    "hora_medellin": "12:00",
@@ -4258,7 +4286,7 @@
    "mercado": false,
    "luna": {
     "fase": "waxing gibbous",
-    "iluminacion": 73.1,
+    "iluminacion": 75.1,
     "signo": "Aries"
    },
    "codigo": "1219es",
@@ -4657,7 +4685,8 @@
   {
    "id": "c-2026-12-26-1200-h-es",
    "ref": "2026-12-26-1200-H-es",
-   "pagina": "moon",
+   "pagina": "es",
+   "tema": "moon",
    "fecha": "2026-12-26",
    "hora_et": "12:00",
    "hora_medellin": "12:00",
@@ -4995,7 +5024,8 @@
   {
    "id": "c-2026-12-31-1200-h-es",
    "ref": "2026-12-31-1200-H-es",
-   "pagina": "back-to-the-hour",
+   "pagina": "es",
+   "tema": "back-to-the-hour",
    "fecha": "2026-12-31",
    "hora_et": "12:00",
    "hora_medellin": "12:00",
@@ -5012,7 +5042,7 @@
    "mercado": false,
    "luna": {
     "fase": "waning crescent",
-    "iluminacion": 42.8,
+    "iluminacion": 40.7,
     "signo": "Libra"
    },
    "codigo": "1231es",

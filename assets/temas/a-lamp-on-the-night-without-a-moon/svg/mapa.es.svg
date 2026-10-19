@@ -1,0 +1,80 @@
+<svg class="cm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 890" width="440" height="890" role="img" aria-labelledby="cm-t-es cm-d-es" lang="es">
+<title id="cm-t-es">Mapa de esta página: una hilera de siete lamparitas de barro en puntos, una por cada título del 7 al 14 de noviembre, cada una con la luna de ese día a su lado. La luna casi no tiene luz el 7 de noviembre, apenas se nota la noche de Diwali, el 8, y es una luna creciente muy delgada el 13.</title>
+<desc id="cm-d-es">Siete paradas de arriba abajo, por fecha. 7 de noviembre: la luna está iluminada al 1,7 %. 8 de noviembre, mañana: 0,6 %. 8 de noviembre, noche: 0,2 %. 10 de noviembre: 3,1 %. 12 de noviembre: 12,8 %. 13 de noviembre: 19,6 %. 14 de noviembre: una pieza en español, sin cifra de luna. Las cifras de la luna son de la hora de cada pieza. Una lámpara con contorno es una pieza que aún no sale, una lámpara llena es una pieza que ya salió, y una lámpara con llama es la pieza de la que vienes.</desc>
+<style>svg.cm{--ink:var(--naos-ink,#0E1116);--sec:var(--naos-sec,#454C57);--grey:var(--naos-grey,#59616D);--chart:var(--naos-chart,#737B87);--rule:var(--naos-rule,#D7DBE0);--paper:var(--naos-paper,#FFFFFF);--night:var(--naos-night,#0E1116);--nt:var(--naos-night-text,#F4F6F8);--ns:var(--naos-night-sec,#C3C9D2);--ng:var(--naos-night-grey,#9AA3B0);font-family:var(--font-sans,'IBM Plex Sans',system-ui,sans-serif)}svg.cm text{fill:var(--ink)}svg.cm .cm-d{fill:var(--grey);font-size:17px;font-variant-numeric:tabular-nums}svg.cm .cm-t{font-family:var(--font-serif,'Newsreader',Georgia,serif);font-size:21px;font-weight:400}svg.cm .cm-k{fill:var(--grey);font-size:17px}svg.cm .cm-p{fill:var(--grey);font-size:17px;font-variant-numeric:tabular-nums}svg.cm .cm-b{stroke:var(--ink);stroke-width:3.6;stroke-linecap:round;fill:none}svg.cm .cm-fl{stroke:var(--ink);stroke-width:4.6;stroke-linecap:round;fill:none}svg.cm .cm-halo-l{fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:.1 7}svg.cm .cm-lane{stroke:var(--chart);stroke-width:2.2;stroke-linecap:round;fill:none}svg.cm .cm-md{fill:none;stroke:var(--chart);stroke-width:2}svg.cm .cm-ml{fill:var(--ink);stroke:none}svg.cm .cm-sel{display:none;fill:none;stroke:var(--ink);stroke-width:2}svg.cm .cm-flame{display:none}svg.cm .cm-n.is-from .cm-flame{display:inline}svg.cm .cm-n.is-from .cm-nf{display:none}svg.cm .cm-n.is-from .cm-t{font-weight:600}</style>
+<path class="cm-lane"  d="M134 92h.01M134 101h.01M134 110h.01M134 192h.01M134 201h.01M134 210h.01M134 292h.01M134 301h.01M134 310h.01M134 392h.01M134 401h.01M134 410h.01M134 492h.01M134 501h.01M134 510h.01M134 592h.01M134 601h.01M134 610h.01"/>
+<g class="cm-n" data-i="1" data-src="1107h">
+<g transform="translate(36 54)"><circle class="cm-md" r="14"/><path class="cm-ml" d="M0 -14A14 14 0 0 0 0 14A13.524 14 0 0 1 0 -14Z"/></g>
+<text class="cm-p" x="36" y="92" text-anchor="middle">1,7 %</text>
+<g class="cm-nf" transform="translate(134 68)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/></g>
+<g class="cm-flame" transform="translate(134 68)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/><path class="cm-fl"  d="M0 -4h.01M-4 -8h.01M4 -8h.01M-6 -14h.01M6 -14h.01M-6 -20h.01M6 -20h.01M-3 -26h.01M3 -26h.01M0 -31h.01M0 -12h.01M0 -18h.01"/><circle class="cm-halo-l" cx="0" cy="-16" r="34"/></g>
+<circle class="cm-sel" cx="134" cy="58" r="40"/>
+<text class="cm-d" x="188" y="46">sáb 7 nov</text>
+<text class="cm-t" x="188" y="69">Lámparas para una</text>
+<text class="cm-t" x="188" y="94">noche sin luna</text>
+</g>
+<g class="cm-n" data-i="2">
+<g transform="translate(36 154)"><circle class="cm-md" r="14"/><path class="cm-ml" d="M0 -14A14 14 0 0 0 0 14A13.832 14 0 0 1 0 -14Z"/></g>
+<text class="cm-p" x="36" y="192" text-anchor="middle">0,6 %</text>
+<g class="cm-nf" transform="translate(134 168)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/></g>
+<g class="cm-flame" transform="translate(134 168)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/><path class="cm-fl"  d="M0 -4h.01M-4 -8h.01M4 -8h.01M-6 -14h.01M6 -14h.01M-6 -20h.01M6 -20h.01M-3 -26h.01M3 -26h.01M0 -31h.01M0 -12h.01M0 -18h.01"/><circle class="cm-halo-l" cx="0" cy="-16" r="34"/></g>
+<circle class="cm-sel" cx="134" cy="158" r="40"/>
+<text class="cm-d" x="188" y="146">dom 8 nov, mañana</text>
+<text class="cm-t" x="188" y="169">La noche, en</text>
+<text class="cm-t" x="188" y="194">tres capítulos</text>
+</g>
+<g class="cm-n" data-i="3" data-src="1108h">
+<g transform="translate(36 254)"><circle class="cm-md" r="14"/><path class="cm-ml" d="M0 -14A14 14 0 0 0 0 14A13.944 14 0 0 1 0 -14Z"/></g>
+<text class="cm-p" x="36" y="292" text-anchor="middle">0,2 %</text>
+<g class="cm-nf" transform="translate(134 268)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/></g>
+<g class="cm-flame" transform="translate(134 268)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/><path class="cm-fl"  d="M0 -4h.01M-4 -8h.01M4 -8h.01M-6 -14h.01M6 -14h.01M-6 -20h.01M6 -20h.01M-3 -26h.01M3 -26h.01M0 -31h.01M0 -12h.01M0 -18h.01"/><circle class="cm-halo-l" cx="0" cy="-16" r="34"/></g>
+<circle class="cm-sel" cx="134" cy="258" r="40"/>
+<text class="cm-d" x="188" y="246">dom 8 nov, noche</text>
+<text class="cm-t" x="188" y="269">Un minuto a oscuras</text>
+</g>
+<g class="cm-n" data-i="4" data-src="1110h">
+<g transform="translate(36 354)"><circle class="cm-md" r="14"/><path class="cm-ml" d="M0 -14A14 14 0 0 1 0 14A13.132 14 0 0 0 0 -14Z"/></g>
+<text class="cm-p" x="36" y="392" text-anchor="middle">3,1 %</text>
+<g class="cm-nf" transform="translate(134 368)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/></g>
+<g class="cm-flame" transform="translate(134 368)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/><path class="cm-fl"  d="M0 -4h.01M-4 -8h.01M4 -8h.01M-6 -14h.01M6 -14h.01M-6 -20h.01M6 -20h.01M-3 -26h.01M3 -26h.01M0 -31h.01M0 -12h.01M0 -18h.01"/><circle class="cm-halo-l" cx="0" cy="-16" r="34"/></g>
+<circle class="cm-sel" cx="134" cy="358" r="40"/>
+<text class="cm-d" x="188" y="346">mar 10 nov</text>
+<text class="cm-t" x="188" y="369">Una lámpara alcanza</text>
+</g>
+<g class="cm-n" data-i="5" data-src="1112h">
+<g transform="translate(36 454)"><circle class="cm-md" r="14"/><path class="cm-ml" d="M0 -14A14 14 0 0 1 0 14A10.416 14 0 0 0 0 -14Z"/></g>
+<text class="cm-p" x="36" y="492" text-anchor="middle">12,8 %</text>
+<g class="cm-nf" transform="translate(134 468)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/></g>
+<g class="cm-flame" transform="translate(134 468)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/><path class="cm-fl"  d="M0 -4h.01M-4 -8h.01M4 -8h.01M-6 -14h.01M6 -14h.01M-6 -20h.01M6 -20h.01M-3 -26h.01M3 -26h.01M0 -31h.01M0 -12h.01M0 -18h.01"/><circle class="cm-halo-l" cx="0" cy="-16" r="34"/></g>
+<circle class="cm-sel" cx="134" cy="458" r="40"/>
+<text class="cm-d" x="188" y="446">jue 12 nov</text>
+<text class="cm-t" x="188" y="469">Ábrele la puerta</text>
+<text class="cm-t" x="188" y="494">a alguien</text>
+</g>
+<g class="cm-n" data-i="6" data-src="1113h">
+<g transform="translate(36 554)"><circle class="cm-md" r="14"/><path class="cm-ml" d="M0 -14A14 14 0 0 1 0 14A8.512 14 0 0 0 0 -14Z"/></g>
+<text class="cm-p" x="36" y="592" text-anchor="middle">19,6 %</text>
+<g class="cm-nf" transform="translate(134 568)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/></g>
+<g class="cm-flame" transform="translate(134 568)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/><path class="cm-fl"  d="M0 -4h.01M-4 -8h.01M4 -8h.01M-6 -14h.01M6 -14h.01M-6 -20h.01M6 -20h.01M-3 -26h.01M3 -26h.01M0 -31h.01M0 -12h.01M0 -18h.01"/><circle class="cm-halo-l" cx="0" cy="-16" r="34"/></g>
+<circle class="cm-sel" cx="134" cy="558" r="40"/>
+<text class="cm-d" x="188" y="546">vie 13 nov</text>
+<text class="cm-t" x="188" y="569">Libro de cuentas nuevo</text>
+</g>
+<g class="cm-n" data-i="7" data-src="1114es">
+<text class="cm-p" x="36" y="660" text-anchor="middle">ES</text>
+<g class="cm-nf" transform="translate(134 668)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/></g>
+<g class="cm-flame" transform="translate(134 668)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/><path class="cm-fl"  d="M0 -4h.01M-4 -8h.01M4 -8h.01M-6 -14h.01M6 -14h.01M-6 -20h.01M6 -20h.01M-3 -26h.01M3 -26h.01M0 -31h.01M0 -12h.01M0 -18h.01"/><circle class="cm-halo-l" cx="0" cy="-16" r="34"/></g>
+<circle class="cm-sel" cx="134" cy="658" r="40"/>
+<text class="cm-d" x="188" y="646">sáb 14 nov</text>
+<text class="cm-t" x="188" y="669">Una lámpara</text>
+<text class="cm-t" x="188" y="694">alcanza, en español</text>
+</g>
+<g transform="translate(134 740)"><circle class="cm-md" r="14"/><path class="cm-ml" d="M0 -14A14 14 0 0 1 0 14A8.400 14 0 0 0 0 -14Z"/></g>
+<text class="cm-k" x="188" y="746">La luna a la hora de la pieza</text>
+<g transform="translate(134 778) scale(.7)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/></g>
+<text class="cm-k" x="188" y="780">Próximamente</text>
+<g transform="translate(134 812) scale(.7)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/><path class="cm-b"  d="M-21 8.5h.01M-14 8.5h.01M-7 8.5h.01M0 8.5h.01M7 8.5h.01M14 8.5h.01M21 8.5h.01M-7 12h.01M0 12h.01M7 12h.01"/></g>
+<text class="cm-k" x="188" y="814">Ya salió</text>
+<g transform="translate(134 856) scale(.7)"><path class="cm-b"  d="M28 3h.01M27.46 5.54h.01M25.87 7.97h.01M23.28 10.22h.01M19.8 12.19h.01M15.56 13.81h.01M10.72 15.01h.01M5.46 15.75h.01M0 16h.01M-5.46 15.75h.01M-10.72 15.01h.01M-15.56 13.81h.01M-19.8 12.19h.01M-23.28 10.22h.01M-25.87 7.97h.01M-27.46 5.54h.01M-28 3h.01"/><path class="cm-b"  d="M-28 3h.01M-21 3h.01M-14 3h.01M-7 3h.01M0 3h.01M7 3h.01M14 3h.01M21 3h.01M28 3h.01M-33 0h.01M-38 -4h.01M-42 -6h.01"/><path class="cm-fl"  d="M0 -4h.01M-4 -8h.01M4 -8h.01M-6 -14h.01M6 -14h.01M-6 -20h.01M6 -20h.01M-3 -26h.01M3 -26h.01M0 -31h.01M0 -12h.01M0 -18h.01"/><circle class="cm-halo-l" cx="0" cy="-16" r="34"/></g>
+<text class="cm-k" x="188" y="848">Vienes de esta</text>
+</svg>
