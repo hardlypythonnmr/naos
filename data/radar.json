@@ -1,6 +1,33 @@
 {
- "fecha": "2026-10-19T14:53Z",
+ "fecha": "2026-10-19T15:53Z",
  "wire": [
+  {
+   "titulo": "‘I’m naturally skeptical’: I receive 10 calls a day offering me $15,000 loans at 8% interest. Is this a scam?",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/im-naturally-skeptical-i-receive-10-calls-a-day-offering-me-15-000-loans-at-8-interest-is-this-a-scam-825c3431?mod=mw_rss_topstories",
+   "hora": "2026-10-19T15:30Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Colleges raced to build massive computer-science departments. Now the boom is turning to bust.",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/colleges-raced-to-build-massive-computer-science-departments-now-the-boom-is-turning-to-bust-692cfe37?mod=mw_rss_topstories",
+   "hora": "2026-10-19T15:26Z",
+   "area": "Economy",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Zerohash rolls out a new tool to move crypto without copying wallet addresses",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/business/2026/10/19/zerohash-rolls-out-a-new-tool-to-move-crypto-without-copying-wallet-addresses",
+   "hora": "2026-10-19T14:58Z",
+   "area": "Crypto",
+   "sample": false,
+   "viejo": false
+  },
   {
    "titulo": "‘My husband suffered a massive stroke at 53’: I’m 64 and will rent for the rest of my life — but I’m still hopeful",
    "fuente": "MarketWatch",
@@ -38,15 +65,6 @@
    "viejo": false
   },
   {
-   "titulo": "France and the U.S. share the same debt trap. Why the U.S. has an escape valve.",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/france-and-the-u-s-share-the-same-debt-trap-only-one-has-a-global-lifeline-3ae61b42?mod=mw_rss_topstories",
-   "hora": "2026-10-19T13:19Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
    "titulo": "Cardano founder Charles Hoskinson is building a new programming language for the network",
    "fuente": "CoinDesk",
    "url": "https://www.coindesk.com/tech/2026/10/19/cardano-founder-charles-hoskinson-is-building-a-new-programming-language-for-the-network",
@@ -65,7 +83,7 @@
    "viejo": false
   },
   {
-   "titulo": "Live updates: Bitcoin edges higher as U.S. stocks rebound early Monday",
+   "titulo": "Live updates: Bitcoin holds near $82,000 as Nasdaq rebounds more than 1%",
    "fuente": "CoinDesk",
    "url": "https://www.coindesk.com/markets/2026/10/19/live-updates-bitcoin-tags-usd83-000-and-slips-back-as-chip-stocks-lead-a-rebound",
    "hora": "2026-10-19T11:05Z",
@@ -81,15 +99,6 @@
    "hora": "2026-10-19T10:26Z",
    "area": "Crypto",
    "movio": "Bitcoin",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "JPMorgan brings JPM Coin, representing dollar deposits, to Ethereum",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/19/jpmorgan-s-jpm-coin-representing-dollar-deposits-is-coming-to-ethereum-bloomberg",
-   "hora": "2026-10-19T10:03Z",
-   "area": "Crypto",
    "sample": false,
    "viejo": false
   },
@@ -151,7 +160,7 @@
   },
   {
    "area": "Crypto",
-   "titulo": "Live updates: Bitcoin edges higher as U.S. stocks rebound early Monday",
+   "titulo": "Live updates: Bitcoin holds near $82,000 as Nasdaq rebounds more than 1%",
    "fuente": "CoinDesk",
    "url": "https://www.coindesk.com/markets/2026/10/19/live-updates-bitcoin-tags-usd83-000-and-slips-back-as-chip-stocks-lead-a-rebound",
    "hora": "2026-10-19T11:05Z",
@@ -167,11 +176,11 @@
     "prediccion": null,
     "mercado": "BTC",
     "odds": {
-     "texto": "Polymarket shows Bitcoin above $82,000 on Oct 20 is 59% likely (19 Oct 14:53 UTC)",
+     "texto": "Polymarket shows Bitcoin above $82,000 on Oct 20 is 52% likely (19 Oct 15:53 UTC)",
      "resultado": "Bitcoin above $82,000 on Oct 20",
      "url": "https://polymarket.com/event/bitcoin-above-on-october-20-2026",
-     "p": 59,
-     "leido_utc": "2026-10-19T14:53Z",
+     "p": 52,
+     "leido_utc": "2026-10-19T15:53Z",
      "historia": "bitcoin-umbral"
     },
     "conectado": null
