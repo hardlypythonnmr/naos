@@ -1,6 +1,6 @@
 {
  "nota": "Briefs, lo ya publicado y la biblioteca sin fecha (D-224). Las piezas fechadas viven en data/temas.json desde el lote E (D-252); esquema en el README. Sin fecha: dia null y nota.",
- "generado": "2026-10-19T17:45Z",
+ "generado": "2026-10-19T20:38Z",
  "semana": {
   "desde": "2026-10-19",
   "hasta": "2026-10-25"
@@ -1095,125 +1095,6 @@
    "video": true,
    "video_nota": "Short (EN)",
    "eventos": []
-  },
-  {
-   "seccion": "ai",
-   "dia": null,
-   "slot": null,
-   "format": "medium",
-   "title": "From chat to code, part 1",
-   "asset_id": "ai-chat-al-codigo-1",
-   "status": "planned"
-  },
-  {
-   "seccion": "ai",
-   "dia": null,
-   "slot": null,
-   "format": "medium",
-   "title": "Your first commit",
-   "asset_id": "ai-primer-commit",
-   "status": "planned"
-  },
-  {
-   "seccion": "ai",
-   "dia": null,
-   "slot": null,
-   "format": "medium",
-   "title": "Your first Claude environment",
-   "asset_id": "ai-primer-entorno-claude",
-   "status": "planned"
-  },
-  {
-   "seccion": "ai",
-   "dia": null,
-   "slot": null,
-   "format": "medium",
-   "title": "Your first GitHub page",
-   "asset_id": "ai-primera-pagina-github",
-   "status": "planned"
-  },
-  {
-   "seccion": "ai",
-   "dia": null,
-   "slot": null,
-   "format": "medium",
-   "title": "Your first token",
-   "asset_id": "ai-primer-token",
-   "status": "planned"
-  },
-  {
-   "seccion": "ai",
-   "dia": null,
-   "slot": null,
-   "format": "medium",
-   "title": "What an API is",
-   "asset_id": "ai-que-es-una-api",
-   "status": "planned"
-  },
-  {
-   "seccion": "ai",
-   "dia": null,
-   "slot": null,
-   "format": "medium",
-   "title": "Your first APIs",
-   "asset_id": "ai-primeras-apis",
-   "status": "planned"
-  },
-  {
-   "seccion": "ai",
-   "dia": null,
-   "slot": null,
-   "format": "medium",
-   "title": "From one email to a campaign",
-   "asset_id": "ai-de-un-correo-a-una-campana",
-   "status": "planned"
-  },
-  {
-   "seccion": "market",
-   "dia": null,
-   "slot": null,
-   "format": "medium",
-   "title": "What a price is",
-   "asset_id": "trading-que-es-el-precio",
-   "status": "planned"
-  },
-  {
-   "seccion": "market",
-   "dia": null,
-   "slot": null,
-   "format": "medium",
-   "title": "Reading charts",
-   "asset_id": "trading-graficos",
-   "status": "planned"
-  },
-  {
-   "seccion": "market",
-   "dia": null,
-   "slot": null,
-   "format": "medium",
-   "title": "Candles",
-   "asset_id": "trading-velas",
-   "status": "planned"
-  },
-  {
-   "seccion": "market",
-   "dia": null,
-   "slot": null,
-   "format": "medium",
-   "title": "Strategies, tested on paper first",
-   "asset_id": "trading-estrategias",
-   "status": "planned",
-   "nota": "In review: waits for the lawyer's opinion"
-  },
-  {
-   "seccion": "market",
-   "dia": null,
-   "slot": null,
-   "format": "medium",
-   "title": "Indicator 1: regime traffic light",
-   "asset_id": "trading-indicador-1",
-   "status": "planned",
-   "nota": "In review: waits for the lawyer's opinion"
   },
   {
    "seccion": "behavior",
