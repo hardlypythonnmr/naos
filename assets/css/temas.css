@@ -122,9 +122,6 @@ main { display: block; max-width: 1120px; margin: 0 auto; padding: 0 var(--page-
   .t-biblioteca .t-tl, .t-anaquel-solo .t-tl { grid-column: 2; grid-row: 1 / span 2; align-self: center; margin: 0; }
   .t-biblioteca .t-eje > span:first-child, .t-anaquel-solo .t-eje > span:first-child { display: block; }
   .t-biblioteca .t-estante:not(:first-child) .t-eje { display: none; } /* a lo ancho los meses se leen una vez, arriba de la biblioteca */
-  /* The Present: la ventana, tres columnas a lo ancho */
-  .t-ventana { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--s-4); }
-  .t-ventana .t-estante { padding-bottom: 0; }
 }
 @media (min-width: 1100px) {
   main { padding: 0 0 var(--s-8); }

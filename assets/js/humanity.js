@@ -1,6 +1,6 @@
 /* humanity.js · la portada desde el 19-oct: NAOS es Humanity (ya no hay dos puertas ni The Present; lo de antes está en
  * archivo/the-present/). Toma de v1plus.js solo lo de Humanity: Cella que respira en la placa, la cinta de conductas, Assets,
- * el anillo de respiración, el mantra y "This week". Necesita gsap, ScrollTrigger, assets/comun/naos.js, cella.js y sala.js. */
+ * el anillo de respiración, el mantra y "This week". Necesita gsap, ScrollTrigger, assets/comun/naos.js, cella.js y semana.js. */
 (async function () {
   const N = window.NAOS;
   const $ = (s, r = document) => r.querySelector(s);
@@ -26,11 +26,8 @@
     N.leer($("#mantra"));
 
     N.semana($("#semana")).catch((e) => { console.error(e); $("#semana").hidden = true; });
-    N.revelar(document);
     N.planos();
-    N.entradas();
     N.suave("assets/vendor/lenis/lenis.min.js");
-    window.__guion = { hasta: 99999 };
     await N.listo();
   } catch (e) { N.error(e); }
 })();

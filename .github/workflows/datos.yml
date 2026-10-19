@@ -1,19 +1,14 @@
-# Refreshes data/situacion.json for the NAOS home page every 30 minutes, and the schedule grid (data/semana.json).
-# Public sources only (U.S. Treasury, ECB, OFR, CoinGecko, gold-api.com, EIA, alternative.me, Hacker News, the weekly
-# economic calendar). Raw responses stay in data/crudo/, which is git-ignored and never committed.
-# Sections that come from the private radar (wire, stories of the day, cited closes) are kept as they are, with their date.
+# Rebuilds the schedule grid (data/semana.json) and, through it, the topic pages, short links, calendar files and sitemap
+# every 30 minutes. The market data builder (construir-datos.mjs, data/situacion.json, data/radar.json) left with D-263:
+# NAOS is Humanity only and nothing on the page read it.
 # GitHub's schedule fires late or not at all on busy days (14 Oct 2026: 1 of ~11 slots), so each run loops: it rebuilds
-# every 30 min for up to ~5.5 h. It starts on the schedule, by hand, or when the private radar pushes data/radar.json
-# (weekdays, after London, New York and the close). Public repo: these minutes are free.
+# every 30 min for up to ~5.5 h. It starts on the schedule or by hand. Public repo: these minutes are free.
 name: Refresh page data
 
 on:
   schedule:
     - cron: "7,37 * * * *"
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths: [data/radar.json]
 
 permissions:
   contents: write
@@ -36,14 +31,8 @@ jobs:
         with:
           node-version: "22"
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
       - name: Build, check and push every 30 min (11 rounds, ~5.5 h)
         env:
-          COINGECKO_DEMO_KEY: ${{ secrets.COINGECKO_DEMO_KEY }}
-          EIA_KEY: ${{ secrets.EIA_KEY }}
           GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "github-actions[bot]"
@@ -51,15 +40,6 @@ jobs:
           for ronda in $(seq 1 11); do
             [ "$ronda" -gt 1 ] && sleep 1800
             git pull -q --rebase origin main || true
-            # The builder runs scripts/animo.py itself (Credit and dollar reading).
-            if ! node scripts/construir-datos.mjs; then echo "round $ronda: builder failed"; continue; fi
-            if ! node -e '
-              const d = JSON.parse(require("fs").readFileSync("data/situacion.json", "utf8"));
-              if (!Array.isArray(d.activos) || d.activos.length < 5) throw new Error("too few readings: " + (d.activos || []).length);
-              if (/\bOKX\b/i.test(JSON.stringify(d))) throw new Error("OKX found in situacion.json");
-              console.log("ok:", d.generado, d.activos.length, "readings,", (d.wire || []).length, "wire headlines");
-            '; then git checkout -- data/situacion.json; continue; fi
-            if git ls-files --error-unmatch data/crudo >/dev/null 2>&1; then echo "data/crudo must never be committed"; exit 1; fi
             # The schedule grid (data/semana.json): the home page swaps its first block for "The schedule is out of date."
             # past 72 h, so it is rebuilt here. Kept when the grid changed or the committed one is over 12 h old.
             if node scripts/construir-semana.mjs; then
@@ -78,8 +58,8 @@ jobs:
             # construir-semana.mjs también rehace las páginas de tema, los enlaces cortos y el sitemap (construir-temas.mjs, D-252):
             # cambian solo si cambia data/enlaces.json o data/temas.json (salida determinista); es/ es la edición en español (D-253) y
             # data/cortos.json el registro de enlaces cortos, solo de suma
-            if git diff --quiet -- data/situacion.json data/semana.json data/cortos.json assets/ics temas es s sitemap.xml && [ -z "$(git ls-files --others --exclude-standard -- temas es s)" ]; then echo "round $ronda: no change"; continue; fi
-            git add data/situacion.json data/semana.json data/cortos.json assets/ics temas es s sitemap.xml
+            if git diff --quiet -- data/semana.json data/cortos.json assets/ics temas es s sitemap.xml && [ -z "$(git ls-files --others --exclude-standard -- temas es s)" ]; then echo "round $ronda: no change"; continue; fi
+            git add data/semana.json data/cortos.json assets/ics temas es s sitemap.xml
             git commit -q -m "Refresh page data $(date -u +'%Y-%m-%d %H:%M') UTC"
             for i in 1 2 3; do
               git pull -q --rebase origin main && git push -q origin HEAD:main && break

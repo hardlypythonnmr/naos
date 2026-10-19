@@ -148,25 +148,3 @@
   .ag-ev-c { padding-left: 10px; }
   .ag-sus-l li { grid-template-columns: minmax(0, 1fr) auto auto; }
 }
-
-/* ---------- widget de la portada: los próximos cinco (sin vino: la portada ya lo usa en el próximo evento rojo) ---------- */
-.b-prox { grid-column: 1 / -1; border-top: 4px solid var(--naos-ink); padding: 14px 0 0; gap: 10px; }
-.b-prox-c { display: flex; align-items: baseline; gap: 12px; }
-.b-prox-c .b-k { color: var(--naos-ink); font-size: 12px; }
-.b-prox-c a { margin-left: auto; font-size: 13px; font-weight: 600; }
-.b-prox ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; background: var(--naos-rule); border: 1px solid var(--naos-rule); }
-.bp { background: var(--naos-paper); padding: 12px 14px; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto 1fr auto; gap: 4px 8px; min-width: 0; }
-.bp-n { font-family: var(--font-cond); font-weight: 600; font-size: 24px; line-height: 1; color: var(--acento); }
-.bp-t { grid-column: 1 / -1; font-family: var(--font-serif); font-size: 15.5px; line-height: 1.25; text-decoration: none; }
-.bp-t:hover, .bp-t:focus-visible { text-decoration: underline; }
-.bp-m { grid-column: 1; display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--naos-sec); min-width: 0; }
-.bp-add { grid-column: 2; grid-row: 1; justify-self: end; display: grid; place-items: center; width: 36px; height: 36px; margin: -8px -8px 0 0; color: var(--naos-ink); border: 1px solid transparent; }
-.bp-add svg { width: 18px; height: 18px; }
-.bp-add:hover, .bp-add:focus-visible { border-color: var(--naos-ink); }
-@media (max-width: 1180px) { .b-prox ol { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 640px) {
-  .b-prox ol { grid-template-columns: 1fr; }
-  .b-prox-c .sello { display: none; }
-  .bp { grid-template-columns: 84px minmax(0, 1fr) auto; grid-template-rows: auto auto; align-items: center; padding: 10px 12px; }
-  .bp-n { grid-row: 1 / 3; font-size: 20px; } .bp-t { grid-column: 2; } .bp-m { grid-column: 2; } .bp-add { grid-column: 3; grid-row: 1 / 3; margin: 0; }
-}
