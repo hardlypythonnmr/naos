@@ -1,195 +1,86 @@
 {
- "fecha": "2026-10-16T23:56Z",
+ "fecha": "2026-10-19T08:53Z",
  "wire": [
   {
-   "titulo": "Oregon teacher fought school attacker before armed dad shot suspect 'multiple times'",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cv98zw1k8kp3o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T23:07Z",
-   "area": "Politics",
+   "titulo": "Bitcoin whale moves $34 million in BTC it got in 2013 when coins traded at $131",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/markets/2026/10/19/bitcoin-whale-moves-usd34-million-in-btc-it-got-in-2013-when-coins-traded-at-usd131",
+   "hora": "2026-10-19T06:23Z",
+   "area": "Crypto",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "Nowhere to hide: Tech selloff hits software and chip stocks alike",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/nowhere-to-hide-tech-selloff-hits-software-and-chip-stocks-alike-6d96773c?mod=mw_rss_topstories",
-   "hora": "2026-10-16T21:59Z",
-   "area": "AI",
+   "titulo": "Zcash developers plan a fix to keep ZEC swaps private from future quantum computers",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/tech/2026/10/19/zcash-developers-plan-a-fix-to-keep-zec-swaps-private-from-future-quantum-computers",
+   "hora": "2026-10-19T05:23Z",
+   "area": "Crypto",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "This Senate race where data centers are a crucial issue has more spending than any other midterm clash",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/this-senate-race-where-data-centers-are-a-crucial-issue-has-more-spending-than-any-other-midterm-clash-5152b43d?mod=mw_rss_topstories",
-   "hora": "2026-10-16T21:43Z",
-   "area": "AI",
-   "sample": false,
-   "odds": {
-    "nombre": "2026 midterms, House control",
-    "url": "https://polymarket.com/event/which-party-will-win-the-house-in-2026"
-   },
-   "viejo": false
-  },
-  {
-   "titulo": "Could an Anthropic IPO put your 401(k) at risk? The AI safety debate hits a new dimension.",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/could-an-anthropic-ipo-put-your-401-k-at-risk-the-ai-safety-debate-hits-a-new-dimension-db3f09f7?mod=mw_rss_topstories",
-   "hora": "2026-10-16T21:35Z",
-   "area": "AI",
+   "titulo": "XRP Ledger is set to fix its lending code before anyone can use it",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/tech/2026/10/19/xrp-ledger-is-set-to-fix-its-lending-code-before-anyone-can-use-it",
+   "hora": "2026-10-19T04:54Z",
+   "area": "Crypto",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "The bond market shrugged off two inflation shocks. Why stock investors should pay attention.",
+   "titulo": "Bitcoin, Korea’s Kospi and Nasdaq futures rally as China GDP beats estimates",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/markets/2026/10/19/bitcoin-korea-s-kospi-and-nasdaq-futures-rally-as-china-gdp-beats-estimates",
+   "hora": "2026-10-19T03:36Z",
+   "area": "Crypto",
+   "movio": "Bitcoin",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "Deutsche Bank targets Asia crypto custody expansion in 2027 as German launch nears",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/business/2026/10/18/deutsche-bank-targets-asia-crypto-custody-expansion-in-2027-as-german-launch-nears",
+   "hora": "2026-10-19T02:00Z",
+   "area": "Crypto",
+   "sample": false,
+   "viejo": false
+  },
+  {
+   "titulo": "‘Some people did everything right’: I lost my home in the Great Recession. I rent in my 50s. Why is that judged as failure?",
    "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/the-bond-market-shrugged-off-two-inflation-shocks-why-stock-investors-should-pay-attention-5da4f771?mod=mw_rss_topstories",
-   "hora": "2026-10-16T21:30Z",
+   "url": "https://www.marketwatch.com/story/i-earn-110-000-a-year-i-lost-my-home-in-the-great-recession-im-renting-in-my-50s-why-is-that-judged-as-failure-d1371d67?mod=mw_rss_topstories",
+   "hora": "2026-10-18T16:15Z",
    "area": "Economy",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "New SEC rules would fleece everyday investors to enrich Wall Street",
+   "titulo": "I’m 64 with two sons, but only one works in the family business. Is it ethical to leave him 70% of the company?",
    "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/new-sec-rules-would-fleece-everyday-investors-to-enrich-wall-street-0a00fe03?mod=mw_rss_topstories",
-   "hora": "2026-10-16T21:21Z",
+   "url": "https://www.marketwatch.com/story/im-64-years-old-with-two-sons-but-only-one-works-in-the-family-firm-should-i-leave-him-70-of-the-business-2fe6c382?mod=mw_rss_topstories",
+   "hora": "2026-10-18T15:15Z",
    "area": "Economy",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "Katie Zacharia leaving her White House role less than five days on the job",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/c32l4ekpvzl8o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T21:05Z",
-   "area": "Politics",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Don’t buy this dip: Several signs suggest there’s more pain ahead for tech stocks",
+   "titulo": "These surprising stocks could be some of the biggest drivers of S&P 500 earnings growth",
    "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/dont-buy-this-dip-several-signs-suggest-theres-more-pain-ahead-for-tech-stocks-83f971d7?mod=mw_rss_topstories",
-   "hora": "2026-10-16T20:58Z",
+   "url": "https://www.marketwatch.com/story/these-surprising-stocks-could-be-some-of-the-biggest-drivers-of-s-p-500-earnings-growth-ea073a07?mod=mw_rss_topstories",
+   "hora": "2026-10-18T14:00Z",
    "area": "Economy",
    "sample": false,
    "viejo": false
   },
   {
-   "titulo": "EchoStar’s stock looks like a stealthy way to ride the SpaceX wave, J.P. Morgan says",
+   "titulo": "Stocks are heading for a high-stakes showdown, as strong earnings collide with rising borrowing costs",
    "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/echostars-stock-looks-like-a-stealthy-way-to-ride-the-spacex-wave-j-p-morgan-says-c4effa5d?mod=mw_rss_topstories",
-   "hora": "2026-10-16T20:05Z",
+   "url": "https://www.marketwatch.com/story/stocks-are-heading-for-a-high-stakes-showdown-as-strong-earnings-collide-with-rising-borrowing-costs-6f8ea5b8?mod=mw_rss_topstories",
+   "hora": "2026-10-18T13:00Z",
    "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Your Social Security check will rise an average of $75 a month — will it be able to keep up with inflation?",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/social-securitys-cola-will-be-3-6-in-2027-as-inflation-persists-f7c9dff2?mod=mw_rss_topstories",
-   "hora": "2026-10-16T19:45Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Trump denies limiting Ukraine access to Starlink network",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/ckz65g34wyd8o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T19:33Z",
-   "area": "Politics",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "How the Claude Code team does code review",
-   "fuente": "Hacker News",
-   "url": "https://claude.dev/blog/solving-code-review-at-anthropic/",
-   "hora": "2026-10-16T19:04Z",
-   "area": "AI",
-   "sample": false,
-   "odds": {
-    "nombre": "Best AI model, end of October",
-    "url": "https://polymarket.com/event/which-company-has-the-best-ai-model-end-of-october"
-   },
-   "viejo": false
-  },
-  {
-   "titulo": "Police assess Palestine Action post by national security adviser's wife",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/crn4el88y7p2o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T18:58Z",
-   "area": "Politics",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Claude reveals ECDSA curve origins",
-   "fuente": "Hacker News",
-   "url": "https://www.anthropic.com/research/ecdsa-curve-origins",
-   "hora": "2026-10-16T18:55Z",
-   "area": "AI",
-   "sample": false,
-   "odds": {
-    "nombre": "Best AI model, end of October",
-    "url": "https://polymarket.com/event/which-company-has-the-best-ai-model-end-of-october"
-   },
-   "viejo": false
-  },
-  {
-   "titulo": "Reform councillor quits over offensive remarks",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/c64g1803dkp7o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T18:53Z",
-   "area": "Politics",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Llama.cpp on a jailbroken PS5: run any GGUF model natively on the console",
-   "fuente": "Hacker News",
-   "url": "https://github.com/cobanov/PS5LM",
-   "hora": "2026-10-16T18:32Z",
-   "area": "AI",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Toxic algorithms wouldn't let them go - now Australia wants an off switch",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cwr7y8er1n8vo?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T18:11Z",
-   "area": "Economy",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Sean 'Diddy' Combs moved to low-security facility in Pennsylvania",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cmwy4qnyjg4zo?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T17:36Z",
-   "area": "Culture",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Dame Judi Dench joins Archers Birmingham campaign",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cw98zj4jn6ryo?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T17:18Z",
-   "area": "Culture",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Ex-top official Robbins reaches settlement with government over sacking",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/c64g18r402geo?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T16:38Z",
-   "area": "Politics",
+   "movio": "Stocks",
    "sample": false,
    "viejo": false
   },
@@ -203,65 +94,6 @@
    "odds": {
     "nombre": "Fed decision, Oct 28",
     "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537"
-   },
-   "viejo": false
-  },
-  {
-   "titulo": "Big Tech's AI auditors will only see what they're shown",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/opinion/2026/10/16/big-tech-s-ai-auditors-will-only-see-what-they-re-shown",
-   "hora": "2026-10-16T14:58Z",
-   "area": "Crypto",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Traders will soon be able to bet on whether Coinbase, Robinhood and Marathon will hit their targets",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/daybook-us/2026/10/16/traders-will-soon-be-able-to-bet-on-whether-coinbase-robinhood-and-marathon-will-hit-their-targets",
-   "hora": "2026-10-16T11:15Z",
-   "area": "Crypto",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Circle targets 40 new markets as stablecoin demand grows globally",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/business/2026/10/16/circle-targets-40-new-markets-as-stablecoin-demand-grows-globally",
-   "hora": "2026-10-16T10:54Z",
-   "area": "Crypto",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Quantum Alliance forms amid warnings 6.4 million bitcoin face future quantum threat",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/tech/2026/10/16/experts-agree-quantum-computers-could-put-satoshi-s-bitcoin-at-risk-but-not-on-what-s-next",
-   "hora": "2026-10-16T10:52Z",
-   "area": "Crypto",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Tokenized Tesla surges as Elon Musk unveils SpaceX-powered flying Roadster prototype",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/business/2026/10/16/elon-musk-s-flying-roadster-reveal-sent-tesla-crypto-trading-into-overdrive-while-stock-markets-were-closed",
-   "hora": "2026-10-16T10:48Z",
-   "area": "Crypto",
-   "sample": false,
-   "viejo": false
-  },
-  {
-   "titulo": "Ship attack reports near Hormuz reach record high as oil exports slow",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/cmde8dpg8g0no?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T05:00Z",
-   "area": "Energy",
-   "movio": "oil",
-   "sample": false,
-   "odds": {
-    "nombre": "Strait of Hormuz traffic",
-    "url": "https://polymarket.com/event/strait-of-hormuz-traffic-returns-to-normal-by-december-31"
    },
    "viejo": false
   },
@@ -281,62 +113,16 @@
    "hora": "2026-10-13T18:00Z",
    "area": "Economy",
    "sample": false,
-   "viejo": false
+   "viejo": true
   }
  ],
  "historias": [
   {
-   "area": "AI",
-   "titulo": "Nowhere to hide: Tech selloff hits software and chip stocks alike",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/nowhere-to-hide-tech-selloff-hits-software-and-chip-stocks-alike-6d96773c?mod=mw_rss_topstories",
-   "hora": "2026-10-16T21:59Z",
-   "grafico": {
-    "tipo": "tradingview",
-    "simbolo": "NASDAQ:SMH",
-    "etiqueta": "VanEck Semiconductor ETF (SMH), delayed, via TradingView"
-   },
-   "contexto": "Two lines of context will come from the London and New York radar briefs. Until they run, this card shows the format only.",
-   "contexto_sample": true,
-   "lados": {
-    "quien": "MarketWatch: headline verbatim",
-    "historia_mapa": null,
-    "prediccion": null,
-    "mercado": "VanEck Semiconductor ETF (SMH), delayed, via TradingView",
-    "odds": null,
-    "conectado": null
-   },
-   "viejo": false
-  },
-  {
-   "area": "Politics",
-   "titulo": "Trump denies limiting Ukraine access to Starlink network",
-   "fuente": "BBC News",
-   "url": "https://www.bbc.co.uk/news/articles/ckz65g34wyd8o?at_medium=RSS&at_campaign=rss",
-   "hora": "2026-10-16T19:33Z",
-   "grafico": {
-    "tipo": "tradingview",
-    "simbolo": "TVC:UKOIL",
-    "etiqueta": "Brent crude CFD via TradingView"
-   },
-   "contexto": "Two lines of context will come from the London and New York radar briefs. Until they run, this card shows the format only.",
-   "contexto_sample": true,
-   "lados": {
-    "quien": "BBC News: headline verbatim",
-    "historia_mapa": null,
-    "prediccion": null,
-    "mercado": "Brent crude CFD via TradingView",
-    "odds": null,
-    "conectado": null
-   },
-   "viejo": false
-  },
-  {
    "area": "Crypto",
-   "titulo": "Quantum Alliance forms amid warnings 6.4 million bitcoin face future quantum threat",
+   "titulo": "Bitcoin, Korea’s Kospi and Nasdaq futures rally as China GDP beats estimates",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/tech/2026/10/16/experts-agree-quantum-computers-could-put-satoshi-s-bitcoin-at-risk-but-not-on-what-s-next",
-   "hora": "2026-10-16T10:52Z",
+   "url": "https://www.coindesk.com/markets/2026/10/19/bitcoin-korea-s-kospi-and-nasdaq-futures-rally-as-china-gdp-beats-estimates",
+   "hora": "2026-10-19T03:36Z",
    "grafico": {
     "tipo": "propio",
     "activo": "BTC"
@@ -349,11 +135,11 @@
     "prediccion": null,
     "mercado": "BTC",
     "odds": {
-     "texto": "Polymarket shows Bitcoin above $82,000 on Oct 17 is 22% likely (16 Oct 23:56 UTC)",
-     "resultado": "Bitcoin above $82,000 on Oct 17",
-     "url": "https://polymarket.com/event/bitcoin-above-on-october-17-2026",
-     "p": 22,
-     "leido_utc": "2026-10-16T23:56Z",
+     "texto": "Polymarket shows Bitcoin above $82,000 on Oct 20 is 72% likely (19 Oct 08:53 UTC)",
+     "resultado": "Bitcoin above $82,000 on Oct 20",
+     "url": "https://polymarket.com/event/bitcoin-above-on-october-20-2026",
+     "p": 72,
+     "leido_utc": "2026-10-19T08:53Z",
      "historia": "bitcoin-umbral"
     },
     "conectado": null
@@ -362,41 +148,53 @@
   }
  ],
  "temas": {
-  "fuente": "NAOS radar 2026-10-16",
-  "total": 329,
+  "fuente": "NAOS radar 2026-10-19",
+  "total": 333,
   "conteos": {
-   "AI": 51,
+   "AI": 37,
    "Fed y tasas": 1,
-   "Política": 78,
-   "Energía": 12,
-   "Trabajo": 13,
-   "Geopolítica": 46
+   "Política": 44,
+   "Energía": 17,
+   "Trabajo": 5,
+   "Geopolítica": 98
   }
  },
  "titulares": [
   {
-   "titulo": "US inflation rises more than expected - here's what is happening with prices",
-   "fuente": "BBC Business",
-   "url": "https://www.bbc.co.uk/news/articles/cwy8lx3pg4k2o?at_medium=RSS&at_campaign=rss",
+   "titulo": "Bitcoin’s $100,000 year-end hope divides analysts as inflation clouds outlook",
+   "fuente": "CoinDesk",
+   "url": "https://www.coindesk.com/markets/2026/10/18/bitcoin-s-usd100-000-year-end-hope-divides-analysts-as-inflation-clouds-outlook",
    "tema": "US 10Y yield"
   },
   {
-   "titulo": "Your Social Security check will rise an average of $75 a month — will it be able to keep up with inflation?",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/social-securitys-cola-will-be-3-6-in-2027-as-inflation-persists-f7c9dff2?mod=mw_rss_topstories",
-   "tema": "US 10Y yield"
-  },
-  {
-   "titulo": "Did this year’s COLA beat inflation? Here’s how spending by American seniors stacks up so far in 2026.",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/did-this-years-cola-beat-inflation-heres-how-spending-by-american-seniors-stacks-up-so-far-in-2026-917c400c?mod=mw_rss_topstories",
-   "tema": "US 10Y yield"
-  },
-  {
-   "titulo": "PBOC adds most gold in three years amid China pivot from US dollar",
+   "titulo": "LVMH touts ‘special bond’ with China as ‘subdued’ backdrop weighs on sales",
    "fuente": "SCMP Business",
-   "url": "https://www.scmp.com/plus/business/commodities/article/3370735/pboc-adds-most-gold-three-years-amid-china-pivot-us-dollar?utm_source=rss_feed",
-   "tema": "NAOS dollar index (ECB rates)"
+   "url": "https://www.scmp.com/business/companies/article/3371145/lvmh-touts-special-bond-china-subdued-backdrop-weighs-sales?utm_source=rss_feed",
+   "tema": "US 10Y yield"
+  },
+  {
+   "titulo": "IPO fraud, China’s export boom, US inflation: 5 figures investors are watching",
+   "fuente": "SCMP Business",
+   "url": "https://www.scmp.com/business/markets/article/3371124/ipo-fraud-chinas-export-boom-us-inflation-5-figures-investors-are-watching?utm_source=rss_feed",
+   "tema": "US 10Y yield"
+  },
+  {
+   "titulo": "These surprising stocks could be some of the biggest drivers of S&P 500 earnings growth",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/these-surprising-stocks-could-be-some-of-the-biggest-drivers-of-s-p-500-earnings-growth-ea073a07?mod=mw_rss_topstories",
+   "tema": "S&P 500"
+  },
+  {
+   "titulo": "Stocks are heading for a high-stakes showdown, as strong earnings collide with rising borrowing costs",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/stocks-are-heading-for-a-high-stakes-showdown-as-strong-earnings-collide-with-rising-borrowing-costs-6f8ea5b8?mod=mw_rss_topstories",
+   "tema": "S&P 500"
+  },
+  {
+   "titulo": "There is a silent market rotation inside the S&P 500 that’s warning of more weakness ahead",
+   "fuente": "MarketWatch",
+   "url": "https://www.marketwatch.com/story/there-is-a-silent-market-rotation-inside-the-s-p-500-thats-warning-of-more-weakness-ahead-549e7650?mod=mw_rss_topstories",
+   "tema": "S&P 500"
   },
   {
    "titulo": "Results of the September 2026 survey on credit terms and conditions in euro-denominated securities financing and OTC derivatives markets (SESFOD)",
@@ -411,40 +209,16 @@
    "tema": "NAOS dollar index (ECB rates)"
   },
   {
-   "titulo": "AI investors have woken up to the bond market’s warning signs",
-   "fuente": "MarketWatch",
-   "url": "https://www.marketwatch.com/story/ai-investors-have-woken-up-to-the-bond-markets-warning-signs-6f604c61?mod=mw_rss_topstories",
-   "tema": "US 30Y yield"
-  },
-  {
-   "titulo": "Quantum Alliance forms amid warnings 6.4 million bitcoin face future quantum threat",
+   "titulo": "Bitcoin whale moves $34 million in BTC it got in 2013 when coins traded at $131",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/tech/2026/10/16/experts-agree-quantum-computers-could-put-satoshi-s-bitcoin-at-risk-but-not-on-what-s-next",
+   "url": "https://www.coindesk.com/markets/2026/10/19/bitcoin-whale-moves-usd34-million-in-btc-it-got-in-2013-when-coins-traded-at-usd131",
    "tema": "Bitcoin"
   },
   {
-   "titulo": "Altcoins outpace bitcoin as celestia jumps 16%, Warsh silent on interest-rate plans",
+   "titulo": "Bitcoin, Korea’s Kospi and Nasdaq futures rally as China GDP beats estimates",
    "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/16/altcoins-outpace-bitcoin-as-celestia-jumps-16-warsh-silent-on-interest-rate-plans",
+   "url": "https://www.coindesk.com/markets/2026/10/19/bitcoin-korea-s-kospi-and-nasdaq-futures-rally-as-china-gdp-beats-estimates",
    "tema": "Bitcoin"
-  },
-  {
-   "titulo": "Scammer gets scammed in Ledger spy-chip exploit, loses almost $5 million in bitcoin",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/business/2026/10/16/scammer-gets-scammed-in-ledger-spy-chip-exploit-loses-almost-usd5-million-in-bitcoin",
-   "tema": "Bitcoin"
-  },
-  {
-   "titulo": "Bitcoin buyers snap up a brief drop below $80,000 as Asian stocks rebound",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/markets/2026/10/16/bitcoin-buyers-snap-up-a-brief-drop-below-usd80-000-as-asian-stocks-rebound",
-   "tema": "S&P 500"
-  },
-  {
-   "titulo": "Crypto for Advisors: Wall Street is done waiting on Congress for crypto rules",
-   "fuente": "CoinDesk",
-   "url": "https://www.coindesk.com/coindesk-indices/2026/10/15/crypto-for-advisors-wall-street-is-done-waiting-on-congress-for-crypto-rules",
-   "tema": "S&P 500"
   }
  ],
  "cierres_csv": "fecha,indice,cierre,cambio_pct,fuente,url\n2026-10-14,S&P 500,7718.94,-1.11,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n2026-10-14,Nasdaq Composite,26692.87,-1.88,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n2026-10-14,Dow Jones,51621.48,-0.09,CNBC (live updates; value as reported via search summary),https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html\n2026-10-15,Dow Jones,52177.69,1.08,CNN 4:00 PM ET market page (value as quoted via search),https://www.cnn.com/markets\n2026-10-15,S&P 500,7744.06,0.33,CNN 4:00 PM ET market page (value as quoted via search),https://www.cnn.com/markets\n2026-10-15,Nasdaq Composite,26713.03,0.08,CNN 4:00 PM ET market page (value as quoted via search),https://www.cnn.com/markets\n2026-10-16,Dow Jones,52002.41,-0.34,TheStreet live blog (value as quoted via search; page blocks fetch),https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026\n2026-10-16,S&P 500,7659.44,-1.09,TheStreet live blog (value as quoted via search; BNN Bloomberg showed -1.1% at 2:01 PM ET),https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026\n2026-10-16,Nasdaq Composite,26140.03,-2.14,TheStreet live blog (value as quoted via search; BNN Bloomberg showed -2.1% at 2:01 PM ET),https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026\n"
