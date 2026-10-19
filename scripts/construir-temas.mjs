@@ -21,6 +21,8 @@
 // con voz; "Descriptive, not financial advice" en Markets; líneas de ayuda en el mismo lugar de cada página; sin Lenis ni
 // GSAP; bloques vacíos ausentes, nunca de relleno. Enlaces cortos: registro solo de suma (data/cortos.json), así un código
 // ya compartido nunca da 404 aunque la grilla mueva su Short.
+// Archivo (19-oct): no hay segundo lado; NAOS es Humanity. The Present sale de la proyección, de los hubs y de la navegación;
+// data/archivo.json dice a dónde redirige cada página archivada (EN y ES) y cada enlace corto que apuntaba a ella (noindex).
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -100,7 +102,10 @@ const publico = (t) => enIngles(t) && !ZODIACO.test(t);
 
 // ---------- 1. proyección ----------
 function proyectar({ grilla, paginas, afirmaciones, agenda, tolerante = false }) {
-  const slots0 = grilla.slots.filter((s) => s.fecha_et <= "2026-12-31");
+  // archivado: The Present y todo slot "archivado" quedan fuera de la página pública (data/archivo.json)
+  const fuera = (s) => s.seccion === "The Present" || /^archivado/.test(s.estado || "");
+  const ARCH = leerJSON(path.join(V, "data/archivo.json"), { paginas: {} });
+  const slots0 = grilla.slots.filter((s) => s.fecha_et <= "2026-12-31" && !fuera(s));
   const porId = new Map(slots0.map((s) => [s.id, s]));
   // tolerante (solo con --solo): la grilla puede ir por delante de paginas.json en temas que no se tocan; esos slots se saltan aquí
   // y mezclar() deja esos temas como estaban en data/temas.json
@@ -111,6 +116,7 @@ function proyectar({ grilla, paginas, afirmaciones, agenda, tolerante = false })
   // la pieza ES aterriza en la página "es" (decisión 2 de N, lote 2: /naos/es/temas/es/) y lleva como "tema" la página de la pieza
   // EN que versiona; esa página la sigue listando en su edición ES (los textos sellados la traen como lista de la pieza)
   const esPagina = (p) => p.slug === "es" || /español/i.test(p.pilar);
+  paginas = paginas.filter((p) => ARCH.paginas[p.slug] == null && p.seccion !== "The Present");
   const enPaginas = paginas.filter((p) => !esPagina(p));
   const paginaDe = new Map(), temaDe = new Map();
   for (const p of enPaginas) for (const id of [...p.slots, ...p.historias]) {
@@ -256,8 +262,8 @@ function proyectar({ grilla, paginas, afirmaciones, agenda, tolerante = false })
   return {
     nota: "Proyección pública de la grilla para las páginas de tema (ediciones EN y ES). La escribe scripts/construir-temas.mjs; no editar a mano. Solo lo que la página muestra.",
     grilla: grilla.meta?.generado || null,
-    secciones: SECCIONES,
-    pilares: PILARES.map(({ id, titulo, seccion, lomo }) => ({ id, titulo, seccion, lomo })),
+    secciones: SECCIONES.filter((s) => s.id === "humanity"),
+    pilares: PILARES.filter((P) => P.seccion === "Humanity").map(({ id, titulo, seccion, lomo }) => ({ id, titulo, seccion, lomo })),
     paginas: salidaPag,
     piezas,
   };
@@ -398,7 +404,7 @@ function barra(L, raiz, actual, ruta) {
   const P = raiz + L.pref, otra = L.otra.lang === "es" ? raiz + "es/" + ruta : raiz + ruta;
   return `<header class="t-barra">
   <p class="t-marca"><a class="t-naos" href="${P}">NAOS</a><span class="t-lema">${esc(L.lema)}</span></p>
-  <nav class="t-nav" aria-label="${L.nav}">${a(P + "temas/humanity/", L.seccion.Humanity, "humanity")}${a(P + "temas/the-present/", L.seccion["The Present"], "the-present")}${a(P + "temas/", L.temas, "temas")}${a(raiz + "agenda.html", L.agenda, "agenda", L.lang === "en" ? "" : ' hreflang="en"')}<a class="t-idioma" href="${otra}" hreflang="${L.otra.lang}" lang="${L.otra.lang}">${L.otra.txt}</a></nav>
+  <nav class="t-nav" aria-label="${L.nav}">${a(P + "temas/humanity/", L.seccion.Humanity, "humanity")}${a(P + "temas/", L.temas, "temas")}${a(raiz + "agenda.html", L.agenda, "agenda", L.lang === "en" ? "" : ' hreflang="en"')}<a class="t-idioma" href="${otra}" hreflang="${L.otra.lang}" lang="${L.otra.lang}">${L.otra.txt}</a></nav>
 </header>`;
 }
 // texto (páginas con cuerpo): { cita, lineas } del pie del texto sellado. La línea de ayuda sigue siendo la verificada del
@@ -601,20 +607,15 @@ function hubs(L, D, urls) {
   const p0 = L.pref, R1 = L.lang === "es" ? "../../" : "../", R2 = L.lang === "es" ? "../../../" : "../../", R3 = L.lang === "es" ? "../../../../" : "../../../";
   const S = L.seccion, n = D.paginas.filter((p) => p.pilar).length;
   const lib = (raiz) => `  <section class="t-bloque" aria-labelledby="h-hum"><h2 id="h-hum"><a href="${raiz}${p0}temas/humanity/">${S.Humanity}</a></h2>\n${estantes(L, D, "Humanity", raiz, "h3")}\n  </section>`;
-  const ven = (raiz) => `  <section class="t-bloque" aria-labelledby="h-pres"><h2 id="h-pres"><a href="${raiz}${p0}temas/the-present/">${S["The Present"]}</a></h2>\n${estantes(L, D, "The Present", raiz, "h3")}\n  </section>`;
   const es = L.lang === "es";
-  write(`${p0}temas/index.html`, hub({ L, D, ruta: "temas/", raiz: R1, titulo: `${L.temas} · NAOS`, h1: L.temas, seccion: "The Present", actual: "temas",
-    desc: es ? `Todas las páginas de tema de NAOS: ${n} temas en Humanidad y El presente, con la fecha y la hora de cada pieza y sus fuentes.`
-      : `Every NAOS topic page: ${n} topics in Humanity and The Present, with the date and time of each piece and its sources.`, cuerpo: lib(R1) + "\n" + ven(R1) }));
+  write(`${p0}temas/index.html`, hub({ L, D, ruta: "temas/", raiz: R1, titulo: `${L.temas} · NAOS`, h1: L.temas, seccion: "Humanity", actual: "temas",
+    desc: es ? `Todas las páginas de tema de NAOS: ${n} temas de Humanidad, con la fecha y la hora de cada pieza y sus fuentes.`
+      : `Every NAOS topic page: ${n} topics in Humanity, with the date and time of each piece and its sources.`, cuerpo: lib(R1) }));
   write(`${p0}temas/humanity/index.html`, hub({ L, D, ruta: "temas/humanity/", raiz: R2, titulo: `${S.Humanity} · NAOS`, h1: S.Humanity, seccion: "Humanity", actual: "humanity",
     desc: es ? "La biblioteca de NAOS por pilar: comer, dormir, moverse, lo divino, comunidad y la luna. Cada tema con sus piezas, fechas y fuentes."
       : "The NAOS library by pillar: eat, sleep, move, the divine, community, and the moon. Each topic with its pieces, dates and sources.",
     cuerpo: estantes(L, D, "Humanity", R2) }));
-  write(`${p0}temas/the-present/index.html`, hub({ L, D, ruta: "temas/the-present/", raiz: R2, titulo: `${S["The Present"]} · NAOS`, h1: S["The Present"], seccion: "The Present", actual: "the-present",
-    desc: es ? "La ventana de NAOS al presente: mercados, noticias con los dos lados e IA. Cada tema con sus piezas, fechas y fuentes. Descriptivo, sin asesoría financiera."
-      : "The NAOS window on the present: markets, news with both sides, and AI. Each topic with its pieces, dates and sources. Descriptive, not financial advice.",
-    cuerpo: estantes(L, D, "The Present", R2) }));
-  urls.push(`${p0}temas/`, `${p0}temas/humanity/`, `${p0}temas/the-present/`);
+  urls.push(`${p0}temas/`, `${p0}temas/humanity/`);
   for (const P of D.pilares) {
     const ps = D.paginas.filter((p) => p.pilar === P.id); if (!ps.length) continue;
     const nom = L.pilar(P), sec = S[P.seccion];
@@ -630,14 +631,44 @@ function hubs(L, D, urls) {
 // La portada EN es index.html, a mano; esta se genera para que no se desfase del dato.
 function portadaES(D) {
   const L = ED.es, raiz = "../";
-  const desc = "NAOS en español. Más cerca de ti. Dos secciones: Humanidad (comer, dormir, moverse, lo divino, comunidad) y El presente (mercados, noticias con los dos lados, IA). Descriptivo, sin asesoría financiera.";
+  const desc = "NAOS en español. Más cerca de ti. Humanidad: comer bien, dormir bien, moverse, tener una relación con lo divino y construir comunidad.";
   const antes = `  <p class="t-rango"><a href="temas/es/">Las piezas en español</a> salen desde el sábado 24 de octubre. Las demás están en inglés; cada una lleva su hora en Nueva York y en Medellín.</p>
   <div id="secuencia" data-lang="es" data-raiz="${raiz}" hidden></div>
 `;
-  const cuerpo = `  <section class="t-bloque" aria-labelledby="h-hum"><h2 id="h-hum"><a href="temas/humanity/">${L.seccion.Humanity}</a></h2>\n${estantes(L, D, "Humanity", raiz, "h3")}\n  </section>\n` +
-    `  <section class="t-bloque" aria-labelledby="h-pres"><h2 id="h-pres"><a href="temas/the-present/">${L.seccion["The Present"]}</a></h2>\n${estantes(L, D, "The Present", raiz, "h3")}\n  </section>`;
+  const cuerpo = `  <section class="t-bloque" aria-labelledby="h-hum"><h2 id="h-hum"><a href="temas/humanity/">${L.seccion.Humanity}</a></h2>\n${estantes(L, D, "Humanity", raiz, "h3")}\n  </section>`;
   return hub({ L, D, ruta: "", raiz, titulo: "NAOS en español · Más cerca de ti.", h1: "NAOS", desc, cuerpo, seccion: "Humanity", actual: "", antes,
     css: ["assets/css/franja.css"], scripts: ["assets/js/franja.js"] });
+}
+
+// páginas archivadas (19-oct, no hay segundo lado): cada URL vieja de tema y de hub, en las dos ediciones, queda como una
+// redirección pequeña (meta refresh + canonical + noindex) a la portada o a la página de Humanity más cercana; fuera del sitemap.
+export function redireccion(lang, destinoAbs, rel, texto) {
+  return `<!doctype html>
+<html lang="${lang}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NAOS</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="${esc(destinoAbs)}">
+<meta http-equiv="refresh" content="0; url=${esc(rel)}">
+<script>location.replace(${JSON.stringify(rel)});</script>
+<style>body{font:16px/1.5 system-ui,sans-serif;margin:48px 16px;background:#fff;color:#0E1116}a{color:inherit}</style>
+</head>
+<body><p><a href="${esc(rel)}">${texto}</a></p></body>
+</html>
+`;
+}
+function archivadas(A) {
+  if (!A) return 0;
+  let n = 0;
+  const rutas = [...Object.keys(A.paginas || {}).map((s) => [`temas/${s}/`, A.paginas[s]]), ...Object.entries(A.hubs || {})];
+  for (const [ruta, d] of rutas) for (const lang of ["en", "es"]) {
+    const pref = lang === "es" ? "es/" : "", destino = pref + d, sube = "../".repeat((pref + ruta).split("/").filter(Boolean).length);
+    write(`${pref}${ruta}index.html`, redireccion(lang, BASE + destino, sube + destino, lang === "es" ? "Ir a NAOS" : "Go to NAOS"));
+    n++;
+  }
+  return n;
 }
 
 // registro de enlaces cortos (solo de suma): código -> su tarjeta actual; si el Short desapareció de la grilla, su tema o Topics
@@ -650,8 +681,15 @@ function registroCortos(D) {
   fs.writeFileSync(f, JSON.stringify(R, null, 1) + "\n");
   return { R, actual };
 }
-export function destinoCorto(D, c, e, vivo) {
+// destino de una página archivada (data/archivo.json), desde la raíz del sitio y en su edición: "" es la portada
+export function destinoArchivo(A, slug, lang) {
+  const d = A?.paginas?.[slug]; if (d == null) return null;
+  return lang === "es" ? "es/" + d : d;
+}
+export function destinoCorto(D, c, e, vivo, A = null) {
   const pref = e.lang === "es" ? "es/" : "";
+  const arch = !vivo && destinoArchivo(A, e.pagina, e.lang);
+  if (arch != null && arch !== false) return "../../" + arch;
   if (vivo) return `../../${pref}temas/${e.pagina}/?src=${encodeURIComponent(c)}#${e.id}`;
   if (D.paginas.some((p) => p.slug === e.pagina)) return `../../${pref}temas/${e.pagina}/?src=${encodeURIComponent(c)}`;
   return `../../${pref}temas/`;
@@ -670,10 +708,12 @@ export function construirTemas({ silencio = false } = {}) {
     for (const p of D.paginas) { write(`${L.pref}temas/${p.slug}/index.html`, paginaTema(L, D, p, enlaces)); urls.push(`${L.pref}temas/${p.slug}/`); }
   }
   // enlaces cortos: uno estable por Short, a su tarjeta en su página de tema (la ES para las piezas en español)
+  const A = leerJSON(path.join(V, "data/archivo.json"), null);
+  const redirigidas = archivadas(A);
   const { R, actual } = registroCortos(D);
   let cortos = 0, retirados = 0;
   for (const [c, e] of Object.entries(R.codigos)) {
-    const vivo = actual.has(c), destino = destinoCorto(D, c, e, vivo), es = e.lang === "es";
+    const vivo = actual.has(c), destino = destinoCorto(D, c, e, vivo, A), es = e.lang === "es", arch = !vivo ? destinoArchivo(A, e.pagina, e.lang) : null;
     write(`s/${c}/index.html`, `<!doctype html>
 <html lang="${es ? "es" : "en"}">
 <head>
@@ -681,7 +721,7 @@ export function construirTemas({ silencio = false } = {}) {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NAOS · ${esc(c)}</title>
 <meta name="robots" content="noindex">
-<link rel="canonical" href="${BASE}${es ? "es/" : ""}temas/${esc(D.paginas.some((p) => p.slug === e.pagina) ? e.pagina + "/" : "")}">
+<link rel="canonical" href="${arch != null ? BASE + esc(arch) : `${BASE}${es ? "es/" : ""}temas/${esc(D.paginas.some((p) => p.slug === e.pagina) ? e.pagina + "/" : "")}`}">
 <meta http-equiv="refresh" content="0; url=${esc(destino)}">
 <script>location.replace(${JSON.stringify(destino)});</script>
 <style>body{font:16px/1.5 system-ui,sans-serif;margin:48px 16px;background:#fff;color:#0E1116}a{color:inherit}</style>
@@ -692,8 +732,8 @@ export function construirTemas({ silencio = false } = {}) {
     if (vivo) cortos++; else retirados++;
   }
   write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${BASE}${u}</loc></url>`).join("\n")}\n</urlset>\n`);
-  const r = { paginas: D.paginas.length, tarjetas: D.piezas.length, cortos, retirados, hubs: 3 + D.pilares.filter((P) => D.paginas.some((p) => p.pilar === P.id)).length };
-  if (!silencio) console.log(`construir-temas: ${r.paginas} páginas de tema por edición (EN y ES), ${r.tarjetas} tarjetas, ${r.cortos} enlaces cortos vivos${r.retirados ? ` y ${r.retirados} retirados que apuntan a su tema` : ""}, ${r.hubs} hubs por edición, sitemap con ${urls.length} URL`);
+  const r = { paginas: D.paginas.length, tarjetas: D.piezas.length, cortos, retirados, archivadas: redirigidas, hubs: 2 + D.pilares.filter((P) => D.paginas.some((p) => p.pilar === P.id)).length };
+  if (!silencio) console.log(`construir-temas: ${r.paginas} páginas de tema por edición (EN y ES), ${r.tarjetas} tarjetas, ${r.cortos} enlaces cortos vivos${r.retirados ? ` y ${r.retirados} retirados que apuntan a su tema o a su destino de archivo` : ""}, ${r.archivadas} redirecciones de archivo, ${r.hubs} hubs por edición, sitemap con ${urls.length} URL`);
   return r;
 }
 

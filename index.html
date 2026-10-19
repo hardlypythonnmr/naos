@@ -11,339 +11,48 @@
 <link rel="alternate" hreflang="en" href="https://hardlypythonnmr.github.io/naos/">
 <link rel="alternate" hreflang="es" href="https://hardlypythonnmr.github.io/naos/es/">
 <link rel="alternate" hreflang="x-default" href="https://hardlypythonnmr.github.io/naos/">
-<meta name="description" content="NAOS. Closer to yourself. Two sections. Humanity: eat, sleep, move, the divine, community, with small behaviors and old tales. The Present: the news with doubt and both sides, AI, and markets around the big events. Descriptive, not financial advice.">
+<meta name="description" content="NAOS. Closer to yourself. Humanity: eat well, sleep well, get moving, have a relationship with the divine, and build community, with small behaviors and old tales.">
 <link rel="preload" href="assets/fuentes/IBMPlexSans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fuentes/IBMPlexSansCondensed-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="data/situacion.json" as="fetch" crossorigin>
 <link rel="icon" href="assets/marca/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/marca/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="assets/marca/favicon-16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="assets/marca/avatar-800.png">
-<link rel="preconnect" href="https://s3.tradingview.com" crossorigin>
 <link rel="stylesheet" href="assets/comun/tokens.css">
 <link rel="stylesheet" href="assets/comun/base.css">
 <link rel="stylesheet" href="assets/css/v1plus.css">
 <link rel="stylesheet" href="assets/css/sala.css">
 <link rel="stylesheet" href="assets/css/agenda.css">
 <link rel="stylesheet" href="assets/css/franja.css">
-<link rel="stylesheet" href="assets/css/guia.css">
-<link rel="stylesheet" href="assets/css/live.css">
 <link rel="stylesheet" href="assets/css/behavior.css">
 <link rel="stylesheet" href="assets/css/escalera.css">
 <link rel="stylesheet" href="assets/css/puertas.css">
-<script>/* las dos puertas: el estado se pone antes de pintar para que no parpadee (assets/js/puertas.js lo corrige al cargar) */
-(function(){var h=document.documentElement,x=location.hash,q=/[?&]sala=/.test(location.search),H=["#humanity","#pillars","#cinta-conducta","#conducta","#respira","#assets","#semana"];h.classList.add("pjs");h.setAttribute("data-u",q||/^#sala\//.test(x)?"present":!x||x==="#doors"?"puertas":H.indexOf(x)>=0?"humanity":"present");})();</script>
 <script defer src="assets/vendor/gsap/gsap.min.js"></script>
 <script defer src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
 <script defer src="assets/comun/naos.js"></script>
 <script defer src="assets/js/figura.js"></script>
 <script defer src="assets/js/cella.js"></script>
 <script defer src="assets/js/sala.js"></script>
-<script defer src="assets/js/v1plus.js"></script>
-<script defer src="assets/js/agenda-comun.js"></script>
-<script defer src="assets/js/proximos.js"></script>
+<script defer src="assets/js/humanity.js"></script>
 <script defer src="assets/js/franja.js"></script>
-<script defer src="assets/js/live.js"></script>
-<script defer src="assets/js/guia.js"></script>
 <script defer src="assets/js/behavior.js"></script>
-<script defer src="assets/js/puertas.js"></script>
 <noscript><style>[data-espera]{visibility:visible!important}</style></noscript>
 </head>
 <body>
-<a class="sr" href="#titulares">Skip to the headlines</a>
+<a class="sr" href="#pillars">Skip to the pillars</a>
 
 <header class="barra">
   <div class="marca"><img class="iso" src="assets/marca/isotipo.svg" alt="" width="30" height="30"><span class="naos">NAOS</span><span class="cond lema">Closer to yourself.</span></div>
   <nav class="indice" aria-label="Sections">
-    <a href="#humanity">Humanity</a><a href="#the-present">The Present</a><a href="#semana">This week</a><a href="temas/">Topics</a><a href="agenda.html">Upcoming</a><a href="#assets">Assets</a>
+    <a href="#pillars">Humanity</a><a href="#conducta">Breathe</a><a href="#semana">This week</a><a href="temas/">Topics</a><a href="agenda.html">Upcoming</a><a href="#assets">Assets</a>
   </nav>
-  <p class="sello estado">Data as of <span class="gen">14 Oct 2026 · 11:20 UTC</span> · Not financial advice</p>
 </header>
 
 <main id="muro" data-espera>
-  <!-- PUNTOS DE MONTAJE (ola 0, D-234): vacíos e invisibles (hidden) hasta que un equipo monta en ellos; el orden de arriba abajo es este.
-       Cada equipo quita el hidden de SU ranura y escribe solo dentro; ver empresa/infraestructura/2026-10-14-historias/construccion/cimientos.md.
-       #secuencia: el Short y el Reel de hoy (espejo, assets/js/franja.js). #guia: la hoja de la guía y la ficha "Guide" (assets/js/guia.js).
-       Convención LIVE (assets/js/live.js, sin región de estado ni aria-live): cualquier titular, ficha o fila lleva data-live="AAAA-MM-DDTHH:MMZ"
-       (hora UTC de la fuente); live.js pone el sello rojo --naos-live si pasaron menos de 2 h. Nadie más pinta ese sello. -->
-  <div id="guia" hidden></div>
-  <!-- LAS DOS PUERTAS (N, sesión 5): Humanity y The Present, cada una en un color de G3 (blanco y cobalto). Al tocar una, su color
-       inunda la pantalla y se entra a ese universo (assets/js/puertas.js). Cada puerta deja ver algo de adentro: Cella que respira en
-       Humanity, un titular vivo en The Present; y los enlaces directos a cada sección. Sin JS: las puertas, y debajo todo en orden. -->
-  <section class="puertas" id="doors" aria-labelledby="doors-t">
-    <h1 class="puertas-marca" id="doors-t">NAOS<span class="sr">: two doors, Humanity and The Present</span></h1>
-    <div class="puerta puerta-hum">
-      <h2 class="puerta-t"><a class="puerta-a" href="#humanity"><span class="c">Humanity</span></a></h2>
-      <div class="puerta-cuerpo">
-        <p class="puerta-d">Come here, stop, breathe with me, now move on.</p>
-        <p class="puerta-l"><a href="#conducta">Breathe</a> <a href="#pillars">The five pillars</a> <a href="#assets">Assets</a> <a href="#semana">This week</a></p>
-      </div>
-      <div class="puerta-cella" id="cella-puerta" aria-hidden="true"></div>
-    </div>
-    <div class="puerta puerta-pres">
-      <h2 class="puerta-t"><a class="puerta-a" href="#the-present"><span class="c"><span class="t1">The</span> <span class="t2">Present</span></span></a></h2>
-      <div class="puerta-cuerpo">
-        <div class="puerta-tit" id="puerta-tit"><p class="puerta-h">News, AI and markets, as they happen.</p></div>
-        <p class="puerta-l"><a href="#titulares">Headlines</a> <a href="#mercados">Market</a> <a href="#noticias">News</a> <a href="#ia">AI</a> <a href="agenda.html">Upcoming</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="universo" id="the-present" aria-labelledby="u-pres-t">
-  <header class="placa placa-pres">
-    <nav class="placa-nav" aria-label="The Present">
-      <a class="placa-volver" href="#doors">Back to the doors</a>
-      <span class="placa-sec"><a href="#titulares">Headlines</a> <a href="#mercados">Market</a> <a href="#noticias">News</a> <a href="#ia">AI</a> <a href="agenda.html">Upcoming</a></span>
-      <a class="placa-otra" href="#humanity">Humanity</a>
-    </nav>
-    <div class="placa-in">
-      <h1 class="placa-t" id="u-pres-t" tabindex="-1"><span>The</span> <span>Present</span></h1>
-      <div class="placa-d">
-        <p class="placa-q">Are you leveraging the present?</p>
-        <p class="placa-s">News, AI and markets, read as they happen, with the doubt left in. Data as of <span class="gen">15 Oct 2026, 16:26 UTC</span>. Descriptive, not financial advice.</p>
-      </div>
-    </div>
-  </header>
-  <div id="secuencia" hidden></div>
-  <!-- PORTADA: titulares en texto (regla del titular, D-208 y D-219) -->
-  <section class="portada" id="titulares" aria-labelledby="dia-t">
-    <div class="dia-fila">
-      <div>
-        <h2 class="dia" id="dia-t">Today, <span id="dia">Wednesday 14 October 2026</span></h2>
-        <p class="sec-d">What is happening and what moved, named together. Headlines verbatim from their source. Click a headline to open its monitor room.</p>
-      </div>
-      <figure class="guardian" id="guardian" data-revela aria-labelledby="cella-dice">
-        <div id="cella" aria-hidden="true"></div>
-        <figcaption class="sr" id="cella-dice">Cella, the page keeper</figcaption>
-        <div class="revela-tarjeta" id="cella-tarjeta"></div>
-      </figure>
-    </div>
-    <!-- primera vista en bento (PAG-01.6, D-224): historia que lidera, sus odds, el próximo evento (acento vino), un gráfico, la lectura de hoy, el mapa y una cinta -->
-    <div class="bento-p" id="bento-p" hidden>
-      <article class="b b-lead" id="b-lead"></article>
-      <a class="b b-odds" id="b-odds" hidden></a>
-      <article class="b b-evento" id="b-evento" hidden></article>
-      <article class="b b-graf noche" id="b-graf" hidden></article>
-      <article class="b b-hoy" id="b-hoy" hidden></article>
-      <a class="b b-mapa noche" id="b-mapa" href="#mapa-historias" hidden></a>
-      <!-- UPCOMING (D-226): los próximos cinco de data/agenda.json, cada uno con su .ics; la vista completa en agenda.html -->
-      <section class="b b-prox" id="b-prox" aria-labelledby="b-prox-t" hidden></section>
-      <div class="b b-cinta" id="b-cinta" hidden></div>
-    </div>
-    <ol class="tits" id="tits"></ol>
-    <p class="sello tits-pie" id="tits-pie">Descriptive, not financial advice.</p>
-  </section>
-
-  <!-- CÓMO LEEMOS EL DÍA (PAG-01.4, D-221): qué leemos y cómo lo ligamos, con cuentas reales de la corrida -->
-  <section class="como" id="como" aria-labelledby="t-como">
-    <div class="como-txt">
-      <h2 class="como-t" id="t-como">How NAOS reads the day</h2>
-      <p class="como-met">The method, in short: we read news wires, US data and prices, and prediction markets, and a short story map puts each story with its place, assets and odds in one room. The graphic follows today's example.</p>
-      <p class="sello beta-l"><span class="beta">Beta</span> Experimental: these may be related; we do not claim one causes the other.</p>
-      <p class="sello">Descriptive, not advice. Market odds are prices set by traders, not NAOS forecasts.</p>
-    </div>
-    <div class="como-g" role="img"></div>
-  </section>
-
-  <div id="cinta" class="cinta"></div>
-
-  <!-- MARKET -->
-  <section class="muro" id="mercados" aria-labelledby="t-mer">
-    <header class="sec-cab"><h2 class="sec-t" id="t-mer">Market</h2><p class="sec-d">Crypto, fear and greed, rates, the dollar, metals, energy and the week's red events. Our charts use free public sources; index and commodity quotes come inside TradingView widgets.</p></header>
-    <div class="rejilla r1">
-      <article class="panel p-btc" data-revela>
-        <header class="ph"><h3>Bitcoin</h3><span class="sello" data-sello="BTC"></span></header>
-        <div class="cripto-c"><svg class="dial chico" data-dial="BTC" viewBox="-220 -205 440 260" aria-hidden="true"></svg>
-          <div class="cifra"><span class="odo-v" data-odo="BTC"></span><span class="cam" data-cam="BTC"></span></div></div>
-        <div class="graf-c" data-linea="BTC" data-h="140"></div>
-        <div class="explica" id="btc-explica"></div>
-        <div class="revela-tarjeta" data-tarjeta="BTC"></div>
-      </article>
-      <article class="panel p-eth" data-revela>
-        <header class="ph"><h3>Ethereum</h3><span class="sello" data-sello="ETH"></span></header>
-        <div class="cripto-c"><svg class="dial chico" data-dial="ETH" viewBox="-220 -205 440 260" aria-hidden="true"></svg>
-          <div class="cifra"><span class="odo-v" data-odo="ETH"></span><span class="cam" data-cam="ETH"></span></div></div>
-        <div class="graf-c" data-linea="ETH" data-h="140"></div>
-        <div class="revela-tarjeta" data-tarjeta="ETH"></div>
-      </article>
-      <article class="panel p-miedo" id="miedo" data-revela>
-        <header class="ph"><h3>NAOS Fear &amp; Greed</h3><span class="sello" id="fng-sello"></span></header>
-        <div class="dos-diales">
-          <figure class="fg"><svg class="dial fgd" id="fng-dial" viewBox="-220 -215 440 270" aria-hidden="true"></svg>
-            <figcaption><span class="cond">Crypto</span> <b class="num" id="fng-v"></b> <span id="fng-c"></span></figcaption></figure>
-          <figure class="fg revision"><svg class="dial fgd" id="animo-dial" viewBox="-220 -215 440 270" aria-hidden="true"></svg>
-            <figcaption><span class="cond">Credit and dollar</span> <span class="estado-r" id="animo-c">Method in review</span></figcaption></figure>
-        </div>
-        <div class="mini-t fng-t"><span class="cond">Crypto index, last 31 days</span></div>
-        <div class="graf-c" id="fng-serie" data-h="64"></div>
-        <p class="sello nota" id="fng-nota"></p>
-        <div class="revela-tarjeta" id="fng-tarjeta"></div>
-      </article>
-      <article class="panel p-tablero noche" data-revela>
-        <header class="ph"><h3>Readings board</h3><span class="sello">Fresh only</span></header>
-        <div class="tablero-c"><div class="tablero" id="tablero" role="table" aria-label="Fresh readings"></div></div>
-        <div class="revela-tarjeta"><b>What makes the board</b><br>Only readings inside their freshness window: crypto and metals the same day, Treasury and ECB one business day. Each tile turns once, to its value, and stays.<div class="sello">CoinGecko · gold-api.com · U.S. Treasury · ECB</div></div>
-      </article>
-    </div>
-    <div class="rejilla r2">
-      <article class="panel p-curva" id="curva" data-revela>
-        <header class="ph"><h3>Yield curve and the dollar</h3><span class="sello" id="curva-sello"></span></header>
-        <div class="curva-in">
-          <div>
-            <div class="tasas" id="tasas"></div>
-            <div class="mini-t"><span class="cond">2s10s, 10Y minus 2Y, 90 days</span> <b class="num" data-val="S2S10"></b> <span data-cam="S2S10"></span></div>
-            <div class="graf-c" id="g-curva" data-h="180"></div>
-            <p class="sello">Source: U.S. Treasury, daily par yield curve</p>
-            <div class="explica" id="curva-explica"></div>
-          </div>
-          <div>
-            <div class="mini-t"><span class="cond">NAOS dollar index</span> <b class="num" data-val="USD"></b> <span data-cam="USD"></span></div>
-            <div class="graf-c" id="g-dolar" data-h="118"></div>
-            <div class="mini-t"><span class="cond">USD/JPY</span> <b class="num" data-val="USDJPY"></b> <span data-cam="USDJPY"></span> <span class="cond sep">EUR/USD</span> <b class="num" data-val="EURUSD"></b> <span data-cam="EURUSD"></span></div>
-            <div class="graf-c" id="g-yen" data-h="96"></div>
-            <p class="sello">NAOS dollar index, computed from ECB reference rates. Not ICE's DXY. Source: ECB</p>
-          </div>
-        </div>
-        <div class="revela-tarjeta" id="curva-tarjeta"></div>
-      </article>
-      <article class="panel p-tvm">
-        <header class="ph"><h3>Indices and commodities</h3><span class="sello">Broker CFDs and Cboe futures via TradingView</span></header>
-        <p class="tv-linea" data-tv-linea="indices" hidden></p>
-        <div class="tv" data-tv="indices" style="--tvh:470px"><p class="tv-espera sello">TradingView widget loads when it comes into view</p></div>
-        <p class="sello tv-nota">CFD prices from brokers track the index; they are not the official index value. Official S&amp;P, Nasdaq, Dow and VIX symbols do not load in free widgets.</p>
-      </article>
-    </div>
-    <div class="rejilla rc" id="citados-r">
-      <article class="panel p-citados" id="citados">
-        <header class="ph"><h3>Index closes, as reported</h3><span class="sello" id="citados-sello">Each point is a close quoted in a news report, linked</span></header>
-        <div class="citados" id="citados-l"></div>
-      </article>
-    </div>
-    <div class="rejilla r3">
-      <article class="panel p-metales" data-revela>
-        <header class="ph"><h3>Metals</h3><span class="sello" data-sello="XAU"></span></header>
-        <div class="metal"><span class="cond">Gold</span><span class="odo-v chica" data-odo="XAU"></span><span class="u sello">USD / oz, spot</span></div>
-        <div class="metal"><span class="cond">Silver</span><span class="odo-v chica" data-odo="XAG"></span><span class="u sello">USD / oz, spot</span></div>
-        <div class="metal" id="metal-cobre"><span class="cond">Copper</span><span class="odo-v chica" data-odo="HG"></span><span class="u sello">USD / lb, COMEX copper (HG)</span></div>
-        <div class="metal"><span class="cond">Ratio</span><b class="num" id="ratio"></b><span class="u sello">gold / silver, NAOS calc.</span></div>
-        <p class="sello">Metals: gold-api.com. The source gives the price, not the change, so there is no arrow here.</p>
-        <div class="revela-tarjeta"><b>Gold, silver and copper</b><br>Spot gold and silver per troy ounce; copper is gold-api.com's HG price per pound, a COMEX contract. The source gives the price, not the change.<div class="sello">gold-api.com · not financial advice</div></div>
-      </article>
-      <article class="panel p-energia" id="energia" data-revela>
-        <header class="ph"><h3>Energy, dated trend</h3><span class="sello" id="eia-sello"></span></header>
-        <div id="energia-filas"></div>
-        <div class="revela-tarjeta"><b>Why energy is not on the tape</b><br>EIA publishes spot prices with a lag of one to nine days. The series live here as dated trends and never on the tape. Live oil and gas CFDs sit in the TradingView panel.<div class="sello">Source: U.S. Energy Information Administration · public domain</div></div>
-      </article>
-      <article class="panel p-cal" id="calendario">
-        <header class="ph"><h3>Economic calendar</h3><span class="sello">High importance, US and majors</span></header>
-        <div class="cal-in">
-          <div class="rojo" id="rojo" data-revela>
-            <p class="cond rot">Next red US event</p>
-            <p class="rojo-ev" id="rojo-ev"></p>
-            <div class="rojo-cuenta" id="rojo-cuenta" aria-live="off"></div>
-            <p class="sello" id="rojo-pie"></p>
-            <div class="revela-tarjeta"><b>How the countdown works</b><br>Release times are public facts from the publishers' calendars. The countdown runs on your clock. Nothing here predicts the number.<div class="sello">Schedules: BLS, Federal Reserve, BEA, Census</div></div>
-          </div>
-          <div class="rojo-s">
-            <p class="cond rot">Red US events this week, times in ET</p>
-            <table class="rojo-tabla" id="rojo-tabla"><thead><tr><th scope="col">When</th><th scope="col">Event</th><th scope="col">Forecast</th><th scope="col">Previous</th></tr></thead><tbody></tbody></table>
-            <p class="sello" id="rojo-fuente"></p>
-          </div>
-        </div>
-        <div class="tv" data-tv="calendario" style="--tvh:370px"><p class="tv-espera sello">TradingView economic calendar loads when it comes into view</p></div>
-      </article>
-    </div>
-  </section>
-
-  <!-- cintas que dividen las secciones y titulan los activos de la siguiente (PAG-01.5, D-221) -->
-  <div id="cinta-noticias" class="cinta" hidden></div>
-
-  <!-- NEWS: plano de noche -->
-  <section class="muro noche" id="noticias" data-plano aria-labelledby="t-not">
-    <div class="plano-fondo noche"></div>
-    <div class="plano-contenido">
-      <header class="sec-cab"><h2 class="sec-t" id="t-not">News</h2><p class="sec-d">The wire by area, the arc from the Black Sea to Hormuz, the stories of the day and their prediction markets. Headlines verbatim with their source. Politics appears only as market impact.</p></header>
-      <div class="rejilla r-geo">
-        <article class="panel p-geo" id="mapa-historias" aria-labelledby="t-geo">
-          <header class="ph geo-cab"><h3 id="t-geo">Where the stories are <span class="beta">Beta</span></h3><span class="sello"></span></header>
-          <p class="geo-d">Each lit place has a live story, named with its assets and its market odds. Open a story for its monitor room.</p>
-          <p class="sello beta-l"><span class="beta">Beta</span> Experimental: these may be related; we do not claim one causes the other.</p>
-          <div class="geo-in"><div class="geo-mapa"></div><ol class="geo-lista"></ol></div>
-          <svg class="geo-l-svg" aria-hidden="true"></svg>
-          <p class="sello">Map: Natural Earth (public domain). Places are where a headline points, not exact locations.</p>
-        </article>
-      </div>
-      <div class="rejilla r4">
-        <article class="panel p-wire" id="wire">
-          <header class="ph"><h3>Wire, by area <span class="beta">Beta</span></h3><span class="sello" id="wire-sello"></span></header>
-          <div class="filtros" id="filtros" role="group" aria-label="Filter the wire by area"></div>
-          <ol class="wire" id="wire-l"></ol>
-          <p class="sello">"Moved" appears only when the headline itself names the asset and the move.</p>
-          <p class="sello beta-l"><span class="beta">Beta</span> Odds and monitor room chips are experimental: these may be related; we do not claim one causes the other.</p>
-        </article>
-        <article class="panel p-mapa" id="mapa">
-          <header class="ph"><h3>The arc: Black Sea to Hormuz</h3><span class="sello">Natural Earth · routes approximate</span></header>
-          <div class="capas" id="capas"><div class="capa-carga sello">Loading map</div></div>
-          <p class="sello">Three layers: land, routes, names. They separate as you scroll.</p>
-          <div class="mapa-bajo"><div id="inset"></div><div id="esc-c" hidden><p class="cond rot">Scenario board · if this, watch that</p><div class="esc" id="esc"></div></div></div>
-        </article>
-      </div>
-      <div class="rejilla r5" id="historias">
-        <div class="r5-cab"><h3>Stories of the day</h3><span class="sello"><span id="historias-fecha"></span>One each: AI, politics as market impact, crypto. Click one for its monitor room.</span></div>
-        <div class="cartas" id="cartas"></div>
-      </div>
-      <div class="rejilla r6" id="prediccion">
-        <div class="r5-cab"><h3>Prediction markets</h3><span class="sello">Links to the markets, no odds shown here. Market prices are not NAOS forecasts; trading is not offered here.</span></div>
-        <div class="pm" id="pm"></div>
-      </div>
-    </div>
-  </section>
-
-  <div id="cinta-ia" class="cinta" hidden></div>
-
-  <!-- AI: Lab, plano gris frío -->
-  <section class="muro lab" id="ia" data-plano="derecha" aria-labelledby="t-ia">
-    <div class="plano-fondo lab"></div>
-    <div class="plano-contenido">
-      <header class="sec-cab"><h2 class="sec-t" id="t-ia"><span class="lab-idx">*</span> AI</h2><p class="sec-d">NAOS Lab: AI stocks and ETFs via TradingView (delayed), the Nasdaq 100 heatmap, and the day's AI headlines, verbatim and with their source.</p></header>
-      <div class="rejilla r7">
-        <article class="panel p-aim">
-          <header class="ph"><h3>AI market tracker</h3><span class="sello">Stocks and ETFs, delayed, via TradingView</span></header>
-          <p class="tv-linea" data-tv-linea="ia" hidden></p>
-          <div class="tv" data-tv="ia" style="--tvh:520px"><p class="tv-espera sello">TradingView market overview loads when it comes into view</p></div>
-        </article>
-        <article class="panel p-mapa-calor">
-          <header class="ph"><h3>Nasdaq 100 heatmap</h3><span class="sello">Size by market cap, color by the day's change, via TradingView</span></header>
-          <p class="tv-linea" data-tv-linea="calor" hidden></p>
-          <div class="tv" data-tv="calor" style="--tvh:520px"><p class="tv-espera sello">TradingView heatmap loads when it comes into view</p></div>
-        </article>
-      </div>
-      <div class="rejilla r8">
-        <article class="panel p-hn">
-          <header class="ph"><h3>AI on the front page</h3><span class="sello" id="hn-hora"></span></header>
-          <div class="pila" id="pila"></div>
-        </article>
-        <article class="panel p-repos" id="repos-p">
-          <header class="ph"><h3>Repos of the week</h3><span class="sello">GitHub</span></header>
-          <ol class="repos" id="repos"></ol>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <nav class="cierre-u" aria-label="Leave The Present">
-    <a class="cierre-otra" href="#humanity">Through the other door: <span>Humanity</span></a>
-    <a class="cierre-volver" href="#doors">Back to the doors</a>
-  </nav>
-  </section>
-
+  <!-- Desde el 19-oct NAOS es Humanity: las dos puertas, The Present (titulares, mercados, noticias, IA), la guía y la sala de
+       monitoreo salieron de la portada; están en archivo/the-present/ y en la historia de git. #secuencia: el Short y el Reel de hoy (franja.js). -->
   <section class="universo" id="humanity" aria-labelledby="u-hum-t">
   <header class="placa placa-hum">
-    <nav class="placa-nav" aria-label="Humanity">
-      <a class="placa-volver" href="#doors">Back to the doors</a>
-      <span class="placa-sec"><a href="#pillars">The five pillars</a> <a href="#conducta">Breathe</a> <a href="#assets">Assets</a> <a href="#semana">This week</a></span>
-      <a class="placa-otra" href="#the-present">The Present</a>
-    </nav>
     <div class="placa-in">
       <h1 class="placa-t" id="u-hum-t" tabindex="-1">Humanity</h1>
       <p class="placa-q">Come here, stop, breathe with me, now move on.</p>
@@ -356,6 +65,7 @@
     <p class="pil-glosa">The five pillars, said in one sentence because they hold each other up. The behaviors and the stories behind each one come to the library as they are made.</p>
     <p class="pil-frase"><span>Eat well,</span> <span>sleep well,</span> <span>get moving,</span> <span>have a relationship with the divine,</span> <span>and build community.</span></p>
   </section>
+  <div id="secuencia" hidden></div>
   <div id="cinta-conducta" class="cinta" hidden></div>
 
   <!-- BEHAVIOR: respiración y mantra -->
@@ -384,12 +94,8 @@
   </section>
   <section class="interludio mantra-s noche" data-plano aria-label="Mantra">
     <div class="plano-fondo noche"></div>
-    <div class="plano-contenido"><p class="mantra leer" id="mantra">Read slowly. Breathe once. The situation will still be here when you look up.</p></div>
+    <div class="plano-contenido"><p class="mantra leer" id="mantra">Read slowly. Breathe once. Everything else will still be here when you look up.</p></div>
   </section>
-  <nav class="cierre-u" aria-label="Leave Humanity">
-    <a class="cierre-otra" href="#the-present">Through the other door: <span>The Present</span></a>
-    <a class="cierre-volver" href="#doors">Back to the doors</a>
-  </nav>
   </section>
 </main>
 
@@ -398,15 +104,10 @@
     <p class="ayuda-l" id="ayuda">If this is weighing on you, talk to someone now. Colombia: <a href="tel:106">106</a>, national mental health line, 24/7, or <a href="tel:123">123</a> in immediate danger (<a href="https://findahelpline.com/countries/co" rel="noopener">source</a>). US: <a href="tel:988">988</a>. Anywhere else: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a>.</p>
     <p class="naos">NAOS <span class="cond">Closer to yourself.</span></p>
     <div class="pie-fuentes">
-      <p><b>Descriptive, not financial advice.</b> Data as of <span class="gen">14 Oct 2026 · 11:20 UTC</span>. Every reading carries its source and time. Readings older than their source's rhythm, and sample placeholders, are kept off the page until real data arrives.</p>
-      <p>Yields: <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" rel="noopener">Source: U.S. Treasury</a>. Currencies: <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" rel="noopener">Source: ECB</a> reference rates; the NAOS dollar index is computed from them and is not ICE's DXY. <a href="https://www.coingecko.com" rel="noopener">Data provided by CoinGecko</a>. Metals: <a href="https://gold-api.com" rel="noopener">gold-api.com</a>. Energy: <a href="https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm" rel="noopener">Source: U.S. Energy Information Administration</a>. <a href="https://alternative.me/crypto/fear-and-greed-index/" rel="noopener">Crypto Fear &amp; Greed Index by alternative.me</a>. Red US events, forecasts and previous values: <a href="https://www.forexfactory.com/calendar" rel="noopener">Forex Factory</a> weekly calendar, each release linked to its official publisher.</p>
-      <p>Widgets by <a href="https://www.tradingview.com" rel="noopener">TradingView</a>, embedded as provided. Market odds: <a href="https://polymarket.com" rel="noopener">Polymarket</a>, one number per story with the time it was read; prices set by traders, not NAOS forecasts. <a href="https://kalshi.com" rel="noopener">Kalshi</a>: link only. Headlines from the Federal Reserve, the SEC, CoinDesk and MarketWatch, each linked to its source; BBC News and <a href="https://news.ycombinator.com" rel="noopener">Hacker News</a> until 19 October 2026. Map: <a href="https://www.naturalearthdata.com" rel="noopener">Natural Earth</a> via world-atlas.</p>
       <p>The voices in NAOS pieces are synthetic. Cella's replies to comments are written with AI; a person reads the hard ones. NAOS is on YouTube Shorts and Instagram, in English, with Spanish pieces from 24 October. <a href="es/" hreflang="es" lang="es">NAOS en español</a>.</p>
       <p><a href="temas/">Topics: every topic page</a> · <a href="agenda.html">Upcoming: the year ahead, with calendar files</a> · <a href="privacidad.html">Privacy</a> · <a href="terminos.html">Terms</a> · <a href="archivo/index-anterior.html">About the NAOS YouTube app</a></p>
     </div>
   </div>
 </footer>
-<!-- sala de monitoreo por historia (PAG-03.2, D-221): se llena desde data/situacion.json (salas) -->
-<dialog class="sala noche" id="sala" aria-labelledby="sala-t"></dialog>
 </body>
 </html>

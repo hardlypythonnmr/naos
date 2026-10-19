@@ -91,7 +91,7 @@ html.pjs:not([data-u="present"]) { scroll-padding-bottom: 0; } /* la ficha de la
 .placa-s { margin: 0; font-size: 16px; line-height: 1.5; color: var(--naos-night-sec); max-width: 26em; }
 .placa-hum .placa-in { grid-template-columns: 1fr auto; }
 .placa-hum .placa-q { grid-column: 1; grid-row: 1; align-self: start; margin: 0 0 var(--s-6) 33.333%; }
-.placa-hum .placa-t { grid-row: 2; }
+.placa-hum .placa-t { grid-row: 2; margin-bottom: 0; padding-bottom: .12em; } /* en papel sobre papel, el borde de la placa no se ve: la "y" (descendente) no se corta */
 .placa-cella { grid-column: 2; grid-row: 1 / 3; align-self: end; width: clamp(140px, 17vw, 260px); margin-bottom: -2px; }
 
 /* ---------- los cinco pilares: una frase al eje de 1/3 y la glosa al margen ---------- */

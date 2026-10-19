@@ -100,7 +100,8 @@
 
   async function iniciar() {
     let ag; try { ag = await (await fetch("data/agenda.json")).json(); } catch (e) { $("#ag-sello").textContent = "The agenda could not be loaded."; return; }
-    eventos = A.conIds(ag.eventos || []).map(A.publico).sort((a, b) => A.inicio(a) - A.inicio(b));
+    // 19-oct: NAOS es Humanity; la página muestra solo las fechas religiosas y culturales (los ids salen de la lista entera, así los .ics no cambian)
+    eventos = A.conIds(ag.eventos || []).filter((e) => e.categoria === "religioso/cultural").map(A.publico).sort((a, b) => A.inicio(a) - A.inicio(b));
     const q = new URLSearchParams(location.search).get("cat");
     if (q && A.CATEGORIAS.some((c) => c.id === q)) filtro = q;
     const vivos = A.proximos(eventos), ult = eventos.reduce((m, e) => ((e.fecha_fin || e.fecha) > m ? e.fecha_fin || e.fecha : m), "");
