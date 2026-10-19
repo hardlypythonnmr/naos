@@ -464,6 +464,9 @@ export function cuerpoTema({ L, D, p, X, md, raiz, xs, carta, enlaces }) {
     if (mf) return `<p class="t-fuente" id="f-${mf[1]}"><span class="t-fn">[${mf[1]}]</span> ${C.partesEN(mf[2])}</p>`;
     const ml = /^(The line to carry|Line to take|La frase que te llevas|Frase para llevar|La frase para llevarse|Llévate esta frase)([^:]*):\s*(.+)$/.exec(s);
     if (ml) return `<p class="t-llevar"${id}><span class="t-llevar-k">${inl(ml[1] + ml[2])}:</span> ${revela(inl(ml[3]))}</p>`;
+    // la conducta en una frase (la intención "cuando X, hago Y"): es lo que la práctica deja; pesa como frase, no como nota (pase de arte 3)
+    const mu = !enCarta && /^(In one line|If you want it in one line|En una frase|Si quieres tenerlo en una frase):\s*(.+)$/.exec(s);
+    if (mu) return `<p class="t-una-linea"${id}><span class="t-una-linea-k">${esc(mu[1])}:</span> ${C.partesEN(mu[2])}</p>`;
     if (!enCarta && ls.length === 1) { const t = C.conTituloFinal(s); if (t) return `<p${id}>${t}</p>`; }
     // el canal de correcciones (lo añade el constructor): la frase enlaza al contacto de la página de términos
     if (/(Corrections welcome|Correcciones bienvenidas)\.?/.test(s) && !/\]\(/.test(s)) return `<p${id}>${ls.map(inl).join("<br>").replace(/(Corrections welcome|Correcciones bienvenidas)/, `<a href="${raiz}terminos.html"${L.lang === "es" ? "" : ' hreflang="es"'}>$1</a>`)}</p>`;
