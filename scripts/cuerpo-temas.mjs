@@ -281,7 +281,7 @@ function arbol(md) {
 function contexto({ L, D, p, X, raiz, md, cartasTxt }) {
   const titulos = new Map(); // título visible -> destino
   for (const q of D.paginas) for (const t of [q.titulo, q.titulo_es]) titulos.set(t.toLowerCase(), `${raiz}${L.pref}temas/${q.slug}/`);
-  for (const t of ["errata", "fe de erratas"]) titulos.set(t, `${raiz}${L.pref}temas/errata/`);
+  for (const t of ["errata", "fe de erratas"]) titulos.set(t, `${raiz}terminos.html`);
   const propios = new Map();
   for (const m of md.matchAll(/^#{2,4}\s+(?:\d+\s*·\s*)?(.+?)(?:\s*\{#([\w-]+)\})?\s*$/gm)) if (m[2]) propios.set(m[1].trim().toLowerCase(), "#" + m[2]);
   for (const [id, c] of cartasTxt) if (c.titulo) propios.set(c.titulo.replace(/\s*·\s*en inglés:.*$/, "").toLowerCase(), "#" + id);
