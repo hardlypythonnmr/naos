@@ -1,0 +1,211 @@
+/* tablero.css · la portada de D-270: un calendario lunar de noche que se lee quieto. Tres colores arriba: noche, plata y menta (respirar).
+   Los cinco colores v7 de las bases (GUIA-carruseles.md §5) quedan como una franja decorativa de 3 px; los filetes son de 1 px en plata al 0,22.
+   Sin gris: abajo de la leyenda la pagina sigue en papel y tinta. Tipografia: Newsreader para la frase, las cifras y la leyenda; Plex para los rotulos. */
+:root {
+  --c-eat: #F0BC6E; --c-sleep: #A9B2EC; --c-move: #E9876A; --c-comm: #EE9AA6; --c-div: #3B4BB5; --c-breath: #7FCDAE;
+  --filete: rgba(244, 246, 248, .22);   /* decorativo, nunca para leer */
+  --gut: 16px;                          /* margen lateral y relleno de casilla */
+  --alto-casilla: 104px;
+}
+@media (min-width: 900px) { :root { --gut: 24px; --alto-casilla: 112px; } }
+
+/* ---------- la noche: barra, tablero y leyenda ---------- */
+.portada .barra { background: var(--naos-night); color: var(--naos-night-text); border-bottom: 1px solid var(--filete); padding: 14px var(--gut); }
+.portada .barra .lema, .portada .barra .indice a { color: var(--naos-night-text); }
+.portada .barra .indice a:hover, .portada .barra .indice a:focus-visible { color: var(--naos-night-text); text-decoration: underline; }
+.portada .barra :focus-visible { outline-color: var(--naos-night-text); }
+@media (max-width: 1180px) { .portada .barra { padding: 12px var(--gut); } }
+.tablero { background: var(--naos-night); color: var(--naos-night-text); padding: var(--gut) var(--gut) 0; }
+.tb-in { position: relative; max-width: 1440px; margin: 0 auto; }
+/* 28 columnas a 390 (4 de 7) y 56 a 1280 (8 de 7): los mismos 18 casillas, y los 7 dias caben a lo ancho sin otra rejilla */
+.tb-g { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(28, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(var(--alto-casilla), 1fr));
+  grid-auto-rows: minmax(var(--alto-casilla), auto); border-top: 1px solid var(--filete); border-left: 1px solid var(--filete); }
+.tb-g > li { position: relative; display: flex; min-width: 0; border-right: 1px solid var(--filete); border-bottom: 1px solid var(--filete); }
+.tb-g > .tb-centro { grid-column: 1 / span 14; grid-row: 1 / span 2; }
+.tb-g > li:nth-child(2) { grid-column: 15 / span 14; grid-row: 1; }
+.tb-g > li:nth-child(3) { grid-column: 15 / span 14; grid-row: 2; }
+.tb-g > li:nth-child(n+4):nth-child(-n+11) { grid-column: span 7; }
+.tb-g > li:nth-child(n+12) { grid-column: span 4; }
+@media (min-width: 900px) {
+  .tb-g { grid-template-columns: repeat(56, minmax(0, 1fr)); }
+  .tb-g > li:nth-child(2) { grid-column: 1 / span 21; grid-row: 1 / span 2; }
+  .tb-g > .tb-centro { grid-column: 22 / span 14; grid-row: 1 / span 2; }
+  .tb-g > li:nth-child(3) { grid-column: 36 / span 21; grid-row: 1 / span 2; }
+  .tb-g > li:nth-child(n+12) { grid-column: span 8; }
+}
+/* la linea menta de 1 px: cruza el tablero a la altura del centro (D-268, respirar cruza todo). tablero.js le pone el alto */
+.tb-linea { position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--c-breath); pointer-events: none; z-index: 2; }
+
+/* ---------- casilla ---------- */
+.tb-c { --tx: var(--naos-night-text); position: relative; flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; min-width: 0;
+  padding: var(--gut) 8px; color: var(--tx); text-decoration: none; overflow: hidden; }
+a.tb-c:hover .tb-l { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a.tb-c:focus-visible { outline: 2px solid var(--tx); outline-offset: -5px; }
+.tb-l, .tb-k, .tb-x { font: 400 13px/1.25 var(--font-sans); letter-spacing: 0; overflow-wrap: anywhere; }
+.tb-f { font: 300 28px/1 var(--font-serif); letter-spacing: -.01em; font-variant-numeric: tabular-nums lining-nums; }
+.tb-luna, .tb-resp, .tb-box { padding-inline: var(--gut); }
+.tb-resp { --tx: var(--naos-night); background: var(--c-breath); }
+/* las cinco bases: el nombre y la cifra juntos; la franja v7 es decorativa (el nombre lleva la informacion) */
+.tb-base::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--v7); }
+/* los 7 dias */
+.tb-dia { padding: var(--gut) 6px; gap: 6px; }
+.tb-dia .tb-f { font-size: 24px; }
+.tb-dia .tb-s { display: block; height: 12px; }
+.tb-dia .tb-s svg { display: block; width: 12px; height: 12px; }
+.tb-dia .tb-pz { position: absolute !important; }
+.tb-dia[aria-current="date"] { box-shadow: inset 0 -2px 0 var(--naos-night-text); }
+
+/* la luna de hoy */
+.lu-o { fill: var(--naos-night); stroke: var(--naos-night-text); stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.lu-l { fill: var(--naos-night-text); }
+.tb-m { display: flex; align-items: center; gap: 12px; }
+.tb-d svg { display: block; width: 40px; height: 40px; }
+.tb-n { display: flex; flex-direction: column; gap: 4px; }
+.tb-p { display: flex; justify-content: space-between; align-items: center; height: 9px; margin-top: 4px; }
+.tb-p i { flex: none; box-sizing: border-box; width: 3px; height: 3px; border: 1px solid var(--naos-night-text); border-radius: 50%; }
+.tb-p i.fs { height: 8px; border-radius: 2px; }
+.tb-p i.hoy { background: var(--naos-night-text); transform: scale(1.8); }
+
+/* el centro: la casilla 2x2. Dos mitades; la linea menta pasa entre ellas y Cella se apoya en ella */
+.tb-box { display: grid; grid-template-rows: 1fr 1fr; justify-items: center; align-items: start; text-align: center; padding-block: var(--gut); gap: 0; }
+.tb-sup { align-self: stretch; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 0; }
+.tb-h { margin: 0; font: 600 13px/1.2 var(--font-cond); letter-spacing: .14em; text-transform: uppercase; }
+.tb-h:focus { outline: none; }
+.tb-cella { --cw: 100px; width: var(--cw); flex: none; margin: calc(var(--cw) * -.2) 0 calc(var(--cw) * -.117); color: var(--naos-night-text); }
+.tb-cella svg { width: 100%; height: auto; }
+.tb-q { margin: 12px 0 0; font: italic 300 clamp(34px, 9vw, 56px)/1.05 var(--font-serif); letter-spacing: -.01em; color: var(--naos-night-text); text-wrap: balance; }
+/* pausa de Cella (WCAG 2.2.2): solo el icono, 44 px, en la esquina; el nombre accesible sigue siendo "Pause Cella" */
+.tb-box .cella-pausa.ag-chip { position: absolute; top: 0; right: 0; min-width: 44px; min-height: 44px; width: 44px; height: 44px; padding: 0; font-size: 0; line-height: 0;
+  border: 0; background: transparent; color: var(--naos-night-text); }
+.tb-box .cella-pausa.ag-chip::before { content: ""; width: 12px; height: 14px; border-left: 4px solid currentColor; border-right: 4px solid currentColor; box-sizing: border-box; }
+.tb-box .cella-pausa.ag-chip[aria-pressed="true"]::before { border: 0; width: 0; height: 0; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 12px solid currentColor; }
+.tb-box .cella-pausa.ag-chip:hover { background: transparent; border: 0; }
+.tb-box .cella-pausa.ag-chip:focus-visible { outline: 2px solid var(--naos-night-text); outline-offset: -6px; }
+
+@media (min-width: 900px) {
+  .tb-c { padding: var(--gut); }
+  .tb-l, .tb-k, .tb-x { font-size: 14px; }
+  .tb-f { font-size: 40px; }
+  .tb-dia { padding: var(--gut) 12px; gap: 8px; }
+  .tb-dia .tb-f { font-size: 40px; }
+  .tb-dia .tb-pz { position: static !important; width: auto !important; height: auto !important; clip: auto !important; overflow: visible !important; white-space: normal !important; }
+  .tb-d svg { width: 96px; height: 96px; }
+  .tb-luna { display: grid; grid-template-rows: 1fr 1fr; }
+  .tb-luna .tb-m { align-self: end; margin-bottom: -8px; gap: 20px; }
+  .tb-luna .tb-n { align-self: start; margin-top: 16px; }
+  .tb-cella { --cw: 168px; }
+}
+
+/* ---------- la leyenda D-265: Newsreader 300, 20 px a 390 y 26 px a 1280, 64 px de aire arriba ---------- */
+.leyenda { background: var(--naos-night); color: var(--naos-night-text); display: grid; gap: 24px; justify-items: start; padding: var(--s-8) max(var(--gut), calc((100% - 1440px) / 2 + var(--gut))) var(--s-8); }
+.leyenda p { margin: 0; max-width: 34em; font: 300 20px/1.5 var(--font-serif); color: var(--naos-night-text); text-wrap: pretty; }
+@media (min-width: 900px) { .leyenda p { font-size: 26px; } }
+/* en la edicion ES la portada vive dentro de un main de 1120 px: la noche sale a todo el ancho */
+.t-hub .tablero, .t-hub .leyenda { width: 100vw; margin-left: calc(50% - 50vw); }
+
+/* ---------- lo de abajo: papel y tinta ---------- */
+.portada .muro { padding: var(--s-6) var(--gut) var(--s-6); }
+@media (min-width: 900px) { .portada .muro { padding: var(--s-8) var(--page-gutter) var(--s-8); } }
+.portada .muro.semana { padding-top: var(--s-6); }
+.portada .sec-t { font: 300 28px/1.05 var(--font-serif); letter-spacing: -.015em; }
+@media (min-width: 900px) { .portada .sec-t { font-size: 32px; } }
+.portada .sec-cab { border-top: 1px solid var(--naos-ink); }
+.portada .sec-d, .portada .bib-d, .portada .bib-p p, .portada .lema { color: var(--naos-ink); }
+.portada .sec-d a { color: var(--naos-ink); }
+.portada .sello { color: var(--naos-ink); font-size: 13px; }
+.portada .pie .naos .cond, .portada .pie-fuentes { color: var(--naos-ink); }
+.portada .pie-fuentes { font-size: 13px; }
+.portada .chip { color: var(--naos-ink); border-color: var(--naos-ink); font-size: 13px; line-height: 20px; letter-spacing: 0; text-transform: none; }
+.portada .chip-published { color: var(--naos-ink); border-color: var(--naos-ink); }
+
+/* This week: los dias, una columna de filetes de tinta */
+.semana .sem-nav { margin-bottom: var(--s-2); }
+.semana .sem-b { border: 1px solid var(--naos-ink); }
+.semana .sem-b:disabled { border-color: var(--naos-ink); color: var(--naos-ink); opacity: .45; }
+.sem-w { color: var(--naos-ink); }
+.semana .gs-dias { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-3); }
+@media (min-width: 900px) { .semana .gs-dias { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--s-4) var(--s-3); } }
+.semana .gs-dt { margin: 0 0 8px; padding: 6px 0 0; border: 0; border-top: 1px solid var(--naos-ink); font-size: 13px; color: var(--naos-ink); }
+.semana .gs-hoy .gs-dt { border-top: 3px solid var(--naos-ink); }
+.semana .gs-i { padding: 0; border-left: 0; display: grid; gap: 2px; }
+.semana .gs-i + .gs-i { border-top: 1px solid var(--filete-tinta, rgba(14, 17, 22, .22)); }
+.semana .gs-i .sf { border: 0; background: transparent; color: var(--naos-ink); padding: 2px 0; min-height: 44px; display: grid; gap: 2px; align-content: center; text-decoration: none; font-size: 15px; }
+.semana .gs-i a.sf:hover, .semana .gs-i a.sf:focus-visible { color: var(--naos-ink); border: 0; }
+.semana .gs-i .sf:hover .sf-t { text-decoration: underline; }
+.semana .gs-i .sf:focus-visible { outline: 2px solid var(--naos-ink); outline-offset: 2px; }
+.semana .gs-h, .semana .gs-s { color: var(--naos-ink); font-size: 13px; }
+.semana .gs-s { padding-bottom: 4px; }
+
+/* Bases: una placa por base, con su franja v7 de 3 px */
+.bases-l { display: grid; gap: var(--s-4); }
+.base-fila { border-top: 3px solid var(--bf); padding-top: 12px; display: grid; gap: 10px 24px; align-content: start; color: var(--naos-ink); }
+.base-cab { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 0 12px; }
+.base-n { grid-column: 1; margin: 0; font: 300 28px/1.05 var(--font-serif); letter-spacing: -.01em; }
+.base-n a { color: inherit; text-decoration: none; } .base-n a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.base-n a:focus-visible, .base-m a:focus-visible, .base-p a:focus-visible { outline: 2px solid var(--naos-ink); outline-offset: 3px; }
+.base-l { grid-column: 1; margin: 6px 0 0; font: italic 300 18px/1.2 var(--font-serif); }
+.base-c { grid-column: 2; grid-row: 1 / span 2; margin: 0; font: 300 28px/1 var(--font-serif); font-variant-numeric: tabular-nums lining-nums; text-align: right; }
+.base-c span { display: block; font: 400 13px/1.2 var(--font-sans); }
+.base-p { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.base-p li { border-top: 1px solid rgba(14, 17, 22, .22); }
+.base-p a { display: grid; gap: 1px; padding: 8px 0; min-height: 44px; color: inherit; text-decoration: none; }
+.base-p a:hover .bp-t { text-decoration: underline; }
+.bp-d { font: 400 13px/1.2 var(--font-sans); }
+.bp-t { font: 400 16px/1.25 var(--font-sans); }
+.bp-v { padding: 8px 0; font-size: 14px; }
+.base-m { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; font: 400 13px/1.2 var(--font-sans); }
+.base-m a { color: inherit; display: inline-block; min-height: 24px; }
+@media (min-width: 900px) {
+  .bases-l { gap: var(--s-6); }
+  .base-fila { grid-template-columns: 260px minmax(0, 1fr) 200px; align-items: start; padding-top: 16px; }
+  .base-cab { grid-template-columns: 1fr; gap: 6px; grid-column: 1; }
+  .base-c { grid-column: 1; grid-row: auto; text-align: left; margin-top: 12px; }
+  .base-c span { display: inline; margin-left: 8px; }
+  .base-p { grid-column: 2; }
+  .base-m { grid-column: 3; justify-content: flex-end; align-self: end; }
+  .base-n { font-size: 32px; }
+}
+
+/* Upcoming: la lista de fechas, fecha y nombre */
+.cal { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-3) var(--s-2); }
+@media (min-width: 900px) { .cal { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-4) var(--s-3); } }
+.cal a { display: grid; grid-template-rows: auto auto 1fr auto; gap: 2px; min-height: 140px; padding: 12px 0 0; border-top: 1px solid var(--naos-ink); color: var(--naos-ink); text-decoration: none; }
+.cal a:hover .cal-t { text-decoration: underline; }
+.cal a:focus-visible { outline: 2px solid var(--naos-ink); outline-offset: 4px; }
+.cal-d { font: 300 28px/1 var(--font-serif); font-variant-numeric: tabular-nums lining-nums; }
+.cal-m { font: 400 13px/1.2 var(--font-sans); }
+.cal-t { margin-top: 8px; font: 400 16px/1.25 var(--font-sans); align-self: start; }
+.cal-c { margin-top: 8px; font: 400 13px/1.2 var(--font-sans); align-self: end; }
+.up-p { margin: var(--s-3) 0 0; }
+.up-p a { color: var(--naos-ink); display: inline-block; min-height: 24px; }
+
+/* Breathe: Cella grande */
+.portada .conducta { padding-bottom: 0; }
+.portada .conducta .interludio { min-height: 640px; padding: var(--s-4) 20px var(--s-8); }
+.portada .resp-c { width: min(72vw, 280px); height: auto; color: var(--naos-ink); }
+.portada .resp-t { font-size: 28px; }
+.cella-pausa.ag-chip { margin-top: 4px; }
+
+/* Topics: indice por base */
+.top-l { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-4) var(--s-3); }
+@media (min-width: 900px) { .top-l { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.top-g h3 { margin: 0; display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0 8px; border-top: 3px solid var(--bf); font: 300 24px/1.1 var(--font-serif); letter-spacing: -.01em; }
+.top-g h3 a { color: inherit; text-decoration: none; } .top-g h3 a:hover { text-decoration: underline; text-decoration-thickness: 1px; }
+.top-g h3 .num { font: 300 24px/1 var(--font-serif); }
+.top-g ul { list-style: none; margin: 0; padding: 0; }
+.top-g li + li { border-top: 1px solid rgba(14, 17, 22, .22); }
+.top-g li a { display: block; padding: 10px 0; min-height: 44px; font: 400 16px/1.3 var(--font-sans); text-decoration: none; color: var(--naos-ink); }
+.top-g li a:hover { text-decoration: underline; }
+.top-g a:focus-visible { outline: 2px solid var(--naos-ink); outline-offset: 2px; }
+
+/* Assets: biblioteca en rejilla */
+.bib { display: grid; gap: var(--s-4); }
+.bib-cat h3 { font: 300 24px/1.1 var(--font-serif); letter-spacing: -.01em; }
+.bib-l { gap: var(--s-2); }
+.bib-p { border: 0; border-top: 1px solid var(--naos-ink); padding: 12px 0 16px; min-height: 140px; }
+.bib-p h4 { font: 400 17px/1.25 var(--font-sans); }
+.bib-p h4 a { text-decoration-thickness: 1px; }
+.bib-p p { font-size: 14px; }
+
+/* Cierre: hueco para la frase final de N */
+.cierre { min-height: 160px; background: var(--naos-night); }

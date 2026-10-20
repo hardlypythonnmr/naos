@@ -16,14 +16,14 @@
   const fe = (f) => { const t = new Date(f + "T12:00:00Z"); return `${DIA[t.getUTCDay()]} ${t.getUTCDate()} ${MES[t.getUTCMonth()]}`; };
   const X = ES ? {
     titulo: "Hoy y lo próximo", ver: "Mira los <a href=\"temas/\">temas</a> o la <a href=\"" + raiz + "agenda.html\" hreflang=\"en\">agenda</a> (en inglés).", nada: "Todavía no hay nada programado.", error: "No se pudieron cargar las piezas de hoy.",
-    hoy: "Hoy", sigue: "Después", de: (i, n) => `${i} de ${n}, `, abre: "se abre en una pestaña nueva", voz: "Voz: sintética", mercado: "Descriptivo, sin asesoría financiera", salio: "Publicada", proximo: "Próximamente",
+    hoy: "Hoy", sigue: "Después", de: (i, n) => `${i} de ${n}, `, abre: "se abre en una pestaña nueva", voz: "Voz: sintética", salio: "Publicada", proximo: "Próximamente",
     enOtro: "En inglés", voces: (xs) => "Voces: " + xs.map((l) => ({ en: "inglés", es: "español" }[l])).join(", después "), noticia: "Noticias",
     sub: "Horas de Nueva York (ET) y Medellín. Cada pieza enlaza a su página de tema.", ig: "¿Lo viste en Instagram? Aquí está hoy, en el orden en que publicamos.",
     nadaHoy: (f, h) => `Hoy no sale nada. Próxima: ${f}, ${h} ET.`, pie: `Desde la grilla de NAOS. Una pieza dice «Publicada», con sus enlaces, cuando sale. <a href="temas/">Todos los temas</a> · <a href="${raiz}agenda.html" hreflang="en">Agenda (en inglés)</a>`,
     formato: { "short+reel": "Short y Reel", medio: "Video mediano en YouTube", carrusel: "Carrusel de Instagram", historia: "Historia de Instagram", es: "Short y Reel en español" },
   } : {
     titulo: "Today and next", ver: "See <a href=\"temas/\">Topics</a> or <a href=\"agenda.html\">Upcoming</a>.", nada: "Nothing is scheduled yet.", error: "Could not load today's pieces.",
-    hoy: "Today", sigue: "Next", de: (i, n) => `${i} of ${n}, `, abre: "opens in a new tab", voz: "Voice: synthetic", mercado: "Descriptive, not financial advice", salio: "Out", proximo: "Coming",
+    hoy: "Today", sigue: "Next", de: (i, n) => `${i} of ${n}, `, abre: "opens in a new tab", voz: "Voice: synthetic", salio: "Out", proximo: "Coming",
     enOtro: "In Spanish", voces: (xs) => "Voices: " + xs.map((l) => ({ en: "English", es: "Spanish" }[l])).join(", then "), noticia: "News",
     sub: "Times in New York (ET) and Medellín. Each piece links to its topic page.", ig: "Seen on Instagram? Here is today in the order we post it.",
     nadaHoy: (f, h) => `Nothing out today. Next: ${f}, ${h} ET.`, pie: 'From the NAOS grid. A piece shows "Out" with its links once it is published. <a href="temas/">All topics</a> · <a href="agenda.html">Upcoming</a>',
@@ -67,7 +67,7 @@
       const cuando = `<span class="fr-w">${esc(x.hora_et)} ET</span><span class="fr-w">${esc(x.hora_medellin)} Medellín</span>`;
       const botones = e ? `<span class="fr-e"><a class="ag-chip ficha fr-a" href="${esc(e.yt)}" target="_blank" rel="noopener" aria-label="${t}, YouTube, ${X.abre}">YouTube</a>` +
         (IG_OK.test(e.ig || "") ? `<a class="ag-chip ficha fr-a" href="${esc(e.ig)}" target="_blank" rel="noopener" aria-label="${t}, Instagram, ${X.abre}">Instagram</a>` : "") + `</span>` : "";
-      const meta = [formato(x), bil(x) ? X.voces(x.idiomas) : x.lang !== LANG && x.canal !== "es" ? (ES ? X.enOtro : "") : "", x.voz ? X.voz : "", x.mercado ? X.mercado : "", e ? X.salio : X.proximo].filter(Boolean).join(". ");
+      const meta = [formato(x), bil(x) ? X.voces(x.idiomas) : x.lang !== LANG && x.canal !== "es" ? (ES ? X.enOtro : "") : "", x.voz ? X.voz : "", e ? X.salio : X.proximo].filter(Boolean).join(". ");
       return `<li class="fr-f${f.hoy ? " fr-hoy" : ""}${primera ? "" : " fr-sigue"}">` +
         `<span class="fr-h num">${marca}${cuando}</span>` +
         `<span class="fr-c"><a class="fr-n" href="${href}"><span class="sr">${X.de(i + 1, fichas.length)}</span><span${langT}>${t}</span></a>` +

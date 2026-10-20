@@ -39,6 +39,9 @@ const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<
 export const AYUDA_HTML = 'If this is weighing on you, talk to someone now. Colombia: <a href="tel:106">106</a>, national mental health line, 24/7, or <a href="tel:123">123</a> in immediate danger (<a href="https://findahelpline.com/countries/co" rel="noopener">source</a>). US: <a href="tel:988">988</a>. Anywhere else: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a>.';
 const LINEA_N = { Humanity: "Eat well, sleep well, get moving, have a relationship with the divine, and build community." };
 const NO_CONSEJO = "Descriptive, not financial advice.";
+// D-265, literal (DECISIONS.md): la leyenda de la portada, en español (N) y su traducción literal al inglés
+const LEYENDA_ES = "Naos hoy es una invitación a reconectar con la humanidad dentro de cada uno a través de conductas básicas y fundamentales a la vida humana, para identificar y fortalecer los valores que encontremos dentro de nosotros, afuera.";
+const LEYENDA_EN = "NAOS today is an invitation to reconnect with the humanity within each of us through basic behaviors fundamental to human life, to identify and strengthen the values we find within ourselves, outside.";
 // páginas de una tradición con calendario propio: ahí no va el signo occidental (acta 2c, rojo 23) hasta que I3 traiga el dato
 // de esa tradición; quedan la fase y la iluminación, que son medidas
 const SIN_SIGNO = new Set(["a-lamp-on-the-night-without-a-moon", "light-in-the-window", "walk-to-the-water", "the-longest-night", "how-a-month-is-announced"]);
@@ -76,7 +79,6 @@ const PILARES = [ // orden de los estantes; frase de N como lomos en Humanity
   { id: "move", grilla: "moverse", titulo: "Move", seccion: "Humanity", lomo: "get moving," },
   { id: "the-divine", grilla: "lo divino", titulo: "The divine", seccion: "Humanity", lomo: "have a relationship with the divine," },
   { id: "community", grilla: "comunidad", titulo: "Community", seccion: "Humanity", lomo: "and build community." },
-  { id: "the-moon", grilla: "luna", titulo: "The moon", seccion: "Humanity", lomo: null },
 ];
 const SECCIONES = [{ id: "humanity", titulo: "Humanity" }]; // NAOS es solo Humanity (D-263)
 const FORMATO = { "short+reel": "Short and Reel", medio: "Medium video on YouTube", carrusel: "Instagram carousel", historia: "Instagram story", es: "Short and Reel in Spanish" };
@@ -112,7 +114,8 @@ function proyectar({ grilla, paginas, afirmaciones, agenda, tolerante = false })
   const pil = (g) => PILARES.find((p) => p.grilla === g);
   // la pieza ES aterriza en la página "es" (decisión 2 de N, lote 2: /naos/es/temas/es/) y lleva como "tema" la página de la pieza
   // EN que versiona; esa página la sigue listando en su edición ES (los textos sellados la traen como lista de la pieza)
-  const esPagina = (p) => p.slug === "es" || /español/i.test(p.pilar);
+  // D-268: la luna pasa a calendario; su página (moon) ya no tiene estante: sin pilar, como la página "es"; la enlaza la casilla de la luna de la portada
+  const esPagina = (p) => p.slug === "es" || /español/i.test(p.pilar) || p.pilar === "luna";
   paginas = paginas.filter((p) => ARCH.paginas[p.slug] == null && p.seccion !== "The Present");
   const enPaginas = paginas.filter((p) => !esPagina(p));
   const paginaDe = new Map(), temaDe = new Map();
@@ -231,7 +234,7 @@ function proyectar({ grilla, paginas, afirmaciones, agenda, tolerante = false })
     const corto = ["short+reel", "es"].includes(s.canal);
     piezas.push({
       id: tarjetaDe(s), ref: s.id, pagina: slug, ...(tema ? { tema } : {}), fecha: s.fecha_et, hora_et: s.hora_et, hora_medellin: s.medellin.slice(11, 16), utc: s.utc,
-      canal: s.canal, formato: FORMATO[s.canal], seccion: s.seccion, pilar: (Ps || P).id, lang, titulo, linea,
+      canal: s.canal, formato: FORMATO[s.canal], seccion: s.seccion, pilar: (Ps || P || {}).id ?? null, lang, titulo, linea,
       ...(idiomas.length > 1 ? { idiomas } : {}),
       voz: CON_VOZ.has(s.canal), noticia, mercado: s.pilar_o_tema === "mercado", luna, codigo: codigoDe(s), corto,
       _fuentes: fuentesDe(s),
@@ -327,7 +330,7 @@ export const ED = {
     lang: "es", pref: "es/", ayuda: AYUDA_HTML_ES, lema: "Más cerca de ti.", noConsejo: "Descriptivo, sin asesoría financiera.",
     linea: { Humanity: "Come bien, duerme bien, muévete, ten una relación con lo divino y construye comunidad." },
     voz: "Voz: sintética", proximo: "Próximamente", salio: "Publicada", seccion: { Humanity: "Humanidad" },
-    pilar: (P) => ({ eat: "Comer", sleep: "Dormir", move: "Moverse", "the-divine": "Lo divino", community: "Comunidad", "the-moon": "La luna" }[P.id]),
+    pilar: (P) => ({ eat: "Comer", sleep: "Dormir", move: "Moverse", "the-divine": "Lo divino", community: "Comunidad" }[P.id]),
     lomo: (P) => ({ eat: "Come bien,", sleep: "duerme bien,", move: "muévete,", "the-divine": "ten una relación con lo divino,", community: "y construye comunidad." }[P.id] || null),
     titulo: (p) => p.titulo_es,
     fe: (f) => { const t = new Date(f + "T12:00:00Z"); return `${DIA_ES[t.getUTCDay()]} ${t.getUTCDate()} ${MES_ES[t.getUTCMonth()]}`; },
@@ -591,8 +594,7 @@ function hub({ L, D, ruta, raiz, titulo, h1, desc, cuerpo, seccion, actual, ante
 <a class="sr" href="#main">${L.saltarHub}</a>
 ${barra(L, raiz, actual, ruta)}
 <main id="main" data-t0="${T.t0}" data-t1="${T.t1}">
-  <header class="t-umbral"><h1>${esc(h1)}</h1></header>
-${antes}${cuerpo}
+${h1 ? `  <header class="t-umbral"><h1>${esc(h1)}</h1></header>\n` : ""}${antes}${cuerpo}
 </main>
 ${pie(L, raiz, seccion)}${scripts.map((s) => `\n<script defer src="${raiz}${s}"></script>`).join("")}
 </body>
@@ -603,15 +605,17 @@ ${pie(L, raiz, seccion)}${scripts.map((s) => `\n<script defer src="${raiz}${s}">
 function hubs(L, D, urls) {
   const p0 = L.pref, R1 = L.lang === "es" ? "../../" : "../", R2 = L.lang === "es" ? "../../../" : "../../", R3 = L.lang === "es" ? "../../../../" : "../../../";
   const S = L.seccion, n = D.paginas.filter((p) => p.pilar).length;
-  const lib = (raiz) => `  <section class="t-bloque" aria-labelledby="h-hum"><h2 id="h-hum"><a href="${raiz}${p0}temas/humanity/">${S.Humanity}</a></h2>\n${estantes(L, D, "Humanity", raiz, "h3")}\n  </section>`;
+  // D-268: la luna ya no es un estante; su página (moon) la enlaza la casilla de la luna de la portada y esta línea
+  const luna = (raiz) => { const m = D.paginas.find((p) => p.slug === "moon"); return m ? `\n  <p class="t-rango"><a href="${raiz}${p0}temas/moon/">${esc(L.titulo(m))}</a></p>` : ""; };
+  const lib = (raiz) => `  <section class="t-bloque" aria-labelledby="h-hum"><h2 id="h-hum"><a href="${raiz}${p0}temas/humanity/">${S.Humanity}</a></h2>\n${estantes(L, D, "Humanity", raiz, "h3")}\n  </section>${luna(raiz)}`;
   const es = L.lang === "es";
   write(`${p0}temas/index.html`, hub({ L, D, ruta: "temas/", raiz: R1, titulo: `${L.temas} · NAOS`, h1: L.temas, seccion: "Humanity", actual: "temas",
     desc: es ? `Todas las páginas de tema de NAOS: ${n} temas de Humanidad, con la fecha y la hora de cada pieza y sus fuentes.`
       : `Every NAOS topic page: ${n} topics in Humanity, with the date and time of each piece and its sources.`, cuerpo: lib(R1) }));
   write(`${p0}temas/humanity/index.html`, hub({ L, D, ruta: "temas/humanity/", raiz: R2, titulo: `${S.Humanity} · NAOS`, h1: S.Humanity, seccion: "Humanity", actual: "humanity",
-    desc: es ? "La biblioteca de NAOS por pilar: comer, dormir, moverse, lo divino, comunidad y la luna. Cada tema con sus piezas, fechas y fuentes."
-      : "The NAOS library by pillar: eat, sleep, move, the divine, community, and the moon. Each topic with its pieces, dates and sources.",
-    cuerpo: estantes(L, D, "Humanity", R2) }));
+    desc: es ? "La biblioteca de NAOS por pilar: comer, dormir, moverse, lo divino y comunidad. Cada tema con sus piezas, fechas y fuentes."
+      : "The NAOS library by pillar: eat, sleep, move, the divine, and community. Each topic with its pieces, dates and sources.",
+    cuerpo: estantes(L, D, "Humanity", R2) + luna(R2) }));
   urls.push(`${p0}temas/`, `${p0}temas/humanity/`);
   for (const P of D.pilares) {
     const ps = D.paginas.filter((p) => p.pilar === P.id); if (!ps.length) continue;
@@ -629,12 +633,33 @@ function hubs(L, D, urls) {
 function portadaES(D) {
   const L = ED.es, raiz = "../";
   const desc = "NAOS en español. Más cerca de ti. Humanidad: comer bien, dormir bien, moverse, tener una relación con lo divino y construir comunidad.";
-  const antes = `  <p class="t-rango"><a href="temas/es/">Las piezas en español</a> salen desde el sábado 24 de octubre. Las demás están en inglés; cada una lleva su hora en Nueva York y en Medellín.</p>
+  // D-270: el mismo tablero lunar de la portada EN (tablero.js lo llena; el centro es estático), con la leyenda de D-265 en español primero
+  const antes = `  <section class="tablero" id="tablero" aria-label="El calendario lunar de hoy">
+    <div class="tb-in">
+      <ul class="tb-g" id="tab">
+        <li class="tb-centro">
+          <div class="tb-c tb-box">
+            <div class="tb-sup">
+              <h1 class="tb-h" id="u-hum-t" tabindex="-1">Humanidad</h1>
+              <div class="tb-cella" id="cella-hum" aria-hidden="true"></div>
+            </div>
+            <p class="tb-q">Más cerca de ti.</p>
+          </div>
+        </li>
+      </ul>
+      <i class="tb-linea" id="tab-linea" aria-hidden="true"></i>
+    </div>
+  </section>
+  <section class="leyenda" aria-label="Qué es NAOS hoy">
+    <p class="ley-es" lang="es">${LEYENDA_ES}</p>
+    <p class="ley-en" lang="en">${LEYENDA_EN}</p>
+  </section>
+  <p class="t-rango"><a href="temas/es/">Las piezas en español</a> salen desde el sábado 24 de octubre. Las demás están en inglés; cada una lleva su hora en Nueva York y en Medellín.</p>
   <div id="secuencia" data-lang="es" data-raiz="${raiz}" hidden></div>
 `;
   const cuerpo = `  <section class="t-bloque" aria-labelledby="h-hum"><h2 id="h-hum"><a href="temas/humanity/">${L.seccion.Humanity}</a></h2>\n${estantes(L, D, "Humanity", raiz, "h3")}\n  </section>`;
-  return hub({ L, D, ruta: "", raiz, titulo: "NAOS en español · Más cerca de ti.", h1: "NAOS", desc, cuerpo, seccion: "Humanity", actual: "", antes,
-    css: ["assets/css/franja.css"], scripts: ["assets/js/franja.js"] });
+  return hub({ L, D, ruta: "", raiz, titulo: "NAOS en español · Más cerca de ti.", h1: null, desc, cuerpo, seccion: "Humanity", actual: "", antes,
+    css: ["assets/css/tablero.css", "assets/css/franja.css"], scripts: ["assets/comun/naos.js", "assets/js/figura.js", "assets/js/luna.js", "assets/js/cella.js", "assets/js/tablero.js", "assets/js/franja.js"] });
 }
 
 // páginas archivadas (19-oct, no hay segundo lado): cada URL vieja de tema y de hub, en las dos ediciones, queda como una

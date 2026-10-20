@@ -14,7 +14,8 @@
     const piezas = (D.piezas || []).slice().sort((a, b) => a.utc.localeCompare(b.utc));
     if (!piezas.length) { el.hidden = true; return; }
     const pag = Object.fromEntries((D.paginas || []).map((p) => [p.slug, p]));
-    const hoy = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+    const q = new URLSearchParams(location.search).get("hoy");   // ?hoy=AAAA-MM-DD para probar
+    const hoy = /^\d{4}-\d{2}-\d{2}$/.test(q || "") ? q : new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
     const semanas = [...new Set(piezas.map((x) => lunes(x.fecha)))];
     let w = semanas.indexOf(lunes(hoy)); if (w < 0) w = hoy < semanas[0] ? 0 : semanas.length - 1;
     const nombre = (x) => (x.noticia ? (pag[x.pagina] && pag[x.pagina].pilar === "news" ? "News: " + pag[x.pagina].titulo : "News") : x.titulo || x.formato);
@@ -33,7 +34,7 @@
     const nav = `<div class="sem-nav" role="group" aria-label="Choose the week"><button type="button" class="sem-b" data-w="-1"><span aria-hidden="true">&larr;</span> Previous week</button>` +
       `<p class="sem-w cond" aria-live="polite"></p><button type="button" class="sem-b" data-w="1">Next week <span aria-hidden="true">&rarr;</span></button></div>`;
     el.querySelector(".sem-in").innerHTML = nav + `<div class="gs-dias"></div>` +
-      `<p class="sello">From the NAOS grid. Times in New York (ET). Everything here is planned until it is out. Voice: synthetic on every Short, Reel and video. Markets pieces are descriptive, not financial advice. Spanish pieces link to <a href="es/temas/" hreflang="es" lang="es">NAOS en español</a>. <a href="temas/">All topics</a> · <a href="agenda.html">The year ahead in Upcoming</a>.</p>`;
+      `<p class="sello">From the NAOS grid. Times in New York (ET). Everything here is planned until it is out. Voice: synthetic on every Short, Reel and video. Spanish pieces link to <a href="es/temas/" hreflang="es" lang="es">NAOS en español</a>. <a href="temas/">All topics</a> · <a href="agenda.html">The year ahead in Upcoming</a>.</p>`;
     el.querySelector(".sem-nav").addEventListener("click", (e) => { const b = e.target.closest("[data-w]"); if (!b || b.disabled) return; w += +b.dataset.w; pintar();
       if (b.disabled) el.querySelector(`[data-w='${-b.dataset.w}']`).focus(); });
     pintar();
