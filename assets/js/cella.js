@@ -4,7 +4,8 @@
  *   1. Mira: ojos redondos abiertos, 1,5 s después de que Cella entra en pantalla; parpadeo de 140 ms cada 5 a 9 s.
  *      Por qué: N, "son la ventana del alma, ella es la ventana de si misma".
  *   2. Ojos de luna: con el puntero o el foco en la casilla de la luna, y 3 s al cargar en noche de luna llena o nueva, el hueco de cada ojo toma
- *      la forma de la luna de hoy en 400 ms: un círculo del color del cuerpo, superpuesto, recorta el hueco (sigue en dos tonos).
+ *      la forma de la luna de hoy en 400 ms (sigue en dos tonos): con k hasta 0,5 un círculo del color del cuerpo recorta el hueco y deja la creciente;
+ *      con la luna gibosa (k mayor que 0,5) la parte oscura es una creciente con terminador elíptico, del lado contrario a la luz.
  *      Por qué: la luna es el calendario (D-268) y Cella la refleja.
  *   3. Cierra: con Breathe en pantalla o con foco, con la pausa y con movimiento reducido, los ojos son los dos arcos de cella.svg, la marca quieta.
  *      Por qué: respirar es hacia adentro.
@@ -113,11 +114,21 @@
       F.cella(el, Object.assign({ estado: "humanity", dato: null, hacia, p, id, abiertos }, opt));
       if (!abiertos || !(lv > 0) || !o.luna) return;
       const LU = o.luna(); if (!LU) return;
-      // dos tonos: el hueco redondo de cada ojo, recortado por un círculo del color del cuerpo (la parte iluminada va a la derecha al crecer)
+      // dos tonos: el hueco redondo de cada ojo y, encima, la parte oscura de la luna de hoy en el color del cuerpo (la parte iluminada va a la derecha al crecer)
       const g = F.cellaGeo({ estado: "humanity", b: opt.b, r: 0, k: 0, abiertos: true, p, t: opt.t }), r = g.rad;
-      const d = (2 + (L.separacion(LU.k) - 2) * lv) * r, sig = (LU.cre ? -1 : 1) * hacia;
       const grupo = el.querySelector("svg > g"); if (!grupo) return;
-      grupo.insertAdjacentHTML("beforeend", g.ojos.map((q) => `<circle class="oj-luna" cx="${(q[0] + sig * d).toFixed(2)}" cy="${q[1].toFixed(2)}" r="${r.toFixed(2)}" fill="${p.tx}"/>`).join(""));
+      const vis = (LU.cre ? 1 : -1) * hacia;   // hacia dónde (+1 derecha, -1 izquierda, en el dibujo) queda la parte iluminada
+      if (LU.k <= 0.5) {
+        // creciente: un círculo del color del cuerpo recorta el hueco y deja una creciente
+        const d = (2 + (L.separacion(LU.k) - 2) * lv) * r;
+        grupo.insertAdjacentHTML("beforeend", g.ojos.map((q) => `<circle class="oj-luna" cx="${(q[0] - vis * d).toFixed(2)}" cy="${q[1].toFixed(2)}" r="${r.toFixed(2)}" fill="${p.tx}"/>`).join(""));
+      } else {
+        // gibosa: lo oscuro es una creciente del lado contrario a la luz, con el terminador elíptico (como el disco de luna.js); crece con lv de 0 a 1 - k
+        const f = (1 - LU.k) * lv, rx = r * (1 - 2 * f);
+        if (f < 0.002) return;
+        const dpath = `M0 ${(-r).toFixed(2)}A${r.toFixed(2)} ${r.toFixed(2)} 0 0 1 0 ${r.toFixed(2)}A${rx.toFixed(2)} ${r.toFixed(2)} 0 0 0 0 ${(-r).toFixed(2)}Z`;
+        grupo.insertAdjacentHTML("beforeend", g.ojos.map((q) => `<path class="oj-luna" d="${dpath}" transform="translate(${q[0].toFixed(2)} ${q[1].toFixed(2)})${vis > 0 ? " scale(-1 1)" : ""}" fill="${p.tx}"/>`).join(""));
+      }
     }
     function pintar() {
       const t = ahora();

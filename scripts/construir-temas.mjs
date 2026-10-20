@@ -590,7 +590,7 @@ function hub({ L, D, ruta, raiz, titulo, h1, desc, cuerpo, seccion, actual, ante
   const jsonld = { "@context": "https://schema.org", "@type": "CollectionPage", name: titulo, description: desc, url: BASE + L.pref + ruta, inLanguage: L.lang, isPartOf: { "@type": "WebSite", name: "NAOS", url: BASE + L.pref } };
   const T = temporada(D);
   return `${cabeza({ L, titulo, descripcion: desc, ruta, raiz, jsonld, alterna: true, css })}
-<body class="t-hub t-hub-${secId(seccion)}">
+<body class="t-hub t-hub-${secId(seccion)}${antes ? " portada-es" : ""}">
 <a class="sr" href="#main">${L.saltarHub}</a>
 ${barra(L, raiz, actual, ruta)}
 <main id="main" data-t0="${T.t0}" data-t1="${T.t1}">

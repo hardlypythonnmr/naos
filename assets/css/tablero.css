@@ -28,9 +28,10 @@
 .tb-g > li:nth-child(n+12) { grid-column: span 4; }
 @media (min-width: 900px) {
   .tb-g { grid-template-columns: repeat(56, minmax(0, 1fr)); }
-  .tb-g > li:nth-child(2) { grid-column: 1 / span 21; grid-row: 1 / span 2; }
-  .tb-g > .tb-centro { grid-column: 22 / span 14; grid-row: 1 / span 2; }
-  .tb-g > li:nth-child(3) { grid-column: 36 / span 21; grid-row: 1 / span 2; }
+  /* la frase manda (D-270, brief §5): el centro es el bloque más ancho, 24 de 56 columnas, y la luna y Breathe 16 cada uno */
+  .tb-g > li:nth-child(2) { grid-column: 1 / span 16; grid-row: 1 / span 2; }
+  .tb-g > .tb-centro { grid-column: 17 / span 24; grid-row: 1 / span 2; }
+  .tb-g > li:nth-child(3) { grid-column: 41 / span 16; grid-row: 1 / span 2; }
   .tb-g > li:nth-child(n+12) { grid-column: span 8; }
 }
 /* la linea menta de 1 px: cruza el tablero a la altura del centro (D-268, respirar cruza todo). tablero.js le pone el alto */
@@ -67,11 +68,11 @@ a.tb-c:focus-visible { outline: 2px solid var(--tx); outline-offset: -5px; }
 .tb-p i.hoy { background: var(--naos-night-text); transform: scale(1.8); }
 
 /* el centro: la casilla 2x2. Dos mitades; la linea menta pasa entre ellas y Cella se apoya en ella */
-.tb-box { display: grid; grid-template-rows: 1fr 1fr; justify-items: center; align-items: start; text-align: center; padding-block: var(--gut); gap: 0; }
+.tb-box { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: 1fr 1fr; justify-items: center; align-items: start; text-align: center; padding-block: var(--gut); gap: 0; }
 .tb-sup { align-self: stretch; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 0; }
 .tb-h { margin: 0; font: 600 13px/1.2 var(--font-cond); letter-spacing: .14em; text-transform: uppercase; }
 .tb-h:focus { outline: none; }
-.tb-cella { --cw: 100px; width: var(--cw); flex: none; margin: calc(var(--cw) * -.2) 0 calc(var(--cw) * -.117); color: var(--naos-night-text); }
+.tb-cella { --cw: 136px; width: var(--cw); flex: none; margin: calc(var(--cw) * -.2) 0 calc(var(--cw) * -.117); color: var(--naos-night-text); }
 .tb-cella svg { width: 100%; height: auto; }
 .tb-q { margin: 12px 0 0; font: italic 300 clamp(34px, 9vw, 56px)/1.05 var(--font-serif); letter-spacing: -.01em; color: var(--naos-night-text); text-wrap: balance; }
 /* pausa de Cella (WCAG 2.2.2): solo el icono, 44 px, en la esquina; el nombre accesible sigue siendo "Pause Cella" */
@@ -89,12 +90,13 @@ a.tb-c:focus-visible { outline: 2px solid var(--tx); outline-offset: -5px; }
   .tb-dia { padding: var(--gut) 12px; gap: 8px; }
   .tb-dia .tb-f { font-size: 40px; }
   .tb-dia .tb-pz { position: static !important; width: auto !important; height: auto !important; clip: auto !important; overflow: visible !important; white-space: normal !important; }
-  .tb-d svg { width: 96px; height: 96px; }
+  .tb-d svg { width: 72px; height: 72px; }
   .tb-luna { display: grid; grid-template-rows: 1fr 1fr; }
   .tb-luna .tb-m { align-self: end; margin-bottom: -8px; gap: 20px; }
   .tb-luna .tb-n { align-self: start; margin-top: 16px; }
-  .tb-cella { --cw: 168px; }
+  .tb-cella { --cw: 208px; }
 }
+@media (min-width: 1180px) { .tb-d svg { width: 96px; height: 96px; } .tb-cella { --cw: 232px; } }
 
 /* ---------- la leyenda D-265: Newsreader 300, 20 px a 390 y 26 px a 1280, 64 px de aire arriba ---------- */
 .leyenda { background: var(--naos-night); color: var(--naos-night-text); display: grid; gap: 24px; justify-items: start; padding: var(--s-8) max(var(--gut), calc((100% - 1440px) / 2 + var(--gut))) var(--s-8); }
@@ -209,3 +211,20 @@ a.tb-c:focus-visible { outline: 2px solid var(--tx); outline-offset: -5px; }
 
 /* Cierre: hueco para la frase final de N */
 .cierre { min-height: 160px; background: var(--naos-night); }
+
+
+/* ---------- la edición ES: la misma noche arriba y papel y tinta abajo, sin gris ni vino (D-270) ---------- */
+.portada-es .t-barra { background: var(--naos-night); color: var(--naos-night-text); border-bottom: 1px solid var(--filete); }
+.portada-es .t-barra a, .portada-es .t-lema { color: var(--naos-night-text); }
+.portada-es .t-nav .t-idioma { color: var(--naos-night-text); border-left-color: var(--filete); }
+.portada-es .t-barra :focus-visible { outline-color: var(--naos-night-text); }
+.portada-es .t-rango { color: var(--naos-ink); padding: var(--s-6) var(--gut) 0; max-width: 1120px; margin-inline: auto; }
+.portada-es .t-rango a { color: var(--naos-ink); }
+.portada-es .t-bloque { margin-top: var(--s-6); }
+.portada-es .fr-sub, .portada-es .fr-h, .portada-es .gs-h, .portada-es .gs-s, .portada-es .fr-viejo, .portada-es .t-pie .sello, .portada-es .sello,
+.portada-es .t-tema-m, .portada-es .t-lomo-p, .portada-es .t-linea-n, .portada-es .ayuda-l { color: var(--naos-ink); }
+.portada-es .fr-hoy .fr-tag, .portada-es .t-marca-js, .portada-es .gs-hoy .gs-dt { color: var(--naos-ink); border-top-color: var(--naos-ink); }
+.portada-es .fr-hoy, .portada-es .fr-hoy .fr-f { border-color: var(--naos-ink); }
+.portada-es .t-eje, .portada-es .t-ahora, .portada-es .t-vienes-k, .portada-es .t-fmt, .portada-es .t-nota, .portada-es .t-corto, .portada-es .t-etq { color: var(--naos-ink); }
+.portada-es .t-hoy, .portada-es .t-vienes { box-shadow: inset 4px 0 0 var(--naos-ink); }
+.portada-es .t-con-hoy .t-tl::after, .portada-es .t-con-hoy .t-eje-m::after { background: var(--naos-ink); }
