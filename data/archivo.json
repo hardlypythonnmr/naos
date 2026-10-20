@@ -1,6 +1,6 @@
 {
- "nota": "Páginas archivadas el 19-oct-2026: no hay segundo lado, NAOS es Humanity. Cada URL vieja queda como redirección (noindex) a la portada o a la página de Humanity más cercana; lo mismo los enlaces cortos que apuntaban a ellas. Destino desde la raíz del sitio (\"\" es la portada); la edición ES antepone es/. El contenido archivado está en archivo/the-present/ y en la historia de git. Lo lee scripts/construir-temas.mjs.",
- "fecha": "2026-10-19",
+ "nota": "Páginas archivadas el 19-oct-2026: no hay segundo lado, NAOS es Humanity. Cada URL vieja queda como redirección (noindex) a la portada o a la página de Humanity más cercana; lo mismo los enlaces cortos que apuntaban a ellas. Destino desde la raíz del sitio (\"\" es la portada); la edición ES antepone es/. El contenido archivado está en archivo/the-present/ y en la historia de git. El 20-oct (D-268, D-270) temas/pilar/the-moon/ redirige a temas/moon/: la luna pasa a calendario. Lo lee scripts/construir-temas.mjs.",
+ "fecha": "2026-10-20",
  "paginas": {
   "who-is-telling-you-this": "temas/pilar/community/",
   "how-a-vote-is-counted": "temas/pilar/community/",
@@ -24,6 +24,7 @@
   "temas/the-present/": "temas/humanity/",
   "temas/pilar/markets/": "",
   "temas/pilar/news/": "temas/pilar/community/",
-  "temas/pilar/ai/": ""
+  "temas/pilar/ai/": "",
+  "temas/pilar/the-moon/": "temas/moon/"
  }
 }

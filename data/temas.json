@@ -37,12 +37,6 @@
    "titulo": "Community",
    "seccion": "Humanity",
    "lomo": "and build community."
-  },
-  {
-   "id": "the-moon",
-   "titulo": "The moon",
-   "seccion": "Humanity",
-   "lomo": null
   }
  ],
  "paginas": [
@@ -225,7 +219,7 @@
    "titulo": "The moon this season",
    "titulo_es": "La luna esta temporada",
    "seccion": "Humanity",
-   "pilar": "the-moon",
+   "pilar": null,
    "desde": "2026-10-24",
    "hasta": "2026-12-26",
    "piezas": [
@@ -4694,7 +4688,7 @@
    "canal": "es",
    "formato": "Short and Reel in Spanish",
    "seccion": "Humanity",
-   "pilar": "the-moon",
+   "pilar": null,
    "lang": "es",
    "titulo": "El parte de la luna: la llena más cercana del año fue el miércoles",
    "linea": null,

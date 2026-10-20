@@ -147,8 +147,9 @@ if (T) {
     });
     if (!p.titulo_es) falla(d, `${p.slug}: falta el título en español (D-253)`);
     if (slugs.has(p.slug)) falla(d, `página repetida: ${p.slug}`); slugs.add(p.slug);
-    // la página "es" (decisión 2 de N, lote 2): las piezas en español, sin pilar (no va en un estante); las demás llevan su pilar
-    if (p.slug === "es" ? p.pilar !== null : !(T.pilares || []).some((P) => P.id === p.pilar)) falla(d, `${p.slug}: pilar inválido ${p.pilar}`);
+    // la página "es" (decisión 2 de N, lote 2): las piezas en español, sin pilar (no va en un estante); la página "moon" tampoco (D-268: la luna
+    // es calendario, no estante); las demás llevan su pilar
+    if (p.slug === "es" || p.slug === "moon" ? p.pilar !== null : !(T.pilares || []).some((P) => P.id === p.pilar)) falla(d, `${p.slug}: pilar inválido ${p.pilar}`);
     for (const id of p.piezas) {
       const x = piezas.get(id);
       if (!x) { falla(d, `${p.slug}: pieza inexistente ${id}`); continue; }
@@ -305,6 +306,22 @@ if (T) {
     resumenTemas = `, grilla: ${slots.length} slots, cada uno con una pieza`;
   }
   resumenTemas = ` · temas: ${(T.paginas || []).length} páginas por edición, ${tarjetas} tarjetas (${enEN} EN y ${piezas.size} ES), ${cortos} enlaces cortos vivos${retirados ? ` y ${retirados} retirados` : ""}${redir ? `, ${redir} redirecciones de archivo` : ""}` + resumenTemas;
+}
+
+// ---------- 6b. la luna (D-270): data/luna.json son las fases de USNO, cada una con su fuente, en orden, y sin "exercises" ni rayas largas ----------
+{
+  const LN = datos["luna.json"];
+  if (!LN) falla("data/luna.json", "falta");
+  else {
+    if (!LN.fuente || !LN.url || !/^\d{4}-\d{2}-\d{2}$/.test(LN.consultado || "")) falla("data/luna.json", "falta la fuente, su URL o la fecha de consulta");
+    const orden = ["nueva", "cuarto_creciente", "llena", "cuarto_menguante"]; let prev = null;
+    for (const f of LN.fases || []) {
+      if (!orden.includes(f.fase) || !RE_ISO.test(f.utc) || !f.fuente) falla("data/luna.json", `fase mal formada: ${JSON.stringify(f)}`);
+      if (prev && (f.utc <= prev.utc || orden[(orden.indexOf(prev.fase) + 1) % 4] !== f.fase)) falla("data/luna.json", `fases fuera de orden en ${f.utc}`);
+      prev = f;
+    }
+    if (!(LN.fases || []).length || LN.fases[0].utc > "2026-10-04" || LN.fases.at(-1).utc < "2027-12-01") falla("data/luna.json", "debe cubrir de oct-2026 a dic-2027");
+  }
 }
 
 // ---------- 7. cuerpo de las páginas selladas ----------

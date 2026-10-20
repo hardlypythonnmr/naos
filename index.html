@@ -22,79 +22,103 @@
 <link rel="stylesheet" href="assets/comun/base.css">
 <link rel="stylesheet" href="assets/css/v1plus.css">
 <link rel="stylesheet" href="assets/css/sala.css">
-<link rel="stylesheet" href="assets/css/agenda.css">
 <link rel="stylesheet" href="assets/css/franja.css">
 <link rel="stylesheet" href="assets/css/behavior.css">
-<link rel="stylesheet" href="assets/css/escalera.css">
-<link rel="stylesheet" href="assets/css/puertas.css">
+<link rel="stylesheet" href="assets/css/tablero.css">
 <script defer src="assets/vendor/gsap/gsap.min.js"></script>
 <script defer src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
 <script defer src="assets/comun/naos.js"></script>
 <script defer src="assets/js/figura.js"></script>
+<script defer src="assets/js/luna.js"></script>
 <script defer src="assets/js/cella.js"></script>
 <script defer src="assets/js/semana.js"></script>
-<script defer src="assets/js/humanity.js"></script>
-<script defer src="assets/js/behavior.js"></script>
+<script defer src="assets/js/agenda-comun.js"></script>
+<script defer src="assets/js/tablero.js"></script>
 <noscript><style>[data-espera]{visibility:visible!important}</style></noscript>
 </head>
-<body>
-<a class="sr" href="#pillars">Skip to the pillars</a>
+<body class="portada">
+<a class="sr" href="#u-hum-t">Skip to the board</a>
 
 <header class="barra">
   <div class="marca"><img class="iso" src="assets/marca/isotipo.svg" alt="" width="30" height="30"><span class="naos">NAOS</span><span class="cond lema">Closer to yourself.</span></div>
   <nav class="indice" aria-label="Sections">
-    <a href="#pillars">Humanity</a><a href="#conducta">Breathe</a><a href="#semana">This week</a><a href="temas/">Topics</a><a href="agenda.html">Upcoming</a><a href="#assets">Assets</a>
+    <a href="#bases">Humanity</a><a href="#conducta">Breathe</a><a href="#semana">This week</a><a href="#topics">Topics</a><a href="#upcoming">Upcoming</a><a href="#assets">Assets</a>
   </nav>
 </header>
 
 <main id="muro" data-espera>
-  <!-- Desde el 19-oct NAOS es Humanity: las dos puertas, The Present (titulares, mercados, noticias, IA), la guía y la sala de
-       monitoreo salieron de la portada; están en archivo/the-present/ y en la historia de git. La franja "Today and next" (franja.js) también salió; sigue en la portada ES. -->
-  <section class="universo" id="humanity" aria-labelledby="u-hum-t">
-  <header class="placa placa-hum">
-    <div class="placa-in">
-      <h1 class="placa-t" id="u-hum-t" tabindex="-1">Humanity</h1>
-      <p class="placa-q">Come here, stop, breathe with me, now move on.</p>
-      <div class="placa-cella" id="cella-hum" aria-hidden="true"></div>
+  <!-- D-270: la portada es un calendario lunar de noche que se lee quieto. 18 casillas, las mismas a 390 y a 1280: el centro (Humanity, Cella, la frase), la luna de hoy,
+       Breathe, las cinco bases, Topics, Upcoming, Assets y los 7 dias de la semana. tablero.js arma todas menos la del centro (h1, Cella) desde data/temas.json,
+       data/assets.json y data/luna.json. Sin fuerzas sin dueno, sin salidas de navegacion (estan en el pie y la barra) y sin fechas religiosas como casillas (viven en Upcoming).
+       Desde el 19-oct NAOS es Humanity (D-263): The Present, las dos puertas, la guia y la sala salieron de la portada (archivo/the-present/ y git). -->
+  <section class="tablero" id="tablero" aria-labelledby="u-hum-t">
+    <div class="tb-in">
+      <ul class="tb-g" id="tab">
+        <li class="tb-centro">
+          <div class="tb-c tb-box">
+            <div class="tb-sup">
+              <h1 class="tb-h" id="u-hum-t" tabindex="-1">Humanity</h1>
+              <div class="tb-cella" id="cella-hum" aria-hidden="true"></div>
+            </div>
+            <p class="tb-q">Closer to yourself.</p>
+          </div>
+        </li>
+      </ul>
+      <i class="tb-linea" id="tab-linea" aria-hidden="true"></i>
     </div>
-  </header>
-  <!-- LOS CINCO PILARES (N, sesión 5, literal): una sola frase, porque no son una secuencia; glosa al margen -->
-  <section class="pilares" id="pillars" aria-labelledby="pil-t">
-    <h2 class="sr" id="pil-t">The five pillars</h2>
-    <p class="pil-glosa">The five pillars, said in one sentence because they hold each other up. The behaviors and the stories behind each one come to the library as they are made.</p>
-    <p class="pil-frase"><span>Eat well,</span> <span>sleep well,</span> <span>get moving,</span> <span>have a relationship with the divine,</span> <span>and build community.</span></p>
   </section>
-  <div id="cinta-conducta" class="cinta" hidden></div>
 
-  <!-- BEHAVIOR: respiración y mantra -->
+  <!-- D-265, como leyenda del tablero: solo el texto de N (ES) y su traduccion literal (EN, DECISIONS.md D-265). Sin titulo. En la pagina EN el ingles va primero. -->
+  <section class="leyenda" aria-label="What NAOS is today">
+    <p class="ley-en" lang="en">NAOS today is an invitation to reconnect with the humanity within each of us through basic behaviors fundamental to human life, to identify and strengthen the values we find within ourselves, outside.</p>
+    <p class="ley-es" lang="es">Naos hoy es una invitación a reconectar con la humanidad dentro de cada uno a través de conductas básicas y fundamentales a la vida humana, para identificar y fortalecer los valores que encontremos dentro de nosotros, afuera.</p>
+  </section>
+
+  <!-- THIS WEEK (lote E, D-252): lo cercano. N.semana (semana.js) la llena desde data/temas.json -->
+  <section class="muro semana" id="semana" aria-labelledby="t-sem">
+    <header class="sec-cab"><h2 class="sec-t" id="t-sem">This week</h2><div class="cab-n"><span class="sello sem-sello"></span></div><p class="sec-d">What NAOS plans to publish, day by day, from the grid through 31 December. Each piece links to its topic page.</p></header>
+    <div class="sem-in"></div>
+  </section>
+
+  <!-- BASES: una placa por base con sus piezas de la semana -->
+  <section class="muro bases" id="bases" aria-labelledby="t-bas">
+    <header class="sec-cab"><h2 class="sec-t" id="t-bas">The five bases</h2><p class="sec-d">Eat well, sleep well, get moving, have a relationship with the divine, and build community. Each one with what is coming out this week.</p></header>
+    <div class="bases-l" id="bases-l"></div>
+  </section>
+
+  <!-- UPCOMING: fechas religiosas y culturales; solo fecha y nombre, sin angulo de mercado (motor/respeto.md). Aqui viven; ya no son casillas del tablero -->
+  <section class="muro upcoming" id="upcoming" aria-labelledby="t-up">
+    <header class="sec-cab"><h2 class="sec-t" id="t-up">Upcoming</h2><p class="sec-d">The year ahead: religious and cultural dates, with calendar files. Dates and names only.</p></header>
+    <ul class="cal" id="cal"></ul>
+    <p class="sello up-p"><a href="agenda.html">All upcoming dates, with sources and calendar files</a></p>
+  </section>
+
+  <!-- BREATHE: Cella grande, la misma respiracion; los ojos cerrados -->
   <section class="muro conducta" id="conducta" aria-labelledby="t-con">
     <header class="sec-cab"><h2 class="sec-t" id="t-con">Breathe</h2><p class="sec-d">One behavior before you go: four counts in, four counts out.</p></header>
     <div class="interludio" id="respira">
-      <div class="resp-c" id="resp"></div>
+      <div class="resp-c" id="resp" aria-hidden="true"></div>
       <p class="resp-t respira-txt" id="resp-t" aria-live="off">Inhale 1</p>
-      <!-- ranura del botón Pause del anillo (behavior, 48 px, aria-pressed) -->
-      <div id="pausa" hidden></div>
       <p class="sello">Four in, four out. The page will wait.</p>
-      <!-- línea de seguridad (behavior, 14 px en tinta, no .sello). Líneas verificadas el 16-oct en minsalud.gov.co (D-252): Colombia 106, línea nacional de salud mental 24/7, o 123 en peligro inmediato; US 988; findahelpline.com. El mismo texto va primero en el pie de cada página (WCAG 3.2.6) -->
+      <!-- linea de seguridad (14 px en tinta). Lineas verificadas el 16-oct en minsalud.gov.co (D-252). El mismo texto va primero en el pie (WCAG 3.2.6) -->
       <div id="seguridad"><p class="seguridad">A behavior to try. It does not replace treatment. If you may hurt yourself, call a helpline. If this is weighing on you, talk to someone now. Colombia: <a href="tel:106">106</a>, national mental health line, 24/7, or <a href="tel:123">123</a> in immediate danger (<a href="https://findahelpline.com/countries/co" rel="noopener">source</a>). US: <a href="tel:988">988</a>. Anywhere else: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a>.</p></div>
     </div>
   </section>
-  <!-- ASSETS: biblioteca (PAG-06.1, D-212, D-217); se llena desde data/assets.json -->
+
+  <!-- TOPICS: indice por base, desde data/temas.json (D-268: sin el grupo de la luna) -->
+  <section class="muro topics" id="topics" aria-labelledby="t-top">
+    <header class="sec-cab"><h2 class="sec-t" id="t-top">Topics</h2><p class="sec-d">Every topic page, by base. <a href="temas/">Open the full index</a>.</p></header>
+    <div class="top-l" id="top-l"></div>
+  </section>
+
+  <!-- ASSETS (D-264): biblioteca, desde data/assets.json -->
   <section class="muro biblioteca" id="assets" aria-labelledby="t-as">
     <header class="sec-cab"><h2 class="sec-t" id="t-as">Assets</h2><p class="sec-d">The NAOS library: what we are making, by category. Each piece gets its own page with the video, transcript, prompts and sources. Everything below is planned; nothing is published yet.</p></header>
     <div class="bib" id="bib"></div>
   </section>
 
-  <!-- ESTA SEMANA (lote E, D-252): la semana de la grilla por día, se llena desde data/temas.json (semana.js, N.semana); el plan del mes de D-227 salió -->
-  <section class="muro semana" id="semana" aria-labelledby="t-sem">
-    <header class="sec-cab"><h2 class="sec-t" id="t-sem">This week</h2><div class="cab-n"><span class="sello sem-sello"></span></div><p class="sec-d">What NAOS plans to publish, day by day, from the grid through 31 December. Each piece links to its topic page.</p></header>
-    <div class="sem-in"></div>
-  </section>
-  <section class="interludio mantra-s noche" data-plano aria-label="Mantra">
-    <div class="plano-fondo noche"></div>
-    <div class="plano-contenido"><p class="mantra leer" id="mantra">Read slowly. Breathe once. Everything else will still be here when you look up.</p></div>
-  </section>
-  </section>
+  <!-- CIERRE: hueco reservado para la frase final de N. Vacio a proposito; no se inventa texto. -->
+  <section class="cierre" id="cierre" aria-hidden="true"></section>
 </main>
 
 <footer class="pie">

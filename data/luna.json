@@ -1,0 +1,320 @@
+{
+ "nota": "Fases principales de la luna (nueva, cuarto creciente, llena, cuarto menguante) del 1-oct-2026 al 31-dic-2027, en UTC, tal como las da la API de fases del Observatorio Naval de EE. UU. (USNO). No se escribe a mano: se vuelve a pedir a la API. assets/js/luna.js calcula con esto la edad y la fracción iluminada en hora de Colombia (America/Bogota). Cada fecha lleva la misma fuente.",
+ "fuente": "U.S. Naval Observatory, Astronomical Applications Department, API de fases de la luna",
+ "url": "https://aa.usno.navy.mil/api/moon/phases/year?year=2026 y ...?year=2027",
+ "consultado": "2026-10-20",
+ "version_api": "4.0.1",
+ "zona_de_las_fechas": "UTC",
+ "fases": [
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2026-10-03T13:25Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2026-10-10T15:50Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2026-10-18T16:12Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2026-10-26T04:12Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2026-11-01T20:28Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2026-11-09T07:02Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2026-11-17T11:48Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2026-11-24T14:53Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2026-12-01T06:08Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2026-12-09T00:52Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2026-12-17T05:42Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2026-12-24T01:28Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2026-12-30T18:59Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2027-01-07T20:24Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2027-01-15T20:34Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2027-01-22T12:17Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2027-01-29T10:55Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2027-02-06T15:56Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2027-02-14T07:58Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2027-02-20T23:23Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2027-02-28T05:16Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2027-03-08T09:29Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2027-03-15T16:25Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2027-03-22T10:44Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2027-03-30T00:54Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2027-04-06T23:51Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2027-04-13T22:56Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2027-04-20T22:27Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2027-04-28T20:18Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2027-05-06T10:58Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2027-05-13T04:44Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2027-05-20T10:59Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2027-05-28T13:58Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2027-06-04T19:40Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2027-06-11T10:56Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2027-06-19T00:44Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2027-06-27T04:54Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2027-07-04T03:02Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2027-07-10T18:39Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2027-07-18T15:45Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2027-07-26T16:55Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2027-08-02T10:05Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2027-08-09T04:54Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2027-08-17T07:29Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2027-08-25T02:27Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2027-08-31T17:41Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2027-09-07T18:31Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2027-09-15T23:03Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2027-09-23T10:20Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2027-09-30T02:36Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2027-10-07T11:47Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2027-10-15T13:47Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2027-10-22T17:29Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2027-10-29T13:36Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2027-11-06T08:00Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2027-11-14T03:26Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2027-11-21T00:48Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2027-11-28T03:24Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_creciente",
+   "utc": "2027-12-06T05:22Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "llena",
+   "utc": "2027-12-13T16:09Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "cuarto_menguante",
+   "utc": "2027-12-20T09:11Z",
+   "fuente": "USNO"
+  },
+  {
+   "fase": "nueva",
+   "utc": "2027-12-27T20:12Z",
+   "fuente": "USNO"
+  }
+ ]
+}
