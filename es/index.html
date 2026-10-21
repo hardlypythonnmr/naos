@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light">
 <title>NAOS en español · Más cerca de ti.</title>
 <meta name="description" content="NAOS en español. Más cerca de ti. Humanidad: comer bien, dormir bien, moverse, tener una relación con lo divino y construir comunidad.">
 <link rel="canonical" href="https://hardlypythonnmr.github.io/naos/es/">
@@ -11,74 +12,1859 @@
 <link rel="alternate" hreflang="x-default" href="https://hardlypythonnmr.github.io/naos/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NAOS">
-<meta property="og:locale" content="es_419">
+<meta property="og:locale" content="es_CO">
 <meta property="og:title" content="NAOS en español · Más cerca de ti.">
 <meta property="og:description" content="NAOS en español. Más cerca de ti. Humanidad: comer bien, dormir bien, moverse, tener una relación con lo divino y construir comunidad.">
 <meta property="og:url" content="https://hardlypythonnmr.github.io/naos/es/">
 <meta property="og:image" content="https://hardlypythonnmr.github.io/naos/assets/marca/avatar-800.png">
-<meta name="twitter:card" content="summary">
+<link rel="preload" href="../assets/fuentes/IBMPlexSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fuentes/Newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fuentes/IBMPlexSansCondensed-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="../assets/marca/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../assets/marca/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../assets/marca/favicon-16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="../assets/marca/avatar-800.png">
-<link rel="preload" href="../assets/fuentes/IBMPlexSans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/comun/tokens.css">
-<link rel="stylesheet" href="../assets/comun/base.css">
-<link rel="stylesheet" href="../assets/css/temas.css">
-<link rel="stylesheet" href="../assets/css/tablero.css">
-<link rel="stylesheet" href="../assets/css/franja.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"NAOS en español · Más cerca de ti.","description":"NAOS en español. Más cerca de ti. Humanidad: comer bien, dormir bien, moverse, tener una relación con lo divino y construir comunidad.","url":"https://hardlypythonnmr.github.io/naos/es/","inLanguage":"es","isPartOf":{"@type":"WebSite","name":"NAOS","url":"https://hardlypythonnmr.github.io/naos/es/"}}</script>
-<script defer src="../assets/js/temas.js"></script>
+<style>
+/* comun.css · página v5 (VP, 20-oct-2026; base de la v4). G3: blanco y tinta, los seis colores de carrusel por puerta, Newsreader (frase, cuándo) e IBM Plex
+   (rótulos, botones). Sin gris (D-270): todo texto es tinta o papel; los filetes son tinta. Claro siempre al llegar; oscuro solo con
+   el botón (D-273, D-281). Fuentes OFL en línea. */
+/* Fuentes OFL (Newsreader, IBM Plex Sans, IBM Plex Sans Condensed), subconjunto latino del sitio naos/assets/fuentes */
+@font-face{font-family:"Newsreader";src:url(../assets/fuentes/Newsreader.woff2) format("woff2");font-weight:300 400;font-style:normal;font-display:swap}
+@font-face{font-family:"Newsreader";src:url(../assets/fuentes/Newsreader-Italic.woff2) format("woff2");font-weight:300 400;font-style:italic;font-display:swap}
+@font-face{font-family:"IBM Plex Sans";src:url(../assets/fuentes/IBMPlexSans.woff2) format("woff2");font-weight:400 600;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Sans Condensed";src:url(../assets/fuentes/IBMPlexSansCondensed-SemiBold.woff2) format("woff2");font-weight:500 600;font-style:normal;font-display:swap}
+:root {
+  --bg: #FFFFFF; --fg: #0E1116; --inv: #FFFFFF; --linea: #0E1116;
+  --c-breathe: #7FCDAE; --c-eat: #F0BC6E; --c-sleep: #A9B2EC; --c-move: #E9876A; --c-community: #EE9AA6; --c-divine: #3B4BB5; --c-week: #FFFFFF;
+  --serif: "Newsreader", Georgia, serif; --sans: "IBM Plex Sans", system-ui, sans-serif; --cond: "IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif;
+  --ease: cubic-bezier(.2, 0, 0, 1); --barra: 52px; --g: 16px;
+  color-scheme: light;
+}
+/* claro manda al llegar, aunque el teléfono esté en oscuro; el oscuro solo cuando la persona lo elige (botón, se recuerda) */
+:root[data-tema="dark"] { --bg: #0E1116; --fg: #F4F6F8; --inv: #0E1116; --linea: #F4F6F8; --c-week: #0E1116; color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 16px/1.45 var(--sans); overflow-x: hidden; }
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; }
+a { color: inherit; text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--fg); outline-offset: 3px; }
+.sr { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.salta { position: absolute; left: 8px; top: -60px; z-index: 50; background: var(--bg); color: var(--fg); padding: 10px 14px; border: 2px solid var(--fg); }
+.salta:focus { top: 8px; }
+
+/* barra: NAOS, la luna (reloj chico, siempre visible), idioma y tema */
+.barra { position: fixed; inset: 0 0 auto 0; height: var(--barra); z-index: 30; display: flex; align-items: center; gap: 10px; padding: 0 var(--g);
+  background: var(--bg); color: var(--fg); border-bottom: 2px solid var(--linea); }
+.barra .marca { text-decoration: none; margin-right: auto; display: flex; align-items: center; min-height: 44px; }
+.naos { font: 600 19px/1 var(--cond); letter-spacing: .06em; }
+.luna { display: inline-flex; align-items: center; gap: 6px; font: 500 13px/1 var(--sans); white-space: nowrap; }
+.b-ico { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--fg); background: transparent; border-radius: 22px; padding: 0 10px; cursor: pointer; font: 600 14px/1 var(--cond); letter-spacing: .04em; }
+.b-tema[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+
+/* botones */
+.b-pri, .b-sec { min-height: 48px; padding: 12px 22px; border-radius: 28px; font: 600 16px/1.2 var(--sans); cursor: pointer; text-align: center; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
+.b-pri { background: var(--fg); color: var(--bg); border: 2px solid var(--fg); }
+.b-sec { background: transparent; color: inherit; border: 2px solid currentColor; }
+.b-pri .dur { font: 400 14px/1 var(--sans); }
+
+/* Cella */
+.cella-svg { width: 100%; height: 100%; overflow: visible; }
+
+/* la tarjeta y su kit */
+.kit-fig { margin: 0; }
+.kit-img { width: 100%; height: auto; aspect-ratio: 4 / 5; border: 2px solid var(--fg); border-radius: 6px; background: var(--bg); -webkit-touch-callout: default; }
+.kit-acc { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; align-items: center; }
+.kit-nota { flex: 1 1 100%; margin: 2px 0 0; font: 400 14px/1.4 var(--sans); }
+.kit-anclas { border: 0; padding: 0; margin: 18px 0 0; min-width: 0; }
+.kit-anclas legend { font: 600 13px/1 var(--cond); letter-spacing: .08em; text-transform: uppercase; padding: 0; margin-bottom: 10px; }
+.anclas { display: flex; flex-wrap: wrap; gap: 8px; }
+.ancla { min-height: 44px; padding: 8px 14px; border-radius: 22px; border: 2px solid currentColor; background: transparent; cursor: pointer; font: 400 15px/1.25 var(--sans); text-align: left; }
+.ancla[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.ancla-propia { display: flex; gap: 8px; margin-top: 10px; }
+.ancla-propia input { flex: 1; min-width: 0; min-height: 48px; border: 2px solid currentColor; border-radius: 24px; padding: 0 16px; background: transparent; color: inherit; font: 400 16px/1 var(--sans); }
+.ancla-propia input::placeholder { color: inherit; opacity: 1; font-style: italic; }
+
+/* detrás de la puerta */
+.det { margin-top: 22px; }
+.det h4 { font: 600 13px/1 var(--cond); letter-spacing: .08em; text-transform: uppercase; margin: 0 0 8px; }
+.det ul { list-style: none; padding: 0; margin: 0; }
+.det li { padding: 9px 0; border-top: 2px solid currentColor; font: 400 16px/1.35 var(--sans); }
+.det li a { display: inline-block; min-height: 24px; }
+.det .f { font: 600 14px/1 var(--cond); letter-spacing: .04em; margin-right: 8px; white-space: nowrap; }
+.det .pronto { font: 600 13px/1 var(--cond); }
+.det-n { font: 400 14px/1.4 var(--sans); margin: 10px 0 0; }
+
+/* pie */
+.pie { padding: 40px var(--g) 56px; background: var(--bg); color: var(--fg); border-top: 2px solid var(--linea); }
+.pie > * { max-width: 760px; margin-left: auto; margin-right: auto; }
+.pie-k { font: 300 30px/1.1 var(--serif); margin: 0 0 6px; }
+.pie-d { margin: 0 0 14px; }
+.pie-b { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 28px; }
+.b-seguir { min-height: 48px; padding: 12px 22px; border: 2px solid currentColor; border-radius: 28px; text-decoration: none; font: 600 16px/1.2 var(--sans); display: inline-flex; align-items: center; }
+.ayuda { font: 400 15px/1.5 var(--sans); margin: 0 0 18px; }
+.ayuda a { display: inline-block; min-height: 24px; }
+.pie-n { margin: 0 0 8px; } .frase-p { font: italic 300 20px/1 var(--serif); }
+.pie-s { font: 400 13px/1.45 var(--sans); margin: 0; }
+.pie-pilares { font: 400 15px/1.45 var(--sans); margin: 0 0 18px; }
+.pie-links { font: 400 14px/1.6 var(--sans); margin: 18px auto 0; }
+.pie-links a { display: inline-block; min-height: 24px; }
+.est-yt { font: 600 13px/1.2 var(--cond); letter-spacing: .05em; display: inline-block; min-height: 24px; margin-right: 8px; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; scroll-behavior: auto !important; } }
+
+/* v5: la tarjeta se guarda manteniéndola presionada (vía principal; el visor de vistas previas bloquea la descarga) */
+.kit-sost { font: 600 16px/1.35 var(--sans); margin: 0 0 10px; }
+/* v5: la placa (signo de la biblioteca sobre su color) y el estante */
+.placa { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--pc); border: 2px solid var(--fg); }
+.placa .signo { display: block; }
+.estante { display: inline-block; vertical-align: middle; }
+.est-l { list-style: none; padding: 0; margin: 0; }
+.est-i { display: grid; grid-template-columns: 8px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 10px 0; border-top: 2px solid currentColor; min-height: 52px; }
+.est-i:last-child { border-bottom: 2px solid currentColor; }
+.est-lomo { width: 8px; height: 28px; border-radius: 2px; background: currentColor; }
+.est-v .est-lomo { background: transparent; border: 2px solid currentColor; }
+.est-n { font: 300 19px/1.2 var(--serif); }
+.est-a .est-n { font-weight: 400; }
+.est-f { font: 600 13px/1.2 var(--cond); letter-spacing: .05em; text-align: right; }
+.est-x { grid-column: 2 / -1; padding-bottom: 4px; }
+.est-x p { margin: 0 0 8px; }
+.est-d { font: 400 15px/1.45 var(--sans); }
+.est-q { font: italic 400 18px/1.35 var(--serif); padding-left: 12px; border-left: 2px solid currentColor; }
+.est-c { font: 600 13px/1.4 var(--cond); letter-spacing: .05em; }
+.est-c a { display: inline-block; min-height: 24px; text-decoration: underline; text-underline-offset: 2px; }
+.est-go { min-height: 44px; padding: 8px 16px; font-size: 15px; }
+
+/* guia.css · la herramienta guiada (las tres opciones). Campo a sangre del color de la puerta; tinta encima (papel sobre el azul de The Divine). */
+.guia { --campo: var(--bg); --tx: var(--fg); background: var(--campo); color: var(--tx); }
+.guia .b-pri { background: var(--tx); color: var(--campo); border-color: var(--tx); }
+.guia :focus-visible { outline-color: var(--tx); }
+.g-cab { padding-top: 4px; }
+.g-k { margin: 0 0 14px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.g-n { font: 600 15px/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; }
+.g-c { font: italic 300 18px/1 var(--serif); }
+.g-cuando { font: 300 clamp(28px, 8vw, 46px)/1.08 var(--serif); letter-spacing: -.012em; margin: 0; text-wrap: balance; }
+.g-acto { font: italic 300 clamp(38px, 11vw, 66px)/1.02 var(--serif); letter-spacing: -.02em; margin: 6px 0 0; text-wrap: balance; }
+.g-escena { position: relative; margin-top: 18px; display: grid; grid-template-columns: 1fr; }
+.g-linea { width: 100%; max-width: 640px; }
+.g-linea .etq { font: italic 300 26px var(--serif); fill: var(--tx); }
+.g-fase { font: italic 300 clamp(44px, 13vw, 84px)/1 var(--serif); margin: 4px 0 0; min-height: 1em; }
+.g-paso { font: 400 18px/1.35 var(--sans); margin: 6px 0 0; min-height: 2.7em; max-width: 34ch; }
+.g-cella { width: 150px; height: 88px; margin-top: 4px; }
+.g-suelo { display: block; height: 3px; background: var(--tx); margin: 0 calc(var(--g) * -1); }
+.g-acc { display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: 18px; align-items: center; }
+.g-acc .b-pri { flex: 1 1 auto; font-size: 18px; min-height: 56px; }
+.g-go:disabled { opacity: 1; cursor: default; }
+.g-corre:not(.g-toque) .g-go { visibility: hidden; }
+.g-toque.g-hecha .g-go { display: none; }
+.g-semana { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+.g-sem { background: var(--sc); color: var(--st); border: 2px solid var(--tx); border-radius: 10px; padding: 10px; text-align: left; cursor: pointer; min-height: 72px; display: flex; flex-direction: column; gap: 4px; }
+.g-sem[aria-pressed="true"] { outline: 4px solid var(--tx); outline-offset: 2px; }
+.g-sem-n { font: 600 12px/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; }
+.g-sem-a { font: italic 300 18px/1.1 var(--serif); }
+.g-fin { margin-top: 24px; }
+.g-fin[hidden] { display: none !important; }
+.g-salta { background: none; border: 0; padding: 10px 4px; min-height: 44px; font: 400 15px/1.2 var(--sans); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; color: inherit; }
+.g-salta[hidden] { display: none; }
+.g-siente, .g-kt, .g-escena { scroll-margin-top: calc(var(--barra) + 16px); }
+.g-siente { font: italic 300 clamp(34px, 9vw, 52px)/1.05 var(--serif); margin: 0; outline-offset: 6px; }
+.g-cuidado { font: 400 15px/1.4 var(--sans); margin: 10px 0 0; }
+.g-otra-p { margin: 14px 0 0; }
+.g-kt { font: 600 14px/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; margin: 30px 0 12px; }
+.g-kit { max-width: 420px; }
+.g-kit .kit-img { border-color: var(--tx); }
+.g-saber { margin-top: 22px; border-top: 2px solid var(--tx); padding-top: 12px; }
+.g-saber summary { cursor: pointer; font: 600 14px/1 var(--cond); letter-spacing: .08em; text-transform: uppercase; min-height: 32px; display: flex; align-items: center; }
+.g-saber p { font: 400 16px/1.5 var(--sans); max-width: 60ch; }
+@media (min-width: 900px) {
+  .g-cella { width: 200px; height: 118px; }
+}
+/* la puerta abierta (velo) */
+.velo { position: fixed; inset: 0; z-index: 40; background: var(--campo); color: var(--tx); overflow-y: auto; overscroll-behavior: contain;
+  opacity: 0; transform: translateY(28px); transition: opacity .45s var(--ease), transform .45s var(--ease); }
+.velo.abierto { opacity: 1; transform: none; }
+.velo[hidden] { display: none; }
+.con-velo, .con-velo body { overflow: hidden; }
+.velo-bar { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px var(--g); background: var(--campo); border-bottom: 2px solid var(--tx); }
+.velo-k { font: 600 14px/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; }
+.velo-x { border-color: var(--tx); color: var(--tx); }
+.velo-g { padding: 18px var(--g) 48px; max-width: 760px; margin: 0 auto; }
+.velo .guia { background: transparent; }
+@media (min-width: 900px) { .velo-g { padding-top: 32px; } }
+.g-obj { position: absolute; right: 0; bottom: 3px; width: clamp(96px, 30vw, 170px); aspect-ratio: 1; }
+.g-obj .obj-svg { width: 100%; height: 100%; }
+.g-hecha .g-obj { display: none; }
+.velo :focus-visible { outline-color: var(--tx); }
+
+/* pagina.css · página v5 (VP, 20-oct-2026, D-281). A más C: la sala que respira, el carrusel de puertas a izquierda y derecha, la caja bento.
+   G3: blanco y tinta, los seis colores de carrusel, Newsreader para la pregunta y el cuándo, IBM Plex para rótulos. Sin gris. */
+.op-v5 main { padding-top: var(--barra); }
+
+/* 1 · la sala (A): un cuarto blanco con una sola acción; al terminar, menta a sangre */
+.sala { min-height: calc(100svh - var(--barra)); padding: 14px var(--g) 26px; display: flex; flex-direction: column; background: var(--bg); color: var(--fg);
+  transition: background-color 1.2s var(--ease), color 1.2s var(--ease); position: relative; }
+.sala-frase { font: italic 300 20px/1 var(--serif); margin: 0 0 14px; }
+.sala-g { flex: 1; display: flex; flex-direction: column; }
+.sala .guia { transition: background-color 1.2s var(--ease); flex: 1; display: flex; flex-direction: column; }
+.g-k .placa { width: 32px; height: 32px; margin-right: 2px; align-self: center; }
+.g-k { align-items: center; }
+.g-preg { font: 300 clamp(36px, 10.2vw, 64px)/1.04 var(--serif); letter-spacing: -.018em; margin: 0; text-wrap: balance; }
+.g-acto-s { font-size: clamp(28px, 7.6vw, 44px); margin-top: 12px; }
+.g-cuando-s { font: italic 300 19px/1.25 var(--serif); margin: 4px 0 0; }
+.sala .g-escena { margin-top: auto; padding-top: 6px; display: flex; flex-direction: column; }
+.sala .g-linea { margin-top: 4px; }
+.sala .g-fase { order: -1; min-height: 1.05em; }
+.sala .g-paso { min-height: 2.7em; }
+.sala .g-cella { width: 140px; height: 82px; }
+.sala .g-fin { margin-top: 18px; }
+.sala.inundada { background: var(--c-breathe); color: #0E1116; }
+.sala.inundada .guia { --campo: #7FCDAE; --tx: #0E1116; background: var(--c-breathe); }
+.sala.inundada .sala-frase { color: #0E1116; }
+.sala.inundada .placa { border-color: #0E1116; }
+/* la siguiente puerta asoma: el borde de colores al pie de la sala */
+.sala::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 8px;
+  background: linear-gradient(90deg, var(--c-eat) 0 16.66%, var(--c-sleep) 0 33.33%, var(--c-move) 0 50%, var(--c-community) 0 66.66%, var(--c-divine) 0 83.33%, var(--fg) 0); }
+.sala.inundada::after { display: none; }
+.g-est { margin-top: 8px; }
+.g-est-c { display: flex; align-items: center; gap: 10px; font: 400 15px/1.3 var(--sans); margin: 0 0 12px; }
+
+/* 2 · el carrusel (A): una puerta por pantalla, a sangre */
+.mas { padding: 44px 0 20px; }
+.mas-cab { padding: 0 var(--g); max-width: 900px; }
+.mas-t { font: italic 300 clamp(40px, 11vw, 76px)/1 var(--serif); letter-spacing: -.02em; margin: 0 0 14px; }
+.mas-meta { font: 300 clamp(22px, 5.6vw, 30px)/1.2 var(--serif); margin: 0 0 8px; max-width: 30ch; }
+.mas-que { font: 400 16px/1.45 var(--sans); margin: 0 0 24px; max-width: 44ch; }
+.riel { position: relative; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; scroll-margin-top: calc(var(--barra) + 8px); }
+.riel::-webkit-scrollbar { display: none; }
+.riel:focus-visible { outline-offset: -4px; }
+.pta { position: relative; flex: 0 0 100%; scroll-snap-align: start; background: var(--campo); color: var(--tx); min-height: min(680px, calc(100svh - var(--barra) - 96px));
+  padding: 20px var(--g) 20px; display: flex; flex-direction: column; border-top: 2px solid var(--fg); border-bottom: 2px solid var(--fg); }
+.pta[id="pta-week"] { border-left: 2px solid var(--fg); }
+.pta-k { margin: 0 0 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.pta-k .signo { width: 28px; height: 28px; }
+.pta-num { font: 600 13px/1 var(--cond); letter-spacing: .06em; }
+.pta-n { font: 600 15px/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; }
+.pta-c { font: italic 300 18px/1 var(--serif); flex-basis: 100%; }
+.pta-q { font: 300 clamp(34px, 9.6vw, 58px)/1.04 var(--serif); letter-spacing: -.018em; margin: 0; text-wrap: balance; }
+.pta-est { display: flex; align-items: center; gap: 10px; margin: 14px 0 0; font: 400 14px/1.3 var(--sans); }
+.pta-hoy { font: 600 12px/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; margin: 18px 0 0; }
+.pta-acto { font: italic 300 clamp(28px, 7.6vw, 44px)/1.04 var(--serif); margin: 6px 0 0; letter-spacing: -.015em; text-wrap: balance; }
+.pta-cuando { font: italic 300 18px/1.25 var(--serif); margin: 4px 0 0; }
+.pta-pie { margin-top: auto; padding-top: 14px; position: relative; }
+.pta-obj { position: absolute; right: 0; bottom: 3px; width: clamp(80px, 26vw, 140px); aspect-ratio: 1; }
+.pta-obj .obj-svg { width: 100%; height: 100%; }
+.pta-cella { width: 120px; height: 72px; }
+.pta-suelo { display: block; height: 3px; background: var(--tx); margin: 0 calc(var(--g) * -1); }
+.pta-b { margin: 16px 0 0; }
+.pta .b-pri { background: var(--tx); color: var(--campo); border-color: var(--tx); width: 100%; font-size: 18px; min-height: 56px; }
+.pta-dia { margin: 10px 0 0; font: 400 14px/1.3 var(--sans); }
+
+/* los signos de abajo: el pictograma de cada biblioteca sobre su color; el de la puerta que ves, más grande y con su nombre */
+.riel-nav { display: flex; align-items: center; justify-content: space-between; gap: 4px; padding: 14px var(--g) 4px; }
+.r-puntos { list-style: none; display: flex; gap: 2px; padding: 0; margin: 0; }
+.r-p { width: 40px; height: 48px; border: 0; background: transparent; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center; }
+.r-p .placa { width: 34px; height: 34px; transition: transform .25s var(--ease); }
+.r-p[aria-current="true"] .placa { transform: scale(1.18); outline: 2px solid var(--fg); outline-offset: 2px; }
+.r-nombre { margin: 0; padding: 0 var(--g); text-align: center; font: 600 13px/1.4 var(--cond); letter-spacing: .08em; text-transform: uppercase; min-height: 1.4em; }
+
+/* 3 · la caja bento (C): elegir entre las siete bibliotecas */
+.elige { padding: 40px var(--g) 28px; border-top: 2px solid var(--fg); margin-top: 24px; }
+.elige-cab { max-width: 900px; margin-bottom: 18px; }
+.bento-k { font: 600 13px/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; margin: 0 0 10px; }
+.bento-t { font: 300 clamp(38px, 10.6vw, 72px)/1.02 var(--serif); letter-spacing: -.02em; margin: 0; text-wrap: balance; }
+.bento { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.bt-breathe, .bt-divine, .bt-week { grid-column: 1 / -1; }
+.bt-b { width: 100%; height: 100%; text-align: left; cursor: pointer; background: var(--campo); color: var(--tx); border: 3px solid var(--fg); border-radius: 16px;
+  padding: 12px; display: flex; flex-direction: column; gap: 8px; min-height: 176px; transition: transform .14s var(--ease); font: inherit; }
+.bt-b:active { transform: scale(.97) translateY(2px); }
+.bt-b:focus-visible { outline: 4px solid var(--fg); outline-offset: 3px; }
+.bt-k { display: flex; align-items: center; gap: 8px; }
+.bt-k .signo { width: 32px; height: 32px; }
+.bt-n { font: 600 13px/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; }
+.bt-q { font: 300 21px/1.12 var(--serif); }
+.bt-est { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; font: 400 13px/1.25 var(--sans); margin-top: auto; }
+.bt-a { font: italic 300 17px/1.15 var(--serif); }
+.bt-a::before { content: "→ "; font-style: normal; font-family: var(--sans); }
+.bt-breathe .bt-q { font-size: clamp(28px, 7.6vw, 40px); }
+.bt-breathe .bt-b { min-height: 200px; }
+.bt-breathe .bt-est, .bt-divine .bt-est, .bt-week .bt-est { flex-direction: row; align-items: center; gap: 8px; }
+
+/* 4 · los días */
+.dias-s { padding: 8px var(--g) 28px; }
+.dias { max-width: 900px; }
+.dias-k { font: 400 16px/1.45 var(--sans); margin: 0 0 12px; max-width: 46ch; }
+.dias-l { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+.dias-l li { display: flex; gap: 10px; align-items: center; padding: 8px 0; border-top: 2px solid var(--fg); }
+.dias-l .placa { width: 30px; height: 30px; }
+.dd { font: 600 14px/1 var(--cond); letter-spacing: .06em; width: 34px; }
+.dp { font: italic 300 19px/1 var(--serif); }
+
+/* la biblioteca abierta (velo) */
+.lib { margin-bottom: 28px; }
+.lib-k { display: flex; align-items: center; gap: 10px; font: 400 14px/1.3 var(--sans); margin: 0 0 12px; }
+.lib-q { font: 300 clamp(36px, 10vw, 60px)/1.04 var(--serif); letter-spacing: -.018em; margin: 0 0 18px; text-wrap: balance; }
+.lib .est-l { margin-top: 6px; }
+.velo-k { display: inline-flex; align-items: center; gap: 10px; }
+.velo-k .placa { width: 32px; height: 32px; border-color: var(--tx); }
+.velo .est-go { background: var(--tx); color: var(--campo); border-color: var(--tx); }
+.velo-h { border-top: 3px solid var(--tx); padding-top: 18px; }
+
+@media (min-width: 900px) {
+  :root { --g: 48px; }
+  .sala { padding-top: 26px; }
+  .sala .guia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); grid-template-areas: "cab esc" "acc esc" "fin fin"; column-gap: 56px; align-content: center; }
+  .sala .g-cab { grid-area: cab; align-self: end; }
+  .sala .g-escena { grid-area: esc; margin-top: 0; align-self: end; }
+  .sala .g-acc { grid-area: acc; align-self: start; }
+  .sala .g-fin { grid-area: fin; max-width: 760px; }
+  .sala .g-cella { width: 170px; height: 100px; }
+  .pta { flex-basis: 33.333%; min-height: 600px; border-right: 2px solid var(--fg); }
+  .pta-q { font-size: clamp(30px, 2.9vw, 42px); }
+  .pta-acto { font-size: 32px; }
+  .riel-nav { justify-content: center; gap: 18px; }
+  .r-nombre { display: none; }
+  .bento { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .bt-breathe { grid-column: span 2; grid-row: span 2; }
+  .bt-divine, .bt-week { grid-column: span 2; }
+  .bt-breathe .bt-b { min-height: 100%; }
+  .bt-breathe .bt-q { font-size: 46px; }
+  .bt-b { min-height: 190px; padding: 16px; }
+  .bt-q { font-size: 24px; }
+  .dias-l { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  .mas-cab, .dias, .elige-cab { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) { .sala, .sala .guia, .bt-b, .r-p .placa { transition: none; } .bt-b:active { transform: none; } }
+@media (max-width: 379px) { .r-p { width: 35px; } .r-p .placa { width: 31px; height: 31px; } .r-puntos { gap: 1px; } }
+.mas, .elige { scroll-margin-top: var(--barra); }
+
+/* v3.css · V3, "Algo así como…": la palabra manda; la pregunta general queda debajo como puente. */
+.algo { display: block; font: italic 300 .4em/1.3 var(--serif); letter-spacing: 0; }
+.pal { font-style: italic; }
+.q-sub { font: 400 17px/1.3 var(--sans); margin: 8px 0 0; }
+.q-sub-sala { margin-top: 6px; }
+.lib .q-sub { margin: -8px 0 16px; }
+.bento-t .algo-w { font-style: italic; }
+.bt-q .pal { font: italic 300 clamp(34px, 9.4vw, 46px)/1 var(--serif); letter-spacing: -.02em; }
+.bt-breathe .bt-q .pal { font-size: clamp(48px, 13vw, 72px); }
+.bt-b .q-sub { font: 400 15px/1.25 var(--sans); margin: 0; }
+.op-v3 .g-preg .pal, .op-v3 .pta-q .pal, .op-v3 .lib-q .pal { font-size: 1.12em; letter-spacing: -.025em; }
+@media (min-width: 900px) { .bt-breathe .bt-q .pal { font-size: 88px; } }
+
+</style>
 </head>
-<body class="t-hub t-hub-humanity portada-es">
-<a class="sr" href="#main">Ir a los temas</a>
-<header class="t-barra">
-  <p class="t-marca"><a class="t-naos" href="../es/">NAOS</a><span class="t-lema">Más cerca de ti.</span></p>
-  <nav class="t-nav" aria-label="Secciones"><a href="../es/temas/humanity/">Humanidad</a><a href="../es/temas/">Temas</a><a href="../agenda.html" hreflang="en">Agenda</a><a class="t-idioma" href="../" hreflang="en" lang="en">English</a></nav>
-</header>
-<main id="main" data-t0="2026-10-01" data-t1="2027-01-01">
-  <section class="tablero" id="tablero" aria-label="El calendario lunar de hoy">
-    <div class="tb-in">
-      <ul class="tb-g" id="tab">
-        <li class="tb-centro">
-          <div class="tb-c tb-box">
-            <div class="tb-sup">
-              <h1 class="tb-h" id="u-hum-t" tabindex="-1">Humanidad</h1>
-              <div class="tb-cella" id="cella-hum" aria-hidden="true"></div>
-            </div>
-            <p class="tb-q">Más cerca de ti.</p>
-          </div>
-        </li>
-      </ul>
-      <i class="tb-linea" id="tab-linea" aria-hidden="true"></i>
+<body class="op-v5 op-v3">
+<a class="salta" href="#puertas" id="salta">Ir a las puertas</a>
+<header class="barra" id="barra"></header>
+<main id="arriba">
+  <noscript><p style="padding:96px 16px 0;max-width:640px;margin:0 auto"><a href="temas/">Temas</a>, <a href="../agenda.html" hreflang="en" lang="en">Agenda</a>, <a href="../" hreflang="en" lang="en">English</a></p></noscript>
+  <section class="sala" id="sala" aria-labelledby="sala-t">
+    <h1 class="sala-frase" id="sala-frase">Más cerca de ti.</h1>
+    <div class="sala-g" id="sala-g"></div>
+  </section>
+  <section class="mas" id="puertas" aria-labelledby="mas-t">
+    <div class="mas-cab">
+      <h2 class="mas-t" id="mas-t"></h2>
+      <p class="mas-meta" id="mas-meta"></p>
+      <p class="mas-que" id="mas-que"></p>
     </div>
+    <div class="riel" id="riel" role="region" tabindex="0" aria-labelledby="riel-t"><h3 class="sr" id="riel-t"></h3></div>
+    <div class="riel-nav"><button type="button" class="b-ico r-ant" id="r-ant"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M13 3 L6 10 L13 17" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></button><ol class="r-puntos" id="r-puntos"></ol><button type="button" class="b-ico r-sig" id="r-sig"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M7 3 L14 10 L7 17" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></button></div>
+    <p class="r-nombre" id="r-nombre" aria-hidden="true"></p>
   </section>
-  <section class="leyenda" aria-label="Qué es NAOS hoy">
-    <p class="ley-es" lang="es">Naos hoy es una invitación a reconectar con la humanidad dentro de cada uno a través de conductas básicas y fundamentales a la vida humana, para identificar y fortalecer los valores que encontremos dentro de nosotros, afuera.</p>
-    <p class="ley-en" lang="en">NAOS today is an invitation to reconnect with the humanity within each of us through basic behaviors fundamental to human life, to identify and strengthen the values we find within ourselves, outside.</p>
+  <section class="elige" id="elige" aria-labelledby="bento-t">
+    <div class="elige-cab">
+      <p class="bento-k" id="bento-k"></p>
+      <h2 class="bento-t" id="bento-t"></h2>
+      <div class="bento-x" id="bento-x"></div>
+    </div>
+    <ul class="bento" id="bento"></ul>
   </section>
-  <p class="t-rango"><a href="temas/es/">Las piezas en español</a> salen desde el sábado 24 de octubre. Las demás están en inglés; cada una lleva su hora en Nueva York y en Medellín.</p>
-  <div id="secuencia" data-lang="es" data-raiz="../" hidden></div>
-  <section class="t-bloque" aria-labelledby="h-hum"><h2 id="h-hum"><a href="temas/humanity/">Humanidad</a></h2>
-<div class="t-biblioteca">
-<section class="t-estante" aria-labelledby="e-eat"><h3 class="t-lomo" id="e-eat"><a href="../es/temas/pilar/eat/">Come bien,</a> <span class="t-lomo-p">Comer</span></h3><div class="t-anaquel"><div class="t-eje" aria-hidden="true"><span></span><span class="t-eje-m"><span style="--a:0%">oct</span><span style="--a:33.7%">nov</span><span style="--a:66.3%">dic</span></span></div><ul class="t-temas"><li><a class="t-tema" href="../es/temas/the-full-moon-table/" data-desde="2026-10-20" data-hasta="2026-10-30"><span class="t-tema-t">La mesa de luna llena</span><span class="t-tema-m num">16 piezas, 20 oct al 30 oct de 2026</span><span class="t-tl" aria-hidden="true"><span style="--a:20.65%;--b:32.61%"></span></span></a></li><li><a class="t-tema" href="../es/temas/phones-in-the-bread-basket/" data-desde="2026-11-17" data-hasta="2026-11-26"><span class="t-tema-t">Los teléfonos en la panera</span><span class="t-tema-m num">7 piezas, 17 nov al 26 nov de 2026</span><span class="t-tl" aria-hidden="true"><span style="--a:51.09%;--b:61.96%"></span></span></a></li></ul></div></section>
-<section class="t-estante" aria-labelledby="e-sleep"><h3 class="t-lomo" id="e-sleep"><a href="../es/temas/pilar/sleep/">duerme bien,</a> <span class="t-lomo-p">Dormir</span></h3><div class="t-anaquel"><div class="t-eje" aria-hidden="true"><span></span><span class="t-eje-m"><span style="--a:0%">oct</span><span style="--a:33.7%">nov</span><span style="--a:66.3%">dic</span></span></div><ul class="t-temas"><li><a class="t-tema" href="../es/temas/keep-your-hour/" data-desde="2026-11-03" data-hasta="2026-11-07"><span class="t-tema-t">Cambie o no el reloj, mantén tu hora.</span><span class="t-tema-m num">5 piezas, 3 nov al 7 nov de 2026</span><span class="t-tl" aria-hidden="true"><span style="--a:35.87%;--b:41.3%"></span></span></a></li><li><a class="t-tema" href="../es/temas/advent-waiting/" data-desde="2026-11-29" data-hasta="2026-12-05"><span class="t-tema-t">Adviento: la espera</span><span class="t-tema-m num">15 piezas, 29 nov al 5 dic de 2026</span><span class="t-tl" aria-hidden="true"><span style="--a:64.13%;--b:71.74%"></span></span></a></li><li><a class="t-tema" href="../es/temas/back-to-the-hour/" data-desde="2026-12-26" data-hasta="2026-12-31"><span class="t-tema-t">De vuelta a la hora</span><span class="t-tema-m num">11 piezas, 26 dic al 31 dic de 2026</span><span class="t-tl" aria-hidden="true"><span style="--a:93.48%;--b:100%"></span></span></a></li></ul></div></section>
-<section class="t-estante" aria-labelledby="e-move"><h3 class="t-lomo" id="e-move"><a href="../es/temas/pilar/move/">muévete,</a> <span class="t-lomo-p">Moverse</span></h3><div class="t-anaquel"><div class="t-eje" aria-hidden="true"><span></span><span class="t-eje-m"><span style="--a:0%">oct</span><span style="--a:33.7%">nov</span><span style="--a:66.3%">dic</span></span></div><ul class="t-temas"><li><a class="t-tema" href="../es/temas/walks-by-the-moon/" data-desde="2026-10-22" data-hasta="2026-12-19"><span class="t-tema-t">Caminatas con la luna</span><span class="t-tema-m num">9 piezas, 22 oct al 19 dic de 2026</span><span class="t-tl" aria-hidden="true"><span style="--a:22.83%;--b:86.96%"></span></span></a></li><li><a class="t-tema" href="../es/temas/walk-to-the-water/" data-desde="2026-11-11" data-hasta="2026-11-20"><span class="t-tema-t">Camina hasta el agua</span><span class="t-tema-m num">13 piezas, 11 nov al 20 nov de 2026</span><span class="t-tl" aria-hidden="true"><span style="--a:44.57%;--b:55.43%"></span></span></a></li></ul></div></section>
-<section class="t-estante" aria-labelledby="e-the-divine"><h3 class="t-lomo" id="e-the-divine"><a href="../es/temas/pilar/the-divine/">ten una relación con lo divino,</a> <span class="t-lomo-p">Lo divino</span></h3><div class="t-anaquel"><div class="t-eje" aria-hidden="true"><span></span><span class="t-eje-m"><span style="--a:0%">oct</span><span style="--a:33.7%">nov</span><span style="--a:66.3%">dic</span></span></div><ul class="t-temas"><li><a class="t-tema" href="../es/temas/the-cella/" data-desde="2026-10-19" data-hasta="2026-12-31"><span class="t-tema-t">La sala vacía, la sala llena</span><span class="t-tema-m num">7 piezas, 19 oct al 31 dic de 2026</span><span class="t-tl" aria-hidden="true"><span style="--a:19.57%;--b:100%"></span></span></a></li><li><a class="t-tema" href="../es/temas/saints-and-souls/" data-desde="2026-10-27" data-hasta="2026-11-06"><span class="t-tema-t">Santos y Difuntos</span><span class="t-tema-m num">17 piezas, 27 oct al 6 nov de 2026</span><span class="t-tl" aria-hidden="true"><span style="--a:28.26%;--b:40.22%"></span></span></a></li><li><a class="t-tema" href="../es/temas/a-lamp-on-the-night-without-a-moon/" data-desde="2026-11-07" data-hasta="2026-11-14"><span class="t-tema-t">Una lámpara en la noche sin luna</span><span class="t-tema-m num">12 piezas, 7 nov al 14 nov de 2026</span><span class="t-tl" aria-hidden="true"><span style="--a:40.22%;--b:48.91%"></span></span></a></li><li><a class="t-tema" href="../es/temas/light-in-the-window/" data-desde="2026-12-05" data-hasta="2026-12-12"><span class="t-tema-t">Luz en la ventana</span><span class="t-tema-m num">14 piezas, 5 dic al 12 dic de 2026</span><span class="t-tl" aria-hidden="true"><span style="--a:70.65%;--b:79.35%"></span></span></a></li><li><a class="t-tema" href="../es/temas/the-longest-night/" data-desde="2026-12-19" data-hasta="2026-12-25"><span class="t-tema-t">La noche más larga</span><span class="t-tema-m num">12 piezas, 19 dic al 25 dic de 2026</span><span class="t-tl" aria-hidden="true"><span style="--a:85.87%;--b:93.48%"></span></span></a></li></ul></div></section>
-<section class="t-estante" aria-labelledby="e-community"><h3 class="t-lomo" id="e-community"><a href="../es/temas/pilar/community/">y construye comunidad.</a> <span class="t-lomo-p">Comunidad</span></h3><div class="t-anaquel"><div class="t-eje" aria-hidden="true"><span></span><span class="t-eje-m"><span style="--a:0%">oct</span><span style="--a:33.7%">nov</span><span style="--a:66.3%">dic</span></span></div><ul class="t-temas"><li><a class="t-tema" href="../es/temas/a-good-party/" data-desde="2026-11-19" data-hasta="2026-11-28"><span class="t-tema-t">Una buena fiesta</span><span class="t-tema-m num">15 piezas, 19 nov al 28 nov de 2026</span><span class="t-tl" aria-hidden="true"><span style="--a:53.26%;--b:64.13%"></span></span></a></li><li><a class="t-tema" href="../es/temas/how-a-month-is-announced/" data-desde="2026-12-12" data-hasta="2026-12-18"><span class="t-tema-t">Cómo se anuncia un mes</span><span class="t-tema-m num">9 piezas, 12 dic al 18 dic de 2026</span><span class="t-tl" aria-hidden="true"><span style="--a:78.26%;--b:85.87%"></span></span></a></li></ul></div></section>
-</div>
+  <section class="dias-s" aria-label="Days">
+    <div class="dias" id="dias"></div>
   </section>
 </main>
-<footer class="t-pie">
-  <p class="ayuda-l" id="ayuda">Si esto te pesa, habla con alguien ahora. Colombia: <a href="tel:106">106</a>, línea nacional de salud mental, 24/7, o <a href="tel:123">123</a> si hay peligro inmediato (<a href="https://findahelpline.com/countries/co" rel="noopener" hreflang="en">fuente</a>). EE. UU.: <a href="tel:988">988</a>. En cualquier otro lugar: <a href="https://findahelpline.com" rel="noopener" hreflang="en">findahelpline.com</a>.</p>
-  <p class="t-linea-n">Come bien, duerme bien, muévete, ten una relación con lo divino y construye comunidad.</p>
-  <p class="sello">Las voces de las piezas de NAOS son sintéticas. Las respuestas de Cella a los comentarios se escriben con IA; una persona lee las difíciles. Las horas son de Nueva York (ET) y Medellín.</p>
-  <p class="sello"><a href="../es/">Inicio</a> · <a href="../es/temas/">Temas</a> · <a href="../agenda.html" hreflang="en">Agenda</a> · <a href="../privacidad.html">Privacidad</a> · <a href="../terminos.html">Términos</a></p>
+<footer class="pie" id="pie" data-lang="es">
+    <div class="pie-seguir">
+      <p class="pie-k">Sigue a NAOS</p>
+      <p class="pie-d">Las herramientas nuevas llegan como Shorts y Reels.</p>
+      <p class="pie-b"><a class="b-seguir" href="https://www.youtube.com/@Naos-v3" rel="noopener" data-seguir="yt">YouTube</a><a class="b-seguir" href="https://www.instagram.com/naos.v3/" rel="noopener" data-seguir="ig">Instagram</a></p>
+    </div>
+    <p class="ayuda">Si esto te pesa, habla con alguien ahora. Colombia: <a href="tel:106">106</a>, línea nacional de salud mental, 24/7, o <a href="tel:123">123</a> si hay peligro inmediato (<a href="https://findahelpline.com/countries/co" rel="noopener" hreflang="en">fuente</a>). EE. UU.: <a href="tel:988">988</a>. En cualquier otro lugar: <a href="https://findahelpline.com" rel="noopener" hreflang="en">findahelpline.com</a>.</p>
+    <p class="pie-n"><span class="naos">NAOS</span> <span class="frase-p">Más cerca de ti.</span></p>
+    <p class="pie-pilares">Come bien, duerme bien, muévete, ten una relación con lo divino y construye comunidad.</p>
+    <p class="pie-s">Las voces de las piezas de NAOS son sintéticas. Una conducta para probar; no reemplaza un tratamiento. Esta página no usa cookies ni rastreadores.</p>
+    <p class="pie-links"><a href="temas/">Temas</a> · <a href="../agenda.html" hreflang="en" lang="en">Agenda</a> · <a href="../privacidad.html" hreflang="en" lang="en">Privacidad</a> · <a href="../terminos.html" hreflang="en" lang="en">Términos</a> · <a href="../archivo/index-anterior.html" hreflang="es">Sobre la app de YouTube de NAOS</a></p>
 </footer>
-<script defer src="../assets/comun/naos.js"></script>
-<script defer src="../assets/js/figura.js"></script>
-<script defer src="../assets/js/luna.js"></script>
-<script defer src="../assets/js/cella.js"></script>
-<script defer src="../assets/js/tablero.js"></script>
-<script defer src="../assets/js/franja.js"></script>
+<script src="../assets/js/figura.js"></script>
+<script src="../assets/js/cella-brazos.js"></script>
+<script>
+window.NAOS_SITIO=true;window.NAOS_LANG="es";window.NAOS_RAIZ="../";window.NAOS_ES_TEMAS=["a-good-party", "a-lamp-on-the-night-without-a-moon", "advent-waiting", "back-to-the-hour", "built-here", "errata", "es", "fomc-before-and-after-the-silence", "fomc-with-projections", "four-banks-one-table", "from-chat-to-code", "how-a-month-is-announced", "how-a-vote-is-counted", "how-we-test-an-idea", "humanity", "keep-your-hour", "light-in-the-window", "look-up-from-the-news", "money-at-the-table", "moon", "one-number-and-its-range", "open-questions", "payrolls-before-the-number", "phones-in-the-bread-basket", "saints-and-souls", "the-cella", "the-full-moon-table", "the-longest-night", "the-present", "the-radar-that-tells-you-when-it-is-blind", "two-clocks", "walk-to-the-water", "walks-by-the-moon", "who-is-telling-you-this", "who-writes-the-rules"];
+</script>
+<script>
+/* Fases de la luna: U.S. Naval Observatory (data/luna.json del sitio, consultado 2026-10-20), UTC */
+window.NAOS_LUNA_FASES=[["cuarto_menguante", "2026-10-03T13:25Z"], ["nueva", "2026-10-10T15:50Z"], ["cuarto_creciente", "2026-10-18T16:12Z"], ["llena", "2026-10-26T04:12Z"], ["cuarto_menguante", "2026-11-01T20:28Z"], ["nueva", "2026-11-09T07:02Z"], ["cuarto_creciente", "2026-11-17T11:48Z"], ["llena", "2026-11-24T14:53Z"], ["cuarto_menguante", "2026-12-01T06:08Z"], ["nueva", "2026-12-09T00:52Z"], ["cuarto_creciente", "2026-12-17T05:42Z"], ["llena", "2026-12-24T01:28Z"], ["cuarto_menguante", "2026-12-30T18:59Z"], ["nueva", "2027-01-07T20:24Z"], ["cuarto_creciente", "2027-01-15T20:34Z"], ["llena", "2027-01-22T12:17Z"], ["cuarto_menguante", "2027-01-29T10:55Z"], ["nueva", "2027-02-06T15:56Z"], ["cuarto_creciente", "2027-02-14T07:58Z"], ["llena", "2027-02-20T23:23Z"], ["cuarto_menguante", "2027-02-28T05:16Z"], ["nueva", "2027-03-08T09:29Z"], ["cuarto_creciente", "2027-03-15T16:25Z"], ["llena", "2027-03-22T10:44Z"], ["cuarto_menguante", "2027-03-30T00:54Z"], ["nueva", "2027-04-06T23:51Z"], ["cuarto_creciente", "2027-04-13T22:56Z"], ["llena", "2027-04-20T22:27Z"], ["cuarto_menguante", "2027-04-28T20:18Z"], ["nueva", "2027-05-06T10:58Z"], ["cuarto_creciente", "2027-05-13T04:44Z"], ["llena", "2027-05-20T10:59Z"], ["cuarto_menguante", "2027-05-28T13:58Z"], ["nueva", "2027-06-04T19:40Z"], ["cuarto_creciente", "2027-06-11T10:56Z"], ["llena", "2027-06-19T00:44Z"], ["cuarto_menguante", "2027-06-27T04:54Z"], ["nueva", "2027-07-04T03:02Z"], ["cuarto_creciente", "2027-07-10T18:39Z"], ["llena", "2027-07-18T15:45Z"], ["cuarto_menguante", "2027-07-26T16:55Z"], ["nueva", "2027-08-02T10:05Z"], ["cuarto_creciente", "2027-08-09T04:54Z"], ["llena", "2027-08-17T07:29Z"], ["cuarto_menguante", "2027-08-25T02:27Z"], ["nueva", "2027-08-31T17:41Z"], ["cuarto_creciente", "2027-09-07T18:31Z"], ["llena", "2027-09-15T23:03Z"], ["cuarto_menguante", "2027-09-23T10:20Z"], ["nueva", "2027-09-30T02:36Z"], ["cuarto_creciente", "2027-10-07T11:47Z"], ["llena", "2027-10-15T13:47Z"], ["cuarto_menguante", "2027-10-22T17:29Z"], ["nueva", "2027-10-29T13:36Z"], ["cuarto_creciente", "2027-11-06T08:00Z"], ["llena", "2027-11-14T03:26Z"], ["cuarto_menguante", "2027-11-21T00:48Z"], ["nueva", "2027-11-28T03:24Z"], ["cuarto_creciente", "2027-12-06T05:22Z"], ["llena", "2027-12-13T16:09Z"], ["cuarto_menguante", "2027-12-20T09:11Z"], ["nueva", "2027-12-27T20:12Z"]];
+</script>
+<script>
+/* datos.js · página v4 (VP, 20-oct-2026). Las siete puertas con su herramienta, en EN y ES, desde empresa/vp/assets.md §5 (las 8 conductas de Puertas),
+ * empresa/vp/plan-2026.md (lo que llega a cada puerta) y data/temas.json (las páginas de tema). Colores: paleta de carruseles v7 (GUIA-carruseles.md §5).
+ * Nombres por lo que guardan; el día es solo cuándo llega lo nuevo (D-279). Ninguna promesa de salud. "behaviors" siempre (D-272). */
+window.NAOS_DATOS = {
+  sitio: "https://hardlypythonnmr.github.io/naos/",
+  seguir: { yt: "https://www.youtube.com/@Naos-v3", ig: "https://www.instagram.com/naos.v3/" },
+  meta: { en: "Closer to your body, your mind, your people and the divine.", es: "Más cerca de tu cuerpo, tu mente, tu gente y lo divino." },
+  que: { en: "NAOS is a toolbox of small behaviors for the basics of being human.", es: "NAOS es una caja de herramientas de conductas pequeñas para lo básico de ser humano." },
+  puertas: [
+    {
+      id: "breathe", dia: 2, campo: "#7FCDAE", tx: "#0E1116", hoy: true,
+      nombre: { en: "Breathe", es: "Respira" },
+      guarda: { en: "The breath you already have, used on purpose.", es: "El aire que ya tienes, usado a propósito." },
+      cerca: { en: "closer to your breath", es: "más cerca de tu aire" },
+      cuando: { en: "When a message tightens your jaw.", es: "Cuando un mensaje te aprieta la mandíbula." },
+      acto: { en: "Two in, one out.", es: "Dos adentro, una afuera." },
+      pasos: [
+        { en: "In, slow, through the nose.", es: "Entra lento, por la nariz." },
+        { en: "Deeper: one more in, strong.", es: "Más hondo: otra más, fuerte." },
+        { en: "Out, long, through the mouth.", es: "Sale larga, por la boca." }
+      ],
+      siente: { en: "Did something loosen?", es: "¿Se aflojó algo?" },
+      pregunta: { en: "What makes your jaw tighten?", es: "¿Qué te aprieta la mandíbula?" },
+      cuidado: { en: "If you feel light-headed, breathe normally.", es: "Si te mareas, respira normal." },
+      tarjeta: { en: ["When a message tightens your jaw:", "two in, one out."], es: ["Cuando un mensaje te aprieta la mandíbula:", "dos adentro, una afuera."] },
+      anclas: {
+        en: ["Before I answer a message", "At the next red light, once stopped", "Before I open the door at home"],
+        es: ["Antes de contestar un mensaje", "En el próximo semáforo en rojo, ya detenido", "Antes de abrir la puerta de la casa"]
+      },
+      escena: { en: "Your body already sighs on its own, a few times an hour. Here you do it on purpose: the first in is slow, the second is strong, the out is longer than both.", es: "Tu cuerpo ya suspira solo, varias veces por hora. Aquí lo haces a propósito: la primera entra lenta, la segunda fuerte, y la salida es más larga que las dos." },
+      fuente: { en: "Balban et al. 2023: five minutes a day for a month. It measured mood and breathing rate at rest. Ten seconds is a taste, not that study.", es: "Balban et al. 2023: cinco minutos al día durante un mes. Midió el ánimo y la respiración en reposo. Diez segundos son una probada, no ese estudio." },
+      dur: { en: "10 s", es: "10 s" },
+      hondo: [{ slug: "the-cella", t: { en: "The empty cella, the full cella", es: "La sala vacía, la sala llena" } }],
+      medio: { en: "The sigh, in full · YouTube, Thu Oct 22", es: "El suspiro, completo · YouTube, jue 22 oct" },
+      llega: [
+        { f: "2026-10-27", t: { en: "Two in, one out, told another way", es: "Dos adentro, una afuera, contada de otra forma" } },
+        { f: "2026-11-03", t: { en: "Three breaths in the light", es: "Tres respiros en la luz" } },
+        { f: "2026-11-17", t: { en: "Close the day, three breaths", es: "Cierra el día, tres respiros" } }
+      ]
+    },
+    {
+      id: "eat", dia: 3, campo: "#F0BC6E", tx: "#0E1116",
+      nombre: { en: "Eat", es: "Come" },
+      guarda: { en: "The moment before, during and after the plate.", es: "El momento antes, durante y después del plato." },
+      cerca: { en: "closer to your table", es: "más cerca de tu mesa" },
+      cuando: { en: "When the plate lands.", es: "Cuando llega el plato." },
+      acto: { en: "One breath, one name.", es: "Un respiro, un nombre." },
+      pasos: [
+        { en: "The plate lands. Hold the first bite.", es: "Llega el plato. Espera el primer bocado." },
+        { en: "One breath.", es: "Un respiro." },
+        { en: "One name: who comes to mind?", es: "Un nombre: ¿quién te viene a la mente?" }
+      ],
+      siente: { en: "Who came to mind?", es: "¿Quién te vino a la mente?" },
+      pregunta: { en: "Who taught you to give thanks?", es: "¿Quién te enseñó a dar gracias?" },
+      cuidado: { en: "Skip it any day you want. The plate will wait.", es: "Sáltatela cualquier día. El plato espera." },
+      tarjeta: { en: ["When the plate lands:", "one breath, one name."], es: ["Cuando llega el plato:", "un respiro, un nombre."] },
+      anclas: {
+        en: ["When the plate lands at dinner", "At lunch, before the first bite", "When someone serves me"],
+        es: ["Cuando llega el plato en la cena", "En el almuerzo, antes del primer bocado", "Cuando alguien me sirve"]
+      },
+      escena: { en: "Someone taught you to wait before eating. Maybe a grandmother, maybe a table you sat at once. One breath brings them back to the table.", es: "Alguien te enseñó a esperar antes de comer. Quizá una abuela, quizá una mesa donde te sentaste una vez. Un respiro los trae de vuelta a la mesa." },
+      fuente: { en: "A when tied to a moment you already have helps you remember (Gollwitzer and Sheeran 2006; smaller once corrected for bias, Wang et al. 2021). Nothing tests this behavior itself.", es: "Un cuándo atado a un momento que ya tienes ayuda a recordar (Gollwitzer y Sheeran 2006; menor al corregir el sesgo, Wang et al. 2021). Nada prueba esta conducta en sí." },
+      dur: { en: "10 s", es: "10 s" },
+      hondo: [{ slug: "the-full-moon-table", t: { en: "The full-moon table", es: "La mesa de luna llena" } }],
+      medio: { en: "Hold the first bite, in full · YouTube, Sun Oct 25", es: "Espera el primer bocado, completo · YouTube, dom 25 oct" },
+      llega: [
+        { f: "2026-11-11", t: { en: "Set one more plate", es: "Pon un plato más" } },
+        { f: "2026-11-25", t: { en: "Phones in the basket, the night before Thanksgiving", es: "Los celulares en la canasta, la víspera de Acción de Gracias" } }
+      ]
+    },
+    {
+      id: "sleep", dia: 4, campo: "#A9B2EC", tx: "#0E1116",
+      nombre: { en: "Sleep", es: "Duerme" },
+      guarda: { en: "The first minute awake and the last one at night.", es: "El primer minuto despierto y el último de la noche." },
+      cerca: { en: "closer to your rest", es: "más cerca de tu descanso" },
+      cuando: { en: "When your eyes open.", es: "Cuando abres los ojos." },
+      acto: { en: "Feet on the floor.", es: "Los pies en el suelo." },
+      pasos: [
+        { en: "Eyes open.", es: "Ojos abiertos." },
+        { en: "Feet on the floor. Sitting counts.", es: "Los pies en el suelo. Sentarte cuenta." },
+        { en: "Before the phone, before the list.", es: "Antes del celular, antes de la lista." }
+      ],
+      siente: { en: "What do you do in the first minute?", es: "¿Qué haces en el primer minuto?" },
+      pregunta: { en: "What's the first thing you do when you wake up?", es: "¿Qué es lo primero que haces al despertar?" },
+      cuidado: { en: "Slowly: lying, then sitting, then standing.", es: "Despacio: acostado, sentado, de pie." },
+      tarjeta: { en: ["When your eyes open:", "feet on the floor."], es: ["Cuando abres los ojos:", "los pies en el suelo."] },
+      anclas: {
+        en: ["When the alarm stops", "When my eyes open, any morning", "Before I reach for the phone"],
+        es: ["Cuando se apaga la alarma", "Cuando abro los ojos, cualquier mañana", "Antes de buscar el celular"]
+      },
+      escena: { en: "He sits up before he thinks. His mind gets a vote later. Some mornings he lies there one more breath; that counts too.", es: "Él se sienta antes de pensar. Su mente vota después. Algunas mañanas se queda un respiro más; eso también cuenta." },
+      fuente: { en: "The grogginess after waking is heaviest in the first half hour (a review of sleep inertia, 2019). No study tests standing up. This one is a story, not a claim.", es: "La pesadez al despertar es mayor en la primera media hora (una revisión sobre la inercia del sueño, 2019). Ningún estudio prueba ponerse de pie. Esta es una historia, no una promesa." },
+      dur: { en: "5 s", es: "5 s" },
+      hondo: [{ slug: "keep-your-hour", t: { en: "The clock moved. Keep your hour.", es: "Cambie o no el reloj, mantén tu hora." } }],
+      medio: null,
+      llega: [
+        { f: "2026-11-05", t: { en: "Open the window", es: "Abre la ventana" } },
+        { f: "2026-11-19", t: { en: "Keep your hour", es: "Mantén tu hora" } }
+      ]
+    },
+    {
+      id: "move", dia: 1, campo: "#E9876A", tx: "#0E1116",
+      nombre: { en: "Move", es: "Muévete" },
+      guarda: { en: "Two minutes found inside the day you already have.", es: "Dos minutos dentro del día que ya tienes." },
+      cerca: { en: "closer to your body", es: "más cerca de tu cuerpo" },
+      cuando: { en: "When the coffee drips.", es: "Cuando gotea el café." },
+      acto: { en: "Two minutes, your pace.", es: "Dos minutos, a tu ritmo." },
+      pasos: [
+        { en: "Coffee on.", es: "El café, puesto." },
+        { en: "Move two minutes, your pace.", es: "Muévete dos minutos, a tu ritmo." },
+        { en: "What woke up?", es: "¿Qué se despertó?" }
+      ],
+      siente: { en: "What woke up?", es: "¿Qué se despertó?" },
+      pregunta: { en: "Where's your two minutes today?", es: "¿Dónde están tus dos minutos hoy?" },
+      cuidado: { en: "If it hurts, stop.", es: "Si duele, para." },
+      tarjeta: { en: ["When the coffee drips:", "move for two minutes."], es: ["Cuando gotea el café:", "muévete dos minutos."] },
+      anclas: {
+        en: ["When the coffee drips", "When a call ends", "When I stand up from the desk"],
+        es: ["Cuando gotea el café", "Cuando termina una llamada", "Cuando me levanto del escritorio"]
+      },
+      escena: { en: "He doesn't wait for the gym. Two minutes while the coffee drips, at whatever pace the day allows.", es: "Él no espera al gimnasio. Dos minutos mientras gotea el café, al ritmo que el día permita." },
+      fuente: { en: "The WHO suggests 150 to 300 minutes of moderate movement a week and less sitting (2020). Two minutes is a door, not the dose.", es: "La OMS sugiere de 150 a 300 minutos de movimiento moderado por semana y menos tiempo sentado (2020). Dos minutos son una puerta, no la dosis." },
+      dur: { en: "2 min", es: "2 min" },
+      hondo: [{ slug: "walks-by-the-moon", t: { en: "Walks by the moon", es: "Caminatas con la luna" } }],
+      medio: { en: "Find the moment, in full · YouTube, Wed Oct 28", es: "Encuentra el momento, completo · YouTube, mié 28 oct" },
+      llega: [
+        { f: "2026-10-26", t: { en: "Find the moment, first Short", es: "Encuentra el momento, primer Short" } },
+        { f: "2026-11-16", t: { en: "Ten slow steps", es: "Diez pasos lentos" } },
+        { f: "2026-11-30", t: { en: "Walk side by side", es: "Caminen lado a lado" } }
+      ]
+    },
+    {
+      id: "community", dia: 5, campo: "#EE9AA6", tx: "#0E1116",
+      nombre: { en: "Community", es: "Comunidad" },
+      guarda: { en: "The people near you, one voice at a time.", es: "La gente cercana, una voz a la vez." },
+      cerca: { en: "closer to your people", es: "más cerca de tu gente" },
+      cuando: { en: "When you start to type to someone.", es: "Cuando empiezas a escribirle a alguien." },
+      acto: { en: "Press call. Ten seconds counts.", es: "Llama. Diez segundos cuentan." },
+      pasos: [
+        { en: "About to type?", es: "¿Vas a escribir?" },
+        { en: "Press call.", es: "Llama." },
+        { en: "Ten seconds counts. No answer counts too.", es: "Diez segundos cuentan. Si no contestan, también cuenta." }
+      ],
+      siente: { en: "Whose voice did you want to hear?", es: "¿La voz de quién querías oír?" },
+      pregunta: { en: "Whose voice haven't you heard this week?", es: "¿A quién no le has oído la voz esta semana?" },
+      cuidado: { en: "Driving? Call when you've parked.", es: "¿Manejando? Llama cuando estacionen." },
+      tarjeta: { en: ["When you start to type:", "press call. Ten seconds counts."], es: ["Cuando empiezas a escribir:", "llama. Diez segundos cuentan."] },
+      anclas: {
+        en: ["When I start to type to someone", "When I think of someone and don't know why", "On the walk home"],
+        es: ["Cuando empiezo a escribirle a alguien", "Cuando pienso en alguien y no sé por qué", "En el camino a casa"]
+      },
+      escena: { en: "People expect a call to feel more awkward than it does. Then someone picks up, and it's just a voice you know.", es: "La gente espera que una llamada sea más incómoda de lo que es. Luego alguien contesta, y es solo una voz que conoces." },
+      fuente: { en: "Kumar and Epley 2021 found people overestimate how awkward a call will be (we read the summary, not the full paper).", es: "Kumar y Epley 2021 encontraron que la gente sobreestima lo incómoda que será una llamada (leímos el resumen, no el artículo completo)." },
+      dur: { en: "10 s", es: "10 s" },
+      hondo: [{ slug: "a-good-party", t: { en: "A good party", es: "Una buena fiesta" }, desde: "2026-11-19" }],
+      medio: null,
+      llega: [
+        { f: "2026-10-30", t: { en: "Call someone older tonight", es: "Llama a alguien mayor esta noche" } },
+        { f: "2026-11-13", t: { en: "Call someone older", es: "Llama a alguien mayor" } },
+        { f: "2026-11-27", t: { en: "Look up together", es: "Miren arriba juntos" } }
+      ]
+    },
+    {
+      id: "divine", dia: 0, campo: "#3B4BB5", tx: "#FFFFFF",
+      nombre: { en: "The Divine", es: "Lo divino" },
+      guarda: { en: "Looking up, with old tales to go with it.", es: "Mirar hacia arriba, con cuentos antiguos para acompañar." },
+      cerca: { en: "closer to the divine", es: "más cerca de lo divino" },
+      cuando: { en: "When you step outside after dark.", es: "Cuando sales de noche." },
+      acto: { en: "Look up once.", es: "Mira arriba una vez." },
+      pasos: [
+        { en: "Outside, or at a window.", es: "Afuera, o en una ventana." },
+        { en: "One breath, eyes up.", es: "Un respiro, los ojos arriba." },
+        { en: "If it's cloudy, look up anyway.", es: "Si está nublado, mira igual." }
+      ],
+      siente: { en: "What did you notice first?", es: "¿Qué notaste primero?" },
+      pregunta: { en: "Did you see it tonight?", es: "¿La viste esta noche?" },
+      cuidado: { en: "Look where you can see your footing.", es: "Mira donde veas bien el suelo." },
+      tarjeta: { en: ["When you step outside after dark:", "look up once."], es: ["Cuando sales de noche:", "mira arriba una vez."] },
+      anclas: {
+        en: ["When I step outside after dark", "When I take out the trash at night", "At the window before bed"],
+        es: ["Cuando salgo de noche", "Cuando saco la basura en la noche", "En la ventana antes de dormir"]
+      },
+      escena: { en: "The same moon hangs over every table tonight: yours, your grandmother's, a stranger's in another country.", es: "La misma luna cuelga esta noche sobre todas las mesas: la tuya, la de tu abuela, la de alguien en otro país." },
+      fuente: { en: "Full moon: Sunday Oct 25, 23:12 Colombia time (U.S. Naval Observatory). No effect claimed.", es: "Luna llena: domingo 25 de octubre, 23:12 hora de Colombia (Observatorio Naval de EE. UU.). Sin efecto prometido." },
+      dur: { en: "10 s", es: "10 s" },
+      hondo: [
+        { slug: "the-cella", t: { en: "The empty cella, the full cella", es: "La sala vacía, la sala llena" } },
+        { slug: "saints-and-souls", t: { en: "Saints and Souls", es: "Santos y Difuntos" } },
+        { slug: "a-lamp-on-the-night-without-a-moon", t: { en: "A lamp on the night without a moon", es: "Una lámpara en la noche sin luna" } },
+        { slug: "moon", t: { en: "The moon this season", es: "La luna esta temporada" } }
+      ],
+      medio: { en: "Saints and Souls · YouTube, Sun Nov 1", es: "Santos y Difuntos · YouTube, dom 1 nov" },
+      llega: [
+        { f: "2026-10-25", t: { en: "Full moon: Look up once", es: "Luna llena: mira arriba una vez" } },
+        { f: "2026-11-01", t: { en: "Saints and Souls: say one name", es: "Santos y Difuntos: di un nombre" } },
+        { f: "2026-11-08", t: { en: "Diwali: a lamp before dark", es: "Diwali: una lámpara antes de oscurecer" } },
+        { f: "2026-11-29", t: { en: "Advent: wait one breath", es: "Adviento: espera un respiro" } },
+        { f: "2026-12-04", t: { en: "Hanukkah: light in the window", es: "Janucá: luz en la ventana" } },
+        { f: "2026-12-20", t: { en: "The longest night", es: "La noche más larga" } }
+      ]
+    },
+    {
+      id: "week", dia: 6, campo: "#FFFFFF", tx: "#0E1116",
+      nombre: { en: "The week", es: "La semana" },
+      guarda: { en: "The week's behaviors on one card to keep.", es: "Las conductas de la semana en una tarjeta para guardar." },
+      cerca: { en: "closer to yourself", es: "más cerca de ti" },
+      cuando: { en: "When the week ends.", es: "Cuando termina la semana." },
+      acto: { en: "Which one stayed?", es: "¿Cuál se quedó?" },
+      pasos: [
+        { en: "Look at the six.", es: "Mira las seis." },
+        { en: "Tap the one that stayed.", es: "Toca la que se quedó." },
+        { en: "Keep it for next week.", es: "Guárdala para la semana que viene." }
+      ],
+      siente: { en: "Which one stayed?", es: "¿Cuál se quedó?" },
+      pregunta: { en: "Which small thing stayed with you this week?", es: "¿Qué cosa pequeña se quedó contigo esta semana?" },
+      cuidado: { en: "None stayed? That's a week too.", es: "¿No se quedó ninguna? También es una semana." },
+      tarjeta: { en: ["This week,", "this one stayed."], es: ["Esta semana,", "se quedó esta."] },
+      anclas: { en: [], es: [] },
+      escena: { en: "", es: "" },
+      fuente: { en: "", es: "" },
+      dur: { en: "30 s", es: "30 s" },
+      hondo: [],
+      medio: null,
+      llega: [{ f: "2026-10-24", t: { en: "The week on one card", es: "La semana en una tarjeta" } }, { f: "2026-10-31", t: { en: "The week on one card", es: "La semana en una tarjeta" } }]
+    }
+  ]
+};
+
+</script>
+<script>
+/* preguntas.js · página v5 (VP, 20-oct-2026, D-281). Las preguntas generales de cada puerta, pensadas en inglés y en español por separado (D-253).
+ * Criterio: reconocible en 2 s, sin escena literal, que cualquiera en cualquier momento se reconozca o lo lleve a su caso
+ * (N: "something like this is happening to me. Something like what?"), y que lleve a la biblioteca y de ahí a la herramienta.
+ *   q    · V1, una pregunta general por puerta (la que N prefiere).
+ *   rot  · V2, cuatro preguntas que rotan, siempre en el mismo orden de lentes: en general, tu cuerpo, tu mente, tu gente
+ *          (las tres de la meta provisional, D-280). La primera es la de V1.
+ *   pal  · V3, una palabra (una imagen) para "Something like…" / "Algo así como…".
+ * Ninguna promete un efecto; "behaviors" siempre. Detalle y porqués: ../../preguntas.md */
+window.NAOS_PREG = {
+  puertas: {
+    breathe: {
+      q: { en: "Holding your breath?", es: "¿Aguantando la respiración?" },
+      rot: {
+        en: ["Holding your breath?", "Jaw tight, shoulders up?", "Too much in your head at once?", "Need a second before you answer?"],
+        es: ["¿Aguantando la respiración?", "¿Mandíbula apretada, hombros arriba?", "¿Demasiado en la cabeza a la vez?", "¿Necesitas un segundo antes de responder?"]
+      },
+      pal: { en: "a knot.", es: "un nudo." }
+    },
+    eat: {
+      q: { en: "Eating without tasting?", es: "¿Comiendo a las carreras?" },
+      rot: {
+        en: ["Eating without tasting?", "Running on empty?", "One eye on the plate, one on the phone?", "Who did you last share a meal with?"],
+        es: ["¿Comiendo a las carreras?", "¿Con el tanque vacío?", "¿Un ojo en el plato y otro en el celular?", "¿Con quién compartiste la última comida?"]
+      },
+      pal: { en: "a rush.", es: "afán." }
+    },
+    sleep: {
+      q: { en: "Hard to start the day, or to end it?", es: "¿Te cuesta arrancar el día, o soltarlo?" },
+      rot: {
+        en: ["Hard to start the day, or to end it?", "Heavy when you wake?", "Mind still on at night?", "Who do you say good morning to?"],
+        es: ["¿Te cuesta arrancar el día, o soltarlo?", "¿Te pesa despertar?", "¿La mente sigue prendida de noche?", "¿A quién le das los buenos días?"]
+      },
+      pal: { en: "fog.", es: "pesadez." }
+    },
+    move: {
+      q: { en: "Been still too long?", es: "¿Mucho rato sin moverte?" },
+      rot: {
+        en: ["Been still too long?", "Feeling rusty?", "Waiting for the perfect time to move?", "Who could walk with you?"],
+        es: ["¿Mucho rato sin moverte?", "¿Con el cuerpo oxidado?", "¿Esperando el momento perfecto para moverte?", "¿Quién podría caminar contigo?"]
+      },
+      pal: { en: "rust.", es: "óxido." }
+    },
+    community: {
+      q: { en: "Missing someone?", es: "¿Extrañas a alguien?" },
+      rot: {
+        en: ["Missing someone?", "Need a voice, not a text?", "Someone you keep meaning to call?", "Typing when you could be talking?"],
+        es: ["¿Extrañas a alguien?", "¿Necesitas una voz, no un mensaje?", "¿Alguien a quien siempre dices que vas a llamar?", "¿Escribiendo cuando podrías hablar?"]
+      },
+      pal: { en: "distance.", es: "distancia." }
+    },
+    divine: {
+      q: { en: "Looking for something bigger?", es: "¿Buscando algo más grande?" },
+      rot: {
+        en: ["Looking for something bigger?", "When did you last look up?", "Need a moment that asks nothing?", "Someone you'd like to remember?"],
+        es: ["¿Buscando algo más grande?", "¿Cuándo miraste arriba por última vez?", "¿Necesitas un momento que no pida nada?", "¿Alguien a quien quieras recordar?"]
+      },
+      pal: { en: "longing.", es: "anhelo." }
+    },
+    week: {
+      q: { en: "Did the week fly by?", es: "¿Se te fue la semana volando?" },
+      rot: {
+        en: ["Did the week fly by?", "What would you do again?", "What do you want to keep?", "Who was there with you?"],
+        es: ["¿Se te fue la semana volando?", "¿Qué volverías a hacer?", "¿Qué quieres guardar?", "¿Quién estuvo contigo?"]
+      },
+      pal: { en: "a blur.", es: "vértigo." }
+    }
+  },
+  // las cuatro lentes de V2, en el orden de rot
+  lentes: { en: ["In general", "Your body", "Your mind", "Your people"], es: ["En general", "Tu cuerpo", "Tu mente", "Tu gente"] },
+  // el título de la caja bento en cada versión
+  bento: {
+    v1: { k: { en: "Pick a door", es: "Elige una puerta" }, t: { en: "Which one sounds like you?", es: "¿Cuál te suena?" } },
+    v2: { k: { en: "Pick a door", es: "Elige una puerta" }, t: { en: "Which one sounds like you?", es: "¿Cuál te suena?" } },
+    v3: { k: { en: "Pick a door", es: "Elige una puerta" }, t: { en: "Something like…", es: "Algo así como…" } }
+  },
+  algo: { en: "Something like…", es: "Algo así como…" }
+};
+
+</script>
+<script>
+/* biblioteca.js · página v5 (VP, 20-oct-2026, D-281): cada puerta es una biblioteca con varias herramientas. Hoy una; las que vienen salen de
+ * empresa/vp/plan-2026.md §3 (semana por semana, con su fecha de estreno) y assets.md §5. La primera de cada puerta es la de hoy y siempre está
+ * abierta; las demás se abren en su fecha (con ?hoy= se puede revisar). Ninguna fecha es una tarea: es cuándo llega (D-279).
+ * La semana: las cuatro preguntas del sábado según el cuarto de la luna (plan-2026 §2).
+ * Llenado (VP, 21-oct, D-282): cada `f` es el día de la primera pieza (Short, Reel o medio) que enseña la herramienta; `id` es su clave en
+ * data/enlaces.json, tal como la trae su pieza.json. Tabla, ritmo y quién actualiza qué: empresa/vp/llenado-bibliotecas.md.
+ * Útil sin video (VP, 21-oct, D-283): campos opcionales en cada entrada, para que la herramienta sirva antes de que salga su pieza.
+ *   d: { en, es } una frase: qué es la herramienta y cuándo.
+ *   q: { en, es } una línea útil o una pregunta, apoyada en la investigación cuando la hay.
+ *   c: [ { t: "Autor Año", u: "URL" } ] solo donde hay una fuente real, abierta y leída el 21-oct; sin `c`, la línea no afirma nada.
+ * Fiesta (VP, 21-oct, D-283 punto 5): las dos de diciembre llevan `pend` (falta revisión D-246 y la elección de N) y `alt` (la otra opción,
+ *   con su n, d y q). Mientras haya `pend`, el constructor no la muestra; cuando N elige, el VP deja la elegida en n/d/q y borra `pend` y `alt`. */
+window.NAOS_BIBLIO = {
+  breathe: [
+    { n: { en: "Two in, one out", es: "Dos adentro, una afuera" }, f: null, id: "2026-10-20|respirar",
+      d: { en: "A sigh on purpose, two breaths in through the nose and one long breath out, for when a message tightens your jaw.",
+           es: "Un suspiro a propósito, dos tomas de aire por la nariz y una salida larga, para cuando un mensaje te aprieta la mandíbula." },
+      q: { en: "In a month-long study, five minutes a day of sighs with a long exhale went with better mood than mindfulness did.",
+           es: "En un estudio de un mes, cinco minutos diarios de suspiros con la salida larga fueron de la mano de un mejor ánimo que la atención plena." },
+      c: [{ t: "Balban 2023", u: "https://doi.org/10.1016/j.xcrm.2022.100895" }] },
+    { n: { en: "Three breaths in the light", es: "Tres respiros en la luz" }, f: "2026-11-03",
+      d: { en: "Open a door or a window at first light and take three breaths there, a short version of a sigh that was studied.",
+           es: "Abre una puerta o una ventana con la primera luz y respira tres veces ahí, una versión corta de un suspiro que se estudió." },
+      q: { en: "Where does the first light come into your home?",
+           es: "¿Por dónde entra la primera luz a tu casa?" },
+      c: [{ t: "Balban 2023", u: "https://doi.org/10.1016/j.xcrm.2022.100895" }] },
+    { n: { en: "Close the day, three breaths", es: "Cierra el día, tres respiros" }, f: "2026-11-17",
+      d: { en: "Three slow breaths when the clock reaches your hour, then the light goes off, to close the day on purpose.",
+           es: "Tres respiros lentos cuando el reloj marca tu hora, y luego apagas la luz, para cerrar el día a propósito." },
+      q: { en: "The NHS lists breathing among the ways to relax before bed: what do you do right before the light goes off?",
+           es: "El NHS cuenta la respiración entre las formas de relajarse antes de dormir: ¿qué haces justo antes de apagar la luz?" },
+      c: [{ t: "NHS", u: "https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/how-to-fall-asleep-faster-and-sleep-better/" }] },
+    { n: { en: "One breath before you answer", es: "Un respiro antes de contestar" }, f: "2026-12-01",
+      d: { en: "One breath between a question and your answer, for when someone asks something that stings.",
+           es: "Un respiro entre la pregunta y tu respuesta, para cuando alguien te pregunta algo que pica." },
+      q: { en: "Which question makes you answer too fast?",
+           es: "¿Qué pregunta te hace contestar demasiado rápido?" } },
+    { n: { en: "Breathe with someone", es: "Respira con alguien" }, f: "2026-12-15",
+      d: { en: "Sit next to someone you trust and take three slow breaths at their pace, for a moment you share.",
+           es: "Siéntate al lado de alguien de confianza y respira tres veces lento, a su ritmo, para un rato compartido." },
+      q: { en: "Whose breathing do you know without looking?",
+           es: "¿La respiración de quién reconoces sin mirar?" } },
+    { n: { en: "Breathe before the count", es: "Respira antes de la cuenta" }, f: "2026-12-29",
+      d: { en: "One long breath before a countdown starts, the New Year's or any other, for the seconds just before.",
+           es: "Un respiro largo antes de que empiece una cuenta regresiva, la del Año Nuevo o cualquiera, para los segundos de antes." },
+      q: { en: "What do you want to be doing when the count reaches zero?",
+           es: "¿Qué quieres estar haciendo cuando la cuenta llegue a cero?" } }
+  ],
+  eat: [
+    { n: { en: "Hold the first bite", es: "Espera el primer bocado" }, f: null, id: "2026-10-21|1021h",
+      d: { en: "When the plate lands, one breath and one name before the first bite, at any meal.",
+           es: "Cuando llega el plato, un respiro y un nombre antes del primer bocado, en cualquier comida." },
+      q: { en: "Tying an act to a clear moment is an if-then plan; across 94 tests such plans helped people do what they meant to, and newer reviews find smaller effects.",
+           es: "Amarrar un acto a un momento claro es un plan si-entonces; en 94 pruebas, planes así ayudaron a la gente a hacer lo que se proponía, y revisiones más nuevas encuentran efectos menores." },
+      c: [{ t: "Gollwitzer 2006", u: "https://doi.org/10.1016/S0065-2601(06)38002-1" },
+          { t: "Wang 2021", u: "https://doi.org/10.3389/fpsyg.2021.565202" }] },
+    { n: { en: "First, eat with someone", es: "Primero, comer con alguien" }, f: "2026-10-20", id: "2026-10-20|1020h",
+      d: { en: "Before you start, find someone to share the meal with, at the table or on a call, at lunch or dinner.",
+           es: "Antes de empezar, busca con quién compartir, en la mesa o en una llamada, al almuerzo o a la comida." },
+      q: { en: "Across 142 countries, people who share more meals report more life satisfaction: who could eat with you today?",
+           es: "En 142 países, quienes comparten más comidas reportan más satisfacción con su vida: ¿quién podría comer contigo hoy?" },
+      c: [{ t: "De Neve 2025", u: "https://worldhappiness.report/ed/2025/sharing-meals-with-others-how-sharing-meals-supports-happiness-and-social-connections/" }] },
+    { n: { en: "Set one more plate", es: "Pon un plato más" }, f: "2026-11-11",
+      d: { en: "Set one plate more than the people you know are coming, and think of who could fill it.",
+           es: "Pon un plato más de los que sabes que se van a sentar, y piensa en quién podría ocuparlo." },
+      q: { en: "In 2023, about 1 in 4 Americans ate every meal of the day alone: who is missing from your table?",
+           es: "En 2023, cerca de 1 de cada 4 estadounidenses comió solo todas las comidas del día: ¿quién falta en tu mesa?" },
+      c: [{ t: "De Neve 2025", u: "https://worldhappiness.report/ed/2025/sharing-meals-with-others-how-sharing-meals-supports-happiness-and-social-connections/" }] },
+    { n: { en: "Phones in the basket", es: "Los teléfonos en la canasta" }, f: "2026-11-25",
+      d: { en: "Every phone goes face down in a basket in the middle of the table until the plates are cleared.",
+           es: "Todos los celulares van boca abajo en una canasta en el centro de la mesa hasta que se recogen los platos." },
+      q: { en: "In a study of over 300 people eating out, those with phones on the table felt more distracted and enjoyed the meal less.",
+           es: "En un estudio con más de 300 personas comiendo afuera, quienes tenían el celular en la mesa se distrajeron más y disfrutaron menos la comida." },
+      c: [{ t: "Dwyer 2018", u: "https://doi.org/10.1016/j.jesp.2017.10.007" }] },
+    { n: { en: "Ask for a story, not news", es: "Pide una historia, no noticias" }, f: "2026-12-09",
+      d: { en: "At the table, ask for a story (a first job, a trip, a grandparent) instead of the day's news.",
+           es: "En la mesa, pide una historia (el primer trabajo, un viaje, una abuela) en vez de las noticias del día." },
+      q: { en: "In experiments with strangers, deep talks felt less awkward than people expected: what story have you never asked for?",
+           es: "En experimentos entre desconocidos, las conversaciones hondas resultaron menos incómodas de lo que la gente esperaba: ¿qué historia nunca has pedido?" },
+      c: [{ t: "Kardas 2022", u: "https://doi.org/10.1037/pspa0000281" }] },
+    { n: { en: "The recipe that never changes", es: "La receta que nunca cambia" }, f: "2026-12-23", pend: "D-246 y N",
+      d: { en: "At the December table, ask whoever made a dish how it's made and who taught them, and write it down.",
+           es: "En la mesa de diciembre, pregúntale a quien hizo un plato cómo se hace y quién le enseñó, y escríbelo." },
+      q: { en: "Which dish at your table has stayed the same for as long as you remember, and who knows how to make it?",
+           es: "¿Qué plato de tu mesa es igual desde que te acuerdas, y quién sabe hacerlo?" },
+      alt: { n: { en: "The pot everyone stirs", es: "La olla del junte" },
+             d: { en: "In December, make one dish with many hands, each person doing one step, from the shopping to the last stir.",
+                  es: "En diciembre, haz un plato entre muchas manos, cada quien con un paso, desde el mercado hasta la última revolvida." },
+             q: { en: "Who stirs the pot at your house in December?",
+                  es: "¿Quién revuelve la olla en tu casa en diciembre?" } } }
+  ],
+  sleep: [
+    { n: { en: "Up when your eyes open", es: "Arriba al abrir los ojos" }, f: null, id: "2026-10-22|despertar",
+      d: { en: "Feet on the floor when your eyes open, before your mind starts arguing, for the first minute of the day.",
+           es: "Los pies en el piso al abrir los ojos, antes de que la mente empiece a opinar, para el primer minuto del día." },
+      q: { en: "The grogginess right after waking has a name, sleep inertia, and it fades the longer you're awake: what do you do in the first minute?",
+           es: "El atontamiento al despertar tiene nombre, inercia del sueño, y se va pasando mientras más tiempo llevas despierto: ¿qué haces en el primer minuto?" },
+      c: [{ t: "Hilditch 2019", u: "https://doi.org/10.2147/NSS.S188911" }] },
+    { n: { en: "Open the window", es: "Abre la ventana" }, f: "2026-11-05",
+      d: { en: "When you get up, open the window and take one breath of outside air, before the lights; skip it if the air outside is smoky.",
+           es: "Al levantarte, abre la ventana y toma un respiro de aire de afuera, antes de prender la luz; sáltatelo si afuera hay humo." },
+      q: { en: "In a small study, bedrooms with fresher air at night felt fresher to the people sleeping in them: how does the air in your room feel?",
+           es: "En un estudio pequeño, los cuartos con aire más fresco de noche se sintieron más frescos para quienes dormían ahí: ¿cómo sientes el aire de tu cuarto?" },
+      c: [{ t: "Strøm-Tejsen 2016", u: "https://doi.org/10.1111/ina.12254" }] },
+    { n: { en: "Keep your hour", es: "Mantén tu hora" }, f: "2026-11-19",
+      d: { en: "Pick one bedtime and keep it for seven nights, writing down when you got into bed.",
+           es: "Escoge una hora de acostarte y mantenla siete noches, anotando a qué hora te metiste a la cama." },
+      q: { en: "The NHS advises going to bed and getting up at similar times each day: what is your hour?",
+           es: "El NHS recomienda acostarse y levantarse a horas parecidas todos los días: ¿cuál es tu hora?" },
+      c: [{ t: "NHS", u: "https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/how-to-fall-asleep-faster-and-sleep-better/" }] },
+    { n: { en: "One minute in the dark", es: "Un minuto a oscuras" }, f: "2026-12-02",
+      d: { en: "Sit on the bed with the last light off for one minute, before you sleep.",
+           es: "Siéntate en la cama con la última luz apagada durante un minuto, antes de dormir." },
+      q: { en: "An expert panel recommends dim light for the three hours before bed and a bedroom as dark as possible: which light is still on at your bedtime?",
+           es: "Un panel de expertos recomienda luz tenue las tres horas antes de dormir y un cuarto lo más oscuro posible: ¿qué luz sigue prendida a tu hora de dormir?" },
+      c: [{ t: "Brown 2022", u: "https://doi.org/10.1371/journal.pbio.3001571" }] },
+    { n: { en: "Write tomorrow's first thing", es: "Escribe lo primero de mañana" }, f: "2026-12-17",
+      d: { en: "Before bed, write down the first thing you'll do tomorrow, so it waits on paper.",
+           es: "Antes de dormir, escribe lo primero que vas a hacer mañana, para que espere en el papel." },
+      q: { en: "What would go on the first line for tomorrow?",
+           es: "¿Qué iría en la primera línea de mañana?" } },
+    { n: { en: "Back to the hour", es: "De vuelta a la hora" }, f: "2026-12-30",
+      d: { en: "After the late nights of the holidays, go back to your usual hour to get up, starting tomorrow.",
+           es: "Después de las trasnochadas de fin de año, vuelve a tu hora de siempre para levantarte, desde mañana." },
+      q: { en: "Sleep doctors advise getting up at the same time every day, even on vacation: what was your hour before December?",
+           es: "Los médicos del sueño recomiendan levantarse a la misma hora todos los días, incluso en vacaciones: ¿cuál era tu hora antes de diciembre?" },
+      c: [{ t: "AASM 2020", u: "https://sleepeducation.org/healthy-sleep/healthy-sleep-habits/" }] }
+  ],
+  move: [
+    { n: { en: "Find the moment", es: "Encuentra el momento" }, f: null,
+      d: { en: "Find two minutes inside a moment you already have, like the coffee dripping, and move at your own pace; if it hurts, stop.",
+           es: "Encuentra dos minutos dentro de un momento que ya tienes, como mientras cuela el café, y muévete a tu ritmo; si duele, para." },
+      q: { en: "The WHO says all physical activity counts: where are your two minutes today?",
+           es: "La OMS dice que toda actividad física cuenta: ¿dónde están tus dos minutos hoy?" },
+      c: [{ t: "WHO 2024", u: "https://www.who.int/news-room/fact-sheets/detail/physical-activity" }] },
+    { n: { en: "Ten slow steps", es: "Diez pasos lentos" }, f: "2026-11-16",
+      d: { en: "Walk toward a water you can reach on foot and make the last ten steps slow, one breath each, stopping on firm ground.",
+           es: "Camina hacia un agua a la que llegues a pie y da los últimos diez pasos lentos, un respiro cada uno, parando en tierra firme." },
+      q: { en: "We found no study of ten slow steps, so this one is ours to try: which water can you reach on foot?",
+           es: "No encontramos un estudio de diez pasos lentos, así que este es nuestro para probar: ¿a qué agua puedes llegar a pie?" } },
+    { n: { en: "Walk side by side", es: "Caminen lado a lado" }, f: "2026-11-30",
+      d: { en: "Ask one person for ten minutes around the block and walk next to them, facing the same way.",
+           es: "Invita a alguien a dar diez minutos de vuelta a la cuadra y caminen uno al lado del otro, mirando para el mismo lado." },
+      q: { en: "Psychologists have proposed that walking side by side may make hard talks easier, and it is still mostly untested: who would you walk with?",
+           es: "Unos psicólogos proponen que caminar lado a lado puede facilitar las conversaciones difíciles, y todavía casi no se ha probado: ¿con quién caminarías?" },
+      c: [{ t: "Webb 2017", u: "https://doi.org/10.1037/a0040431" }] },
+    { n: { en: "Walk home the long way", es: "A casa por el camino largo" }, f: "2026-12-14",
+      d: { en: "On the way home, take a street you know but don't usually use, and look for one thing you've never noticed.",
+           es: "De camino a casa, coge por una calle que conoces pero no sueles usar, y busca una cosa en la que nunca te habías fijado." },
+      q: { en: "In a 2022 trial, older adults who looked for wonder on weekly walks felt more awe and joy on those walks: what have you never noticed on your way home?",
+           es: "En un ensayo de 2022, adultos mayores que buscaban asombro en sus caminatas semanales sintieron más asombro y alegría en ellas: ¿en qué nunca te has fijado camino a casa?" },
+      c: [{ t: "Sturm 2022", u: "https://doi.org/10.1037/emo0000876" }] },
+    { n: { en: "Stand for the call", es: "De pie para la llamada" }, f: "2026-12-28",
+      d: { en: "Stand up when a call starts and stay standing until it ends.",
+           es: "Párate cuando empiece una llamada y quédate de pie hasta que termine." },
+      q: { en: "Which call of your day could you take standing up?",
+           es: "¿Qué llamada de tu día podrías contestar de pie?" } }
+  ],
+  community: [
+    { n: { en: "Call, don't type", es: "Llama, no escribas" }, f: null, id: "2026-10-23|llamar",
+      d: { en: "When you reach for the keyboard to write to someone, press call instead; ten seconds counts.",
+           es: "Cuando vayas a escribirle a alguien, mejor llama; diez segundos cuentan." },
+      q: { en: "In experiments, people expected a call to feel more awkward than typing; it didn't, and it felt closer: whose voice do you want to hear?",
+           es: "En experimentos, la gente esperaba que una llamada fuera más incómoda que escribir; no lo fue, y se sintió más cercana: ¿qué voz quieres oír?" },
+      c: [{ t: "Kumar 2021", u: "https://doi.org/10.1037/xge0000962" }] },
+    { n: { en: "Call someone older", es: "Llama a alguien mayor" }, f: "2026-11-11",
+      d: { en: "Call someone older who is still here, and ask how they are.",
+           es: "Llama a alguien mayor que todavía está, y pregúntale cómo está." },
+      q: { en: "People underestimate how much others appreciate being reached out to: who hasn't heard from you in a while?",
+           es: "La gente subestima cuánto agradecen los demás que los busquen: ¿quién no sabe de ti hace rato?" },
+      c: [{ t: "Liu 2023", u: "https://doi.org/10.1037/pspi0000402" }] },
+    { n: { en: "Look up together", es: "Miren arriba juntos" }, f: "2026-11-24",
+      d: { en: "Pick a night, a time and a place with one person and look up for three minutes, together or each where you are.",
+           es: "Escojan con alguien una noche, una hora y un lugar, y miren arriba tres minutos, juntos o cada uno donde esté." },
+      q: { en: "Deciding the when and where in advance is one of the most tested ways to follow through: which night is yours?",
+           es: "Decidir de antemano el cuándo y el dónde es de las formas más probadas de cumplir: ¿cuál es su noche?" },
+      c: [{ t: "Gollwitzer 2006", u: "https://doi.org/10.1016/S0065-2601(06)38002-1" }] },
+    { n: { en: "Light in the window", es: "Luz en la ventana" }, f: "2026-12-04",
+      d: { en: "Leave one small light in the window on a December night and tell one person it's there.",
+           es: "Deja una lucecita en la ventana una noche de diciembre y cuéntale a alguien que está ahí." },
+      q: { en: "Who would you like to see your light tonight?",
+           es: "¿Quién te gustaría que viera tu luz esta noche?" } },
+    { n: { en: "Call the same person again", es: "Llama otra vez a la misma persona" }, f: "2026-12-11",
+      d: { en: "A week after a call, call the same person again.",
+           es: "Una semana después de una llamada, vuelve a llamar a la misma persona." },
+      q: { en: "In one trial, short friendly calls repeated over four weeks went with less loneliness among homebound adults: who gets your second call?",
+           es: "En un ensayo, llamadas amables y cortas repetidas durante cuatro semanas fueron de la mano de menos soledad en adultos que no salían de casa: ¿a quién le toca tu segunda llamada?" },
+      c: [{ t: "Kahlon 2021", u: "https://doi.org/10.1001/jamapsychiatry.2021.0113" }] },
+    { n: { en: "The block party", es: "La fiesta de cuadra" }, f: "2026-12-25", pend: "D-246 y N",
+      d: { en: "On a December night, take a chair or a plate to your door and share a while with a neighbor, the way a block party does.",
+           es: "Una noche de diciembre, saca una silla o un plato a la puerta y comparte un rato con un vecino, como en la fiesta de cuadra." },
+      q: { en: "Which neighbor have you never shared a plate with?",
+           es: "¿Con qué vecino nunca has compartido un plato?" },
+      alt: { n: { en: "Keep it alive", es: "Que no se pierda" },
+             d: { en: "Teach one December tradition (a carol, a prayer, a step of a recipe, a game) to the youngest one at the gathering.",
+                  es: "Enséñale una tradición de diciembre (un villancico, una oración, un paso de una receta, un juego) al más chiquito del junte." },
+             q: { en: "Which of your family's traditions would be lost if nobody taught it?",
+                  es: "¿Qué tradición de tu familia se perdería si nadie la enseña?" } } }
+  ],
+  divine: [
+    { n: { en: "Look up once", es: "Mira arriba una vez" }, f: null,
+      d: { en: "When you step outside after dark, take one breath and look up once.",
+           es: "Cuando salgas después de que oscurezca, toma un respiro y mira arriba una vez." },
+      q: { en: "What did you notice first?",
+           es: "¿En qué te fijaste primero?" } },
+    { n: { en: "Say one name", es: "Di un nombre" }, f: "2026-10-31",
+      d: { en: "At the table on 1 or 2 November, or any night, say the name of someone you miss, out loud or softly.",
+           es: "En la mesa el 1 o el 2 de noviembre, o cualquier noche, di el nombre de alguien que extrañas, en voz alta o pasito." },
+      q: { en: "Remembering the dead on 2 November became official in 998, when Abbot Odilo of Cluny set it for his monasteries: whose name would you say tonight?",
+           es: "Recordar a los difuntos el 2 de noviembre se volvió oficial en el año 998, cuando el abad Odilón de Cluny lo fijó para sus monasterios: ¿qué nombre dirías esta noche?" },
+      c: [{ t: "Vatican News", u: "https://www.vaticannews.va/en/liturgical-holidays/commemoration-of-all-the-faithful-departed--all-souls-day-.html" }] },
+    { n: { en: "A lamp before dark", es: "Una lámpara antes de oscurecer" }, f: "2026-11-08",
+      d: { en: "Light one small, warm light before it gets dark, any night, and on Diwali, 8 November; put a flame out before you sleep.",
+           es: "Prende una luz pequeña y cálida antes de que oscurezca, cualquier noche, y en Diwali, el 8 de noviembre; apaga la llama antes de dormir." },
+      q: { en: "On Diwali, small oil lamps called diyas are set in rows in windows and doors: where would yours go?",
+           es: "En Diwali, unas lamparitas de aceite llamadas diyas se ponen en fila en ventanas y puertas: ¿dónde iría la tuya?" },
+      c: [{ t: "BBC 2010", u: "https://www.bbc.co.uk/religion/religions/hinduism/holydays/diwali.shtml" }] },
+    { n: { en: "One minute, ask for nothing", es: "Un minuto sin pedir nada" }, f: "2026-11-15",
+      d: { en: "On a full or new moon night, step out for one minute and ask for nothing: no wish, no plan.",
+           es: "Una noche de luna llena o nueva, sal un minuto y no pidas nada: ni deseo ni plan." },
+      q: { en: "When did you last spend a minute without asking for anything?",
+           es: "¿Cuándo fue la última vez que pasaste un minuto sin pedir nada?" } },
+    { n: { en: "Wait one breath", es: "Espera un respiro" }, f: "2026-11-29",
+      d: { en: "Wait one breath before you reach for the next thing (a door, a plate, a message) through the four weeks before Christmas.",
+           es: "Espera un respiro antes de ir por lo siguiente (una puerta, un plato, un mensaje) en las cuatro semanas antes de Navidad." },
+      q: { en: "What are you waiting for this December?",
+           es: "¿Qué estás esperando este diciembre?" } },
+    { n: { en: "The longest night", es: "La noche más larga" }, f: "2026-12-20",
+      d: { en: "On the eve of the solstice, keep one light on through the long night and share it with someone.",
+           es: "La víspera del solsticio, deja una luz prendida en la noche larga y compártela con alguien." },
+      q: { en: "This year's December solstice is on 21 December at 20:50 UTC, the longest night in the north: who will you spend it with?",
+           es: "El solsticio de diciembre de este año es el 21 de diciembre a las 20:50 UTC, la noche más larga en el norte: ¿con quién la vas a pasar?" },
+      c: [{ t: "USNO 2026", u: "https://aa.usno.navy.mil/api/seasons?year=2026" }] }
+  ],
+  week: [
+    { n: { en: "Which one stayed?", es: "¿Cuál se quedó?" }, f: null,
+      d: { en: "The Saturday question: look back at the week and see which behavior stayed on its own.",
+           es: "La pregunta del sábado: mira la semana para atrás y fíjate qué conducta se quedó sola." },
+      q: { en: "In a study of habits in daily life, missing one day did not undo a habit; repeating it in the same moment did the work.",
+           es: "En un estudio de hábitos en la vida diaria, fallar un día no deshizo el hábito; repetirlo en el mismo momento hizo el trabajo." },
+      c: [{ t: "Lally 2010", u: "https://doi.org/10.1002/ejsp.674" }] },
+    { n: { en: "When did it happen?", es: "¿Cuándo pasó?" }, f: "2026-10-24",
+      d: { en: "The Saturday question of the moon's second quarter: remember the moment each behavior happened in.",
+           es: "La pregunta del sábado del segundo cuarto de la luna: acuérdate del momento en que pasó cada conducta." },
+      q: { en: "Habits grow tied to the moment they happen in, so the moment is worth knowing: when did yours happen?",
+           es: "Los hábitos crecen amarrados al momento en que pasan, así que vale la pena conocerlo: ¿cuándo pasó el tuyo?" },
+      c: [{ t: "Wood 2007", u: "https://doi.org/10.1037/0033-295X.114.4.843" }] },
+    { n: { en: "Who did it with you?", es: "¿Quién la hizo contigo?" }, f: "2026-10-31",
+      d: { en: "The Saturday question of the third quarter: remember who joined you in one of the week's behaviors.",
+           es: "La pregunta del sábado del tercer cuarto: acuérdate de quién te acompañó en una de las conductas de la semana." },
+      q: { en: "Who would you ask to join you next week?",
+           es: "¿A quién invitarías a acompañarte la otra semana?" } },
+    { n: { en: "What stays, what goes?", es: "¿Qué se queda, qué se va?" }, f: "2026-11-07",
+      d: { en: "The Saturday question of the last quarter: keep one behavior for the next week and let one go.",
+           es: "La pregunta del sábado del último cuarto: quédate con una conducta para la otra semana y suelta una." },
+      q: { en: "Which one felt like yours, and which one never fit?",
+           es: "¿Cuál se sintió tuya, y cuál nunca te cuadró?" } },
+    { n: { en: "Which one did you try?", es: "¿Cuál probaste?" }, f: "2026-11-14",
+      d: { en: "The Saturday question of the first quarter, after the new moon: name the one behavior you tried this week.",
+           es: "La pregunta del sábado del primer cuarto, después de la luna nueva: nombra la conducta que probaste esta semana." },
+      q: { en: "Which door did you open first, and why that one?",
+           es: "¿Qué puerta abriste primero, y por qué esa?" } }
+  ]
+};
+
+</script>
+<script>
+/* comun.js · página v5 (VP, 20-oct-2026; base de la v4): lo que comparten las tres opciones. Necesita figura.js (NAOS_FIGURA, sin editar), cella-brazos.js
+ * (NAOS_BRAZOS, los dos brazos grandes de this-is-naos-now, sin editar) y datos.js (NAOS_DATOS).
+ *   idioma (EN primero, ES con los mismos componentes), tema (claro siempre al llegar, aunque el teléfono esté en oscuro; oscuro solo si la persona lo elige, D-273 y D-281), la luna como reloj chico,
+ *   Cella con brazos, el suspiro de D-278 (In lento, Deeper fuerte, Out más largo que las dos), su línea en tres tramos,
+ *   la tarjeta dibujada en canvas (imagen real: mantener presionada para guardarla), compartir, y el contador respetuoso (gancho vacío, D-277). */
+(function () {
+  "use strict";
+  const D = window.NAOS_DATOS, F = window.NAOS_FIGURA, B = window.NAOS_BRAZOS;
+  const N = (window.NAOS_V4 = {});
+  const q = new URLSearchParams(location.search);
+  const ls = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+  N.ls = ls;
+  // En el sitio (build.py --sitio) la página lleva window.NAOS_SITIO: enlaces relativos del repo, pie con privacidad y términos, y los enlaces de lo publicado.
+  N.SITIO = !!window.NAOS_SITIO;
+  N.REL = N.SITIO ? "" : D.sitio;
+  // Dos salidas de una sola fuente (D-284): la portada en inglés (raíz) y la española (es/). build.py --sitio pone window.NAOS_LANG (idioma por defecto de la página),
+  // window.NAOS_RAIZ (cómo se llega a la raíz del sitio desde la página: "" o "../") y window.NAOS_ES_TEMAS (los temas que existen en es/temas/).
+  N.RAIZ = N.SITIO ? (window.NAOS_RAIZ || "") : "";
+  // ruta desde la raíz del sitio (temas/, agenda.html, es/...) a la ruta relativa desde esta página; desde es/, "es/x" es "x"
+  N.ruta = (r) => (N.RAIZ && r.indexOf("es/") === 0 ? r.slice(3) : N.RAIZ + r);
+  // un tema: la página en español si el idioma es español y existe en es/temas/, si no la inglesa
+  N.temaUrl = (slug) => !N.SITIO ? N.REL + "temas/" + slug + "/" : N.lang === "es" && (window.NAOS_ES_TEMAS || []).indexOf(slug) >= 0 ? N.ruta("es/temas/" + slug + "/") : N.RAIZ + "temas/" + slug + "/";
+  N.INK = "#0E1116"; N.PAPEL = "#FFFFFF"; N.PLATA = "#F4F6F8";
+  N.TRAMO = ["#A9B2EC", "#3B4BB5", "#7FCDAE"];   // In lavanda, Deeper cobalto, Out menta (this-is-naos-now, D-278)
+
+  /* ---------- idioma ---------- */
+  // en el sitio manda la página (NAOS_LANG; el botón de idioma cambia de página); ?lang= sigue valiendo para revisar. En las maquetas, ?lang y luego lo recordado.
+  N.lang = (q.get("lang") || (N.SITIO ? window.NAOS_LANG : ls.get("naos-v5-lang")) || "en") === "es" ? "es" : "en";
+  N.L = (o) => (o == null ? "" : typeof o === "string" ? o : o[N.lang] != null ? o[N.lang] : o.en);
+  N.UI = {
+    en: {
+      frase: "Closer to yourself.", salta: "Skip to the doors", conCella: "Breathe with Cella", hazla: "Do it with Cella", otraVez: "Once more", listo: "Done",
+      tarjetaT: "Your card", guardar: "Save the card", mandar: "Send the question", copiado: "Copied", sostener: "Press and hold the card to save it.", guardarNo: "If nothing downloaded, press and hold the card.",
+      tuCuando: "Your own when", escribe: "Write your own", usar: "Use it", nuevoEl: (d) => "New on " + d + "s", cualquier: "Any door, any day.",
+      diasNota: "The tools stay open every day. The days only tell you when something new arrives.",
+      DIA: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], DIAL: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      MES: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      fases: ["In", "Deeper", "Out"], fasesL: ["In.", "Deeper.", "Out."], pausa: "Pause Cella", reanudar: "Play Cella",
+      tema: "Dark mode", idioma: "Español", idiomaCorto: "ES", hondo: "Go deeper", llega: "Coming to this door", kit: "Take with you",
+      seguir: "Follow NAOS", yt: "YouTube", ig: "Instagram", seguirD: "New tools arrive as Shorts and Reels.",
+      luna: { llena: "Full", nueva: "New", hoy: "tonight", en: (n) => "in " + n + (n === 1 ? " day" : " days"), lit: (p) => p + "% lit" },
+      pilares: "Eat well, sleep well, get moving, have a relationship with the divine, and build community.",
+      enlacesPie: (R) => `<a href="${R("temas/")}">Topics</a> · <a href="${R("agenda.html")}">Upcoming</a> · <a href="${R("privacidad.html")}">Privacy</a> · <a href="${R("terminos.html")}">Terms</a> · <a href="${R("archivo/index-anterior.html")}" hreflang="es">About the NAOS YouTube app</a> · <a href="${R("es/")}" hreflang="es" lang="es">NAOS en español</a>`,
+      privado: "This page sets no cookies and has no trackers.",
+      ayuda: 'If this is weighing on you, talk to someone now. Colombia: <a href="tel:106">106</a>, national mental health line, 24/7, or <a href="tel:123">123</a> in immediate danger (<a href="https://findahelpline.com/countries/co" rel="noopener">source</a>). US: <a href="tel:988">988</a>. Anywhere else: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a>.',
+      sintetico: "The voices in NAOS pieces are synthetic. A behavior to try; it does not replace treatment.",
+      puerta: "Door", de: "of", siguiente: "Next door", anterior: "Previous door", puertas: "Doors", semanaT: "Which one stayed this week?",
+      paso: "Step", cuandoK: "When", actoK: "The behavior", sienteK: "Check in", preguntaK: "A question to pass on", fuenteK: "What we know",
+      empezar: "Start", siguientePaso: "Next", saltar: "Skip to the card", volver: "Back", cerrar: "Close", todas: "All doors",
+      verPuerta: "Open the door", biblio: "Library", estanteK: "On this shelf", hoyK: "Today's tool", pausaQ: "Pause the questions", sigueQ: "Play the questions", lentesK: "Ask from", abierta: "always open", proxima: "next", hoyEs: "today", sostenerB: "Hold to breathe in", bSigue: "Keep holding", bSuelta: "Let go", bSale: "Out, long", lleva: "Let Cella lead", sigueSost: "Keep holding: in, then deeper.", suelta: "Let go: out, long."
+    },
+    es: {
+      frase: "Más cerca de ti.", salta: "Ir a las puertas", conCella: "Respira con Cella", hazla: "Hazla con Cella", otraVez: "Otra vez", listo: "Listo",
+      tarjetaT: "Tu tarjeta", guardar: "Guarda la tarjeta", mandar: "Manda la pregunta", copiado: "Copiada", sostener: "Mantén presionada la tarjeta para guardarla.", guardarNo: "Si no se descargó, mantén presionada la tarjeta.",
+      tuCuando: "Tu propio cuándo", escribe: "Escribe el tuyo", usar: "Úsalo", nuevoEl: (d) => "Lo nuevo llega los " + d, cualquier: "Cualquier puerta, cualquier día.",
+      diasNota: "Las herramientas están abiertas todos los días. Los días solo dicen cuándo llega algo nuevo.",
+      DIA: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"], DIAL: ["domingos", "lunes", "martes", "miércoles", "jueves", "viernes", "sábados"],
+      MES: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"],
+      fases: ["Entra", "Más hondo", "Sale"], fasesL: ["Entra.", "Más hondo.", "Sale."], pausa: "Pausar a Cella", reanudar: "Mover a Cella",
+      tema: "Modo oscuro", idioma: "English", idiomaCorto: "EN", hondo: "Más a fondo", llega: "Lo que llega a esta puerta", kit: "Para llevar",
+      seguir: "Sigue a NAOS", yt: "YouTube", ig: "Instagram", seguirD: "Las herramientas nuevas llegan como Shorts y Reels.",
+      luna: { llena: "Llena", nueva: "Nueva", hoy: "esta noche", en: (n) => "en " + n + (n === 1 ? " día" : " días"), lit: (p) => p + " % iluminada" },
+      pilares: "Come bien, duerme bien, muévete, ten una relación con lo divino y construye comunidad.",
+      enlacesPie: (R) => `<a href="${R("es/temas/")}">Temas</a> · <a href="${R("agenda.html")}" hreflang="en" lang="en">Agenda</a> · <a href="${R("privacidad.html")}" hreflang="en" lang="en">Privacidad</a> · <a href="${R("terminos.html")}" hreflang="en" lang="en">Términos</a> · <a href="${R("archivo/index-anterior.html")}" hreflang="es">Sobre la app de YouTube de NAOS</a>`,
+      privado: "Esta página no usa cookies ni rastreadores.",
+      ayuda: 'Si esto te pesa, habla con alguien ahora. Colombia: <a href="tel:106">106</a>, línea nacional de salud mental, 24/7, o <a href="tel:123">123</a> si hay peligro inmediato (<a href="https://findahelpline.com/countries/co" rel="noopener" hreflang="en">fuente</a>). EE. UU.: <a href="tel:988">988</a>. En cualquier otro lugar: <a href="https://findahelpline.com" rel="noopener" hreflang="en">findahelpline.com</a>.',
+      sintetico: "Las voces de las piezas de NAOS son sintéticas. Una conducta para probar; no reemplaza un tratamiento.",
+      puerta: "Puerta", de: "de", siguiente: "Puerta siguiente", anterior: "Puerta anterior", puertas: "Puertas", semanaT: "¿Cuál se quedó esta semana?",
+      paso: "Paso", cuandoK: "Cuándo", actoK: "La conducta", sienteK: "Revisa", preguntaK: "Una pregunta para pasar", fuenteK: "Lo que sabemos",
+      empezar: "Empieza", siguientePaso: "Sigue", saltar: "Ir a la tarjeta", volver: "Volver", cerrar: "Cerrar", todas: "Todas las puertas",
+      verPuerta: "Abre la puerta", biblio: "Biblioteca", estanteK: "En este estante", hoyK: "La herramienta de hoy", pausaQ: "Pausar las preguntas", sigueQ: "Mover las preguntas", lentesK: "Preguntar desde", abierta: "siempre abierta", proxima: "próxima", hoyEs: "hoy", sostenerB: "Mantén presionado para inhalar", bSigue: "Sigue presionando", bSuelta: "Suelta", bSale: "Sale, larga", lleva: "Que Cella guíe", sigueSost: "Sigue presionando: entra, y más hondo.", suelta: "Suelta: sale, larga."
+    }
+  };
+  N.u = (k) => N.UI[N.lang][k];
+  N.esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  /* ---------- fecha de hoy (hora de Colombia; ?hoy=AAAA-MM-DD para revisar) ---------- */
+  const BOG = 5 * 36e5;
+  N.ahora = () => { const h = q.get("hoy"); return h ? Date.UTC(+h.slice(0, 4), +h.slice(5, 7) - 1, +h.slice(8, 10), 14) : Date.now(); };
+  N.hoyF = () => new Date(N.ahora() - BOG).toISOString().slice(0, 10);
+  N.diaSem = () => new Date(N.ahora() - BOG).getUTCDay();
+  N.fecha = (f) => { const d = new Date(f + "T12:00:00Z"); return N.lang === "es" ? N.u("DIA")[d.getUTCDay()] + " " + d.getUTCDate() + " " + N.u("MES")[d.getUTCMonth()] : N.u("DIA")[d.getUTCDay()] + " " + N.u("MES")[d.getUTCMonth()] + " " + d.getUTCDate(); };
+
+  /* ---------- movimiento reducido ---------- */
+  N.rm = () => q.has("quieto") || matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- contador respetuoso (D-277): gancho vacío; se conecta solo con el sí de N ---------- */
+  N.eventos = [];
+  N.contar = (ev, d) => { N.eventos.push({ ev: ev, d: d || null, t: Math.round(performance.now()) }); };
+  N.contar("llega", { src: q.get("src") || null, lang: N.lang });
+
+  /* ---------- lo ya publicado (D-234): data/enlaces.json, la misma fuente del sitio ----------
+   * Una entrada de la biblioteca (biblioteca.js) puede traer, opcionales, `id` (la llave de enlaces.json, "AAAA-MM-DD|slot o código") o `yt` (el
+   * enlace directo). Si coincide con una pieza publicada se muestra su enlace de YouTube en el estante; si ninguna coincide, no cambia nada.
+   * A prueba de fallos: sin red, sin el archivo o con un JSON raro, la página queda igual. Solo se lee en http(s) y solo se aceptan enlaces de YouTube. */
+  N.enlaces = {};
+  N.ytValido = (u) => typeof u === "string" && /^https:\/\/(www\.youtube\.com\/|youtu\.be\/)/.test(u);
+  N.ytDe = (h) => { const u = h && (h.yt || (h.id && N.enlaces[h.id] && N.enlaces[h.id].yt)); return N.ytValido(u) ? u : null; };
+  if (N.SITIO && /^https?:$/.test(location.protocol) && window.fetch) {
+    fetch(N.RAIZ + "data/enlaces.json").then((r) => (r.ok ? r.json() : null)).then((j) => { if (j && j.piezas && typeof j.piezas === "object") N.enlaces = j.piezas; }).catch(() => {});
+  }
+
+  /* ---------- tema ---------- */
+  N.temaIni = () => {
+    const t = ls.get("naos-tema");
+    if (t === "dark" || t === "light") document.documentElement.setAttribute("data-tema", t);
+    if (q.get("tema") === "dark" || q.get("tema") === "light") document.documentElement.setAttribute("data-tema", q.get("tema"));
+  };
+  N.oscuro = () => document.documentElement.getAttribute("data-tema") === "dark";
+  N.temaBoton = (b) => {
+    const pinta = () => b.setAttribute("aria-pressed", String(N.oscuro()));
+    pinta();
+    b.addEventListener("click", () => {
+      const n = N.oscuro() ? "light" : "dark";
+      document.documentElement.setAttribute("data-tema", n); ls.set("naos-tema", n); pinta();
+      document.dispatchEvent(new CustomEvent("naos-tema"));
+    });
+  };
+  N.temaIni();
+
+  /* ---------- idioma: en el sitio el botón va a la otra portada (es/ o la raíz); en las maquetas recarga la misma página con ?lang ---------- */
+  N.idiomaBoton = (b) => {
+    b.addEventListener("click", () => {
+      if (N.SITIO) {
+        const p = new URLSearchParams(location.search); p.delete("lang"); const s = p.toString();
+        location.href = (N.lang === "es" ? N.RAIZ || "./" : N.RAIZ + "es/") + (s ? "?" + s : ""); return;
+      }
+      const n = N.lang === "es" ? "en" : "es"; ls.set("naos-v5-lang", n);
+      const u = new URL(location.href); u.searchParams.set("lang", n); location.href = u.toString();
+    });
+  };
+
+  /* ---------- la luna, reloj chico (USNO, data/luna.json; hora de Colombia) ---------- */
+  const ANG = { nueva: 0, cuarto_creciente: 90, llena: 180, cuarto_menguante: 270 };
+  const FASES = (window.NAOS_LUNA_FASES || []).map((f) => ({ fase: f[0], ms: Date.parse(f[1].replace(/Z$/, ":00Z")) }));
+  N.luna = (ms) => {
+    ms = ms || N.ahora();
+    let i = FASES.findIndex((f) => f.ms > ms); if (i < 1) i = 1;
+    const a = FASES[i - 1], b = FASES[i];
+    let a0 = ANG[a.fase], a1 = ANG[b.fase]; if (a1 <= a0) a1 += 360;
+    const el = (a0 + (a1 - a0) * (ms - a.ms) / (b.ms - a.ms)) % 360;
+    const k = (1 - Math.cos(el * Math.PI / 180)) / 2, cre = el < 180;
+    const prox = FASES.find((f) => f.ms > ms - 0.45 * 864e5 && (f.fase === "llena" || f.fase === "nueva"));
+    const diaProx = prox ? new Date(prox.ms - BOG).toISOString().slice(0, 10) : null;
+    const hoyB = new Date(ms - BOG).toISOString().slice(0, 10);
+    const dias = prox ? Math.round((Date.parse(diaProx) - Date.parse(hoyB)) / 864e5) : null;
+    return { k: k, cre: cre, pct: Math.round(k * 100), prox: prox, dias: dias, diaProx: diaProx };
+  };
+  // el disco: anillo y la parte iluminada en el color de la tinta (convención de almanaque invertida: lo lleno es luz)
+  N.lunaSVG = (l, px, tx) => {
+    const r = 9, k = l.k, w = r * Math.abs(1 - 2 * k), lado = l.cre ? 1 : 0;
+    // la parte iluminada: un semicírculo del lado de la luz más una elipse de ancho w que suma (gibosa) o resta (creciente)
+    const d = k < 0.01 ? "" : k > 0.99 ? `M10 1 A9 9 0 1 1 10 19 A9 9 0 1 1 10 1 Z` :
+      `M10 1 A9 9 0 0 ${lado} 10 19 A${w.toFixed(2)} 9 0 0 ${k > 0.5 ? lado : 1 - lado} 10 1 Z`;
+    return `<svg viewBox="0 0 20 20" width="${px}" height="${px}" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="9" fill="none" stroke="${tx}" stroke-width="1.6"/>${d ? `<path d="${d}" fill="${tx}"/>` : ""}</svg>`;
+  };
+  N.lunaTexto = (l) => {
+    const U = N.u("luna"); if (!l.prox) return U.lit(l.pct);
+    const nom = l.prox.fase === "llena" ? U.llena : U.nueva;
+    const hora = new Date(l.prox.ms - BOG).toISOString().slice(11, 16);
+    if (l.diaProx === N.hoyF()) return nom + " " + U.hoy + ", " + hora;
+    return nom + " " + U.en(Math.max(1, l.dias));
+  };
+  N.lunaLarga = (l) => {
+    const U = N.u("luna"); if (!l.prox) return U.lit(l.pct);
+    const nom = (l.prox.fase === "llena" ? U.llena : U.nueva) + (N.lang === "es" ? "" : " moon");
+    const hora = new Date(l.prox.ms - BOG).toISOString().slice(11, 16);
+    return (N.lang === "es" ? "Luna " + nom.toLowerCase() : nom) + ": " + N.fecha(l.diaProx) + ", " + hora + (N.lang === "es" ? " hora de Colombia. " : " Colombia time. ") + U.lit(l.pct) + (N.lang === "es" ? " hoy." : " today.");
+  };
+  N.lunaPinta = (el) => {
+    if (!el) return;
+    const l = N.luna(), tx = getComputedStyle(document.documentElement).getPropertyValue("--fg").trim() || N.INK;
+    el.innerHTML = N.lunaSVG(l, 18, tx) + `<span class="luna-t" aria-hidden="true">${N.esc(N.lunaTexto(l))}</span><span class="sr">${N.esc(N.lunaLarga(l))}</span>`;
+  };
+
+  /* ---------- Cella con los dos brazos grandes (NAOS_BRAZOS sobre NAOS_FIGURA; ninguno se edita) ---------- */
+  let cid = 0;
+  N.cella = (o) => {
+    o = o || {}; const p = { tx: o.tx || N.INK, bg: o.bg || N.PAPEL, noche: !!o.noche };
+    const izq = Math.max(0, Math.min(62, o.izq || 0)), der = Math.max(0, Math.min(62, o.der || 0));
+    const g = B.cella({ cx: 120, base: 212, s: 1, p: p, b: o.b || 0, izq: izq, der: (izq > 58 && der > 58) ? 58 : der, abre: o.abre || 0, contento: !!o.contento, id: "c" + (++cid % 1e6) });
+    return `<svg class="cella-svg" viewBox="-30 50 300 176" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false" overflow="visible">${g}</svg>`;
+  };
+  // la respiración de reposo (8 s: 4 adentro, 4 afuera), como cella.js
+  N.respira = (t) => 0.5 - 0.5 * Math.cos(2 * Math.PI * t / 8);
+  N.sn = (x) => { x = Math.max(0, Math.min(1, x)); return 0.5 - 0.5 * Math.cos(Math.PI * x); };
+
+  /* ---------- el suspiro de D-278: In lento, Deeper fuerte, Out más largo que las dos ---------- */
+  const SD = [2.2, 0.35, 1.1, 4.8];   // segundos: in1, pausa corta, in2, out
+  N.SUSPIRO = SD.reduce((a, b) => a + b, 0);
+  N.suspiro = (t) => {
+    const [a, p, b, c] = SD, sn = N.sn;
+    if (t < 0) return { f: -1, v: 0 };
+    if (t < a) return { f: 0, v: 0.42 * sn(t / a) };
+    if (t < a + p) return { f: 0, v: 0.42 };
+    if (t < a + p + b) return { f: 1, v: 0.42 + 0.58 * sn((t - a - p) / b) };
+    if (t < a + p + b + c) return { f: 2, v: 1 - sn((t - a - p - b) / c) };
+    return { f: 3, v: 0 };
+  };
+  // los tres tramos de la línea hasta el instante te, en una caja W x H; devuelve d por tramo y el punto actual
+  N.linea = (te, W, H, pad) => {
+    pad = pad || 14; const T = N.SUSPIRO, x = (t) => pad + (W - 2 * pad) * t / T, y = (v) => H - pad - (H - 2 * pad) * v;
+    const ds = ["", "", ""]; let prev = null; const us = [];
+    for (let u = 0; u < Math.min(te, T); u += 1 / 40) us.push(u);
+    const cortes = [SD[0] + SD[1], SD[0] + SD[1] + SD[2]]; cortes.forEach((c) => { if (c < te) us.push(c - 1e-4); });
+    us.push(Math.min(te, T)); us.sort((a, b) => a - b);
+    us.forEach((u) => {
+      const s = N.suspiro(u), kk = Math.min(2, Math.max(0, s.f === 3 ? 2 : s.f)), xy = x(u).toFixed(1) + " " + y(s.v).toFixed(1);
+      if (!ds[kk]) ds[kk] = "M" + (prev && prev.k !== kk ? prev.xy + " L" : "") + xy; else ds[kk] += " L" + xy;
+      prev = { k: kk, xy: xy };
+    });
+    const s = N.suspiro(Math.min(te, T));
+    return { ds: ds, x: x(Math.min(te, T)), y: y(s.v), f: s.f, etiquetas: [[x(SD[0] * 0.6), y(0.42 * N.sn(0.6))], [x(SD[0] + SD[1] + SD[2]), y(1)], [x(SD[0] + SD[1] + SD[2] + SD[3] * 0.5), y(0.5)]] };
+  };
+  // la línea dibujada en SVG: contorno de tinta y el color del tramo encima (como en el video); fina = la previa
+  N.lineaSVG = (te, W, H, o) => {
+    o = o || {}; const L = N.linea(te, W, H, o.pad), c = o.contorno || "var(--fg)", g1 = o.grueso || 14, g2 = o.fino || 7;
+    let s = `<svg class="linea-svg" viewBox="0 0 ${W} ${H}" width="100%" aria-hidden="true" focusable="false" overflow="visible">`;
+    if (o.previa) { const P = N.linea(N.SUSPIRO, W, H, o.pad), pg = o.previaG || 5;
+      P.ds.forEach((d) => { if (d) s += `<path d="${d}" fill="none" stroke="${c}" stroke-width="${pg + 5}" stroke-linecap="round" stroke-linejoin="round"/>`; });
+      P.ds.forEach((d, j) => { if (d) s += `<path d="${d}" fill="none" stroke="${N.TRAMO[j]}" stroke-width="${pg}" stroke-linecap="round" stroke-linejoin="round"/>`; }); }
+    L.ds.forEach((d) => { if (d) s += `<path d="${d}" fill="none" stroke="${c}" stroke-width="${g1}" stroke-linecap="round" stroke-linejoin="round"/>`; });
+    L.ds.forEach((d, j) => { if (d) s += `<path d="${d}" fill="none" stroke="${N.TRAMO[j]}" stroke-width="${g2}" stroke-linecap="round" stroke-linejoin="round"/>`; });
+    if (te > 0 && te < N.SUSPIRO + 0.3) s += `<circle cx="${L.x.toFixed(1)}" cy="${L.y.toFixed(1)}" r="${g1 * 0.8}" fill="${c}"/><circle cx="${L.x.toFixed(1)}" cy="${L.y.toFixed(1)}" r="${g1 * 0.45}" fill="${N.TRAMO[Math.min(2, Math.max(0, L.f))]}"/>`;
+    if (o.etiquetas) L.etiquetas.forEach((p, j) => { s += `<text x="${p[0].toFixed(1)}" y="${(p[1] - (o.etqDy || 22)).toFixed(1)}" class="etq" text-anchor="middle">${N.esc(N.u("fasesL")[j])}</text>`; });
+    return s + "</svg>";
+  };
+
+  /* ---------- un reloj de animación que respeta movimiento reducido y la pestaña oculta ---------- */
+  N.bucle = (fn) => {
+    let on = true, t0 = performance.now(), raf = 0;
+    const paso = (now) => { if (!on) return; fn((now - t0) / 1000); raf = requestAnimationFrame(paso); };
+    raf = requestAnimationFrame(paso);
+    return { parar() { on = false; cancelAnimationFrame(raf); }, reinicia() { t0 = performance.now(); } };
+  };
+
+  /* ---------- la tarjeta (canvas 1080 x 1350, 4:5): imagen real para guardar, mandar o capturar ---------- */
+  const envolver = (ctx, txt, max) => {
+    const pal = txt.split(" "), out = []; let l = "";
+    pal.forEach((w) => { const t = l ? l + " " + w : w; if (ctx.measureText(t).width > max && l) { out.push(l); l = w; } else l = t; });
+    if (l) out.push(l); return out;
+  };
+  const brazoCanvas = (ctx, lado, ang, color) => {
+    if (!(ang > 0.05)) return;
+    const R0 = 11, R1 = 9, L = 100, piv = lado === "izq" ? [77, 96] : [163, 96];
+    ctx.save(); ctx.translate(piv[0], piv[1]); ctx.rotate((lado === "izq" ? ang : -ang) * Math.PI / 180);
+    ctx.fillStyle = color; ctx.fill(new Path2D(`M${-R0} 0 L${-R1} ${L} A${R1} ${R1} 0 0 0 ${R1} ${L} L${R0} 0 A${R0} ${R0} 0 0 0 ${-R0} 0 Z`)); ctx.restore();
+  };
+  N.fuentesListas = () => (document.fonts && document.fonts.load ? Promise.all([
+    document.fonts.load('300 80px "Newsreader"'), document.fonts.load('italic 300 80px "Newsreader"'),
+    document.fonts.load('600 40px "IBM Plex Sans Condensed"'), document.fonts.load('400 30px "IBM Plex Sans"')
+  ]).catch(() => null) : Promise.resolve());
+  N.tarjeta = async (P, o) => {
+    o = o || {}; await N.fuentesListas();
+    const W = 1080, H = 1350, cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+    const ctx = cv.getContext("2d"), campo = P.campo, tx = P.tx, M = 96;
+    ctx.fillStyle = campo; ctx.fillRect(0, 0, W, H);
+    if (P.id === "week") { ctx.strokeStyle = N.INK; ctx.lineWidth = 6; ctx.strokeRect(3, 3, W - 6, H - 6); }
+    ctx.fillStyle = tx; ctx.textBaseline = "alphabetic";
+    if (N.signoCanvas) N.signoCanvas(ctx, P.id, tx, campo, M - 4, M - 14, 3.4);
+    ctx.fillStyle = tx;
+    ctx.font = '600 40px "IBM Plex Sans Condensed", sans-serif';
+    ctx.fillText(N.L(P.nombre).toUpperCase(), M + 96, M + 40);
+    ctx.font = 'italic 300 40px "Newsreader", serif'; ctx.fillText(N.L(P.cerca), M + 96, M + 92);
+    // el cuándo (propio o el de la puerta) y la conducta
+    const lineas = o.lineas || N.L(P.tarjeta);
+    let y = 330;
+    ctx.font = '300 84px "Newsreader", serif';
+    envolver(ctx, lineas[0], W - 2 * M).forEach((l) => { ctx.fillText(l, M, y); y += 96; });
+    y += 30; ctx.font = 'italic 300 124px "Newsreader", serif';
+    envolver(ctx, lineas[1], W - 2 * M).forEach((l) => { ctx.fillText(l, M, y); y += 128; });
+    // Cella con un brazo abierto, sobre la línea del suelo
+    const s = 1.9, cx = W - 290, base = H - 210;
+    ctx.fillRect(0, base, W, 6);
+    ctx.save(); ctx.translate(cx - 120 * s, base - 212 * s); ctx.scale(s, s);
+    brazoCanvas(ctx, "der", 46, tx); brazoCanvas(ctx, "izq", 16, tx); ctx.restore();
+    F.cella(ctx, { estado: "humanity", b: 0.3, abiertos: false, p: { tx: tx, bg: campo }, x: cx - 120 * s, y: base - 212 * s, s: s });
+    // pie
+    ctx.font = 'italic 300 52px "Newsreader", serif'; ctx.fillStyle = tx;
+    ctx.fillText(N.u("frase"), M, H - 104);
+    ctx.font = '400 30px "IBM Plex Sans", sans-serif';
+    ctx.fillText("NAOS · hardlypythonnmr.github.io/naos", M, H - 52);
+    return cv;
+  };
+  N.guardar = async (cv, nombre) => {
+    const blob = await new Promise((r) => cv.toBlob(r, "image/png"));
+    const file = blob && typeof File === "function" ? new File([blob], nombre, { type: "image/png" }) : null;
+    N.contar("tarjeta", { como: "intento" });
+    if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
+      try { await navigator.share({ files: [file], title: "NAOS" }); N.contar("tarjeta", { como: "share" }); return "share"; } catch (e) { if (e && e.name === "AbortError") return "abort"; }
+    }
+    const a = document.createElement("a"); a.href = cv.toDataURL("image/png"); a.download = nombre; document.body.appendChild(a); a.click(); a.remove();
+    N.contar("tarjeta", { como: "download" }); return "download";
+  };
+  N.mandar = async (P) => {
+    const txt = N.L(P.pregunta) + " " + N.L(P.tarjeta).join(" ") + " " + D.sitio;
+    N.contar("pregunta", { puerta: P.id });
+    if (navigator.share) { try { await navigator.share({ text: txt }); return "share"; } catch (e) { if (e && e.name === "AbortError") return "abort"; } }
+    try { await navigator.clipboard.writeText(txt); return "copy"; } catch (e) { return "nada"; }
+  };
+
+  /* ---------- piezas de HTML compartidas ---------- */
+  N.barra = (extra) => `
+    <a class="marca" href="#arriba" aria-label="NAOS"><span class="naos">NAOS</span></a>
+    <span class="luna" id="luna"></span>
+    ${extra || ""}
+    <button class="b-ico b-lang" type="button" id="b-lang" lang="${N.lang === "es" ? "en" : "es"}" aria-label="${N.esc(N.u("idioma"))} (${N.u("idiomaCorto")})">${N.u("idiomaCorto")}</button>
+    <button class="b-ico b-tema" type="button" id="b-tema" aria-pressed="false" aria-label="${N.esc(N.u("tema"))}"><svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 2a8 8 0 0 0 0 16z" fill="currentColor"/></svg></button>`;
+  N.pie = () => `
+    <div class="pie-seguir">
+      <p class="pie-k">${N.u("seguir")}</p>
+      <p class="pie-d">${N.u("seguirD")}</p>
+      <p class="pie-b"><a class="b-seguir" href="${D.seguir.yt}" rel="noopener" data-seguir="yt">${N.u("yt")}</a><a class="b-seguir" href="${D.seguir.ig}" rel="noopener" data-seguir="ig">${N.u("ig")}</a></p>
+    </div>
+    <p class="ayuda">${N.u("ayuda")}</p>
+    <p class="pie-n"><span class="naos">NAOS</span> <span class="frase-p">${N.u("frase")}</span></p>
+    <p class="pie-pilares">${N.u("pilares")}</p>
+    <p class="pie-s">${N.u("sintetico")} ${N.u("privado")}</p>${N.SITIO ? `
+    <p class="pie-links">${N.u("enlacesPie")(N.ruta)}</p>` : ""}`;
+  N.cablear = () => {
+    const t = document.getElementById("b-tema"); if (t) N.temaBoton(t);
+    const l = document.getElementById("b-lang"); if (l) N.idiomaBoton(l);
+    N.lunaPinta(document.getElementById("luna"));
+    document.addEventListener("naos-tema", () => N.lunaPinta(document.getElementById("luna")));
+    document.addEventListener("click", (e) => { const a = e.target.closest && e.target.closest("[data-seguir]"); if (a) N.contar("seguir", { a: a.getAttribute("data-seguir") }); });
+    document.documentElement.lang = N.lang;
+  };
+  N.puerta = (id) => D.puertas.find((p) => p.id === id);
+  // el enlace de un Short puede traer su puerta: ?puerta=eat (o ?src=eat-...); la página llega a esa puerta
+  N.puertaPedida = () => { const v = (q.get("puerta") || (q.get("src") || "").split("-")[0] || "").toLowerCase(); return D.puertas.some((p) => p.id === v) ? v : null; };
+
+  /* ---------- la tarjeta en pantalla, con "tu propio cuándo", guardar y mandar (las tres opciones la usan) ---------- */
+  N.kit = (cont, P, o) => {
+    o = o || {}; const clave = "naos-v5-cuando-" + P.id;
+    let propio = ls.get(clave), sel = -1;
+    const pinta = async () => {
+      const lin = (o.lineas ? o.lineas() : N.L(P.tarjeta)).slice();
+      if (propio && !o.lineas) lin[0] = propio.replace(/[.:]+$/, "") + ":";
+      const cv = await N.tarjeta(P, { lineas: lin });
+      const img = cont.querySelector(".kit-img");
+      img.src = cv.toDataURL("image/png");
+      img.alt = lin.join(" ") + " " + N.u("frase");
+      cont._cv = cv;
+    };
+    const anclas = N.L(P.anclas) || [];
+    cont.innerHTML = `
+      <p class="kit-sost">${N.u("sostener")}</p>
+      <figure class="kit-fig"><img class="kit-img" width="1080" height="1350" alt=""></figure>
+      <div class="kit-acc">
+        <button type="button" class="b-sec kit-g">${N.u("guardar")}</button>
+        <button type="button" class="b-sec kit-m">${N.u("mandar")}</button>
+        <p class="kit-nota" aria-live="polite"></p>
+      </div>
+      ${anclas.length ? `<fieldset class="kit-anclas"><legend>${N.u("tuCuando")}</legend>
+        <div class="anclas">${anclas.map((a, i) => `<button type="button" class="ancla" aria-pressed="${propio === a}" data-i="${i}">${N.esc(a)}</button>`).join("")}</div>
+        <form class="ancla-propia"><label class="sr" for="ap-${P.id}">${N.u("escribe")}</label><input id="ap-${P.id}" type="text" maxlength="60" placeholder="${N.esc(N.u("escribe"))}" autocomplete="off"><button type="submit" class="b-sec">${N.u("usar")}</button></form>
+      </fieldset>` : ""}`;
+    cont._repinta = pinta;
+    cont.querySelector(".kit-g").addEventListener("click", async () => { if (!cont._cv) return; const r = await N.guardar(cont._cv, "naos-" + P.id + ".png"); if (r !== "share") cont.querySelector(".kit-nota").textContent = N.u("guardarNo"); });
+    cont.querySelector(".kit-m").addEventListener("click", async () => {
+      const r = await N.mandar(P); if (r === "copy") cont.querySelector(".kit-nota").textContent = N.u("copiado");
+    });
+    cont.querySelectorAll(".ancla").forEach((b) => b.addEventListener("click", () => {
+      const a = anclas[+b.dataset.i]; propio = propio === a ? null : a;
+      if (propio) ls.set(clave, propio); else { try { localStorage.removeItem(clave); } catch (e) {} }
+      cont.querySelectorAll(".ancla").forEach((x) => x.setAttribute("aria-pressed", String(anclas[+x.dataset.i] === propio)));
+      N.contar("cuando", { puerta: P.id }); pinta();
+    }));
+    const f = cont.querySelector(".ancla-propia");
+    if (f) f.addEventListener("submit", (e) => { e.preventDefault(); const v = f.querySelector("input").value.trim(); if (!v) return; propio = v; ls.set(clave, v); cont.querySelectorAll(".ancla").forEach((x) => x.setAttribute("aria-pressed", "false")); N.contar("cuando", { puerta: P.id, propio: true }); pinta(); });
+    return pinta();
+  };
+
+  /* ---------- detrás de cada puerta: lo hondo, lo que llega, el medio ---------- */
+  N.detras = (P) => {
+    const hoy = N.hoyF();
+    const hondo = P.hondo.map((h) => `<li><a href="${N.temaUrl(h.slug)}">${N.esc(N.L(h.t))}</a>${h.desde && h.desde > hoy ? ` <span class="pronto">${N.esc(N.fecha(h.desde))}</span>` : ""}</li>`).join("");
+    const llega = P.llega.filter((x) => x.f >= hoy).slice(0, 3).map((x) => `<li><span class="f">${N.esc(N.fecha(x.f))}</span> ${N.esc(N.L(x.t))}</li>`).join("");
+    return `${P.medio || hondo ? `<div class="det"><h4>${N.u("hondo")}</h4><ul>${P.medio ? `<li><a href="${D.seguir.yt}" rel="noopener">${N.esc(N.L(P.medio))}</a></li>` : ""}${hondo}</ul></div>` : ""}
+      ${llega ? `<div class="det"><h4>${N.u("llega")}</h4><ul class="det-f">${llega}</ul><p class="det-n">${N.esc(N.u("nuevoEl")(N.u("DIAL")[P.dia]))}. ${N.esc(N.u("diasNota"))}</p></div>` : ""}`;
+  };
+})();
+/* objetos de cada puerta, en la gramática de Cella (GUIA-carruseles §4): dos colores, masa maciza en la tinta de la puerta, huecos del color del campo.
+ * Los mismos de this-is-naos-now: la burbuja del mensaje, el plato, la cama, el reloj de dos minutos, el teléfono, la luna real y la tarjeta. */
+(function () {
+  "use strict";
+  const N = window.NAOS_V4, D = window.NAOS_DATOS;
+  const rr = (x, y, w, h, r, c) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" fill="${c}"/>`;
+  N.objeto = (id, tx, campo, t) => {
+    t = t || 0; let s = "";
+    if (id === "breathe") {
+      s = rr(14, 46, 172, 86, 22, tx) + `<path d="M44 128 L30 166 L86 132 Z" fill="${tx}"/>` + rr(38, 70, 112, 14, 7, campo) + rr(38, 96, 74, 14, 7, campo);
+    } else if (id === "eat") {
+      s = `<path d="M100 40 C 88 58, 112 70, 100 88 C 90 102, 110 112, 100 124" fill="none" stroke="${tx}" stroke-width="9" stroke-linecap="round"/>` +
+        `<ellipse cx="96" cy="156" rx="84" ry="18" fill="${tx}"/><ellipse cx="96" cy="154" rx="52" ry="9" fill="${campo}"/>` +
+        rr(168, 60, 9, 96, 4, tx) + rr(156, 44, 34, 26, 8, tx) + rr(156, 18, 8, 34, 4, tx) + rr(169, 18, 8, 34, 4, tx) + rr(182, 18, 8, 34, 4, tx);
+    } else if (id === "sleep") {
+      s = rr(20, 128, 170, 26, 6, tx) + rr(20, 70, 18, 100, 6, tx) + rr(176, 112, 14, 58, 6, tx) + rr(44, 108, 54, 22, 10, tx) +
+        rr(70, 158, 30, 18, 9, tx) + rr(108, 158, 30, 18, 9, tx);
+    } else if (id === "move") {
+      const fr = 0.12 + 0.5 * (0.5 - 0.5 * Math.cos(Math.PI * Math.min(1, t / 3))), an = fr * 2 * Math.PI, R = 52, px = 100 + R * Math.sin(an), py = 100 - R * Math.cos(an);
+      s = `<circle cx="100" cy="100" r="70" fill="${tx}"/><circle cx="100" cy="100" r="58" fill="${campo}"/>` +
+        `<path d="M100 100 L100 ${100 - R} A${R} ${R} 0 ${an > Math.PI ? 1 : 0} 1 ${px.toFixed(1)} ${py.toFixed(1)} Z" fill="${tx}"/>` + rr(92, 16, 16, 18, 4, tx);
+    } else if (id === "community") {
+      s = `<g transform="rotate(-8 100 100)">` + rr(52, 12, 96, 176, 18, tx) + rr(62, 30, 76, 120, 8, campo) +
+        `<circle cx="100" cy="112" r="24" fill="${tx}"/><path d="M88 116 q12 -10 24 0" fill="none" stroke="${campo}" stroke-width="7" stroke-linecap="round"/>` + rr(86, 160, 28, 10, 5, campo) + `</g>`;
+    } else if (id === "divine") {
+      const l = N.luna(), r = 56, k = l.k, w = r * Math.abs(1 - 2 * k), lado = l.cre ? 1 : 0;
+      const d = k < 0.01 ? "" : k > 0.99 ? `M100 44 A56 56 0 1 1 100 156 A56 56 0 1 1 100 44 Z` : `M100 44 A56 56 0 0 ${lado} 100 156 A${w.toFixed(2)} 56 0 0 ${k > 0.5 ? lado : 1 - lado} 100 44 Z`;
+      s = `<circle cx="100" cy="100" r="56" fill="none" stroke="${tx}" stroke-width="5"/>` + (d ? `<path d="${d}" fill="${tx}"/>` : "") +
+        `<rect x="22" y="30" width="10" height="10" transform="rotate(45 27 35)" fill="${tx}"/><rect x="170" y="150" width="8" height="8" transform="rotate(45 174 154)" fill="${tx}"/><rect x="168" y="36" width="7" height="7" transform="rotate(45 171 39)" fill="${tx}"/>`;
+    } else if (id === "week") {
+      s = rr(16, 30, 168, 140, 14, tx);
+      D.puertas.filter((p) => p.id !== "week").forEach((p, i) => { const x = 46 + (i % 3) * 54, y = 74 + Math.floor(i / 3) * 52; s += `<rect x="${x - 13}" y="${y - 13}" width="26" height="26" transform="rotate(45 ${x} ${y})" fill="${p.campo}"/>`; });
+    }
+    return `<svg class="obj-svg" viewBox="0 0 200 200" aria-hidden="true" focusable="false">${s}</svg>`;
+  };
+})();
+
+</script>
+<script>
+/* signos.js · página v5 (VP, 20-oct-2026, D-281). Un pictograma propio por biblioteca, en la gramática de Cella (GUIA-carruseles §4):
+ * dos tonos, masa maciza en la tinta de la puerta, huecos del color del campo, sin línea fina ni sombra. Dibujados en una rejilla de 24
+ * para leerse a 24 px. N: "I just don't think colors are that intuitive": el color acompaña, el signo identifica.
+ *   breathe   la línea del suspiro (entra, más hondo, sale larga), la misma de la sala y de los videos
+ *   eat       el cuenco con su vapor
+ *   sleep     la cama con su almohada
+ *   move      dos huellas, una adelante de la otra
+ *   community dos personas, hombro con hombro
+ *   divine    una llama sobre su lámpara (sin símbolo de ninguna tradición en particular)
+ *   week      la tarjeta de la semana con los seis rombos de las otras puertas como huecos
+ * Cada signo es una lista de trazos que sirve igual para SVG (la página) y para canvas (la tarjeta). */
+(function () {
+  "use strict";
+  const N = window.NAOS_V4, D = window.NAOS_DATOS, BIB = window.NAOS_BIBLIO;
+  const rr = (x, y, w, h, r) => `M${x + r} ${y} H${x + w - r} A${r} ${r} 0 0 1 ${x + w} ${y + r} V${y + h - r} A${r} ${r} 0 0 1 ${x + w - r} ${y + h} H${x + r} A${r} ${r} 0 0 1 ${x} ${y + h - r} V${y + r} A${r} ${r} 0 0 1 ${x + r} ${y} Z`;
+  const el = (cx, cy, rx, ry) => `M${cx - rx} ${cy} A${rx} ${ry} 0 1 0 ${cx + rx} ${cy} A${rx} ${ry} 0 1 0 ${cx - rx} ${cy} Z`;
+  const rombo = (cx, cy, r) => `M${cx} ${cy - r} L${cx + r} ${cy} L${cx} ${cy + r} L${cx - r} ${cy} Z`;
+  // t = tinta (masa), c = campo (hueco); s = trazo grueso de tinta
+  const SG = {
+    breathe: [{ s: "M2 19.2 C3.4 19.2 3.6 14.2 5.4 14.2 L7 14.2 C8.2 14.2 8 4.6 9.8 4.6 C13.4 4.6 15.6 16.4 22 18.4", w: 3 }],
+    eat: [
+      { t: "M2.5 11.2 H21.5 C21.5 16.4 17.2 19.6 12 19.6 C6.8 19.6 2.5 16.4 2.5 11.2 Z" },
+      { t: rr(8.5, 19, 7, 2.6, 1.2) },
+      { s: "M9.2 2.6 C7.8 4.2 10.6 5.6 9.2 7.6", w: 2 },
+      { s: "M14.6 2.6 C13.2 4.2 16 5.6 14.6 7.6", w: 2 }
+    ],
+    sleep: [
+      { t: rr(1.6, 6, 3.4, 14.6, 1.2) },
+      { t: rr(1.6, 13, 20.8, 4.8, 1.2) },
+      { t: rr(19.2, 15, 3.2, 5.6, 1.2) },
+      { t: rr(6.6, 9.4, 6.8, 3.6, 1.8) }
+    ],
+    move: [
+      { t: "M0 -5.6 C2.3 -5.6 3.2 -3.4 3 -1.2 C2.8 0.8 1.8 1.6 1.9 3.2 C2 5 1.3 6.2 0 6.2 C-1.4 6.2 -2.1 5 -1.9 3.2 C-1.7 1.4 -3 0.2 -2.9 -1.8 C-2.8 -4 -1.8 -5.6 0 -5.6 Z", tr: [7.6, 15.6, -8] },
+      { t: el(0, 0, 1.25, 1.35), tr: [6.0, 8.1, 0] }, { t: el(0, 0, 1.0, 1.1), tr: [8.6, 7.9, 0] },
+      { t: "M0 -5.6 C2.3 -5.6 3.2 -3.4 3 -1.2 C2.8 0.8 1.8 1.6 1.9 3.2 C2 5 1.3 6.2 0 6.2 C-1.4 6.2 -2.1 5 -1.9 3.2 C-1.7 1.4 -3 0.2 -2.9 -1.8 C-2.8 -4 -1.8 -5.6 0 -5.6 Z", tr: [16.4, 9.4, 8] },
+      { t: el(0, 0, 1.25, 1.35), tr: [15.3, 1.9, 0] }, { t: el(0, 0, 1.0, 1.1), tr: [17.9, 2.2, 0] }
+    ],
+    community: [
+      { t: el(15.6, 7.6, 3.4, 3.4) }, { t: "M9.4 21 C9.4 15.8 12 13 15.6 13 C19.2 13 21.8 15.8 21.8 21 Z" },
+      { c: el(8.4, 8.4, 4.9, 4.9) }, { c: "M0.6 21.6 C0.6 15 3.8 12 8.4 12 C13 12 16.2 15 16.2 21.6 Z" },
+      { t: el(8.4, 8.4, 3.5, 3.5) }, { t: "M2.2 21 C2.2 16 4.8 13.4 8.4 13.4 C12 13.4 14.6 16 14.6 21 Z" }
+    ],
+    divine: [
+      { t: "M12 1.8 C15.8 6.4 17.8 9.6 17.8 13 C17.8 16.3 15.2 18.8 12 18.8 C8.8 18.8 6.2 16.3 6.2 13 C6.2 9.6 8.2 6.4 12 1.8 Z" },
+      { c: "M12 10.2 C13.6 12 14.6 13.4 14.6 15 C14.6 16.5 13.4 17.5 12 17.5 C10.6 17.5 9.4 16.5 9.4 15 C9.4 13.4 10.4 12 12 10.2 Z" },
+      { t: rr(5.4, 20, 13.2, 2.6, 1.3) }
+    ],
+    week: [
+      { t: rr(2.2, 3.2, 19.6, 17.6, 2.6) },
+      { c: rombo(7.2, 9, 2.1) }, { c: rombo(12, 9, 2.1) }, { c: rombo(16.8, 9, 2.1) },
+      { c: rombo(7.2, 15, 2.1) }, { c: rombo(12, 15, 2.1) }, { c: rombo(16.8, 15, 2.1) }
+    ]
+  };
+  N.SIGNOS = SG;
+  N.signo = (id, tx, campo, px) => {
+    const tr = (p) => p.tr ? ` transform="translate(${p.tr[0]} ${p.tr[1]}) rotate(${p.tr[2]})"` : "";
+    const s = (SG[id] || []).map((p) => p.s ? `<path d="${p.s}" fill="none" stroke="${tx}" stroke-width="${p.w}" stroke-linecap="round" stroke-linejoin="round"${tr(p)}/>` : `<path d="${p.t || p.c}" fill="${p.t ? tx : campo}"${tr(p)}/>`).join("");
+    return `<svg class="signo" viewBox="0 0 24 24" width="${px || 24}" height="${px || 24}" aria-hidden="true" focusable="false">${s}</svg>`;
+  };
+  // la placa: el signo en tinta sobre un disco del color de la puerta (el color acompaña; el signo identifica)
+  N.placa = (P, px) => `<span class="placa" style="--pc:${P.campo};--pt:${P.tx}">${N.signo(P.id, P.tx, P.campo, px || 24)}</span>`;
+  N.signoCanvas = (ctx, id, tx, campo, x, y, s) => {
+    ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+    (SG[id] || []).forEach((p) => {
+      ctx.save(); if (p.tr) { ctx.translate(p.tr[0], p.tr[1]); ctx.rotate(p.tr[2] * Math.PI / 180); }
+      if (p.s) { ctx.strokeStyle = tx; ctx.lineWidth = p.w; ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.stroke(new Path2D(p.s)); }
+      else { ctx.fillStyle = p.t ? tx : campo; ctx.fill(new Path2D(p.t || p.c)); }
+      ctx.restore();
+    });
+    ctx.restore();
+  };
+
+  /* ---------- la biblioteca de cada puerta ---------- */
+  N.biblio = (P) => {
+    const hoy = N.hoyF();
+    // las marcadas `pend` (fiesta de diciembre, falta la elección de N) no se muestran ni se cuentan
+    return (BIB[P.id] || []).filter((h) => !h.pend).map((h, i) => ({ n: h.n, f: h.f, id: h.id, yt: h.yt, d: h.d, q: h.q, c: h.c, i: i, abierta: !h.f || h.f <= hoy, hoy: i === 0 }));
+  };
+  N.biblioCuenta = (P) => { const b = N.biblio(P); const a = b.filter((x) => x.abierta).length; return { a: a, v: b.length - a, total: b.length }; };
+  N.biblioTexto = (P) => {
+    const c = N.biblioCuenta(P);
+    return N.lang === "es" ? `${c.a} ${c.a === 1 ? "abierta" : "abiertas"} · ${c.v} en camino` : `${c.a} open · ${c.v} on the way`;
+  };
+  // el estante: un lomo por herramienta; macizo = abierta, con contorno = en camino
+  const ALT = [17, 14, 19, 15, 18, 13, 16];
+  N.estante = (P, tx) => {
+    const b = N.biblio(P), w = 6, g = 3, H = 22;
+    let s = "";
+    b.forEach((h, i) => { const x = 1 + i * (w + g), a = ALT[i % ALT.length], y = H - 2 - a;
+      s += h.abierta ? `<rect x="${x}" y="${y}" width="${w}" height="${a}" rx="1.4" fill="${tx}"/>` : `<rect x="${x + 0.9}" y="${y + 0.9}" width="${w - 1.8}" height="${a - 1.8}" rx="1" fill="none" stroke="${tx}" stroke-width="1.8"/>`; });
+    const W = 2 + b.length * (w + g);
+    s += `<rect x="0" y="${H - 2}" width="${W}" height="2.4" fill="${tx}"/>`;
+    return `<svg class="estante" viewBox="0 0 ${W} ${H + 0.4}" width="${W}" height="${H}" aria-hidden="true" focusable="false">${s}</svg>`;
+  };
+  // lo útil antes del video (D-283): descripción, línea o pregunta apoyada en la investigación, y las fuentes como enlaces chicos
+  const urlOk = (u) => { try { return typeof u === "string" && new URL(u).protocol === "https:"; } catch (e) { return false; } };
+  N.estanteUtil = (h) => {
+    const d = h.d && N.L(h.d), q = h.q && N.L(h.q);
+    const c = (Array.isArray(h.c) ? h.c : []).filter((x) => x && x.t && urlOk(x.u));
+    if (!d && !q && !c.length) return "";
+    const fu = N.lang === "es" ? "Fuente" : "Source";
+    return `<div class="est-x">${d ? `<p class="est-d">${N.esc(d)}</p>` : ""}${q ? `<p class="est-q">${N.esc(q)}</p>` : ""}${c.length ? `<p class="est-c"><span class="est-ck">${fu}:</span> ${c.map((x) => `<a href="${N.esc(x.u)}" target="_blank" rel="noopener">${N.esc(x.t)}</a>`).join(" · ")}</p>` : ""}</div>`;
+  };
+  // la lista del estante (dentro de la puerta abierta y después del suspiro)
+  N.estanteLista = (P, o) => {
+    o = o || {};
+    const T = N.lang === "es" ? { hoy: "Hoy", abierta: "Abierta", llega: "Llega", ver: "Ver" } : { hoy: "Today", abierta: "Open", llega: "Arrives", ver: "Watch" };
+    return `<ol class="est-l">${N.biblio(P).map((h) => `<li class="est-i ${h.abierta ? "est-a" : "est-v"}">
+      <span class="est-lomo" aria-hidden="true"></span>
+      <span class="est-n">${N.esc(N.L(h.n))}</span>
+      <span class="est-f">${N.ytDe(h) ? `<a class="est-yt" href="${N.esc(N.ytDe(h))}" rel="noopener" aria-label="${N.esc(T.ver + ": " + N.L(h.n))}">${T.ver}</a> ` : ""}${h.hoy ? (o.boton ? `<button type="button" class="b-pri est-go">${N.esc(N.u("hazla"))}</button>` : T.hoy) : h.abierta ? T.abierta : `${T.llega} ${N.esc(N.fecha(h.f))}`}</span>${h.abierta ? N.estanteUtil(h) : ""}</li>`).join("")}</ol>`;
+  };
+})();
+
+</script>
+<script>
+/* guia.js · v5: la herramienta guiada (base de la v4; suma la pregunta de la puerta y el estante de su biblioteca), hecha con Cella, y después la tarjeta (las tres opciones). N (20-oct): "Do it with Cella, then take the card".
+ * Breathe: el suspiro de D-278 con la línea en tres tramos. Modo "auto" (Cella guía el tiempo) o "sostener" (opción C: mantienes presionado
+ * para entrar, sueltas para salir). Las otras puertas: tres pasos de 3,4 s con un gesto de brazos cada uno. La semana: eliges la que se quedó.
+ * Movimiento reducido: Cella quieta, la línea aparece por tramos, sin deslizamientos. Ojos cerrados durante toda exhalación (D-270). */
+(function () {
+  "use strict";
+  const N = window.NAOS_V4, B = window.NAOS_BRAZOS, D = window.NAOS_DATOS;
+  const PASO = 3.4;
+
+  N.guia = (cont, P, o) => {
+    o = o || {}; const LH = o.lineaAlto || 220;
+    const L = N.L, u = N.u, esB = P.id === "breathe", esW = P.id === "week"; let modo; const modoIni = esB ? (o.modo === "sostener" ? "sostener" : "auto") : (o.modo === "sostener" && !esW ? "toque" : "auto"); modo = modoIni;
+    const tx = P.tx, campo = o.campo || P.campo, fondo = o.transparente ? null : campo;
+    const durB = esB ? u("conCella") : u("hazla");
+    let elegida = null;
+    cont.classList.add("guia", "g-" + P.id);
+    if (fondo) { cont.style.setProperty("--campo", campo); cont.style.setProperty("--tx", tx); }
+    const otras = D.puertas.filter((x) => x.id !== "week");
+    cont.innerHTML = `
+      <div class="g-cab">
+        ${o.sinK ? "" : `<p class="g-k">${N.placa(P, 24)}<span class="g-n">${N.esc(L(P.nombre))}</span><span class="g-c">${N.esc(L(P.cerca))}</span></p>`}
+        ${o.pregunta ? `<h2 class="g-preg" id="${o.titulo}">${o.pregunta}</h2>${o.preguntaSub || ""}<p class="g-acto g-acto-s">${N.esc(L(P.acto))}</p><p class="g-cuando g-cuando-s">${N.esc(L(P.cuando))}</p>` :
+        `${o.titulo ? `<h2 class="g-cuando" id="${o.titulo}">${N.esc(L(P.cuando))}</h2>` : `<p class="g-cuando">${N.esc(L(P.cuando))}</p>`}
+        <p class="g-acto">${N.esc(L(P.acto))}</p>`}
+      </div>
+      <div class="g-escena">
+        ${esB ? `<div class="g-linea"></div>` : ""}
+        ${esW ? `<div class="g-semana" role="group" aria-label="${N.esc(u("semanaT"))}">${otras.map((x) => `<button type="button" class="g-sem" style="--sc:${x.campo};--st:${x.tx}" aria-pressed="false" data-id="${x.id}"><span class="g-sem-n">${N.esc(L(x.nombre))}</span><span class="g-sem-a">${N.esc(L(x.acto))}</span></button>`).join("")}</div>` : ""}
+        <p class="g-fase" aria-hidden="true"></p>
+        <p class="g-paso" aria-live="polite"></p>
+        <div class="g-cella"></div>
+        ${!esB && !esW ? `<div class="g-obj" aria-hidden="true">${N.objeto(P.id, P.tx, P.campo)}</div>` : ""}
+        <i class="g-suelo" aria-hidden="true"></i>
+      </div>
+      <div class="g-acc">
+        ${esW ? "" : `<button type="button" class="b-pri g-go">${modo === "sostener" ? `<span class="g-go-t">${u("sostenerB")}</span>` : modo === "toque" ? `${u("empezar")} <span class="dur">· ${N.esc(L(P.dur))}</span>` : `${durB} <span class="dur">· ${N.esc(L(P.dur))}</span>`}</button>`}
+        ${modo === "sostener" ? `<button type="button" class="b-sec g-lleva">${u("lleva")}</button>` : ""}
+        <button type="button" class="g-salta">${u("saltar")}</button>
+      </div>
+      <div class="g-fin" hidden>
+        ${esW ? "" : `<p class="g-siente" tabindex="-1">${N.esc(L(P.siente))}</p>`}
+        <p class="g-cuidado">${N.esc(L(P.cuidado))}</p>
+        ${esW ? "" : `<p class="g-otra-p"><button type="button" class="b-sec g-otra">${u("otraVez")}</button></p>`}
+        <h3 class="g-kt" tabindex="-1">${u("tarjetaT")}</h3>
+        <div class="g-kit"></div>
+        ${o.sinEstante ? "" : `<div class="g-est"><h3 class="g-kt">${u("estanteK")} · ${N.esc(L(P.nombre))}</h3><p class="g-est-c">${N.estante(P, "currentColor")} <span>${N.esc(N.biblioTexto(P))}</span></p>${N.estanteLista(P)}</div>`}
+        ${L(P.escena) ? `<details class="g-saber"><summary>${u("fuenteK")}</summary><p>${N.esc(L(P.escena))}</p><p>${N.esc(L(P.fuente))}</p></details>` : ""}
+        <div class="g-detras">${N.detras(P)}</div>
+      </div>`;
+    const $ = (s) => cont.querySelector(s);
+    const elC = $(".g-cella"), elF = $(".g-fase"), elP = $(".g-paso"), elL = $(".g-linea"), go = $(".g-go"), fin = $(".g-fin");
+    const pal = { tx: tx, bg: campo };
+    const refrescar = () => { const cs = getComputedStyle(cont); pal.tx = cs.getPropertyValue("--tx").trim() || tx; pal.bg = cs.getPropertyValue("--campo").trim() || campo; previaHecha = false; };
+    const rm = N.rm();
+    let paso = 0, tPaso = 0, estado = "listo", t0 = 0, reloj = null, tIdle = 0, kitHecho = false, tNow = 0, previaHecha = false;
+    // estado de la escena
+    const pinta = (t) => {
+      let b = rm ? 0.3 : N.respira(t), izq = 0, der = 0, abre = 0, cont_ = false;
+      if (estado === "listo") {
+        if (!rm) { const g = (t % 7); der = B.gesto(g, { t0: 3.2, t1: 4.6, a: 34 }); }
+        if (esB && elL && !previaHecha) { previaHecha = true; elL.innerHTML = N.lineaSVG(0, 600, LH, { previa: true, etiquetas: true, contorno: pal.tx, grueso: 12, fino: 6, pad: 22, etqDy: 26 }); }
+      } else if (estado === "corre") {
+        const tt = t - t0;
+        if (esB) {
+          const s = modo === "sostener" ? N.suspiro(sost.t) : N.suspiro(tt), te = modo === "sostener" ? sost.t : tt;
+          b = 0.15 + 0.85 * s.v;
+          if (elL) elL.innerHTML = N.lineaSVG(rm ? escalon(te) : te, 600, LH, { previa: true, etiquetas: true, contorno: pal.tx, grueso: 16, fino: 8, pad: 22, etqDy: 26 });
+          const f = Math.max(0, Math.min(2, s.f));
+          const txt = s.f === 3 ? "" : u("fases")[f];
+          if (elF.textContent !== txt) elF.textContent = txt;
+          const pt = s.f === 3 ? "" : L(P.pasos[f]);
+          if (modo === "sostener" && s.f >= 0 && s.f < 2 && !sost.on && sost.t > 0) setP(u("sigueSost"));
+          else if (modo === "sostener" && s.f === 1 && s.v > 0.97 && sost.on) setP(u("suelta"));
+          else setP(pt);
+          if (s.f === 3) terminar();
+        } else if (!esW) {
+          const i = modo === "toque" ? paso : Math.min(2, Math.floor(tt / PASO)), lt = modo === "toque" ? t - tPaso : tt - i * PASO;
+          if (elF.textContent !== String(i + 1)) elF.textContent = String(i + 1);
+          setP(L(P.pasos[i]));
+          if (!rm) {
+            if (i === 0) der = B.gesto(lt, { t0: 0.2, t1: 2.6, a: 42 });
+            if (i === 1) { izq = B.gesto(lt, { t0: 0.2, t1: 2.6, a: 50 }); abre = B.ojo(lt, 0.6, 2.6); }
+            if (i === 2) { izq = B.gesto(lt, { t0: 0.2, t1: 3.0, a: 26 }); der = B.gesto(lt, { t0: 0.2, t1: 3.0, a: 30 }); cont_ = lt > 1.4; }
+          } else if (i === 1) abre = 1;
+          if (modo !== "toque" && tt >= 3 * PASO) terminar();
+        }
+      } else if (estado === "fin") {
+        b = rm ? 0.3 : N.respira(t); cont_ = !esB; der = rm ? 0 : B.gesto(t - tIdle, { t0: 0.1, t1: 1.6, a: 40 });
+      }
+      elC.innerHTML = N.cella({ b: b, izq: izq, der: der, abre: abre, contento: cont_, tx: pal.tx, bg: pal.bg });
+    };
+    const escalon = (te) => { const s = N.suspiro(te); return s.f <= 0 ? 2.55 : s.f === 1 ? 3.65 : s.f === 2 ? N.SUSPIRO : N.SUSPIRO; };
+    let ultP = "";
+    const setP = (x) => { if (x !== ultP) { elP.textContent = x; ultP = x; } };
+    // modo sostener (C): el tiempo del suspiro avanza solo mientras mantienes presionado en las dos entradas; al soltar después de "Deeper", sale solo
+    const sost = { on: false, t: 0, sale: false, last: 0 };
+    const tick = (t) => {
+      tNow = t;
+      if (modo === "sostener" && estado === "corre") {
+        const dt = Math.min(0.1, t - (sost.last || t)); sost.last = t;
+        const inEnd = 2.2 + 0.35 + 1.1;
+        if (sost.sale) sost.t = Math.min(N.SUSPIRO + 0.01, sost.t + dt);
+        else if (sost.on) sost.t = Math.min(inEnd, sost.t + dt);
+        const et = sost.sale ? u("bSale") : sost.on ? (sost.t >= inEnd - 0.15 ? u("bSuelta") : u("bSigue")) : u("sostenerB");
+        const sp = go.querySelector(".g-go-t"); if (sp && sp.textContent !== et) sp.textContent = et;
+      }
+      pinta(t);
+    };
+    const terminar = () => {
+      if (estado === "fin") return;
+      estado = "fin"; tIdle = tNow;
+      elF.textContent = ""; setP("");
+      fin.hidden = false; cont.classList.add("g-hecha");
+      N.contar("termina", { puerta: P.id });
+      if (go) { go.disabled = false; }
+      $(".g-salta").hidden = true;
+      if (!kitHecho) { kitHecho = true; N.kit($(".g-kit"), P, esW ? { lineas: () => [L(P.tarjeta)[0] + " " + L(P.tarjeta)[1].replace(/\.$/, ":"), elegida ? L(elegida.acto) : L(N.puerta("breathe").acto)] } : {}); }
+      else if (esW && $(".g-kit")._repinta) $(".g-kit")._repinta();
+      const foco = $(".g-siente") || $(".g-kt");
+      if (o.alTerminar) o.alTerminar(); if (foco) setTimeout(() => foco.focus({ preventScroll: !!o.sinScroll }), 60);
+      if (!o.sinScroll && foco) setTimeout(() => foco.scrollIntoView({ behavior: rm ? "auto" : "smooth", block: "start" }), rm ? 0 : 500);
+    };
+    const arrancar = () => {
+      estado = "corre"; t0 = tNow; sost.t = 0; sost.sale = false; sost.last = 0; paso = 0; tPaso = tNow;
+      if (modo === "toque" && go) go.innerHTML = `${u("siguientePaso")} <span class="dur">· 1 / 3</span>`;
+      fin.hidden = true; cont.classList.remove("g-hecha"); cont.classList.add("g-corre"); $(".g-salta").hidden = false;
+      N.contar("empieza", { puerta: P.id, modo: modo });
+      if (go && modo === "auto") go.disabled = true;
+    };
+    if (go) {
+      if (modo === "sostener") {
+        const baja = (e) => { if (e.type === "keydown" && e.key !== " " && e.key !== "Enter") return; if (e.repeat) return; e.preventDefault();
+          if (estado !== "corre") arrancar(); if (sost.sale) return; sost.on = true; go.classList.add("on"); };
+        const sube = (e) => { if (e.type === "keyup" && e.key !== " " && e.key !== "Enter") return; if (!sost.on) return; sost.on = false; go.classList.remove("on");
+          if (sost.t >= 2.2 + 0.35 + 1.1 - 0.15) { sost.t = Math.max(sost.t, 3.65); sost.sale = true; } };
+        go.addEventListener("pointerdown", (e) => { go.setPointerCapture && go.setPointerCapture(e.pointerId); baja(e); });
+        go.addEventListener("pointerup", sube); go.addEventListener("pointercancel", sube); go.addEventListener("lostpointercapture", sube);
+        go.addEventListener("keydown", baja); go.addEventListener("keyup", sube);
+        go.addEventListener("contextmenu", (e) => e.preventDefault());
+      } else if (modo === "toque") {
+        cont.classList.add("g-toque");
+        go.addEventListener("click", () => {
+          if (estado !== "corre") { arrancar(); return; }
+          if (paso < 2) { paso += 1; tPaso = tNow; } else { terminar(); return; }
+          go.innerHTML = paso < 2 ? `${u("siguientePaso")} <span class="dur">· ${paso + 1} / 3</span>` : `${u("listo")} <span class="dur">· 3 / 3</span>`;
+        });
+      } else go.addEventListener("click", arrancar);
+    }
+    $(".g-salta").addEventListener("click", () => { estado = "corre"; terminar(); });
+    const lleva = $(".g-lleva"); if (lleva) lleva.addEventListener("click", () => { modo = "auto"; cont.classList.add("g-auto"); lleva.hidden = true; arrancar(); });
+    const otra = $(".g-otra"); if (otra) otra.addEventListener("click", () => { arrancar(); cont.querySelector(".g-escena").scrollIntoView({ behavior: rm ? "auto" : "smooth", block: "center" }); });
+    if (esW) cont.querySelectorAll(".g-sem").forEach((bt) => bt.addEventListener("click", () => {
+      elegida = N.puerta(bt.dataset.id); cont.querySelectorAll(".g-sem").forEach((x) => x.setAttribute("aria-pressed", String(x === bt)));
+      estado = "corre"; terminar(); if ($(".g-kit")._repinta) $(".g-kit")._repinta();
+    }));
+    refrescar(); document.addEventListener("naos-tema", () => { refrescar(); if (rm) pinta(tNow); });
+    // reloj: solo mientras se ve
+    let visible = true;
+    if ("IntersectionObserver" in window) new IntersectionObserver((es) => { visible = es[0].isIntersecting; }).observe(cont);
+    if (rm) { pinta(0); reloj = N.bucle((t) => { tNow = t; if (estado === "corre") tick(t); }); }
+    else reloj = N.bucle((t) => { tNow = t; if (visible || estado === "corre") tick(t); });
+    if (o.auto && go && modo !== "sostener") setTimeout(() => { if (estado === "listo") arrancar(); }, rm ? 0 : 650);
+    return { arrancar: arrancar, cont: cont, estado: () => estado, parar: () => reloj && reloj.parar(), refrescar: () => { refrescar(); if (rm) pinta(tNow); } };
+  };
+})();
+
+</script>
+<script>
+/* velo.js · v5: una puerta abierta es su biblioteca (la pregunta, el estante y la herramienta de hoy debajo) a pantalla completa, en su color a sangre, con su herramienta guiada y su tarjeta (las tres opciones).
+ * Diálogo modal: el resto de la página queda inerte; Escape o el botón cierran y el foco vuelve a quien abrió. */
+(function () {
+  "use strict";
+  const N = window.NAOS_V4;
+  N.velo = (P, opener, o) => {
+    o = o || {};
+    let v = document.getElementById("velo");
+    if (!v) { v = document.createElement("div"); v.id = "velo"; v.className = "velo"; v.setAttribute("role", "dialog"); v.setAttribute("aria-modal", "true"); v.hidden = true; document.body.appendChild(v); }
+    if (v._cerrar) v._cerrar(true);
+    v.innerHTML = `<div class="velo-bar"><span class="velo-k">${N.placa(P, 24)}${N.esc(N.u("biblio"))} · ${N.esc(N.L(P.nombre))}</span><button type="button" class="b-ico velo-x" aria-label="${N.esc(N.u("cerrar"))}"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 4 L16 16 M16 4 L4 16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button></div><div class="velo-g"><section class="lib" aria-labelledby="velo-t"><p class="lib-k">${N.estante(P, P.tx)} <span>${N.esc(N.biblioTexto(P))}</span></p><h2 class="lib-q" id="velo-t">${N.V.q(P, "velo")}</h2>${N.V.qSub(P, "velo")}${N.estanteLista(P, { boton: true })}</section><div class="velo-h"></div></div>`;
+    v.style.setProperty("--campo", P.campo); v.style.setProperty("--tx", P.tx);
+    v.setAttribute("aria-labelledby", "velo-t");
+    const fuera = Array.from(document.body.children).filter((el) => el !== v);
+    fuera.forEach((el) => { el.inert = true; });
+    v.hidden = false; document.documentElement.classList.add("con-velo"); v.scrollTop = 0;
+    const g = N.guia(v.querySelector(".velo-h"), P, Object.assign({ sinScrollPagina: true, sinK: true, sinEstante: true }, o));
+    const eg = v.querySelector(".est-go");
+    if (eg) eg.addEventListener("click", () => { if (g.estado() !== "corre") g.arrancar(); v.querySelector(".velo-h .g-escena").scrollIntoView({ behavior: N.rm() ? "auto" : "smooth", block: "center" }); });
+    if (N.V.enVelo) N.V.enVelo(v);
+    requestAnimationFrame(() => v.classList.add("abierto"));
+    N.contar("abre", { puerta: P.id });
+    const x = v.querySelector(".velo-x"); x.focus();
+    const trampa = (e) => {
+      if (e.key === "Escape") { e.preventDefault(); cerrar(); return; }
+      if (e.key !== "Tab") return;
+      const f = Array.from(v.querySelectorAll("button:not([disabled]), a[href], input, summary, [tabindex]:not([tabindex='-1'])")).filter((el) => el.offsetParent !== null);
+      if (!f.length) return; const a = f[0], z = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+    };
+    const cerrar = (silencio) => {
+      g.parar(); v.classList.remove("abierto"); v.hidden = true; document.documentElement.classList.remove("con-velo");
+      fuera.forEach((el) => { el.inert = false; }); document.removeEventListener("keydown", trampa); v._cerrar = null;
+      if (!silencio && opener) opener.focus({ preventScroll: true });
+      if (o.alCerrar) o.alCerrar();
+    };
+    v._cerrar = cerrar;
+    x.addEventListener("click", () => cerrar());
+    document.addEventListener("keydown", trampa);
+    return { g: g, cerrar: cerrar, v: v };
+  };
+})();
+
+</script>
+<script>
+/* v3.js · V3, propuesta del VP: "Algo así como…". N contó cómo debería sentirse la pregunta: "something like this is happening to me.
+ * Something like what?". V3 hace de esa frase la interfaz: cada biblioteca se nombra, además de por lo que guarda (D-279), por una sola
+ * imagen de cómo se siente necesitarla (un nudo, afán, pesadez, óxido, distancia, anhelo, vértigo), y la pregunta general queda debajo como
+ * puente. En la caja bento la frase se completa: "Algo así como…" y la palabra que tocas. Una palabra se reconoce antes que una oración. */
+(function () {
+  "use strict";
+  const N = window.NAOS_V4, Q = window.NAOS_PREG, L = N.L, esc = N.esc;
+  const pal = (P) => L(Q.puertas[P.id].pal);
+  N.V = {
+    nombre: "v3",
+    q: (P, ctx) => ctx === "bento" ? `<span class="pal">${esc(pal(P))}</span>` : `<span class="algo">${esc(L(Q.algo))}</span> <span class="pal">${esc(pal(P))}</span>`,
+    qSub: (P, ctx) => ctx === "bento" ? `<span class="q-sub">${esc(L(Q.puertas[P.id].q))}</span>` : `<p class="q-sub q-sub-${ctx}">${esc(L(Q.puertas[P.id].q))}</p>`,
+    bento: () => ({ k: L(Q.bento.v3.k), t: `${esc(L(Q.bento.v3.t))} <span class="algo-w" aria-hidden="true"></span>` }),
+    iniciar: () => {
+      // la frase se completa con la palabra que tocas o enfocas
+      const w = document.querySelector(".algo-w"), bento = document.getElementById("bento");
+      const pon = (b) => { if (!w) return; const P = b ? N.puerta(b.dataset.id) : null; w.textContent = P ? pal(P) : ""; };
+      bento.addEventListener("pointerover", (e) => pon(e.target.closest(".bt-b")));
+      bento.addEventListener("focusin", (e) => pon(e.target.closest(".bt-b")));
+      bento.addEventListener("pointerleave", () => pon(null));
+      bento.addEventListener("focusout", (e) => { if (!bento.contains(e.relatedTarget)) pon(null); });
+    }
+  };
+})();
+
+</script>
+<script>
+/* pagina.js · página v5 (VP, 20-oct-2026, D-281): A más C. Lo que comparten las tres versiones; cada versión pone sus preguntas con N.V.
+ *   1. La sala de A: llegas dentro del suspiro (Breathe, la herramienta de hoy), con la pregunta general de la puerta arriba.
+ *   2. El carrusel de A: las otras seis puertas, una por pantalla, a izquierda y derecha, con sus colores y Cella moviéndose.
+ *      Abajo, en vez de rombos de color, el signo de cada biblioteca (signos.js).
+ *   3. La caja bento de C para elegir: las siete bibliotecas de un vistazo, cada una con su pregunta, su estante y la herramienta de hoy.
+ *   4. Los días, solo como cuándo llega lo nuevo (D-279), y el pie.
+ * Cada puerta es una biblioteca (biblioteca.js): hoy una herramienta, mañana varias. */
+(function () {
+  "use strict";
+  const N = window.NAOS_V4, D = window.NAOS_DATOS, V = N.V, u = N.u, L = N.L, rm = N.rm();
+  const $ = (id) => document.getElementById(id);
+  if (!N.SITIO) document.title = "NAOS · " + u("frase");   // en el sitio el título viene escrito en el HTML de cada idioma
+  $("salta").textContent = u("salta");
+  $("barra").innerHTML = N.barra(V.barraExtra ? V.barraExtra() : "");
+  // en el sitio, el pie ya viene escrito en el HTML en el idioma de la página (lo lee el validador y quien no corre JS); si el idioma pedido es otro (?lang=), o en las maquetas, se pinta aquí
+  if (!(N.SITIO && $("pie").dataset.lang === N.lang && $("pie").children.length)) $("pie").innerHTML = N.pie();
+  $("sala-frase").textContent = u("frase");
+  N.cablear();
+
+  // 1 · la sala: el suspiro, ya, bajo la pregunta de su puerta
+  const sala = $("sala"), P = N.puerta("breathe");
+  const g = N.guia($("sala-g"), P, {
+    transparente: true, titulo: "sala-t", lineaAlto: 250, pregunta: V.q(P, "sala"), preguntaSub: V.qSub(P, "sala"),
+    alTerminar: () => { sala.classList.add("inundada"); setTimeout(() => g.refrescar(), rm ? 0 : 700); }
+  });
+
+  // 2 · las otras seis puertas, una por pantalla
+  $("mas-t").textContent = u("cualquier");
+  $("mas-meta").textContent = L(D.meta);
+  $("mas-que").textContent = L(D.que);
+  $("riel-t").textContent = u("puertas");
+  const otras = D.puertas.filter((p) => p.id !== "breathe");
+  const riel = $("riel");
+  otras.forEach((p, i) => {
+    const a = document.createElement("article");
+    a.className = "pta"; a.id = "pta-" + p.id;
+    a.style.setProperty("--campo", p.campo); a.style.setProperty("--tx", p.tx);
+    a.setAttribute("aria-labelledby", "pta-t-" + p.id);
+    a.innerHTML = `
+      <p class="pta-k">${N.signo(p.id, p.tx, p.campo, 28)}<span class="pta-n">${N.esc(L(p.nombre))}</span><span class="pta-num">${i + 2} / 7</span><span class="pta-c">${N.esc(L(p.cerca))}</span></p>
+      <h3 class="pta-q" id="pta-t-${p.id}">${V.q(p, "slide")}</h3>${V.qSub(p, "slide")}
+      <p class="pta-est">${N.estante(p, p.tx)} <span>${N.esc(u("biblio"))} · ${N.esc(N.biblioTexto(p))}</span></p>
+      <p class="pta-hoy">${N.esc(u("hoyK"))}</p>
+      <p class="pta-acto">${N.esc(L(p.acto))}</p>
+      <p class="pta-cuando">${N.esc(L(p.cuando))}</p>
+      <div class="pta-pie"><div class="pta-cella" data-id="${p.id}"></div><div class="pta-obj" aria-hidden="true">${N.objeto(p.id, p.tx, p.campo)}</div><i class="pta-suelo"></i></div>
+      <p class="pta-b"><button type="button" class="b-pri pta-go" data-id="${p.id}">${p.id === "week" ? N.esc(L(p.acto)) : u("hazla")} <span class="dur">· ${N.esc(L(p.dur))}</span></button></p>
+      <p class="pta-dia">${N.esc(u("nuevoEl")(u("DIAL")[p.dia]))}</p>`;
+    riel.appendChild(a);
+  });
+  riel.addEventListener("click", (e) => { const b = e.target.closest(".pta-go"); if (b) N.velo(N.puerta(b.dataset.id), b); });
+
+  // los signos de abajo: cada puerta por su pictograma (el color acompaña), y su nombre escrito debajo
+  const pts = $("r-puntos");
+  pts.innerHTML = otras.map((p, i) => `<li><button type="button" class="r-p" data-i="${i}" aria-label="${N.esc(u("puerta") + " " + (i + 2) + " " + u("de") + " 7: " + L(p.nombre))}">${N.placa(p, 24)}</button></li>`).join("");
+  const rNom = $("r-nombre");
+  const slides = Array.from(riel.querySelectorAll(".pta"));
+  const ir = (i) => { i = Math.max(0, Math.min(slides.length - 1, i)); riel.scrollTo({ left: slides[i].offsetLeft - riel.offsetLeft, behavior: rm ? "auto" : "smooth" }); };
+  const actual = () => { const x = riel.scrollLeft; let best = 0, d = 1e9; slides.forEach((s, i) => { const dd = Math.abs(s.offsetLeft - riel.offsetLeft - x); if (dd < d) { d = dd; best = i; } }); return best; };
+  $("r-ant").setAttribute("aria-label", u("anterior")); $("r-sig").setAttribute("aria-label", u("siguiente"));
+  $("r-ant").addEventListener("click", () => ir(actual() - 1));
+  $("r-sig").addEventListener("click", () => ir(actual() + 1));
+  pts.addEventListener("click", (e) => { const b = e.target.closest(".r-p"); if (b) ir(+b.dataset.i); });
+  let ultI = -1;
+  const marcar = () => { const i = actual(); if (i === ultI) return; ultI = i; pts.querySelectorAll(".r-p").forEach((b, j) => b.setAttribute("aria-current", j === i ? "true" : "false")); rNom.textContent = L(otras[i].nombre) + " · " + (i + 2) + " / 7"; };
+  riel.addEventListener("scroll", () => requestAnimationFrame(marcar), { passive: true }); marcar();
+  riel.addEventListener("keydown", (e) => { if (e.key === "ArrowRight") { e.preventDefault(); ir(actual() + 1); } if (e.key === "ArrowLeft") { e.preventDefault(); ir(actual() - 1); } });
+
+  // 3 · la caja bento: elegir entre las siete bibliotecas
+  const BT = V.bento();
+  $("bento-k").textContent = BT.k; $("bento-t").innerHTML = BT.t;
+  if (V.bentoExtra) $("bento-x").innerHTML = V.bentoExtra();
+  const bento = $("bento");
+  bento.innerHTML = D.puertas.map((p) => `<li class="bt bt-${p.id}" style="--campo:${p.campo};--tx:${p.tx}">
+    <button type="button" class="bt-b" data-id="${p.id}">
+      <span class="bt-k">${N.signo(p.id, p.tx, p.campo, 32)}<span class="bt-n">${N.esc(L(p.nombre))}</span></span>
+      <span class="bt-q">${V.q(p, "bento")}</span>${V.qSub(p, "bento")}
+      <span class="bt-est">${N.estante(p, p.tx)} <span>${N.esc(N.biblioTexto(p))}</span></span>
+      <span class="bt-a"><span class="sr">${N.esc(u("hoyK"))}: </span>${N.esc(L(p.acto))}</span>
+    </button></li>`).join("");
+  bento.addEventListener("click", (e) => { const b = e.target.closest(".bt-b"); if (!b) return; N.contar("bento", { puerta: b.dataset.id }); N.velo(N.puerta(b.dataset.id), b); });
+
+  const pedida = N.puertaPedida();
+  if (pedida && pedida !== "breathe") { const j = otras.findIndex((x) => x.id === pedida); setTimeout(() => { riel.scrollIntoView(); riel.scrollLeft = slides[j].offsetLeft - riel.offsetLeft; marcar(); }, 50); }
+
+  // 4 · los días: solo cuándo llega lo nuevo (D-279), cada uno con el signo de su puerta
+  document.querySelector(".dias-s").setAttribute("aria-label", N.lang === "es" ? "Los días" : "The days");
+  const orden = [1, 2, 3, 4, 5, 6, 0];
+  $("dias").innerHTML = `<p class="dias-k">${N.esc(u("diasNota"))}</p><ul class="dias-l">${orden.map((d) => { const p = D.puertas.find((x) => x.dia === d); return `<li>${N.placa(p, 20)}<span class="dd">${N.esc(u("DIA")[d])}</span> <span class="dp">${N.esc(L(p.nombre))}</span></li>`; }).join("")}</ul>`;
+
+  // Cella en cada puerta del carrusel: respira y señala el botón cada tanto (solo la que se ve)
+  const cellas = Array.from(document.querySelectorAll(".pta-cella"));
+  const vis = new Set();
+  if ("IntersectionObserver" in window) { const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) vis.add(e.target); else vis.delete(e.target); })); cellas.forEach((c) => io.observe(c)); }
+  const pintaC = (c, t) => {
+    const p = N.puerta(c.dataset.id), k = (t + cellas.indexOf(c) * 1.3) % 6;
+    const der = rm ? 0 : window.NAOS_BRAZOS.gesto(k, { t0: 2.4, t1: 3.8, a: 38 });
+    c.innerHTML = N.cella({ b: rm ? 0.3 : N.respira(t), der: der, tx: p.tx, bg: p.campo });
+  };
+  cellas.forEach((c) => pintaC(c, 0));
+  if (!rm) N.bucle((t) => { vis.forEach((c) => pintaC(c, t)); });
+
+  if (V.iniciar) V.iniciar();
+})();
+
+</script>
 </body>
 </html>

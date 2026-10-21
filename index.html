@@ -381,7 +381,7 @@ a { color: inherit; text-underline-offset: 3px; }
     <div class="dias" id="dias"></div>
   </section>
 </main>
-<footer class="pie" id="pie">
+<footer class="pie" id="pie" data-lang="en">
     <div class="pie-seguir">
       <p class="pie-k">Follow NAOS</p>
       <p class="pie-d">New tools arrive as Shorts and Reels.</p>
@@ -396,7 +396,7 @@ a { color: inherit; text-underline-offset: 3px; }
 <script src="assets/js/figura.js"></script>
 <script src="assets/js/cella-brazos.js"></script>
 <script>
-window.NAOS_SITIO=true;
+window.NAOS_SITIO=true;window.NAOS_LANG="en";window.NAOS_RAIZ="";window.NAOS_ES_TEMAS=["a-good-party", "a-lamp-on-the-night-without-a-moon", "advent-waiting", "back-to-the-hour", "built-here", "errata", "es", "fomc-before-and-after-the-silence", "fomc-with-projections", "four-banks-one-table", "from-chat-to-code", "how-a-month-is-announced", "how-a-vote-is-counted", "how-we-test-an-idea", "humanity", "keep-your-hour", "light-in-the-window", "look-up-from-the-news", "money-at-the-table", "moon", "one-number-and-its-range", "open-questions", "payrolls-before-the-number", "phones-in-the-bread-basket", "saints-and-souls", "the-cella", "the-full-moon-table", "the-longest-night", "the-present", "the-radar-that-tells-you-when-it-is-blind", "two-clocks", "walk-to-the-water", "walks-by-the-moon", "who-is-telling-you-this", "who-writes-the-rules"];
 </script>
 <script>
 /* Fases de la luna: U.S. Naval Observatory (data/luna.json del sitio, consultado 2026-10-20), UTC */
@@ -470,7 +470,7 @@ window.NAOS_DATOS = {
       medio: { en: "Hold the first bite, in full · YouTube, Sun Oct 25", es: "Espera el primer bocado, completo · YouTube, dom 25 oct" },
       llega: [
         { f: "2026-11-11", t: { en: "Set one more plate", es: "Pon un plato más" } },
-        { f: "2026-11-25", t: { en: "Phones in the basket, the night before Thanksgiving", es: "Los teléfonos en la canasta, la víspera de Acción de Gracias" } }
+        { f: "2026-11-25", t: { en: "Phones in the basket, the night before Thanksgiving", es: "Los celulares en la canasta, la víspera de Acción de Gracias" } }
       ]
     },
     {
@@ -483,7 +483,7 @@ window.NAOS_DATOS = {
       pasos: [
         { en: "Eyes open.", es: "Ojos abiertos." },
         { en: "Feet on the floor. Sitting counts.", es: "Los pies en el suelo. Sentarte cuenta." },
-        { en: "Before the phone, before the list.", es: "Antes del teléfono, antes de la lista." }
+        { en: "Before the phone, before the list.", es: "Antes del celular, antes de la lista." }
       ],
       siente: { en: "What do you do in the first minute?", es: "¿Qué haces en el primer minuto?" },
       pregunta: { en: "What's the first thing you do when you wake up?", es: "¿Qué es lo primero que haces al despertar?" },
@@ -491,7 +491,7 @@ window.NAOS_DATOS = {
       tarjeta: { en: ["When your eyes open:", "feet on the floor."], es: ["Cuando abres los ojos:", "los pies en el suelo."] },
       anclas: {
         en: ["When the alarm stops", "When my eyes open, any morning", "Before I reach for the phone"],
-        es: ["Cuando se apaga la alarma", "Cuando abro los ojos, cualquier mañana", "Antes de buscar el teléfono"]
+        es: ["Cuando se apaga la alarma", "Cuando abro los ojos, cualquier mañana", "Antes de buscar el celular"]
       },
       escena: { en: "He sits up before he thinks. His mind gets a vote later. Some mornings he lies there one more breath; that counts too.", es: "Él se sienta antes de pensar. Su mente vota después. Algunas mañanas se queda un respiro más; eso también cuenta." },
       fuente: { en: "The grogginess after waking is heaviest in the first half hour (a review of sleep inertia, 2019). No study tests standing up. This one is a story, not a claim.", es: "La pesadez al despertar es mayor en la primera media hora (una revisión sobre la inercia del sueño, 2019). Ningún estudio prueba ponerse de pie. Esta es una historia, no una promesa." },
@@ -655,7 +655,7 @@ window.NAOS_PREG = {
       q: { en: "Eating without tasting?", es: "¿Comiendo a las carreras?" },
       rot: {
         en: ["Eating without tasting?", "Running on empty?", "One eye on the plate, one on the phone?", "Who did you last share a meal with?"],
-        es: ["¿Comiendo a las carreras?", "¿Con el tanque vacío?", "¿Un ojo en el plato y otro en el teléfono?", "¿Con quién compartiste la última comida?"]
+        es: ["¿Comiendo a las carreras?", "¿Con el tanque vacío?", "¿Un ojo en el plato y otro en el celular?", "¿Con quién compartiste la última comida?"]
       },
       pal: { en: "a rush.", es: "afán." }
     },
@@ -995,15 +995,23 @@ window.NAOS_BIBLIO = {
   // En el sitio (build.py --sitio) la página lleva window.NAOS_SITIO: enlaces relativos del repo, pie con privacidad y términos, y los enlaces de lo publicado.
   N.SITIO = !!window.NAOS_SITIO;
   N.REL = N.SITIO ? "" : D.sitio;
+  // Dos salidas de una sola fuente (D-284): la portada en inglés (raíz) y la española (es/). build.py --sitio pone window.NAOS_LANG (idioma por defecto de la página),
+  // window.NAOS_RAIZ (cómo se llega a la raíz del sitio desde la página: "" o "../") y window.NAOS_ES_TEMAS (los temas que existen en es/temas/).
+  N.RAIZ = N.SITIO ? (window.NAOS_RAIZ || "") : "";
+  // ruta desde la raíz del sitio (temas/, agenda.html, es/...) a la ruta relativa desde esta página; desde es/, "es/x" es "x"
+  N.ruta = (r) => (N.RAIZ && r.indexOf("es/") === 0 ? r.slice(3) : N.RAIZ + r);
+  // un tema: la página en español si el idioma es español y existe en es/temas/, si no la inglesa
+  N.temaUrl = (slug) => !N.SITIO ? N.REL + "temas/" + slug + "/" : N.lang === "es" && (window.NAOS_ES_TEMAS || []).indexOf(slug) >= 0 ? N.ruta("es/temas/" + slug + "/") : N.RAIZ + "temas/" + slug + "/";
   N.INK = "#0E1116"; N.PAPEL = "#FFFFFF"; N.PLATA = "#F4F6F8";
   N.TRAMO = ["#A9B2EC", "#3B4BB5", "#7FCDAE"];   // In lavanda, Deeper cobalto, Out menta (this-is-naos-now, D-278)
 
   /* ---------- idioma ---------- */
-  N.lang = (q.get("lang") || ls.get("naos-v5-lang") || "en") === "es" ? "es" : "en";
+  // en el sitio manda la página (NAOS_LANG; el botón de idioma cambia de página); ?lang= sigue valiendo para revisar. En las maquetas, ?lang y luego lo recordado.
+  N.lang = (q.get("lang") || (N.SITIO ? window.NAOS_LANG : ls.get("naos-v5-lang")) || "en") === "es" ? "es" : "en";
   N.L = (o) => (o == null ? "" : typeof o === "string" ? o : o[N.lang] != null ? o[N.lang] : o.en);
   N.UI = {
     en: {
-      frase: "Closer to yourself.", conCella: "Breathe with Cella", hazla: "Do it with Cella", otraVez: "Once more", listo: "Done",
+      frase: "Closer to yourself.", salta: "Skip to the doors", conCella: "Breathe with Cella", hazla: "Do it with Cella", otraVez: "Once more", listo: "Done",
       tarjetaT: "Your card", guardar: "Save the card", mandar: "Send the question", copiado: "Copied", sostener: "Press and hold the card to save it.", guardarNo: "If nothing downloaded, press and hold the card.",
       tuCuando: "Your own when", escribe: "Write your own", usar: "Use it", nuevoEl: (d) => "New on " + d + "s", cualquier: "Any door, any day.",
       diasNota: "The tools stay open every day. The days only tell you when something new arrives.",
@@ -1014,7 +1022,7 @@ window.NAOS_BIBLIO = {
       seguir: "Follow NAOS", yt: "YouTube", ig: "Instagram", seguirD: "New tools arrive as Shorts and Reels.",
       luna: { llena: "Full", nueva: "New", hoy: "tonight", en: (n) => "in " + n + (n === 1 ? " day" : " days"), lit: (p) => p + "% lit" },
       pilares: "Eat well, sleep well, get moving, have a relationship with the divine, and build community.",
-      enlacesPie: '<a href="temas/">Topics</a> · <a href="agenda.html">Upcoming</a> · <a href="privacidad.html">Privacy</a> · <a href="terminos.html">Terms</a> · <a href="archivo/index-anterior.html" hreflang="es">About the NAOS YouTube app</a> · <a href="es/" hreflang="es" lang="es">NAOS en español</a>',
+      enlacesPie: (R) => `<a href="${R("temas/")}">Topics</a> · <a href="${R("agenda.html")}">Upcoming</a> · <a href="${R("privacidad.html")}">Privacy</a> · <a href="${R("terminos.html")}">Terms</a> · <a href="${R("archivo/index-anterior.html")}" hreflang="es">About the NAOS YouTube app</a> · <a href="${R("es/")}" hreflang="es" lang="es">NAOS en español</a>`,
       privado: "This page sets no cookies and has no trackers.",
       ayuda: 'If this is weighing on you, talk to someone now. Colombia: <a href="tel:106">106</a>, national mental health line, 24/7, or <a href="tel:123">123</a> in immediate danger (<a href="https://findahelpline.com/countries/co" rel="noopener">source</a>). US: <a href="tel:988">988</a>. Anywhere else: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a>.',
       sintetico: "The voices in NAOS pieces are synthetic. A behavior to try; it does not replace treatment.",
@@ -1024,7 +1032,7 @@ window.NAOS_BIBLIO = {
       verPuerta: "Open the door", biblio: "Library", estanteK: "On this shelf", hoyK: "Today's tool", pausaQ: "Pause the questions", sigueQ: "Play the questions", lentesK: "Ask from", abierta: "always open", proxima: "next", hoyEs: "today", sostenerB: "Hold to breathe in", bSigue: "Keep holding", bSuelta: "Let go", bSale: "Out, long", lleva: "Let Cella lead", sigueSost: "Keep holding: in, then deeper.", suelta: "Let go: out, long."
     },
     es: {
-      frase: "Más cerca de ti.", conCella: "Respira con Cella", hazla: "Hazla con Cella", otraVez: "Otra vez", listo: "Listo",
+      frase: "Más cerca de ti.", salta: "Ir a las puertas", conCella: "Respira con Cella", hazla: "Hazla con Cella", otraVez: "Otra vez", listo: "Listo",
       tarjetaT: "Tu tarjeta", guardar: "Guarda la tarjeta", mandar: "Manda la pregunta", copiado: "Copiada", sostener: "Mantén presionada la tarjeta para guardarla.", guardarNo: "Si no se descargó, mantén presionada la tarjeta.",
       tuCuando: "Tu propio cuándo", escribe: "Escribe el tuyo", usar: "Úsalo", nuevoEl: (d) => "Lo nuevo llega los " + d, cualquier: "Cualquier puerta, cualquier día.",
       diasNota: "Las herramientas están abiertas todos los días. Los días solo dicen cuándo llega algo nuevo.",
@@ -1035,7 +1043,7 @@ window.NAOS_BIBLIO = {
       seguir: "Sigue a NAOS", yt: "YouTube", ig: "Instagram", seguirD: "Las herramientas nuevas llegan como Shorts y Reels.",
       luna: { llena: "Llena", nueva: "Nueva", hoy: "esta noche", en: (n) => "en " + n + (n === 1 ? " día" : " días"), lit: (p) => p + " % iluminada" },
       pilares: "Come bien, duerme bien, muévete, ten una relación con lo divino y construye comunidad.",
-      enlacesPie: '<a href="es/temas/">Temas</a> · <a href="agenda.html" hreflang="en" lang="en">Agenda</a> · <a href="privacidad.html" hreflang="en" lang="en">Privacidad</a> · <a href="terminos.html" hreflang="en" lang="en">Términos</a> · <a href="archivo/index-anterior.html" hreflang="es">Sobre la app de YouTube de NAOS</a>',
+      enlacesPie: (R) => `<a href="${R("es/temas/")}">Temas</a> · <a href="${R("agenda.html")}" hreflang="en" lang="en">Agenda</a> · <a href="${R("privacidad.html")}" hreflang="en" lang="en">Privacidad</a> · <a href="${R("terminos.html")}" hreflang="en" lang="en">Términos</a> · <a href="${R("archivo/index-anterior.html")}" hreflang="es">Sobre la app de YouTube de NAOS</a>`,
       privado: "Esta página no usa cookies ni rastreadores.",
       ayuda: 'Si esto te pesa, habla con alguien ahora. Colombia: <a href="tel:106">106</a>, línea nacional de salud mental, 24/7, o <a href="tel:123">123</a> si hay peligro inmediato (<a href="https://findahelpline.com/countries/co" rel="noopener" hreflang="en">fuente</a>). EE. UU.: <a href="tel:988">988</a>. En cualquier otro lugar: <a href="https://findahelpline.com" rel="noopener" hreflang="en">findahelpline.com</a>.',
       sintetico: "Las voces de las piezas de NAOS son sintéticas. Una conducta para probar; no reemplaza un tratamiento.",
@@ -1071,7 +1079,7 @@ window.NAOS_BIBLIO = {
   N.ytValido = (u) => typeof u === "string" && /^https:\/\/(www\.youtube\.com\/|youtu\.be\/)/.test(u);
   N.ytDe = (h) => { const u = h && (h.yt || (h.id && N.enlaces[h.id] && N.enlaces[h.id].yt)); return N.ytValido(u) ? u : null; };
   if (N.SITIO && /^https?:$/.test(location.protocol) && window.fetch) {
-    fetch("data/enlaces.json").then((r) => (r.ok ? r.json() : null)).then((j) => { if (j && j.piezas && typeof j.piezas === "object") N.enlaces = j.piezas; }).catch(() => {});
+    fetch(N.RAIZ + "data/enlaces.json").then((r) => (r.ok ? r.json() : null)).then((j) => { if (j && j.piezas && typeof j.piezas === "object") N.enlaces = j.piezas; }).catch(() => {});
   }
 
   /* ---------- tema ---------- */
@@ -1092,9 +1100,13 @@ window.NAOS_BIBLIO = {
   };
   N.temaIni();
 
-  /* ---------- idioma: el botón recarga la misma página con ?lang ---------- */
+  /* ---------- idioma: en el sitio el botón va a la otra portada (es/ o la raíz); en las maquetas recarga la misma página con ?lang ---------- */
   N.idiomaBoton = (b) => {
     b.addEventListener("click", () => {
+      if (N.SITIO) {
+        const p = new URLSearchParams(location.search); p.delete("lang"); const s = p.toString();
+        location.href = (N.lang === "es" ? N.RAIZ || "./" : N.RAIZ + "es/") + (s ? "?" + s : ""); return;
+      }
       const n = N.lang === "es" ? "en" : "es"; ls.set("naos-v5-lang", n);
       const u = new URL(location.href); u.searchParams.set("lang", n); location.href = u.toString();
     });
@@ -1286,7 +1298,7 @@ window.NAOS_BIBLIO = {
     <p class="pie-n"><span class="naos">NAOS</span> <span class="frase-p">${N.u("frase")}</span></p>
     <p class="pie-pilares">${N.u("pilares")}</p>
     <p class="pie-s">${N.u("sintetico")} ${N.u("privado")}</p>${N.SITIO ? `
-    <p class="pie-links">${N.u("enlacesPie")}</p>` : ""}`;
+    <p class="pie-links">${N.u("enlacesPie")(N.ruta)}</p>` : ""}`;
   N.cablear = () => {
     const t = document.getElementById("b-tema"); if (t) N.temaBoton(t);
     const l = document.getElementById("b-lang"); if (l) N.idiomaBoton(l);
@@ -1344,7 +1356,7 @@ window.NAOS_BIBLIO = {
   /* ---------- detrás de cada puerta: lo hondo, lo que llega, el medio ---------- */
   N.detras = (P) => {
     const hoy = N.hoyF();
-    const hondo = P.hondo.map((h) => `<li><a href="${N.REL}temas/${h.slug}/">${N.esc(N.L(h.t))}</a>${h.desde && h.desde > hoy ? ` <span class="pronto">${N.esc(N.fecha(h.desde))}</span>` : ""}</li>`).join("");
+    const hondo = P.hondo.map((h) => `<li><a href="${N.temaUrl(h.slug)}">${N.esc(N.L(h.t))}</a>${h.desde && h.desde > hoy ? ` <span class="pronto">${N.esc(N.fecha(h.desde))}</span>` : ""}</li>`).join("");
     const llega = P.llega.filter((x) => x.f >= hoy).slice(0, 3).map((x) => `<li><span class="f">${N.esc(N.fecha(x.f))}</span> ${N.esc(N.L(x.t))}</li>`).join("");
     return `${P.medio || hondo ? `<div class="det"><h4>${N.u("hondo")}</h4><ul>${P.medio ? `<li><a href="${D.seguir.yt}" rel="noopener">${N.esc(N.L(P.medio))}</a></li>` : ""}${hondo}</ul></div>` : ""}
       ${llega ? `<div class="det"><h4>${N.u("llega")}</h4><ul class="det-f">${llega}</ul><p class="det-n">${N.esc(N.u("nuevoEl")(N.u("DIAL")[P.dia]))}. ${N.esc(N.u("diasNota"))}</p></div>` : ""}`;
@@ -1757,11 +1769,11 @@ window.NAOS_BIBLIO = {
   "use strict";
   const N = window.NAOS_V4, D = window.NAOS_DATOS, V = N.V, u = N.u, L = N.L, rm = N.rm();
   const $ = (id) => document.getElementById(id);
-  document.title = "NAOS · " + u("frase");
-  $("salta").textContent = N.lang === "es" ? "Ir a las puertas" : "Skip to the doors";
+  if (!N.SITIO) document.title = "NAOS · " + u("frase");   // en el sitio el título viene escrito en el HTML de cada idioma
+  $("salta").textContent = u("salta");
   $("barra").innerHTML = N.barra(V.barraExtra ? V.barraExtra() : "");
-  // en el sitio, el pie en inglés ya viene escrito en el HTML (lo lee el validador y quien no corre JS); en español, o en las maquetas, se pinta aquí
-  if (!(N.SITIO && N.lang === "en" && $("pie").children.length)) $("pie").innerHTML = N.pie();
+  // en el sitio, el pie ya viene escrito en el HTML en el idioma de la página (lo lee el validador y quien no corre JS); si el idioma pedido es otro (?lang=), o en las maquetas, se pinta aquí
+  if (!(N.SITIO && $("pie").dataset.lang === N.lang && $("pie").children.length)) $("pie").innerHTML = N.pie();
   $("sala-frase").textContent = u("frase");
   N.cablear();
 

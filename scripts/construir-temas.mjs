@@ -40,8 +40,6 @@ export const AYUDA_HTML = 'If this is weighing on you, talk to someone now. Colo
 const LINEA_N = { Humanity: "Eat well, sleep well, get moving, have a relationship with the divine, and build community." };
 const NO_CONSEJO = "Descriptive, not financial advice.";
 // D-265, literal (DECISIONS.md): la leyenda de la portada, en español (N) y su traducción literal al inglés
-const LEYENDA_ES = "Naos hoy es una invitación a reconectar con la humanidad dentro de cada uno a través de conductas básicas y fundamentales a la vida humana, para identificar y fortalecer los valores que encontremos dentro de nosotros, afuera.";
-const LEYENDA_EN = "NAOS today is an invitation to reconnect with the humanity within each of us through basic behaviors fundamental to human life, to identify and strengthen the values we find within ourselves, outside.";
 // páginas de una tradición con calendario propio: ahí no va el signo occidental (acta 2c, rojo 23) hasta que I3 traiga el dato
 // de esa tradición; quedan la fase y la iluminación, que son medidas
 const SIN_SIGNO = new Set(["a-lamp-on-the-night-without-a-moon", "light-in-the-window", "walk-to-the-water", "the-longest-night", "how-a-month-is-announced"]);
@@ -628,40 +626,6 @@ function hubs(L, D, urls) {
   }
 }
 
-// portada de la edición ES (D-253): la franja de hoy y lo próximo (franja.js en español) y la biblioteca.
-// La portada EN es index.html, a mano; esta se genera para que no se desfase del dato.
-function portadaES(D) {
-  const L = ED.es, raiz = "../";
-  const desc = "NAOS en español. Más cerca de ti. Humanidad: comer bien, dormir bien, moverse, tener una relación con lo divino y construir comunidad.";
-  // D-270: el mismo tablero lunar de la portada EN (tablero.js lo llena; el centro es estático), con la leyenda de D-265 en español primero
-  const antes = `  <section class="tablero" id="tablero" aria-label="El calendario lunar de hoy">
-    <div class="tb-in">
-      <ul class="tb-g" id="tab">
-        <li class="tb-centro">
-          <div class="tb-c tb-box">
-            <div class="tb-sup">
-              <h1 class="tb-h" id="u-hum-t" tabindex="-1">Humanidad</h1>
-              <div class="tb-cella" id="cella-hum" aria-hidden="true"></div>
-            </div>
-            <p class="tb-q">Más cerca de ti.</p>
-          </div>
-        </li>
-      </ul>
-      <i class="tb-linea" id="tab-linea" aria-hidden="true"></i>
-    </div>
-  </section>
-  <section class="leyenda" aria-label="Qué es NAOS hoy">
-    <p class="ley-es" lang="es">${LEYENDA_ES}</p>
-    <p class="ley-en" lang="en">${LEYENDA_EN}</p>
-  </section>
-  <p class="t-rango"><a href="temas/es/">Las piezas en español</a> salen desde el sábado 24 de octubre. Las demás están en inglés; cada una lleva su hora en Nueva York y en Medellín.</p>
-  <div id="secuencia" data-lang="es" data-raiz="${raiz}" hidden></div>
-`;
-  const cuerpo = `  <section class="t-bloque" aria-labelledby="h-hum"><h2 id="h-hum"><a href="temas/humanity/">${L.seccion.Humanity}</a></h2>\n${estantes(L, D, "Humanity", raiz, "h3")}\n  </section>`;
-  return hub({ L, D, ruta: "", raiz, titulo: "NAOS en español · Más cerca de ti.", h1: null, desc, cuerpo, seccion: "Humanity", actual: "", antes,
-    css: ["assets/css/tablero.css", "assets/css/franja.css"], scripts: ["assets/comun/naos.js", "assets/js/figura.js", "assets/js/luna.js", "assets/js/cella.js", "assets/js/tablero.js", "assets/js/franja.js"] });
-}
-
 // páginas archivadas (19-oct, no hay segundo lado): cada URL vieja de tema y de hub, en las dos ediciones, queda como una
 // redirección pequeña (meta refresh + canonical + noindex) a la portada o a la página de Humanity más cercana; fuera del sitemap.
 export function redireccion(lang, destinoAbs, rel, texto) {
@@ -722,10 +686,15 @@ export function construirTemas({ silencio = false } = {}) {
   if (!D) throw new Error("falta data/temas.json (correr con --grilla y --paginas donde está la grilla)");
   const enlaces = leerJSON(path.join(V, "data/enlaces.json"), { piezas: {} }).piezas || {};
   // lo generado antes y que ya no existe se borra (solo dentro de temas/, es/ y s/, que son de este script)
+  // es/index.html ya no se genera aquí (D-284): lo escribe taller/build.py --sitio de la misma fuente que index.html; se conserva tal cual
+  const portadaEs = path.join(V, "es/index.html"), portadaEsTxt = fs.existsSync(portadaEs) ? fs.readFileSync(portadaEs, "utf8") : null;
   for (const dir of ["temas", "es", "s"]) fs.rmSync(path.join(V, dir), { recursive: true, force: true });
   const urls = ["", "agenda.html"];
   for (const L of [ED.en, ED.es]) {
-    if (L.lang === "es") { write("es/index.html", portadaES(D)); urls.push("es/"); }
+    if (L.lang === "es") {
+      if (portadaEsTxt == null) throw new Error("falta es/index.html: correr taller/build.py --sitio v3 (D-284)");
+      write("es/index.html", portadaEsTxt); urls.push("es/");
+    }
     hubs(L, D, urls);
     for (const p of D.paginas) { write(`${L.pref}temas/${p.slug}/index.html`, paginaTema(L, D, p, enlaces)); urls.push(`${L.pref}temas/${p.slug}/`); }
   }

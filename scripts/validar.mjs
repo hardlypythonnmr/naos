@@ -225,7 +225,7 @@ if (T) {
       if (!cuerpo) for (const f of p.fuentes || []) { const fl = f.lang || "en"; if (fl !== lang && !h.includes(`lang="${fl}">${f.titulo.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;")}<`)) falla(r, `fuente en ${fl} sin lang: ${f.titulo}`); }
     }
     const nPag = (T.paginas || []).length;
-    for (const r of [`${E.pref}temas/index.html`, `${E.pref}temas/humanity/index.html`, ...(T.pilares || []).filter((P) => (T.paginas || []).some((p) => p.pilar === P.id)).map((P) => `${E.pref}temas/pilar/${P.id}/index.html`), ...(lang === "es" ? ["es/index.html"] : [])]) {
+    for (const r of [`${E.pref}temas/index.html`, `${E.pref}temas/humanity/index.html`, ...(T.pilares || []).filter((P) => (T.paginas || []).some((p) => p.pilar === P.id)).map((P) => `${E.pref}temas/pilar/${P.id}/index.html`)]) {
       const h = html(r); if (!h) falla(r, "no existe"); else { pieOk(h, r, r.replace(/^es\//, "").replace(/index\.html$/, "")); if (/class="t-carta/.test(h)) falla(r, "un hub no lleva tarjetas de pieza (cada pieza, una sola tarjeta)"); }
     }
     if (!nPag) falla(d, "sin páginas");
@@ -239,6 +239,15 @@ if (T) {
   { const h = html("index.html") || ""; if (/Colombia 106 ·/.test(h)) falla("index.html", 'queda la línea vieja "Colombia 106" sola');
     if (!h.includes("have a relationship with the divine")) falla("index.html", 'la frase de los pilares no es la línea fija de N ("the divine", D-252)');
     if (!/rel="canonical"/.test(h) || !/hreflang="es"/.test(h)) falla("index.html", "falta canonical o hreflang hacia es/"); }
+  // la portada en español (D-284): sale de la misma fuente que index.html (taller/build.py --sitio), con el pie en español y las líneas de ayuda verificadas
+  { const h = html("es/index.html"); if (!h) falla("es/index.html", "no existe");
+    else { const pie = (h.match(/<footer[\s\S]*?<\/footer>/) || [""])[0];
+      if (!pie.includes(AYUDA_HTML_ES)) falla("es/index.html", "el pie no trae las líneas de ayuda verificadas");
+      if (!pie.includes("ten una relación con lo divino")) falla("es/index.html", "la frase de los pilares no es la línea fija de N");
+      if (!h.includes('<html lang="es">')) falla("es/index.html", 'falta <html lang="es">');
+      if (!h.includes('<link rel="canonical" href="https://hardlypythonnmr.github.io/naos/es/">')) falla("es/index.html", "canonical distinto de es/");
+      for (const [hl, ruta] of [["en", ""], ["es", "es/"], ["x-default", ""]]) if (!h.includes(`<link rel="alternate" hreflang="${hl}" href="https://hardlypythonnmr.github.io/naos/${ruta}">`)) falla("es/index.html", `falta hreflang ${hl}`);
+      if (h.includes("—")) falla("es/index.html", "raya larga"); } }
 
   // enlaces cortos: el registro (data/cortos.json, solo de suma) manda; cada código tiene su redirección, los vivos a su tarjeta
   const REG = datos["cortos.json"]?.codigos || null;
