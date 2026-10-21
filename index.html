@@ -125,6 +125,12 @@ a { color: inherit; text-underline-offset: 3px; }
 .est-n { font: 300 19px/1.2 var(--serif); }
 .est-a .est-n { font-weight: 400; }
 .est-f { font: 600 13px/1.2 var(--cond); letter-spacing: .05em; text-align: right; }
+.est-x { grid-column: 2 / -1; padding-bottom: 4px; }
+.est-x p { margin: 0 0 8px; }
+.est-d { font: 400 15px/1.45 var(--sans); }
+.est-q { font: italic 400 18px/1.35 var(--serif); padding-left: 12px; border-left: 2px solid currentColor; }
+.est-c { font: 600 13px/1.4 var(--cond); letter-spacing: .05em; }
+.est-c a { display: inline-block; min-height: 24px; text-decoration: underline; text-underline-offset: 2px; }
 .est-go { min-height: 44px; padding: 8px 16px; font-size: 15px; }
 
 /* guia.css · la herramienta guiada (las tres opciones). Campo a sangre del color de la puerta; tinta encima (papel sobre el azul de The Divine). */
@@ -712,59 +718,263 @@ window.NAOS_PREG = {
  * abierta; las demás se abren en su fecha (con ?hoy= se puede revisar). Ninguna fecha es una tarea: es cuándo llega (D-279).
  * La semana: las cuatro preguntas del sábado según el cuarto de la luna (plan-2026 §2).
  * Llenado (VP, 21-oct, D-282): cada `f` es el día de la primera pieza (Short, Reel o medio) que enseña la herramienta; `id` es su clave en
- * data/enlaces.json, tal como la trae su pieza.json. Tabla, ritmo y quién actualiza qué: empresa/vp/llenado-bibliotecas.md. */
+ * data/enlaces.json, tal como la trae su pieza.json. Tabla, ritmo y quién actualiza qué: empresa/vp/llenado-bibliotecas.md.
+ * Útil sin video (VP, 21-oct, D-283): campos opcionales en cada entrada, para que la herramienta sirva antes de que salga su pieza.
+ *   d: { en, es } una frase: qué es la herramienta y cuándo.
+ *   q: { en, es } una línea útil o una pregunta, apoyada en la investigación cuando la hay.
+ *   c: [ { t: "Autor Año", u: "URL" } ] solo donde hay una fuente real, abierta y leída el 21-oct; sin `c`, la línea no afirma nada.
+ * Fiesta (VP, 21-oct, D-283 punto 5): las dos de diciembre llevan `pend` (falta revisión D-246 y la elección de N) y `alt` (la otra opción,
+ *   con su n, d y q). Mientras haya `pend`, el constructor no la muestra; cuando N elige, el VP deja la elegida en n/d/q y borra `pend` y `alt`. */
 window.NAOS_BIBLIO = {
   breathe: [
-    { n: { en: "Two in, one out", es: "Dos adentro, una afuera" }, f: null, id: "2026-10-20|respirar" },
-    { n: { en: "Three breaths in the light", es: "Tres respiros en la luz" }, f: "2026-11-03" },
-    { n: { en: "Close the day, three breaths", es: "Cierra el día, tres respiros" }, f: "2026-11-17" },
-    { n: { en: "One breath before you answer", es: "Un respiro antes de contestar" }, f: "2026-12-01" },
-    { n: { en: "Breathe with someone", es: "Respira con alguien" }, f: "2026-12-15" },
-    { n: { en: "Breathe before the count", es: "Respira antes de la cuenta" }, f: "2026-12-29" }
+    { n: { en: "Two in, one out", es: "Dos adentro, una afuera" }, f: null, id: "2026-10-20|respirar",
+      d: { en: "A sigh on purpose, two breaths in through the nose and one long breath out, for when a message tightens your jaw.",
+           es: "Un suspiro a propósito, dos tomas de aire por la nariz y una salida larga, para cuando un mensaje te aprieta la mandíbula." },
+      q: { en: "In a month-long study, five minutes a day of sighs with a long exhale went with better mood than mindfulness did.",
+           es: "En un estudio de un mes, cinco minutos diarios de suspiros con la salida larga fueron de la mano de un mejor ánimo que la atención plena." },
+      c: [{ t: "Balban 2023", u: "https://doi.org/10.1016/j.xcrm.2022.100895" }] },
+    { n: { en: "Three breaths in the light", es: "Tres respiros en la luz" }, f: "2026-11-03",
+      d: { en: "Open a door or a window at first light and take three breaths there, a short version of a sigh that was studied.",
+           es: "Abre una puerta o una ventana con la primera luz y respira tres veces ahí, una versión corta de un suspiro que se estudió." },
+      q: { en: "Where does the first light come into your home?",
+           es: "¿Por dónde entra la primera luz a tu casa?" },
+      c: [{ t: "Balban 2023", u: "https://doi.org/10.1016/j.xcrm.2022.100895" }] },
+    { n: { en: "Close the day, three breaths", es: "Cierra el día, tres respiros" }, f: "2026-11-17",
+      d: { en: "Three slow breaths when the clock reaches your hour, then the light goes off, to close the day on purpose.",
+           es: "Tres respiros lentos cuando el reloj marca tu hora, y luego apagas la luz, para cerrar el día a propósito." },
+      q: { en: "The NHS lists breathing among the ways to relax before bed: what do you do right before the light goes off?",
+           es: "El NHS cuenta la respiración entre las formas de relajarse antes de dormir: ¿qué haces justo antes de apagar la luz?" },
+      c: [{ t: "NHS", u: "https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/how-to-fall-asleep-faster-and-sleep-better/" }] },
+    { n: { en: "One breath before you answer", es: "Un respiro antes de contestar" }, f: "2026-12-01",
+      d: { en: "One breath between a question and your answer, for when someone asks something that stings.",
+           es: "Un respiro entre la pregunta y tu respuesta, para cuando alguien te pregunta algo que pica." },
+      q: { en: "Which question makes you answer too fast?",
+           es: "¿Qué pregunta te hace contestar demasiado rápido?" } },
+    { n: { en: "Breathe with someone", es: "Respira con alguien" }, f: "2026-12-15",
+      d: { en: "Sit next to someone you trust and take three slow breaths at their pace, for a moment you share.",
+           es: "Siéntate al lado de alguien de confianza y respira tres veces lento, a su ritmo, para un rato compartido." },
+      q: { en: "Whose breathing do you know without looking?",
+           es: "¿La respiración de quién reconoces sin mirar?" } },
+    { n: { en: "Breathe before the count", es: "Respira antes de la cuenta" }, f: "2026-12-29",
+      d: { en: "One long breath before a countdown starts, the New Year's or any other, for the seconds just before.",
+           es: "Un respiro largo antes de que empiece una cuenta regresiva, la del Año Nuevo o cualquiera, para los segundos de antes." },
+      q: { en: "What do you want to be doing when the count reaches zero?",
+           es: "¿Qué quieres estar haciendo cuando la cuenta llegue a cero?" } }
   ],
   eat: [
-    { n: { en: "Hold the first bite", es: "Espera el primer bocado" }, f: null, id: "2026-10-21|1021h" },
-    { n: { en: "First, eat with someone", es: "Primero, comer con alguien" }, f: "2026-10-20", id: "2026-10-20|comer" },
-    { n: { en: "Set one more plate", es: "Pon un plato más" }, f: "2026-11-11" },
-    { n: { en: "Phones in the basket", es: "Los teléfonos en la canasta" }, f: "2026-11-25" },
-    { n: { en: "Ask for a story, not news", es: "Pide una historia, no noticias" }, f: "2026-12-09" }
+    { n: { en: "Hold the first bite", es: "Espera el primer bocado" }, f: null, id: "2026-10-21|1021h",
+      d: { en: "When the plate lands, one breath and one name before the first bite, at any meal.",
+           es: "Cuando llega el plato, un respiro y un nombre antes del primer bocado, en cualquier comida." },
+      q: { en: "Tying an act to a clear moment is an if-then plan; across 94 tests such plans helped people do what they meant to, and newer reviews find smaller effects.",
+           es: "Amarrar un acto a un momento claro es un plan si-entonces; en 94 pruebas, planes así ayudaron a la gente a hacer lo que se proponía, y revisiones más nuevas encuentran efectos menores." },
+      c: [{ t: "Gollwitzer 2006", u: "https://doi.org/10.1016/S0065-2601(06)38002-1" },
+          { t: "Wang 2021", u: "https://doi.org/10.3389/fpsyg.2021.565202" }] },
+    { n: { en: "First, eat with someone", es: "Primero, comer con alguien" }, f: "2026-10-20", id: "2026-10-20|comer",
+      d: { en: "Before you start, find someone to share the meal with, at the table or on a call, at lunch or dinner.",
+           es: "Antes de empezar, busca con quién compartir, en la mesa o en una llamada, al almuerzo o a la comida." },
+      q: { en: "Across 142 countries, people who share more meals report more life satisfaction: who could eat with you today?",
+           es: "En 142 países, quienes comparten más comidas reportan más satisfacción con su vida: ¿quién podría comer contigo hoy?" },
+      c: [{ t: "De Neve 2025", u: "https://worldhappiness.report/ed/2025/sharing-meals-with-others-how-sharing-meals-supports-happiness-and-social-connections/" }] },
+    { n: { en: "Set one more plate", es: "Pon un plato más" }, f: "2026-11-11",
+      d: { en: "Set one plate more than the people you know are coming, and think of who could fill it.",
+           es: "Pon un plato más de los que sabes que se van a sentar, y piensa en quién podría ocuparlo." },
+      q: { en: "In 2023, about 1 in 4 Americans ate every meal of the day alone: who is missing from your table?",
+           es: "En 2023, cerca de 1 de cada 4 estadounidenses comió solo todas las comidas del día: ¿quién falta en tu mesa?" },
+      c: [{ t: "De Neve 2025", u: "https://worldhappiness.report/ed/2025/sharing-meals-with-others-how-sharing-meals-supports-happiness-and-social-connections/" }] },
+    { n: { en: "Phones in the basket", es: "Los teléfonos en la canasta" }, f: "2026-11-25",
+      d: { en: "Every phone goes face down in a basket in the middle of the table until the plates are cleared.",
+           es: "Todos los celulares van boca abajo en una canasta en el centro de la mesa hasta que se recogen los platos." },
+      q: { en: "In a study of over 300 people eating out, those with phones on the table felt more distracted and enjoyed the meal less.",
+           es: "En un estudio con más de 300 personas comiendo afuera, quienes tenían el celular en la mesa se distrajeron más y disfrutaron menos la comida." },
+      c: [{ t: "Dwyer 2018", u: "https://doi.org/10.1016/j.jesp.2017.10.007" }] },
+    { n: { en: "Ask for a story, not news", es: "Pide una historia, no noticias" }, f: "2026-12-09",
+      d: { en: "At the table, ask for a story (a first job, a trip, a grandparent) instead of the day's news.",
+           es: "En la mesa, pide una historia (el primer trabajo, un viaje, una abuela) en vez de las noticias del día." },
+      q: { en: "In experiments with strangers, deep talks felt less awkward than people expected: what story have you never asked for?",
+           es: "En experimentos entre desconocidos, las conversaciones hondas resultaron menos incómodas de lo que la gente esperaba: ¿qué historia nunca has pedido?" },
+      c: [{ t: "Kardas 2022", u: "https://doi.org/10.1037/pspa0000281" }] },
+    { n: { en: "The recipe that never changes", es: "La receta que nunca cambia" }, f: "2026-12-23", pend: "D-246 y N",
+      d: { en: "At the December table, ask whoever made a dish how it's made and who taught them, and write it down.",
+           es: "En la mesa de diciembre, pregúntale a quien hizo un plato cómo se hace y quién le enseñó, y escríbelo." },
+      q: { en: "Which dish at your table has stayed the same for as long as you remember, and who knows how to make it?",
+           es: "¿Qué plato de tu mesa es igual desde que te acuerdas, y quién sabe hacerlo?" },
+      alt: { n: { en: "The pot everyone stirs", es: "La olla del junte" },
+             d: { en: "In December, make one dish with many hands, each person doing one step, from the shopping to the last stir.",
+                  es: "En diciembre, haz un plato entre muchas manos, cada quien con un paso, desde el mercado hasta la última revolvida." },
+             q: { en: "Who stirs the pot at your house in December?",
+                  es: "¿Quién revuelve la olla en tu casa en diciembre?" } } }
   ],
   sleep: [
-    { n: { en: "Up when your eyes open", es: "Arriba al abrir los ojos" }, f: null, id: "2026-10-22|despertar" },
-    { n: { en: "Open the window", es: "Abre la ventana" }, f: "2026-11-05" },
-    { n: { en: "Keep your hour", es: "Mantén tu hora" }, f: "2026-11-19" },
-    { n: { en: "One minute in the dark", es: "Un minuto a oscuras" }, f: "2026-12-02" },
-    { n: { en: "Write tomorrow's first thing", es: "Escribe lo primero de mañana" }, f: "2026-12-17" },
-    { n: { en: "Back to the hour", es: "De vuelta a la hora" }, f: "2026-12-30" }
+    { n: { en: "Up when your eyes open", es: "Arriba al abrir los ojos" }, f: null, id: "2026-10-22|despertar",
+      d: { en: "Feet on the floor when your eyes open, before your mind starts arguing, for the first minute of the day.",
+           es: "Los pies en el piso al abrir los ojos, antes de que la mente empiece a opinar, para el primer minuto del día." },
+      q: { en: "The grogginess right after waking has a name, sleep inertia, and it fades the longer you're awake: what do you do in the first minute?",
+           es: "El atontamiento al despertar tiene nombre, inercia del sueño, y se va pasando mientras más tiempo llevas despierto: ¿qué haces en el primer minuto?" },
+      c: [{ t: "Hilditch 2019", u: "https://doi.org/10.2147/NSS.S188911" }] },
+    { n: { en: "Open the window", es: "Abre la ventana" }, f: "2026-11-05",
+      d: { en: "When you get up, open the window and take one breath of outside air, before the lights; skip it if the air outside is smoky.",
+           es: "Al levantarte, abre la ventana y toma un respiro de aire de afuera, antes de prender la luz; sáltatelo si afuera hay humo." },
+      q: { en: "In a small study, bedrooms with fresher air at night felt fresher to the people sleeping in them: how does the air in your room feel?",
+           es: "En un estudio pequeño, los cuartos con aire más fresco de noche se sintieron más frescos para quienes dormían ahí: ¿cómo sientes el aire de tu cuarto?" },
+      c: [{ t: "Strøm-Tejsen 2016", u: "https://doi.org/10.1111/ina.12254" }] },
+    { n: { en: "Keep your hour", es: "Mantén tu hora" }, f: "2026-11-19",
+      d: { en: "Pick one bedtime and keep it for seven nights, writing down when you got into bed.",
+           es: "Escoge una hora de acostarte y mantenla siete noches, anotando a qué hora te metiste a la cama." },
+      q: { en: "The NHS advises going to bed and getting up at similar times each day: what is your hour?",
+           es: "El NHS recomienda acostarse y levantarse a horas parecidas todos los días: ¿cuál es tu hora?" },
+      c: [{ t: "NHS", u: "https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/how-to-fall-asleep-faster-and-sleep-better/" }] },
+    { n: { en: "One minute in the dark", es: "Un minuto a oscuras" }, f: "2026-12-02",
+      d: { en: "Sit on the bed with the last light off for one minute, before you sleep.",
+           es: "Siéntate en la cama con la última luz apagada durante un minuto, antes de dormir." },
+      q: { en: "An expert panel recommends dim light for the three hours before bed and a bedroom as dark as possible: which light is still on at your bedtime?",
+           es: "Un panel de expertos recomienda luz tenue las tres horas antes de dormir y un cuarto lo más oscuro posible: ¿qué luz sigue prendida a tu hora de dormir?" },
+      c: [{ t: "Brown 2022", u: "https://doi.org/10.1371/journal.pbio.3001571" }] },
+    { n: { en: "Write tomorrow's first thing", es: "Escribe lo primero de mañana" }, f: "2026-12-17",
+      d: { en: "Before bed, write down the first thing you'll do tomorrow, so it waits on paper.",
+           es: "Antes de dormir, escribe lo primero que vas a hacer mañana, para que espere en el papel." },
+      q: { en: "What would go on the first line for tomorrow?",
+           es: "¿Qué iría en la primera línea de mañana?" } },
+    { n: { en: "Back to the hour", es: "De vuelta a la hora" }, f: "2026-12-30",
+      d: { en: "After the late nights of the holidays, go back to your usual hour to get up, starting tomorrow.",
+           es: "Después de las trasnochadas de fin de año, vuelve a tu hora de siempre para levantarte, desde mañana." },
+      q: { en: "Sleep doctors advise getting up at the same time every day, even on vacation: what was your hour before December?",
+           es: "Los médicos del sueño recomiendan levantarse a la misma hora todos los días, incluso en vacaciones: ¿cuál era tu hora antes de diciembre?" },
+      c: [{ t: "AASM 2020", u: "https://sleepeducation.org/healthy-sleep/healthy-sleep-habits/" }] }
   ],
   move: [
-    { n: { en: "Find the moment", es: "Encuentra el momento" }, f: null },
-    { n: { en: "Ten slow steps", es: "Diez pasos lentos" }, f: "2026-11-16" },
-    { n: { en: "Walk side by side", es: "Caminen lado a lado" }, f: "2026-11-30" },
-    { n: { en: "Walk home the long way", es: "A casa por el camino largo" }, f: "2026-12-14" },
-    { n: { en: "Stand for the call", es: "De pie para la llamada" }, f: "2026-12-28" }
+    { n: { en: "Find the moment", es: "Encuentra el momento" }, f: null,
+      d: { en: "Find two minutes inside a moment you already have, like the coffee dripping, and move at your own pace; if it hurts, stop.",
+           es: "Encuentra dos minutos dentro de un momento que ya tienes, como mientras cuela el café, y muévete a tu ritmo; si duele, para." },
+      q: { en: "The WHO says all physical activity counts: where are your two minutes today?",
+           es: "La OMS dice que toda actividad física cuenta: ¿dónde están tus dos minutos hoy?" },
+      c: [{ t: "WHO 2024", u: "https://www.who.int/news-room/fact-sheets/detail/physical-activity" }] },
+    { n: { en: "Ten slow steps", es: "Diez pasos lentos" }, f: "2026-11-16",
+      d: { en: "Walk toward a water you can reach on foot and make the last ten steps slow, one breath each, stopping on firm ground.",
+           es: "Camina hacia un agua a la que llegues a pie y da los últimos diez pasos lentos, un respiro cada uno, parando en tierra firme." },
+      q: { en: "We found no study of ten slow steps, so this one is ours to try: which water can you reach on foot?",
+           es: "No encontramos un estudio de diez pasos lentos, así que este es nuestro para probar: ¿a qué agua puedes llegar a pie?" } },
+    { n: { en: "Walk side by side", es: "Caminen lado a lado" }, f: "2026-11-30",
+      d: { en: "Ask one person for ten minutes around the block and walk next to them, facing the same way.",
+           es: "Invita a alguien a dar diez minutos de vuelta a la cuadra y caminen uno al lado del otro, mirando para el mismo lado." },
+      q: { en: "Psychologists have proposed that walking side by side may make hard talks easier, and it is still mostly untested: who would you walk with?",
+           es: "Unos psicólogos proponen que caminar lado a lado puede facilitar las conversaciones difíciles, y todavía casi no se ha probado: ¿con quién caminarías?" },
+      c: [{ t: "Webb 2017", u: "https://doi.org/10.1037/a0040431" }] },
+    { n: { en: "Walk home the long way", es: "A casa por el camino largo" }, f: "2026-12-14",
+      d: { en: "On the way home, take a street you know but don't usually use, and look for one thing you've never noticed.",
+           es: "De camino a casa, coge por una calle que conoces pero no sueles usar, y busca una cosa en la que nunca te habías fijado." },
+      q: { en: "In a 2022 trial, older adults who looked for wonder on weekly walks felt more awe and joy on those walks: what have you never noticed on your way home?",
+           es: "En un ensayo de 2022, adultos mayores que buscaban asombro en sus caminatas semanales sintieron más asombro y alegría en ellas: ¿en qué nunca te has fijado camino a casa?" },
+      c: [{ t: "Sturm 2022", u: "https://doi.org/10.1037/emo0000876" }] },
+    { n: { en: "Stand for the call", es: "De pie para la llamada" }, f: "2026-12-28",
+      d: { en: "Stand up when a call starts and stay standing until it ends.",
+           es: "Párate cuando empiece una llamada y quédate de pie hasta que termine." },
+      q: { en: "Which call of your day could you take standing up?",
+           es: "¿Qué llamada de tu día podrías contestar de pie?" } }
   ],
   community: [
-    { n: { en: "Call, don't type", es: "Llama, no escribas" }, f: null, id: "2026-10-23|llamar" },
-    { n: { en: "Call someone older", es: "Llama a alguien mayor" }, f: "2026-11-11" },
-    { n: { en: "Look up together", es: "Miren arriba juntos" }, f: "2026-11-24" },
-    { n: { en: "Light in the window", es: "Luz en la ventana" }, f: "2026-12-04" },
-    { n: { en: "Call the same person again", es: "Llama otra vez a la misma persona" }, f: "2026-12-11" }
+    { n: { en: "Call, don't type", es: "Llama, no escribas" }, f: null, id: "2026-10-23|llamar",
+      d: { en: "When you reach for the keyboard to write to someone, press call instead; ten seconds counts.",
+           es: "Cuando vayas a escribirle a alguien, mejor llama; diez segundos cuentan." },
+      q: { en: "In experiments, people expected a call to feel more awkward than typing; it didn't, and it felt closer: whose voice do you want to hear?",
+           es: "En experimentos, la gente esperaba que una llamada fuera más incómoda que escribir; no lo fue, y se sintió más cercana: ¿qué voz quieres oír?" },
+      c: [{ t: "Kumar 2021", u: "https://doi.org/10.1037/xge0000962" }] },
+    { n: { en: "Call someone older", es: "Llama a alguien mayor" }, f: "2026-11-11",
+      d: { en: "Call someone older who is still here, and ask how they are.",
+           es: "Llama a alguien mayor que todavía está, y pregúntale cómo está." },
+      q: { en: "People underestimate how much others appreciate being reached out to: who hasn't heard from you in a while?",
+           es: "La gente subestima cuánto agradecen los demás que los busquen: ¿quién no sabe de ti hace rato?" },
+      c: [{ t: "Liu 2023", u: "https://doi.org/10.1037/pspi0000402" }] },
+    { n: { en: "Look up together", es: "Miren arriba juntos" }, f: "2026-11-24",
+      d: { en: "Pick a night, a time and a place with one person and look up for three minutes, together or each where you are.",
+           es: "Escojan con alguien una noche, una hora y un lugar, y miren arriba tres minutos, juntos o cada uno donde esté." },
+      q: { en: "Deciding the when and where in advance is one of the most tested ways to follow through: which night is yours?",
+           es: "Decidir de antemano el cuándo y el dónde es de las formas más probadas de cumplir: ¿cuál es su noche?" },
+      c: [{ t: "Gollwitzer 2006", u: "https://doi.org/10.1016/S0065-2601(06)38002-1" }] },
+    { n: { en: "Light in the window", es: "Luz en la ventana" }, f: "2026-12-04",
+      d: { en: "Leave one small light in the window on a December night and tell one person it's there.",
+           es: "Deja una lucecita en la ventana una noche de diciembre y cuéntale a alguien que está ahí." },
+      q: { en: "Who would you like to see your light tonight?",
+           es: "¿Quién te gustaría que viera tu luz esta noche?" } },
+    { n: { en: "Call the same person again", es: "Llama otra vez a la misma persona" }, f: "2026-12-11",
+      d: { en: "A week after a call, call the same person again.",
+           es: "Una semana después de una llamada, vuelve a llamar a la misma persona." },
+      q: { en: "In one trial, short friendly calls repeated over four weeks went with less loneliness among homebound adults: who gets your second call?",
+           es: "En un ensayo, llamadas amables y cortas repetidas durante cuatro semanas fueron de la mano de menos soledad en adultos que no salían de casa: ¿a quién le toca tu segunda llamada?" },
+      c: [{ t: "Kahlon 2021", u: "https://doi.org/10.1001/jamapsychiatry.2021.0113" }] },
+    { n: { en: "The block party", es: "La fiesta de cuadra" }, f: "2026-12-25", pend: "D-246 y N",
+      d: { en: "On a December night, take a chair or a plate to your door and share a while with a neighbor, the way a block party does.",
+           es: "Una noche de diciembre, saca una silla o un plato a la puerta y comparte un rato con un vecino, como en la fiesta de cuadra." },
+      q: { en: "Which neighbor have you never shared a plate with?",
+           es: "¿Con qué vecino nunca has compartido un plato?" },
+      alt: { n: { en: "Keep it alive", es: "Que no se pierda" },
+             d: { en: "Teach one December tradition (a carol, a prayer, a step of a recipe, a game) to the youngest one at the gathering.",
+                  es: "Enséñale una tradición de diciembre (un villancico, una oración, un paso de una receta, un juego) al más chiquito del junte." },
+             q: { en: "Which of your family's traditions would be lost if nobody taught it?",
+                  es: "¿Qué tradición de tu familia se perdería si nadie la enseña?" } } }
   ],
   divine: [
-    { n: { en: "Look up once", es: "Mira arriba una vez" }, f: null },
-    { n: { en: "Say one name", es: "Di un nombre" }, f: "2026-10-31" },
-    { n: { en: "A lamp before dark", es: "Una lámpara antes de oscurecer" }, f: "2026-11-08" },
-    { n: { en: "One minute, ask for nothing", es: "Un minuto sin pedir nada" }, f: "2026-11-15" },
-    { n: { en: "Wait one breath", es: "Espera un respiro" }, f: "2026-11-29" },
-    { n: { en: "The longest night", es: "La noche más larga" }, f: "2026-12-20" }
+    { n: { en: "Look up once", es: "Mira arriba una vez" }, f: null,
+      d: { en: "When you step outside after dark, take one breath and look up once.",
+           es: "Cuando salgas después de que oscurezca, toma un respiro y mira arriba una vez." },
+      q: { en: "What did you notice first?",
+           es: "¿En qué te fijaste primero?" } },
+    { n: { en: "Say one name", es: "Di un nombre" }, f: "2026-10-31",
+      d: { en: "At the table on 1 or 2 November, or any night, say the name of someone you miss, out loud or softly.",
+           es: "En la mesa el 1 o el 2 de noviembre, o cualquier noche, di el nombre de alguien que extrañas, en voz alta o pasito." },
+      q: { en: "Remembering the dead on 2 November became official in 998, when Abbot Odilo of Cluny set it for his monasteries: whose name would you say tonight?",
+           es: "Recordar a los difuntos el 2 de noviembre se volvió oficial en el año 998, cuando el abad Odilón de Cluny lo fijó para sus monasterios: ¿qué nombre dirías esta noche?" },
+      c: [{ t: "Vatican News", u: "https://www.vaticannews.va/en/liturgical-holidays/commemoration-of-all-the-faithful-departed--all-souls-day-.html" }] },
+    { n: { en: "A lamp before dark", es: "Una lámpara antes de oscurecer" }, f: "2026-11-08",
+      d: { en: "Light one small, warm light before it gets dark, any night, and on Diwali, 8 November; put a flame out before you sleep.",
+           es: "Prende una luz pequeña y cálida antes de que oscurezca, cualquier noche, y en Diwali, el 8 de noviembre; apaga la llama antes de dormir." },
+      q: { en: "On Diwali, small oil lamps called diyas are set in rows in windows and doors: where would yours go?",
+           es: "En Diwali, unas lamparitas de aceite llamadas diyas se ponen en fila en ventanas y puertas: ¿dónde iría la tuya?" },
+      c: [{ t: "BBC 2010", u: "https://www.bbc.co.uk/religion/religions/hinduism/holydays/diwali.shtml" }] },
+    { n: { en: "One minute, ask for nothing", es: "Un minuto sin pedir nada" }, f: "2026-11-15",
+      d: { en: "On a full or new moon night, step out for one minute and ask for nothing: no wish, no plan.",
+           es: "Una noche de luna llena o nueva, sal un minuto y no pidas nada: ni deseo ni plan." },
+      q: { en: "When did you last spend a minute without asking for anything?",
+           es: "¿Cuándo fue la última vez que pasaste un minuto sin pedir nada?" } },
+    { n: { en: "Wait one breath", es: "Espera un respiro" }, f: "2026-11-29",
+      d: { en: "Wait one breath before you reach for the next thing (a door, a plate, a message) through the four weeks before Christmas.",
+           es: "Espera un respiro antes de ir por lo siguiente (una puerta, un plato, un mensaje) en las cuatro semanas antes de Navidad." },
+      q: { en: "What are you waiting for this December?",
+           es: "¿Qué estás esperando este diciembre?" } },
+    { n: { en: "The longest night", es: "La noche más larga" }, f: "2026-12-20",
+      d: { en: "On the eve of the solstice, keep one light on through the long night and share it with someone.",
+           es: "La víspera del solsticio, deja una luz prendida en la noche larga y compártela con alguien." },
+      q: { en: "This year's December solstice is on 21 December at 20:50 UTC, the longest night in the north: who will you spend it with?",
+           es: "El solsticio de diciembre de este año es el 21 de diciembre a las 20:50 UTC, la noche más larga en el norte: ¿con quién la vas a pasar?" },
+      c: [{ t: "USNO 2026", u: "https://aa.usno.navy.mil/api/seasons?year=2026" }] }
   ],
   week: [
-    { n: { en: "Which one stayed?", es: "¿Cuál se quedó?" }, f: null },
-    { n: { en: "When did it happen?", es: "¿Cuándo pasó?" }, f: "2026-10-24" },
-    { n: { en: "Who did it with you?", es: "¿Quién la hizo contigo?" }, f: "2026-10-31" },
-    { n: { en: "What stays, what goes?", es: "¿Qué se queda, qué se va?" }, f: "2026-11-07" },
-    { n: { en: "Which one did you try?", es: "¿Cuál probaste?" }, f: "2026-11-14" }
+    { n: { en: "Which one stayed?", es: "¿Cuál se quedó?" }, f: null,
+      d: { en: "The Saturday question: look back at the week and see which behavior stayed on its own.",
+           es: "La pregunta del sábado: mira la semana para atrás y fíjate qué conducta se quedó sola." },
+      q: { en: "In a study of habits in daily life, missing one day did not undo a habit; repeating it in the same moment did the work.",
+           es: "En un estudio de hábitos en la vida diaria, fallar un día no deshizo el hábito; repetirlo en el mismo momento hizo el trabajo." },
+      c: [{ t: "Lally 2010", u: "https://doi.org/10.1002/ejsp.674" }] },
+    { n: { en: "When did it happen?", es: "¿Cuándo pasó?" }, f: "2026-10-24",
+      d: { en: "The Saturday question of the moon's second quarter: remember the moment each behavior happened in.",
+           es: "La pregunta del sábado del segundo cuarto de la luna: acuérdate del momento en que pasó cada conducta." },
+      q: { en: "Habits grow tied to the moment they happen in, so the moment is worth knowing: when did yours happen?",
+           es: "Los hábitos crecen amarrados al momento en que pasan, así que vale la pena conocerlo: ¿cuándo pasó el tuyo?" },
+      c: [{ t: "Wood 2007", u: "https://doi.org/10.1037/0033-295X.114.4.843" }] },
+    { n: { en: "Who did it with you?", es: "¿Quién la hizo contigo?" }, f: "2026-10-31",
+      d: { en: "The Saturday question of the third quarter: remember who joined you in one of the week's behaviors.",
+           es: "La pregunta del sábado del tercer cuarto: acuérdate de quién te acompañó en una de las conductas de la semana." },
+      q: { en: "Who would you ask to join you next week?",
+           es: "¿A quién invitarías a acompañarte la otra semana?" } },
+    { n: { en: "What stays, what goes?", es: "¿Qué se queda, qué se va?" }, f: "2026-11-07",
+      d: { en: "The Saturday question of the last quarter: keep one behavior for the next week and let one go.",
+           es: "La pregunta del sábado del último cuarto: quédate con una conducta para la otra semana y suelta una." },
+      q: { en: "Which one felt like yours, and which one never fit?",
+           es: "¿Cuál se sintió tuya, y cuál nunca te cuadró?" } },
+    { n: { en: "Which one did you try?", es: "¿Cuál probaste?" }, f: "2026-11-14",
+      d: { en: "The Saturday question of the first quarter, after the new moon: name the one behavior you tried this week.",
+           es: "La pregunta del sábado del primer cuarto, después de la luna nueva: nombra la conducta que probaste esta semana." },
+      q: { en: "Which door did you open first, and why that one?",
+           es: "¿Qué puerta abriste primero, y por qué esa?" } }
   ]
 };
 
@@ -1255,7 +1465,8 @@ window.NAOS_BIBLIO = {
   /* ---------- la biblioteca de cada puerta ---------- */
   N.biblio = (P) => {
     const hoy = N.hoyF();
-    return (BIB[P.id] || []).map((h, i) => ({ n: h.n, f: h.f, id: h.id, yt: h.yt, i: i, abierta: !h.f || h.f <= hoy, hoy: i === 0 }));
+    // las marcadas `pend` (fiesta de diciembre, falta la elección de N) no se muestran ni se cuentan
+    return (BIB[P.id] || []).filter((h) => !h.pend).map((h, i) => ({ n: h.n, f: h.f, id: h.id, yt: h.yt, d: h.d, q: h.q, c: h.c, i: i, abierta: !h.f || h.f <= hoy, hoy: i === 0 }));
   };
   N.biblioCuenta = (P) => { const b = N.biblio(P); const a = b.filter((x) => x.abierta).length; return { a: a, v: b.length - a, total: b.length }; };
   N.biblioTexto = (P) => {
@@ -1273,6 +1484,15 @@ window.NAOS_BIBLIO = {
     s += `<rect x="0" y="${H - 2}" width="${W}" height="2.4" fill="${tx}"/>`;
     return `<svg class="estante" viewBox="0 0 ${W} ${H + 0.4}" width="${W}" height="${H}" aria-hidden="true" focusable="false">${s}</svg>`;
   };
+  // lo útil antes del video (D-283): descripción, línea o pregunta apoyada en la investigación, y las fuentes como enlaces chicos
+  const urlOk = (u) => { try { return typeof u === "string" && new URL(u).protocol === "https:"; } catch (e) { return false; } };
+  N.estanteUtil = (h) => {
+    const d = h.d && N.L(h.d), q = h.q && N.L(h.q);
+    const c = (Array.isArray(h.c) ? h.c : []).filter((x) => x && x.t && urlOk(x.u));
+    if (!d && !q && !c.length) return "";
+    const fu = N.lang === "es" ? "Fuente" : "Source";
+    return `<div class="est-x">${d ? `<p class="est-d">${N.esc(d)}</p>` : ""}${q ? `<p class="est-q">${N.esc(q)}</p>` : ""}${c.length ? `<p class="est-c"><span class="est-ck">${fu}:</span> ${c.map((x) => `<a href="${N.esc(x.u)}" target="_blank" rel="noopener">${N.esc(x.t)}</a>`).join(" · ")}</p>` : ""}</div>`;
+  };
   // la lista del estante (dentro de la puerta abierta y después del suspiro)
   N.estanteLista = (P, o) => {
     o = o || {};
@@ -1280,7 +1500,7 @@ window.NAOS_BIBLIO = {
     return `<ol class="est-l">${N.biblio(P).map((h) => `<li class="est-i ${h.abierta ? "est-a" : "est-v"}">
       <span class="est-lomo" aria-hidden="true"></span>
       <span class="est-n">${N.esc(N.L(h.n))}</span>
-      <span class="est-f">${N.ytDe(h) ? `<a class="est-yt" href="${N.esc(N.ytDe(h))}" rel="noopener" aria-label="${N.esc(T.ver + ": " + N.L(h.n))}">${T.ver}</a> ` : ""}${h.hoy ? (o.boton ? `<button type="button" class="b-pri est-go">${N.esc(N.u("hazla"))}</button>` : T.hoy) : h.abierta ? T.abierta : `${T.llega} ${N.esc(N.fecha(h.f))}`}</span></li>`).join("")}</ol>`;
+      <span class="est-f">${N.ytDe(h) ? `<a class="est-yt" href="${N.esc(N.ytDe(h))}" rel="noopener" aria-label="${N.esc(T.ver + ": " + N.L(h.n))}">${T.ver}</a> ` : ""}${h.hoy ? (o.boton ? `<button type="button" class="b-pri est-go">${N.esc(N.u("hazla"))}</button>` : T.hoy) : h.abierta ? T.abierta : `${T.llega} ${N.esc(N.fecha(h.f))}`}</span>${h.abierta ? N.estanteUtil(h) : ""}</li>`).join("")}</ol>`;
   };
 })();
 
