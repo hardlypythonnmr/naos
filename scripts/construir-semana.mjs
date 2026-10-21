@@ -86,6 +86,7 @@ briefs.forEach((b, i) => {
 // [dia, sección, título, asset_id, hora UTC, hora local]
 const PUBLICADOS = [
   ["2026-10-15", "behavior", "Closer to yourself. This is NAOS", "promo", "2026-10-15T19:30Z", "15:30 ET"],
+  ["2026-10-20", "behavior", "It can wait two breaths", "respirar", "2026-10-20T23:00Z", "19:00 ET"],
 ];
 for (const [d, seccion, title, asset_id, hora_utc, hora_local] of PUBLICADOS)
   items.push({ seccion, dia: d, slot: null, hora_utc, hora_local, format: "short", title, asset_id, status: "published", nota: "Launch promo, on YouTube Shorts and Instagram Reels" });

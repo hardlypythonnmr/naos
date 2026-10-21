@@ -1,6 +1,6 @@
 {
  "nota": "Briefs, lo ya publicado y la biblioteca sin fecha (D-224). Las piezas fechadas viven en data/temas.json desde el lote E (D-252); esquema en el README. Sin fecha: dia null y nota.",
- "generado": "2026-10-21T21:43Z",
+ "generado": "2026-10-21T22:48Z",
  "semana": {
   "desde": "2026-10-19",
   "hasta": "2026-10-25"
@@ -211,6 +211,18 @@
      "fuente": "Forex Factory weekly calendar"
     }
    ]
+  },
+  {
+   "seccion": "behavior",
+   "dia": "2026-10-20",
+   "slot": null,
+   "hora_utc": "2026-10-20T23:00Z",
+   "hora_local": "19:00 ET",
+   "format": "short",
+   "title": "It can wait two breaths",
+   "asset_id": "respirar",
+   "status": "published",
+   "nota": "Launch promo, on YouTube Shorts and Instagram Reels"
   },
   {
    "seccion": "market",
