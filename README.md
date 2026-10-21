@@ -1,9 +1,10 @@
 # NAOS
 
 **Closer to yourself.** NAOS is Humanity only (D-263): eat well, sleep well, get moving, have a relationship with the
-divine, and build community, with small behaviors and old tales. Since D-270 the home page is a lunar calendar at night that
-reads still: 18 tiles (the centre with Cella, today's moon, Breathe, the five bases, Topics, Upcoming, Assets and the seven days
-of the week), the D-265 line, and below it, on paper and ink, "This week", the bases, Upcoming, Breathe, Topics and Assets.
+divine, and build community, with small behaviors and old tales. Since D-282 the home page is V3 of page v5: you arrive inside Breathe with Cella, under "Something like…" and one word for how it feels
+(a knot, a rush, a weight); below it the other six doors as a carousel, a "Pick a door" box of the seven libraries (each with its shelf,
+open and on the way, D-281) and the days as when something new arrives. English first, Spanish with `?lang=es` (the button in the bar).
+The D-270 lunar-calendar home is kept in `archivo/portada-2026-10-20.html`.
 
 Since 19 Oct 2026 there is no second side. The Present (news, markets, AI, the radar, the monitor room, the guide, the two
 doors) left the site: its topic URLs, hubs and short links redirect (noindex) to the home or the closest Humanity page, as
@@ -15,7 +16,7 @@ Live at <https://hardlypythonnmr.github.io/naos/>. Static site, no build step, s
 
 | path | what |
 |---|---|
-| `index.html` | the page |
+| `index.html` | the page: V3 of page v5 (D-282), one file with its CSS and JS inline, built by `python3 build.py --sitio v3` in n-system (`earn/naos/empresa/estrategia/2026-10-20-pagina-v5/taller/`; do not edit by hand). Fonts and `figura.js` are linked from `assets/`; `assets/js/cella-brazos.js` (Cella's two arms) is a copy from n-system and is never edited here. A library item with an `id` or `yt` shows a "Watch" link once `data/enlaces.json` has it |
 | `assets/css/`, `assets/js/` | page styles and scripts: `tablero.js` + `tablero.css` (the board of 18 tiles and everything under it, in both editions), `luna.js` (today's moon from `data/luna.json`: age, lit fraction, the SVG disc), `semana.js` ("This week"), `cella.js` + `figura.js` (Cella: breathes 8 s; her eyes have three simple shapes, D-270; `figura.js` is a copy from n-system and is never edited here), `franja.js` (the Spanish home's "Hoy y lo próximo"); `v1plus.css`, `sala.css` and `puertas.css` keep only what the Humanity home and Upcoming use (the names are historical) |
 | `data/luna.json` | the main moon phases (new, first quarter, full, last quarter) from 1 Oct 2026 to 31 Dec 2027, in UTC, as the U.S. Naval Observatory phases API gives them (`aa.usno.navy.mil/api/moon/phases/year`), each with its source; the file carries the URL and the day it was fetched. `luna.js` interpolates the Sun-Moon elongation between phases and computes age and lit fraction on Colombia time (America/Bogota); a day without an hour (`?hoy=YYYY-MM-DD`, a day of the week strip) is read at 09:00 Colombia. Never type a phase time by hand: ask the API again |
 | `assets/comun/` | shared design tokens, base styles and the page engine (`naos.js`) |
@@ -44,6 +45,7 @@ Live at <https://hardlypythonnmr.github.io/naos/>. Static site, no build step, s
 | `privacidad.html`, `terminos.html` | privacy policy and terms (linked from the Google OAuth consent screen; keep) |
 | `googlec0e927a7df959aad.html` | Google Search Console verification (keep) |
 | `archivo/index-anterior.html` | the previous home page, kept for reference |
+| `archivo/portada-2026-10-20.html` | the lunar-calendar home of D-270, archived on 21 Oct 2026 (noindex; `<base href="../">` keeps its asset paths) |
 
 ### The week grid (`data/semana.json`, D-224)
 
