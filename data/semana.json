@@ -1,6 +1,6 @@
 {
  "nota": "Briefs, lo ya publicado y la biblioteca sin fecha (D-224). Las piezas fechadas viven en data/temas.json desde el lote E (D-252); esquema en el README. Sin fecha: dia null y nota.",
- "generado": "2026-10-25T01:06Z",
+ "generado": "2026-10-25T05:03Z",
  "semana": {
   "desde": "2026-10-19",
   "hasta": "2026-10-25"
@@ -103,25 +103,8 @@
    "format": "brief",
    "title": "London open brief",
    "status": "planned",
-   "video": true,
-   "video_nota": "Video: red event ahead",
-   "eventos": [
-    {
-     "titulo": "CAD CPI m/m",
-     "hora": "2026-10-19T12:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "CAD Median CPI y/y",
-     "hora": "2026-10-19T12:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "CAD Trimmed CPI y/y",
-     "hora": "2026-10-19T12:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    }
-   ]
+   "video": false,
+   "eventos": []
   },
   {
    "seccion": "market",
@@ -204,13 +187,7 @@
    "status": "planned",
    "video": true,
    "video_nota": "Short (EN)",
-   "eventos": [
-    {
-     "titulo": "GBP CPI y/y",
-     "hora": "2026-10-21T06:00Z",
-     "fuente": "Forex Factory weekly calendar"
-    }
-   ]
+   "eventos": []
   },
   {
    "seccion": "behavior",
@@ -265,11 +242,6 @@
      "hora": "2026-10-21T20:30Z",
      "fuente": "Meta via PR Newswire (on Finviz), 12 Oct 2026",
      "url": "https://finviz.com/news/401445/meta-to-announce-third-quarter-2026-results"
-    },
-    {
-     "titulo": "NZD CPI q/q",
-     "hora": "2026-10-21T21:45Z",
-     "fuente": "Forex Factory weekly calendar"
     }
    ]
   },
@@ -452,7 +424,38 @@
    "status": "planned",
    "video": true,
    "video_nota": "Short (EN)",
-   "eventos": []
+   "eventos": [
+    {
+     "titulo": "AUD CPI m/m",
+     "hora": "2026-10-28T00:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "AUD CPI y/y",
+     "hora": "2026-10-28T00:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "AUD Trimmed Mean CPI m/m",
+     "hora": "2026-10-28T00:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "NZD Official Cash Rate",
+     "hora": "2026-10-28T01:00Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "NZD RBNZ Rate Statement",
+     "hora": "2026-10-28T01:00Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "NZD RBNZ Press Conference",
+     "hora": "2026-10-28T02:00Z",
+     "fuente": "Forex Factory weekly calendar"
+    }
+   ]
   },
   {
    "seccion": "market",
@@ -463,7 +466,8 @@
    "format": "brief",
    "title": "London open brief",
    "status": "planned",
-   "video": false,
+   "video": true,
+   "video_nota": "Video: red event ahead",
    "eventos": [
     {
      "titulo": "Microsoft FY27 Q1 results",
@@ -478,6 +482,11 @@
      "fecha": "2026-10-28",
      "fuente": "GitHub Universe",
      "url": "https://githubuniverse.com/"
+    },
+    {
+     "titulo": "GBP Annual Budget Release",
+     "hora": "2026-10-28T12:30Z",
+     "fuente": "Forex Factory weekly calendar"
     }
    ]
   },
@@ -490,9 +499,23 @@
    "format": "brief",
    "title": "New York open brief",
    "status": "planned",
-   "video": true,
-   "video_nota": "Video: red event ahead",
+   "video": false,
    "eventos": [
+    {
+     "titulo": "CAD BOC Monetary Policy Report",
+     "hora": "2026-10-28T13:45Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "CAD BOC Rate Statement",
+     "hora": "2026-10-28T13:45Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "CAD Overnight Rate",
+     "hora": "2026-10-28T13:45Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
     {
      "titulo": "Bank of Canada rate announcement and Monetary Policy Report",
      "hora": "2026-10-28T13:45Z",
@@ -500,10 +523,30 @@
      "url": "https://www.bankofcanada.ca/press/upcoming-events/"
     },
     {
+     "titulo": "CAD BOC Press Conference",
+     "hora": "2026-10-28T14:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "USD Federal Funds Rate",
+     "hora": "2026-10-28T18:00Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "USD FOMC Statement",
+     "hora": "2026-10-28T18:00Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
      "titulo": "FOMC statement (press conference 14:30 ET, Chair Kevin Warsh)",
      "hora": "2026-10-28T18:00Z",
      "fuente": "Federal Reserve, October 2026 calendar",
      "url": "https://www.federalreserve.gov/newsevents/2026-october.htm"
+    },
+    {
+     "titulo": "USD FOMC Press Conference",
+     "hora": "2026-10-28T18:30Z",
+     "fuente": "Forex Factory weekly calendar"
     }
    ]
   },
@@ -533,10 +576,30 @@
    "video_nota": "Video: red event ahead",
    "eventos": [
     {
+     "titulo": "USD Advance GDP q/q",
+     "hora": "2026-10-29T12:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "USD Core PCE Price Index m/m",
+     "hora": "2026-10-29T12:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
      "titulo": "US GDP Q3 advance estimate and Personal Income and Outlays (PCE, September)",
      "hora": "2026-10-29T12:30Z",
      "fuente": "U.S. Bureau of Economic Analysis, release schedule",
      "url": "https://www.bea.gov/news/schedule"
+    },
+    {
+     "titulo": "EUR Main Refinancing Rate",
+     "hora": "2026-10-29T13:15Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "EUR Monetary Policy Statement",
+     "hora": "2026-10-29T13:15Z",
+     "fuente": "Forex Factory weekly calendar"
     }
    ]
   },
@@ -551,6 +614,11 @@
    "status": "planned",
    "video": false,
    "eventos": [
+    {
+     "titulo": "EUR ECB Press Conference",
+     "hora": "2026-10-29T13:45Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
     {
      "titulo": "ECB rate decision and press conference (President Lagarde)",
      "hora": "2026-10-29T13:45Z",
@@ -570,7 +638,28 @@
    "status": "planned",
    "video": true,
    "video_nota": "Short (EN)",
-   "eventos": []
+   "eventos": [
+    {
+     "titulo": "JPY BOJ Policy Rate",
+     "hora": "2026-10-30T02:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "JPY Monetary Policy Statement",
+     "hora": "2026-10-30T02:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "JPY BOJ Outlook Report",
+     "hora": "2026-10-30T02:31Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "JPY BOJ Press Conference",
+     "hora": "2026-10-30T05:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    }
+   ]
   },
   {
    "seccion": "market",
