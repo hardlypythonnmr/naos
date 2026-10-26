@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "nota": "Banco de arranque. ob1 a ob8 son de Move (brief A.2); las demás son fichas mínimas escritas para el prototipo. Ninguna toca la seguridad (mareo, dolor, embarazo, caída). El tercer plan B es siempre 'Mañana'.",
+  "obstrucciones": [
+    { "id": "ob1", "regla": "move", "situacion": { "en": "Today: no chair.", "es": "Hoy: sin silla." },
+      "planes": [ { "en": "Hand on the counter, feet flat", "es": "Mano en el mesón, pies planos" }, { "en": "Touch the back of whatever is there", "es": "Toco el respaldo de lo que haya" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+    { "id": "ob2", "regla": "move", "situacion": { "en": "Today: guests in the kitchen.", "es": "Hoy: visitas en la cocina." },
+      "planes": [ { "en": "Feet flat, one slow breath", "es": "Pies planos, un respiro lento" }, { "en": "Once, in the hallway", "es": "Una, en el pasillo" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+    { "id": "ob3", "regla": "move", "situacion": { "en": "Today: the pot's already in your hands.", "es": "Hoy: ya traes la olla en las manos." },
+      "planes": [ { "en": "Set it down first", "es": "Apóyala primero" }, { "en": "Start after, never during", "es": "Empiezo después, nunca durante" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+    { "id": "ob4", "regla": "move", "situacion": { "en": "Today: the call won't end.", "es": "Hoy: la llamada no termina." },
+      "planes": [ { "en": "Stand up while I talk", "es": "Me paro mientras hablo" }, { "en": "Once when it ends", "es": "Una cuando termine" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+    { "id": "ob5", "regla": "move", "situacion": { "en": "Today: you forgot the water was on.", "es": "Hoy: se te olvidó que el agua estaba puesta." },
+      "planes": [ { "en": "Turn it off, then the rule", "es": "Apago, y luego la regla" }, { "en": "Next time the water goes on", "es": "La próxima vez que ponga el agua" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+    { "id": "ob6", "regla": "move", "situacion": { "en": "Today: it's the fifth time this week and it weighs.", "es": "Hoy: es la quinta vez esta semana y pesa." },
+      "planes": [ { "en": "The smallest size", "es": "El tamaño más chico" }, { "en": "Touch the chair", "es": "Toco la silla" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+    { "id": "ob7", "regla": "move", "situacion": { "en": "Today: the kitchen is someone else's.", "es": "Hoy: la cocina es de otro." },
+      "planes": [ { "en": "Hand on the counter, feet flat", "es": "Mano en el mesón, pies planos" }, { "en": "Once somewhere else", "es": "Una en otro lado" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+    { "id": "ob8", "regla": "move", "situacion": { "en": "Today: the phone is already in your hand.", "es": "Hoy: ya tienes el celular en la mano." },
+      "planes": [ { "en": "Put it face down, then once", "es": "Lo pongo boca abajo y hago una" }, { "en": "Touch the chair with the phone still in hand", "es": "Toco la silla con el celular en la mano" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+
+    { "id": "bb1", "regla": "breathe", "situacion": { "en": "Today: the message is from your boss.", "es": "Hoy: el mensaje es de tu jefe." },
+      "planes": [ { "en": "Breathe before I open it", "es": "Respiro antes de abrirlo" }, { "en": "Out, long, once", "es": "Suelto el aire una vez, largo" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+    { "id": "bb2", "regla": "breathe", "situacion": { "en": "Today: people are watching.", "es": "Hoy: hay gente mirando." },
+      "planes": [ { "en": "Feet flat, one slow breath", "es": "Pies planos, un respiro lento" }, { "en": "Once in the hallway", "es": "Una en el pasillo" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+    { "id": "bb3", "regla": "breathe", "situacion": { "en": "Today: the message already got an answer.", "es": "Hoy: ya contestaste el mensaje." },
+      "planes": [ { "en": "Breathe now, anyway", "es": "Respiro ahora, igual" }, { "en": "Next message", "es": "Con el próximo mensaje" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+
+    { "id": "cb1", "regla": "community", "situacion": { "en": "Today: no signal.", "es": "Hoy: sin señal." },
+      "planes": [ { "en": "Write down whose voice I'd call", "es": "Anoto a quién llamaría" }, { "en": "Call when the signal is back", "es": "Llamo cuando vuelva la señal" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+    { "id": "cb2", "regla": "community", "situacion": { "en": "Today: it's late for a call.", "es": "Hoy: es tarde para llamar." },
+      "planes": [ { "en": "A voice note instead", "es": "Una nota de voz" }, { "en": "Call at lunch tomorrow", "es": "Llamo mañana al almuerzo" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+    { "id": "cb3", "regla": "community", "situacion": { "en": "Today: you don't know what to say.", "es": "Hoy: no sabes qué decir." },
+      "planes": [ { "en": "Start with \"hi, I was thinking of you\"", "es": "Empiezo con \"hola, pensé en ti\"" }, { "en": "Let them talk first", "es": "Dejo que hablen primero" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+
+    { "id": "sb1", "regla": "sleep", "situacion": { "en": "Today: the alarm went off in the dark.", "es": "Hoy: la alarma sonó a oscuras." },
+      "planes": [ { "en": "Sit up, feet on the floor", "es": "Me siento, pies en el suelo" }, { "en": "Lights on first", "es": "Primero la luz" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+    { "id": "sb2", "regla": "sleep", "situacion": { "en": "Today: the phone is the alarm.", "es": "Hoy: el celular es la alarma." },
+      "planes": [ { "en": "Feet first, then the phone", "es": "Primero los pies, luego el celular" }, { "en": "Put the phone across the room tonight", "es": "Dejo el celular al otro lado del cuarto esta noche" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+
+    { "id": "db1", "regla": "divine", "situacion": { "en": "Today: it's raining.", "es": "Hoy: está lloviendo." },
+      "planes": [ { "en": "At the window", "es": "En la ventana" }, { "en": "Under the roof, eyes up", "es": "Bajo el techo, ojos arriba" }, { "en": "Tomorrow", "es": "Mañana" } ] },
+    { "id": "db2", "regla": "divine", "situacion": { "en": "Today: the street lights hide the sky.", "es": "Hoy: las luces de la calle tapan el cielo." },
+      "planes": [ { "en": "Look at the edge of the roof", "es": "Miro el borde del techo" }, { "en": "Look anyway", "es": "Miro igual" }, { "en": "Tomorrow", "es": "Mañana" } ] }
+  ]
+}

@@ -1,0 +1,1215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="NAOS 2.2 navigable prototype. Unpublished.">
+<meta name="color-scheme" content="light dark">
+<title>NAOS 2.2</title>
+<style>
+/* NAOS 2.2 (Channel $0.00): un solo archivo. Tokens G3. Sin red, sin librerias, sin archivos de audio (todo WebAudio). */
+:root{
+  --paper:#FFFFFF; --ink:#0E1116; --night:#0E1116; --night-ink:#F4F6F8;
+  --move:#E9876A; --breathe:#7FCDAE; --eat:#F0BC6E; --sleep:#A9B2EC; --community:#EE9AA6; --divine:#3B4BB5;
+  --red:#C0261D; --muted:#4A5260; --line:#D5D9DF;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --bg:var(--paper); --fg:var(--ink); --soft:var(--muted); --rule:var(--line);
+}
+body[data-theme="night"],body[data-theme="static"]{--bg:var(--night); --fg:var(--night-ink); --soft:#B8C0CC; --rule:#2A313B}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.45 var(--sans);min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;overflow-wrap:anywhere}
+[hidden]{display:none !important}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);line-height:1.1;margin:0 0 .4em;letter-spacing:-.01em}
+h1{font-size:34px}
+h2{font-size:26px}
+h3{font-size:20px}
+p{margin:0 0 .8em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--divine);outline-offset:2px}
+body[data-theme="night"] :focus-visible,body[data-theme="static"] :focus-visible{outline-color:var(--night-ink)}
+.small{font-size:14px;color:var(--soft)}
+.cl{font:italic 16px/1.35 var(--serif);color:var(--soft);margin:10px 0}
+.cl b{font-style:normal;font-family:var(--sans);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+
+/* cinta */
+.cinta{background:#FFE9A8;color:#0E1116;font:600 13px/1.2 var(--sans);text-align:center}
+.cinta button{all:unset;display:block;width:100%;padding:10px 16px;min-height:40px;cursor:pointer;box-sizing:border-box}
+.cinta button:focus-visible{outline:3px solid #0E1116;outline-offset:-3px}
+.panel{background:#FFF6D6;color:#0E1116;padding:12px 16px;font-size:14px;border-bottom:1px solid #E0C97A}
+.panel h2{font:700 15px var(--sans);margin:0 0 6px}
+.panel ul{list-style:none;margin:0 0 8px;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.panel a,.panel button{font:600 13px var(--sans);color:#0E1116;background:#fff;border:1px solid #0E1116;border-radius:8px;padding:8px 10px;min-height:36px;text-decoration:none;cursor:pointer}
+.panel code{background:#fff;padding:1px 4px;border-radius:4px}
+
+/* cabecera */
+.top{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:8px 16px}
+.top .tools{display:flex;gap:6px}
+.brand{display:flex;align-items:center;gap:6px;text-decoration:none;font:700 17px var(--serif);letter-spacing:.1em;min-height:44px}
+.brand svg{width:24px;height:30px}
+.btn{font:600 16px var(--sans);min-height:44px;padding:8px 14px;border:2px solid var(--fg);background:transparent;color:var(--fg);border-radius:10px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-align:center}
+.btn.pri{background:var(--fg);color:var(--bg)}
+.btn.sm{font-size:14px;padding:6px 10px}
+.btn[disabled]{opacity:.45;cursor:default}
+.btn.eq{flex:1 1 0;min-width:0}
+.tag{background:var(--ink);color:#FFE9A8;font:700 14px var(--sans);text-align:center;padding:6px 16px;border-bottom:3px dashed #FFE9A8}
+.clock{font:600 13px var(--sans);color:var(--soft);text-decoration:none;padding:4px 16px 0;text-align:right;display:block}
+.clock b{color:var(--fg)}
+
+main{flex:1;display:block;width:100%;max-width:720px;margin:0 auto}
+.screen{padding:12px 16px 28px}
+.screen:focus{outline:none}
+.band{margin:0 -16px 18px;padding:22px 16px 18px;color:#0E1116}
+.band h1{margin:0 0 6px}
+.band p{margin:0;font-size:17px}
+.band.move{background:var(--move)} .band.breathe{background:var(--breathe)} .band.eat{background:var(--eat)}
+.band.sleep{background:var(--sleep)} .band.community{background:var(--community)} .band.divine{background:var(--divine);color:#fff}
+.card{border:2px solid var(--fg);border-radius:14px;padding:16px;margin:0 0 16px}
+.card.plain{border-color:var(--rule)}
+label{display:block;font-weight:600;margin:0 0 4px}
+input[type=text],select,textarea{width:100%;font:17px var(--sans);padding:10px 12px;min-height:46px;border:2px solid var(--fg);border-radius:10px;background:var(--bg);color:var(--fg)}
+textarea{min-height:150px;resize:vertical}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px;border:0;padding:0}
+.chips legend{font-weight:600;padding:0;margin-bottom:6px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:44px;padding:6px 14px;border:2px solid var(--fg);border-radius:999px;font-weight:600}
+.chip input:checked + span{background:var(--fg);color:var(--bg)}
+.chip input:focus-visible + span{outline:3px solid var(--divine);outline-offset:2px}
+.big{font-family:var(--serif);font-weight:700}
+.red{color:var(--red)}
+
+/* flashes: 2 a 3 cuadros, nunca mas de 3 por segundo, apagados con reduced motion */
+#flash{position:fixed;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:50}
+#flash.fl{opacity:.5}
+.fl.sign{filter:invert(1)}
+
+/* subtitulos de efectos */
+#cc{position:fixed;left:16px;top:96px;z-index:30;background:rgba(14,17,22,.82);color:#F4F6F8;font:600 12px var(--sans);letter-spacing:.04em;padding:4px 10px;border-radius:6px;pointer-events:none}
+
+/* entrada: la caja de compras */
+body[data-theme="static"] .top,body[data-theme="static"] .cinta{position:relative;z-index:2}
+#static{position:fixed;inset:0;width:100%;height:100%;image-rendering:pixelated;z-index:0;opacity:.8}
+#r-entry{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center}
+.plate{background:rgba(14,17,22,.88);color:var(--night-ink);padding:16px 14px;border-radius:12px;text-align:center}
+.plate .chan{font:700 11px var(--sans);letter-spacing:.16em;margin:0 0 8px;color:#FFE9A8}
+.sign{font:700 36px/1.05 var(--serif);margin:0 0 6px;padding:4px 0;transform:rotate(-1.5deg)}
+.count{font:700 88px/1 var(--sans);font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.meter{height:12px;border:2px solid #F4F6F8;border-radius:8px;overflow:hidden;margin:6px 0}
+.meter i{display:block;height:100%;width:100%;background:#F4F6F8}
+.plate .q{font:italic 18px/1.3 var(--serif);margin:12px 0 6px}
+.plate .small{color:#C9D0DA}
+.dusty{font:700 15px/1.3 var(--sans);color:#FFE9A8;min-height:1.4em;margin:6px 0}
+#hold{position:relative;overflow:hidden;display:block;width:100%;min-height:92px;margin:8px 0;font:700 24px/1.1 var(--serif);color:#0E1116;background:#F4F6F8;border:3px solid #F4F6F8;border-radius:14px;box-shadow:0 6px 0 #8E98A6;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:none;cursor:pointer;transition:transform .08s,box-shadow .08s}
+#hold.on{transform:translateY(5px);box-shadow:0 1px 0 #8E98A6;background:#FFE9A8}
+#hold span{position:relative}
+.sensorrow{display:flex;gap:8px;margin:8px 0 0}
+#skip{display:block;margin:12px auto 0;background:rgba(14,17,22,.88);color:#C9D0DA;border:0;font:600 13px var(--sans);text-decoration:underline;min-height:44px;padding:6px 14px;border-radius:8px;cursor:pointer}
+#skiphint{text-align:center;margin:2px auto 0;font-size:12px;color:#C9D0DA;background:rgba(14,17,22,.88);padding:2px 8px;border-radius:6px;align-self:center}
+
+/* recibo */
+.receipt{white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;border:2px dashed var(--fg);border-radius:6px;padding:16px;background:#FFFDF4;color:#0E1116}
+.receipt hr{border:0;border-top:1px dashed #0E1116;margin:10px 0}
+.printing{animation:print 1.1s steps(14) both}
+@keyframes print{from{clip-path:inset(0 0 100% 0);transform:translateY(-16px)}to{clip-path:inset(0 0 0 0);transform:none}}
+
+/* inicio: el piso de la tienda */
+.ticker{overflow:hidden;white-space:nowrap;background:var(--ink);color:#fff;font:700 12px var(--sans);letter-spacing:.1em;margin:0 -16px 8px;padding:6px 0}
+.ticker div{display:inline-block;padding-left:100%;animation:tkr 30s linear infinite}
+@keyframes tkr{to{transform:translateX(-100%)}}
+.hero{text-align:left;padding:8px 0 4px}
+.hero .cella{width:96px;height:118px;display:block;margin:0 0 8px}
+.hero .sub{font-size:16px;color:var(--soft)}
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.door{display:flex;flex-direction:column;justify-content:space-between;min-height:128px;padding:12px;border-radius:14px;color:#0E1116;text-decoration:none;border:2px solid #0E1116}
+.door b{font:700 21px/1.1 var(--serif)}
+.door span{font-size:14px;line-height:1.3}
+.door em{font:600 12px var(--sans);font-style:normal;letter-spacing:.06em;text-transform:uppercase}
+.door.move{background:var(--move)} .door.breathe{background:var(--breathe)} .door.eat{background:var(--eat)}
+.door.sleep{background:var(--sleep)} .door.community{background:var(--community)} .door.divine{background:var(--divine);color:#fff;border-color:#fff}
+.privacy{font:italic 18px/1.35 var(--serif);border-left:4px solid var(--fg);padding:2px 0 2px 12px;margin:18px 0}
+.signs{font:600 11px/1.5 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin:14px 0 0}
+
+/* mesa y tiza */
+.board{background:#0E1116;color:#F4F6F8;border-radius:14px;padding:18px 16px;text-align:center;position:relative}
+.board p{font:italic 22px/1.3 var(--serif);margin:10px 0}
+.board .small{color:#B8C0CC}
+.outline{width:120px;height:146px;display:block;margin:0 auto}
+.outline path.o{fill:none;stroke:#F4F6F8;stroke-width:3.4;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:1000;stroke-dashoffset:0;filter:url(#chalk)}
+.outline.erasing path.o{stroke-dashoffset:1000;transition:stroke-dashoffset 1.5s ease-in}
+.outline.ghost path.o{opacity:.16;filter:url(#smudge)}
+.stamp{display:inline-block;border:3px solid currentColor;font:700 20px var(--sans);letter-spacing:.2em;padding:4px 12px;transform:rotate(-4deg);margin-top:6px}
+.board .stamp{color:#F4F6F8}
+.tablesvg{width:100%;max-width:340px;height:auto;display:block;margin:0 auto 12px}
+.wall{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.wall figure{margin:0;background:#0E1116;color:#B8C0CC;border-radius:10px;padding:8px 4px 6px;text-align:center;font-size:12px;overflow:hidden}
+.wall svg{width:56px;height:68px;display:block;margin:0 auto 4px}
+.bet{background:var(--eat);color:#0E1116;border-radius:12px;padding:12px 14px;margin:0 0 16px}
+.bet b{font:700 22px var(--serif)}
+
+/* carrito */
+.price{font:700 40px var(--serif)}
+.line{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--rule);padding:6px 0}
+.line.tot{border-bottom:0;font-weight:700;font-size:22px;font-family:var(--serif)}
+.walk{text-align:center}
+.walk .count{font-size:84px}
+
+/* corte */
+.contract{background:#FFFDF4;color:#0E1116;border:2px solid #0E1116;border-radius:6px;padding:18px 16px;font-family:var(--serif)}
+.contract h3{text-transform:uppercase;letter-spacing:.08em;font-size:16px;text-align:center}
+.contract .sig{border-bottom:2px solid #0E1116;min-height:40px;font:italic 26px var(--serif);padding-top:4px}
+.verdicts{list-style:none;margin:0;padding:0}
+.verdicts li{border-bottom:1px solid var(--rule);padding:8px 0;font-size:15px}
+
+/* pausa */
+.breath{width:160px;height:160px;border-radius:50%;background:var(--breathe);margin:18px auto;display:flex;align-items:center;justify-content:center;font:700 26px var(--serif);color:#0E1116;transform:scale(.6);transition:transform 4s ease-in-out}
+.breath.in{transform:scale(1);transition-duration:4s}
+.breath.out{transform:scale(.6);transition-duration:6s}
+.announcer{font:italic 22px/1.3 var(--serif);text-align:center;min-height:3.9em}
+
+/* telefonos y mostrador */
+.phoneline{font:700 26px/1.15 var(--serif);margin:10px 0}
+.quote{margin:10px 0;padding:10px 12px;background:#F4F6F8;border-left:4px solid var(--community);font-style:italic;color:#0E1116}
+.denied{border:3px solid var(--red);color:var(--red);font:700 22px var(--sans);letter-spacing:.08em;padding:6px 12px;display:inline-block;transform:rotate(-3deg);margin:8px 0;background:#fff}
+
+/* cuarto divino */
+body[data-theme="room"]{--bg:#FFFFFF;--fg:#0E1116;--soft:#4A5260}
+.help{font:600 13px/1.4 var(--sans);border:2px solid var(--fg);border-radius:10px;padding:10px 12px;margin:0 0 16px}
+.room-said{font:400 30px/1.3 var(--serif);text-align:center;white-space:pre-wrap;margin:36px 0 20px;padding:0 4px;outline:none}
+.room-said.long{font-size:20px;text-align:left}
+.room-line{font:italic 22px/1.3 var(--serif);text-align:center;margin:0 0 20px}
+.leavebtn{background:none;border:0;color:var(--soft);font:600 13px var(--sans);text-decoration:underline;min-height:44px;padding:6px 10px;cursor:pointer}
+
+/* cierre */
+.shutter{border:3px solid var(--night-ink);border-radius:8px;padding:20px 16px;background:repeating-linear-gradient(#2A313B 0 14px,#1B2028 14px 18px);text-align:center;animation:drop .9s ease-in both}
+@keyframes drop{from{transform:translateY(-70%);opacity:.2}to{transform:none;opacity:1}}
+.shutter h1{margin:0 0 8px}
+
+/* salida: dos botones del mismo tamano */
+.exit{position:sticky;bottom:0;z-index:5;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--bg) 70%,transparent)}
+.exit .row{max-width:720px;margin:0 auto;flex-wrap:nowrap}
+.exit .btn{min-height:56px;font-size:18px;font-weight:700}
+
+/* Ask Cella */
+dialog{border:3px solid var(--ink);border-radius:16px;padding:0;max-width:min(92vw,520px);width:100%;background:#fff;color:var(--ink)}
+dialog::backdrop{background:rgba(14,17,22,.7)}
+.sheet{padding:16px}
+.sheet .head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.sheet .head svg{width:34px;height:42px}
+.sheet blockquote{margin:10px 0;padding:10px 12px;background:#F4F6F8;border-left:4px solid var(--divine);font-style:italic}
+.sheet .preview{font:600 16px var(--sans);padding:10px 12px;border:2px dashed var(--ink);border-radius:10px;margin:10px 0}
+
+.toast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font:600 14px var(--sans);z-index:20;max-width:90vw;text-align:center}
+body[data-theme="night"] .toast,body[data-theme="static"] .toast{background:#F4F6F8;color:#0E1116}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+  .ticker div{padding-left:16px}
+}
+@media (min-width:600px){ h1{font-size:44px} .doors{grid-template-columns:1fr 1fr 1fr} .sign{font-size:44px} }
+</style>
+</head>
+<body data-theme="static">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="chalk" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
+    <filter id="smudge" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.6"/></filter>
+  </defs>
+</svg>
+
+<div class="cinta" role="note"><button id="cinta-btn" type="button" aria-expanded="false" aria-controls="panel">Prototipo NAOS 2.2 · no publicado</button></div>
+<div id="panel" class="panel" hidden>
+  <h2>Atajos del prototipo</h2>
+  <ul id="jumps"></ul>
+  <p>Parámetro: <code>?x=20</code> acelera los relojes 20 veces (la entrada de 30 s, los 10 minutos, el silencio del cuarto). El sonido arranca con el primer toque; el botón "Sound" lo silencia. El resto es el recorrido real.</p>
+  <button type="button" id="reset">Borrar memoria del prototipo</button>
+</div>
+
+<div class="tag" id="tag" hidden>Sticker on your receipt: same price, $0.00.</div>
+<header class="top" id="top">
+  <a class="brand" href="#/home" aria-label="NAOS home"><span id="brandcella"></span>NAOS</a>
+  <div class="tools">
+    <button class="btn sm" id="snd" type="button" data-sfx aria-pressed="false">Sound: on</button>
+    <button class="btn sm" id="ask" type="button">Ask Cella</button>
+  </div>
+</header>
+<div class="clock" id="clock" hidden></div>
+
+<main id="app">
+
+<!-- ENTRADA: The 30-Second Checkout -->
+<section class="screen" id="r-entry" data-route="entry" data-theme="static" tabindex="-1" aria-labelledby="h-entry">
+  <div class="plate">
+    <p class="chan">CHANNEL $0.00 · THE 3 A.M. SHOPPING CHANNEL</p>
+    <h1 class="sign" id="h-entry">I can't do 40 seconds.</h1>
+    <div class="small">Loading nothing</div>
+    <div class="count" id="count" role="timer" aria-label="Seconds left">30</div>
+    <div class="meter" aria-hidden="true"><i id="meterfill"></i></div>
+    <div class="small" id="rate">Phone face down counts double.</div>
+    <p class="dusty" id="dusty" aria-live="polite"></p>
+    <button id="hold" type="button" data-sfx aria-describedby="holdhint"><span id="holdtxt">Hold it for 30. We heard you.</span></button>
+    <p class="small" id="holdhint" style="margin:0">Hold the button, or press and hold the space bar.</p>
+    <div class="sensorrow" id="sensorrow" hidden>
+      <button class="btn sm eq" id="sensor-yes" type="button">Let the page feel the phone</button>
+      <button class="btn sm eq" id="sensor-no" type="button">No thanks</button>
+    </div>
+    <p class="q">Every other tab you have open wants you forever. This one wants you out in ten minutes.</p>
+    <p class="small" style="margin:0">Hi. I'm Cella. I'm software. I can't do 30 seconds either. I don't have hands.</p>
+  </div>
+  <button id="skip" type="button" data-sfx>I can't do 30 seconds.</button>
+  <p id="skiphint">Same price. $0.00. Nothing leaves your phone.</p>
+</section>
+
+<!-- RECIBO -->
+<section class="screen" id="r-receipt" data-route="receipt" data-theme="paper" tabindex="-1" aria-labelledby="h-receipt" hidden>
+  <div class="band move"><h1 id="h-receipt">Thank you for holding.</h1><p>Your ten minutes start now.</p></div>
+  <div class="receipt" id="receipt"></div>
+  <div class="row">
+    <button class="btn pri" id="enterstore" type="button" data-sfx>Enter the store</button>
+    <button class="btn" id="savereceipt" type="button">Save receipt image</button>
+    <button class="btn" id="copyreceipt" type="button">Copy receipt</button>
+  </div>
+  <p class="cl"><b>Cella</b><br>Ask Cella what to do with the rest of your night. Cella answers in the comments.</p>
+</section>
+
+<!-- INICIO: el piso de la tienda -->
+<section class="screen" id="r-home" data-route="home" data-theme="paper" tabindex="-1" aria-labelledby="h-home" hidden>
+  <div class="ticker" aria-hidden="true"><div>CHANNEL $0.00 · ONLY TONIGHT · EVERYTHING $0.00 · IT COSTS TEN MINUTES · NOBODY ASKED FOR THIS. ME NEITHER. · CHANNEL $0.00 · ONLY TONIGHT ·</div></div>
+  <div class="hero">
+    <span class="cella" data-cella></span>
+    <h1 id="h-home">Nobody asked for this. Me neither.</h1>
+    <p class="sub">Ask Cella. Cella answers in the comments.</p>
+    <p class="small" id="waited"></p>
+  </div>
+  <div class="doors">
+    <a class="door move" href="#/cart"><em>Move · Aisle 1</em><b>/cart</b><span>Installment plan for walking outside. $0.00.</span></a>
+    <a class="door breathe" href="#/pause"><em>Breathe · Aisle 2</em><b>The break</b><span>The Air Pro. Twenty seconds, nothing in the box.</span></a>
+    <a class="door eat" href="#/table"><em>Eat · Aisle 3</em><b>/table</b><span>Night Kitchen: dinner, with a name. Count it.</span></a>
+    <a class="door sleep" href="#/court"><em>Sleep · Aisle 4</em><b>/court</b><span>Hour Three Court. The judge bangs a toaster.</span></a>
+    <a class="door community" href="#/phones"><em>Community · Aisle 5</em><b>Doreen's Phones</b><span>Lines are open. Call someone who isn't us.</span></a>
+    <a class="door divine" href="#/back"><em>The Divine · Aisle 6</em><b>The back room</b><span>Open any hour. Nothing in it is for sale.</span></a>
+  </div>
+  <div class="row">
+    <a class="btn" href="#/returns">Return Desk</a>
+    <a class="btn" href="#/table/wall">The wall</a>
+  </div>
+  <p class="cl"><b>Cella</b><br>Everything here is $0.00. Chip is very proud. Please don't tell him.</p>
+  <p class="privacy">Nothing leaves your phone. We don't want your data. We want you outside.</p>
+  <p class="signs" aria-hidden="true">Stairs Are For Quitters · Sold separately: the kitchen · Returns accepted. The air has already left.</p>
+  <p style="margin-top:18px"><button class="btn sm" id="del" type="button">Delete what NAOS saved on this phone</button></p>
+</section>
+
+<!-- MESA -->
+<section class="screen" id="r-table" data-route="table" data-theme="paper" tabindex="-1" aria-labelledby="h-table" hidden>
+  <div class="band eat"><h1 id="h-table">/table</h1><p>Night Kitchen: their name is in your phone. Put it here.</p></div>
+  <div class="bet"><div>Cella bets: "I bet you won't eat with someone today."</div><div>Bets you won: <b id="bets">0</b></div></div>
+  <svg class="tablesvg" viewBox="0 0 340 190" role="img" aria-label="Exhibit 1: Dinner, 2 of 4 present. One chair has a chalk outline.">
+    <circle cx="170" cy="95" r="52" fill="#F0BC6E" stroke="#0E1116" stroke-width="3"/>
+    <rect x="145" y="20" width="50" height="26" rx="6" fill="#0E1116"/>
+    <rect x="145" y="144" width="50" height="26" rx="6" fill="#0E1116"/>
+    <rect x="62" y="82" width="26" height="26" rx="6" fill="none" stroke="#0E1116" stroke-width="3" stroke-dasharray="5 5"/>
+    <rect x="252" y="82" width="26" height="26" rx="6" fill="none" stroke="#0E1116" stroke-width="3" stroke-dasharray="5 5"/>
+    <text x="170" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#0E1116">Exhibit 1</text>
+  </svg>
+  <p class="small" style="text-align:center">Dinner, 2 of 4 present.</p>
+  <form class="card" id="tform" autocomplete="off">
+    <label for="t-name">Their name</label>
+    <input type="text" id="t-name" maxlength="24" placeholder="the name in your phone" enterkeyhint="done">
+    <fieldset class="chips"><legend>When</legend>
+      <label class="chip"><input type="radio" name="day" value="Tonight"><span>Tonight</span></label>
+      <label class="chip"><input type="radio" name="day" value="Thursday" checked><span>Thursday</span></label>
+      <label class="chip"><input type="radio" name="day" value="Sunday"><span>Sunday</span></label>
+    </fieldset>
+    <button class="btn pri" type="submit">Draw my outline</button>
+  </form>
+  <div id="invite" hidden>
+    <div class="board" id="boardcard">
+      <span id="outlinehost"></span>
+      <p id="invtext"></p>
+      <div id="stamphost"></div>
+      <div class="small">Ask Cella who your empty chair is. Cella answers in the comments.</div>
+    </div>
+    <div class="row">
+      <button class="btn" id="copyinv" type="button">Copy invitation</button>
+      <button class="btn" id="shareinv" type="button" hidden>Share</button>
+      <button class="btn" id="simsit" type="button" data-sfx>Prototype: they tapped "I'll sit"</button>
+    </div>
+    <div id="afterErase" hidden>
+      <p><b>Erased. You won the bet.</b> The chalk screech is the sound of a chair filling up.</p>
+      <button class="btn" id="towall" type="button">Put it on the wall (we both said yes)</button>
+    </div>
+  </div>
+  <h2 id="wallhead" style="margin-top:28px">The wall</h2>
+  <p id="wallcount"></p>
+  <p class="small">Only erased outlines that both people agree to publish. No names, ever. The first eleven are samples for this prototype.</p>
+  <div class="wall" id="wall"></div>
+</section>
+
+<!-- RECIBIR INVITACION -->
+<section class="screen" id="r-sit" data-route="sit" data-theme="paper" tabindex="-1" aria-labelledby="h-sit" hidden>
+  <div class="band community"><h1 id="h-sit">Someone left you a chair.</h1><p>Your outline is already on the table.</p></div>
+  <div class="board">
+    <span id="sit-outline"></span>
+    <p id="sit-text"></p>
+    <div id="sit-stamp"></div>
+  </div>
+  <div class="row" id="sit-actions">
+    <button class="btn pri" id="sit-yes" type="button" data-sfx>I'll sit</button>
+    <button class="btn" id="sit-no" type="button">Not this time</button>
+  </div>
+  <div id="sit-after" hidden>
+    <p><b>Erased.</b> Now tell them. Copy this and send it wherever you talk.</p>
+    <div class="preview card plain" id="sit-reply"></div>
+    <button class="btn" id="sit-copy" type="button">Copy reply</button>
+  </div>
+  <p class="small" id="sit-no-msg" hidden>It stays on the table. Chairs are patient.</p>
+</section>
+
+<!-- CARRITO -->
+<section class="screen" id="r-cart" data-route="cart" data-theme="paper" tabindex="-1" aria-labelledby="h-cart" hidden>
+  <div class="band move"><h1 id="h-cart">/cart</h1><p>Installment plan for walking outside. You bought nothing. You moved.</p></div>
+  <div id="cart-shop">
+    <div class="card">
+      <div class="price">$0.00</div>
+      <h2 id="prodname">10 minutes of walking</h2>
+      <p class="small">Free shipping. Ships out your front door. Installment 1 of 1: paid by you.</p>
+      <fieldset class="chips"><legend>Version</legend>
+        <label class="chip"><input type="radio" name="ver" value="600" checked><span>Standard · 10 min</span></label>
+        <label class="chip"><input type="radio" name="ver" value="120"><span>Raw · 2 min</span></label>
+      </fieldset>
+      <button class="btn pri" id="addcart" type="button" data-sfx>Add to cart</button>
+    </div>
+  </div>
+  <div id="cart-check" hidden>
+    <div class="card">
+      <h2>Checkout</h2>
+      <div class="line"><span id="c-item">10 minutes of walking</span><span>$0.00</span></div>
+      <div class="line"><span>Sunshine tax</span><span>$0.00</span></div>
+      <div class="line"><span>Shipping: your front door, outward</span><span>$0.00</span></div>
+      <div class="line"><span>Shoes</span><span>not included</span></div>
+      <div class="line tot"><span>Total</span><span>$0.00</span></div>
+      <label for="c-card" style="margin-top:12px">Card number</label>
+      <input type="text" id="c-card" placeholder="We don't take cards. We take steps." autocomplete="off">
+      <label for="c-addr" style="margin-top:10px">Billing address</label>
+      <input type="text" id="c-addr" placeholder="wherever your feet are" autocomplete="off">
+      <label for="c-promo" style="margin-top:10px">Promo code</label>
+      <input type="text" id="c-promo" placeholder="try LEAVE" autocomplete="off">
+      <p class="small" id="c-promo-msg" style="margin-top:6px"></p>
+      <p class="small">Returns: a walk is final sale. You can take another one.</p>
+      <label class="chip" style="display:inline-block"><input type="checkbox" id="c-terms"><span>I accept the terms of the sky</span></label>
+      <div class="row"><button class="btn pri" id="placeorder" type="button" data-sfx disabled>Place order ($0.00)</button></div>
+    </div>
+  </div>
+  <div id="cart-walk" class="walk" hidden>
+    <h2>Order placed. Go.</h2>
+    <div class="count" id="walkcount">10:00</div>
+    <p>Put the phone in your pocket. We are not tracking you. We asked your legs.</p>
+    <button class="btn" id="walkback" type="button">I'm back early</button>
+  </div>
+  <div id="cart-receipt" hidden>
+    <div class="receipt" id="walkreceipt"></div>
+    <div class="row"><button class="btn" id="copywalk" type="button">Copy receipt</button><a class="btn" href="#/home">Back to the store</a></div>
+    <p class="small">Ask Cella where you walked today. Cella answers in the comments.</p>
+  </div>
+</section>
+
+<!-- CORTE -->
+<section class="screen" id="r-court" data-route="court" data-theme="paper" tabindex="-1" aria-labelledby="h-court" hidden>
+  <div class="band sleep"><h1 id="h-court">/court</h1><p>Hour Three Court. The defendant is in your hand right now.</p></div>
+  <form class="card" id="cform" autocomplete="off">
+    <h2>Sentencing form</h2>
+    <label for="k-charge">The charge</label>
+    <select id="k-charge">
+      <option>Scrolling in bed</option>
+      <option>One more episode</option>
+      <option>Answering email in the dark</option>
+      <option>Doing nothing, loudly, at 2 AM</option>
+    </select>
+    <label for="k-lights" style="margin-top:12px">Lamp off by</label>
+    <select id="k-lights"><option>22:30</option><option selected>23:00</option><option>23:30</option><option>00:00</option></select>
+    <label for="k-nights" style="margin-top:12px">Sentence</label>
+    <select id="k-nights"><option value="3">3 nights</option><option value="7" selected>7 nights</option><option value="14">14 nights</option></select>
+    <label class="chip" style="display:inline-block;margin-top:12px"><input type="checkbox" id="k-room"><span>The phone sleeps in another room</span></label>
+    <div class="row"><button class="btn pri" type="submit" data-sfx>Sign and be sentenced</button></div>
+  </form>
+  <div id="contract" class="contract" hidden></div>
+  <h2 style="margin-top:24px">Verdict archive</h2>
+  <p class="small">Every Sunday the court reads out what you signed. Kept on this phone only.</p>
+  <ul class="verdicts" id="verdicts"></ul>
+</section>
+
+<!-- PAUSA -->
+<section class="screen" id="r-pause" data-route="pause" data-theme="paper" tabindex="-1" aria-labelledby="h-pause" hidden>
+  <div class="band breathe"><h1 id="h-pause">The break</h1><p>Every ending comes with a commercial.</p></div>
+  <div id="p-read">
+    <div class="card plain">
+      <p class="small">Chapter 4 · The Spoon · sample</p>
+      <p>Dani set two bowls on the roof and counted them twice. Two. The soup was hot, the street was loud, and her phone had a name open in the corner that she had typed and deleted four times.</p>
+      <p>The chair across from her was empty. She looked at it. It looked back, the way chairs do. Then, at last, she</p>
+    </div>
+    <button class="btn pri" id="wantend" type="button" data-sfx>Yes, I want the ending.</button>
+  </div>
+  <div id="p-break" hidden>
+    <p class="announcer" id="announce" aria-live="polite">We interrupt this chapter for a message from your lungs.</p>
+    <div class="breath" id="breath" aria-hidden="true"></div>
+    <p class="small" style="text-align:center" id="p-sec">20</p>
+  </div>
+  <div id="p-end" hidden>
+    <div class="card plain">
+      <p>pressed send. Seven words. The soup was still hot.</p>
+    </div>
+    <p class="small">Ask Cella for the ending. Cella answers in the comments, after the commercial.</p>
+    <a class="btn" href="#/home">Back to the store</a>
+  </div>
+</section>
+
+<!-- TELEFONOS DE DOREEN -->
+<section class="screen" id="r-phones" data-route="phones" data-theme="paper" tabindex="-1" aria-labelledby="h-phones" hidden>
+  <div class="band community"><h1 id="h-phones">Doreen's Phones</h1><p>Lines are open.</p></div>
+  <div id="ph-start">
+    <p class="phoneline">Please hang up and call someone who isn't us.</p>
+    <p class="small">Doreen has the wrong script again. The phone is real. The call is the product.</p>
+    <button class="btn pri" id="ph-pick" type="button" data-sfx>Pick up the line</button>
+  </div>
+  <div id="ph-ring" hidden><p class="phoneline" aria-live="polite">Ringing...</p></div>
+  <div id="ph-on" hidden>
+    <p class="phoneline">Caller, you're on the air.</p>
+    <p>Please hang up and call someone who isn't us.</p>
+    <blockquote class="quote" id="ph-marv"></blockquote>
+    <p class="small">Marv Dentley, 61, Lawn Chair Activist. Different hat, same face.</p>
+    <div class="row">
+      <button class="btn pri" id="ph-did" type="button" data-sfx>I called someone</button>
+      <button class="btn" id="ph-not" type="button">Not yet</button>
+    </div>
+    <p class="small" id="ph-count"></p>
+  </div>
+  <p class="small" id="ph-done" hidden>Free. Ask Cella who you called. Cella answers in the comments.</p>
+</section>
+
+<!-- MOSTRADOR DE DEVOLUCIONES -->
+<section class="screen" id="r-returns" data-route="returns" data-theme="paper" tabindex="-1" aria-labelledby="h-returns" hidden>
+  <div class="band eat"><h1 id="h-returns">The Return Desk</h1><p>Returns are free. The ten minutes are final sale.</p></div>
+  <div id="rt-form">
+    <form class="card" id="rtform">
+      <fieldset class="chips"><legend>What are you returning?</legend>
+        <label class="chip"><input type="radio" name="ret" value="my Tuesday" checked><span>my Tuesday</span></label>
+        <label class="chip"><input type="radio" name="ret" value="my thumb scroll"><span>my thumb scroll</span></label>
+        <label class="chip"><input type="radio" name="ret" value="the 11 p.m. scroll"><span>the 11 p.m. scroll</span></label>
+        <label class="chip"><input type="radio" name="ret" value="something else"><span>something else</span></label>
+      </fieldset>
+      <button class="btn pri" type="submit" data-sfx>Return it</button>
+    </form>
+  </div>
+  <div id="rt-out" hidden>
+    <div class="denied" id="rt-denied">Return denied. No receipt.</div>
+    <p class="phoneline" id="rt-credit" hidden>Store credit: ten minutes.</p>
+    <a class="btn pri" href="#/home" id="rt-home" hidden>Spend it in the store</a>
+  </div>
+  <p class="cl"><b>Cella</b><br>I can't take your Tuesday back. I can give you ten minutes of a different one.</p>
+  <a class="card" href="#/back" style="display:block;text-decoration:none"><b class="big">The Divine Warranty Card</b><br><span class="small">The room in the back. Nothing in it is for sale.</span></a>
+</section>
+
+<!-- CUARTO DIVINO -->
+<section class="screen" id="r-back" data-route="back" data-theme="room" tabindex="-1" aria-labelledby="h-back" hidden>
+  <div id="b-help" class="help">If today is heavy, call or text first. We'll wait. US 988 · Colombia 106 · Mexico 800 911 2000 · Spain 024 · <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer">findahelpline.com</a></div>
+  <div id="b-gate">
+    <h1 id="h-back">The back room</h1>
+    <p>There's a room in the back. Nothing in it is for sale. It is open at any hour.</p>
+    <div class="row">
+      <button class="btn pri eq" id="b-go" type="button">Go to the back room</button>
+      <a class="btn eq" href="#/home" id="b-not">Not today</a>
+    </div>
+  </div>
+  <div id="b-paste" hidden>
+    <label for="b-input" style="font:400 22px/1.3 var(--serif)">Paste a prayer, a mantra, or something divine. A line you know by heart works too.</label>
+    <textarea id="b-input" maxlength="1200" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="b-hint"></textarea>
+    <p class="small" id="b-hint">Nothing is saved or analyzed. It stays in this tab's memory and is gone when you leave.</p>
+    <div class="row"><button class="btn pri" id="b-place" type="button">Place it in the room</button></div>
+  </div>
+  <div id="b-silence" hidden>
+    <p class="sr" id="b-silent-msg">The room is quiet. Ten seconds.</p>
+    <p style="text-align:center;margin-top:40vh"><button class="leavebtn" id="b-leave1" type="button">Leave</button></p>
+  </div>
+  <div id="b-text" hidden>
+    <div class="room-said" id="b-said" tabindex="-1"></div>
+    <p class="room-line">It's in the room now.</p>
+    <p class="cl" id="b-cella" style="text-align:center"></p>
+    <p class="small" style="text-align:center">Nothing is saved or analyzed. Leave any time.</p>
+    <div class="row">
+      <button class="btn eq" id="b-stay" type="button">Stay</button>
+      <button class="btn pri eq" id="b-leave2" type="button">Leave</button>
+    </div>
+    <p class="small" id="b-staymsg" style="text-align:center" aria-live="polite"></p>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="screen" id="r-closed" data-route="closed" data-theme="night" tabindex="-1" aria-labelledby="h-closed" hidden>
+  <div class="shutter">
+    <h1 id="h-closed">We're closed. Go outside.</h1>
+    <p>Your receipt is in your pocket.</p>
+  </div>
+  <p class="cl" style="margin-top:16px"><b>Cella</b><br>Store's closed. I'm not. I'm in the comments.</p>
+  <div class="row" id="closed-actions">
+    <button class="btn" id="closed-save" type="button">Save receipt image</button>
+    <button class="btn" id="closed-copy" type="button">Copy receipt</button>
+  </div>
+  <p class="small">After you leave, this page won't open again until tomorrow.</p>
+</section>
+
+<!-- SEGUNDA VISITA -->
+<section class="screen" id="r-locked" data-route="locked" data-theme="paper" tabindex="-1" aria-labelledby="h-locked" hidden>
+  <div class="hero" style="padding-top:28px">
+    <span class="cella" data-cella></span>
+    <h1 id="h-locked">You already came today. Leave.</h1>
+    <p class="sub">The door is the same tomorrow.</p>
+  </div>
+</section>
+
+<!-- BORRADO -->
+<section class="screen" id="r-gone" data-route="gone" data-theme="paper" tabindex="-1" aria-labelledby="h-gone" hidden>
+  <div class="hero" style="padding-top:28px">
+    <span class="cella" data-cella></span>
+    <h1 id="h-gone">Done. What stayed is yours.</h1>
+    <p class="sub" id="gone-sub">Everything saved on this phone is gone. That was the whole point.</p>
+    <a class="btn" href="#/entry" id="again">Come in again</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="exit" id="exit" hidden>
+  <div class="row">
+    <button class="btn eq" id="stay" type="button">Stay</button>
+    <button class="btn pri eq" id="leave" type="button" data-sfx>Leave. Go for a walk.</button>
+  </div>
+</footer>
+
+<canvas id="static" width="96" height="208" aria-hidden="true"></canvas>
+<div id="flash" aria-hidden="true"></div>
+<div id="cc" aria-hidden="true" hidden></div>
+
+<dialog id="askdlg" aria-labelledby="ask-h">
+  <div class="sheet">
+    <div class="head"><span data-cella-small></span><h2 id="ask-h" style="margin:0">Ask Cella</h2></div>
+    <label for="ask-q">Ask Cella…</label>
+    <input type="text" id="ask-q" maxlength="80">
+    <div class="preview" id="ask-prev"></div>
+    <p class="small">Cella answers in the comments. Paste this where the comments are. Nothing leaves your phone from here.</p>
+    <p class="small" style="margin-bottom:2px">Last time she said:</p>
+    <blockquote id="ask-a"></blockquote>
+    <div class="row"><button class="btn pri" id="ask-copy" type="button">Copy</button><button class="btn" id="ask-close" type="button">Close</button></div>
+  </div>
+</dialog>
+
+<div id="vivo" class="sr" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+'use strict';
+/* ---------- utilidades ---------- */
+var Q=new URLSearchParams(location.search);
+var X=Math.max(1,Number(Q.get('x'))||1);
+var reduce=false;
+try{ reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+function $(s,r){return (r||document).querySelector(s);}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+var memL={},memS={};
+function lsGet(k){try{return localStorage.getItem(k);}catch(e){return memL[k]||null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){memL[k]=v;}}
+function lsDel(k){try{localStorage.removeItem(k);}catch(e){} delete memL[k];}
+function ssGet(k){try{return sessionStorage.getItem(k);}catch(e){return memS[k]||null;}}
+function ssSet(k,v){try{sessionStorage.setItem(k,v);}catch(e){memS[k]=v;}}
+function ssDel(k){try{sessionStorage.removeItem(k);}catch(e){} delete memS[k];}
+function pad(n){return (n<10?'0':'')+n;}
+function today(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+function jget(k,def){try{var v=JSON.parse(lsGet(k));return v==null?def:v;}catch(e){return def;}}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+var K={visit:'naos22_visit',couldnt:'naos22_couldnt',bets:'naos22_bets',wall:'naos22_wall',court:'naos22_court',calls:'naos22_calls',mute:'naos22_mute'};
+var SK=['naos22_pass','naos22_t0','naos22_skipped','naos22_closed'];
+var LEN=30;                 /* la entrada: 30 segundos (antes 40) */
+var loadT=Date.now();
+function say(t){var v=$('#vivo');v.textContent='';setTimeout(function(){v.textContent=t;},40);}
+var toastT;
+function toast(t){var o=$('.toast');if(o)o.remove();var d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);clearTimeout(toastT);toastT=setTimeout(function(){d.remove();},2200);}
+function copyText(t){
+  function fb(){try{var a=document.createElement('textarea');a.value=t;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();var r=document.execCommand('copy');a.remove();toast(r?'Copied.':'Select the text and copy it.');}catch(e){toast('Select the text and copy it.');}}
+  try{navigator.clipboard.writeText(t).then(function(){toast('Copied.');},fb);}catch(e){fb();}
+}
+
+/* ---------- SONIDO: todo WebAudio, sin archivos, solo tras el primer toque ---------- */
+var A={ac:null,master:null,shop:null,room:null,nb:null,an:null,adata:null,muted:lsGet(K.mute)==='1',bed:null,hum:null,first:false,ducked:false,logs:[]};
+var CC={kaching:'[cash register]',scratch:'[record scratch]',gavel:'[gavel on a toaster]',shutter:'[shutter]',bell:'[soft bell]',stamp:'[rubber stamp]',scanner:'[scanner beep]',chalk:'[chalk screech]',printer:'[receipt printer]',ring:'[phone ringing]',buzz:'[buzzer]',shopbell:'[shop door bell]',counterbell:'[counter bell]',thudDing:'[phone on the table]',paper:'[paper sliding]',ding:'[ding]',ratchet:'[button clunk]'};
+var VIB={click:8,ratchet:15,kaching:[30,40,30],gavel:[40,60,40],buzz:[80],stamp:25,shutter:[60,40,60],thudDing:[30,30,20],scratch:20,scanner:12,chalk:[20,20,20,20,20],bell:30};
+var ccT;
+function showCC(name){ if(!CC[name]) return; var c=$('#cc'); c.textContent=CC[name]; c.hidden=false; clearTimeout(ccT); ccT=setTimeout(function(){c.hidden=true;},1400); }
+function vib(name){ try{ if(navigator.userActivation&&!navigator.userActivation.hasBeenActive) return; if(navigator.vibrate&&VIB[name]) navigator.vibrate(VIB[name]); }catch(e){} }
+window.__naos22={sfx:A.logs,level:function(){ if(!A.an) return 0; A.an.getByteTimeDomainData(A.adata); var m=0; for(var i=0;i<A.adata.length;i++){ var v=Math.abs(A.adata[i]-128); if(v>m)m=v; } return m; },state:function(){return A.ac?A.ac.state:'none';},muted:function(){return A.muted;}};
+function unlock(){
+  if(A.ac){ if(A.ac.state==='suspended'){ try{A.ac.resume();}catch(e){} } return; }
+  var AC=window.AudioContext||window.webkitAudioContext; if(!AC) return;
+  try{
+    var ac=new AC(); A.ac=ac;
+    A.master=ac.createGain(); A.master.gain.value=A.muted?0:0.9;
+    var comp=ac.createDynamicsCompressor(); A.master.connect(comp); comp.connect(ac.destination);
+    A.an=ac.createAnalyser(); A.an.fftSize=512; A.adata=new Uint8Array(A.an.fftSize); A.master.connect(A.an);
+    A.shop=ac.createGain(); A.shop.gain.value=cur==='back'?0:1; A.shop.connect(A.master);
+    A.room=ac.createGain(); A.room.connect(A.master);
+    var len=ac.sampleRate*2, b=ac.createBuffer(1,len,ac.sampleRate), d=b.getChannelData(0);
+    for(var i=0;i<len;i++) d[i]=Math.random()*2-1;
+    A.nb=b;
+    if(ac.state==='suspended'){ try{ac.resume();}catch(e){} }
+    if(!A.first){ A.first=true; sfx('scratch'); flash($('.sign')); }
+    if(cur==='entry') bedStart();
+  }catch(e){ A.ac=null; }
+}
+/* una voz: tono con envolvente */
+function tone(f,t,dur,type,vol,f2,bus,att){
+  var ac=A.ac,o=ac.createOscillator(),g=ac.createGain(),s=ac.currentTime+t;
+  o.type=type||'sine'; o.frequency.setValueAtTime(f,s); if(f2) o.frequency.exponentialRampToValueAtTime(f2,s+dur);
+  g.gain.setValueAtTime(0.0001,s); g.gain.exponentialRampToValueAtTime(vol,s+(att||0.004)); g.gain.exponentialRampToValueAtTime(0.0001,s+dur);
+  o.connect(g); g.connect(bus||A.shop); o.start(s); o.stop(s+dur+0.05);
+}
+/* una voz: ruido filtrado */
+function nz(t,dur,vol,ftype,f,q,f2,bus){
+  var ac=A.ac,s=ac.currentTime+t,src=ac.createBufferSource(),fl=ac.createBiquadFilter(),g=ac.createGain();
+  src.buffer=A.nb; src.loop=true; fl.type=ftype; fl.frequency.setValueAtTime(f,s); if(f2) fl.frequency.exponentialRampToValueAtTime(f2,s+dur); fl.Q.value=q||1;
+  g.gain.setValueAtTime(0.0001,s); g.gain.exponentialRampToValueAtTime(vol,s+0.004); g.gain.exponentialRampToValueAtTime(0.0001,s+dur);
+  src.connect(fl); fl.connect(g); g.connect(bus||A.shop); src.start(s,Math.random()*1.5); src.stop(s+dur+0.05);
+}
+var S={
+  click:function(){ nz(0,.03,.2,'highpass',3000,.7); tone(1900,0,.035,'square',.05,900); },
+  ratchet:function(){ [0,.045,.09].forEach(function(t){ nz(t,.02,.18,'bandpass',2200,3); }); tone(300,.1,.06,'square',.05); },
+  tick:function(p){ tone(800+(p||0)*700,0,.05,'square',.05); nz(0,.02,.1,'highpass',4000); },
+  step:function(){ tone(440,0,.12,'triangle',.07,330); },
+  scratch:function(){ [[0,800,4000],[.09,4200,700],[.19,900,5000],[.3,4800,600]].forEach(function(s){ nz(s[0],.09,.3,'bandpass',s[1],6,s[2]); }); tone(70,0,.3,'sine',.3,50); },
+  thud:function(){ tone(150,0,.2,'sine',.55,45); nz(0,.08,.22,'lowpass',500,1); },
+  stamp:function(){ S.thud(); nz(0,.03,.25,'highpass',2000); },
+  ding:function(){ tone(2093,0,.9,'sine',.15); tone(4186,0,.5,'sine',.035); },
+  kaching:function(){ nz(0,.05,.28,'highpass',2500); tone(1568,0,1.1,'sine',.16); tone(2093,.1,1.2,'sine',.15); tone(3136,.1,.8,'sine',.05); nz(.18,.25,.14,'lowpass',900,1,300); tone(110,.34,.14,'sine',.3,60); },
+  scanner:function(){ tone(2600,0,.09,'square',.08); tone(2093,.1,.5,'sine',.12); },
+  gavel:function(){ [0,.24].forEach(function(t){ tone(190,t,.14,'triangle',.6,60); nz(t,.06,.32,'bandpass',1400,1.5); }); tone(2790,.24,.5,'sine',.05); },
+  buzz:function(){ tone(110,0,.35,'sawtooth',.14); tone(117,0,.35,'square',.07); },
+  thudDing:function(){ S.thud(); tone(2093,.16,.8,'sine',.13); },
+  printer:function(){ for(var i=0;i<22;i++) nz(i*.055,.03,.11,'bandpass',2800+(i%3)*600,4); },
+  shopbell:function(){ tone(2349,0,1.1,'sine',.13); tone(3136,.08,1,'sine',.09); },
+  counterbell:function(){ tone(1760,0,1.3,'sine',.18); tone(3520,0,.6,'sine',.04); },
+  shutter:function(){ for(var i=0;i<16;i++) nz(i*.07,.05,.2,'bandpass',900-i*30,2); nz(1.2,.25,.35,'lowpass',300,1); tone(80,1.2,.3,'sine',.45,40); },
+  ring:function(){ [0,1].forEach(function(g){ for(var i=0;i<14;i++) tone(i%2?480:440,g+i*.055,.045,'square',.05); }); },
+  breathIn:function(){ tone(220,0,1.8,'sine',.06,330,null,.4); },
+  breathOut:function(){ tone(330,0,2.5,'sine',.06,200,null,.4); },
+  chalk:function(){
+    var ac=A.ac,s=ac.currentTime,src=ac.createBufferSource(),f=ac.createBiquadFilter(),g=ac.createGain();
+    src.buffer=A.nb; src.loop=true; f.type='bandpass'; f.Q.value=10; f.frequency.setValueAtTime(2300,s); f.frequency.linearRampToValueAtTime(3800,s+1.4);
+    g.gain.setValueAtTime(0,s); for(var t=0;t<14;t++){ g.gain.linearRampToValueAtTime(t%2?0.03:0.11,s+0.1*(t+1)); } g.gain.linearRampToValueAtTime(0,s+1.4);
+    src.connect(f); f.connect(g); g.connect(A.shop); src.start(s,0); src.stop(s+1.5);
+  },
+  /* cuarto divino: bus propio, la tienda esta en silencio */
+  paper:function(){ nz(0,.55,.1,'bandpass',1400,.8,3200,A.room); },
+  bell:function(){ tone(528,0,5,'sine',.12,null,A.room,.08); tone(792,0,4,'sine',.05,null,A.room,.08); tone(1056,0,3,'sine',.02,null,A.room,.08); }
+};
+function sfx(name,arg){
+  A.logs.push(name); if(A.logs.length>300) A.logs.shift();
+  showCC(name);
+  if(!A.ac||A.muted){ vib(name); return; }
+  try{ S[name](arg); }catch(e){}
+}
+/* estatica con sonido: baja un escalon cada 5 s */
+function bedLevel(st){ return Math.max(0,.13*(1-st/6)); }
+function bedStart(){
+  if(!A.ac||A.bed) return; var ac=A.ac,src=ac.createBufferSource(),f=ac.createBiquadFilter(),g=ac.createGain();
+  src.buffer=A.nb; src.loop=true; f.type='bandpass'; f.frequency.value=2500; f.Q.value=.4; g.gain.value=bedLevel(E.step>0?E.step:0);
+  src.connect(f); f.connect(g); g.connect(A.shop); src.start(); A.bed={src:src,g:g};
+}
+function bedSet(st){ if(A.bed&&A.ac) A.bed.g.gain.setTargetAtTime(bedLevel(st),A.ac.currentTime,.15); }
+function bedStop(){ if(A.bed&&A.ac){ try{ A.bed.g.gain.setTargetAtTime(0,A.ac.currentTime,.08); }catch(e){} var s=A.bed.src; setTimeout(function(){ try{s.stop();}catch(e){} },400); } A.bed=null; }
+/* zumbido que sube de tono mientras mantienes */
+function humStart(){
+  if(!A.ac||A.hum) return; var ac=A.ac,o=ac.createOscillator(),f=ac.createBiquadFilter(),g=ac.createGain();
+  o.type='sawtooth'; o.frequency.value=80; f.type='lowpass'; f.frequency.value=500; g.gain.value=.035;
+  o.connect(f); f.connect(g); g.connect(A.shop); o.start(); A.hum={o:o,g:g};
+}
+function humSet(p){ if(A.hum&&A.ac) A.hum.o.frequency.setTargetAtTime(80+p*160,A.ac.currentTime,.1); }
+function humStop(){ if(A.hum&&A.ac){ try{ A.hum.g.gain.setTargetAtTime(0,A.ac.currentTime,.05); }catch(e){} var o=A.hum.o; setTimeout(function(){ try{o.stop();}catch(e){} },300); } A.hum=null; }
+/* el cuarto divino apaga la tienda en 2 s */
+function duck(on){ A.ducked=on; if(A.shop&&A.ac){ A.shop.gain.setTargetAtTime(on?0:1,A.ac.currentTime,on?.5:.12); } }
+/* flashes: 2 a 3 cuadros, maximo 3 por segundo, apagados con reduced motion */
+var FL=[];
+function flash(el,full){
+  if(reduce) return; var n=Date.now(); FL=FL.filter(function(t){return n-t<1000;}); if(FL.length>=3) return; FL.push(n);
+  var e=full?$('#flash'):el; if(!e) return; e.classList.add('fl'); setTimeout(function(){e.classList.remove('fl');},60);
+}
+/* primer toque: desbloquea el audio */
+['pointerdown','keydown','touchstart'].forEach(function(ev){ document.addEventListener(ev,function(){ var was=!!A.ac; unlock(); if(!was){ A.skipClick=true; setTimeout(function(){A.skipClick=false;},500); } },true); });
+/* clic generico de boton, salvo los que traen su propio sonido */
+document.addEventListener('click',function(e){
+  if(A.skipClick){ A.skipClick=false; return; }
+  var t=e.target.closest&&e.target.closest('button,a.btn,a.door,label.chip,a.card'); if(!t) return;
+  if(t.closest('[data-sfx]')||t.hasAttribute('data-sfx')) return;
+  sfx('click');
+});
+/* boton de silencio */
+function paintSnd(){ var b=$('#snd'); b.textContent='Sound: '+(A.muted?'off':'on'); b.setAttribute('aria-pressed',String(A.muted)); }
+$('#snd').addEventListener('click',function(){
+  unlock(); A.muted=!A.muted; lsSet(K.mute,A.muted?'1':'0'); paintSnd();
+  if(A.master&&A.ac) A.master.gain.setTargetAtTime(A.muted?0:.9,A.ac.currentTime,.03);
+  if(!A.muted) sfx('click'); else vib('click');
+  say(A.muted?'Sound off.':'Sound on.');
+});
+paintSnd();
+
+/* ---------- Cella (SVG en linea) ---------- */
+var BODY='M66 212 V90 Q66 74 82 74 H158 Q174 74 174 90 V212 H146 V152 H120 V212 Z';
+function cellaSVG(){
+  return '<svg viewBox="54 62 132 162" role="img" aria-label="Cella, eyes closed, breathing"><path d="'+BODY+'" fill="currentColor"/>'+
+  '<path d="M88 112 Q98 122 108 112" fill="none" stroke="var(--bg)" stroke-width="5" stroke-linecap="round"/>'+
+  '<path d="M132 112 Q142 122 152 112" fill="none" stroke="var(--bg)" stroke-width="5" stroke-linecap="round"/></svg>';
+}
+function outlineSVG(cls){
+  return '<svg class="outline '+(cls||'')+'" viewBox="54 62 132 162" role="img" aria-label="Chalk outline of you"><path class="o" pathLength="1000" d="'+BODY+'"/></svg>';
+}
+$$('[data-cella]').forEach(function(n){n.innerHTML=cellaSVG();});
+$('#brandcella').innerHTML=cellaSVG();
+$$('[data-cella-small]').forEach(function(n){n.innerHTML=cellaSVG();});
+
+/* ---------- estado de visita ---------- */
+function passed(){return ssGet('naos22_pass')==='1';}
+function locked(){return lsGet(K.visit)===today() && !passed();}
+function t0(){return Number(ssGet('naos22_t0'))||loadT;}
+var R={lines:[],no:''};
+function buildReceipt(skipped){
+  var d=new Date(); R.no=String(d.getFullYear()).slice(2)+pad(d.getMonth()+1)+pad(d.getDate())+'-'+String(Math.floor(Math.random()*9000)+1000);
+  R.lines=['CHANNEL $0.00','THE 3 A.M. SHOPPING CHANNEL','Receipt '+R.no,'----------------------------',
+    '1 x 30 seconds of nothing','   '+(skipped?'skipped, sticker applied':'held, start to finish'),
+    'Subtotal            $0.00','Sunshine            $0.00','TOTAL               $0.00','----------------------------',
+    'Paid in full by: you','Tag: '+(skipped?'yellow sticker':'green'),'Same price. $0.00.','----------------------------',
+    'Your ten minutes start now.','Nobody asked for this.','Me neither.','Ask Cella what to do with','the rest of your night.','Cella answers in the comments.'];
+}
+function completeEntry(skipped){
+  ssSet('naos22_pass','1'); ssSet('naos22_t0',String(Date.now())); lsSet(K.visit,today());
+  if(skipped){ lsSet(K.couldnt,today()); ssSet('naos22_skipped','1'); } else ssDel('naos22_skipped');
+  buildReceipt(skipped); refreshTag();
+}
+function refreshTag(){$('#tag').hidden=lsGet(K.couldnt)!==today();}
+
+/* ---------- Ask Cella ---------- */
+var ASK={
+ entry:['what you heard in those thirty seconds',"Nothing is a sound. You made it. Congrats, you held a button on purpose."],
+ receipt:['what to do with the rest of your night',"Lamp off at 10:30. Phone sleeps in the kitchen. Receipt in your pocket."],
+ home:["what Chip is selling next","Next week: the window. It opens. Chip is crying about it already. Go look out of yours."],
+ table:['who your empty chair is','Exhibit 7: one brother, one unanswered "u up for food?". Erase him. Thursday works, I checked nothing, I\'m software.'],
+ sit:["if it's too late to text them","It's never too late, it's just Tuesday. Seven words. Send them before you reply to me."],
+ cart:['where you walked today','The corner. Installment 1 of 1. Paid by you.'],
+ court:['to cross-examine your habit','Question for the witness: what were you looking for at 2:14 that you didn\'t have at 2:13?'],
+ pause:['for the ending','The ending is behind 20 seconds of breathing. I don\'t make the rules. I do, actually. Breathe.'],
+ phones:["who you'd call if Doreen made you","Doreen says lines are open. Call him before dinner."],
+ returns:['what you are returning','I can\'t take your Tuesday back. I can give you ten minutes of a different one.'],
+ back:['what is in the back room',"A door, a quiet room, and whatever you bring. I stay out front."],
+ closed:['what to turn off tonight',"Store's closed. I'm not. I'm in the comments."],
+ locked:['what you will do with the rest of today','Go. I\'ll be here. I\'m always here. That is not a flex, that is a server.'],
+ gone:['what stayed','What stayed is yours. I stayed too, in the comments. Hi.']
+};
+var cur='entry';
+function askPreview(){var q=$('#ask-q').value.trim();$('#ask-prev').textContent='Ask Cella '+(q||'…')+'. Cella answers in the comments.';}
+$('#ask').addEventListener('click',function(){
+  var c=ASK[cur]||ASK.home; $('#ask-q').value=c[0]; $('#ask-a').textContent=c[1]; askPreview();
+  var d=$('#askdlg'); try{d.showModal();}catch(e){d.setAttribute('open','');}
+});
+$('#ask-q').addEventListener('input',askPreview);
+$('#ask-copy').addEventListener('click',function(){copyText($('#ask-prev').textContent);});
+$('#ask-close').addEventListener('click',function(){var d=$('#askdlg');try{d.close();}catch(e){d.removeAttribute('open');}});
+
+/* ---------- panel del prototipo ---------- */
+var JUMPS=[['entry','Entrada'],['receipt','Recibo'],['home','Tienda'],['table','/table'],['table/wall','Muro'],['sit?n=Mara&d=Thursday','Invitación'],['cart','/cart'],['court','/court'],['pause','Pausa'],['phones','Teléfonos'],['returns','Devoluciones'],['back','Cuarto divino'],['closed','Cierre'],['locked','2.ª visita']];
+$('#jumps').innerHTML=JUMPS.map(function(j){return '<li><a href="#/'+j[0]+'" data-jump="1">'+j[1]+'</a></li>';}).join('');
+$('#cinta-btn').addEventListener('click',function(){var p=$('#panel');p.hidden=!p.hidden;this.setAttribute('aria-expanded',String(!p.hidden));});
+$('#jumps').addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;ssSet('naos22_pass','1');ssDel('naos22_closed');if(!ssGet('naos22_t0'))ssSet('naos22_t0',String(Date.now()));if(!R.lines.length)buildReceipt(false);});
+$('#reset').addEventListener('click',function(){wipe();location.hash='#/entry';location.reload();});
+function wipe(){Object.keys(K).forEach(function(k){if(k!=='mute')lsDel(K[k]);});SK.forEach(ssDel);R.lines=[];}
+
+/* ---------- borrar lo guardado ---------- */
+$('#del').addEventListener('click',function(){
+  if(cur==='gone'){toast('Already gone. Nice try.');return;}
+  wipe(); stopAll(); location.hash='#/gone';
+});
+
+/* ---------- router ---------- */
+var KNOWN=['entry','receipt','home','table','sit','cart','court','pause','phones','returns','back','closed','locked','gone'];
+var NOEXIT=['entry','receipt','locked','gone','closed','back'];
+var NOCLOCK=['entry','locked','gone','closed','back'];
+function parseHash(){
+  var h=location.hash.replace(/^#\/?/,''); var i=h.indexOf('?'); var q=i>-1?h.slice(i+1):''; var p=i>-1?h.slice(0,i):h;
+  return {path:p,sub:p.split('/')[1]||'',base:p.split('/')[0],qs:new URLSearchParams(q)};
+}
+var enterHooks={}, leaveHooks={};
+function stopAll(){Object.keys(leaveHooks).forEach(function(k){try{leaveHooks[k]();}catch(e){}});}
+function route(){
+  var r=parseHash(), base=r.base;
+  if(KNOWN.indexOf(base)<0) base=passed()?'home':'entry';
+  if(base!=='gone'){
+    if(base==='closed' && ssGet('naos22_closed')==='1'){ /* se queda */ }
+    else if(locked() || (ssGet('naos22_closed')==='1' && !passed())) base='locked';
+    else if(!passed()) base='entry';
+  }
+  if(base==='locked' && passed()) base='home';
+  if(base==='receipt' && !R.lines.length) base='home';
+  var want='#/'+base+(base==='table'&&r.sub?'/'+r.sub:'')+(base==='sit'?(location.hash.indexOf('?')>-1?location.hash.slice(location.hash.indexOf('?')):''):'');
+  if(location.hash!==want && (location.hash.replace(/\?.*/,'')!==want.replace(/\?.*/,''))){try{history.replaceState(null,'',want);}catch(e){location.hash=want;}}
+  if(cur&&cur!==base&&leaveHooks[cur]) leaveHooks[cur]();
+  var prev=cur; cur=base;
+  $$('[data-route]').forEach(function(s){s.hidden=s.getAttribute('data-route')!==base;});
+  var sec=$('#r-'+base); document.body.setAttribute('data-theme',sec.getAttribute('data-theme'));
+  $('#clock').hidden=NOCLOCK.indexOf(base)>-1;
+  $('#exit').hidden=NOEXIT.indexOf(base)>-1;
+  $('#ask').hidden=(base==='back');
+  if(enterHooks[base]) enterHooks[base](r);
+  if(!(base==='table'&&r.sub==='wall')) window.scrollTo(0,0);
+  else setTimeout(function(){var w=$('#wallhead');if(w)w.scrollIntoView({block:'start'});},30);
+  if(prev!==null&&prev!==base){try{sec.focus({preventScroll:true});}catch(e){}}
+  refreshTag();
+}
+window.addEventListener('hashchange',route);
+
+/* ---------- reloj de diez minutos: la tienda cierra ---------- */
+function closeStore(how){
+  if(ssGet('naos22_closed')==='1') return;
+  lsSet(K.visit,today()); ssSet('naos22_closed','1'); ssDel('naos22_pass'); ssDel('naos22_t0');
+  if(how==='leave'){ sfx('shopbell'); setTimeout(function(){sfx('shutter');},550); } else { sfx('shutter'); }
+  flash(null,true);
+  location.hash='#/closed';
+}
+function tickClock(){
+  var c=$('#clock'); if(c.hidden||!passed()) return;
+  var left=600-((Date.now()-t0())/1000)*X;
+  if(left<=0){ closeStore('time'); return; }
+  c.innerHTML='Store closes in <b>'+Math.floor(left/60)+':'+pad(Math.floor(left%60))+'</b>';
+}
+setInterval(tickClock,500);
+$('#stay').addEventListener('click',function(){ sfx('click'); toast('Staying. The clock keeps going.'); });
+$('#leave').addEventListener('click',function(){ closeStore('leave'); });
+
+/* ---------- ENTRADA: The 30-Second Checkout ---------- */
+var E={left:LEN,last:0,holding:false,down:false,timer:null,loop:null,holdAt:0,step:0,sec:LEN,said:{}};
+var cv=$('#static'), cx=cv.getContext('2d'), img=cx.createImageData(cv.width,cv.height);
+function drawStatic(){
+  var d=img.data; for(var i=0;i<d.length;i+=4){var v=(Math.random()*215)|0;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255;}
+  cx.putImageData(img,0,0);
+}
+function staticLoop(){
+  if(cur!=='entry') return;
+  if(!document.hidden) drawStatic();
+  E.loop=setTimeout(staticLoop,reduce?1000:70);
+}
+function renderEntry(){
+  var s=Math.max(0,Math.ceil(E.left)); var el=$('#count');
+  if(el.textContent!==String(s)){ el.textContent=s; if(s%10===0&&s>0&&s<LEN) say(s+' seconds left'); }
+  $('#meterfill').style.width=Math.max(0,E.left/LEN*100)+'%';
+  $('#rate').textContent=E.down?'Face down: counting double.':'Phone face down counts double.';
+}
+var DUSTY=[[10,'Loading nothing.'],[20,'Phone face down counts double.'],[28,"I can't do 30 seconds. You just did."]];
+function entryReset(){ E.left=LEN; E.step=0; E.sec=LEN; E.said={}; bedSet(0); humStop(); }
+function entryTick(){
+  var n=Date.now(), dt=Math.min(.5,(n-E.last)/1000); E.last=n;
+  var counting=E.holding||E.down;
+  if(counting){ E.left-=dt*(E.down?2:1)*X; humStart(); } else humStop();
+  var el=LEN-E.left; if(el<0) el=0;
+  if(counting){
+    var st=Math.floor(el/5); if(st!==E.step){ E.step=st; bedSet(st); if(st>0&&E.left>0) sfx('step'); }
+    var sec=Math.ceil(E.left); if(sec!==E.sec){ E.sec=sec; if(E.left>0) sfx('tick',el/LEN); }
+    humSet(el/LEN);
+    DUSTY.forEach(function(d){ if(el>=d[0]&&!E.said[d[0]]){ E.said[d[0]]=1; $('#dusty').textContent=d[1]; } });
+  }
+  renderEntry();
+  if(E.left<=0) finishEntry(false);
+}
+function finishEntry(skipped){
+  clearInterval(E.timer); E.holding=false; humStop(); bedStop();
+  if(skipped){ sfx('stamp'); setTimeout(function(){sfx('ding');},180); } else { sfx('kaching'); flash(null,true); }
+  completeEntry(skipped); location.hash='#/receipt';
+}
+enterHooks.entry=function(){
+  cv.hidden=false; E.holding=false; entryReset(); E.last=Date.now(); renderEntry(); $('#dusty').textContent='';
+  clearInterval(E.timer); E.timer=setInterval(entryTick,100);
+  clearTimeout(E.loop); staticLoop(); bedStart();
+};
+leaveHooks.entry=function(){ clearInterval(E.timer); clearTimeout(E.loop); E.holding=false; $('#hold').classList.remove('on'); humStop(); bedStop(); cv.hidden=true; };
+var holdBtn=$('#hold');
+function holdBegin(){
+  if(E.holding) return; E.holding=true; E.holdAt=Date.now(); E.last=Date.now();
+  holdBtn.classList.add('on'); $('#dusty').textContent=''; sfx('ratchet'); unlock(); bedStart();
+}
+function holdEnd(){
+  if(!E.holding) return; E.holding=false; holdBtn.classList.remove('on');
+  var held=Date.now()-E.holdAt;
+  if(E.down||E.left<=0) return;
+  if(held<500){ entryReset(); renderEntry(); toast('Hold it. Keep holding.'); return; }
+  entryReset(); renderEntry(); sfx('buzz'); $('#dusty').textContent='Offer void. Try again.'; say('Offer void. Try again.');
+}
+holdBtn.addEventListener('pointerdown',function(e){ e.preventDefault(); try{holdBtn.setPointerCapture(e.pointerId);}catch(x){} holdBegin(); });
+['pointerup','pointercancel'].forEach(function(n){ holdBtn.addEventListener(n,holdEnd); });
+holdBtn.addEventListener('contextmenu',function(e){e.preventDefault();});
+holdBtn.addEventListener('keydown',function(e){ if((e.key===' '||e.key==='Enter')&&!e.repeat){ e.preventDefault(); holdBegin(); } });
+holdBtn.addEventListener('keyup',function(e){ if(e.key===' '||e.key==='Enter'){ e.preventDefault(); holdEnd(); } });
+holdBtn.addEventListener('blur',holdEnd);
+holdBtn.addEventListener('click',function(e){ e.preventDefault(); });
+/* sensor: boca abajo cuenta como mantener, al doble */
+(function sensor(){
+  try{
+    window.addEventListener('deviceorientation',function(e){
+      var d=e.beta!=null&&Math.abs(e.beta)>150&&Math.abs(e.gamma)<45;
+      if(d&&!E.down&&cur==='entry'){ sfx('thudDing'); $('#dusty').textContent='Counts double.'; }
+      E.down=d;
+    });
+    if('ontouchstart' in window&&window.DeviceOrientationEvent&&typeof DeviceOrientationEvent.requestPermission==='function'){
+      var row=$('#sensorrow'); row.hidden=false;
+      $('#sensor-yes').addEventListener('click',function(){DeviceOrientationEvent.requestPermission().then(function(){row.hidden=true;}).catch(function(){row.hidden=true;});});
+      $('#sensor-no').addEventListener('click',function(){row.hidden=true;});
+    }
+  }catch(e){}
+})();
+/* el enlace chico: entra igual, con sticker */
+$('#skip').addEventListener('click',function(){ finishEntry(true); });
+
+/* ---------- RECIBO ---------- */
+enterHooks.receipt=function(){
+  var r=$('#receipt'); r.innerHTML=R.lines.map(function(l){return esc(l);}).join('<br>');
+  r.classList.remove('printing'); void r.offsetWidth; if(!reduce) r.classList.add('printing');
+  setTimeout(function(){ if(cur==='receipt') sfx('printer'); },150);
+  tickClock();
+};
+function receiptText(){return R.lines.join('\n');}
+function receiptPNG(){
+  if(!R.lines.length){ toast('No receipt yet.'); return; }
+  try{
+    var c=document.createElement('canvas'); c.width=1080; c.height=1920; var x=c.getContext('2d');
+    x.fillStyle='#0E1116'; x.fillRect(0,0,1080,1920);
+    x.fillStyle='#FFFDF4'; x.fillRect(110,150,860,1560);
+    x.fillStyle='#0E1116'; x.textBaseline='top';
+    var y=210;
+    R.lines.forEach(function(l,i){ x.font=(i<2?'bold 44px':'36px')+' "Courier New",monospace'; x.fillText(l,160,y); y+=(i<2?64:58); });
+    x.font='bold 30px "Courier New",monospace'; x.fillStyle='#4A5260'; x.fillText('NAOS 2.2 · prototype · not published',160,1640);
+    c.toBlob(function(b){
+      if(!b){ toast('Could not make the image.'); return; }
+      var u=URL.createObjectURL(b), a=document.createElement('a'); a.href=u; a.download='channel-0-receipt.png'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){URL.revokeObjectURL(u);},2000);
+      toast('Receipt image saved.');
+    },'image/png');
+  }catch(e){ toast('Could not make the image.'); }
+}
+$('#enterstore').addEventListener('click',function(){ sfx('shopbell'); location.hash='#/home'; });
+$('#savereceipt').addEventListener('click',receiptPNG);
+$('#copyreceipt').addEventListener('click',function(){copyText(receiptText());});
+$('#closed-save').addEventListener('click',receiptPNG);
+$('#closed-copy').addEventListener('click',function(){copyText(receiptText());});
+
+/* ---------- INICIO ---------- */
+enterHooks.home=function(){
+  $('#waited').textContent=ssGet('naos22_skipped')==='1'?"You took the sticker. Same price: $0.00.":"You held for 30 seconds. That is more than the feed ever asked for.";
+  tickClock();
+};
+
+/* ---------- MESA ---------- */
+function bets(){return Number(lsGet(K.bets))||0;}
+function showBets(){$('#bets').textContent=bets();}
+var T={name:'',day:'Thursday',outlineBox:null};
+function inviteText(name,day){return (name?name+', your':'Your')+' outline is on my table. '+day+'?';}
+function wallItems(){
+  var seed=[['Thu',-4],['Sun',3],['Tonight',-2],['Thu',5],['Sun',-5],['Thu',2],['Tonight',-3],['Sun',4],['Thu',-1],['Tonight',3],['Sun',-2]];
+  var own=jget(K.wall,[]);
+  return own.map(function(o){return [o.d,o.r,true];}).concat(seed.map(function(s){return [s[0],s[1],false];}));
+}
+function renderWall(){
+  var it=wallItems();
+  $('#wall').innerHTML=it.map(function(o){return '<figure><div style="transform:rotate('+o[1]+'deg)">'+outlineSVG('ghost')+'</div>'+esc(o[0])+' · erased'+(o[2]?' · yours':'')+'</figure>';}).join('');
+  $('#wallcount').innerHTML='<b class="big" style="font-size:28px">'+it.length+'</b> outlines erased.';
+}
+enterHooks.table=function(){showBets();renderWall();};
+$('#tform').addEventListener('submit',function(e){
+  e.preventDefault();
+  T.name=$('#t-name').value.trim(); T.day=($('input[name=day]:checked')||{value:'Thursday'}).value;
+  $('#outlinehost').innerHTML=outlineSVG(''); T.outlineBox=$('#outlinehost .outline');
+  $('#invtext').textContent=inviteText(T.name,T.day);
+  $('#stamphost').innerHTML=''; $('#afterErase').hidden=true; $('#simsit').disabled=false;
+  $('#invite').hidden=false; $('#shareinv').hidden=!navigator.share;
+  say('Invitation drawn.'); $('#invite').scrollIntoView({block:'nearest'});
+});
+function shareMessage(){
+  var link=location.href.split('#')[0]+'#/sit?n='+encodeURIComponent(T.name)+'&d='+encodeURIComponent(T.day);
+  return inviteText(T.name,T.day)+'\n'+link+'\nAsk Cella who your empty chair is. Cella answers in the comments.';
+}
+$('#copyinv').addEventListener('click',function(){copyText(shareMessage());});
+$('#shareinv').addEventListener('click',function(){try{navigator.share({text:shareMessage()}).catch(function(){});}catch(e){}});
+/* rasguno de tiza al borrar */
+function eraseOutline(svg,done){
+  sfx('chalk');
+  if(reduce){ svg.classList.add('ghost'); done(); return; }
+  svg.classList.add('erasing'); setTimeout(function(){svg.classList.remove('erasing');svg.classList.add('ghost');done();},1550);
+}
+function wonBet(){lsSet(K.bets,String(bets()+1));showBets();}
+$('#simsit').addEventListener('click',function(){
+  var b=this; b.disabled=true;
+  eraseOutline(T.outlineBox,function(){ $('#stamphost').innerHTML='<span class="stamp">ERASED</span>'; sfx('stamp'); wonBet(); $('#afterErase').hidden=false; say('Erased. You won the bet.'); });
+});
+$('#towall').addEventListener('click',function(){
+  var w=jget(K.wall,[]); w.unshift({d:T.day==='Tonight'?'Tonight':T.day.slice(0,3),r:Math.round(Math.random()*8-4)}); lsSet(K.wall,JSON.stringify(w.slice(0,30)));
+  renderWall(); this.disabled=true; toast('On the wall. No name attached.'); $('#wallhead').scrollIntoView({block:'start'});
+});
+
+/* ---------- RECIBIR INVITACION ---------- */
+var SS={name:'',day:'Thursday'};
+enterHooks.sit=function(r){
+  SS.name=(r.qs.get('n')||'').slice(0,24); SS.day=(r.qs.get('d')||'Thursday').slice(0,12);
+  $('#sit-outline').innerHTML=outlineSVG(''); $('#sit-text').textContent=inviteText(SS.name,SS.day);
+  $('#sit-stamp').innerHTML=''; $('#sit-actions').hidden=false; $('#sit-after').hidden=true; $('#sit-no-msg').hidden=true;
+  $('#sit-yes').disabled=false;
+};
+$('#sit-yes').addEventListener('click',function(){
+  this.disabled=true; var svg=$('#sit-outline .outline');
+  eraseOutline(svg,function(){ $('#sit-stamp').innerHTML='<span class="stamp">ERASED</span>'; sfx('stamp'); wonBet(); $('#sit-actions').hidden=true; $('#sit-after').hidden=false;
+    $('#sit-reply').textContent="I'll sit. "+SS.day+'.'; say('Erased.'); });
+});
+$('#sit-no').addEventListener('click',function(){$('#sit-no-msg').hidden=false;});
+$('#sit-copy').addEventListener('click',function(){copyText($('#sit-reply').textContent);});
+
+/* ---------- CARRITO ---------- */
+var C={secs:600,end:0,timer:null};
+function mmss(s){s=Math.max(0,Math.ceil(s));return Math.floor(s/60)+':'+pad(s%60);}
+function cartShow(id){['shop','check','walk','receipt'].forEach(function(n){$('#cart-'+n).hidden=n!==id;});}
+enterHooks.cart=function(){ if(!C.end) cartShow('shop'); };
+leaveHooks.cart=function(){};
+$('#addcart').addEventListener('click',function(){
+  C.secs=Number(($('input[name=ver]:checked')||{value:600}).value); $('#c-item').textContent=(C.secs/60)+' minutes of walking'+(C.secs===120?' (raw)':'');
+  sfx('scanner'); cartShow('check'); say('Added to cart.'); window.scrollTo(0,0);
+});
+$('#c-promo').addEventListener('input',function(){var v=this.value.trim().toUpperCase();$('#c-promo-msg').textContent=v==='LEAVE'?'Applied: $0.00 off. It was already free.':(v?'Code not found. Neither was the exit, at first.':'');});
+$('#c-terms').addEventListener('change',function(){$('#placeorder').disabled=!this.checked;});
+function walkTick(){
+  var left=(C.end-Date.now())/1000*X; $('#walkcount').textContent=mmss(left);
+  if(left<=0){ clearInterval(C.timer); C.end=0; finishWalk(C.secs); }
+}
+$('#placeorder').addEventListener('click',function(){
+  sfx('kaching'); flash(null,true);
+  C.end=Date.now()+C.secs*1000/X; cartShow('walk'); walkTick(); clearInterval(C.timer); C.timer=setInterval(walkTick,250); say('Order placed. Go walk.'); window.scrollTo(0,0);
+});
+$('#walkback').addEventListener('click',function(){
+  sfx('click'); clearInterval(C.timer); var done=Math.round(C.secs-Math.max(0,(C.end-Date.now())/1000*X)); C.end=0; finishWalk(done,true);
+});
+function finishWalk(sec,early){
+  var d=new Date(); var no=String(d.getFullYear()).slice(2)+pad(d.getMonth()+1)+pad(d.getDate())+'-'+String(Math.floor(Math.random()*9000)+1000);
+  var lines=['CHANNEL $0.00 · /cart','Receipt '+no,'----------------------------',(Math.floor(sec/60))+' min '+pad(sec%60)+' s of walking','Version: '+(C.secs===120?'raw':'standard')+(early?' (back early)':''),'Subtotal   $0.00','Sunshine   $0.00','Total      $0.00','----------------------------','You bought nothing. You moved.','Keep the receipt.','Ask Cella where you walked today.','Cella answers in the comments.'];
+  $('#walkreceipt').innerHTML=lines.map(function(l){return esc(l);}).join('<br>');
+  $('#walkreceipt').setAttribute('data-text',lines.join('\n'));
+  cartShow('receipt'); sfx('printer'); setTimeout(function(){sfx('ding');},700); say('Walk complete. Receipt ready.');
+}
+$('#copywalk').addEventListener('click',function(){copyText($('#walkreceipt').getAttribute('data-text'));});
+
+/* ---------- CORTE ---------- */
+function renderVerdicts(){
+  var v=jget(K.court,[]);
+  $('#verdicts').innerHTML=v.length?v.map(function(x){return '<li><b>'+esc(x.no)+'</b> · '+esc(x.charge)+' · lamp off '+esc(x.lights)+' · '+esc(x.nights)+' nights'+(x.room?' · phone in another room':'')+'</li>';}).join(''):'<li class="small">No verdicts yet. Sunday is court day.</li>';
+}
+enterHooks.court=function(){renderVerdicts();};
+$('#cform').addEventListener('submit',function(e){
+  e.preventDefault();
+  var v=jget(K.court,[]); var d=new Date();
+  var rec={no:'CASE NAOS-'+String(d.getFullYear()).slice(2)+pad(d.getMonth()+1)+pad(d.getDate())+'-'+pad(v.length+1),charge:$('#k-charge').value,lights:$('#k-lights').value,nights:$('#k-nights').value,room:$('#k-room').checked};
+  v.unshift(rec); lsSet(K.court,JSON.stringify(v.slice(0,20)));
+  sfx('gavel'); flash(null,true);
+  var c=$('#contract'); c.hidden=false;
+  c.innerHTML='<h3>Hour Three Court v. Your 2 AM</h3><p><b>'+esc(rec.no)+'</b></p><p>The defendant, holding this phone at this moment, is charged with <b>'+esc(rec.charge)+'</b>. The defendant agrees to turn the lamp off by <b>'+esc(rec.lights)+'</b> for <b>'+esc(rec.nights)+' nights</b>'+(rec.room?', with the phone sleeping in another room':'')+'.</p><p class="small" style="color:#4A5260">Judge Hollis Bray has struck the toaster. Sentence begins tonight. The court will ask on Sunday.</p><div class="sig" aria-label="Signature line">Signed, the defendant</div>';
+  renderVerdicts(); say('Sentence signed.'); c.scrollIntoView({block:'nearest'});
+});
+
+/* ---------- PAUSA ---------- */
+var P={timer:null,end:0,lines:["We interrupt this chapter for a message from your lungs.","Sponsored by oxygen. Free, as always.","Stay with us. The ending is still in the building.","Last breath. Make it a good one."]};
+function pauseView(id){['read','break','end'].forEach(function(n){$('#p-'+n).hidden=n!==id;});}
+enterHooks.pause=function(){ if(!P.end) pauseView('read'); };
+leaveHooks.pause=function(){clearInterval(P.timer);P.end=0;};
+$('#wantend').addEventListener('click',function(){
+  sfx('counterbell');
+  pauseView('break'); P.end=Date.now()+20000/X; var br=$('#breath'); var last=-1;
+  clearInterval(P.timer);
+  function step(){
+    var el=20-((P.end-Date.now())/1000*X); if(el<0)el=0; var left=Math.ceil(20-el);
+    $('#p-sec').textContent=left+' seconds';
+    var ph=el%10, inh=ph<4; var q=Math.floor(el/5);
+    var txt=inh?'In':'Out'; if(br.textContent!==txt){ br.textContent=txt; if(el<20) sfx(inh?'breathIn':'breathOut'); }
+    br.className='breath '+(inh?'in':'out');
+    if(q!==last){ last=q; $('#announce').textContent=P.lines[Math.min(3,q)]; }
+    if(el>=20){ clearInterval(P.timer); P.end=0; pauseView('end'); sfx('ding'); say('Break over. Here is the ending.'); $('#p-end').scrollIntoView({block:'nearest'}); }
+  }
+  step(); P.timer=setInterval(step,200);
+});
+
+/* ---------- TELEFONOS DE DOREEN ---------- */
+var MARV=["I called my sister. She picked up. Free.","I bought it twice. It was free both times.","I stopped sleeping and started lying with purpose. Then I called somebody.","I called someone. Turns out they're a person."];
+function callsN(){return Number(lsGet(K.calls))||0;}
+function phView(id){['start','ring','on'].forEach(function(n){$('#ph-'+n).hidden=n!==id;});}
+var phT;
+enterHooks.phones=function(){ phView('start'); $('#ph-done').hidden=true; };
+leaveHooks.phones=function(){ clearTimeout(phT); };
+$('#ph-pick').addEventListener('click',function(){
+  phView('ring'); sfx('ring'); say('Ringing.');
+  clearTimeout(phT); phT=setTimeout(function(){
+    $('#ph-marv').textContent=MARV[Math.floor(Math.random()*MARV.length)]; phView('on');
+    $('#ph-count').textContent='Calls placed from this phone: '+callsN()+'. Counted here only.'; say('You are on the air.');
+  },1900/Math.min(X,4));
+});
+$('#ph-did').addEventListener('click',function(){
+  lsSet(K.calls,String(callsN()+1)); sfx('kaching'); $('#ph-count').textContent='Calls placed from this phone: '+callsN()+'. Counted here only.';
+  $('#ph-done').hidden=false; toast('Free. Both times.');
+});
+$('#ph-not').addEventListener('click',function(){ sfx('click'); phView('start'); });
+
+/* ---------- MOSTRADOR DE DEVOLUCIONES ---------- */
+enterHooks.returns=function(){ $('#rt-form').hidden=false; $('#rt-out').hidden=true; $('#rt-credit').hidden=true; $('#rt-home').hidden=true; };
+var rtT;
+leaveHooks.returns=function(){ clearTimeout(rtT); };
+$('#rtform').addEventListener('submit',function(e){
+  e.preventDefault();
+  var what=($('input[name=ret]:checked')||{value:'something'}).value;
+  sfx('counterbell'); $('#rt-form').hidden=true; $('#rt-out').hidden=false;
+  $('#rt-denied').textContent='Return denied. No receipt.'; $('#rt-credit').hidden=true; $('#rt-home').hidden=true;
+  say('Returning '+what+'.');
+  clearTimeout(rtT); rtT=setTimeout(function(){ sfx('stamp'); },300/Math.min(X,4));
+  rtT=setTimeout(function(){ $('#rt-credit').hidden=false; $('#rt-home').hidden=false; sfx('ding'); say('Store credit: ten minutes.'); },1300/Math.min(X,4));
+});
+
+/* ---------- CUARTO DIVINO: se abre a cualquier hora, pegando algo ---------- */
+var B={t:null,text:'',lines:["Nothing in here is for sale. I'll be out front.","I didn't read it. It wasn't for me. I'll be out front.","It's yours. I only keep the door.","Take as long as you like. The store can wait."]};
+function bStage(id){ ['gate','paste','silence','text'].forEach(function(n){ $('#b-'+n).hidden=n!==id; }); $('#b-help').hidden=(id==='silence'||id==='text'); }
+function wipeRoom(){ clearTimeout(B.t); B.text=''; $('#b-input').value=''; $('#b-said').textContent=''; $('#b-staymsg').textContent=''; }
+enterHooks.back=function(){ duck(true); wipeRoom(); bStage('gate'); };
+leaveHooks.back=function(){ wipeRoom(); duck(false); };
+$('#b-go').addEventListener('click',function(){ bStage('paste'); $('#b-input').focus(); });
+function placeInRoom(){
+  var v=$('#b-input').value.trim(); if(!v) return;
+  B.text=v.slice(0,1200); $('#b-input').value='';
+  sfx('paper'); bStage('silence');
+  $('#b-leave1').focus({preventScroll:true});
+  say('The room is quiet. Ten seconds.');
+  clearTimeout(B.t); B.t=setTimeout(function(){
+    var s=$('#b-said'); s.textContent=B.text; s.className='room-said'+(B.text.length>240?' long':''); B.text='';
+    $('#b-cella').innerHTML='<b>Cella</b><br>'+esc(B.lines[Math.floor(Math.random()*B.lines.length)]);
+    bStage('text'); sfx('bell'); try{s.focus({preventScroll:true});}catch(e){}
+  },10000/X);
+}
+$('#b-input').addEventListener('paste',function(){ setTimeout(placeInRoom,80); });
+$('#b-place').addEventListener('click',function(){ if(!$('#b-input').value.trim()){ $('#b-hint').textContent='Nothing to place yet. A line you know by heart works.'; return; } placeInRoom(); });
+function leaveRoom(){ wipeRoom(); duck(false); location.hash='#/home'; setTimeout(function(){ sfx('shopbell'); },200); }
+$('#b-leave1').addEventListener('click',leaveRoom);
+$('#b-leave2').addEventListener('click',leaveRoom);
+$('#b-stay').addEventListener('click',function(){ $('#b-staymsg').textContent='Take your time.'; });
+
+/* ---------- arranque ---------- */
+document.addEventListener('visibilitychange',function(){if(!document.hidden&&cur==='entry'){E.last=Date.now();}});
+route();
+tickClock();
+})();
+</script>
+</body>
+</html>
