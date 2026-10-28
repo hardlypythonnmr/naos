@@ -3,15 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow">
-<meta name="description" content="NAOS, the house in 3D: a one-story Colombian house around a courtyard. Navigable prototype. Unpublished.">
-<title>NAOS · the house in 3D (prototype)</title>
+<meta name="robots" content="index, follow">
+<meta name="description" content="NAOS, the house: a one-story Colombian house around a courtyard. Pick a room and try one behavior at a time.">
+<title>NAOS · the house</title>
 <link rel="stylesheet" href="css/casa3d.css">
 <script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
 </head>
 <body>
-<div class="franja" role="note" lang="es">Prototipo, no publicado · la casa de NAOS en 3D · borrador para que N la recorra</div>
-
 <div class="app">
   <header class="top">
     <a class="brand" href="#/" aria-label="NAOS, the house">NAOS</a>
@@ -24,29 +22,30 @@
   </header>
 
   <main id="main">
-    <h1 class="sr">The NAOS house in 3D: a one-story house around a courtyard</h1>
+    <h1 class="sr">NAOS, the house. Eat, sleep, move, gather, arrive, and the divine. Step into any room.</h1>
     <p id="aviso3d" class="aviso" hidden></p>
     <div class="escena" id="escena">
       <canvas id="lienzo" aria-hidden="true"></canvas>
       <div id="etiquetas" aria-hidden="true"></div>
       <div id="tag" class="tag" hidden aria-hidden="true"></div>
-      <p class="ayuda" id="ayuda">Drag to look around. Wheel or pinch to zoom. Tap a room to step in; swipe to change room.</p>
+      <p class="ayuda" id="ayuda">Drag to look around. Pinch or scroll to zoom. Tap a room to step in; swipe to change room.</p>
     </div>
 
     <nav id="nav" class="nav" aria-label="Rooms of the house">
       <h2 class="sr">Rooms</h2>
       <ul id="lista">
-        <li><a href="#/door">Door</a></li><li><a href="#/windows">Windows</a></li><li><a href="#/kitchen">Kitchen</a></li>
+        <li><a href="#/door">Door</a></li><li><a href="#/windows">Window</a></li><li><a href="#/kitchen">Kitchen</a></li>
         <li><a href="#/stairs">Stairs</a></li><li><a href="#/bedroom">Bedroom</a></li><li><a href="#/table">Table</a></li><li><a href="#/courtyard">Courtyard</a></li>
       </ul>
     </nav>
 
     <section id="panel" class="panel" hidden aria-label="Room"></section>
   </main>
-  <footer class="pie"><p>Closer to yourself.</p><p class="pie-p">Prototipo para N. Los textos marcados [N] son borradores del equipo. En esta casa todos los habitantes son Cellas.</p></footer>
+  <footer class="pie"><p>Closer to yourself.</p><p class="pie-p">Closer to your body, your mind, your people and the divine.</p><p class="pie-p">In this house everyone is a Cella. Behaviors, one at a time. by NMR</p></footer>
 </div>
 
-<noscript><p class="aviso">The rooms are listed above. Their pages need JavaScript.</p></noscript>
+<noscript><p class="aviso">The rooms are listed above. Open one to read it.</p></noscript>
+<script>window.CASA_RAIZ="";</script>
 <script src="../../assets/js/figura.js"></script>
 <script src="../../assets/js/cella-brazos.js"></script>
 <script src="js/datos.js"></script>

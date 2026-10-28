@@ -16,6 +16,8 @@ const porSlug = Object.fromEntries(ORDEN.map((o) => [o.slug, o]));
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const $ = (s, r = document) => r.querySelector(s);
 
+/* raiz de media/: configurable con window.CASA_RAIZ (por defecto, junto a este modulo) */
+const RAIZ_MEDIA = (window.CASA_RAIZ || "prototipos/casa3d/") + "media/";
 const estado = { slug: null, escena: null, tres: false };
 const raiz = document.documentElement;
 
@@ -30,9 +32,11 @@ function pintaLista() {
 }
 
 /* ---------- panel de un cuarto ---------- */
-function bor() { return ' <span class="bor" title="Team draft. N rewrites it.">[N] draft</span>'; }
 function item(it, yt) {
-  const img = "media/" + it.id;
+  if (it.tipo === "enlace") {
+    return '<figure class="item card"><figcaption><strong>' + esc(it.titulo) + '</strong><span class="tarj">' + esc(it.tarjeta) + '</span><a class="enl" href="' + yt + '" target="_blank" rel="noopener">Watch it on YouTube<span class="sr"> (opens in a new tab)</span></a></figcaption></figure>';
+  }
+  const img = RAIZ_MEDIA + it.id;
   if (it.tipo === "video") {
     return '<figure class="item short"><div class="media"><video controls preload="none" playsinline poster="' + img + '.jpg" src="' + img + '.mp4" aria-label="Short: ' + esc(it.titulo) + '"></video></div>' +
       "<figcaption><strong>" + esc(it.titulo) + '</strong><span class="tarj">' + esc(it.tarjeta) + '</span><a class="enl" href="' + yt + '" target="_blank" rel="noopener">More on YouTube<span class="sr"> (opens in a new tab)</span></a></figcaption></figure>';
@@ -52,13 +56,13 @@ function pintaPanel(slug) {
     '<div class="p-cuerpo" id="p-cuerpo">' +
     '<p class="kick">' + esc(c.nombre) + " &middot; " + esc(c.palabra) + "</p>" +
     '<h2 id="p-tit" tabindex="-1">' + esc(c.linea) + "</h2>" +
-    '<section class="bloque" aria-labelledby="h-que"><h3 id="h-que">What it is' + bor() + "</h3><p>" + esc(c.que) + "</p></section>" +
-    '<section class="bloque" aria-labelledby="h-por"><h3 id="h-por">Why it is like this' + bor() + "</h3><p>" + esc(c.relacion) + "</p></section>" +
-    '<section class="bloque" aria-labelledby="h-como"><h3 id="h-como">How behaviors show up here' + bor() + "</h3>" +
-    (c.conducta ? '<p class="conducta">' + esc(c.conducta) + "</p>" : "") + "<p>" + esc(c.invitacion) + "</p></section>" +
+    '<section class="bloque" aria-labelledby="h-que"><h3 id="h-que">What it is'+"</h3><p>" + esc(c.que) + "</p></section>" +
+    '<section class="bloque" aria-labelledby="h-por"><h3 id="h-por">Why it is like this'+"</h3><p>" + esc(c.relacion) + "</p></section>" +
+    '<section class="bloque" aria-labelledby="h-como"><h3 id="h-como">How behaviors show up here'+"</h3>" +
+    (c.conducta ? '<p class="conducta">' + esc(c.conducta) + "</p>" : "") + "<p>" + esc(c.invitacion.split(" Cella's way:")[0]) + "</p>" + (c.invitacion.indexOf("Cella's way:") > -1 ? '<p class="cella">' + esc(c.invitacion.slice(c.invitacion.indexOf("Cella's way:"))) + "</p>" : "") + "</section>" +
     '<section class="bloque" aria-labelledby="h-sh"><h3 id="h-sh">Shorts and cards</h3><div class="tira">' + c.biblioteca.map((x) => item(x, D.yt)).join("") + "</div>" +
-    (c.faltan ? '<p class="nota">' + esc(c.faltan) + "</p>" : "") + "</section>" +
-    '<section class="bloque yt" aria-labelledby="h-yt"><h3 id="h-yt">Go deeper</h3><p>Mediums and longs on YouTube: the science and the traditions behind these behaviors.</p>' +
+    (c.nota ? '<p class="nota">' + esc(c.nota) + "</p>" : "") + "</section>" +
+    '<section class="bloque yt" aria-labelledby="h-yt"><h3 id="h-yt">Go deeper</h3><p>Longer videos on YouTube: the science and the traditions behind these behaviors.</p>' +
     '<a class="btn" href="' + D.yt + '" target="_blank" rel="noopener">Watch on YouTube<span class="sr"> (opens in a new tab)</span></a></section>' +
     '<nav class="p-nav" aria-label="Walk around the courtyard">' +
     '<a href="#/' + prev.slug + '" rel="prev"><span aria-hidden="true">&larr;</span> ' + esc(pn(prev)) + "</a>" +
@@ -87,13 +91,13 @@ function mostrar(slug, desdeTeclado) {
   if (slug) {
     pintaPanel(slug);
     p.hidden = false; raiz.classList.add("dentro");
-    document.title = D.cuartos[porSlug[slug].key].nombre + " · NAOS, the house in 3D (prototype)";
+    document.title = D.cuartos[porSlug[slug].key].nombre + " · NAOS";
     const t = $("#p-tit");
     // el foco va al titulo del cuarto: el lector de pantalla lo anuncia
     requestAnimationFrame(() => { try { t.focus({ preventScroll: true }); } catch (e) {} if (!raiz.classList.contains("con3d")) p.scrollIntoView({ block: "start" }); });
   } else {
     p.hidden = true; p.innerHTML = ""; p.classList.remove("mini"); raiz.classList.remove("dentro");
-    document.title = "NAOS · the house in 3D (prototype)";
+    document.title = "NAOS · Closer to yourself.";
   }
   if (estado.escena) estado.escena.irA(slug);
 }

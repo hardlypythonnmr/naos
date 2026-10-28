@@ -1,5 +1,5 @@
-/* Datos de la casa (prototipo). Paletas: 13-v2.7/casa/lib/paletas.json. Shorts: 13-v2.7/casa/dias/*.
- * Texto: inglés (la voz del sitio). Todo lo marcado N lo escribe N; "borrador" lo propone el equipo. */
+/* Datos de la casa. Paletas: 13-v2.7/casa/lib/paletas.json. Shorts: 13-v2.7/casa/dias/*.
+ * Texto: ingles (la voz del sitio), hecho con las palabras de N. */
 window.CASA = (function () {
   "use strict";
   var P = {
@@ -13,100 +13,89 @@ window.CASA = (function () {
   P.patio = P.ventana;
 
   function v(id, titulo, tarjeta) { return { tipo: "video", id: id, titulo: titulo, tarjeta: tarjeta }; }
+  function en(titulo, tarjeta) { return { tipo: "enlace", titulo: titulo, tarjeta: tarjeta }; }
   function im(id, titulo, tarjeta) { return { tipo: "imagen", id: id, titulo: titulo, tarjeta: tarjeta }; }
 
   var cuartos = {
     cocina: {
-      nombre: "Kitchen", palabra: "Eat", linea: "Pot starts boiling.", poster: "c1-lun-v5", pisos: ["ab"], pal: "cocina",
-      que: "The kitchen is where hunger, hurry and habit meet.",
-      relacion: "Interoception: hearing what the body says, in the middle of a task.",
-      conducta: "In the kitchen: when the pot boils, I ______.",
-      invitacion: "Small behaviors, one at a time.",
+      nombre: "Kitchen", palabra: "Eat", linea: "The pot boils over.", poster: "c1-lun-v5", pisos: ["ab"], pal: "cocina",
+      que: "The kitchen is where I eat, and where a pot can boil over, like a feeling can.",
+      relacion: "Interoception: hearing what my body says, even in the middle of cooking.",
+      conducta: "In the kitchen: when the pot boils over, I ______.",
+      invitacion: "Each card leaves a blank to fill, even only in your head. Cella's way: I turn the heat down and go with the breath.",
       biblioteca: [
-        v("c1-lun-v5", "The pot boils over. I looked away.", "Things boil over at home when ______."),
-        v("c2-cuerpo-v5", "A message lands. My jaw locks.", "My jaw locks when ______."),
+        v("c1-lun-v5", "Today the pot boiled over.", "In the kitchen: when the pot boils over, I ______."),
         im("c3-cocina", "The last plate is clean.", "In the kitchen: when the last plate is clean, I ______.")
       ]
     },
     alcoba: {
       nombre: "Bedroom", palabra: "Sleep", linea: "The house goes quiet.", poster: "c1-mar", pisos: ["ar"], pal: "alcoba",
-      que: "The bedroom is where the day is put down.",
-      relacion: "Connection with oneself: staying with what the day left.",
+      que: "The bedroom is where I sleep well, and where I walk back through the day.",
+      relacion: "Connection with myself: where was I today, and where was I gone?",
       conducta: "In the bedroom: when the house goes quiet, I ______.",
-      invitacion: "Small behaviors, one at a time.",
+      invitacion: "Each card leaves a blank to fill, even only in your head. Cella's way: I let my shoulders come home too.",
       biblioteca: [
         v("c1-mar", "The house goes quiet.", "In the bedroom: when the house goes quiet, I ______."),
-        v("c6-pregunta", "Scrolling at 1 a.m.?", "In the bedroom: when the lamp goes off, I ______."),
-        im("c3-alcoba", "Quiet at ten.", "In the bedroom: when the house goes quiet at ten, I ______.")
+        v("c6-pregunta", "Scrolling in bed.", "In the bedroom: when I reach for the phone, I ______."),
+        im("c3-alcoba", "Quiet in the bedroom.", "In the bedroom: when the house goes quiet, I ______.")
       ]
     },
     escaleras: {
-      nombre: "Stairs", palabra: "Move", linea: "Keys hit the bowl.", poster: "c1-mie", pisos: ["ab", "ar"], pal: "escaleras",
-      que: "The stairs are the way between rooms. Every step is a small movement.",
+      nombre: "Stairs", palabra: "Move", linea: "First step.", poster: "c1-mie", pisos: ["ab", "ar"], pal: "escaleras",
+      que: "The stairs are the way between rooms, and where I get moving, a little more each time: walk, basketball, bars, gym, jog.",
       relacion: "Autonomy: the pace is mine.",
-      conducta: "On the stairs: when the keys land, I ______.",
-      invitacion: "Small behaviors, one at a time.",
-      biblioteca: [ v("c1-mie", "Keys hit the bowl.", "On the stairs: when the keys land, I ______.") ]
+      conducta: "On the stairs: when I reach the first step, I ______.",
+      invitacion: "Each card leaves a blank to fill, even only in your head. Dancing in the shower counts. Cella's way: I take the stairs up and back.",
+      biblioteca: [
+        v("c1-mie", "Keys hit the bowl.", "On the stairs: when I reach the first step, I ______."),
+        en("I don't wait for the gym.", "On the stairs: I don't wait for the gym. I ______."),
+        en("Movement snacks.", "On the stairs: when I want a movement snack, I ______.")
+      ]
     },
     mesa: {
       nombre: "Table", palabra: "Gather", linea: "Someone asks how I am.", poster: "c1-jue", pisos: ["ab"], pal: "mesa",
-      que: "The table is where the house talks.",
-      relacion: "Authenticity: what is said at the table is what is meant.",
+      que: "The table is where I sit with my people to talk, eat and laugh.",
+      relacion: "Authenticity: I say what is true when someone asks.",
       conducta: "At the table: when someone asks how I am, I ______.",
-      invitacion: "Small behaviors, one at a time.",
+      invitacion: "Each card leaves a blank to fill, even only in your head. Cella's way: I listen to my chest first.",
       biblioteca: [
         v("c1-jue", "Someone asks how I am.", "At the table: when someone asks how I am, I ______."),
-        v("c4-palabra", "My one true word.", "At the table: when someone asks how I am, my one true word is ______.")
+        v("c4-palabra", "My one true word.", "At the table: when someone asks how I am, my one true word is ______."),
+        v("c2-cuerpo-v5", "Today a message landed.", "At the table: when a message lands, I ______.")
       ]
     },
     puerta: {
       nombre: "Door", palabra: "Arrive", linea: "Keys go in.", poster: "c3-puerta", pisos: ["ab"], pal: "puerta",
-      que: "The door is who comes in, and how.",
-      relacion: "Welcome: the first minute of any visit.",
+      que: "The door is where people come in, and where I come back in. I arrive at someone's table.",
+      relacion: "Love shows up most with the people closest to me, and it is everywhere.",
       conducta: "At the front door: when the keys go in, I ______.",
-      invitacion: "Small behaviors, one at a time.",
+      invitacion: "Come in. Eat your next meal with someone. Each card asks one thing, and leaves a blank to fill, even only in your head. Cella's way: I leave the day on this side of the door.",
       biblioteca: [ im("c3-puerta", "Keys go in.", "At the front door: when the keys go in, I ______.") ]
     },
     ventana: {
-      nombre: "Windows", palabra: "The divine", linea: "Still dark outside.", poster: "c1-vie-v5", pisos: ["ab", "ar"], pal: "ventana",
-      que: "Every room has a window to the courtyard and the sky. Shown, not explained.",
-      relacion: "Looking out, then up.",
-      conducta: "At the window: when it's still dark, I ______.",
-      invitacion: "Small behaviors, one at a time.",
+      nombre: "Window", palabra: "The divine", linea: "The window is open.", poster: "c1-vie-v5", pisos: ["ab", "ar"], pal: "ventana",
+      que: "Every room has a window onto the courtyard and the sky. I look out, then up.",
+      relacion: "Faith begins when I trust myself first.",
+      conducta: "At the window: when I open it to the morning air, I ______.",
+      invitacion: "Each card leaves a blank to fill, even only in your head. Cella's way: I stop here. I breathe. Then I move on.",
       biblioteca: [
-        v("c1-vie-v5", "The house is still quiet.", "My quiet ends when ______."),
+        v("c1-vie-v5", "The house is still quiet.", "At the window: when the house is still quiet, I ______."),
         v("c5-ventana", "Still dark. Phone face down.", "At the window: when the phone is still face down, I ______.")
       ]
     },
     patio: {
       nombre: "Courtyard", palabra: "The divine", linea: "No roof. Every room opens here.", poster: "c1-vie-v5", pisos: ["ab", "ar"], pal: "patio",
-      que: "The courtyard has no roof. Every room opens onto it.",
-      relacion: "A pause under the open sky.",
-      conducta: null,
-      invitacion: "Quiet. Each tradition is named with its source.",
+      que: "The courtyard has no roof. Every room opens onto it, and the divine is here, where everything else meets.",
+      relacion: "Hearing the divine from within, and trusting myself.",
+      conducta: "In the courtyard: when I stop, I ______.",
+      invitacion: "Each card leaves a blank to fill, even only in your head. Cella's way: come here, stop, breathe with me, now move on.",
       biblioteca: [
-        v("c1-vie-v5", "The house is still quiet.", "My quiet ends when ______."),
+        v("c1-vie-v5", "The house is still quiet.", "At the window: when the house is still quiet, I ______."),
         v("c5-ventana", "Still dark. Phone face down.", "At the window: when the phone is still face down, I ______.")
       ],
-      faltan: "Courtyard pieces of its own: on the way."
+      nota: "These two come from the window, which opens onto the courtyard."
     }
   };
 
-  /* Patio B: la mesa y el cielo (comunidad y the divine juntos) */
-  var patioB = {
-    nombre: "Courtyard", palabra: "Gather", linea: "A table under the sky.", poster: "c1-jue", pisos: ["ab", "ar"], pal: "patio",
-    que: "The courtyard has no roof. The table stands in it, under the sky.",
-    relacion: "Authenticity at the table, and a pause under the open sky.",
-    conducta: "At the table: when someone asks how I am, I ______.",
-    invitacion: "Small behaviors, one at a time.",
-    biblioteca: [
-      v("c1-jue", "Someone asks how I am.", "At the table: when someone asks how I am, I ______."),
-      v("c4-palabra", "My one true word.", "At the table: when someone asks how I am, my one true word is ______."),
-      v("c1-vie-v5", "The house is still quiet.", "My quiet ends when ______."),
-      v("c5-ventana", "Still dark. Phone face down.", "At the window: when the phone is still face down, I ______.")
-    ],
-    faltan: "Courtyard pieces of its own: on the way."
-  };
-
-  return { P: P, cuartos: cuartos, patioB: patioB, yt: "https://www.youtube.com/@Naos-v3" };
+  return { P: P, cuartos: cuartos, yt: "https://www.youtube.com/@Naos-v3" };
 })();
