@@ -23,7 +23,7 @@ export function iniciar(api) {
   const cont = $("#escena"), lienzo = $("#lienzo");
   const movil = matchMedia("(pointer: coarse)").matches || innerWidth < 800;
   const renderer = new THREE.WebGLRenderer({ canvas: lienzo, antialias: !movil, powerPreference: "high-performance", alpha: false });
-  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, movil ? 1.5 : 2));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -40,7 +40,8 @@ export function iniciar(api) {
 
   function radioInicial() {
     const asp = ancho / alto, fov = asp < 1 ? 52 : 40;
-    return clamp(27 / (Math.tan(fov * Math.PI / 360) * Math.min(asp, 1.5)), 60, 130);
+    // la casa (30 de lado) llena ~90% del ancho en telefono y ~60% de la ventana en escritorio
+    return asp < 1 ? clamp(17.2 / (Math.tan(fov * Math.PI / 360) * asp), 44, 92) : clamp(21 / (Math.tan(fov * Math.PI / 360) * Math.min(asp, 1.5)), 44, 130);
   }
   function orbitaPos(out) {
     return out.set(
@@ -52,12 +53,12 @@ export function iniciar(api) {
   function calcPoseSala(id) {
     const r = mundo.cuartos[id], v = VISTA[r.pal === "ventana" ? "ventana" : id] || VISTA[id];
     if (id === "patio") { pSala.tgt.set(0, 0.9, 0.2); pSala.pos.set(0.5, 9.5, 14.0); }
-    else { pSala.tgt.copy(r.loc(...v.t)); pSala.pos.copy(r.loc(...v.c)); }
+    else { pSala.tgt.copy(r.loc(...v.t)); pSala.pos.copy(r.loc(v.c[0], v.c[1] + 1.2, v.c[2])); }   // un poco mas alto: la baranda del corredor no tapa
     // pantallas angostas: se aleja para que el cuarto quepa a lo ancho, y sube un poco
     const asp = Math.max(0.3, (ancho - vistaObj.x * 2) / alto), fov = ancho / alto < 1 ? 52 : 40;
     const W = id === "patio" ? 15 : Math.min(r.W || 10, 10.5);
     const dist = pSala.pos.distanceTo(pSala.tgt);
-    const k = clamp((W * 0.74) / (Math.tan(fov * Math.PI / 360) * dist * Math.min(asp, 2)), 1, 2.6);
+    const k = clamp((W * 0.6) / (Math.tan(fov * Math.PI / 360) * dist * Math.min(asp, 2)), 1, 2.2);
     if (k > 1) { const d = pSala.pos.clone().sub(pSala.tgt).multiplyScalar(k); pSala.pos.copy(pSala.tgt).add(d); }
     return pSala;
   }
@@ -78,7 +79,7 @@ export function iniciar(api) {
     cam.aspect = ancho / alto; cam.fov = cam.aspect < 1 ? 52 : 40;
     const nuevo = radioInicial();
     if (!orb.tocado) { orb.r = orb.rO = nuevo; }
-    orb.rMax = Math.max(nuevo * 1.25, 80);
+    orb.rMax = Math.max(nuevo * 1.5, 90);
     cam.updateProjectionMatrix();
     actualizaVista(true);
   }
@@ -86,7 +87,11 @@ export function iniciar(api) {
     const panel = $("#panel"), abierto = !panel.hidden && !panel.classList.contains("mini");
     const ancha = ancho >= 900;
     vistaObj.x = abierto && ancha ? Math.min(460, ancho * 0.42) / 2 : 0;
-    vistaObj.y = abierto && !ancha ? alto * 0.17 : 0;
+    // telefono: la hoja inferior ocupa parte de la pantalla; el cuarto se centra entre la barra de arriba y la hoja
+    if (abierto && !ancha) {
+      const ph = Math.min(panel.offsetHeight || alto * 0.46, alto * 0.6), libreCentro = (46 + (alto - ph)) / 2;
+      vistaObj.y = alto / 2 - libreCentro;
+    } else vistaObj.y = 0;
     if (salto || reducido()) { vista.x = vistaObj.x; vista.y = vistaObj.y; }
   }
   new ResizeObserver(ajusta).observe(cont);
@@ -95,18 +100,28 @@ export function iniciar(api) {
   /* ---------- entrada: arrastre, rueda, pellizco, toque ---------- */
   const ptrs = new Map(); let ini = null, pinch0 = 0, r0 = 0;
   const rc = new THREE.Raycaster(), ndc = new THREE.Vector2();
+  const planoSuelo = new THREE.Plane(new THREE.Vector3(0, 1, 0), -FL), pSuelo = new THREE.Vector3();
   function pick(ev) {
     const r = lienzo.getBoundingClientRect();
     ndc.set(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1);
     rc.setFromCamera(ndc, cam);
     const hs = rc.intersectObjects(mundo.hit, false);
-    for (const h of hs) { const id = h.object.userData.sala; if (id && mundo.cuartos[id] && mundo.cuartos[id].slug) return id; }
-    return null;
+    let id = null;
+    for (const h of hs) {
+      const u = h.object.userData;
+      if (u.techo && !u.techo.grp.visible) continue;       // techo quitado: no se toca
+      if (u.sala && mundo.cuartos[u.sala]) { id = u.sala; break; }
+    }
+    // toque en el suelo: el cuarto de esa zona, con margen (en el telefono el dedo no apunta fino)
+    if (!id && rc.ray.intersectPlane(planoSuelo, pSuelo)) id = mundo.salaEn(pSuelo.x, pSuelo.z);
+    if (id === "sala") id = "puerta"; else if (id === "taller") id = "cocina";
+    return id && mundo.cuartos[id] && mundo.cuartos[id].slug ? id : null;
   }
   lienzo.addEventListener("pointerdown", (e) => {
     lienzo.setPointerCapture(e.pointerId);
     ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
     ini = { x: e.clientX, y: e.clientY, t: performance.now(), mov: 0 };
+    if (e.pointerType !== "mouse" && modo === "orbita" && ptrs.size === 1) sel(pick(e));
     if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; pinch0 = Math.hypot(a.x - b.x, a.y - b.y); r0 = orb.rO; }
     lienzo.classList.add("agarra");
   });
@@ -181,15 +196,21 @@ export function iniciar(api) {
     tag.style.left = clamp(e.clientX - b.left + 14, 6, b.width - 160) + "px"; tag.style.top = clamp(e.clientY - b.top + 16, 6, b.height - 40) + "px";
   }
   const v3 = new THREE.Vector3();
+  const fino = () => ancho < 700;                    // telefono: sin siete etiquetas amontonadas; solo la del cuarto que se toca
+  let etqSel = null, etqTimer = 0;
+  function sel(id) {
+    if (!id) return; const r = mundo.cuartos[id];
+    etqSel = ORDEN.find((o) => o.slug === r.slug).key; clearTimeout(etqTimer); etqTimer = setTimeout(() => { etqSel = null; }, 2200);
+  }
   function colocaEtiquetas() {
-    const ver = modo === "orbita" && !ptrs.size ? 1 : 0;
+    const ver = modo === "orbita" ? 1 : 0;
     ORDEN.forEach((o) => {
       const r = mundo.cuartos[idPorKey[o.key]], d = etqs[o.key];
       v3.copy(r.centro); v3.y = r.patio ? 4.2 : 5.5;
       if (r.patio) v3.set(0, 4.6, 0);
       v3.project(cam);
       const dentro = v3.z < 1 && Math.abs(v3.x) < 1.05 && Math.abs(v3.y) < 1.05;
-      d.style.opacity = ver && dentro ? "1" : "0";
+      d.style.opacity = ver && dentro && (!fino() || etqSel === o.key) ? "1" : "0";
       d.style.transform = "translate(-50%,-100%) translate(" + ((v3.x * 0.5 + 0.5) * ancho).toFixed(1) + "px," + ((-v3.y * 0.5 + 0.5) * alto).toFixed(1) + "px)";
     });
   }
@@ -252,7 +273,7 @@ export function iniciar(api) {
   ajusta();
   orb.r = orb.rO = radioInicial();
   mundo.setHover(null);
-  const api2 = { irA, mundo, camara: cam, orb, TGT };
+  const api2 = { irA, mundo, camara: cam, orb, TGT, renderer };
   window.__casa3d = api2;
   api.listo(api2);
   cuadro();
