@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="NAOS, the house. One floor around a courtyard. Navigable prototype. Unpublished.">
+<title>NAOS · the house (prototype)</title>
+<link rel="stylesheet" href="css/casa.css">
+</head>
+<body>
+<div class="franja" role="note">Prototipo, no publicado · la casa de NAOS · un solo piso, patio fijo, para que N la recorra</div>
+
+<header class="top" id="top">
+  <a class="brand" href="#/" aria-label="NAOS, the house">NAOS</a>
+  <p class="lema">Closer to yourself.</p>
+</header>
+
+<main id="main" tabindex="-1">
+  <section id="casa" class="casa" aria-labelledby="h-casa">
+    <h1 id="h-casa" class="sr">The NAOS house</h1>
+    <p class="bajada" id="bajada">One floor around a courtyard. Each room is a way of living: eat, sleep, move, belong. Click a room to go in.</p>
+
+    <div class="layout">
+      <div class="escenario" id="escenario">
+        <div class="stage" id="stage">
+          <svg id="plano" viewBox="0 0 1200 940" aria-hidden="true" focusable="false"></svg>
+        </div>
+        <div class="navz" id="navz" hidden>
+          <button type="button" class="nz" id="prev"><span aria-hidden="true">&#8249;</span> Previous</button>
+          <button type="button" class="nz volver" id="volver">Back to the house</button>
+          <button type="button" class="nz" id="sig">Next <span aria-hidden="true">&#8250;</span></button>
+        </div>
+      </div>
+
+      <div class="lado">
+        <nav class="lista" id="lista-nav" aria-label="The house">
+          <h2 id="h-lista">Rooms</h2>
+          <ul id="lista"></ul>
+          <p class="ayuda">Arrow keys move between rooms. Esc goes back to the house.</p>
+        </nav>
+        <article class="panel" id="panel" aria-live="polite" hidden></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <p>Closer to yourself.</p>
+  <p class="pie-p">Prototipo de casa para N. Los textos marcados [N] son de N; los borradores del equipo se pueden reescribir.</p>
+</footer>
+
+<script src="../../assets/js/figura.js"></script>
+<script src="../../assets/js/cella-brazos.js"></script>
+<script src="js/gags.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/casa.js"></script>
+</body>
+</html>
