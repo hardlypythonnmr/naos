@@ -86,7 +86,7 @@
     };
     const lista = [];
     lista.push(lunaHTML());
-    lista.push(casilla("tb-resp", R + "#conducta", `<span class="tb-l">${T.resp}</span><span class="tb-x">${T.respT}</span>`, EN_));
+    lista.push(casilla("tb-resp", ($("#conducta") ? "" : R) + "#conducta", `<span class="tb-l">${T.resp}</span><span class="tb-x">${T.respT}</span>`, EN_));
     BASES.forEach((b) => lista.push(casilla("tb-base", `temas/pilar/${b.id}/`, `<span class="tb-l">${esc(b.t)}</span>${num(b.n)}${sr(`${piezas(b.n)} ${T.semana}`)}`, v7(b.k))));
     lista.push(casilla("tb-1", ES ? "temas/" : "#topics", `<span class="tb-l">${T.top}</span>${num(topicsN)}${sr(T.paginas)}`));
     lista.push(casilla("tb-1", R + (ES ? "agenda.html" : "#upcoming"), `<span class="tb-l">${T.up}</span><span class="tb-x">${T.upT}</span>`, EN_));
