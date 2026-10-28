@@ -23,7 +23,7 @@ export function iniciar(api) {
   const cont = $("#escena"), lienzo = $("#lienzo");
   const movil = matchMedia("(pointer: coarse)").matches || innerWidth < 800;
   const renderer = new THREE.WebGLRenderer({ canvas: lienzo, antialias: !movil, powerPreference: "high-performance", alpha: false });
-  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, movil ? 1.5 : 2));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.outputColorSpace = THREE.SRGBColorSpace;

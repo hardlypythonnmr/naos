@@ -27,11 +27,36 @@ function noIdx(g) {
 
 const GC = {};   // cache de geometrias unitarias
 const unitBox = () => GC.box || (GC.box = new THREE.BoxGeometry(1, 1, 1));
+/* caja con esquinas redondeadas en unidades reales (tam w,h,d): 3 segmentos por eje con los vertices intermedios a un radio de la orilla,
+ * y cada vertice se empuja a la esfera del radio. Se cachea por tamano. Las cajas muy delgadas quedan como cajas simples. */
+const _rb = new THREE.Vector3(), _rc = new THREE.Vector3();
+export const BISEL = { on: true, n: 0 };
+function rBox(w, h, d) {
+  const mn = Math.min(w, h, d);
+  if (!BISEL.on || mn < 0.1) return null;
+  const r = Math.min(0.07, 0.2 * mn);
+  const k = "rb" + w.toFixed(2) + "_" + h.toFixed(2) + "_" + d.toFixed(2);
+  if (GC[k]) return GC[k];
+  const g = new THREE.BoxGeometry(1, 1, 1, 3, 3, 3), pa = g.attributes.position, na = g.attributes.normal;
+  const hx = w / 2, hy = h / 2, hz = d / 2;
+  const mapa = (v, hh) => (Math.abs(v) < 0.4 ? Math.sign(v) * (hh - r) : Math.sign(v) * hh);   // 0.5 -> borde, 0.1667 -> a un radio del borde
+  for (let i = 0; i < pa.count; i++) {
+    const X = mapa(pa.getX(i), hx), Y = mapa(pa.getY(i), hy), Z = mapa(pa.getZ(i), hz);
+    _rc.set(Math.max(-hx + r, Math.min(hx - r, X)), Math.max(-hy + r, Math.min(hy - r, Y)), Math.max(-hz + r, Math.min(hz - r, Z)));
+    _rb.set(X, Y, Z).sub(_rc);
+    if (_rb.lengthSq() > 1e-9) { _rb.normalize(); pa.setXYZ(i, _rc.x + _rb.x * r, _rc.y + _rb.y * r, _rc.z + _rb.z * r); na.setXYZ(i, _rb.x, _rb.y, _rb.z); }
+    else pa.setXYZ(i, X, Y, Z);
+  }
+  BISEL.n++;
+  return (GC[k] = g);
+}
 function unitCyl(ratio, seg) {
+  if (seg < 8) seg = 8;
   const k = "c" + ratio.toFixed(3) + "_" + seg;
   return GC[k] || (GC[k] = new THREE.CylinderGeometry(ratio, 1, 1, seg, 1));
 }
 function unitSph(seg) {
+  if (seg < 8) seg = 8;
   const k = "s" + seg;
   return GC[k] || (GC[k] = new THREE.SphereGeometry(1, seg, Math.max(3, Math.round(seg * 0.7))));
 }
@@ -68,8 +93,9 @@ export class Merger {
   box(tam, pos, color, rot = null) {
     _e.set(rot ? rot[0] : 0, rot ? rot[1] : 0, rot ? rot[2] : 0);
     _q.setFromEuler(_e);
-    _m.compose(_p.set(pos[0], pos[1] + tam[1] / 2, pos[2]), _q, _s.set(tam[0], tam[1], tam[2]));
-    this.push(unitBox(), _m.clone(), color);
+    const rg = rBox(tam[0], tam[1], tam[2]);
+    _m.compose(_p.set(pos[0], pos[1] + tam[1] / 2, pos[2]), _q, rg ? _s.set(1, 1, 1) : _s.set(tam[0], tam[1], tam[2]));
+    this.push(rg || unitBox(), _m.clone(), color);
   }
   /* cilindro o cono truncado: rBase, rTop, alto */
   cyl(rb, rt, h, pos, color, seg = 10, rot = null) {
@@ -121,8 +147,9 @@ export function muroGeo(pts, huecos, grosor) {
     } else { p.moveTo(x0, h.y); p.lineTo(x1, h.y); p.lineTo(x1, h.y + h.h); p.lineTo(x0, h.y + h.h); p.lineTo(x0, h.y); }
     sh.holes.push(p);
   });
-  const g = new THREE.ExtrudeGeometry(sh, { depth: grosor, bevelEnabled: false, curveSegments: 8 });
-  g.translate(0, 0, -grosor / 2);
+  const bv = Math.min(0.06, grosor * 0.25);
+  const g = new THREE.ExtrudeGeometry(sh, { depth: grosor - 2 * bv, bevelEnabled: true, bevelThickness: bv, bevelSize: bv, bevelOffset: -bv, bevelSegments: 2, curveSegments: 8 });
+  g.translate(0, 0, -(grosor - 2 * bv) / 2);
   return g;
 }
 export function rectPts(len, h) { return [[-len / 2, 0], [len / 2, 0], [len / 2, h], [-len / 2, h]]; }
@@ -139,23 +166,23 @@ function tex(c, rep = true, srgb = true) {
 
 export function texTeja() {
   const c = lienzo(256, 256), x = c.getContext("2d"), r = rng(7);
-  x.fillStyle = "#C65A32"; x.fillRect(0, 0, 256, 256);
+  x.fillStyle = "#BC6D52"; x.fillRect(0, 0, 256, 256);
   const filas = 8, h = 256 / filas, nw = 8, w = 256 / nw;
   for (let f = 0; f < filas; f++) {
     for (let k = -1; k <= nw; k++) {
       const off = (f % 2) * (w / 2), xx = k * w + off;
-      const t = 0.82 + r() * 0.3;
-      x.fillStyle = `rgb(${Math.min(255, 198 * t | 0)},${Math.min(255, 90 * t | 0)},${Math.min(255, 50 * t | 0)})`;
+      const t = 0.9 + r() * 0.2;
+      x.fillStyle = `rgb(${Math.min(255, 188 * t | 0)},${Math.min(255, 109 * t | 0)},${Math.min(255, 82 * t | 0)})`;
       x.beginPath(); x.roundRect(xx + 2, f * h + 1, w - 4, h + 6, [0, 0, w / 2, w / 2]); x.fill();
-      x.strokeStyle = "rgba(90,30,12,.55)"; x.lineWidth = 3; x.beginPath(); x.moveTo(xx + w / 2, f * h + 4); x.lineTo(xx + w / 2, f * h + h); x.stroke();
+      x.strokeStyle = "rgba(120,50,36,.35)"; x.lineWidth = 3; x.beginPath(); x.moveTo(xx + w / 2, f * h + 4); x.lineTo(xx + w / 2, f * h + h); x.stroke();
     }
-    x.fillStyle = "rgba(60,20,8,.35)"; x.fillRect(0, f * h + h - 4, 256, 4);
+    x.fillStyle = "rgba(100,40,30,.25)"; x.fillRect(0, f * h + h - 4, 256, 4);
   }
   return tex(c);
 }
 export function texMadera() {
   const c = lienzo(256, 256), x = c.getContext("2d"), r = rng(11);
-  x.fillStyle = "#E7C79A"; x.fillRect(0, 0, 256, 256);
+  x.fillStyle = "#E8C79B"; x.fillRect(0, 0, 256, 256);
   for (let i = 0; i < 8; i++) {
     const t = 0.9 + r() * 0.16;
     x.fillStyle = `rgb(${231 * t | 0},${199 * t | 0},${154 * t | 0})`; x.fillRect(0, i * 32, 256, 31);
@@ -168,12 +195,11 @@ export function texMadera() {
 }
 export function texPiedraPatio() {
   const c = lienzo(256, 256), x = c.getContext("2d"), r = rng(5);
-  x.fillStyle = "#D9CDB4"; x.fillRect(0, 0, 256, 256);
+  x.fillStyle = "#E3D6C4"; x.fillRect(0, 0, 256, 256);
   const n = 4, s = 256 / n;
   for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) {
-    const t = 0.94 + r() * 0.1;
-    x.fillStyle = `rgb(${226 * t | 0},${214 * t | 0},${190 * t | 0})`; x.fillRect(i * s + 2, j * s + 2, s - 4, s - 4);
-    if ((i + j) % 2 === 0) { x.fillStyle = "rgba(198,90,50,.16)"; x.fillRect(i * s + 2, j * s + 2, s - 4, s - 4); }
+    const t = 0.985 + r() * 0.03;
+    x.fillStyle = `rgb(${244 * t | 0},${233 * t | 0},${219 * t | 0})`; x.beginPath(); x.roundRect(i * s + 1.5, j * s + 1.5, s - 3, s - 3, 5); x.fill();
   }
   return tex(c);
 }
@@ -190,25 +216,25 @@ export function texAdoquin() {
 export function texAzul() {
   const c = lienzo(512, 512), x = c.getContext("2d");
   x.translate(256, 256);
-  const rings = [["#7FB7D6", 256], ["#3E86B5", 238], ["#2F6F9C", 200], ["#3E86B5", 190], ["#7FB7D6", 150], ["#3E86B5", 138], ["#2B5F8E", 96]];
+  // anillos concentricos como en la casa vista desde arriba: borde blanco, azul, celeste, hielo
+  const rings = [["#F4F6F8", 256], ["#3E86B5", 236], ["#7FB7D6", 176], ["#3E86B5", 150], ["#B9DDEE", 100]];
   rings.forEach(([cc, r]) => { x.fillStyle = cc; x.beginPath(); x.arc(0, 0, r, 0, Math.PI * 2); x.fill(); });
-  // rosetón de ocho pétalos al centro: sereno, no se explica
   for (let i = 0; i < 8; i++) {
     x.save(); x.rotate(i * Math.PI / 4);
     x.fillStyle = i % 2 ? "#F4F6F8" : "#7FB7D6";
     x.beginPath(); x.ellipse(0, -52, 15, 38, 0, 0, Math.PI * 2); x.fill();
     x.restore();
   }
-  x.fillStyle = "#141A4A"; x.beginPath(); x.arc(0, 0, 18, 0, Math.PI * 2); x.fill();
-  // puntos de loseta en el anillo
-  x.fillStyle = "rgba(244,246,248,.8)";
-  for (let i = 0; i < 24; i++) { const a = i * Math.PI / 12; x.beginPath(); x.arc(Math.cos(a) * 170, Math.sin(a) * 170, 6, 0, 7); x.fill(); }
+  x.fillStyle = "#3E86B5"; x.beginPath(); x.arc(0, 0, 20, 0, Math.PI * 2); x.fill();
+  x.fillStyle = "#F6D365"; x.save(); x.rotate(Math.PI / 4); x.fillRect(-9, -9, 18, 18); x.restore();
+  x.fillStyle = "rgba(244,246,248,.85)";
+  for (let i = 0; i < 24; i++) { const a = i * Math.PI / 12; x.beginPath(); x.arc(Math.cos(a) * 205, Math.sin(a) * 205, 7, 0, 7); x.fill(); }
   return tex(c, false);
 }
 export function texCielo() {
   const c = lienzo(4, 512), x = c.getContext("2d");
   const g = x.createLinearGradient(0, 0, 0, 512);
-  g.addColorStop(0, "#7DB9E3"); g.addColorStop(0.55, "#BFE0F0"); g.addColorStop(1, "#F6E8CB");
+  g.addColorStop(0, "#9CC8E8"); g.addColorStop(0.55, "#CFE6F0"); g.addColorStop(1, "#F8EAD0");
   x.fillStyle = g; x.fillRect(0, 0, 4, 512);
   return tex(c, false);
 }
@@ -233,7 +259,7 @@ export function texNube() {
   return tex(c, false);
 }
 export function gradMap() {
-  const d = new Uint8Array([150, 205, 238, 255]);
+  const d = new Uint8Array([188, 224, 244, 255]);
   const t = new THREE.DataTexture(d, d.length, 1, THREE.RedFormat);
   t.minFilter = t.magFilter = THREE.NearestFilter;
   t.needsUpdate = true;
