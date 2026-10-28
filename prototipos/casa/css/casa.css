@@ -95,23 +95,11 @@ mark.n{background:var(--amarillo);color:#0E1116;border:2px dashed #0E1116;paddin
 .yt{padding-bottom:6px}
 
 /* movimiento de la casa: lento, en bucle corto; todo se apaga con prefers-reduced-motion */
-.arm{transform-box:fill-box;transform-origin:50% 8%}
-.sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 7s ease-in-out infinite}
-.sway2{transform-box:fill-box;transform-origin:50% 100%;animation:sway 9s ease-in-out -3s infinite}
-.sway .armR{animation:alza 10s ease-in-out infinite}
-.sway2 .armL{animation:alza2 11s ease-in-out -4s infinite}
-.paso .armL{animation:alza 6s ease-in-out infinite}
-.paso .armR{animation:alza2 6s ease-in-out infinite}
-.sube{transform:translate(64px,-76px);animation:sube 14s ease-in-out infinite alternate}
 .lampcono{animation:lampara 12s ease-in-out infinite}
 .halo{transform-box:fill-box;transform-origin:50% 50%;animation:halo 12s ease-in-out infinite}
 .corazon{animation:latido 8s ease-in-out infinite}
 .vapor{opacity:.7;animation:vapor 3.4s ease-in-out infinite}
 .cuelga{transform-box:fill-box;transform-origin:50% 0;animation:mece 6s ease-in-out infinite}
-@keyframes sway{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(1.6deg)}}
-@keyframes alza{0%,35%,100%{transform:rotate(0)}55%,75%{transform:rotate(-38deg)}}
-@keyframes alza2{0%,35%,100%{transform:rotate(0)}55%,75%{transform:rotate(38deg)}}
-@keyframes sube{from{transform:translate(0,0)}to{transform:translate(128px,-152px)}}
 @keyframes lampara{0%,70%,100%{opacity:1}85%{opacity:.55}}
 @keyframes halo{0%,100%{transform:scale(.97)}50%{transform:scale(1.04)}}
 @keyframes latido{0%,100%{opacity:.7}50%{opacity:1}}

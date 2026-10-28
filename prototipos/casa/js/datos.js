@@ -77,7 +77,7 @@ window.CASA = (function () {
     },
     patio: {
       nombre: "Courtyard", palabra: "The divine", linea: "No roof. Every room opens here.", pal: "patio",
-      que: "The courtyard has no roof. Every room opens onto it. At its blue center, Cella and a few people are gathered.",
+      que: "The courtyard has no roof. Every room opens onto it. At its blue center, Cella and a few neighbors are gathered. Everyone in this house is a Cella.",
       porque: "The house is built around it, so the center is never more than a few steps away.",
       conducta: null,
       biblioteca: [

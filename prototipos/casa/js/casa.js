@@ -2,6 +2,7 @@
  * Sin red, sin librerías. El SVG se anima cambiando su viewBox (cuadro a cuadro, sin saltos si hay movimiento). */
 (function () {
   "use strict";
+  if (window.NAOS_GAGS) window.NAOS_GAGS.instala();
   var D = window.CASA, P = D.P, INK = "#0E1116", PAPEL = "#F4F6F8";
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -10,6 +11,8 @@
   if (mq.addEventListener) mq.addEventListener("change", function () { quieto = mq.matches; });
 
   /* ---------- piezas de dibujo ---------- */
+  /* En esta casa todos son Cellas (js/gags.js dibuja a cada una y su gag) y las cosas se adaptan a su morfología: bajas, anchas, cuadradas. */
+  var G = window.NAOS_GAGS;
   function R(x, y, w, h, fill, extra) { return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="' + fill + '" ' + (extra || "") + "/>"; }
   function C(x, y, r, fill, extra) { return '<circle cx="' + x + '" cy="' + y + '" r="' + r + '" fill="' + fill + '" ' + (extra || "") + "/>"; }
   function E(x, y, rx, ry, fill, extra) { return '<ellipse cx="' + x + '" cy="' + y + '" rx="' + rx + '" ry="' + ry + '" fill="' + fill + '" ' + (extra || "") + "/>"; }
@@ -23,23 +26,6 @@
   var VERDE = "#7FA583", VERDE2 = "#A3C1A0", VERDE3 = "#5F8A66", BARRO = "#C77D5E", PIEDRA = "#EADFD2", MURO = "#F8F1E6", MADERA = "#C98A5B", MADERA2 = "#A8693F";
   var TEJAS = { n: "#BC6D52", s: "#A55B44" };
   var CORAL = P.escaleras.campo, AMBAR = P.cocina.campo, ROSA = P.mesa.campo, LAV = P.alcoba.campo, AZUL = P.cocina.agua, SOL = "#F6D365";
-  var PIELES = ["#C98B62", "#8A5A3C", "#E2B48A", "#A8704B"], PELOS = ["#2A1B14", "#4B2E22", "#1B1B22", "#6B4630"];
-
-  /* persona plana, de cuerpo entero: piernas, torso, brazos que se mueven, cabeza con pelo. Pies en (cx, base); s = escala (1 = 126 de alto). */
-  function persona(cx, base, s, ropa, pant, piel, pelo, clase, largo) {
-    var arm = function (lado) {
-      var x = lado === "L" ? -31 : 21;
-      return '<g class="arm arm' + lado + '">' + R(x, -88, 10, 44, ropa, 'rx="5"') + C(x + 5, -44, 5.5, piel) + "</g>";
-    };
-    return E(cx, base + 2, 26 * s, 6 * s, "rgba(14,17,22,.20)") +
-      '<g transform="translate(' + cx + " " + base + ") scale(" + s + ')"><g class="' + (clase || "") + '">' +
-      (largo ? Pa("M-16 -112 Q-22 -80 -16 -72 L16 -72 Q22 -80 16 -112 Z", pelo) : "") +
-      R(-13, -42, 11, 42, pant, 'rx="3"') + R(2, -42, 11, 42, pant, 'rx="3"') + E(-8, -1, 8, 3.4, INK) + E(8, -1, 8, 3.4, INK) +
-      arm("L") + arm("R") +
-      Pa("M-21 -38 L-21 -80 Q-21 -93 -8 -93 L8 -93 Q21 -93 21 -80 L21 -38 Z", ropa) +
-      R(-4, -98, 8, 8, piel) + C(0, -108, 15, piel) +
-      Pa("M-15.5 -108 Q-17 -126 0 -126 Q17 -126 15.5 -108 Q8 -117 0 -117 Q-8 -117 -15.5 -108Z", pelo) + "</g></g>";
-  }
   function arbol(x, y, r) {
     return E(x + 8, y + r * .9, r * 1.05, r * .38, "rgba(14,17,22,.20)") + R(x - 5, y + r * .2, 10, r * .8, MADERA2, 'rx="4"') +
       C(x, y, r, VERDE3) + C(x - r * .35, y - r * .15, r * .66, VERDE) + C(x + r * .32, y + r * .2, r * .52, VERDE) + C(x - r * .12, y - r * .4, r * .32, VERDE2) +
@@ -83,7 +69,7 @@
     var s = '<g class="room" data-room="' + key + '">' + R(x, y + 5, w, h, "rgba(60,20,10,.32)", 'rx="22"') + '<g clip-path="url(#' + id + ')">' + R(x, y, w, h, p.campo, 'class="fl"') +
       R(x, y, w, 14, "rgba(14,17,22,.14)") + R(x, y + 14, w, 3, "rgba(255,255,255,.35)") +
       R(x, fl, w, 28, MADERA, "") + R(x, fl, w, 4, "rgba(14,17,22,.14)") + R(x, fl + 14, w, 1.5, "rgba(14,17,22,.12)") +
-      dentro + baranda(x + 14, y + h - 46, w - 28, barCol, 34) + (flores || "") + "</g>" +
+      dentro + baranda(x + 14, y + h - 36, w - 28, barCol, 24) + (flores || "") + "</g>" +
       R(x + 3, y + 3, w - 6, h - 6, "none", 'rx="20" stroke="rgba(14,17,22,.12)" stroke-width="6"') +
       R(x - 5, y - 5, w + 10, h + 10, "none", 'class="ring" rx="26" stroke="#FFFFFF" stroke-width="5"') + "</g>";
     return s;
@@ -109,93 +95,53 @@
   /* ---------- los cuartos ---------- */
   var SALA = {
     cocina: function () {
-      var p = P.cocina, b = 274, s = "";
-      /* ventana al fondo */
+      var s = "";
+      /* ventana al fondo, colgador alto, mesita baja con frutas grandes, mesón bajo */
       s += ventana(476, 128, 86, 78, "#FFFFFF", CORAL, false);
       s += R(458, 206, 122, 8, "#FFFFFF", 'rx="4"') + matas(460, 196, 118, AZUL);
-      /* nevera */
-      s += R(116, 128, 72, 146, "#FFFFFF", 'rx="12"') + R(188, 132, 4, 138, "rgba(14,17,22,.14)") + R(116, 186, 72, 3, "rgba(14,17,22,.16)") + R(172, 146, 6, 28, "#C9CED6", 'rx="3"') + R(172, 198, 6, 36, "#C9CED6", 'rx="3"') +
-        C(136, 150, 6, CORAL) + C(150, 166, 6, AZUL) + R(128, 208, 22, 16, SOL, 'rx="2"');
-      /* mesón con puertas */
-      s += R(204, 208, 244, 66, "#E3A94E", 'rx="6"') + R(204, 200, 244, 12, "#FFFFFF", 'rx="6"') + R(206, 230, 112, 1.5, "rgba(14,17,22,.18)") +
-        R(212, 218, 62, 50, "#EBB963", 'rx="5"') + R(380, 218, 60, 50, "#EBB963", 'rx="5"') + C(268, 244, 3.4, INK) + C(386, 244, 3.4, INK);
-      /* estufa */
-      s += R(278, 198, 108, 76, "#EDF0F4", 'rx="8"') + R(278, 192, 108, 9, INK, 'rx="4"') + R(290, 226, 84, 40, INK, 'rx="7"') + R(296, 232, 72, 28, "rgba(244,246,248,.28)", 'rx="5"') +
-        C(300, 212, 4.6, INK) + C(322, 212, 4.6, INK) + C(344, 212, 4.6, INK) + C(366, 212, 4.6, INK);
-      /* ollas */
-      s += R(286, 150, 44, 42, INK, 'rx="8"') + R(282, 146, 52, 9, "#C9CED6", 'rx="4"') + R(302, 138, 12, 8, "#C9CED6", 'rx="4"') + R(274, 162, 12, 7, INK, 'rx="3"') + R(330, 162, 12, 7, INK, 'rx="3"');
-      s += R(344, 164, 36, 28, CORAL, 'rx="7"') + R(340, 160, 44, 8, "#FFFFFF", 'rx="4"') + R(384, 170, 28, 6, INK, 'rx="3"');
-      s += vapor(308, 130, 3) + vapor(362, 150, 2);
-      /* colgador con cucharones */
-      s += R(210, 138, 130, 5, INK, 'rx="2.5"') + R(224, 143, 3, 22, INK) + C(225, 170, 8, INK) + R(248, 143, 3, 36, INK) + R(242, 178, 15, 7, INK, 'rx="3.5"') + R(272, 143, 3, 28, INK) + R(266, 170, 15, 18, INK, 'rx="6"');
-      /* mesita con frutas */
-      s += R(470, 238, 100, 36, MADERA2, 'rx="6"') + R(466, 232, 108, 9, MADERA, 'rx="4"') + Pa("M498 232 q22 22 44 0z", "#FFFFFF") + C(510, 225, 8.5, AMBAR) + C(526, 223, 9, CORAL) + C(540, 226, 8, VERDE) + C(518, 214, 7.5, SOL);
-      /* quien cocina */
-      s += persona(414, b, .98, AZUL, "#2B3A67", PIELES[1], PELOS[0], "sway", false);
+      s += R(214, 120, 150, 5, INK, 'rx="2.5"') + R(228, 125, 3, 22, INK) + C(229, 152, 8, INK) + R(254, 125, 3, 36, INK) + R(248, 160, 15, 7, INK, 'rx="3.5"') + R(282, 125, 3, 28, INK) + R(276, 152, 15, 18, INK, 'rx="6"');
+      /* mesón bajo con puertas, a la altura de una Cella */
+      s += R(412, 232, 82, 40, "#E3A94E", 'rx="6"') + R(408, 226, 90, 9, "#FFFFFF", 'rx="4"') + R(418, 240, 30, 26, "#EBB963", 'rx="4"') + R(456, 240, 30, 26, "#EBB963", 'rx="4"') + C(444, 254, 2.6, INK) + C(458, 254, 2.6, INK) + taza(472, 226, 1.1);
+      /* mesita baja con frutas */
+      s += R(508, 244, 66, 28, MADERA2, 'rx="6"') + R(504, 238, 74, 9, MADERA, 'rx="4"') + C(524, 230, 9, AMBAR) + C(541, 228, 10, CORAL) + C(558, 231, 8.5, VERDE) + C(534, 220, 7, SOL);
+      /* nevera de cofre con una Cella dentro hasta la cabeza, estufa baja con otra que revuelve */
+      s += G.nevera({ x: 158, y: 272 }) + G.olla({ x: 330, y: 272 });
       return s;
     },
     alcoba: function () {
-      var p = P.alcoba, s = "";
+      var s = "";
       s += R(722, 126, 86, 56, "#FFFFFF", 'rx="5"') + R(728, 132, 74, 44, "#D5E3EC", 'rx="3"') + Pa("M728 176 L752 150 L768 164 L782 146 L802 176Z", VERDE) + C(786, 148, 7, SOL);
-      /* ventana con luna */
       s += R(1004, 124, 74, 100, "#FFFFFF", 'rx="6"') + R(1010, 130, 62, 88, "#141A4A", 'rx="3"') + C(1048, 160, 12, PAPEL) + C(1054, 156, 11, "#141A4A") + C(1024, 192, 2.2, PAPEL) + C(1030, 146, 1.8, PAPEL) + C(1058, 196, 2.4, PAPEL) +
         Pa("M1004 122 h22 q-8 50 -2 106 h-20z", "#8E99DE") + Pa("M1078 122 h-22 q8 50 2 106 h20z", "#8E99DE");
-      /* cama: cabecera, colchón, cobija, almohadas */
-      s += R(630, 166, 22, 110, MADERA2, 'rx="9"') + R(630, 160, 22, 12, MADERA, 'rx="6"') + R(640, 246, 270, 26, MADERA2, 'rx="6"') + R(652, 220, 252, 32, "#FFFFFF", 'rx="12"') +
-        Pa("M700 226 H900 Q908 226 908 238 V252 H700Z", "#8E99DE") + R(716, 226, 22, 26, "rgba(255,255,255,.4)") + R(764, 226, 22, 26, "rgba(255,255,255,.4)") + R(812, 226, 22, 26, "rgba(255,255,255,.4)") + R(860, 226, 22, 26, "rgba(255,255,255,.4)") +
-        R(660, 196, 62, 30, "#FFFFFF", 'rx="15"') + R(664, 200, 54, 8, "rgba(14,17,22,.06)", 'rx="4"') + R(706, 204, 54, 26, "#FFF7E0", 'rx="13"') + R(910, 252, 12, 22, MADERA2) + R(640, 268, 10, 8, MADERA2);
-      /* mesa de noche con lámpara */
-      s += R(928, 222, 62, 52, MADERA2, 'rx="6"') + R(922, 214, 74, 12, MADERA, 'rx="5"') + R(934, 232, 50, 16, "rgba(255,255,255,.2)", 'rx="4"') + C(959, 240, 3, INK) + R(938, 252, 42, 16, "rgba(255,255,255,.2)", 'rx="4"') + C(959, 260, 3, INK) +
-        R(952, 186, 6, 28, INK, 'rx="3"') + R(940, 207, 30, 7, INK, 'rx="3"') + '<g class="lampcono">' + C(955, 178, 60, "url(#gl)", "") + "</g>" + Pa("M935 190 L975 190 L966 154 L944 154Z", SOL) + R(944, 154, 22, 5, "rgba(255,255,255,.5)", 'rx="2"');
-      /* libros y reloj */
-      s += R(930, 200, 16, 14, CORAL, 'rx="2"') + R(932, 192, 14, 9, AZUL, 'rx="2"');
-      /* tapete */
-      s += E(780, 274, 150, 7, "rgba(233,135,106,.85)");
+      s += E(772, 274, 150, 6, "rgba(233,135,106,.85)");
+      /* mesa de noche baja con lámpara */
+      s += R(940, 236, 56, 36, MADERA2, 'rx="6"') + R(934, 230, 68, 10, MADERA, 'rx="5"') + R(946, 246, 44, 12, "rgba(255,255,255,.2)", 'rx="4"') + C(968, 252, 2.6, INK) + R(965, 204, 6, 26, INK, 'rx="3"') + R(955, 224, 26, 6, INK, 'rx="3"') +
+        '<g class="lampcono">' + C(968, 196, 56, "url(#gl)", "") + "</g>" + Pa("M950 208 L986 208 L978 176 L958 176Z", SOL) + R(958, 176, 20, 5, "rgba(255,255,255,.5)", 'rx="2"') + R(944, 220, 14, 10, CORAL, 'rx="2"');
+      /* cama corta y ancha: una duerme y una chica rebota a los pies */
+      s += G.cama({ x: 770, y: 272 });
       return s;
     },
     escaleras: function () {
-      var s = "", i, x, yt, tr = 38;
+      var s = "";
       s += Pa(arco(896, 350, 64, 84), "#FFFFFF") + Pa(arco(901, 355, 54, 79), "#BFDDEC") + E(920, 386, 14, 6, "#FFFFFF") + E(940, 380, 10, 5, "#FFFFFF") + R(927, 355, 3, 79, "#FFFFFF");
-      /* masa de la escalera */
-      var masa = "M884 614";
-      for (i = 0; i < 6; i++) { x = 884 + i * 32; yt = 614 - (i + 1) * tr; masa += " V" + yt + " H" + (x + 32); }
-      masa += " V614Z";
-      s += Pa(masa, "#DC7556");
-      for (i = 0; i < 6; i++) {
-        x = 884 + i * 32; yt = 614 - (i + 1) * tr;
-        s += R(x - 3, yt - 2, 38, 9, "#FFFFFF", 'rx="4"') + R(x, yt + 8, 32, 3, "rgba(14,17,22,.12)") + R(x, yt + 22, 32, 1.5, "rgba(255,255,255,.18)");
-      }
-      /* barandal inclinado con balaustres */
-      for (i = 0; i < 6; i++) { x = 884 + i * 32 + 16; yt = 614 - (i + 1) * tr; s += balaustres(x - 8, x + 8, yt - 60, 56, AZUL, 16); }
-      s += '<path d="M886 ' + (614 - tr - 66) + " L1078 " + (614 - 6 * tr - 66) + '" stroke="' + AZUL + '" stroke-width="9" stroke-linecap="round"/><path d="M886 ' + (614 - tr - 69) + " L1078 " + (614 - 6 * tr - 69) + '" stroke="rgba(255,255,255,.4)" stroke-width="2.5" stroke-linecap="round"/>';
-      /* quien sube */
-      s += '<g class="sube">' + persona(902, 574, .8, SOL, "#2B3A67", PIELES[2], PELOS[1], "paso", true) + "</g>";
+      /* escalones anchos y bajos, una dormida encima y una chica que sube y baja */
+      s += G.escalera({ x: 886, y: 614 });
       return s;
     },
     mesa: function () {
-      var s = "", cx = 220, cy = 538;
-      /* ventana, repisa, lámpara */
+      var s = "";
       s += ventana(256, 352, 54, 78, "#FFFFFF", AZUL, false);
       s += R(112, 408, 70, 7, MADERA2, 'rx="3"') + matera(130, 396, 9) + matera(160, 398, 8) + R(190, 404, 3, 4, INK);
       s += R(219, 322, 2.5, 52, INK) + '<g class="lampcono">' + E(220, 406, 70, 34, "url(#gl)", "") + "</g>" + Pa("M200 376 H240 L252 398 H188Z", SOL) + R(188, 396, 64, 4, "rgba(14,17,22,.2)", 'rx="2"');
-      /* silla de atrás con persona sentada */
-      s += R(186, 476, 68, 58, CORAL, 'rx="12"') + persona(cx, 548, .9, SOL, "#2B3A67", PIELES[0], PELOS[2], "sway2", true);
-      /* mesa */
-      s += R(136, cy, 168, 16, "#D69A3F") + E(cx, cy + 16, 84, 36, "#D69A3F") + E(cx, cy, 84, 36, AMBAR) + E(cx, cy - 1, 68, 27, "rgba(255,255,255,.22)");
-      /* sillas laterales y de frente */
-      s += R(104, 508, 14, 64, AZUL, 'rx="7"') + E(130, 548, 16, 24, "#6FA7CC") + R(322, 508, 14, 64, AZUL, 'rx="7"') + E(310, 548, 16, 24, "#6FA7CC");
-      s += E(cx, 590, 34, 14, "#8E99DE") + R(184, 584, 72, 14, LAV, 'rx="7"') + R(192, 596, 7, 18, LAV) + R(241, 596, 7, 18, LAV);
-      /* arepa, jarra, tazas */
-      s += E(cx, cy + 4, 26, 11, "#FFFFFF") + E(cx, cy + 1, 15, 6.5, "#F6E0A0") + E(cx, cy, 12, 4.5, "#F9EDC0");
-      s += taza(172, cy - 2) + taza(268, cy - 2) + taza(cx - 40, cy + 16) + taza(cx + 40, cy + 16);
-      s += vapor(172, cy - 10, 2).replace(/stroke-width="4.5"/g, 'stroke-width="3"') + vapor(268, cy - 10, 2).replace(/stroke-width="4.5"/g, 'stroke-width="3"');
+      /* mesa baja, sillas cuadradas, tazas grandes; una Cella sentada encima de la mesa */
+      s += G.mesa({ x: 222, y: 604, s: .92 });
       return s;
     },
     patio: function () { return ""; }
   };
-  function taza(x, y) {
-    return E(x, y + 8, 15, 5, "rgba(14,17,22,.14)") + Pa("M" + (x - 10) + " " + y + "L" + (x - 7) + " " + (y + 12) + "Q" + x + " " + (y + 15) + " " + (x + 7) + " " + (y + 12) + "L" + (x + 10) + " " + y + "Z", "#FFFFFF") +
-      '<path d="M' + (x + 9) + " " + (y + 3) + " q9 0 5 7 q-2 2 -7 1" + '" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round"/>' + E(x, y, 10, 3.6, "#FFFFFF") + E(x, y + .5, 8, 2.6, "#7A4A2E");
+  function taza(x, y, k) {   /* taza grande, para manos de Cella */
+    return '<g transform="translate(' + x + " " + y + ") scale(" + (k || 1) + ')">' + E(0, 2, 17, 5, "rgba(14,17,22,.16)") + Pa("M-15 -22 L-11 -3 Q0 1 11 -3 L15 -22Z", "#FFFFFF") +
+      '<path d="M14 -18 q14 0 9 11 q-3 3 -10 1" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>' + E(0, -22, 15, 5, "#FFFFFF") + E(0, -21.5, 12, 3.6, "#7A4A2E") + "</g>";
   }
 
   /* ---------- patio ---------- */
@@ -210,11 +156,8 @@
     /* el centro azul */
     s += E(600, 482, 232, 124, "rgba(255,255,255,.55)", 'class="halo"') + E(604, 490, 192, 104, "rgba(14,17,22,.20)") + E(600, 482, 190, 102, "#F4F6F8") + E(600, 482, 176, 92, AZUL) + E(600, 482, 124, 64, "#7FB7D6") + E(600, 482, 70, 36, "#B9DDEE") +
       E(600, 482, 26, 13, PAPEL, 'class="corazon"') + '<g class="reveal" fill="none" stroke="' + PAPEL + '" stroke-width="3" stroke-dasharray="6 10"><ellipse cx="600" cy="482" rx="206" ry="112"/></g>';
-    /* gente reunida en el centro (la de atrás primero) */
-    s += persona(660, 466, .9, ROSA, "#2B3A67", PIELES[3], PELOS[1], "sway2", true);
-    s += persona(548, 466, .9, CORAL, "#2F3E73", PIELES[1], PELOS[0], "sway", false);
-    s += persona(712, 504, .98, LAV, "#2B3A67", PIELES[0], PELOS[2], "sway", false);
-    s += persona(490, 506, 1, SOL, "#32457A", PIELES[2], PELOS[3], "sway2", true);
+    /* las Cellas del patio: la principal, en tinta, al centro (cella-g); a su alrededor, cada una en lo suyo */
+    s += G.cielo({ x: 490, y: 520 }) + G.agua({ x: 724, y: 500 }) + G.paseo({ x: 604, y: 592 });
     s += '<g id="cella-g"></g>';
     /* árboles en las cuatro esquinas */
     s += arbol(398, 372, 33) + arbol(802, 372, 33) + arbol(398, 584, 33) + arbol(802, 584, 33);
@@ -239,14 +182,15 @@
     return s;
   }
 
-  function balcon(x, y, col, col2, flor) {
+  function balcon(x, y, col, col2, flor, gag) {
     /* ventana 100 x 104 con postigos abiertos y cielo, losa volada con ménsulas, baranda torneada y matas colgantes */
     var w = 100, h = 104, s = "";
     s += R(x - 14, y - 14, w + 28, h + 14, "rgba(255,255,255,.7)", 'rx="10"');
     s += ventana(x, y, w, h, col2, col, false);
     s += R(x - 22, y + h + 2, w + 44, 14, col2, 'rx="5"') + R(x - 22, y + h + 2, w + 44, 4, "rgba(255,255,255,.4)", 'rx="2"');
     [x - 6, x + w / 2 - 8, x + w - 10].forEach(function (cx) { s += Pa("M" + cx + " " + (y + h + 16) + "h16l-16 20z", col, ""); });
-    s += baranda(x - 18, y + h - 34, w + 36, col, 34);
+    s += gag || "";
+    s += baranda(x - 18, y + h - 26, w + 36, col, 26);
     s += matas(x - 14, y + h - 8, w + 28, flor);
     return s;
   }
@@ -262,7 +206,7 @@
     s += R(34, 628, 1132, 42, TEJAS.s, 'rx="14"') + R(34, 628, 1132, 42, "url(#tj)", 'rx="14"') + R(34, 664, 1132, 6, "rgba(14,17,22,.22)");
     for (i = 0; i < 41; i++) s += C(48 + i * 28, 668, 14, TEJAS.s) + C(48 + i * 28, 668, 14, "url(#tj)");
     /* balcones: cuatro, de colores distintos */
-    s += balcon(120, 706, CORAL, "#D9694B", AMBAR) + balcon(310, 706, AZUL, "#2F6F9A", ROSA) + balcon(790, 706, AMBAR, "#D69A3F", CORAL) + balcon(980, 706, ROSA, "#D97F8C", "#FFFFFF");
+    s += balcon(120, 706, CORAL, "#D9694B", AMBAR, G.taza({ x: 170, y: 806, cuerpo: "luz" })) + balcon(310, 706, AZUL, "#2F6F9A", ROSA, G.mecedora({ x: 360, y: 806, cuerpo: "tinta" })) + balcon(790, 706, AMBAR, "#D69A3F", CORAL) + balcon(980, 706, ROSA, "#D97F8C", "#FFFFFF");
     return s;
   }
   function ventanasGrupo() {
@@ -278,19 +222,22 @@
     /* faroles */
     s += R(498, 740, 5, 22, INK, 'rx="2"') + R(492, 758, 17, 24, INK, 'rx="5"') + R(496, 762, 9, 16, SOL, 'rx="3"') + '<g class="lampcono">' + C(500, 770, 30, "url(#gl)", "") + "</g>" +
       R(697, 740, 5, 22, INK, 'rx="2"') + R(691, 758, 17, 24, INK, 'rx="5"') + R(695, 762, 9, 16, SOL, 'rx="3"') + '<g class="lampcono">' + C(700, 770, 30, "url(#gl)", "") + "</g>";
-    /* marco y zaguán */
-    s += Pa(arco(522, 700, 156, 190), "#FFFFFF") + Pa(arco(532, 710, 136, 180), "#8A6358") + Pa(arco(532, 710, 136, 180), "rgba(14,17,22,.25)");
-    s += Pa("M556 884 L644 884 L624 838 L576 838Z", PIEDRA) + Pa(arco(572, 764, 56, 78), "#FFFFFF") + Pa(arco(578, 770, 44, 72), "#7FB7D6") + E(600, 812, 16, 8, "#B9DDEE") + Pa("M572 842 H628 V850 H572Z", PIEDRA);
+    /* portón en arco del ancho de una Cella (la Cella grande mide 76; el vano, 100) */
+    s += Pa(arco(540, 700, 120, 190), "#FFFFFF") + Pa(arco(550, 710, 100, 180), "#8A6358") + Pa(arco(550, 710, 100, 180), "rgba(14,17,22,.25)");
+    s += Pa("M556 888 L644 888 L634 850 L566 850Z", PIEDRA);
+    /* una chica se asoma detrás de la hoja derecha (se dibuja antes que la hoja) */
+    s += G.asoma({ x: 668, y: 880 });
     /* hojas abiertas del portón */
-    s += Pa("M532 716 L506 728 V876 L532 888Z", ROSA) + R(510, 740, 18, 56, "rgba(255,255,255,.3)", 'rx="3"') + R(510, 806, 18, 56, "rgba(255,255,255,.3)", 'rx="3"') + C(520, 772, 2.5, INK) + C(520, 834, 2.5, INK) +
-      Pa("M668 716 L694 728 V876 L668 888Z", ROSA) + R(672, 740, 18, 56, "rgba(255,255,255,.3)", 'rx="3"') + R(672, 806, 18, 56, "rgba(255,255,255,.3)", 'rx="3"') + C(680, 772, 2.5, INK) + C(680, 834, 2.5, INK);
-    /* tapete a rayas */
+    s += Pa("M550 716 L510 728 V876 L550 888Z", ROSA) + R(518, 740, 22, 56, "rgba(255,255,255,.3)", 'rx="3"') + R(518, 806, 22, 56, "rgba(255,255,255,.3)", 'rx="3"') + C(526, 772, 2.5, INK) + C(526, 834, 2.5, INK) +
+      Pa("M650 716 L690 728 V876 L650 888Z", ROSA) + R(660, 740, 22, 56, "rgba(255,255,255,.3)", 'rx="3"') + R(660, 806, 22, 56, "rgba(255,255,255,.3)", 'rx="3"') + C(674, 772, 2.5, INK) + C(674, 834, 2.5, INK);
+    /* tapete a rayas, ancho y corto */
     var tc = [CORAL, AMBAR, AZUL, ROSA, LAV, CORAL], i;
-    s += Pa("M548 888 L652 888 L636 856 L564 856Z", "#FFFFFF");
-    for (i = 0; i < 6; i++) s += Pa("M" + (552 + i * 16.3) + " 886 L" + (568 + i * 16.3) + " 886 L" + (565 + i * 12) + " 858 L" + (562 + i * 12) + " 858Z", tc[i]);
-    s += R(546, 888, 108, 4, "rgba(14,17,22,.18)", 'rx="2"');
-    s += persona(600, 880, .8, AZUL, "#2B3A67", PIELES[1], PELOS[0], "sway", false);
-    s += R(512, 696, 176, 14, "#FFFFFF", 'rx="6"') + C(600, 702, 4, CORAL) + C(580, 702, 3, AMBAR) + C(620, 702, 3, AZUL);
+    s += Pa("M552 890 L648 890 L638 864 L562 864Z", "#FFFFFF");
+    for (i = 0; i < 6; i++) s += Pa("M" + (554 + i * 15.6) + " 888 L" + (569 + i * 15.6) + " 888 L" + (564 + i * 12.1) + " 866 L" + (563 + i * 12.1) + " 866Z", tc[i]);
+    s += R(550, 890, 100, 4, "rgba(14,17,22,.18)", 'rx="2"');
+    /* llega y se limpia en el tapete */
+    s += G.porton({ x: 600, y: 882 });
+    s += R(530, 696, 140, 14, "#FFFFFF", 'rx="6"') + C(600, 702, 4, CORAL) + C(580, 702, 3, AMBAR) + C(620, 702, 3, AZUL);
     s += R(474, 686, 252, 214, "none", 'class="ring" rx="20" stroke="#FFFFFF" stroke-width="5"') + "</g>";
     return s;
   }
@@ -333,7 +280,7 @@
     var g = $("#cella-g"); if (!g || !window.NAOS_BRAZOS) return;
     var p = { tx: INK, bg: "#B9DDEE" };
     var b = quieto ? 0.4 : 0.5 - 0.5 * Math.cos(2 * Math.PI * t / 8);
-    var c = t % 12, izq = quieto ? 24 : NAOS_BRAZOS.gesto(c, { t0: 2, t1: 5.5, a: 44, a2: 26 }), der = quieto ? 0 : NAOS_BRAZOS.gesto(c, { t0: 6.5, t1: 9, a: 22 });
+    var c = t % 12, izq = quieto ? 0 : NAOS_BRAZOS.gesto(c, { t0: 2, t1: 5.5, a: 44, a2: 26 }), der = quieto ? 0 : NAOS_BRAZOS.gesto(c, { t0: 6.5, t1: 9, a: 22 });
     g.innerHTML = NAOS_BRAZOS.cella({ cx: CELLA.cx, base: CELLA.base, s: CELLA.s, p: p, b: b, izq: izq, der: der, abre: quieto ? 1 : (izq > 1 || der > 1 ? 1 : 0), id: "ce" });
   }
   function arrancaCella() {
