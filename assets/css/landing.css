@@ -56,3 +56,18 @@ html.landing-on #landing{display:block;position:fixed;inset:0;z-index:50;backgro
 .top .intro-link{display:inline-flex}
 html.dentro .top .intro-link{display:none}
 .l-count{display:none;font:600 14px var(--sans);min-width:3.5ch;text-align:center;background:#fff;color:#0E1116;border-radius:999px;padding:6px 12px;border:2px solid #0E1116}
+@media (max-width:760px) and (max-height:700px){
+  .l-slide{padding-top:58px;padding-bottom:78px}
+  .l-fig svg{width:min(34vw,120px)}
+  .l-slide p.l-p{font-size:17px;line-height:1.32}
+  .l-slide h2{font-size:clamp(28px,8.4vw,36px)}
+  .l-slide.rooms h2{font-size:26px}
+  .l-n{margin-bottom:6px}
+  .l-rooms{gap:6px}
+  .l-rooms li{padding:7px 10px}
+  .l-rooms b{font-size:18px}
+  .l-rooms span{font-size:11px}
+  .l-rooms em{font-size:12px;line-height:1.25;margin-top:2px}
+  .l-rooms li:last-child{grid-column:1 / -1}
+  .l-ctl button{width:44px;height:44px;min-height:44px}
+}
