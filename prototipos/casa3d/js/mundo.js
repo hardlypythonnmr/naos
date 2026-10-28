@@ -4,7 +4,7 @@
  * del patio, Cella y las personas son aparte para poder animarse. Sin modelos externos. */
 import * as THREE from "three";
 import { Merger, muroGeo, rectPts, rng, col, texTeja, texMadera, texPiedraPatio, texAdoquin, texAzul, texCielo, texNube,
-  texBrillo, texSuaveBlanco, gradMap } from "./geo.js";
+  texBrillo, texSuaveBlanco, texZocalo, gradMap, BISEL } from "./geo.js";
 import { crearCella, texSombra } from "./dibujo2d.js";
 
 export const FL = 0.3;
@@ -13,7 +13,7 @@ const HO = 4.6, HI = 2.9;                 // alturas del tejado: alero alto afue
 const roofH = (d) => HI + (d - 6) * (HO - HI) / 9;
 
 const COL = {
-  cal: "#F8F1E6", cal2: "#F0E6D6", piedra: "#EADFD2", teja: "#BC6D52", tejaOsc: "#A55B44", madera: "#B67B4E", maderaOsc: "#8A5A3A",
+  cal: "#F8F1E6", cal2: "#F0E6D6", piedra: "#EADFD2", teja: "#CC8F76", tejaOsc: "#B8725C", madera: "#B67B4E", maderaOsc: "#8A5A3A",
   maderaCl: "#D9A06E", tinta: "#0E1116", hierro: "#4A4048", crema: "#F4F6F8", verde: "#5F8A66", verde2: "#4F7A58", verde3: "#7FA583",
   terra: "#C77D5E", metal: "#D5D9DE"
 };
@@ -52,18 +52,19 @@ const CUARTOS = [
 ];
 
 export function construirMundo({ renderer, escena, movil }) {
+  BISEL.min = movil ? 0.35 : 0.1;   // telefono: bisel solo en lo grande
   const rand = rng(2026);
   const toon = gradMap();
   const matVert = new THREE.MeshToonMaterial({ vertexColors: true, gradientMap: toon });
   const M = new THREE.Group(); escena.add(M);
-  const mundo = { cuartos: {}, lista: [], billboards: [], vapor: [], espuma: [], brillos: [], ondas: [], nubes: [], hit: [], estrellas: null, techosOn: true };
+  const mundo = { cuartos: {}, lista: [], billboards: [], vapor: [], espuma: [], brillos: [], ondas: [], nubes: [], hit: [], estrellas: null, techosOn: false };
   const sm = new Merger();            // lo estatico de la casa
   const Vm = (x, y, z) => new THREE.Vector3(x, y, z);
 
   /* ===================== luz y cielo ===================== */
   escena.background = texCielo();
   escena.fog = new THREE.Fog(0xf3e3c8, 110, 320);
-  const hemi = new THREE.HemisphereLight(0xfff4e2, 0xe9c9a8, 1.3); escena.add(hemi);
+  const hemi = new THREE.HemisphereLight(0xfff1dc, 0xeed3b4, 1.38); escena.add(hemi);
   const sol = new THREE.DirectionalLight(0xffe2b8, 1.55);
   sol.position.set(-24, 36, 32); sol.target.position.set(0, 0, 0);
   // relleno frio y suave, sin sombra, para que las sombras no se vayan a gris
@@ -76,7 +77,7 @@ export function construirMundo({ renderer, escena, movil }) {
   escena.add(sol, sol.target);
 
   /* ===================== suelo y alrededores ===================== */
-  const suelo = new THREE.Mesh(new THREE.CircleGeometry(260, 48), new THREE.MeshToonMaterial({ color: 0xa8c97e, gradientMap: toon }));
+  const suelo = new THREE.Mesh(new THREE.CircleGeometry(260, 48), new THREE.MeshToonMaterial({ color: 0xc3d6a2, gradientMap: toon }));
   suelo.rotation.x = -Math.PI / 2; suelo.position.y = -0.02; suelo.receiveShadow = true; M.add(suelo);
   const tAd = texAdoquin(); tAd.repeat.set(30, 8);
   const calle = new THREE.Mesh(new THREE.PlaneGeometry(300, 16), new THREE.MeshToonMaterial({ map: tAd, gradientMap: toon }));
@@ -89,7 +90,7 @@ export function construirMundo({ renderer, escena, movil }) {
 
   // cerros lejanos y nubes
   const lejos = new THREE.Group(); M.add(lejos);
-  const cerroMat = [0x86ab72, 0x77a068, 0x93b87a].map((c) => new THREE.MeshToonMaterial({ color: c, gradientMap: toon }));
+  const cerroMat = [0xa9c391, 0x9bb987, 0xb4ca9f].map((c) => new THREE.MeshToonMaterial({ color: c, gradientMap: toon }));
   for (let i = 0; i < 16; i++) {
     const a = (i / 16) * Math.PI * 2 + rand() * 0.2, r = 140 + rand() * 50;
     const g = new THREE.Mesh(new THREE.SphereGeometry(1, 7, 4), cerroMat[i % 3]);
@@ -395,9 +396,7 @@ export function construirMundo({ renderer, escena, movil }) {
     construirPiso(room);
     construirMuroPatio(room);
     construirInterior(room);
-    // caja de clic
-    const hb = new THREE.Mesh(new THREE.BoxGeometry(W, 5.2, 9), new THREE.MeshBasicMaterial({ visible: false }));
-    hb.position.copy(Vm(0, 2.6, 1.5).applyMatrix4(F)); hb.rotation.y = L.th; hb.userData.sala = c.id; M.add(hb); mundo.hit.push(hb);
+    room.techo.grp.children.forEach((o) => { o.userData.sala = c.id; o.userData.techo = room.techo; mundo.hit.push(o); });
   });
 
   function construirPiso(room) {
@@ -488,11 +487,11 @@ export function construirMundo({ renderer, escena, movil }) {
     const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ map: obj.tex, transparent: true, alphaTest: 0.04, side: THREE.DoubleSide }));
     m.position.y = yc; g.add(m);
     // sombra de suelo: elipse alargada hacia el lado contrario del sol; la sigue en el bucle (posicion, escala con el salto, opacidad)
-    const sh = new THREE.Mesh(new THREE.PlaneGeometry(esCella ? w * 0.9 : w * 1.6, esCella ? w * 0.38 : w * 0.8), new THREE.MeshBasicMaterial({ map: texSombra(), transparent: true, depthWrite: false, opacity: 0.8 }));
+    const sh = new THREE.Mesh(new THREE.PlaneGeometry(esCella ? w * 0.62 : w * 1.2, esCella ? w * 0.26 : w * 0.6), new THREE.MeshBasicMaterial({ map: texSombra(), transparent: true, depthWrite: false, opacity: 0.95 }));
     sh.rotation.x = -Math.PI / 2; sh.rotation.z = SOMBRA_ANG;
-    sh.position.set(p.x + SOMBRA_DIR[0] * w * 0.12, p.y + 0.02, p.z + SOMBRA_DIR[1] * w * 0.12); M.add(sh);
+    sh.position.set(p.x + SOMBRA_DIR[0] * w * 0.07, p.y + 0.02, p.z + SOMBRA_DIR[1] * w * 0.07); M.add(sh);
     g.rotation.order = "YXZ"; M.add(g);
-    const b = { g, m, sh, w, obj, base: p.clone(), fase: rand() * 6.28, esCella, sala: room.id };
+    const b = { g, m, sh, w, obj, base: p.clone(), fase: rand() * 6.28, esCella, sala: room.id, f: 1, fo: 1 };
     mundo.billboards.push(b); m.userData.sala = room.id; mundo.hit.push(m);
     room.billboards.push(b);
     return b;
@@ -508,13 +507,14 @@ export function construirMundo({ renderer, escena, movil }) {
       mundo.vapor.push({ s, p: p.clone(), t0: i / n, vel: 0.5 + rand() * 0.2, dx: (rand() - 0.5) * 0.4 * esc, esc });
     }
   }
-  /* espuma que rebosa por el borde de la olla: bolas blancas que suben y bajan, desbordando */
-  function espuma(room, x, y, z) {
-    const p = room.loc(x, y, z), mat = new THREE.MeshToonMaterial({ color: 0xffffff, gradientMap: toon });
-    for (let i = 0; i < 6; i++) {
-      const a = i * 1.05, mm = new THREE.Mesh(new THREE.SphereGeometry(0.17, 10, 8), mat);
-      mm.position.set(p.x, p.y, p.z); M.add(mm);
-      mundo.espuma.push({ m: mm, p: p.clone(), a, f: i * 0.9 });
+  /* espuma que rebosa: burbujas que se hinchan en el borde y bajan por la pared de la olla, despacio, hasta deshacerse */
+  function espuma(room, x, y, z, R) {
+    const p = room.loc(x, y, z), mat = new THREE.MeshToonMaterial({ color: 0xffffff, gradientMap: toon, transparent: true });
+    const N = movil ? 10 : 14;
+    for (let i = 0; i < N; i++) {
+      const mm = new THREE.Mesh(new THREE.SphereGeometry(1, 9, 7), mat);
+      mm.position.copy(p); M.add(mm);
+      mundo.espuma.push({ m: mm, p: p.clone(), R, a: (i / N) * 6.283 + (i % 3) * 0.3, f: (i * 0.37) % 1, v: 0.16 + (i % 4) * 0.03 });
     }
   }
   function brillo(room, x, y, z, tam = 1.6, rgb = "255,214,120") {
@@ -539,7 +539,9 @@ export function construirMundo({ renderer, escena, movil }) {
       m.box([1.1, 0.4, 0.05], [-2.6, 0.25, -1.67], "#DCE3EA");
       [[-3.1, -2.1], [-2.1, -2.1]].forEach(([x, z]) => m.cyl(0.3, 0.3, 0.03, [x, 0.93, z], "#2A2F38", 14));
       // la olla es grande, hecha a la medida de la Cella: negra con tapa, hierve y rebosa
-      m.cyl(0.56, 0.52, 0.8, [-3.1, 0.96, -2.1], COL.tinta, 16); m.cyl(0.6, 0.6, 0.07, [-3.1, 1.74, -2.1], "#2A2F38", 16); m.sph(0.1, [-3.1, 1.88, -2.1], "#2A2F38", 8);
+      m.cyl(0.56, 0.52, 0.8, [-3.1, 0.96, -2.1], "#5E7FA3", 18); m.cyl(0.6, 0.6, 0.1, [-3.1, 1.66, -2.1], "#F4F6F8", 18);   // olla de esmalte azul con borde blanco; la tapa va levantada
+      m.cyl(0.5, 0.5, 0.06, [-3.1, 1.98, -2.1], "#E3E8EE", 18, [0.28, 0, 0.12]); m.sph(0.09, [-3.1, 2.12, -2.1], "#E9876A", 8);
+      m.box([0.28, 0.1, 0.12], [-3.8, 1.35, -2.1], "#3A4150"); m.box([0.28, 0.1, 0.12], [-2.4, 1.35, -2.1], "#3A4150");
       m.cyl(0.3, 0.32, 0.34, [-2.1, 0.96, -2.1], COL.metal, 14); m.cyl(0.33, 0.33, 0.05, [-2.1, 1.3, -2.1], "#8F959C", 14);
       // utensilios colgados
       m.box([2.4, 0.05, 0.05], [-2.6, 2.0, -2.9], COL.maderaOsc);
@@ -557,7 +559,7 @@ export function construirMundo({ renderer, escena, movil }) {
       // nevera de bloque con la puerta abierta; una Cella mete la cabeza
       m.box([1.9, 3.0, 1.2], [3.6, 0, 0.6], "#F8F1E6"); m.box([1.4, 1.0, 0.04], [3.6, 1.2, 1.16], "#DCE3EA"); m.box([0.08, 2.0, 0.9], [4.5, 0.3, 1.0], "#C9CDD2", [0, -0.9, 0]);
       habitante(room, 7, 3.0, 0, 1.9, { tam: 2.2, anim: anims.nevera(11, 0), saluda: false });
-      habitante(room, 2, -1.2, 0, 1.6, { tam: 1.6, anim: anims.salto(0.3, 7, 0.3) });
+      habitante(room, 2, -1.3, 0, 2.3, { tam: 1.3, anim: anims.salto(0.3, 7, 0.3) });
       // tinaja y leña
       m.sph(0.62, [4.2, 0.65, -2.2], COL.terra, 8, 1.1); m.cyl(0.4, 0.3, 0.2, [4.2, 1.25, -2.2], COL.terra, 10);
       for (let i = 0; i < 6; i++) m.cyl(0.12, 0.12, 1.1, [-4.4, 0.12 + (i % 3) * 0.22, -0.6 + (i % 2) * 0.1 - (i > 2 ? 0.15 : 0)], "#8B6B45", 7, [0, 0, Math.PI / 2]);
@@ -565,8 +567,8 @@ export function construirMundo({ renderer, escena, movil }) {
       for (let i = 0; i < 4; i++) { m.cyl(0.015, 0.015, 0.9, [0.4 + i * 0.35, 2.6, -2.9], COL.tinta, 4); for (let j = 0; j < 5; j++) m.sph(0.09, [0.4 + i * 0.35, 2.6 + j * 0.0 + 0.55 - j * 0.17, -2.87], i % 2 ? "#E9876A" : "#F4F6F8", 5); }
       room.mm = m;
       // vapor y Cella
-      vapor(room, -3.1, 1.95, -2.1, 10, 1.7); vapor(room, -2.1, 1.4, -2.1, 5, 1.0); espuma(room, -3.1, 1.74, -2.1);
-      room.cella = cellaEn(room, P, -0.6, 1.0, 2.6, { saludoEn: 2 });
+      vapor(room, -3.1, 2.15, -2.1, 6, 1.0); vapor(room, -2.1, 1.4, -2.1, 5, 1.0); espuma(room, -3.1, 1.74, -2.1, 0.58);
+      room.cella = cellaEn(room, P, 0.7, 1.4, 2.4, { saludoEn: 2 });
       
     }
     if (id === "mesa") {
@@ -705,7 +707,8 @@ export function construirMundo({ renderer, escena, movil }) {
     const g = new THREE.Group(); g.matrixAutoUpdate = false; g.matrix.copy(room.F);
     const wall = new THREE.Mesh(new THREE.PlaneGeometry(Wd - 0.3, 4.1), new THREE.MeshToonMaterial({ color: pal.campo, gradientMap: toon, emissive: pal.campo, emissiveIntensity: 0.28 }));
     wall.position.set(0, 2.05, -2.98); wall.receiveShadow = true; g.add(wall);
-    const zo = new THREE.Mesh(new THREE.PlaneGeometry(Wd - 0.3, 0.9), new THREE.MeshToonMaterial({ color: new THREE.Color("#C98A5B"), gradientMap: toon }));
+    const tz = texZocalo(); tz.repeat.set((Wd - 0.3) / 3.4, 1);
+    const zo = new THREE.Mesh(new THREE.PlaneGeometry(Wd - 0.3, 0.9), new THREE.MeshToonMaterial({ map: tz, gradientMap: toon }));
     zo.position.set(0, 0.45, -2.97); g.add(zo);
     const fil = new THREE.Mesh(new THREE.PlaneGeometry(Wd - 0.3, 0.07), new THREE.MeshToonMaterial({ color: 0xF8F1E6, gradientMap: toon })); fil.position.set(0, 0.93, -2.965); g.add(fil);
     const viga = new THREE.Mesh(new THREE.PlaneGeometry(Wd - 0.3, 0.22), new THREE.MeshToonMaterial({ color: new THREE.Color(pal.campo).multiplyScalar(0.8), gradientMap: toon })); viga.position.set(0, 4.0, -2.97); g.add(viga);
@@ -725,8 +728,6 @@ export function construirMundo({ renderer, escena, movil }) {
     const ce = crearCella(PAL.patio, { saludoEn: 5, fase: 1.7, px: movil ? 192 : 256 });
     colocarBill(ce, Vm(0.55, 0.11, 0.35), 3.0, 3.0, 3.0 * 0.3833, room, true);
     mundo.cuartos.patio.cella = ce;
-    const hb = new THREE.Mesh(new THREE.BoxGeometry(12, 4.5, 12), new THREE.MeshBasicMaterial({ visible: false }));
-    hb.position.set(0, 2.2, 0); hb.userData.sala = "patio"; M.add(hb); mundo.hit.push(hb);
     mundo.billboards.forEach((b) => { if (b.sala === "patio") b.m.userData.sala = "patio"; });
   }
   // fix de la sala de los billboards del patio (colocarBill uso room.id = "patio")
@@ -763,8 +764,21 @@ export function construirMundo({ renderer, escena, movil }) {
     }
     sm.box([1.5, 2.6, 0.1], [0, 0, prof / 2 + 0.03], c3);
   }
-  vecina(-23.5, 14, "#F0BC6E", "#3E86B5", "#EE9AA6"); vecina(23.5, 14, "#7FB7D6", "#EE9AA6", "#F0BC6E", 4.8);
-  vecina(-38, 14, "#EE9AA6", "#F0BC6E", "#7FA583", 4.2); vecina(38, 14, "#A3C1A0", "#E9876A", "#F4F6F8", 4.6);
+  vecina(-23.5, 14, "#F6DDB2", "#8FB6CF", "#EFB9C0"); vecina(23.5, 14, "#BFDCE8", "#EFB9C0", "#F4D49A", 4.8);
+  vecina(-38, 14, "#F2C9CF", "#F4D49A", "#A9C8AE", 4.2); vecina(38, 14, "#C5D9C2", "#EDA793", "#F4F6F8", 4.6);
+
+  /* cuarto que corresponde a un punto del suelo (x, z): el toque en el telefono cae aqui, sin depender de cajas ni de etiquetas.
+   * sala y taller no tienen pagina: se reparten al cuarto vecino. */
+  mundo.salaEn = (x, z) => {
+    if (Math.abs(x) > 16.5 || Math.abs(z) > 16.5) return null;
+    if (z > 9) return x < -5 ? "mesa" : "puerta";
+    if (z < -9) return x < -5 ? "escaleras" : "cocina";
+    if (x > 9) return "ventana";
+    if (x < -9) return "alcoba";
+    return "patio";
+  };
+  // al arrancar el techo esta quitado (se ve la casa por dentro, como la 2D vista desde arriba); el boton lo pone
+  mundo.lista.forEach((r) => { r.techo.objetivo = 0; r.techo.op = 0; r.techo.grp.visible = false; });
 
   /* ===================== monta la malla estatica ===================== */
   const estatico = sm.build(matVert, true);
@@ -777,6 +791,7 @@ export function construirMundo({ renderer, escena, movil }) {
   mundo.focoActual = null;
   mundo.setFoco = (id) => {
     mundo.focoActual = id;
+    mundo.billboards.forEach((b) => { b.fo = id && b.esCella && b.sala === id ? (id === "patio" ? 1.25 : 1.4) : 1; });
     mundo.tabs.forEach((t) => { t.obj = id && t.clave === id ? 0.1 : 1; });
     mundo.lista.forEach((r) => {
       r.muro.obj = id && r.id === id ? 0.16 : 1;
@@ -804,23 +819,25 @@ export function construirMundo({ renderer, escena, movil }) {
       T.mats[0].emissive.setRGB(h * 1.0, h * 0.7, h * 0.35);
     });
     mundo.tabs.forEach((t) => { t.esc += (t.obj - t.esc) * k; t.g.scale.y = Math.max(0.01, t.esc); });
-    // billboards: cilindricos con inclinacion parcial hacia la camara
+    // billboards: giran solo en Y (derechos, como en la 2D) con una inclinacion minima hacia la camara; si la camara mira muy de arriba
+    // se estiran un poco en vertical para compensar el escorzo y no quedar como laminas acostadas. Crecen al entrar a su cuarto.
     mundo.billboards.forEach((b) => {
+      b.f += (b.fo - b.f) * k;
+      if (Math.abs(b.f - b.fo) < 0.003) b.f = b.fo;
       const dx = cam.position.x - b.g.position.x, dz = cam.position.z - b.g.position.z;
       const hd = Math.hypot(dx, dz), el = Math.atan2(cam.position.y - b.g.position.y, hd);
       b.g.rotation.y = Math.atan2(dx, dz);
-      b.g.rotation.x = Math.min(0.9, el * 0.5);
+      b.g.rotation.x = Math.min(0.2, el * 0.18);
+      b.g.scale.set(b.f, b.f * (1 + Math.max(0, Math.min(0.55, el - 0.55)) * 0.4), b.f);
       b.obj.dibuja(t);
-      if (b.anim) {
-        const a = reducido() ? {} : b.anim(t, b), ca = Math.cos(b.g.rotation.y), sa = Math.sin(b.g.rotation.y);
-        b.g.position.set(b.base.x + (a.dx || 0), b.base.y + (a.dy || 0), b.base.z + (a.dz || 0));
-        b.m.rotation.z = (a.rz || 0) + (b.rz0 || 0); b.m.scale.set(a.sx || 1, a.sy || 1, 1);
-        b.m.position.y = b.yc + (a.rz && Math.abs(a.rz) > 1 ? 0.2 : 0);
-        // la sombra sigue a la Cella: en el piso (o en lo que la sostiene), mas chica y mas clara cuando sube
-        const aire = Math.max(0, (a.dy || 0) - (a.sop || 0)), esc = Math.max(0.55, 1 - aire * 0.4);
-        b.sh.position.set(b.base.x + (a.dx || 0) + SOMBRA_DIR[0] * b.w * 0.12, b.base.y + 0.02 + (a.sop || 0), b.base.z + (a.dz || 0) + SOMBRA_DIR[1] * b.w * 0.12);
-        b.sh.scale.set(esc * (a.sx || 1), esc, 1); b.sh.material.opacity = Math.max(0.35, 0.8 - aire * 0.5);
-      }
+      const a = b.anim && !reducido() ? b.anim(t, b) : {};
+      b.g.position.set(b.base.x + (a.dx || 0), b.base.y + (a.dy || 0), b.base.z + (a.dz || 0));
+      b.m.rotation.z = (a.rz || 0) + (b.rz0 || 0); b.m.scale.set(a.sx || 1, a.sy || 1, 1);
+      b.m.position.y = b.yc !== undefined ? b.yc + (a.rz && Math.abs(a.rz) > 1 ? 0.2 : 0) : b.m.position.y;
+      // la sombra sigue a la Cella: en el piso (o en lo que la sostiene), mas chica y mas clara cuando sube
+      const aire = Math.max(0, (a.dy || 0) - (a.sop || 0)), esc = Math.max(0.55, 1 - aire * 0.4) * b.f;
+      b.sh.position.set(b.base.x + (a.dx || 0) + SOMBRA_DIR[0] * b.w * 0.07 * b.f, b.base.y + 0.02 + (a.sop || 0), b.base.z + (a.dz || 0) + SOMBRA_DIR[1] * b.w * 0.07 * b.f);
+      b.sh.scale.set(esc * (a.sx || 1), esc, 1); b.sh.material.opacity = Math.max(0.4, 0.95 - aire * 0.5);
     });
     mundo.vapor.forEach((v) => {
       const u = ((t * 0.38 * v.vel + v.t0) % 1);
@@ -829,9 +846,12 @@ export function construirMundo({ renderer, escena, movil }) {
       v.s.material.opacity = reducido() ? 0.3 : Math.sin(u * Math.PI) * 0.7;
     });
     mundo.espuma.forEach((e) => {
-      const u = reducido() ? 0.5 : 0.5 + 0.5 * Math.sin(t * 2.4 + e.f), r = 0.5 + u * 0.12;
-      e.m.position.set(e.p.x + Math.cos(e.a) * r, e.p.y - 0.12 - Math.max(0, Math.sin(e.a * 2)) * 0.2 * (1 - u) + u * 0.12, e.p.z + Math.sin(e.a) * r);
-      e.m.scale.setScalar(0.9 + u * 0.5);
+      // u: 0 = burbuja en el borde (la mas grande), 1 = ya bajo por la pared y chica; ciclo continuo
+      const u = reducido() ? 0.35 + (e.f % 0.5) : (t * e.v + e.f) % 1;
+      const r = e.R + 0.02 + u * 0.03, y = e.p.y + 0.1 - u * 0.62;
+      e.m.position.set(e.p.x + Math.cos(e.a) * r, y, e.p.z + Math.sin(e.a) * r);
+      e.m.scale.setScalar((0.15 + 0.07 * Math.sin(Math.min(1, u * 1.6) * Math.PI)) * (1 - u * 0.35));
+      e.m.visible = u < 0.97;
     });
     mundo.brillos.forEach((b) => { const s = b.base * (1 + Math.sin(t * 2.2 + b.f) * 0.05); b.s.scale.set(s, s, 1); });
     mundo.ondas.forEach((w) => {

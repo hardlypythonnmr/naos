@@ -49,8 +49,8 @@ export function crearCella(pal, opts = {}) {
   /* color del canto: el cuerpo oscurecido; si ya es casi negro, un gris azulado para que el grosor se lea */
   function cantoDe(hex) {
     const n = parseInt(hex.slice(1), 16), r = n >> 16, gg = (n >> 8) & 255, bb = n & 255;
-    if (r + gg + bb < 150) return "#3A4150";
-    const f = 0.62;
+    if (r + gg + bb < 150) return "#4A5366";
+    const f = 0.5;
     return "rgb(" + (r * f | 0) + "," + (gg * f | 0) + "," + (bb * f | 0) + ")";
   }
   const CANTO = cantoDe(pal.cuerpo), OSCURO = (() => { const n = parseInt(pal.cuerpo.slice(1), 16); return ((n >> 16) + ((n >> 8) & 255) + (n & 255)) < 150; })();
@@ -81,10 +81,11 @@ export function crearCella(pal, opts = {}) {
     ctx.save();
     ctx.scale(px / ESCALA_CAJA, px / ESCALA_CAJA);
     const bi = brazoInfo("izq", izq), bd = brazoInfo("der", der), cuerpo = new Path2D(g.cuerpo);
-    // canto de recorte: el contorno desplazado abajo a la derecha, en tres pasos (2 a 3 px de grosor a la resolucion de la textura)
+    // canto de recorte: el contorno desplazado abajo a la derecha, en tres pasos. Total ~7 de 240 de la caja: con la Cella a 90-130 px
+    // de pantalla son 3 px reales (a 1x y a 2x), que es lo que se lee a distancia normal
     const k = ESCALA_CAJA / px;
     for (let i = 3; i >= 1; i--) {
-      ctx.save(); ctx.translate(i * 0.95 * k, i * 1.15 * k);
+      ctx.save(); ctx.translate(i * 2.3 * k, i * 2.7 * k);
       pintaBrazo(bi, CANTO); pintaBrazo(bd, CANTO);
       ctx.fillStyle = CANTO; ctx.fill(cuerpo);
       ctx.restore();
@@ -129,7 +130,7 @@ export function texSombra() {
   if (_sombra) return _sombra;
   const c = lienzo(128, 128), x = c.getContext("2d");
   const g = x.createRadialGradient(64, 64, 2, 64, 64, 62);
-  g.addColorStop(0, "rgba(40,22,30,.62)"); g.addColorStop(0.5, "rgba(40,22,30,.34)"); g.addColorStop(1, "rgba(40,22,30,0)");
+  g.addColorStop(0, "rgba(40,24,34,.9)"); g.addColorStop(0.55, "rgba(40,24,34,.62)"); g.addColorStop(0.85, "rgba(40,24,34,.2)"); g.addColorStop(1, "rgba(40,24,34,0)");
   x.fillStyle = g; x.fillRect(0, 0, 128, 128);
   _sombra = textura(c);
   return _sombra;

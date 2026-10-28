@@ -30,10 +30,10 @@ const unitBox = () => GC.box || (GC.box = new THREE.BoxGeometry(1, 1, 1));
 /* caja con esquinas redondeadas en unidades reales (tam w,h,d): 3 segmentos por eje con los vertices intermedios a un radio de la orilla,
  * y cada vertice se empuja a la esfera del radio. Se cachea por tamano. Las cajas muy delgadas quedan como cajas simples. */
 const _rb = new THREE.Vector3(), _rc = new THREE.Vector3();
-export const BISEL = { on: true, n: 0 };
+export const BISEL = { on: true, n: 0, min: 0.1 };   // min: lado minimo para biselar (en telefono, solo lo grande: menos triangulos)
 function rBox(w, h, d) {
   const mn = Math.min(w, h, d);
-  if (!BISEL.on || mn < 0.1) return null;
+  if (!BISEL.on || mn < BISEL.min) return null;
   const r = Math.min(0.07, 0.2 * mn);
   const k = "rb" + w.toFixed(2) + "_" + h.toFixed(2) + "_" + d.toFixed(2);
   if (GC[k]) return GC[k];
@@ -166,17 +166,17 @@ function tex(c, rep = true, srgb = true) {
 
 export function texTeja() {
   const c = lienzo(256, 256), x = c.getContext("2d"), r = rng(7);
-  x.fillStyle = "#BC6D52"; x.fillRect(0, 0, 256, 256);
+  x.fillStyle = "#C98E73"; x.fillRect(0, 0, 256, 256);
   const filas = 8, h = 256 / filas, nw = 8, w = 256 / nw;
   for (let f = 0; f < filas; f++) {
     for (let k = -1; k <= nw; k++) {
       const off = (f % 2) * (w / 2), xx = k * w + off;
       const t = 0.9 + r() * 0.2;
-      x.fillStyle = `rgb(${Math.min(255, 188 * t | 0)},${Math.min(255, 109 * t | 0)},${Math.min(255, 82 * t | 0)})`;
+      x.fillStyle = `rgb(${Math.min(255, 207 * t | 0)},${Math.min(255, 142 * t | 0)},${Math.min(255, 112 * t | 0)})`;
       x.beginPath(); x.roundRect(xx + 2, f * h + 1, w - 4, h + 6, [0, 0, w / 2, w / 2]); x.fill();
-      x.strokeStyle = "rgba(120,50,36,.35)"; x.lineWidth = 3; x.beginPath(); x.moveTo(xx + w / 2, f * h + 4); x.lineTo(xx + w / 2, f * h + h); x.stroke();
+      x.strokeStyle = "rgba(140,76,58,.32)"; x.lineWidth = 3; x.beginPath(); x.moveTo(xx + w / 2, f * h + 4); x.lineTo(xx + w / 2, f * h + h); x.stroke();
     }
-    x.fillStyle = "rgba(100,40,30,.25)"; x.fillRect(0, f * h + h - 4, 256, 4);
+    x.fillStyle = "rgba(120,64,50,.22)"; x.fillRect(0, f * h + h - 4, 256, 4);
   }
   return tex(c);
 }
@@ -264,4 +264,18 @@ export function gradMap() {
   t.minFilter = t.magFilter = THREE.NearestFilter;
   t.needsUpdate = true;
   return t;
+}
+
+/* zocalo de casillas de colores (como el de la 2D): una fila de azulejos pastel con junta clara */
+export function texZocalo() {
+  const c = lienzo(256, 64), x = c.getContext("2d"), r = rng(11);
+  const P = ["#E9876A", "#F0BC6E", "#EE9AA6", "#7FB7D6", "#A9B2EC", "#7FA583", "#F6D365", "#3E86B5"];
+  x.fillStyle = "#F4EBDC"; x.fillRect(0, 0, 256, 64);
+  const n = 8, s = 256 / n;
+  for (let i = 0; i < n; i++) for (let j = 0; j < 2; j++) {
+    x.fillStyle = P[(i * 3 + j * 5 + (r() * 2 | 0)) % P.length];
+    x.beginPath(); x.roundRect(i * s + 2, j * 32 + 2, s - 4, 28, 5); x.fill();
+    x.fillStyle = "rgba(255,255,255,.28)"; x.beginPath(); x.roundRect(i * s + 5, j * 32 + 5, s - 12, 8, 3); x.fill();
+  }
+  return tex(c);
 }

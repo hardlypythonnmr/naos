@@ -23,7 +23,7 @@ html.con3d main{position:absolute;inset:0}
 #lienzo.agarra{cursor:grabbing}
 .top{position:absolute;z-index:5;left:0;right:0;top:0;display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap;padding:10px var(--gut);pointer-events:none}
 .top>*{pointer-events:auto}
-.brand{font:700 22px var(--serif);text-decoration:none;letter-spacing:.04em;background:rgba(255,255,255,.86);padding:2px 12px;border-radius:999px}
+.brand{font:700 22px var(--serif);text-decoration:none;letter-spacing:.04em;background:rgba(255,255,255,.86);padding:2px 14px;border-radius:999px;display:inline-flex;align-items:center;min-height:44px;min-width:44px}
 .lema{font:italic 500 18px var(--serif);margin:0;background:rgba(255,255,255,.86);padding:2px 12px;border-radius:999px}
 .tools{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
 button{font:600 14px var(--sans);min-height:44px;padding:8px 14px;border-radius:999px;border:1.5px solid #C9CED6;background:rgba(255,255,255,.92);color:var(--tinta);cursor:pointer}
@@ -60,7 +60,7 @@ html.con3d.dentro .nav{pointer-events:none}
 .media video,.media img{display:block;width:100%;height:100%;object-fit:cover}
 .item figcaption{font-size:14px;line-height:1.35;margin-top:8px;display:flex;flex-direction:column;gap:3px}
 .tarj{opacity:.85}
-.enl{font-weight:600}
+.enl{font-weight:600;display:inline-flex;align-items:center;min-height:44px}
 .nota{font-size:14px;opacity:.85}
 .btn{display:inline-flex;align-items:center;min-height:48px;padding:10px 22px;border-radius:999px;background:var(--tinta);color:var(--campo);text-decoration:none;font-weight:600}
 .p-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;margin-top:8px}
@@ -69,13 +69,16 @@ html.con3d.dentro .nav{pointer-events:none}
 .p-nav .centro{justify-content:center}
 
 /* telefono y pantallas angostas: el panel es una hoja inferior */
+@media (max-width:480px){.mas{display:none}}
 @media (max-width:899px){
-  .top{padding:8px 12px}
+  .top{padding:6px 10px;gap:4px 8px}
   .lema{display:none}
-  .tools{margin-left:0;width:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}
-  .tools button{flex:0 0 auto;min-height:44px}
+  .tools{margin-left:0;width:100%;gap:6px;flex-wrap:nowrap;justify-content:space-between}
+  .tools button{flex:0 1 auto;min-height:44px;padding:6px 10px;font-size:13px;white-space:nowrap}
+  html.dentro .tools{display:none}
+  .brand{font-size:19px}
   .ayuda{bottom:70px;max-width:calc(100% - 32px);font-size:12px}
-  .panel{top:auto;left:0;right:0;width:auto;height:54dvh;border-radius:22px 22px 0 0;box-shadow:0 -8px 30px rgba(14,17,22,.3);padding:0 16px 24px}
+  .panel{top:auto;left:0;right:0;width:auto;height:46dvh;border-radius:22px 22px 0 0;box-shadow:0 -8px 30px rgba(14,17,22,.3);padding:0 16px 24px}
   .panel.mini{height:auto;overflow:hidden}
   .panel.mini .p-cuerpo{display:none}
   .p-barra .min{display:inline-flex;align-items:center}
