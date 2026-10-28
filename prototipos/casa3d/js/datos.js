@@ -13,6 +13,7 @@ window.CASA = (function () {
   P.patio = P.ventana;
 
   function v(id, titulo, tarjeta) { return { tipo: "video", id: id, titulo: titulo, tarjeta: tarjeta }; }
+  function en(titulo, tarjeta) { return { tipo: "enlace", titulo: titulo, tarjeta: tarjeta }; }
   function im(id, titulo, tarjeta) { return { tipo: "imagen", id: id, titulo: titulo, tarjeta: tarjeta }; }
 
   var cuartos = {
@@ -41,11 +42,15 @@ window.CASA = (function () {
     },
     escaleras: {
       nombre: "Stairs", palabra: "Move", linea: "First step.", poster: "c1-mie", pisos: ["ab", "ar"], pal: "escaleras",
-      que: "The stairs are the way between rooms, and where I get moving.",
+      que: "The stairs are the way between rooms, and where I get moving, a little more each time: walk, basketball, bars, gym, jog.",
       relacion: "Autonomy: the pace is mine.",
       conducta: "On the stairs: when I reach the first step, I ______.",
-      invitacion: "Each card leaves a blank to fill, even only in your head. Cella's way: I take the stairs up and back.",
-      biblioteca: [ v("c1-mie", "Keys hit the bowl.", "On the stairs: when I reach the first step, I ______.") ]
+      invitacion: "Each card leaves a blank to fill, even only in your head. Dancing in the shower counts. Cella's way: I take the stairs up and back.",
+      biblioteca: [
+        v("c1-mie", "Keys hit the bowl.", "On the stairs: when I reach the first step, I ______."),
+        en("I don't wait for the gym.", "On the stairs: I don't wait for the gym. I ______."),
+        en("Movement snacks.", "On the stairs: when I want a movement snack, I ______.")
+      ]
     },
     mesa: {
       nombre: "Table", palabra: "Gather", linea: "Someone asks how I am.", poster: "c1-jue", pisos: ["ab"], pal: "mesa",
@@ -61,17 +66,17 @@ window.CASA = (function () {
     },
     puerta: {
       nombre: "Door", palabra: "Arrive", linea: "Keys go in.", poster: "c3-puerta", pisos: ["ab"], pal: "puerta",
-      que: "The door is where people come in, and where I come back in.",
+      que: "The door is where people come in, and where I come back in. I arrive at someone's table.",
       relacion: "Love shows up most with the people closest to me, and it is everywhere.",
       conducta: "At the front door: when the keys go in, I ______.",
-      invitacion: "Come in. Each card asks one thing, and leaves a blank to fill, even only in your head. Cella's way: I leave the day on this side of the door.",
+      invitacion: "Come in. Eat your next meal with someone. Each card asks one thing, and leaves a blank to fill, even only in your head. Cella's way: I leave the day on this side of the door.",
       biblioteca: [ im("c3-puerta", "Keys go in.", "At the front door: when the keys go in, I ______.") ]
     },
     ventana: {
       nombre: "Window", palabra: "The divine", linea: "The window is open.", poster: "c1-vie-v5", pisos: ["ab", "ar"], pal: "ventana",
       que: "Every room has a window onto the courtyard and the sky. I look out, then up.",
       relacion: "Faith begins when I trust myself first.",
-      conducta: "At the window: when the phone is still face down, I ______.",
+      conducta: "At the window: when I open it to the morning air, I ______.",
       invitacion: "Each card leaves a blank to fill, even only in your head. Cella's way: I stop here. I breathe. Then I move on.",
       biblioteca: [
         v("c1-vie-v5", "The house is still quiet.", "At the window: when the house is still quiet, I ______."),
@@ -82,8 +87,8 @@ window.CASA = (function () {
       nombre: "Courtyard", palabra: "The divine", linea: "No roof. Every room opens here.", poster: "c1-vie-v5", pisos: ["ab", "ar"], pal: "patio",
       que: "The courtyard has no roof. Every room opens onto it, and the divine is here, where everything else meets.",
       relacion: "Hearing the divine from within, and trusting myself.",
-      conducta: "In the courtyard: when I doubt, I ______.",
-      invitacion: "Each card leaves a blank to fill, even only in your head. Cella's way: I trust myself first.",
+      conducta: "In the courtyard: when I stop, I ______.",
+      invitacion: "Each card leaves a blank to fill, even only in your head. Cella's way: come here, stop, breathe with me, now move on.",
       biblioteca: [
         v("c1-vie-v5", "The house is still quiet.", "At the window: when the house is still quiet, I ______."),
         v("c5-ventana", "Still dark. Phone face down.", "At the window: when the phone is still face down, I ______.")
