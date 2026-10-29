@@ -22,12 +22,89 @@
 <link rel="icon" href="assets/marca/favicon-16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="assets/marca/avatar-800.png">
 <link rel="stylesheet" href="prototipos/casa3d/css/casa3d.css">
+<link rel="stylesheet" href="assets/css/landing.css">
+<script>(function(){var on=true;try{if(/^#\/[a-z]/.test(location.hash))on=false;else if(/[?&]intro\b/.test(location.search))on=true;else if(localStorage.getItem("naos-landing")==="1")on=false}catch(e){}if(on)document.documentElement.className+=" landing-on"})();</script>
 <script type="importmap">{"imports":{"three":"./prototipos/casa3d/vendor/three.module.min.js"}}</script>
 </head>
 <body>
+<div id="landing" role="region" aria-roledescription="carousel" aria-label="Meet NAOS">
+  <div class="l-top"><a class="l-brand" href="?intro" aria-label="NAOS, start of the intro">NAOS</a><button type="button" class="l-step" id="l-step">Step into the house <span aria-hidden="true">&rarr;</span></button></div>
+  <div class="l-track" id="l-track">
+    <section class="l-slide fig" data-pal="ventana" id="s1" aria-roledescription="slide" aria-label="1 of 8" aria-labelledby="h1">
+      <div class="l-in"><div>
+        <p class="l-n">1 / 8</p><h2 id="h1" tabindex="-1">Welcome to NAOS</h2>
+        <p class="l-p big">Closer to yourself.</p>
+        <p class="l-p">Small behaviors for eating, sleeping, moving, gathering and the divine.</p>
+      </div>
+      <div class="l-fig" data-cella="1" aria-hidden="true"></div>
+      </div>
+    </section>
+    <section class="l-slide" data-pal="cocina" id="s2" aria-roledescription="slide" aria-label="2 of 8" aria-labelledby="h2">
+      <div class="l-in"><div>
+        <p class="l-n">2 / 8</p><h2 id="h2" tabindex="-1">Small behaviors, close to home</h2>
+        <p class="l-p">A behavior is a small thing you can remember. If this happens, I do that.</p>
+        <p class="l-p">You know yourself better one behavior at a time.</p>
+      </div>
+      </div>
+    </section>
+    <section class="l-slide fig" data-pal="mesa" id="s3" aria-roledescription="slide" aria-label="3 of 8" aria-labelledby="h3">
+      <div class="l-in"><div>
+        <p class="l-n">3 / 8</p><h2 id="h3" tabindex="-1">Meet Cella, who lives here</h2>
+        <p class="l-p">Everyone in the house is a Cella. Cella is the little figure who lives each behavior, so you can see it.</p>
+        <p class="l-p">Cella is an AI, written by NMR. Say something under a post and she answers. She checks the comments through the day. A short question gets a short answer, and the rest goes to NMR.</p>
+      </div>
+      <div class="l-fig" data-cella="3" aria-hidden="true"></div>
+      </div>
+    </section>
+    <section class="l-slide" data-pal="alcoba" id="s4" aria-roledescription="slide" aria-label="4 of 8" aria-labelledby="h4">
+      <div class="l-in"><div>
+        <p class="l-n">4 / 8</p><h2 id="h4" tabindex="-1">NAOS is a house with a patio</h2>
+        <p class="l-p">One floor, a square around a patio, with the blue at the center.</p>
+        <p class="l-p">Every room is a place to be, with a short intro and a library of behaviors.</p>
+      </div>
+      </div>
+    </section>
+    <section class="l-slide rooms" data-pal="papel" id="s5" aria-roledescription="slide" aria-label="5 of 8" aria-labelledby="h5">
+      <div class="l-in"><div>
+        <p class="l-n">5 / 8</p><h2 id="h5" tabindex="-1">Each room is a part of life</h2>
+        <p class="l-p">Seven rooms, each with a short intro and a library of behaviors.</p>
+        <ul class="l-rooms" id="l-rooms"></ul>
+      </div>
+      </div>
+    </section>
+    <section class="l-slide" data-pal="escaleras" id="s6" aria-roledescription="slide" aria-label="6 of 8" aria-labelledby="h6">
+      <div class="l-in"><div>
+        <p class="l-n">6 / 8</p><h2 id="h6" tabindex="-1">One room, one behavior, one blank</h2>
+        <p class="l-p">Pick a room. Read what it means. Take one behavior.</p>
+        <p class="l-p">Every card ends with a blank for you: when <span class="l-blank" aria-label="blank"></span>, I <span class="l-blank" aria-label="blank"></span>.</p>
+      </div>
+      </div>
+    </section>
+    <section class="l-slide" data-pal="alcoba" id="s7" aria-roledescription="slide" aria-label="7 of 8" aria-labelledby="h7">
+      <div class="l-in"><div>
+        <p class="l-n">7 / 8</p><h2 id="h7" tabindex="-1">Watch the behaviors, then try one</h2>
+        <p class="l-p">Shorts and Reels show a behavior in seconds. Longer videos on YouTube go deeper.</p>
+        <p class="l-p">Find them on YouTube Shorts, YouTube and Instagram.</p>
+        <ul class="l-links"><li><a href="https://www.youtube.com/@Naos-v3/shorts" rel="noopener">YouTube Shorts</a></li><li><a href="https://www.youtube.com/@Naos-v3" rel="noopener">YouTube</a></li><li><a href="https://www.instagram.com/naos.v3/" rel="noopener">Instagram</a></li></ul>
+      </div>
+      </div>
+    </section>
+    <section class="l-slide fig" data-pal="ventana" id="s8" aria-roledescription="slide" aria-label="8 of 8" aria-labelledby="h8">
+      <div class="l-in"><div>
+        <p class="l-n">8 / 8</p><h2 id="h8" tabindex="-1">Step into the house</h2>
+        <p class="l-p big">Closer to your body, your mind, your people and the divine.</p>
+        <button type="button" class="l-cta" data-enter>Step into the house</button>
+      </div>
+      <div class="l-fig" data-cella="8" aria-hidden="true"></div>
+      </div>
+    </section>
+  </div>
+  <div class="l-ctl"><button type="button" id="l-prev" aria-label="Previous slide">&larr;</button><ol class="l-dots" id="l-dots"></ol><span class="l-count" id="l-count" aria-hidden="true">1 / 8</span><button type="button" id="l-next" aria-label="Next slide">&rarr;</button></div>
+</div>
 <div class="app">
   <header class="top">
     <a class="brand" href="#/" aria-label="NAOS, the house">NAOS</a>
+    <a class="intro-link" href="?intro">Intro</a>
     <p class="lema">Closer to yourself.</p>
     <p class="lema lema2">Closer to your body, your mind, your people and the divine.</p>
     <div class="tools">
@@ -67,6 +144,6 @@
 <script src="assets/js/figura.js"></script>
 <script src="assets/js/cella-brazos.js"></script>
 <script src="prototipos/casa3d/js/datos.js"></script>
-<script type="module" src="prototipos/casa3d/js/app.js"></script>
+<script src="assets/js/landing.js"></script>
 </body>
 </html>
