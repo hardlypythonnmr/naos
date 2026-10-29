@@ -5,20 +5,29 @@
 <style>body{font-family:system-ui,sans-serif;max-width:640px;margin:48px auto;padding:0 16px;line-height:1.6;color:#0D0C0B;background:#F2EDE3}a{color:#2E7D4F}</style></head>
 <body>
 <h1>Política de privacidad de NAOS</h1>
-<p>Última actualización: 11 de octubre de 2026.</p>
-<p>NAOS usa una aplicación interna conectada a la API de YouTube solo para administrar el canal propio de NAOS: subir y programar videos, poner miniaturas y leer las estadísticas del canal. La aplicación la usa únicamente el dueño del canal.</p>
+<p>Última actualización: 29 de octubre de 2026.</p>
+<p>NAOS usa dos aplicaciones internas, una conectada a la API de YouTube y otra a la API de Instagram, solo para administrar sus cuentas propias (el canal de YouTube @naos-v3 y la cuenta de Instagram @naos.v3). Las usa únicamente el dueño de esas cuentas.</p>
 <h2>Qué datos usa</h2>
 <p>Solo datos del canal de NAOS que entrega YouTube: videos, metadatos y estadísticas agregadas (vistas, tiempo de visualización, retención, países). No recoge datos personales de espectadores ni de terceros, no usa cookies y no vende ni comparte datos con nadie.</p>
+<h2>Instagram y los comentarios (Cella)</h2>
+<p>En Instagram, la aplicación publica los Reels, carruseles, imágenes e historias de NAOS, lee las estadísticas de esas publicaciones y lee los comentarios que la gente deja en ellas. Cella, la asistente de NAOS, es una IA declarada: lee esos comentarios y contesta algunos con una respuesta corta y pública en la misma publicación. Lo delicado lo lee una persona. NAOS no manda mensajes privados, no pide datos y no lee nada fuera de sus propias publicaciones.</p>
+<p>De cada comentario NAOS guarda solo lo necesario para no contestarlo dos veces: un código cifrado (hash) del comentario y de su autor, la fecha, el tipo de comentario y el texto de la respuesta de Cella. No guarda nombres de usuario, fotos ni el texto de tu comentario. Ese registro no se vende ni se comparte.</p>
 <h2>Cómo se guardan</h2>
 <p>Las credenciales se guardan como secretos del entorno de trabajo y nunca en código público. Los datos de la API se guardan solo el tiempo que permiten las políticas para desarrolladores de YouTube y se borran o actualizan a los 30 días.</p>
 <h2>Servicios de terceros</h2>
-<p>Esta aplicación usa los servicios de la API de YouTube. Al usarla se aplican los <a href="https://www.youtube.com/t/terms">Términos de servicio de YouTube</a> y la <a href="https://policies.google.com/privacy">Política de privacidad de Google</a>. El acceso se puede revocar en cualquier momento en <a href="https://myaccount.google.com/permissions">la configuración de seguridad de Google</a>.</p>
+<p>La aplicación de Instagram usa la plataforma de Meta; se aplican los <a href="https://help.instagram.com/581066165581870">Términos de uso de Instagram</a> y la <a href="https://privacycenter.instagram.com/policy">Política de privacidad de Meta</a>. La aplicación de YouTube usa los servicios de la API de YouTube. Al usarla se aplican los <a href="https://www.youtube.com/t/terms">Términos de servicio de YouTube</a> y la <a href="https://policies.google.com/privacy">Política de privacidad de Google</a>. El acceso se puede revocar en cualquier momento en <a href="https://myaccount.google.com/permissions">la configuración de seguridad de Google</a>.</p>
 <!-- Sección activa: cada equipo que guarda algo con N.guarda() agrega aquí un <p> en inglés dentro de #navegador-lista (qué guarda, en qué clave, que nunca sale del navegador). Ya tiene contenido (Guide, naos:guia); no se vuelve a ocultar. -->
 <section id="navegador" lang="en" aria-labelledby="navegador-t">
 <h2 id="navegador-t">What stays in your browser</h2>
 <div id="navegador-lista">
 <p>Guide: if you close the guide on the home page, your browser remembers that and the last card you opened, under the key naos:guia. It never leaves your browser. The home page also reads ?src from the address to greet you; it saves nothing about it.</p>
 </div>
+</section>
+<h2>Borrar tus datos</h2>
+<p>Si comentaste en una publicación de NAOS y quieres que se borre lo que NAOS guarda de ese comentario, sigue los pasos de <a href="borrar-datos.html">borrar-datos.html</a>. También puedes borrar tu comentario en Instagram en cualquier momento.</p>
+<section lang="en">
+<h2>In English, in short</h2>
+<p>NAOS runs two internal apps, one on the YouTube API and one on the Instagram API, only to manage its own accounts (@naos-v3 on YouTube, @naos.v3 on Instagram). On Instagram the app publishes NAOS posts, reads their insights and reads the comments left on them. Cella, NAOS's declared AI assistant, replies to some comments with a short public reply on the same post; sensitive ones go to a person. NAOS sends no private messages and asks for no data. For each comment it keeps only a hash of the comment and of its author, the date, a category and Cella's reply text: no usernames, photos or comment text. Nothing is sold or shared. To have that record deleted, see <a href="borrar-datos.html">data deletion</a>.</p>
 </section>
 <h2>Contacto</h2>
 <p>n1.selfdetermination@gmail.com</p>
