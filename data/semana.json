@@ -1,6 +1,6 @@
 {
  "nota": "Briefs, lo ya publicado y la biblioteca sin fecha (D-224). Las piezas fechadas viven en data/temas.json desde el lote E (D-252); esquema en el README. Sin fecha: dia null y nota.",
- "generado": "2026-10-30T04:00Z",
+ "generado": "2026-10-30T07:00Z",
  "semana": {
   "desde": "2026-10-19",
   "hasta": "2026-10-25"
@@ -656,7 +656,7 @@
     },
     {
      "titulo": "JPY BOJ Press Conference",
-     "hora": "2026-10-30T05:30Z",
+     "hora": "2026-10-30T06:30Z",
      "fuente": "Forex Factory weekly calendar"
     }
    ]
