@@ -1,6 +1,6 @@
 {
  "nota": "Briefs, lo ya publicado y la biblioteca sin fecha (D-224). Las piezas fechadas viven en data/temas.json desde el lote E (D-252); esquema en el README. Sin fecha: dia null y nota.",
- "generado": "2026-10-29T19:22Z",
+ "generado": "2026-10-30T04:00Z",
  "semana": {
   "desde": "2026-10-19",
   "hasta": "2026-10-25"
@@ -640,18 +640,18 @@
    "video_nota": "Short (EN)",
    "eventos": [
     {
+     "titulo": "JPY BOJ Outlook Report",
+     "hora": "2026-10-30T03:02Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
      "titulo": "JPY BOJ Policy Rate",
-     "hora": "2026-10-30T02:30Z",
+     "hora": "2026-10-30T03:02Z",
      "fuente": "Forex Factory weekly calendar"
     },
     {
      "titulo": "JPY Monetary Policy Statement",
-     "hora": "2026-10-30T02:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "JPY BOJ Outlook Report",
-     "hora": "2026-10-30T02:31Z",
+     "hora": "2026-10-30T03:02Z",
      "fuente": "Forex Factory weekly calendar"
     },
     {
