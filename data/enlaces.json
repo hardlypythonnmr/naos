@@ -1,6 +1,6 @@
 {
   "nota": "Enlaces de lo publicado (D-234). Una sola fuente del enlace: se escribe desde motor/publicados.csv, nunca a mano en otro lado, y no lo reescribe ningun builder. Esquema: piezas[clave] = { yt, ig, publicado_utc, teaser_de }. clave = 'AAAA-MM-DD|slot' (ej. 2026-10-19|close) o 'AAAA-MM-DD|asset_id' si el item de semana.json no tiene slot. yt = https://www.youtube.com/shorts/... , https://www.youtube.com/watch?v=... o https://youtu.be/... ; ig = https://www.instagram.com/reel/... o null, y solo con yt presente; publicado_utc = ISO UTC; teaser_de = clave o null. Sin yt no hay enlace. Se valida con scripts/validar.mjs.",
-  "generado": "2026-10-31T00:04Z",
+  "generado": "2026-10-31T16:04Z",
   "piezas": {
     "2026-10-15|promo": {
       "yt": "https://www.youtube.com/shorts/tCEZcS9OG8M",
@@ -143,6 +143,12 @@
       "yt": "https://www.youtube.com/shorts/QPL48n0z9JI",
       "ig": "https://www.instagram.com/reel/DfI05d2iQaw/",
       "publicado_utc": "2026-10-31T00:04:42Z",
+      "teaser_de": null
+    },
+    "2026-10-31|casa-puerta": {
+      "yt": "https://www.youtube.com/shorts/tY2dgYFcaao",
+      "ig": "https://www.instagram.com/reel/DfKiwtMgbZS/",
+      "publicado_utc": "2026-10-31T16:04:38Z",
       "teaser_de": null
     }
   }
