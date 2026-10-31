@@ -1,6 +1,6 @@
 {
  "nota": "Briefs, lo ya publicado y la biblioteca sin fecha (D-224). Las piezas fechadas viven en data/temas.json desde el lote E (D-252); esquema en el README. Sin fecha: dia null y nota.",
- "generado": "2026-10-31T07:22Z",
+ "generado": "2026-10-31T19:23Z",
  "semana": {
   "desde": "2026-10-19",
   "hasta": "2026-10-25"
