@@ -3,20 +3,20 @@
  "invitaciones": [
   {
    "slug": "cena", "publicar": true,
-   "video": "assets/reels/a-place-set.mp4", "poster": "assets/invita/cena.jpg", "og": "assets/invita/cena-og.jpg",
-   "recorte": [0.36, 0.78], "fondo": "community",
+   "video": "assets/invita/cena-casa.mp4", "poster": "assets/invita/cena.jpg", "og": "assets/invita/cena-og.jpg",
+   "recorte": [0.28, 0.76], "fondo": "community",
    "en": {
     "titulo": "An invitation to dinner", "frase": "{nombre} invites you to dinner.", "alguien": "Someone",
     "sub": "A seat at the table is saved for you.",
     "og_titulo": "Someone saved you a seat at the table", "og_desc": "An invitation to dinner from the NAOS house. Open it to see who.",
-    "video_alt": "Cella waits by a table set with bread and flowers. A friend arrives and stands beside her.",
+    "video_alt": "Cella sits at a table with two warm plates. The other seat, with balloons tied to it, is free and waiting.",
     "compartir": "I saved you a seat at the table.", "responder": "Yes. When?", "responder_boton": "Say yes on WhatsApp"
    },
    "es": {
     "titulo": "Una invitación a cenar", "frase": "{nombre} te invita a cenar.", "alguien": "Alguien",
     "sub": "Hay un puesto en la mesa guardado para ti.",
     "og_titulo": "Alguien te guardó un puesto en la mesa", "og_desc": "Una invitación a cenar desde la casa de NAOS. Ábrela para ver de quién.",
-    "video_alt": "Cella espera junto a una mesa puesta con pan y flores. Llega una amiga y se queda a su lado.",
+    "video_alt": "Cella está sentada a una mesa con dos platos calienticos. El otro puesto, con globos amarrados, está libre y esperando.",
     "compartir": "Te guardé un puesto en la mesa.", "responder": "Acepto. ¿Cuándo?", "responder_boton": "Decir que sí por WhatsApp"
    }
   },
