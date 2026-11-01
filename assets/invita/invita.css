@@ -1,0 +1,70 @@
+/* invita.css · invitaciones vivas (/invita/<slug>/, I34). G3: blanco y tinta, el color de la puerta como plano de la pieza,
+   Newsreader para la frase e IBM Plex para rótulos y botones. Sin sombras ni degradados. Objetivos táctiles de 48 px.
+   El nombre se distingue por la itálica (no solo por color). Claro siempre, como la portada ES. */
+:root {
+  /* G3: los colores de puerta de la portada (es/index.html) */
+  --c-breathe: #7FCDAE; --c-eat: #F0BC6E; --c-sleep: #A9B2EC; --c-move: #E9876A; --c-community: #EE9AA6; --c-divine: #141A4A;
+  --i-max: 560px; --i-g: 16px;
+  color-scheme: light;
+}
+[hidden] { display: none !important; }
+body { background: var(--naos-paper); color: var(--naos-ink); }
+:focus-visible { outline: 3px solid var(--naos-ink); outline-offset: 3px; }
+
+.i-barra { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 52px; padding: 0 var(--i-g);
+  border-bottom: 2px solid var(--naos-ink); }
+.i-marca { display: inline-flex; align-items: center; min-height: 44px; font: 600 19px/1 var(--font-cond); letter-spacing: .06em; text-decoration: none; }
+.i-idioma { display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; }
+
+main { display: block; max-width: var(--i-max); margin: 0 auto; padding: 0 var(--i-g) var(--s-6); }
+
+/* la pieza: el plano de color de la puerta, la frase arriba y la escena debajo, como una INV de la casa */
+.i-pieza { --fondo: var(--c-community); --tinta: var(--naos-ink); --papel: var(--naos-paper);
+  background: var(--fondo); color: var(--tinta); margin: 0 calc(-1 * var(--i-g)); padding: var(--s-4) 20px var(--s-2); }
+.i-pieza.i-divine { --fondo: var(--c-divine); --tinta: var(--naos-night-text); --papel: var(--naos-night); }
+.i-pieza.i-eat { --fondo: var(--c-eat); } .i-pieza.i-sleep { --fondo: var(--c-sleep); } .i-pieza.i-move { --fondo: var(--c-move); } .i-pieza.i-breathe { --fondo: var(--c-breathe); }
+.i-frase { font-family: var(--font-serif); font-weight: 300; font-size: clamp(38px, 10.6vw, 60px); line-height: 1.02; letter-spacing: -.025em;
+  margin: 0 0 var(--s-2); overflow-wrap: anywhere; text-wrap: balance; }
+.i-nombre { font-style: italic; font-weight: 400; }
+.i-sub { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 20px; line-height: 1.3; margin: 0 0 var(--s-3); max-width: 30ch; text-wrap: pretty; }
+/* la escena va enmarcada en tinta: el video y el plano nunca tienen exactamente el mismo color en cada teléfono, el marco lo vuelve intención */
+.i-escena { position: relative; aspect-ratio: var(--ar, 4 / 3); overflow: hidden; border: 2px solid var(--tinta); }
+.i-escena video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% var(--oy, 50%); }
+.i-pausa { position: absolute; right: 12px; bottom: 12px; min-height: 44px; min-width: 44px; padding: 0 16px; border: 2px solid var(--papel);
+  background: var(--tinta); color: var(--papel); font: 600 14px/1 var(--font-sans); cursor: pointer; }
+.i-pausa:focus-visible { outline: 3px solid var(--tinta); outline-offset: 2px; }
+.i-firma { margin: var(--s-2) 0 0; font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 15px; }
+.i-firma span { font: normal 600 13px/1 var(--font-cond); letter-spacing: .06em; margin-right: 6px; }
+
+/* botones */
+.i-boton { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; padding: 12px 20px; border: 2px solid var(--naos-ink);
+  background: var(--naos-ink); color: var(--naos-paper); font: 600 16px/1.2 var(--font-sans); text-align: center; text-decoration: none; cursor: pointer;
+  touch-action: manipulation; }
+.i-boton:hover { text-decoration: underline; text-underline-offset: 3px; }
+.i-boton.i-sec { background: var(--naos-paper); color: var(--naos-ink); }
+.i-responder { margin: var(--s-3) 0 0; }
+
+/* te toca invitar */
+.i-invita { margin-top: var(--s-6); border-top: 2px solid var(--naos-ink); padding-top: var(--s-2); }
+.i-invita h2 { font-family: var(--font-serif); font-weight: 300; font-size: 30px; line-height: 1.1; letter-spacing: -.01em; margin: 0 0 var(--s-2); }
+#forma, .i-listo { display: grid; gap: 10px; }
+.i-listo { margin-top: var(--s-3); }
+.i-invita label { font-weight: 600; font-size: 16px; }
+.i-invita input { width: 100%; min-height: 48px; padding: 10px 12px; border: 2px solid var(--naos-ink); border-radius: 0; background: var(--naos-paper);
+  color: var(--naos-ink); font: 400 18px/1.3 var(--font-sans); }
+.i-invita input[readonly] { font-size: 15px; background: var(--lab-paper); }
+.i-ayuda, .i-nada { margin: 0; font-size: 14px; line-height: 1.45; color: var(--naos-sec); }
+.i-nada { margin-top: var(--s-3); }
+.i-error { margin: 0; font-size: 15px; font-weight: 600; color: var(--naos-down); }
+.i-error::before { content: "! "; }
+.i-estado { margin: 0; font-family: var(--font-serif); font-size: 20px; }
+.i-acciones { display: grid; gap: 10px; }
+
+.i-pie { max-width: var(--i-max); margin: 0 auto; padding: var(--s-3) var(--i-g) var(--s-6); border-top: 1px solid var(--naos-rule); font-size: 14px; line-height: 1.5; }
+.i-pie p { margin: 0 0 10px; }
+.i-pie a { display: inline-block; min-height: 24px; }
+
+@media (min-width: 600px) {
+  .i-pieza { margin: var(--s-3) 0 0; padding: var(--s-5) var(--s-4) var(--s-3); }
+  .i-acciones { grid-template-columns: 1fr 1fr; }
+}

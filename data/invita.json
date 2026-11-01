@@ -1,0 +1,62 @@
+{
+ "_nota": "Invitaciones vivas (I34, D-317). Una página por invitación y por idioma: invita/<slug>/ (EN) y es/invita/<slug>/ (ES). Las escribe node scripts/construir-invita.mjs. publicar: false deja la plantilla lista sin página. El nombre de quien invita viaja en el fragmento (#nombre=Ana) y nunca sale del teléfono. {nombre} marca dónde va el nombre en la frase. recorte: fracción alta y baja del cuadro 1080x1920 que se ve (debajo del texto quemado del video). fondo: color G3 de la puerta (community, divine...).",
+ "invitaciones": [
+  {
+   "slug": "cena", "publicar": true,
+   "video": "assets/reels/a-place-set.mp4", "poster": "assets/invita/cena.jpg", "og": "assets/invita/cena-og.jpg",
+   "recorte": [0.36, 0.78], "fondo": "community",
+   "en": {
+    "titulo": "An invitation to dinner", "frase": "{nombre} invites you to dinner.", "alguien": "Someone",
+    "sub": "A seat at the table is saved for you.",
+    "og_titulo": "Someone saved you a seat at the table", "og_desc": "An invitation to dinner from the NAOS house. Open it to see who.",
+    "video_alt": "Cella waits by a table set with bread and flowers. A friend arrives and stands beside her.",
+    "compartir": "I saved you a seat at the table.", "responder": "Yes. When?", "responder_boton": "Say yes on WhatsApp"
+   },
+   "es": {
+    "titulo": "Una invitación a cenar", "frase": "{nombre} te invita a cenar.", "alguien": "Alguien",
+    "sub": "Hay un puesto en la mesa guardado para ti.",
+    "og_titulo": "Alguien te guardó un puesto en la mesa", "og_desc": "Una invitación a cenar desde la casa de NAOS. Ábrela para ver de quién.",
+    "video_alt": "Cella espera junto a una mesa puesta con pan y flores. Llega una amiga y se queda a su lado.",
+    "compartir": "Te guardé un puesto en la mesa.", "responder": "Acepto. ¿Cuándo?", "responder_boton": "Decir que sí por WhatsApp"
+   }
+  },
+  {
+   "slug": "luna", "publicar": false,
+   "video": "assets/reels/see-the-moon.mp4", "poster": "assets/invita/luna.jpg", "og": "assets/invita/luna-og.jpg",
+   "recorte": [0.265, 0.74], "fondo": "divine",
+   "en": {
+    "titulo": "An invitation to see the moon", "frase": "{nombre} invites you to see the moon.", "alguien": "Someone",
+    "sub": "A few minutes outside, the two of you, looking up.",
+    "og_titulo": "Someone wants to see the moon with you", "og_desc": "An invitation from the NAOS house. Open it to see who.",
+    "video_alt": "Cella and a friend sit on a bench at night with a cup of tea and look up at the full moon.",
+    "compartir": "Let's go see the moon.", "responder": "Yes. When?", "responder_boton": "Say yes on WhatsApp"
+   },
+   "es": {
+    "titulo": "Una invitación a ver la luna", "frase": "{nombre} te invita a ver la luna.", "alguien": "Alguien",
+    "sub": "Unos minutos afuera, en compañía, mirando hacia arriba.",
+    "og_titulo": "Alguien quiere ver la luna contigo", "og_desc": "Una invitación desde la casa de NAOS. Ábrela para ver de quién.",
+    "video_alt": "Cella y una amiga, sentadas en una banca de noche con una taza de té, miran la luna llena.",
+    "compartir": "Vamos a ver la luna.", "responder": "Acepto. ¿Cuándo?", "responder_boton": "Decir que sí por WhatsApp"
+   }
+  },
+  {
+   "slug": "puerta", "publicar": false,
+   "video": "assets/reels/knock-knock-candy.mp4", "poster": "assets/invita/puerta.jpg", "og": "assets/invita/puerta-og.jpg",
+   "recorte": [0.39, 0.76], "fondo": "community",
+   "en": {
+    "titulo": "Someone is at your door", "frase": "{nombre} is knocking on your door.", "alguien": "Someone",
+    "sub": "Open when you can.",
+    "og_titulo": "Knock knock", "og_desc": "Someone from the NAOS house is at your door. Open it to see who.",
+    "video_alt": "A friend in a sheet knocks on a door. Cella opens it with a bowl of candy.",
+    "compartir": "Knock knock.", "responder": "Coming. When?", "responder_boton": "Answer on WhatsApp"
+   },
+   "es": {
+    "titulo": "Alguien está en tu puerta", "frase": "{nombre} toca a tu puerta.", "alguien": "Alguien",
+    "sub": "Abre cuando puedas.",
+    "og_titulo": "Toc, toc", "og_desc": "Alguien de la casa de NAOS está en tu puerta. Ábrela para ver quién.",
+    "video_alt": "Una amiga con una sábana toca una puerta. Cella abre con un tazón de dulces.",
+    "compartir": "Toc, toc.", "responder": "Ya voy. ¿Cuándo?", "responder_boton": "Responder por WhatsApp"
+   }
+  }
+ ]
+}
