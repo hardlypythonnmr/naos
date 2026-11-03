@@ -395,6 +395,7 @@ function cabeza({ L, titulo, descripcion, ruta, raiz, jsonld, alterna, css = [],
 <link rel="stylesheet" href="${raiz}assets/css/temas.css">${css.map((c) => `\n<link rel="stylesheet" href="${raiz}${c}">`).join("")}
 <script type="application/ld+json">${JSON.stringify(jsonld).replace(/</g, "\\u003c")}</script>
 <script defer src="${raiz}assets/js/temas.js"></script>
+<script defer src="${raiz}assets/comun/contador.js"></script>
 </head>`;
 }
 // ruta: la de la página dentro de su edición, sin prefijo (temas/x/); el enlace al otro idioma es la misma ruta en la otra edición

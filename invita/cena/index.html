@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>An invitation to dinner · NAOS</title>
+<meta name="description" content="An invitation to dinner from the NAOS house. Open it to see who.">
+<link rel="canonical" href="https://hardlypythonnmr.github.io/naos/invita/cena/">
+<link rel="alternate" hreflang="en" href="https://hardlypythonnmr.github.io/naos/invita/cena/">
+<link rel="alternate" hreflang="es" href="https://hardlypythonnmr.github.io/naos/es/invita/cena/">
+<link rel="alternate" hreflang="x-default" href="https://hardlypythonnmr.github.io/naos/invita/cena/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NAOS">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Someone saved you a seat at the table">
+<meta property="og:description" content="An invitation to dinner from the NAOS house. Open it to see who.">
+<meta property="og:url" content="https://hardlypythonnmr.github.io/naos/invita/cena/">
+<meta property="og:image" content="https://hardlypythonnmr.github.io/naos/assets/invita/cena-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cella sits at a table with two warm plates. The other seat, with balloons tied to it, is free and waiting.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/marca/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/marca/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/marca/avatar-800.png">
+<link rel="preload" href="../../assets/fuentes/Newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/comun/tokens.css">
+<link rel="stylesheet" href="../../assets/comun/base.css">
+<link rel="stylesheet" href="../../assets/invita/invita.css">
+<script defer src="../../assets/invita/invita.js"></script>
+<script defer src="../../assets/comun/contador.js"></script>
+</head>
+<body>
+<a class="sr" href="#pieza">Skip to the invitation</a>
+<header class="i-barra">
+<a class="i-marca" href="../../">NAOS</a>
+<a class="i-idioma" id="otro-idioma" href="../../es/invita/cena/" hreflang="es" lang="es">Español</a>
+</header>
+<main id="main" data-alguien="Someone" data-compartir="I saved you a seat at the table." data-pausa="Pause" data-play="Play" data-copiado="Copied." data-listo="Your link is ready.">
+<article class="i-pieza i-community" id="pieza" aria-labelledby="frase">
+<h1 class="i-frase" id="frase"><span class="i-nombre" id="nombre">Someone</span> invites you to dinner.</h1>
+<p class="i-sub">A seat at the table is saved for you.</p>
+<div class="i-escena" style="--ar:1080/922;--oy:53.9%">
+<video muted loop playsinline preload="metadata" poster="../../assets/invita/cena.jpg" aria-label="Cella sits at a table with two warm plates. The other seat, with balloons tied to it, is free and waiting."><source src="../../assets/invita/cena-casa.mp4" type="video/mp4"></video>
+<button class="i-pausa" type="button" id="pausa" aria-pressed="false" hidden>Pause</button>
+</div>
+<p class="i-firma"><span>NAOS</span> Closer to yourself.</p>
+</article>
+<p class="i-responder" id="responder" hidden><a class="i-boton" href="https://wa.me/?text=Yes.%20When%3F" target="_blank" rel="noopener" data-umami-event="invita-responder">Say yes on WhatsApp</a></p>
+<section class="i-invita" aria-labelledby="turno">
+<h2 id="turno">Your turn to invite</h2>
+<form id="forma" novalidate>
+<label for="n">Your name</label>
+<p class="i-ayuda" id="n-ayuda">It travels only inside the link, after the #. NAOS never receives it and keeps nothing.</p>
+<input id="n" name="nombre" type="text" maxlength="30" autocomplete="given-name" autocapitalize="words" spellcheck="false" enterkeyhint="done" aria-describedby="n-ayuda n-error">
+<p class="i-error" id="n-error" hidden>Write a name first.</p>
+<button class="i-boton" type="submit" data-umami-event="invita-crear">Make my link</button>
+</form>
+<div class="i-listo" id="listo" hidden>
+<p class="i-estado" id="estado" role="status"></p>
+<label for="enlace">Your link</label>
+<input id="enlace" type="url" readonly>
+<div class="i-acciones">
+<a class="i-boton" id="wa" href="https://wa.me/" target="_blank" rel="noopener" data-umami-event="invita-compartir">Share on WhatsApp</a>
+<button class="i-boton i-sec" type="button" id="copiar" data-umami-event="invita-copiar">Copy link</button>
+</div>
+</div>
+<p class="i-nada">Nothing you type here is saved or sent anywhere until you share the link yourself.</p>
+</section>
+</main>
+<footer class="i-pie">
+<p class="ayuda-l">If this is weighing on you, talk to someone now. Colombia: <a href="tel:106">106</a>, national mental health line, 24/7, or <a href="tel:123">123</a> in immediate danger (<a href="https://findahelpline.com/countries/co" rel="noopener">source</a>). US: <a href="tel:988">988</a>. Anywhere else: <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a>.</p>
+<p><a href="../../">NAOS home</a> · <a href="../../privacidad.html#contador" hreflang="es">Privacy</a></p>
+</footer>
+</body>
+</html>
