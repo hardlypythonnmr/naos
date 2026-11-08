@@ -1,6 +1,6 @@
 {
  "nota": "Briefs, lo ya publicado y la biblioteca sin fecha (D-224). Las piezas fechadas viven en data/temas.json desde el lote E (D-252); esquema en el README. Sin fecha: dia null y nota.",
- "generado": "2026-11-08T01:22Z",
+ "generado": "2026-11-08T05:45Z",
  "semana": {
   "desde": "2026-10-19",
   "hasta": "2026-10-25"
@@ -648,30 +648,10 @@
    "video_nota": "Short (EN)",
    "eventos": [
     {
-     "titulo": "AUD Cash Rate",
-     "hora": "2026-11-03T03:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "AUD RBA Monetary Policy Statement",
-     "hora": "2026-11-03T03:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "AUD RBA Rate Statement",
-     "hora": "2026-11-03T03:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
      "titulo": "RBA decision and Statement on Monetary Policy",
      "hora": "2026-11-03T03:30Z",
      "fuente": "Reserve Bank of Australia, release schedule (SMP 2.30 pm, 3 Nov; Board meets 2 to 3 Nov)",
      "url": "https://www.rba.gov.au/schedules-events/"
-    },
-    {
-     "titulo": "AUD RBA Press Conference",
-     "hora": "2026-11-03T04:30Z",
-     "fuente": "Forex Factory weekly calendar"
     }
    ]
   },
@@ -704,19 +684,13 @@
    "format": "brief",
    "title": "New York open brief",
    "status": "planned",
-   "video": true,
-   "video_nota": "Video: red event ahead",
+   "video": false,
    "eventos": [
     {
      "titulo": "US JOLTS job openings (September)",
      "hora": "2026-11-03T15:00Z",
      "fuente": "U.S. Bureau of Labor Statistics, 2026 release calendar",
      "url": "https://www.bls.gov/schedule/2026/home.htm"
-    },
-    {
-     "titulo": "USD Congressional Elections",
-     "hora": "2026-11-03T15:16Z",
-     "fuente": "Forex Factory weekly calendar"
     }
    ]
   },
@@ -731,18 +705,7 @@
    "status": "planned",
    "video": true,
    "video_nota": "Short (EN)",
-   "eventos": [
-    {
-     "titulo": "NZD Employment Change q/q",
-     "hora": "2026-11-03T21:45Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "NZD Unemployment Rate",
-     "hora": "2026-11-03T21:45Z",
-     "fuente": "Forex Factory weekly calendar"
-    }
-   ]
+   "eventos": []
   },
   {
    "seccion": "market",
@@ -804,39 +767,13 @@
    "format": "brief",
    "title": "London open brief",
    "status": "planned",
-   "video": true,
-   "video_nota": "Video: red event ahead",
+   "video": false,
    "eventos": [
-    {
-     "titulo": "GBP BOE Monetary Policy Report",
-     "hora": "2026-11-05T12:00Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "GBP Monetary Policy Summary",
-     "hora": "2026-11-05T12:00Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "GBP MPC Official Bank Rate Votes",
-     "hora": "2026-11-05T12:00Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "GBP Official Bank Rate",
-     "hora": "2026-11-05T12:00Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
     {
      "titulo": "Bank of England Bank Rate decision and Monetary Policy Report",
      "hora": "2026-11-05T12:00Z",
      "fuente": "Bank of England, November 2026 Monetary Policy Summary (to be published at 12pm)",
      "url": "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/november-2026"
-    },
-    {
-     "titulo": "GBP BOE Gov Bailey Speaks",
-     "hora": "2026-11-05T12:30Z",
-     "fuente": "Forex Factory weekly calendar"
     }
    ]
   },
@@ -885,31 +822,6 @@
    "video_nota": "Video: red event ahead",
    "eventos": [
     {
-     "titulo": "CAD Employment Change",
-     "hora": "2026-11-06T13:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "CAD Unemployment Rate",
-     "hora": "2026-11-06T13:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "USD Average Hourly Earnings m/m",
-     "hora": "2026-11-06T13:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "USD Non-Farm Employment Change",
-     "hora": "2026-11-06T13:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "USD Unemployment Rate",
-     "hora": "2026-11-06T13:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
      "titulo": "US Employment Situation (October payrolls)",
      "hora": "2026-11-06T13:30Z",
      "fuente": "U.S. Bureau of Labor Statistics, 2026 release calendar",
@@ -927,13 +839,7 @@
    "title": "New York open brief",
    "status": "planned",
    "video": false,
-   "eventos": [
-    {
-     "titulo": "JPY BOJ Gov Ueda Speaks",
-     "hora": "2026-11-06T16:00Z",
-     "fuente": "Forex Factory weekly calendar"
-    }
-   ]
+   "eventos": []
   },
   {
    "seccion": "market",
@@ -947,11 +853,6 @@
    "video": true,
    "video_nota": "Short (EN)",
    "eventos": [
-    {
-     "titulo": "NZD Parliamentary Elections",
-     "hora": "2026-11-06T21:45Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
     {
      "titulo": "Diwali (Lakshmi Puja); NSE Muhurat trading session",
      "hora": null,
@@ -1025,6 +926,16 @@
    "video": true,
    "video_nota": "Video: red event ahead",
    "eventos": [
+    {
+     "titulo": "USD Core CPI m/m",
+     "hora": "2026-11-10T13:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "USD CPI m/m",
+     "hora": "2026-11-10T13:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
     {
      "titulo": "US CPI (October)",
      "hora": "2026-11-10T13:30Z",
@@ -1108,7 +1019,13 @@
    "status": "planned",
    "video": true,
    "video_nota": "Short (EN)",
-   "eventos": []
+   "eventos": [
+    {
+     "titulo": "GBP GDP m/m",
+     "hora": "2026-11-12T07:00Z",
+     "fuente": "Forex Factory weekly calendar"
+    }
+   ]
   },
   {
    "seccion": "market",
@@ -1156,8 +1073,19 @@
    "format": "brief",
    "title": "London open brief",
    "status": "planned",
-   "video": false,
+   "video": true,
+   "video_nota": "Video: red event ahead",
    "eventos": [
+    {
+     "titulo": "USD Core PPI m/m",
+     "hora": "2026-11-13T13:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
+    {
+     "titulo": "USD PPI m/m",
+     "hora": "2026-11-13T13:30Z",
+     "fuente": "Forex Factory weekly calendar"
+    },
     {
      "titulo": "US PPI (October)",
      "hora": "2026-11-13T13:30Z",
