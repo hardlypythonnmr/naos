@@ -7,8 +7,8 @@
   var REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var ORDEN = ["tenderness", "emptiness", "saturation", "body", "courtyard"];
   var VIEJAS = { bedroom: "emptiness", windows: "emptiness", kitchen: "saturation", stairs: "body", table: "tenderness", door: "tenderness", courtyard: "courtyard" };
-  var COL = { tenderness: "#FF5C9E", emptiness: "#4664FF", saturation: "#FF5B1F", body: "#FFC21A", courtyard: "#2FB36A" };
-  var ON = { tenderness: "#0E1116", emptiness: "#FFFFFF", saturation: "#0E1116", body: "#0E1116", courtyard: "#0E1116" };
+  var COL = { tenderness: "#FF86B0", emptiness: "#3F4FE0", saturation: "#EA4A14", body: "#FFD23F", courtyard: "#13805A" };
+  var ON = { tenderness: "#0E1116", emptiness: "#FFFFFF", saturation: "#0E1116", body: "#0E1116", courtyard: "#FFFFFF" };
   var OJOS = { tenderness: "happy", emptiness: "closed", saturation: "tiltin", body: "chevron", courtyard: "dot" };
   var DIAS_EN = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 

@@ -14,11 +14,11 @@
   /* por defecto, el campo de la portada */
   --c: var(--ink); --t: var(--crema); --h: var(--ink); --on: var(--crema);
 }
-.s-tenderness { --c: #FF5C9E; --t: #FFE6F0; --h: #B8145A; --on: #0E1116; }
-.s-emptiness  { --c: #4664FF; --t: #E6EAFF; --h: #2A3FD6; --on: #FFFFFF; }
-.s-saturation { --c: #FF5B1F; --t: #FFE9DE; --h: #C23A06; --on: #0E1116; }
-.s-body       { --c: #FFC21A; --t: #FFF3CF; --h: #8A5A00; --on: #0E1116; }
-.s-courtyard  { --c: #2FB36A; --t: #DFF5E7; --h: #12703C; --on: #0E1116; }
+.s-tenderness { --c: #FF86B0; --t: #FFE9F1; --h: #B8145A; --on: #0E1116; }
+.s-emptiness  { --c: #3F4FE0; --t: #E6E9FF; --h: #2A3AC4; --on: #FFFFFF; }
+.s-saturation { --c: #EA4A14; --t: #FFE8DD; --h: #B23406; --on: #0E1116; }
+.s-body       { --c: #FFD23F; --t: #FFF5D1; --h: #8A5A00; --on: #0E1116; }
+.s-courtyard  { --c: #13805A; --t: #DDF2E8; --h: #0E6B4A; --on: #FFFFFF; }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
