@@ -1,0 +1,22 @@
+{
+ "_nota": "La prueba comprueba que coincide con el repo. slug -> la carpeta temas/<slug>/index.html existe en el repo.",
+ "temas": {
+  "the-full-moon-table": true,
+  "a-good-party": true,
+  "how-a-month-is-announced": true,
+  "keep-your-hour": true,
+  "advent-waiting": true,
+  "back-to-the-hour": true,
+  "saints-and-souls": true,
+  "a-lamp-on-the-night-without-a-moon": true,
+  "light-in-the-window": true,
+  "the-longest-night": true,
+  "phones-in-the-bread-basket": true,
+  "walks-by-the-moon": true,
+  "walk-to-the-water": true,
+  "breathe": false,
+  "the-cella": true,
+  "moon": true,
+  "es": true
+ }
+}
