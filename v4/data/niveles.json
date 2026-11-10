@@ -1,0 +1,498 @@
+{
+ "version": 1,
+ "fuente": "empresa/evolucion/2026-11-09-limite/naos40-visual/v2/mapa.md y empresa/vp/llenado-bibliotecas.md",
+ "orden": "de arriba a abajo",
+ "copy": {
+  "titulo": "Choose friction.",
+  "kicker": "NAOS 4.0 · THE HOUSE",
+  "bajada": "Closer to yourself. Each step opens its library.",
+  "aro": "breath crosses every step",
+  "dias": "MON TUE WED THU FRI SAT SUN = when each door arrives, never a task",
+  "nota_enlaces": "Outlined chips are tools whose home is another step, shown here because the table is theirs too."
+ },
+ "niveles": [
+  {
+   "id": "tenderness",
+   "nombre": "TENDERNESS",
+   "subtitulo": "asked nothing back",
+   "color": "#EE9AA6",
+   "ancho": 0.68,
+   "dias": [
+    "FRI"
+   ],
+   "constructos": [
+    "conexión",
+    "autenticidad"
+   ],
+   "cuartos_viejos": "mesa y puerta = comunidad",
+   "puertas": [
+    {
+     "id": "community",
+     "nombre": "Community",
+     "dia": "FRI",
+     "rotulo": "Table and door",
+     "cuarto_viejo": "community",
+     "objeto": "puerta",
+     "herramientas": [
+      {
+       "id": "call-don-t-type",
+       "nombre": "Call, don't type"
+      },
+      {
+       "id": "call-someone-older",
+       "nombre": "Call someone older"
+      },
+      {
+       "id": "look-up-together",
+       "nombre": "Look up together"
+      },
+      {
+       "id": "light-in-the-window",
+       "nombre": "Light in the window"
+      },
+      {
+       "id": "call-the-same-person-again",
+       "nombre": "Call the same person again"
+      },
+      {
+       "id": "the-block-party",
+       "nombre": "The block party",
+       "pendiente": "decide N entre dos (D-246); la otra es Que no se pierda (sección Fiestas)"
+      }
+     ]
+    }
+   ],
+   "muebles": [
+    {
+     "objeto": "mesapar",
+     "peso": 2.6,
+     "rotulo": "table"
+    },
+    {
+     "objeto": "puerta",
+     "peso": 0.8,
+     "rotulo": "door"
+    }
+   ],
+   "temas": [
+    {
+     "slug": "the-full-moon-table",
+     "titulo": "The full-moon table"
+    },
+    {
+     "slug": "a-good-party",
+     "titulo": "A good party"
+    },
+    {
+     "slug": "how-a-month-is-announced",
+     "titulo": "How a month is announced"
+    }
+   ],
+   "secciones": [],
+   "enlaces": [
+    {
+     "herramienta": "First, eat with someone",
+     "id": "first-eat-with-someone",
+     "hogar": "saturation",
+     "desde": "tenderness"
+    },
+    {
+     "herramienta": "Set one more plate",
+     "id": "set-one-more-plate",
+     "hogar": "saturation",
+     "desde": "tenderness"
+    }
+   ]
+  },
+  {
+   "id": "emptiness",
+   "nombre": "EMPTINESS",
+   "subtitulo": "less than you need",
+   "color": "#A9B2EC",
+   "ancho": 0.77,
+   "dias": [
+    "THU",
+    "SUN"
+   ],
+   "constructos": [
+    "insight"
+   ],
+   "cuartos_viejos": "alcoba = dormir; ventana = lo divino",
+   "puertas": [
+    {
+     "id": "sleep",
+     "nombre": "Sleep",
+     "dia": "THU",
+     "rotulo": "Bed",
+     "cuarto_viejo": "sleep",
+     "objeto": "cama",
+     "herramientas": [
+      {
+       "id": "up-when-your-eyes-open",
+       "nombre": "Up when your eyes open"
+      },
+      {
+       "id": "open-the-window",
+       "nombre": "Open the window"
+      },
+      {
+       "id": "keep-your-hour",
+       "nombre": "Keep your hour"
+      },
+      {
+       "id": "one-minute-in-the-dark",
+       "nombre": "One minute in the dark"
+      },
+      {
+       "id": "write-tomorrow-s-first-thing",
+       "nombre": "Write tomorrow's first thing"
+      },
+      {
+       "id": "back-to-the-hour",
+       "nombre": "Back to the hour"
+      }
+     ]
+    },
+    {
+     "id": "the-divine",
+     "nombre": "The Divine",
+     "dia": "SUN",
+     "rotulo": "Window",
+     "cuarto_viejo": "the divine",
+     "objeto": "ventana",
+     "herramientas": [
+      {
+       "id": "look-up-once",
+       "nombre": "Look up once"
+      },
+      {
+       "id": "say-one-name",
+       "nombre": "Say one name"
+      },
+      {
+       "id": "a-lamp-before-dark",
+       "nombre": "A lamp before dark"
+      },
+      {
+       "id": "one-minute-ask-for-nothing",
+       "nombre": "One minute, ask for nothing"
+      },
+      {
+       "id": "wait-one-breath",
+       "nombre": "Wait one breath"
+      },
+      {
+       "id": "the-longest-night",
+       "nombre": "The longest night"
+      }
+     ]
+    }
+   ],
+   "muebles": [
+    {
+     "objeto": "cama",
+     "peso": 1.3,
+     "rotulo": "bed · sleep"
+    },
+    {
+     "objeto": "ventana",
+     "peso": 1.1,
+     "rotulo": "window · divine"
+    }
+   ],
+   "temas": [
+    {
+     "slug": "keep-your-hour",
+     "titulo": "Keep your hour"
+    },
+    {
+     "slug": "advent-waiting",
+     "titulo": "Advent: waiting"
+    },
+    {
+     "slug": "back-to-the-hour",
+     "titulo": "Back to the hour"
+    },
+    {
+     "slug": "saints-and-souls",
+     "titulo": "Saints and souls"
+    },
+    {
+     "slug": "a-lamp-on-the-night-without-a-moon",
+     "titulo": "A lamp on the night without a moon"
+    },
+    {
+     "slug": "light-in-the-window",
+     "titulo": "Light in the window"
+    },
+    {
+     "slug": "the-longest-night",
+     "titulo": "The longest night"
+    }
+   ],
+   "secciones": [],
+   "enlaces": [
+    {
+     "herramienta": "Light in the window",
+     "id": "light-in-the-window",
+     "hogar": "tenderness",
+     "desde": "emptiness"
+    }
+   ]
+  },
+  {
+   "id": "saturation",
+   "nombre": "SATURATION",
+   "subtitulo": "more than you hold",
+   "color": "#E9876A",
+   "ancho": 0.86,
+   "dias": [
+    "WED"
+   ],
+   "constructos": [
+    "claridad"
+   ],
+   "cuartos_viejos": "cocina = comer",
+   "puertas": [
+    {
+     "id": "eat",
+     "nombre": "Eat",
+     "dia": "WED",
+     "rotulo": "Kitchen",
+     "cuarto_viejo": "eat",
+     "objeto": "cocina",
+     "herramientas": [
+      {
+       "id": "hold-the-first-bite",
+       "nombre": "Hold the first bite"
+      },
+      {
+       "id": "first-eat-with-someone",
+       "nombre": "First, eat with someone"
+      },
+      {
+       "id": "set-one-more-plate",
+       "nombre": "Set one more plate"
+      },
+      {
+       "id": "phones-in-the-basket",
+       "nombre": "Phones in the basket"
+      },
+      {
+       "id": "ask-for-a-story-not-news",
+       "nombre": "Ask for a story, not news"
+      },
+      {
+       "id": "the-recipe-that-never-changes",
+       "nombre": "The recipe that never changes",
+       "pendiente": "decide N entre dos (D-246); la otra es La olla del junte (sección Fiestas)"
+      }
+     ]
+    }
+   ],
+   "muebles": [
+    {
+     "objeto": "cocina",
+     "peso": 1.4,
+     "rotulo": "kitchen · eat"
+    },
+    {
+     "objeto": "pila",
+     "peso": 1.1,
+     "rotulo": "the pile"
+    }
+   ],
+   "temas": [
+    {
+     "slug": "phones-in-the-bread-basket",
+     "titulo": "Phones in the bread basket"
+    }
+   ],
+   "secciones": [],
+   "enlaces": []
+  },
+  {
+   "id": "body",
+   "nombre": "BODY",
+   "subtitulo": "cold, breath, weight",
+   "color": "#F0BC6E",
+   "ancho": 0.94,
+   "dias": [
+    "MON",
+    "TUE"
+   ],
+   "constructos": [
+    "interocepción"
+   ],
+   "cuartos_viejos": "escaleras = moverse",
+   "puertas": [
+    {
+     "id": "move",
+     "nombre": "Move",
+     "dia": "MON",
+     "rotulo": "Stairs",
+     "cuarto_viejo": "move",
+     "objeto": "escaleras",
+     "herramientas": [
+      {
+       "id": "find-the-moment",
+       "nombre": "Find the moment"
+      },
+      {
+       "id": "ten-slow-steps",
+       "nombre": "Ten slow steps"
+      },
+      {
+       "id": "walk-side-by-side",
+       "nombre": "Walk side by side"
+      },
+      {
+       "id": "walk-home-the-long-way",
+       "nombre": "Walk home the long way"
+      },
+      {
+       "id": "stand-for-the-call",
+       "nombre": "Stand for the call"
+      }
+     ]
+    },
+    {
+     "id": "breathe",
+     "nombre": "Breathe",
+     "dia": "TUE",
+     "rotulo": "Breath",
+     "cuarto_viejo": "breathe, crosses every step",
+     "objeto": "respiro",
+     "herramientas": [
+      {
+       "id": "two-in-one-out",
+       "nombre": "Two in, one out"
+      },
+      {
+       "id": "three-breaths-in-the-light",
+       "nombre": "Three breaths in the light"
+      },
+      {
+       "id": "close-the-day-three-breaths",
+       "nombre": "Close the day, three breaths"
+      },
+      {
+       "id": "one-breath-before-you-answer",
+       "nombre": "One breath before you answer"
+      },
+      {
+       "id": "breathe-with-someone",
+       "nombre": "Breathe with someone"
+      },
+      {
+       "id": "breathe-before-the-count",
+       "nombre": "Breathe before the count"
+      }
+     ]
+    }
+   ],
+   "muebles": [
+    {
+     "objeto": "escaleras",
+     "peso": 1.1,
+     "rotulo": "stairs · move"
+    },
+    {
+     "objeto": "frio",
+     "peso": 0.9,
+     "rotulo": "cold"
+    },
+    {
+     "objeto": "respiro",
+     "peso": 1.0,
+     "rotulo": "breathe"
+    }
+   ],
+   "temas": [
+    {
+     "slug": "walks-by-the-moon",
+     "titulo": "Walks by the moon"
+    },
+    {
+     "slug": "walk-to-the-water",
+     "titulo": "Walk to the water"
+    },
+    {
+     "slug": "breathe",
+     "titulo": "Breathe",
+     "lote": "R"
+    }
+   ],
+   "secciones": [],
+   "enlaces": []
+  },
+  {
+   "id": "courtyard",
+   "nombre": "COURTYARD",
+   "subtitulo": "common ground",
+   "color": "#BFE3D2",
+   "ancho": 1.0,
+   "dias": [
+    "SAT"
+   ],
+   "constructos": [
+    "yo como proceso",
+    "autonomía"
+   ],
+   "cuartos_viejos": "el patio de la casa: terreno común, sin cuarto propio",
+   "puertas": [
+    {
+     "id": "the-week",
+     "nombre": "The week",
+     "dia": "SAT",
+     "rotulo": "The week",
+     "cuarto_viejo": "the Saturday card",
+     "objeto": "tarjeta",
+     "herramientas": [
+      {
+       "id": "which-one-stayed",
+       "nombre": "Which one stayed?"
+      },
+      {
+       "id": "when-did-it-happen",
+       "nombre": "When did it happen?"
+      },
+      {
+       "id": "who-did-it-with-you",
+       "nombre": "Who did it with you?"
+      },
+      {
+       "id": "what-stays-what-goes",
+       "nombre": "What stays, what goes?"
+      },
+      {
+       "id": "which-one-did-you-try",
+       "nombre": "Which one did you try?"
+      }
+     ]
+    }
+   ],
+   "muebles": [],
+   "temas": [
+    {
+     "slug": "the-cella",
+     "titulo": "The Cella"
+    },
+    {
+     "slug": "moon",
+     "titulo": "Moon calendar"
+    },
+    {
+     "slug": "es",
+     "titulo": "The weekly piece in Spanish"
+    }
+   ],
+   "secciones": [
+    "Upcoming",
+    "Assets",
+    "How to use NAOS"
+   ],
+   "enlaces": []
+  }
+ ]
+}
