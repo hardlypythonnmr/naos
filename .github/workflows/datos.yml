@@ -1,13 +1,14 @@
 # Rebuilds the schedule grid (data/semana.json) and, through it, the topic pages, short links, calendar files and sitemap
 # every 30 minutes. The market data builder (construir-datos.mjs, data/situacion.json, data/radar.json) left with D-263:
 # NAOS is Humanity only and nothing on the page read it.
-# GitHub's schedule fires late or not at all on busy days (14 Oct 2026: 1 of ~11 slots), so each run loops: it rebuilds
-# every 30 min for up to ~5.5 h. It starts on the schedule or by hand. Public repo: these minutes are free.
+# One pass per run (Opus 9, 13-nov-2026). The old loop (11 rounds with sleep 1800 and cancel-in-progress) kept a runner busy
+# ~24 h a day (13.713 min in November). The home page only flags the grid as out of date after 72 h, so a pass every 2 h is
+# plenty even when GitHub skips some schedule slots. It starts on the schedule or by hand.
 name: Refresh page data
 
 on:
   schedule:
-    - cron: "7,37 * * * *"
+    - cron: "7 */2 * * *"
   workflow_dispatch:
 
 permissions:
@@ -16,12 +17,12 @@ permissions:
 
 concurrency:
   group: datos
-  cancel-in-progress: true   # a newer run takes over the loop
+  cancel-in-progress: false
 
 jobs:
   datos:
     runs-on: ubuntu-latest
-    timeout-minutes: 350
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
@@ -31,14 +32,13 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Build, check and push every 30 min (11 rounds, ~5.5 h)
+      - name: Build, check and push (one pass)
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for ronda in $(seq 1 11); do
-            [ "$ronda" -gt 1 ] && sleep 1800
+          for ronda in 1; do
             git pull -q --rebase origin main || true
             # The schedule grid (data/semana.json): the home page swaps its first block for "The schedule is out of date."
             # past 72 h, so it is rebuilt here. Kept when the grid changed or the committed one is over 12 h old.
