@@ -1,6 +1,6 @@
 {
  "nota": "Briefs, lo ya publicado y la biblioteca sin fecha (D-224). Las piezas fechadas viven en data/temas.json desde el lote E (D-252); esquema en el README. Sin fecha: dia null y nota.",
- "generado": "2026-11-14T11:22Z",
+ "generado": "2026-11-15T06:10Z",
  "semana": {
   "desde": "2026-10-19",
   "hasta": "2026-10-25"
@@ -80,7 +80,7 @@
    "local": "16:22 ET"
   }
  ],
- "eventos_nota": null,
+ "eventos_nota": "Forex Factory publishes each week's calendar over the weekend; the briefs list its red-folder events once it covers that week.",
  "items": [
   {
    "seccion": "behavior",
@@ -927,16 +927,6 @@
    "video_nota": "Video: red event ahead",
    "eventos": [
     {
-     "titulo": "USD Core CPI m/m",
-     "hora": "2026-11-10T13:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "USD CPI m/m",
-     "hora": "2026-11-10T13:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
      "titulo": "US CPI (October)",
      "hora": "2026-11-10T13:30Z",
      "fuente": "U.S. Bureau of Labor Statistics, 2026 release calendar",
@@ -1019,13 +1009,7 @@
    "status": "planned",
    "video": true,
    "video_nota": "Short (EN)",
-   "eventos": [
-    {
-     "titulo": "GBP GDP m/m",
-     "hora": "2026-11-12T07:00Z",
-     "fuente": "Forex Factory weekly calendar"
-    }
-   ]
+   "eventos": []
   },
   {
    "seccion": "market",
@@ -1073,19 +1057,8 @@
    "format": "brief",
    "title": "London open brief",
    "status": "planned",
-   "video": true,
-   "video_nota": "Video: red event ahead",
+   "video": false,
    "eventos": [
-    {
-     "titulo": "USD Core PPI m/m",
-     "hora": "2026-11-13T13:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
-    {
-     "titulo": "USD PPI m/m",
-     "hora": "2026-11-13T13:30Z",
-     "fuente": "Forex Factory weekly calendar"
-    },
     {
      "titulo": "US PPI (October)",
      "hora": "2026-11-13T13:30Z",
