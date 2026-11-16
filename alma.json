@@ -1,0 +1,12 @@
+{
+  "_nota": "El alma de la obra: capas y params fechados (solo cuentan los de fecha <= hoy UTC). Lo escribe el agente semanal (ALMA-AGENTE.md). params solo acepta la lista blanca de VIVA.md.",
+  "capas": [
+    {
+      "fecha": "2026-11-16",
+      "tipo": "rastro",
+      "que": { "evento": "la obra nace" },
+      "nota": "la obra nace. Entrada fundacional: sin efecto visual."
+    }
+  ],
+  "params": []
+}

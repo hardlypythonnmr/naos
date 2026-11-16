@@ -1,0 +1,6 @@
+@font-face { font-family: "Schibsted Grotesk"; src: url("fuentes/SchibstedGrotesk.ttf"); font-weight: 400 900; font-display: swap; }
+html, body { margin: 0; height: 100%; background: #0E1116; overflow: hidden; overscroll-behavior: none; }
+#lienzo { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; outline: none; }
+#lienzo:focus-visible { outline: 2px solid #F4F6F8; outline-offset: -4px; }
+.marca { position: fixed; left: max(14px, env(safe-area-inset-left)); bottom: max(12px, env(safe-area-inset-bottom)); margin: 0;
+  font: 600 16px/1 "Schibsted Grotesk", system-ui, sans-serif; color: #8A93A0; pointer-events: none; user-select: none; }
