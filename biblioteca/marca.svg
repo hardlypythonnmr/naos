@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="NAOS: Cella as a block holding still on a slope">
+<rect width="800" height="800" fill="#142620"/>
+<path d="M-20 422 L820 699.2 L820 820 L-20 820 Z" fill="#EEECE4"/>
+<g transform="translate(356 527.1) rotate(18.26)"><path d="M-131 0 V-305.7 Q-131 -344.5 -92.2 -344.5 H92.2 Q131 -344.5 131 -305.7 V0 H63.1 V-145.6 H0 V0 Z" fill="#EEECE4"/><circle cx="-58.2" cy="-262" r="18" fill="#142620"/><circle cx="4.9" cy="-262" r="18" fill="#142620"/></g>
+<circle cx="400" cy="400" r="389.0" fill="none" stroke="#EEECE4" stroke-width="20.0"/>
+</svg>
